@@ -2,7 +2,8 @@
 Parser for model outputs in argument mining tasks.
 
 This module provides functionality to parse model responses into
-standardized ArgumentMap objects.
+standardized ArgumentMap objects based on the new schema with
+equivalence classes and simplified ADU types.
 """
 
 import re
@@ -12,7 +13,7 @@ import logging
 from pathlib import Path
 from typing import Dict, List, Optional, Union, Any
 
-from ..schemas import ArgumentMap, ADU, Relation, ADUType, RelationType, SpanPosition
+from ..schemas import ArgumentMap, ADU, Relation
 
 
 class Parser:
@@ -20,7 +21,7 @@ class Parser:
     Parser for model output in JSON format.
     
     Converts model responses into ArgumentMap objects based on the
-    defined model response schema.
+    updated model response schema with equivalence classes.
     """
     
     def __init__(self, schema_path: Optional[str] = None, log_level: str = "INFO"):
@@ -58,13 +59,12 @@ class Parser:
         )
         self.logger = logging.getLogger("ModelOutputParser")
     
-    def parse_json_file(self, file_path: Union[str, Path], source_text: Optional[str] = None) -> ArgumentMap:
+    def parse_json_file(self, file_path: Union[str, Path]) -> ArgumentMap:
         """
         Parse a JSON file containing model output into an ArgumentMap.
         
         Args:
             file_path: Path to the JSON file
-            source_text: Optional source text for ADU position resolution
             
         Returns:
             ArgumentMap object
@@ -81,17 +81,15 @@ class Parser:
         
         # Use the file stem as the map ID
         map_id = file_path.stem
-        return self.parse_dict(model_output, map_id, source_text)
+        return self.parse_dict(model_output, map_id)
     
-    def parse_string(self, json_str: str, map_id: Optional[str] = None, 
-                    source_text: Optional[str] = None) -> ArgumentMap:
+    def parse_string(self, json_str: str, map_id: Optional[str] = None) -> ArgumentMap:
         """
         Parse a JSON string containing model output into an ArgumentMap.
         
         Args:
             json_str: JSON string containing model output
             map_id: Optional ID for the argument map (generated if not provided)
-            source_text: Optional source text for ADU position resolution
             
         Returns:
             ArgumentMap object
@@ -106,17 +104,15 @@ class Parser:
         if map_id is None:
             map_id = str(uuid.uuid4())
             
-        return self.parse_dict(model_output, map_id, source_text)
+        return self.parse_dict(model_output, map_id)
     
-    def parse_dict(self, model_output: Dict[str, Any], map_id: str, 
-                  source_text: Optional[str] = None) -> ArgumentMap:
+    def parse_dict(self, model_output: Dict[str, Any], map_id: str) -> ArgumentMap:
         """
         Parse a dictionary containing model output into an ArgumentMap.
         
         Args:
             model_output: Dictionary containing model output
             map_id: ID for the argument map
-            source_text: Optional source text for ADU position resolution
             
         Returns:
             ArgumentMap object
@@ -126,84 +122,98 @@ class Parser:
             self.logger.error("Model output missing required 'ADUs' field")
             raise ValueError("Invalid model output: missing 'ADUs' field")
         
+        if "relations" not in model_output:
+            self.logger.warning("Model output missing 'relations' field, using empty list")
+            model_output["relations"] = []
+        
         # Initialize ADUs and relations lists
         adus = []
         relations = []
         
         # Process ADUs
         for adu_id, adu_data in model_output["ADUs"].items():
-            # Extract ADU data with defaults
-            text = adu_data.get("text", "")
+            # Validate required fields
+            if "type" not in adu_data:
+                self.logger.error(f"ADU {adu_id} missing required 'type' field")
+                raise ValueError(f"ADU {adu_id} missing required 'type' field")
             
-            # Handle quote/content field
-            # If quote is provided, use it as content, otherwise use text as content
-            content = adu_data.get("quote", text)
+            if "text" not in adu_data:
+                self.logger.error(f"ADU {adu_id} missing required 'text' field")
+                raise ValueError(f"ADU {adu_id} missing required 'text' field")
             
-            # Map ADU type
-            type_str = adu_data.get("type", "unknown").lower()
-            if type_str == "argument":
-                adu_type = ADUType.ARGUMENT
-            elif type_str == "claim":
-                adu_type = ADUType.CLAIM
-            elif type_str == "premise":
-                adu_type = ADUType.PREMISE
-            else:
-                adu_type = ADUType.UNKNOWN
+            # Extract ADU data
+            adu_type = adu_data["type"]
+            text = adu_data["text"]
             
-            # Extract positions if available
-            positions = []
-            if "positions" in adu_data and adu_data["positions"]:
-                for pos in adu_data["positions"]:
-                    if "start" in pos and "end" in pos:
-                        positions.append(SpanPosition(start=pos["start"], end=pos["end"]))
+            # Validate ADU type (only Major Claim and Claim allowed in new schema)
+            if adu_type not in ["Major Claim", "Claim"]:
+                self.logger.warning(
+                    f"ADU {adu_id} has invalid type '{adu_type}'. "
+                    f"Expected 'Major Claim' or 'Claim'. Defaulting to 'Claim'."
+                )
+                adu_type = "Claim"
             
-            # Create ADU object
+            # Create ADU object with fields matching the new schema
             adu = ADU(
-                id=adu_id,
-                text=text,
-                content=content,
+                id=adu_id,  # ID is the equivalence class title
                 type=adu_type,
-                positions=positions,
-                metadata=adu_data.get("metadata", {})
+                text=text,
+                quote=adu_data.get("quote"),  # Optional field
+                isImplicit=adu_data.get("isImplicit", False)  # Default to False
             )
             
-            # If source text is provided, initialize ADU with it to resolve positions
-            if source_text:
-                adu.init(source_text)
-                
             adus.append(adu)
         
         # Process relations
-        if "relations" in model_output and isinstance(model_output["relations"], list):
+        if isinstance(model_output["relations"], list):
             for idx, rel_data in enumerate(model_output["relations"]):
-                # Extract relation fields - handle both src/tgt and source/target formats
-                src_id = rel_data.get("src", rel_data.get("source", ""))
-                tgt_id = rel_data.get("tgt", rel_data.get("target", ""))
-                
-                if not src_id or not tgt_id:
-                    self.logger.warning(f"Skipping relation with missing source or target: {rel_data}")
+                # Validate required fields
+                if "src" not in rel_data:
+                    self.logger.error(f"Relation {idx} missing required 'src' field")
                     continue
                 
-                # Map relation type
-                type_str = rel_data.get("type", "unknown").lower()
-                if type_str == "support":
-                    rel_type = RelationType.SUPPORT
-                elif type_str == "attack":
-                    rel_type = RelationType.ATTACK
-                else:
-                    rel_type = RelationType.UNKNOWN
+                if "tgt" not in rel_data:
+                    self.logger.error(f"Relation {idx} missing required 'tgt' field")
+                    continue
+                
+                if "type" not in rel_data:
+                    self.logger.error(f"Relation {idx} missing required 'type' field")
+                    continue
+                
+                src_id = rel_data["src"]
+                tgt_id = rel_data["tgt"]
+                rel_type = rel_data["type"]
+                
+                # Validate relation type
+                if rel_type not in ["support", "attack"]:
+                    self.logger.warning(
+                        f"Relation {idx} has invalid type '{rel_type}'. "
+                        f"Expected 'support' or 'attack'. Skipping."
+                    )
+                    continue
+                
+                # Validate that src and tgt ADUs exist
+                src_exists = any(adu.id == src_id for adu in adus)
+                tgt_exists = any(adu.id == tgt_id for adu in adus)
+                
+                if not src_exists:
+                    self.logger.warning(f"Relation {idx} references non-existent source ADU: {src_id}")
+                    continue
+                
+                if not tgt_exists:
+                    self.logger.warning(f"Relation {idx} references non-existent target ADU: {tgt_id}")
+                    continue
                 
                 # Create relation object
                 relation = Relation(
                     id=f"rel-{idx+1}",
-                    src_id=src_id,
-                    tgt_id=tgt_id,
-                    type=rel_type,
-                    metadata=rel_data.get("metadata", {})
+                    src=src_id,  # Using 'src' to match schema
+                    tgt=tgt_id,  # Using 'tgt' to match schema
+                    type=rel_type
                 )
                 relations.append(relation)
         
-        # Extract metadata
+        # Extract metadata if present
         metadata = model_output.get("metadata", {})
         
         # Create argument map
@@ -211,14 +221,17 @@ class Parser:
             id=map_id,
             adus=adus,
             relations=relations,
-            source_text=source_text,
-            metadata=metadata,
-            source_metadata={} # No source metadata from model response
+            metadata=metadata
         )
         
         self.logger.info(
             f"Parsed argument map with {len(adus)} ADUs and {len(relations)} relations"
         )
+        
+        # Log statistics
+        stats = argument_map.map_statistics()
+        self.logger.debug(f"Map statistics: {stats}")
+        
         return argument_map
     
     def extract_from_text(self, text: str, allow_partial: bool = True) -> Dict[str, Any]:
@@ -264,15 +277,13 @@ class Parser:
         # If we got here, no valid JSON found
         raise ValueError("Could not extract valid JSON from text")
     
-    def parse_model_response(self, response: str, map_id: Optional[str] = None,
-                           source_text: Optional[str] = None) -> ArgumentMap:
+    def parse_model_response(self, response: str, map_id: Optional[str] = None) -> ArgumentMap:
         """
         Parse a raw model response that may contain JSON within text.
         
         Args:
             response: Raw model response text
             map_id: Optional ID for the argument map
-            source_text: Optional source text for ADU position resolution
             
         Returns:
             ArgumentMap object
@@ -280,14 +291,14 @@ class Parser:
         try:
             # Try to extract JSON from the response
             model_output = self.extract_from_text(response)
-            return self.parse_dict(model_output, map_id or str(uuid.uuid4()), source_text)
+            return self.parse_dict(model_output, map_id or str(uuid.uuid4()))
         except Exception as e:
             self.logger.error(f"Failed to parse model response: {e}")
             raise
     
     def save_to_json(self, argument_map: ArgumentMap, output_path: Union[str, Path]):
         """
-        Save an ArgumentMap to a JSON file.
+        Save an ArgumentMap to a JSON file in the schema format.
         
         Args:
             argument_map: ArgumentMap to save
@@ -296,10 +307,53 @@ class Parser:
         output_path = Path(output_path)
         output_path.parent.mkdir(parents=True, exist_ok=True)
         
-        # Convert to JSON string using json.dumps
-        json_str = json.dumps(argument_map.to_dict(), indent=2)
+        # Convert to schema-compliant dictionary
+        output_dict = argument_map.to_dict()
         
+        # Ensure the output matches the schema structure
+        if "ADUs" not in output_dict or "relations" not in output_dict:
+            self.logger.error("ArgumentMap.to_dict() did not return schema-compliant structure")
+            raise ValueError("Invalid ArgumentMap structure for output")
+        
+        # Write to file with proper formatting
         with open(output_path, 'w', encoding='utf-8') as f:
-            f.write(json_str)
+            json.dump(output_dict, f, indent=2, ensure_ascii=False)
             
         self.logger.info(f"Saved argument map to {output_path}")
+    
+    def validate_against_schema(self, argument_map: ArgumentMap) -> bool:
+        """
+        Validate an ArgumentMap against the loaded schema.
+        
+        Args:
+            argument_map: ArgumentMap to validate
+            
+        Returns:
+            True if valid, False otherwise
+        """
+        if not self.schema:
+            self.logger.warning("No schema loaded, skipping validation")
+            return True
+        
+        try:
+            import jsonschema
+            
+            # Convert to dictionary format
+            data = argument_map.to_dict()
+            
+            # Validate against schema
+            jsonschema.validate(instance=data, schema=self.schema)
+            self.logger.info("Argument map validated successfully against schema")
+            return True
+            
+        except ImportError:
+            self.logger.warning("jsonschema library not installed, skipping validation")
+            return True
+            
+        except jsonschema.ValidationError as e:
+            self.logger.error(f"Schema validation failed: {e.message}")
+            return False
+        
+        except Exception as e:
+            self.logger.error(f"Unexpected error during validation: {e}")
+            return False
