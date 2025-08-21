@@ -1,0 +1,64 @@
+# Notes on the annotation pipeline / data ETL process.
+
+## Datasets
+There are two huggingface datasets and one argilla-only dataset that will be 
+involved in the annotation process. 
+
+The first HF dataset, `moral-kg-sample` will store the following data associated with 
+each paper selected for sampling (n=100)*:
+- identifier | type string (e.g. RINNEF)
+- text | type string 
+- title | type string
+- candidate_labels | type list of string (e.g. "Equal Treatment, unlike Evidentialism, can also explain..")
+- candidate_types | type list of string (e.g. sam-adur-are-sciarg, LLM-OAI-o4-mini, etc.)
+
+*n to change based on workshop interest, although we need a statistically robust
+minimum sample population.
+
+The second, `moral-kg-sample-labels` will store the labels annotators supply for each
+of the papers in `moral-kg`. Each label will contain the following:
+- identifier (e.g. RINNEF)
+- annotator (e.g. unique Argilla/HF username)
+- main_claim (e.g. "Equal Treatment, unlike Evidentialism, can also explain..") # Could be multiple main claims
+- type (e.g. sam-adur-are-sciarg, LLM-OAI-o4-mini, etc.)
+
+The argilla dataset, which will have the `moral-kg-sample` dataset contents loaded into it
+and write to the `moral-kg-sample-labels` dataset when data labels are POSTed by
+annotators should contain the following for each paper:
+- identifier
+- text
+- title
+- annotation question. for each possible answer (label):
+  - main_claim
+  - type (hidden to user)
+  - annotator (POSTed along with data, extracted from argilla environment)
+  - timestamp (POSTed along with data, extracted from argilla environment)
+  
+Final note: I would assume that our ultimate moral-kg dataset, that which 
+makes up the entirety of the KG and will be public, will be in a separate HF dataset.
+
+## Data Flow
+1. `moral-kg` → Load into argilla space → annotations occur
+2. Annotation POST → webhook → immediate write to `moral-kg-annotations`
+
+
+
+<html>
+S1 [] S2
+S1 [] S3
+S2 [] S3
+</html>
+
+Two ways to get spans:
+1. directly from the user via text input (copy & paste for example)
+- no enforced schema: [] -> support -> [] or vs. "" supports ""
+  - we can tell in the directions to follow some format
+- pro: so so simple.
+2. via a HF dataset that is loaded in programmatically.
+- two stages: 1. building the dataset via Argilla dataset 1, 2. loading in spans
+into Argilla dataset 2 - label those.
+- spans loaded in cannot be assigned to users - which means that 
+
+can it bring in data tied to users in real-time
+can we interact with that data in creating spans and relations between spans
+can we export that data to a new dataset

@@ -1,0 +1,19 @@
+
+year of pub
+authorship
+title semantic meaning
+
+Clustering algorithm (based around centroids for title)
+
+First determine which columns are most important (what to index it on)
+Give everything to the clustering algorithm (more or less) - or only give it the data you care about
+Decide on clustering algorithm
+Throw in index data to clustering algorithm - each point that comes out is a paper
+Uniform sampling from each cluster that appears
+
+Valid with tests - histogram the most important metrics and make sure they look nice and uniform
+
+I could also just do clustering agnostic of authors and ensure dup authors aren't allowed into final set. If a dup author is found just sample another
+
+when in doubt make it none overlapping - at most an equal weighting per author.
+can be done 

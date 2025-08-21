@@ -1,0 +1,24 @@
+Purpose
+- Single source of truth for AM data structures and model I/O schema.
+
+Exposed types
+- ADU, ADUType, SpanPosition
+- Relation, RelationType
+- ArgumentMap (helpers: get_adu_by_id, get_relations_for_adu, to_dict, map_statistics)
+
+JSON schema
+- argmining.json: model response structure with ADUs object and relations list.
+
+Utilities
+- convert_syntax.py: custom +/- argdown → standard argdown → JSON (via argdown CLI); marks implicit claims in metadata.
+- convert_argdown_json.py: Argdown JSON → research format (ADUs/relations), infers Major Claims from roots.
+
+Config usage
+- argmining.schema: path to argmining.json for prompts/validation.
+
+Notes / TODO
+- Ensure ArgumentMap and enum names stay aligned with argmining.json when evolving the schema.
+- The current (8/21/2025 morning) version of the argmining.json schema does not include text span positions, since those were ultimately not included in the argument maps. However, adu.py has a good approach for adding those after the fact. Inlcuding the source text positions for ADUs in the data might not be very useful for snowballing, but would be good to have in the final database. Later on, we should take advantage of this:
+    - Add the "positions" field back to the json schema 
+    - Use the span matching code to make a script to find likely sources
+    - Run that to all of our data and add the resulting data to their jsons

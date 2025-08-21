@@ -1,0 +1,12 @@
+{
+  "timestamp": "2025-06-30T19:03:30.555113",
+  "pdf_count": 10,
+  "processes": {
+    "processReferences": {
+      "execution_time_seconds": 15.113959312438965,
+      "avg_time_per_pdf_seconds": 1.5113959312438965,
+      "estimated_time_100k_pdfs_seconds": 151139.59312438965,
+      "estimated_time_100k_pdfs_formatted": "01:17:58"
+    }
+  }
+}

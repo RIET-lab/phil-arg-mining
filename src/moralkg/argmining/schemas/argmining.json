@@ -1,0 +1,76 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "ArgumentMiningStructure",
+    "description": "Argument mining schema with equivalence classes and simplified ADU types",
+    "type": "object",
+    "required": [
+        "ADUs",
+        "relations"
+    ],
+    "properties": {
+        "ADUs": {
+            "type": "object",
+            "description": "Map of ADU IDs (equivalence class titles) to their content",
+            "additionalProperties": {
+                "type": "object",
+                "required": [
+                    "type",
+                    "text"
+                ],
+                "properties": {
+                    "type": {
+                        "type": "string",
+                        "enum": [
+                            "Major Claim",
+                            "Claim"
+                        ],
+                        "description": "Major Claim for root nodes (top-level/unindented claims), Claim for all others"
+                    },
+                    "text": {
+                        "type": "string",
+                        "description": "The canonical/representative text for this ADU"
+                    },
+                    "quote": {
+                        "type": "string",
+                        "description": "Optional: Exact text from the original source before argument mapping"
+                    },
+                    "isImplicit": {
+                        "type": "boolean",
+                        "description": "Whether this ADU is implicit in the original text",
+                        "default": false
+                    }
+                }
+            }
+        },
+        "relations": {
+            "type": "array",
+            "description": "Relations between ADUs (equivalence classes)",
+            "items": {
+                "type": "object",
+                "required": [
+                    "src",
+                    "tgt",
+                    "type"
+                ],
+                "properties": {
+                    "src": {
+                        "type": "string",
+                        "description": "ID of the source ADU (equivalence class title)"
+                    },
+                    "tgt": {
+                        "type": "string",
+                        "description": "ID of the target ADU (equivalence class title)"
+                    },
+                    "type": {
+                        "type": "string",
+                        "enum": [
+                            "support",
+                            "attack"
+                        ],
+                        "description": "Type of relationship (support or attack)"
+                    }
+                }
+            }
+        }
+    }
+}

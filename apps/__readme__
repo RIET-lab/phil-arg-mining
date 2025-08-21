@@ -1,0 +1,1 @@
+Directory containing the MERe Workshop Hugging Face spaces used to run the annotation process via Argilla. `mere_workshop` contains the barebones Argilla structure, with `mere_workshop_listener` uploading the dataset and listening for annotations.

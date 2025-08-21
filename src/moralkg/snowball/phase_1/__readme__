@@ -1,0 +1,20 @@
+Purpose
+- Phase 1: fit hyperparameters for AM pipelines against human annotations using a composite loss.
+
+Key components
+- evals/
+  - Evaluator: loads base+adapters or merged model; builds prompts; optional RAG/COT; parses JSON; computes metrics.
+  - Metrics (legacy and modular): fuzzy span F1, relation macro‑F1, count RMSE, graph edit distance, combined score.
+  - Datasets: adapter interface for (id, text, gold_struct) iteration.
+  - Prompts: minimal default builder for ACC/ARI/ARC/ARIC JSON.
+  - Cost: WeightedCost reading weights from config.
+- hpo.py: placeholder for Optuna/Bayesian search loop (not implemented).
+
+Config usage
+- snowball.phase_1.eval.fuzzy_thr: fuzzy matching threshold.
+- snowball.phase_1.eval.loss.w: weight vector [span, relation, count, ged].
+- snowball.phase_1.hparams.end2end.*: decoding, rag, cot defaults (if wired by caller).
+
+Status / TODO
+- Dataset loaders and HPO loop wiring are not yet implemented.
+

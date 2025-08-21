@@ -1,0 +1,656 @@
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:xlink="http://www.w3.org/1999/xlink" 
+ xmlns:mml="http://www.w3.org/1998/Math/MathML">
+	<teiHeader/>
+	<text>
+		<front/>
+		<body/>
+		<back>
+			<div>
+				<listBibl>
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">Is Value Content a Component of Conventional Implicature?</title>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">J</forename><surname>Barker</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Analysis</title>
+		<imprint>
+			<biblScope unit="volume">60</biblScope>
+			<biblScope unit="page" from="268" to="279" />
+			<date type="published" when="2000">2000</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<monogr>
+		<author>
+			<persName><forename type="first">S</forename><surname>Blackburn</surname></persName>
+		</author>
+		<title level="m">Spreading the Word</title>
+		<meeting><address><addrLine>Oxford</addrLine></address></meeting>
+		<imprint>
+			<publisher>Clarendon Press</publisher>
+			<date type="published" when="1984">1984</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">Morality and Thick Concepts II -Through Thick and Thin</title>
+	</analytic>
+	<monogr>
+		<title level="j">Proceedings of the Aristotelian Society Suppl</title>
+		<imprint>
+			<biblScope unit="volume">66</biblScope>
+			<biblScope unit="page" from="267" to="283" />
+			<date type="published" when="1992">1992</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<monogr>
+		<title level="m">Ruling Passions</title>
+		<meeting><address><addrLine>Oxford</addrLine></address></meeting>
+		<imprint>
+			<publisher>Clarendon Press</publisher>
+			<date type="published" when="1998">1998</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title level="a" type="main">Analyticity Reconsidered</title>
+		<author>
+			<persName><forename type="first">P</forename><surname>Boghossian</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Noûs</title>
+		<imprint>
+			<biblScope unit="volume">30</biblScope>
+			<biblScope unit="page" from="360" to="391" />
+			<date type="published" when="1996">1996</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<analytic>
+		<title level="a" type="main">Blind Reasoning</title>
+	</analytic>
+	<monogr>
+		<title level="j">Proceedings of the Aristotelian Society</title>
+		<imprint>
+			<biblScope unit="volume">78</biblScope>
+			<biblScope unit="page" from="225" to="248" />
+			<date type="published" when="2003">2003</date>
+		</imprint>
+	</monogr>
+	<note>Suppl.</note>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<monogr>
+		<author>
+			<persName><forename type="first">R</forename><surname>Brandom</surname></persName>
+		</author>
+		<title level="m">Articulating Reasons</title>
+		<meeting><address><addrLine>Cambridge, Massachusetts</addrLine></address></meeting>
+		<imprint>
+			<publisher>Harvard University Press</publisher>
+			<date type="published" when="2000">2000</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<analytic>
+		<title level="a" type="main">Realist-Expressivism: A Neglected Option for Moral Realism</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Copp</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Social Philosophy and Policy</title>
+		<imprint>
+			<biblScope unit="volume">18</biblScope>
+			<biblScope unit="page" from="1" to="43" />
+			<date type="published" when="2001">2001</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<monogr>
+		<title level="m" type="main">Moral Reasons</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Dancy</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="1993">1993</date>
+			<publisher>Blackwell</publisher>
+			<pubPlace>Oxford</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">In Defense of Thick Concepts</title>
+	</analytic>
+	<monogr>
+		<title level="m">Moral Concepts</title>
+		<title level="s">Midwest Studies in Philosophy</title>
+		<editor>
+			<persName><forename type="first">P</forename><forename type="middle">A</forename><surname>French</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">T</forename><forename type="middle">E</forename><surname>Uehling</surname><genName>Jr</genName></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">H</forename><forename type="middle">K</forename><surname>Wettstein</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Notre Dame, Indiana</addrLine></address></meeting>
+		<imprint>
+			<publisher>University of Notre Dame Press</publisher>
+			<date type="published" when="1996">1996</date>
+			<biblScope unit="volume">XX</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<analytic>
+		<title level="a" type="main">For discussion see e</title>
+	</analytic>
+	<monogr>
+		<title level="j">Boghossian</title>
+		<imprint>
+			<biblScope unit="page">366</biblScope>
+			<date type="published" when="2006">2006</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<monogr>
+		<title level="m" type="main">Frege: Philosophy of Language</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Dummett</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="1981">1981</date>
+			<publisher>Harvard University Press</publisher>
+			<pubPlace>Cambridge, Massachusetts</pubPlace>
+		</imprint>
+	</monogr>
+	<note>2nd edn</note>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<analytic>
+		<title level="a" type="main">Inconsistent Languages</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Eklund</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Philosophy and Phenomenological Research</title>
+		<imprint>
+			<biblScope unit="volume">64</biblScope>
+			<biblScope unit="page" from="251" to="275" />
+			<date type="published" when="2002">2002</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<analytic>
+		<title level="a" type="main">What Vagueness Consists In</title>
+	</analytic>
+	<monogr>
+		<title level="j">Philosophical Studies</title>
+		<imprint>
+			<biblScope unit="volume">125</biblScope>
+			<biblScope unit="page" from="27" to="60" />
+			<date type="published" when="2005">2005</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<analytic>
+		<title level="a" type="main">Meaning-Constitutivity</title>
+	</analytic>
+	<monogr>
+		<title level="j">Inquiry</title>
+		<imprint>
+			<biblScope unit="volume">50</biblScope>
+			<biblScope unit="page" from="559" to="574" />
+			<date type="published" when="2007">2007</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<analytic>
+		<title level="a" type="main">Review of Timothy Williamson, The Philosophy of Philosophy</title>
+	</analytic>
+	<monogr>
+		<title level="j">Australasian Journal of Philosophy</title>
+		<imprint/>
+	</monogr>
+	<note>Forthcoming</note>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<analytic>
+		<title level="a" type="main">Value and Implicature</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Finlay</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Philosophers&apos; Imprint</title>
+		<imprint>
+			<biblScope unit="volume">5</biblScope>
+			<biblScope unit="page" from="1" to="20" />
+			<date type="published" when="2005">2005</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<monogr>
+		<author>
+			<persName><forename type="first">M</forename><surname>Foldy</surname></persName>
+		</author>
+		<title level="m">The Trials of Oscar Wilde</title>
+		<meeting><address><addrLine>New Haven and London</addrLine></address></meeting>
+		<imprint>
+			<publisher>Yale University Press</publisher>
+			<date type="published" when="1997">1997</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<analytic>
+		<title level="a" type="main">Moral Arguments</title>
+		<author>
+			<persName><forename type="first">P</forename><surname>Foot</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Mind</title>
+		<imprint>
+			<biblScope unit="volume">67</biblScope>
+			<biblScope unit="page" from="502" to="513" />
+			<date type="published" when="1958">1958. 1978</date>
+			<publisher>Blackwell</publisher>
+			<pubPlace>Oxford</pubPlace>
+		</imprint>
+	</monogr>
+	<note>Reprinted in Virtues and Vices</note>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<analytic>
+		<title level="a" type="main">Philippa Foot&apos;s Naturalism: A New Version of the Breakdown Theory in Ethics</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Glass</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Mind</title>
+		<imprint>
+			<biblScope unit="volume">82</biblScope>
+			<biblScope unit="page" from="417" to="420" />
+			<date type="published" when="1973">1973</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b20">
+	<analytic>
+		<title level="a" type="main">From Thick to Thin: Two Moral Reduction Plans</title>
+		<author>
+			<persName><forename type="first">T</forename><surname>Hurka</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Elstein</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Canadian Journal of Philosophy</title>
+		<imprint>
+			<biblScope unit="volume">39</biblScope>
+			<biblScope unit="page" from="515" to="535" />
+			<date type="published" when="2009">2009</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b21">
+	<monogr>
+		<author>
+			<persName><forename type="first">F</forename><surname>Jackson</surname></persName>
+		</author>
+		<title level="m">From Metaphysics to Ethics</title>
+		<meeting><address><addrLine>Oxford</addrLine></address></meeting>
+		<imprint>
+			<publisher>Clarendon Press</publisher>
+			<date type="published" when="1998">1998</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b22">
+	<analytic>
+		<title level="a" type="main">Naming the Colours</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Lewis</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Australasian Journal of Philosophy</title>
+		<imprint>
+			<biblScope unit="volume">75</biblScope>
+			<biblScope unit="page" from="325" to="342" />
+			<date type="published" when="1997">1997</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b23">
+	<analytic>
+		<title level="a" type="main">Virtue and Reason</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Mcdowell</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Monist</title>
+		<imprint>
+			<biblScope unit="volume">62</biblScope>
+			<biblScope unit="page" from="331" to="350" />
+			<date type="published" when="1979">1979</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b24">
+	<analytic>
+		<title level="a" type="main">Non-Cognitivism and Rule-Following</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Mcdowell</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Wittgenstein: To Follow a Rule</title>
+		<editor>
+			<persName><forename type="first">S</forename><surname>Holtzman</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">C</forename><surname>Leich</surname></persName>
+		</editor>
+		<meeting><address><addrLine>London</addrLine></address></meeting>
+		<imprint>
+			<publisher>Routledge &amp; Kegan Paul</publisher>
+			<date type="published" when="1981">1981</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b25">
+	<analytic>
+		<title level="a" type="main">Unprincipled Ethics</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Mcnaughton</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Rawling</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Moral Particularism</title>
+		<editor>
+			<persName><forename type="first">B</forename><surname>Hooker</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">M</forename><surname>Little</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Oxford</addrLine></address></meeting>
+		<imprint>
+			<publisher>Oxford University Press</publisher>
+			<date type="published" when="2000">2000</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b26">
+	<analytic>
+		<title level="a" type="main">Sexual Perversion</title>
+		<author>
+			<persName><forename type="first">G</forename><surname>Priest</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Australasian Journal of Philosophy</title>
+		<imprint>
+			<biblScope unit="volume">75</biblScope>
+			<biblScope unit="page" from="360" to="372" />
+			<date type="published" when="1997">1997</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b27">
+	<monogr>
+		<author>
+			<persName><forename type="first">M</forename><surname>Richard</surname></persName>
+		</author>
+		<title level="m">When Truth Gives Out</title>
+		<meeting><address><addrLine>Oxford</addrLine></address></meeting>
+		<imprint>
+			<publisher>Oxford University Press</publisher>
+			<date type="published" when="2008">2008</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b28">
+	<analytic>
+		<title level="a" type="main">Morality Through Thick and Thin: A Critical Notice of Ethics and the Limits of Philosophy</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Scheffler</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Philosophical Review</title>
+		<imprint>
+			<biblScope unit="volume">96</biblScope>
+			<biblScope unit="page" from="411" to="434" />
+			<date type="published" when="1987">1987</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b29">
+	<analytic>
+		<title level="a" type="main">Inapplicable Concepts and Sexual Perversion</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Slote</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Philosophy &amp; Sex</title>
+		<editor>
+			<persName><forename type="first">R</forename><surname>Baker</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">F</forename><surname>Elliston</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Buffalo, New York</addrLine></address></meeting>
+		<imprint>
+			<publisher>Prometheus Books</publisher>
+			<date type="published" when="1975">1975</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b30">
+	<analytic>
+		<title level="a" type="main">The Liar and Sorites Paradoxes: Toward a Unified Treatment</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Tappenden</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Philosophy</title>
+		<imprint>
+			<biblScope unit="volume">90</biblScope>
+			<biblScope unit="page" from="550" to="577" />
+			<date type="published" when="1993">1993</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b31">
+	<analytic>
+		<title level="a" type="main">Analytic Truth-It&apos;s Worse (or Perhaps Better) than You Thought</title>
+	</analytic>
+	<monogr>
+		<title level="j">Philosophical Topics</title>
+		<imprint>
+			<biblScope unit="volume">21</biblScope>
+			<biblScope unit="page" from="233" to="261" />
+			<date type="published" when="1993">1993</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b32">
+	<analytic>
+		<title level="a" type="main">Through Thick and Thin: Good and its Determinates</title>
+		<author>
+			<persName><forename type="first">C</forename><surname>Tappolet</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Dialectica</title>
+		<imprint>
+			<biblScope unit="volume">58</biblScope>
+			<biblScope unit="page" from="207" to="220" />
+			<date type="published" when="2004">2004</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b33">
+	<analytic>
+		<title level="a" type="main">Objectionable Thick Concepts in Denials</title>
+		<author>
+			<persName><forename type="first">P</forename><surname>Väyrynen</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Philosophical Perspectives</title>
+		<imprint>
+			<biblScope unit="volume">23</biblScope>
+			<biblScope unit="page" from="439" to="469" />
+			<date type="published" when="2009">2009</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b34">
+	<monogr>
+		<author>
+			<persName><forename type="first">B</forename><surname>Williams</surname></persName>
+		</author>
+		<title level="m">Ethics and the Limits of Philosophy</title>
+		<meeting><address><addrLine>Cambridge, Massachusetts</addrLine></address></meeting>
+		<imprint>
+			<publisher>Harvard University Press</publisher>
+			<date type="published" when="1985">1985</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b35">
+	<analytic>
+		<title level="a" type="main">Understanding and Inference</title>
+		<author>
+			<persName><forename type="first">T</forename><surname>Williamson</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Proceedings of the Aristotelian Society</title>
+		<imprint>
+			<biblScope unit="volume">77</biblScope>
+			<biblScope unit="page" from="249" to="293" />
+			<date type="published" when="2003">2003</date>
+		</imprint>
+	</monogr>
+	<note>Suppl.</note>
+</biblStruct>
+
+<biblStruct xml:id="b36">
+	<analytic>
+		<title level="a" type="main">Conceptual Truth</title>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the Aristotelian Society</title>
+		<meeting>the Aristotelian Society</meeting>
+		<imprint>
+			<date type="published" when="2006">2006</date>
+			<biblScope unit="volume">80</biblScope>
+			<biblScope unit="page" from="1" to="41" />
+		</imprint>
+	</monogr>
+	<note>Suppl.</note>
+</biblStruct>
+
+<biblStruct xml:id="b37">
+	<monogr>
+		<title level="m">The Philosophy of Philosophy</title>
+		<meeting><address><addrLine>Oxford</addrLine></address></meeting>
+		<imprint>
+			<publisher>Blackwell</publisher>
+			<date type="published" when="2007">2007</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b38">
+	<analytic>
+		<title level="a" type="main">Reference, Inference and the Semantics of Pejoratives</title>
+	</analytic>
+	<monogr>
+		<title level="m">Essays for David Kaplan</title>
+		<editor>
+			<persName><forename type="first">J</forename><surname>Almog</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">P</forename><surname>Leonardi</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Oxford</addrLine></address></meeting>
+		<imprint>
+			<publisher>Oxford University Press</publisher>
+			<date type="published" when="2009">2009</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

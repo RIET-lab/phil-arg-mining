@@ -1,0 +1,11 @@
+Purpose
+- Repository entrypoints and shared utilities.
+
+Top-level APIs
+- Config: load and query `config.yaml` via `moralkg.Config.get(path)`.
+- get_logger: project-standard logger.
+- Subpackages: `argmining` (AM modules), `snowball` (Phase 1/2 experiments), `figures`, `preprocessing`.
+
+Config
+- See `config.yaml` for paths (datasets/models/prompts), logging, and snowball settings.
+Source code for all major processes in this repository.

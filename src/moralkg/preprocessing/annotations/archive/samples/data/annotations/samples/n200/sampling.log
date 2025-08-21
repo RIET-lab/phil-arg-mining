@@ -1,0 +1,64 @@
+2025-07-18 03:42:03,235 [INFO] === FLEXIBLE PAPER REPLACEMENT ===
+2025-07-18 03:42:03,235 [INFO] Sample directory: data/annotations/samples/n200
+2025-07-18 03:42:03,236 [INFO] Papers to replace: 23
+2025-07-18 03:42:03,236 [INFO] Strategy: flexible
+2025-07-18 03:42:03,236 [INFO] Interactive mode: False
+2025-07-18 03:42:03,236 [INFO] Random seed: 42
+2025-07-18 03:42:03,237 [ERROR] Sample file does not exist: data/annotations/samples/n200/sample.csv
+2025-07-18 03:42:03,237 [ERROR] Cannot proceed without sample and stratified dataset
+2025-07-18 03:45:11,696 [INFO] === FLEXIBLE PAPER REPLACEMENT ===
+2025-07-18 03:45:11,696 [INFO] Sample directory: data/annotations/samples/n200
+2025-07-18 03:45:11,696 [INFO] Papers to replace: 23
+2025-07-18 03:45:11,696 [INFO] Strategy: flexible
+2025-07-18 03:45:11,696 [INFO] Interactive mode: False
+2025-07-18 03:45:11,697 [INFO] Random seed: 42
+2025-07-18 03:45:12,030 [INFO] Loaded sample with 200 papers
+2025-07-18 03:45:12,030 [INFO] Loaded stratified dataset with 66337 papers
+2025-07-18 03:45:12,108 [INFO] Found 10 replacement candidates for MORLEV
+2025-07-18 03:45:12,125 [INFO] Successfully replaced MORLEV with WERSS-2
+2025-07-18 03:45:12,198 [INFO] Found 10 replacement candidates for EBEIOI
+2025-07-18 03:45:12,220 [INFO] Successfully replaced EBEIOI with PRIOFO
+2025-07-18 03:45:12,308 [INFO] Found 10 replacement candidates for DRIFSA
+2025-07-18 03:45:12,326 [INFO] Successfully replaced DRIFSA with MONDOF
+2025-07-18 03:45:12,397 [INFO] Found 10 replacement candidates for ANDHK
+2025-07-18 03:45:12,415 [INFO] Successfully replaced ANDHK with BRAMOO-2
+2025-07-18 03:45:12,490 [INFO] Found 11 replacement candidates for MEIJBT
+2025-07-18 03:45:12,507 [INFO] Successfully replaced MEIJBT with HARDOS-3
+2025-07-18 03:45:12,580 [INFO] Found 10 replacement candidates for PAUEGA
+2025-07-18 03:45:12,597 [INFO] Successfully replaced PAUEGA with SHASOC-10
+2025-07-18 03:45:12,671 [INFO] Found 11 replacement candidates for MARQQK
+2025-07-18 03:45:12,688 [INFO] Successfully replaced MARQQK with MARLDD-44
+2025-07-18 03:45:12,761 [INFO] Found 10 replacement candidates for MARZZF
+2025-07-18 03:45:12,779 [INFO] Successfully replaced MARZZF with MLLAKR
+2025-07-18 03:45:12,909 [INFO] Found 10 replacement candidates for TRANPM
+2025-07-18 03:45:12,926 [INFO] Successfully replaced TRANPM with JOHTPA-17
+2025-07-18 03:45:12,999 [INFO] Found 10 replacement candidates for ROLSNR
+2025-07-18 03:45:13,016 [INFO] Successfully replaced ROLSNR with LOVTUS
+2025-07-18 03:45:13,084 [INFO] Found 10 replacement candidates for SEPPAP
+2025-07-18 03:45:13,100 [INFO] Successfully replaced SEPPAP with KIMCAR-2
+2025-07-18 03:45:13,164 [INFO] Found 10 replacement candidates for DEWAEC
+2025-07-18 03:45:13,179 [INFO] Successfully replaced DEWAEC with FORADI-4
+2025-07-18 03:45:13,243 [INFO] Found 10 replacement candidates for MIHVAE
+2025-07-18 03:45:13,259 [INFO] Successfully replaced MIHVAE with MOHAFP-3
+2025-07-18 03:45:13,321 [INFO] Found 10 replacement candidates for GAZTLT
+2025-07-18 03:45:13,337 [INFO] Successfully replaced GAZTLT with HOFETD
+2025-07-18 03:45:13,400 [INFO] Found 10 replacement candidates for ALETPO-8
+2025-07-18 03:45:13,415 [INFO] Successfully replaced ALETPO-8 with CHUTGP-2
+2025-07-18 03:45:13,478 [INFO] Found 10 replacement candidates for MIRTAD
+2025-07-18 03:45:13,494 [INFO] Successfully replaced MIRTAD with WIETAS
+2025-07-18 03:45:13,556 [INFO] Found 10 replacement candidates for MCKRDW
+2025-07-18 03:45:13,572 [INFO] Successfully replaced MCKRDW with KUZRAC
+2025-07-18 03:45:13,634 [INFO] Found 10 replacement candidates for GLUPEO-3
+2025-07-18 03:45:13,650 [INFO] Successfully replaced GLUPEO-3 with BARHCT-3
+2025-07-18 03:45:13,712 [INFO] Found 10 replacement candidates for WYBOLA-2
+2025-07-18 03:45:13,727 [INFO] Successfully replaced WYBOLA-2 with MURTTT-2
+2025-07-18 03:45:13,789 [INFO] Found 10 replacement candidates for FRASBC-2
+2025-07-18 03:45:13,805 [INFO] Successfully replaced FRASBC-2 with LANCES-3
+2025-07-18 03:45:13,867 [INFO] Found 10 replacement candidates for PROCPA
+2025-07-18 03:45:13,882 [INFO] Successfully replaced PROCPA with RIDR_I-2
+2025-07-18 03:45:13,945 [INFO] Found 10 replacement candidates for TOIPOO-3
+2025-07-18 03:45:13,960 [INFO] Successfully replaced TOIPOO-3 with SRECAT
+2025-07-18 03:45:14,022 [INFO] Found 10 replacement candidates for LAPSRS
+2025-07-18 03:45:14,038 [INFO] Successfully replaced LAPSRS with LUMSOJ
+2025-07-18 03:45:14,045 [INFO] Updated sample saved to: data/annotations/samples/n200/sample.csv
+2025-07-18 03:45:14,047 [INFO] Original sample backed up to: data/annotations/samples/n200/sample_before_flexible_replacements.csv

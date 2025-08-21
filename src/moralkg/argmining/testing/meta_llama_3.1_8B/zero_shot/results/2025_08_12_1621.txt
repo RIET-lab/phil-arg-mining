@@ -1,0 +1,76 @@
+
+[metrics] input_tokens=28451 output_tokens=1124 total_tokens=29575 latency_s=131.996 output_tps=8.52
+
+{"ADUs": {
+    "1": {
+        "type": "thesis",
+        "text": "Equal Treatment: the rationality of a belief is determined in precisely the same way as the rationality of any other state",
+        "quote": "This paper defends a principle I call Equal Treatment, according to which the rationality of a belief is determined in precisely the same way as the rationality of any other state.",
+        "positions": [{"start": 0, "end": 30}]
+    },
+    "2": {
+        "type": "claim",
+        "text": "Equal Treatment has one advantage over Evidentialism: greater theoretical simplicity",
+        "quote": "We have already seen that Equal Treatment has one advantage over Evidentialism: greater theoretical simplicity.",
+        "positions": [{"start": 31, "end": 46}]
+    },
+    "3": {
+        "type": "claim",
+        "text": "Equal Treatment can explain why, pre-theoretically, there seems to be an important connection between the rationality of belief and truth-conduciveness",
+        "quote": "Equal Treatment can perfectly well explain why, pre-theoretically, we take there to be an important connection between the rationality of belief and truth-conduciveness.",
+        "positions": [{"start": 47, "end": 64}]
+    },
+    "4": {
+        "type": "claim",
+        "text": "Equal Treatment has the flexibility to handle unusual cases in which non-evidential factors seem relevant to the rationality of a belief",
+        "quote": "Equal Treatment has the fl exibility to handle these cases with ease, whereas Evidentialism cannot accommodate them at all.",
+        "positions": [{"start": 65, "end": 83}]
+    },
+    "5": {
+        "type": "claim",
+        "text": "Equal Treatment is compatible with the idea that rationality is relative to the agent's perspective",
+        "quote": "Equal Treatment is also unaffected by the extent and the way in which rationality may be relative to the agent s perspective.",
+        "positions": [{"start": 84, "end": 97}]
+    },
+    "6": {
+        "type": "claim",
+        "text": "Equal Treatment opens the door to a distinctive and elegant response to skepticism",
+        "quote": "Equal Treatment opens the door to a distinctive form of response to skepticism: one in which we can concede to the skeptic that we lack evidential support for the beliefs she targets, while insisting that it is nonetheless perfectly rational for us to have them.",
+        "positions": [{"start": 98, "end": 121}]
+    },
+    "7": {
+        "type": "claim",
+        "text": "Equal Treatment is not undermined by considerations of voluntariness",
+        "quote": "Equal Treatment is not undermined by considerations of voluntariness: like many other states, such as listening to music or wearing a raincoat, whether belief is voluntary is a contingent matter, and varies from case to case;",
+        "positions": [{"start": 122, "end": 137}]
+    },
+    "8": {
+        "type": "claim",
+        "text": "Equal Treatment is a more unified approach to rationality than Evidentialism",
+        "quote": "Equal Treatment constitutes a more uni fi ed approach to rationality: it treats all states alike, whereas Evidentialism requires a fractured theory of rationality involving different criteria for different states.",
+        "positions": [{"start": 138, "end": 153}]
+    },
+    "9": {
+        "type": "claim",
+        "text": "Equal Treatment is compatible with the idea that rationality is relative to the agent's perspective",
+        "quote": "Equal Treatment is also unaffected by the extent and the way in which rationality may be relative to the agent s perspective.",
+        "positions": [{"start": 154, "end": 167}]
+    },
+    "10": {
+        "type": "thesis",
+        "text": "The rationality of a belief state is determined not by evidential support, but rather by applying whatever general principle is properly used in assessing the rationality of any other state",
+        "quote": "The rationality of a belief state, I have claimed, is determined not by evidential support, but rather by applying whatever general principle is properly used in assessing the rationality of any other state.",
+        "positions": [{"start": 168, "end": 191}]
+    }
+},
+"relations": [
+    {"src": "1", "tgt": "2", "type": "support"},
+    {"src": "2", "tgt": "3", "type": "support"},
+    {"src": "3", "tgt": "4", "type": "support"},
+    {"src": "4", "tgt": "5", "type": "support"},
+    {"src": "5", "tgt": "6", "type": "support"},
+    {"src": "6", "tgt": "7", "type": "support"},
+    {"src": "7", "tgt": "8", "type": "support"},
+    {"src": "8", "tgt": "9", "type": "support"},
+    {"src": "9", "tgt": "10", "type": "support"}
+]}

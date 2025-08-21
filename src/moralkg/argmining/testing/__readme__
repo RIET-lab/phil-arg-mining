@@ -1,0 +1,1 @@
+No init file - this is an isolated directory for quick testing.

@@ -1,0 +1,37 @@
+# Ignore large datasets
+/datasets/interim/papers/docling/
+/datasets/interim/papers/grobid/
+/datasets/processed/argument_mining/snowball_sampling/phase_2_large_sample/
+/datasets/processed/papers/cleaned/
+/datasets/raw/papers/pdfs/
+
+# Ignore model weights
+*.safetensors
+
+# Ignore archived and temporary files
+/archive/
+/temp/
+/src/moralkg/preprocessing/pdfs/archive/
+
+
+# Ignore logs
+.logs/
+
+# Ignore venvs and environment variables
+*venv*
+*env*
+
+# Ignore build and cache files
+*vscode*
+*__pycache__*
+*cache*
+*node_modules*
+
+# Ignore apps with their own repositories
+/apps/mere_workshop/
+/apps/mere_workshop_listener/
+
+# Temporary: Ignore anything that could be making a big initial commit to github difficult
+/datasets/
+/figures/
+/models/

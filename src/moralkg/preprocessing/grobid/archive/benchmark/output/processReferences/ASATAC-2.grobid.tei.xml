@@ -1,0 +1,990 @@
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:xlink="http://www.w3.org/1999/xlink" 
+ xmlns:mml="http://www.w3.org/1998/Math/MathML">
+	<teiHeader/>
+	<text>
+		<front/>
+		<body/>
+		<back>
+			<div>
+				<listBibl>
+<biblStruct xml:id="b0">
+	<monogr>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">M</forename><surname>Armstrong</surname></persName>
+		</author>
+		<title level="m">A World of States of Affairs</title>
+		<meeting><address><addrLine>Cambridge</addrLine></address></meeting>
+		<imprint>
+			<publisher>Cambridge University Press</publisher>
+			<date type="published" when="1997">1997</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">Difficult cases in the theory of truthmaking</title>
+	</analytic>
+	<monogr>
+		<title level="j">Monist</title>
+		<imprint>
+			<biblScope unit="volume">83</biblScope>
+			<biblScope unit="page" from="150" to="160" />
+			<date type="published" when="2000">2000</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<monogr>
+		<title level="m">Truth and Truthmakers</title>
+		<meeting><address><addrLine>Cambridge</addrLine></address></meeting>
+		<imprint>
+			<publisher>Cambridge University Press</publisher>
+			<date type="published" when="2004">2004</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">Reply to Heil</title>
+	</analytic>
+	<monogr>
+		<title level="j">Australasian Journal of Philosophy</title>
+		<imprint>
+			<biblScope unit="volume">84</biblScope>
+			<biblScope unit="page" from="245" to="247" />
+			<date type="published" when="2006">2006</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title level="a" type="main">A truthmaking account of realism and anti-realism</title>
+		<author>
+			<persName><forename type="first">Jamin</forename><surname>Asay</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Pacific Philosophical Quarterly</title>
+		<imprint>
+			<biblScope unit="volume">93</biblScope>
+			<biblScope unit="page" from="373" to="394" />
+			<date type="published" when="2012">2012</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<analytic>
+		<title level="a" type="main">The Primitivist Theory of Truth</title>
+	</analytic>
+	<monogr>
+		<title level="j">Erkenntnis</title>
+		<imprint>
+			<biblScope unit="volume">79</biblScope>
+			<biblScope unit="page" from="147" to="164" />
+			<date type="published" when="2013">2013. 2014</date>
+			<publisher>Cambridge University Press</publisher>
+			<pubPlace>Cambridge</pubPlace>
+		</imprint>
+	</monogr>
+	<note>Against truth</note>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<monogr>
+		<title level="m" type="main">The Reality of Numbers: A Physicalist&apos;s Philosophy of Mathematics</title>
+		<author>
+			<persName><forename type="first">John</forename><surname>Bigelow</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="1988">1988</date>
+			<publisher>Clarendon Press</publisher>
+			<pubPlace>Oxford</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<monogr>
+		<title level="m" type="main">Spreading the Word: Groundings in the Philosophy of Language</title>
+		<author>
+			<persName><forename type="first">Simon</forename><surname>Blackburn</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="1984">1984</date>
+			<publisher>Clarendon Press</publisher>
+			<pubPlace>Oxford</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<analytic>
+		<title level="a" type="main">How to be a truthmaker maximalist</title>
+		<author>
+			<persName><forename type="first">Ross</forename><forename type="middle">P</forename><surname>Cameron</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Noûs</title>
+		<imprint>
+			<biblScope unit="volume">42</biblScope>
+			<biblScope unit="page" from="410" to="421" />
+			<date type="published" when="2008">2008</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">A neglected theory of truth</title>
+		<author>
+			<persName><forename type="first">Richard</forename><surname>Cartwright</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">his Philosophical Essays</title>
+		<meeting><address><addrLine>Cambridge</addrLine></address></meeting>
+		<imprint>
+			<publisher>MIT Press</publisher>
+			<date type="published" when="1987">1987</date>
+			<biblScope unit="page" from="71" to="93" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<monogr>
+		<author>
+			<persName><forename type="first">Marian</forename><surname>David</surname></persName>
+		</author>
+		<title level="m">Correspondence and Disquotation: An Essay on the Nature of Truth</title>
+		<meeting><address><addrLine>Oxford</addrLine></address></meeting>
+		<imprint>
+			<publisher>Oxford University Press</publisher>
+			<date type="published" when="1994">1994</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<analytic>
+		<title level="a" type="main">Don&apos;t forget about the correspondence theory of truth</title>
+	</analytic>
+	<monogr>
+		<title level="j">Australasian Journal of Philosophy</title>
+		<imprint>
+			<biblScope unit="volume">82</biblScope>
+			<biblScope unit="page" from="42" to="47" />
+			<date type="published" when="2004">2004</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<analytic>
+		<title level="a" type="main">Truth-making and correspondence</title>
+	</analytic>
+	<monogr>
+		<title level="m">Truth and Truth-Making</title>
+		<editor>
+			<persName><forename type="first">E</forename><forename type="middle">J</forename><surname>Lowe</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">A</forename><surname>Rami</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Stocksfield</addrLine></address></meeting>
+		<imprint>
+			<publisher>Acumen</publisher>
+			<date type="published" when="2009">2009</date>
+			<biblScope unit="page" from="137" to="157" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<analytic>
+		<title level="a" type="main">The folly of trying to define truth</title>
+		<author>
+			<persName><forename type="first">Donald</forename><surname>Davidson</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Philosophy</title>
+		<imprint>
+			<biblScope unit="volume">93</biblScope>
+			<biblScope unit="page" from="263" to="278" />
+			<date type="published" when="1996">1996</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<monogr>
+		<author>
+			<persName><forename type="first">Julian</forename><surname>Dodd</surname></persName>
+		</author>
+		<title level="m">An Identity Theory of Truth</title>
+		<meeting><address><addrLine>London</addrLine></address></meeting>
+		<imprint>
+			<publisher>Macmillan Press</publisher>
+			<date type="published" when="2000">2000</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<analytic>
+		<title level="a" type="main">Truth as a substantive property</title>
+		<author>
+			<persName><forename type="first">Douglas</forename><surname>Edwards</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Australasian Journal of Philosophy</title>
+		<imprint>
+			<biblScope unit="volume">91</biblScope>
+			<biblScope unit="page" from="279" to="294" />
+			<date type="published" when="2013">2013</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<analytic>
+		<title level="a" type="main">Truthmaker</title>
+		<author>
+			<persName><forename type="first">John</forename><forename type="middle">F</forename><surname>Fox</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Australasian Journal of Philosophy</title>
+		<imprint>
+			<biblScope unit="volume">65</biblScope>
+			<biblScope unit="page" from="188" to="207" />
+			<date type="published" when="1987">1987</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<monogr>
+		<author>
+			<persName><forename type="first">Dorothy</forename><surname>Grover</surname></persName>
+		</author>
+		<title level="m">A Prosentential Theory of Truth</title>
+		<meeting><address><addrLine>Princeton</addrLine></address></meeting>
+		<imprint>
+			<publisher>Princeton University Press</publisher>
+			<date type="published" when="1992">1992</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<analytic>
+		<title level="a" type="main">A critique of deflationism</title>
+		<author>
+			<persName><forename type="first">Anil</forename><surname>Gupta</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Philosophical Topics</title>
+		<imprint>
+			<biblScope unit="volume">21</biblScope>
+			<biblScope unit="page" from="57" to="81" />
+			<date type="published" when="1993">1993</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<monogr>
+		<author>
+			<persName><forename type="first">Anil</forename><surname>Gupta</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Nuel</forename><surname>Belnap</surname></persName>
+		</author>
+		<title level="m">The Revision Theory of Truth</title>
+		<meeting><address><addrLine>Cambridge</addrLine></address></meeting>
+		<imprint>
+			<publisher>MIT Press</publisher>
+			<date type="published" when="1993">1993</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b20">
+	<monogr>
+		<title level="m" type="main">Thought and World: An Austere Portrayal of Truth, Reference, and Semantic Correspondence</title>
+		<author>
+			<persName><forename type="first">Christopher</forename><surname>Hill</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2002">2002</date>
+			<publisher>Cambridge University Press</publisher>
+			<pubPlace>Cambridge</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b21">
+	<monogr>
+		<author>
+			<persName><forename type="first">Paul</forename><surname>Horwich</surname></persName>
+		</author>
+		<title level="m">Truth</title>
+		<meeting><address><addrLine>Oxford</addrLine></address></meeting>
+		<imprint>
+			<publisher>Basil Blackwell</publisher>
+			<date type="published" when="1990">1990</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b22">
+	<analytic>
+		<title level="a" type="main">The truthmaker non-maximalist&apos;s dilemma</title>
+		<author>
+			<persName><forename type="first">Mark</forename><surname>Jago</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Mind</title>
+		<imprint>
+			<biblScope unit="volume">121</biblScope>
+			<biblScope unit="page" from="903" to="918" />
+			<date type="published" when="2012">2012</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b23">
+	<analytic>
+		<title level="a" type="main">The cost of truthmaker maximalism</title>
+	</analytic>
+	<monogr>
+		<title level="j">Canadian Journal of Philosophy</title>
+		<imprint>
+			<biblScope unit="volume">43</biblScope>
+			<biblScope unit="page" from="460" to="474" />
+			<date type="published" when="2013">2013</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b24">
+	<analytic>
+		<title level="a" type="main">On the explanatory role of correspondence truth</title>
+		<author>
+			<persName><forename type="first">Philip</forename><surname>Kitcher</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Philosophy and Phenomenological Research</title>
+		<imprint>
+			<biblScope unit="volume">64</biblScope>
+			<biblScope unit="page" from="346" to="364" />
+			<date type="published" when="2002">2002</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b25">
+	<monogr>
+		<title level="m" type="main">Is there a problem about substitutional quantification? In Truth and Meaning: Essays in Semantics</title>
+		<author>
+			<persName><forename type="first">Saul</forename><forename type="middle">A</forename><surname>Kripke</surname></persName>
+		</author>
+		<editor>Gareth Evans and John McDowell</editor>
+		<imprint>
+			<date type="published" when="1976">1976</date>
+			<publisher>Clarendon Press</publisher>
+			<biblScope unit="page" from="325" to="419" />
+			<pubPlace>Oxford</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b26">
+	<monogr>
+		<author>
+			<persName><forename type="first">Wolfgang</forename><surname>Künne</surname></persName>
+		</author>
+		<title level="m">Conceptions of Truth</title>
+		<meeting><address><addrLine>Oxford</addrLine></address></meeting>
+		<imprint>
+			<publisher>Clarendon Press</publisher>
+			<date type="published" when="2003">2003</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b27">
+	<analytic>
+		<title level="a" type="main">New work for a theory of universals</title>
+		<author>
+			<persName><forename type="first">David</forename><surname>Lewis</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Australasian Journal of Philosophy</title>
+		<imprint>
+			<biblScope unit="volume">61</biblScope>
+			<biblScope unit="page" from="343" to="377" />
+			<date type="published" when="1983">1983</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b28">
+	<analytic>
+		<title level="a" type="main">Forget about the &apos;correspondence theory of truth</title>
+	</analytic>
+	<monogr>
+		<title level="j">Analysis</title>
+		<imprint>
+			<biblScope unit="volume">61</biblScope>
+			<biblScope unit="page" from="275" to="280" />
+			<date type="published" when="2001">2001</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b29">
+	<analytic>
+		<title level="a" type="main">Truthmaking and difference-making</title>
+	</analytic>
+	<monogr>
+		<title level="j">Noûs</title>
+		<imprint>
+			<biblScope unit="volume">35</biblScope>
+			<biblScope unit="page" from="602" to="615" />
+			<date type="published" when="2001">2001</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b30">
+	<analytic>
+		<title level="a" type="main">Things qua truthmakers</title>
+	</analytic>
+	<monogr>
+		<title level="m">Real Metaphysics: Essays</title>
+		<editor>
+			<persName><forename type="first">Hallvard</forename><surname>Lillehammer</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">Gonzalo</forename><surname>Rodriguez-Pereyra</surname></persName>
+		</editor>
+		<meeting><address><addrLine>London</addrLine></address></meeting>
+		<imprint>
+			<publisher>Routledge</publisher>
+			<date type="published" when="2003">2003</date>
+			<biblScope unit="page" from="25" to="42" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b31">
+	<analytic>
+		<title level="a" type="main">Truthmaking as essential dependence</title>
+		<author>
+			<persName><forename type="first">E</forename><forename type="middle">J</forename><surname>Lowe</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Metaphysics and Truthmakers</title>
+		<editor>
+			<persName><forename type="first">Jean-Maurice</forename><surname>Monnoyer</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Frankfurt</addrLine></address></meeting>
+		<imprint>
+			<publisher>Ontos Verlag</publisher>
+			<date type="published" when="2007">2007</date>
+			<biblScope unit="page" from="237" to="259" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b32">
+	<monogr>
+		<author>
+			<persName><forename type="first">Michael</forename><forename type="middle">P</forename><surname>Lynch</surname></persName>
+		</author>
+		<title level="m">Truth as One and Many</title>
+		<meeting><address><addrLine>Oxford</addrLine></address></meeting>
+		<imprint>
+			<publisher>Clarendon Press</publisher>
+			<date type="published" when="2009">2009</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b33">
+	<analytic>
+		<title level="a" type="main">For keeping truth in truthmaking</title>
+		<author>
+			<persName><forename type="first">Fraser</forename><surname>Macbride</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Analysis</title>
+		<imprint>
+			<biblScope unit="volume">73</biblScope>
+			<biblScope unit="page" from="686" to="695" />
+			<date type="published" when="2013">2013</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b34">
+	<analytic>
+		<title level="a" type="main">How it is: entities, absences and voids</title>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">B</forename><surname>Martin</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Australasian Journal of Philosophy</title>
+		<imprint>
+			<biblScope unit="volume">74</biblScope>
+			<biblScope unit="page" from="57" to="65" />
+			<date type="published" when="1996">1996</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b35">
+	<analytic>
+		<title level="a" type="main">What the deflationist may say about truthmaking</title>
+		<author>
+			<persName><forename type="first">Matthew</forename><surname>Mcgrath</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Philosophy and Phenomenological Research</title>
+		<imprint>
+			<biblScope unit="volume">65</biblScope>
+			<biblScope unit="page" from="666" to="688" />
+			<date type="published" when="2003">2003</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b36">
+	<monogr>
+		<author>
+			<persName><forename type="first">Trenton</forename><surname>Merricks</surname></persName>
+		</author>
+		<title level="m">Truth and Ontology</title>
+		<meeting><address><addrLine>Oxford</addrLine></address></meeting>
+		<imprint>
+			<publisher>Clarendon Press</publisher>
+			<date type="published" when="2007">2007</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b37">
+	<monogr>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">J</forename><surname>Misak</surname></persName>
+		</author>
+		<title level="m">Truth and the End of Inquiry: A Peircean Account of Truth</title>
+		<meeting><address><addrLine>Oxford</addrLine></address></meeting>
+		<imprint>
+			<publisher>Clarendon Press</publisher>
+			<date type="published" when="1991">1991</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b38">
+	<analytic>
+		<title level="a" type="main">Truthmakers for negative truths</title>
+		<author>
+			<persName><forename type="first">George</forename><surname>Molnar</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Australasian Journal of Philosophy</title>
+		<imprint>
+			<biblScope unit="volume">78</biblScope>
+			<biblScope unit="page" from="72" to="86" />
+			<date type="published" when="2000">2000</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b39">
+	<analytic>
+		<title level="a" type="main">Truth-makers</title>
+		<author>
+			<persName><forename type="first">Kevin</forename><surname>Mulligan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Peter</forename><surname>Simons</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Barry</forename><surname>Smith</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Philosophy and Phenomenological Research</title>
+		<imprint>
+			<biblScope unit="volume">44</biblScope>
+			<biblScope unit="page" from="287" to="321" />
+			<date type="published" when="1984">1984</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b40">
+	<analytic>
+		<title level="a" type="main">The metaphysics of properties</title>
+		<author>
+			<persName><forename type="first">Alex</forename><surname>Oliver</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Mind</title>
+		<imprint>
+			<biblScope unit="volume">105</biblScope>
+			<biblScope unit="page" from="1" to="80" />
+			<date type="published" when="1996">1996</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b41">
+	<monogr>
+		<author>
+			<persName><forename type="first">Hilary</forename><surname>Putnam</surname></persName>
+		</author>
+		<title level="m">Reason, Truth and History</title>
+		<meeting><address><addrLine>Cambridge</addrLine></address></meeting>
+		<imprint>
+			<publisher>Cambridge University Press</publisher>
+			<date type="published" when="1981">1981</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b42">
+	<monogr>
+		<title level="m" type="main">Philosophy of Logic</title>
+		<author>
+			<persName><forename type="first">W</forename><forename type="middle">V</forename><surname>Quine</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="1970">1970</date>
+			<publisher>Prentice-Hall</publisher>
+			<pubPlace>Englewood Cliffs, NJ</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b43">
+	<monogr>
+		<title level="m">Pursuit of Truth</title>
+		<meeting><address><addrLine>Cambridge</addrLine></address></meeting>
+		<imprint>
+			<publisher>Harvard University Press</publisher>
+			<date type="published" when="1990">1990</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b44">
+	<monogr>
+		<author>
+			<persName><forename type="first">Joshua</forename><surname>Rasmussen</surname></persName>
+		</author>
+		<title level="m">Defending the Correspondence Theory of Truth</title>
+		<meeting><address><addrLine>Cambridge</addrLine></address></meeting>
+		<imprint>
+			<publisher>Cambridge University Press</publisher>
+			<date type="published" when="2014">2014</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b45">
+	<analytic>
+		<title level="a" type="main">Truthmakers and the disjunction thesis</title>
+		<author>
+			<persName><forename type="first">Stephen</forename><surname>Read</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Mind (New Series)</title>
+		<imprint>
+			<biblScope unit="volume">108</biblScope>
+			<biblScope unit="page" from="67" to="79" />
+			<date type="published" when="2000">2000</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b46">
+	<analytic>
+		<title level="a" type="main">The General Truthmaker View of ontological commitment</title>
+		<author>
+			<persName><forename type="first">Bradley</forename><surname>Rettler</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Philosophical Studies</title>
+		<imprint>
+			<biblScope unit="volume">173</biblScope>
+			<biblScope unit="page" from="1405" to="1425" />
+			<date type="published" when="2016">2016</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b47">
+	<analytic>
+		<title level="a" type="main">Why truthmakers</title>
+		<author>
+			<persName><forename type="first">Gonzalo</forename><surname>Rodriguez-Pereyra</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Truthmakers: The Contemporary Debate</title>
+		<editor>
+			<persName><forename type="first">Helen</forename><surname>Beebee</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">Julian</forename><surname>Dodd</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Oxford</addrLine></address></meeting>
+		<imprint>
+			<publisher>Clarendon Press</publisher>
+			<date type="published" when="2005">2005</date>
+			<biblScope unit="page" from="17" to="31" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b48">
+	<monogr>
+		<title level="m" type="main">The Philosophy of Logical Atomism</title>
+		<author>
+			<persName><forename type="first">Bertrand</forename><surname>Russell</surname></persName>
+		</author>
+		<editor>David Pears</editor>
+		<imprint>
+			<date type="published" when="1985">1985</date>
+			<publisher>Open Court</publisher>
+			<pubPlace>La Salle, IL</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b49">
+	<analytic>
+		<title level="a" type="main">The world and truth about what is not</title>
+		<author>
+			<persName><forename type="first">Noël</forename><surname>Saenz</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Philosophical Quarterly</title>
+		<imprint>
+			<biblScope unit="volume">64</biblScope>
+			<biblScope unit="page" from="82" to="98" />
+			<date type="published" when="2014">2014</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b50">
+	<analytic>
+		<title level="a" type="main">The least discerning and most promiscuous truthmaker</title>
+		<author>
+			<persName><forename type="first">Jonathan</forename><surname>Schaffer</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Philosophical Quarterly</title>
+		<imprint>
+			<biblScope unit="volume">60</biblScope>
+			<biblScope unit="page" from="307" to="324" />
+			<date type="published" when="2010">2010</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b51">
+	<analytic>
+		<title level="a" type="main">Truthmakers: a tale of two explanatory projects</title>
+		<author>
+			<persName><forename type="first">Peter</forename><surname>Schulte</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Synthese</title>
+		<imprint>
+			<biblScope unit="volume">181</biblScope>
+			<biblScope unit="page" from="413" to="431" />
+			<date type="published" when="2011">2011</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b52">
+	<analytic>
+		<title level="a" type="main">MacBride on truth in truthmaking</title>
+		<author>
+			<persName><forename type="first">Matthew</forename><surname>Simpson</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Analysis</title>
+		<imprint>
+			<biblScope unit="volume">76</biblScope>
+			<biblScope unit="page" from="19" to="26" />
+			<date type="published" when="2016">2016</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b53">
+	<analytic>
+		<title level="a" type="main">Truthmaker explanations</title>
+		<author>
+			<persName><forename type="first">Barry</forename><surname>Smith</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jonathan</forename><surname>Simon</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Metaphysics and Truthmakers</title>
+		<editor>
+			<persName><forename type="first">Jean-Maurice</forename><surname>Monnoyer</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Frankfurt</addrLine></address></meeting>
+		<imprint>
+			<publisher>Ontos Verlag</publisher>
+			<date type="published" when="2007">2007</date>
+			<biblScope unit="page" from="79" to="98" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b54">
+	<analytic>
+		<title level="a" type="main">The concept of truth in formalized language</title>
+		<author>
+			<persName><forename type="first">Alfred</forename><surname>Tarski</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Logic, Semantics, Metamathematics: Papers From 1923 to 1938</title>
+		<editor>
+			<persName><forename type="middle">J H</forename><surname>Trans</surname></persName>
+		</editor>
+		<editor>
+			<persName><surname>Woodger</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Oxford</addrLine></address></meeting>
+		<imprint>
+			<publisher>Clarendon Press</publisher>
+			<date type="published" when="1956">1956</date>
+			<biblScope unit="page" from="152" to="278" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b55">
+	<analytic>
+		<title level="a" type="main">Deflationism and the dependence of truth on reality</title>
+		<author>
+			<persName><forename type="first">Andrew</forename><surname>Thomas</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Erkenntnis</title>
+		<imprint>
+			<biblScope unit="volume">75</biblScope>
+			<biblScope unit="page" from="113" to="122" />
+			<date type="published" when="2011">2011</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b56">
+	<analytic>
+		<title level="a" type="main">Lest we forget &apos;the correspondence theory of truth</title>
+		<author>
+			<persName><forename type="first">Gerald</forename><surname>Vision</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Analysis</title>
+		<imprint>
+			<biblScope unit="volume">63</biblScope>
+			<biblScope unit="page" from="136" to="142" />
+			<date type="published" when="2003">2003</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b57">
+	<monogr>
+		<title level="m" type="main">The Coherence Theory of Truth: Realism, Anti-Realism, Idealism</title>
+		<author>
+			<persName><forename type="first">Ralph</forename><forename type="middle">C S</forename><surname>Walker</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="1989">1989</date>
+			<publisher>Routledge</publisher>
+			<pubPlace>London</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b58">
+	<monogr>
+		<author>
+			<persName><forename type="first">Crispin</forename><surname>Wright</surname></persName>
+		</author>
+		<title level="m">Truth and Objectivity</title>
+		<meeting><address><addrLine>Cambridge</addrLine></address></meeting>
+		<imprint>
+			<publisher>Harvard University Press</publisher>
+			<date type="published" when="1992">1992</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b59">
+	<analytic>
+		<title level="a" type="main">The many (yet few) faces of deflationism</title>
+		<author>
+			<persName><forename type="first">Jeremy</forename><surname>Wyatt</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Philosophical Quarterly</title>
+		<imprint>
+			<biblScope unit="volume">66</biblScope>
+			<biblScope unit="page" from="362" to="382" />
+			<date type="published" when="2016">2016</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

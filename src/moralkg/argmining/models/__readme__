@@ -1,0 +1,28 @@
+Purpose
+- Model-facing AM components: End2End LLM prompting, ADUR (spans), ARE (relations).
+
+Exposed API
+- End2End: orchestrates prompts and decoding
+  - init(..., rag: bool=False, cot: bool=False, temperature: float=0.7, max_new_tokens: int=8192, ...)
+  - generate(system_prompt, user_prompt, prompt_files: dict|list[dict]) -> {text, trace}
+  - Uses RAG (optional): embedder=Qwen3-Embedding-0.6B, FAISS similarity (cosine)
+  - Uses CoT (optional): cot steps/prompts defined in config
+- ADUR(model: str|Path|dict, extract_major_adus=False, extraction_method="centroid"|"pairwise")
+  - generate(input_file) -> {adus, statistics}
+- ARE(model: str|Path|dict, adur_model=..., map=...)
+  - generate(input_file) -> {adus, relations, statistics}
+- Utilities
+  - generator: load_generator_model(base, adapter_dir[, cache_dir]), build_input_ids, generate, generate_chat
+  - rag: RAG(embedder, chunk_size, chunk_overlap, top_k). add()/retrieve() lifecycle via build()/destroy()
+  - cot: CoT(steps, step_prompts, retrieval_step_positions). run(...)
+
+Config usage
+- paths.models.end2end.base: {dir|hf}
+- paths.models.end2end.finetune: {dir|hf} (LoRA/PEFT adapter dir)
+- paths.models.end2end.embedder: {dir|hf} (RAG embedder)
+- models resolved via "dir" if populated; else download from "hf" to local cache.
+- snowball.phase_1
+
+Notes / TODO
+- Multi‑GPU orchestration and logging improvement.
+- ADUR/ARE require pytorch‑ie/pie_modules; ensure dependencies installed.
