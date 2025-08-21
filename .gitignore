@@ -34,4 +34,3 @@
 
 # Temporary: Ignore anything that could be making a big initial commit to github difficult
 /models/
-/figures/
