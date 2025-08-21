@@ -3,6 +3,7 @@
 /datasets/interim/papers/grobid/
 /datasets/processed/argument_mining/snowball_sampling/phase_2_large_sample/
 /datasets/processed/papers/cleaned/
+/datasets/raw/papers/metadata/
 /datasets/raw/papers/pdfs/
 
 # Ignore model weights
@@ -15,7 +16,7 @@
 
 
 # Ignore logs
-.logs/
+*.logs
 
 # Ignore venvs and environment variables
 *venv*
@@ -32,6 +33,6 @@
 /apps/mere_workshop_listener/
 
 # Temporary: Ignore anything that could be making a big initial commit to github difficult
+/models/
 /datasets/
 /figures/
-/models/
