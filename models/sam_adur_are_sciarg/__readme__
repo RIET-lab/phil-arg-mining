@@ -1,0 +1,4 @@
+SAM ADUR/ARE (SciArg)
+
+- Storage for `ArneBinder/sam-adur-sciarg` and `ArneBinder/sam-are-sciarg` models when cached locally.
+- Used by ADUR/ARE pipelines for span and relation extraction.

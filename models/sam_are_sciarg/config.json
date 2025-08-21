@@ -1,0 +1,63 @@
+{
+  "model_type": "SimpleSequenceClassificationModel",
+  "model_name_or_path": "allenai/scibert_scivocab_uncased",
+  "num_classes": 6,
+  "tokenizer_vocab_size": 31094,
+  "learning_rate": 0.0001,
+  "task_learning_rate": 0.0003,
+  "warmup_proportion": 0.1,
+  "freeze_base_model": false,
+  "base_model_prefix": null,
+  "taskmodule_config": {
+    "taskmodule_type": "RETextClassificationWithIndicesTaskModule",
+    "tokenizer_name_or_path": "allenai/scibert_scivocab_uncased",
+    "relation_annotation": "binary_relations",
+    "add_candidate_relations": true,
+    "add_reversed_relations": true,
+    "partition_annotation": "labeled_partitions",
+    "none_label": "no_relation",
+    "padding": true,
+    "truncation": true,
+    "max_length": null,
+    "pad_to_multiple_of": null,
+    "multi_label": false,
+    "labels": [
+      "contradicts",
+      "parts_of_same",
+      "semantically_same",
+      "supports",
+      "supports_reversed"
+    ],
+    "add_type_to_marker": false,
+    "argument_role_to_marker": null,
+    "single_argument_pair": true,
+    "append_markers": false,
+    "insert_markers": true,
+    "entity_labels": [
+      "background_claim",
+      "data",
+      "own_claim"
+    ],
+    "reversed_relation_label_suffix": "_reversed",
+    "symmetric_relations": [
+      "semantically_same",
+      "parts_of_same",
+      "contradicts"
+    ],
+    "reverse_symmetric_relations": true,
+    "max_argument_distance": 150,
+    "max_argument_distance_type": "inner",
+    "max_argument_distance_tokens": 15,
+    "max_argument_distance_type_tokens": "inner",
+    "max_window": 512,
+    "allow_discontinuous_text": false,
+    "log_first_n_examples": 0,
+    "add_argument_indices_to_input": false,
+    "add_argument_tags_to_input": false,
+    "add_entity_tags_to_input": false,
+    "add_global_attention_mask_to_input": false,
+    "argument_type_whitelist": null,
+    "handle_relations_with_same_arguments": "keep_none",
+    "collect_statistics": true
+  }
+}

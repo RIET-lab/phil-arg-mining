@@ -1,0 +1,135 @@
+{
+  "model_type": "SimpleGenerativeModel",
+  "base_model_type": "pie_modules.models.base_models.BartAsPointerNetwork",
+  "base_model_config": {
+    "pretrained_model_name_or_path": "facebook/bart-base",
+    "use_encoder_mlp": true,
+    "use_constraints_encoder_mlp": true,
+    "decoder_position_id_mode": "pattern",
+    "decoder_position_id_pattern": [
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      1
+    ],
+    "decoder_position_id_mapping": {
+      "default": 2,
+      "vocab": 3,
+      "bos": 0,
+      "eos": 1,
+      "pad": 1
+    },
+    "encoder_layer_norm_decay": 0.005,
+    "lr": 6e-05,
+    "num_beams": 4,
+    "max_length": 768,
+    "decoder_layer_norm_decay": 0.05,
+    "bos_token_id": 0,
+    "eos_token_id": 1,
+    "pad_token_id": 1,
+    "target_token_ids": [
+      0,
+      2,
+      50271,
+      50266,
+      50272,
+      50269,
+      50268,
+      50267,
+      50265,
+      50270
+    ],
+    "embedding_weight_mapping": {
+      "50271": [
+        4146
+      ],
+      "50266": [
+        3618,
+        1215,
+        31628
+      ],
+      "50272": [
+        414
+      ],
+      "50269": [
+        308,
+        1215,
+        31628
+      ],
+      "50268": [
+        37820
+      ],
+      "50267": [
+        1667,
+        1215,
+        1116,
+        1215,
+        41690
+      ],
+      "50265": [
+        9031,
+        38600,
+        1215,
+        41690
+      ],
+      "50270": [
+        4548
+      ]
+    }
+  },
+  "override_generation_kwargs": null,
+  "warmup_proportion": 0.01,
+  "learning_rate": null,
+  "optimizer_type": null,
+  "metric_stages": [
+    "val",
+    "test",
+    "train"
+  ],
+  "metric_call_predict": [
+    "val",
+    "test"
+  ],
+  "taskmodule_config": {
+    "taskmodule_type": "PointerNetworkTaskModuleForEnd2EndRE",
+    "tokenizer_name_or_path": "facebook/bart-base",
+    "document_type": "pytorch_ie.documents.TextDocumentWithLabeledSpansBinaryRelationsAndLabeledPartitions",
+    "tokenized_document_type": "pie_modules.documents.TokenDocumentWithLabeledSpansBinaryRelationsAndLabeledPartitions",
+    "relation_layer_name": "binary_relations",
+    "none_label": "none",
+    "loop_dummy_relation_name": "loop",
+    "constrained_generation": true,
+    "label_tokens": null,
+    "label_representations": null,
+    "labels_per_layer": {
+      "labeled_spans": [
+        "background_claim",
+        "data",
+        "own_claim"
+      ],
+      "binary_relations": [
+        "contradicts",
+        "parts_of_same",
+        "semantically_same",
+        "supports"
+      ]
+    },
+    "exclude_labels_per_layer": null,
+    "create_constraints": true,
+    "tokenizer_init_kwargs": {
+      "add_prefix_space": true
+    },
+    "tokenizer_kwargs": {
+      "truncation": true,
+      "return_overflowing_tokens": true,
+      "stride": 128,
+      "strict_span_conversion": false
+    },
+    "partition_layer_name": "labeled_partitions",
+    "annotation_field_mapping": null,
+    "log_first_n_examples": null
+  }
+}

@@ -1,0 +1,47 @@
+{
+    "model_type": "TokenClassificationModelWithSeq2SeqEncoderAndCrf",
+    "model_name_or_path": "allenai/scibert_scivocab_uncased",
+    "num_classes": 7,
+    "learning_rate": 5e-05,
+    "task_learning_rate": 0.01,
+    "use_crf": true,
+    "label_pad_id": -100,
+    "special_token_label_id": 0,
+    "classifier_dropout": null,
+    "freeze_base_model": true,
+    "warmup_proportion": 0.1,
+    "seq2seq_encoder": {
+        "type": "sequential",
+        "drop0": {
+            "type": "dropout",
+            "p": 0.5
+        },
+        "lstm0": {
+            "type": "lstm",
+            "num_layers": 2,
+            "bidirectional": true,
+            "hidden_size": 300,
+            "dropout": 0.4394
+        }
+    },
+    "taskmodule_config": {
+        "taskmodule_type": "LabeledSpanExtractionByTokenClassificationTaskModule",
+        "tokenizer_name_or_path": "allenai/scibert_scivocab_uncased",
+        "span_annotation": "labeled_spans",
+        "partition_annotation": "labeled_partitions",
+        "label_pad_id": -100,
+        "labels": [
+            "background_claim",
+            "data",
+            "own_claim"
+        ],
+        "include_ill_formed_predictions": true,
+        "tokenize_kwargs": {
+            "max_length": 512,
+            "stride": 64,
+            "return_overflowing_tokens": true
+        },
+        "pad_kwargs": null,
+        "log_precision_recall_metrics": true
+    }
+}

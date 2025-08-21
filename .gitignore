@@ -9,6 +9,12 @@
 # Ignore model weights
 *.safetensors
 
+# The model folders have other large files as well. Ignore these too
+/models/*/.cache/*
+/models/*/archive/*
+/models/*/base/archive/*
+/models/*/finetune/archive/*
+
 # Ignore archived and temporary files
 /archive/
 /temp/
@@ -31,6 +37,3 @@
 # Ignore apps with their own repositories
 /apps/mere_workshop/
 /apps/mere_workshop_listener/
-
-# Temporary: Ignore anything that could be making a big initial commit to github difficult
-/models/

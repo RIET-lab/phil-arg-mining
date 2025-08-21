@@ -1,0 +1,4 @@
+Meta‑Llama‑3.1‑8B (base)
+
+- Intended to store merged/quantized base weights locally if available.
+- If absent, code **should** fallback to HF `unsloth/Meta-Llama-3.1-8B-bnb-4bit` and cache.
