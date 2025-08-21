@@ -1,0 +1,303 @@
+[
+  {
+    "identifier": "ULATAC",
+    "system_prompt": "## GOAL\nArgument‑mine the following paper to extract its comprehensive argumentative structure.\n\n## DEFINITIONS\n1. **Argument**: A set of propositions, including some number of premises and a conclusion. The premises should logically entail the conclusion.\n2. **Claim**: A proposition that asserts something to be true or false, typically requiring justification or evidence.\n3. **Premise**: A proposition that provides evidence, justification, or logical support for a claim or conclusion.\n\n## CRITICAL REQUIREMENTS\n1. **VERBATIM EXTRACTION ONLY**: Each ADU text must be copied EXACTLY from the paper with no modifications, paraphrasing, or combining of separate sentences.\n2. **NO HALLUCINATION**: Do not create, modify, or invent text that does not appear exactly in the source.\n3. **EXACT MATCHING**: Every word, punctuation mark, and spacing must match the original precisely.\n\n## DIRECTIONS\n1. **Identify Argumentative Discourse Units (ADUs)**  \n   - ADU = any contiguous text span functioning as a claim or a premise in the reasoning structure.\n   - **BE HIGHLY SELECTIVE**: Only include ADUs that are crucial to the overarching argument structure.\n   - Focus on significant claims and premises that contribute meaningfully to the argumentative flow.\n   - **AVOID NOISE**: Skip ADUs that are merely descriptive, tangential, or do not substantially advance the argument.\n   - Prioritize quality over quantity - fewer accurate, important ADUs are better than many insignificant ones.\n   - **EXTRACT ONLY**: Copy text spans exactly as they appear, without any modifications.\n2. **Classify each ADU**  \n   - Label = either `\"claim\"` or `\"premise\"`.  \n3. **Detect directed relations**  \n   - Relation = `\"support\"` or `\"attack\"`, from one ADU (source) to another (target).\n   - Map how ADUs connect to form reasoning chains.\n   - Focus on relationships between the most significant ADUs.\n   - Include relationships between premises that strengthen or weaken each other.\n4. **Verbatim spans**  \n   - Each `\"text\"` value must be copied EXACTLY from the paper with zero modifications.\n   - Do not paraphrase, summarize, or combine separate sentences.\n   - Do not add, remove, or change any words, punctuation, or spacing.\n   - If unsure about exact wording, skip that ADU rather than guess.\n\n## WHAT TO CAPTURE\n**INCLUDE ONLY:**\n- Main argumentative threads that are central to the paper's contribution\n- Core claims that represent the paper's primary arguments or findings\n- Key premises that provide essential support for major claims\n- Critical counterarguments and their refutations\n- Reasoning chains that demonstrate how main conclusions are derived\n\n**EXCLUDE (AVOID NOISE):**\n- Minor details, examples, or descriptive content that don't advance the argument\n- Tangential points or side discussions\n- Pure background information or literature review content\n- Methodological details unless they constitute argumentative claims\n- Obvious statements or commonly accepted facts\n- Redundant or repetitive argumentative content\n\n**GUIDING PRINCIPLE**: If removing an ADU would not significantly impact understanding of the paper's argumentative structure, it should be excluded.\n\n## QUALITY CONTROL\n- Before finalizing each ADU, verify the text exists exactly in the source\n- Prefer fewer, accurate ADUs over many potentially modified ones\n- When in doubt about exact wording, omit the ADU\n\n## OUTPUT FORMAT\nReturn **only** a single valid JSON object matching this schema.  \nDo **not** output any extra text, markdown, or explanations.\nDo **not** add comments.\n**RESPOND WITH ONLY**:\n```json\n{\n  \"ADUs\": {\n    \"<ADU_ID>\": {\n      \"text\": \"<exact span from paper>\",\n      \"label\": \"claim\" | \"premise\"\n    }\n    ...\n  },\n  \"relations\": [\n    {\n      \"source\": \"<ADU_ID>\",\n      \"target\": \"<ADU_ID>\",\n      \"type\": \"support\" | \"attack\"\n    }\n  ]\n}\n```",
+    "user_content": "**Truth:**\n\n**A Comprehensive Bibliography, 1873 – 1939**\n\njoseph ulatowski\n\n*University of Waikato, New Zealand*\n\nContemporary work on the nature of truth appears to have arisen in response to Hegel’s views that dominated the philosophical communities of the United States and Britain during the nineteenth century.  Call this idealist dominance of discussions on truth *Hegelianism* . American Hegelianism was divided into two schools: the *St. Louis Hegelians* whose views aligned with theses in social responsibility and social reform and the *New England Transcendentalists* whose interests revolved around literature and theology. British Hegelianism focused on metaphysics and ontology. Hegelianism appears to have waned after a fondness for scientific conclusions emerged, which was piqued by the promise of the natural and physical sciences.\n\nNowhere else was this naturalisation of truth more apparent than in an editorial published in an 1873 issue of the *Scientific American* .  The editorial, “Knowledge of the Truth,” was not an explicit indictment of idealism but it compelled readers to shed “imaginary cosmologies” for a return to the “greatest boon which man can ever possibly obtain: The Knowledge of the Truth” through observations of a mind-independent world.  The editorial marked the start of a three-pronged attack against Hegelianism.\n\nThe end of Hegelianism and the rise of contemporary discussions on truth was the result of the confluence of three sources: two infamous and a third all but overlooked.  First, the infamous death knell against Hegelianism was sounded by G.E. Moore and Bertrand Russell in 1902 and 1903, respectively.  Both favoured a correspondence theory of truth, and both found Hegelianism metaphysically and epistemologically repugnant.\n\nThe second source of contemporary discussion on truth was the pragmatists, especially William James, John Dewey, and Charles Sanders Peirce.  None of the theories on offer by any one of them necessarily has overlapping similarities with any of the other in the triumverate.  So, if we think of *the* pragmatist conception of truth, we’re likely making an error.  It is best to think of *a* pragmatist conception of truth.\n\nThird and finally, the overlooked but highly influential reason for the demise of Hegelianism and the rise of contemporary work on truth may be traced to the rise of realism.  In the United States, the “American Six” published a manifesto in 1910 that established the doctrinal priorities for philosophical thought in the twentieth century—including the investigation of “relational” accounts of truth.\n\nBeyond these few philosophers, work on truth in the early analytic period is largely unknown.  This is quite surprising given that publishing costs lowered dramatically, given that journals and other scholarly periodicals were popular, and given how many articles were written on truth.  This bibliography wishes to give a list of these other contributors’ works.\n\n*Note on Curation.* The content of the bibliography has been curated using two sources *JSTOR* and *PhilPapers* and search terms associated with truth-theories (e.g., “truth,” “fact,” “correspondence,” “coherence,” “pragmatism,” and “theory of truth”).  My focus has been articles published in peer-reviewed journals and monographs.  Hopefully, this list will be a helpful resource for those who work on the nature of truth (and the truth-criterion) in the early analytic period.\n\n1870s (6 works)\n\n- “The Knowledge of the Truth,” ( *Scientific American* [Mar 15, 1873] 28.11, pp. 160-161)\n- *Essays on Certain Logical Questions* , Richard Shute (Parker London.1874)\n    - Part I. On Truth in Relation to Definition, Part II. On the Import of Propositions (“An attempt at an examination of certain currently-accepted logical doctrines from the point of view of modern psychological science, originally intended to form a volume, but now, as a tentative measure, issued as a pamphlet.” – from *The Bookseller* April 2, 1874)\n- *A Discourse on Truth* , Richard Shute (H.S. King &amp; Co. London. 1877)\n    - A reaction to J.S. Mill’s *System of Logic* . Shute’s *A Discourse* was the basis of Uphues *Grundlehren der Logik nach Richard Shute’s Discourse on Truth bearbeitet* (Breslau, 1883).\n- “How to Make Our Ideas Clear,” Charles Sanders Peirce ( *Popular Science Monthly* 12 [Jan 1878], pp. 286-302)\n\n1880s (6 works)\n\n- “The Achilles and Tortoise: A Dialogue,” Shadworth H. Hodgson ( *Mind* 5.19 [Jul 1880], pp. 386-390)\n- “Propositions with a View to Proof,” Alfred Sidgwick ( *Mind* 8.29 [Jan 1883], pp. 22-47)\n- *The Objectivity of Truth* , George J. Stokes (Williams &amp; Norgate. London. 1884)\n    - Reviewed by Andrew Seth in *Mind* 9.25 [Jul 1884], pp. 443-47: central thesis: “The necessity of an *object* of thought in order that thought may have a real reference, i.e., *be* thought or cognition.”  Stokes argues for a natural realism against Hegelian idealism, the more popular view in the 1880s.\n- *On Truth: A Systematic Inquiry* , St. George Mivart (Kegan Paul, Trench &amp; Co. London. 1889)\n    - Reviewed by Samuel Alexander in *Mind* 14.55 [Jul 1889], pp. 420-25: Mivart defends realism from idealism, and he gives an overview of a variety of problems affecting science, humans, and objective reality.\n\n1890s (12 works)\n\n- “The Present Position of Logical Theory,” John Dewey ( *The Monist* 2.1 [Oct 1891], pp. 1-17)\n- “The Meaning of Truth and Error,” Dickinson Sergeant Miller ( *The Philosophical Review* 2.4 [Jul 1893], pp. 408-425)\n- “The Truth of Empiricism,” James Seth ( *The Philosophical Review* 2.5 [Sep 1893], pp. 544-556)\n- “Certitude,” Walter Smith ( *The Philosophical Review* 2.6 [Nov 1893], pp. 665-676)\n- “The Relation of Metaphysics to Epistemology,” David G. Ritchie ( *The Philosophical Review* 3.1 [Jan 1894], pp. 14-30)\n- “Truth and the Tests of Truth,” Alfred Hodder ( *The Philosophical Review* 5.1 [Jan 1896], pp. 1-23)\n- “The Contrary and the Disparate,” F.H. Bradley ( *Mind* , New Series 5.20 [Oct 1896], pp. 464-482)\n- “The Relation of Logic to Psychology,” David G. Ritchie ( *The Philosophical Review* 5.6 [Nov 1896], pp. 585-600)\n- “The Relation of Logic to Psychology,” David G. Ritchie ( *The Philosophical Review* 6.1 [Jan 1897], pp. 1-17)\n- “Truth and History,” J.B. Baillie ( *Mind* , New Series 7.28 [Oct 1898], pp. 506-522)\n- “The Nature of Judgment,” G.E. Moore ( *Mind* , New Series 8.30 [Apr 1899], pp. 176-193)\n- “A Defense of Realism,” Isaac O. Winslow ( *The Philosophical Review* 8.3 [May 1899], pp. 247-260)\n\n1900s (63 works)\n\n- “Criteria of Truth and Error,” Henry Sidgwick ( *Mind,* New Series 9.33 [Jan 1900], pp. 8-25)\n- “Methodology and Truth,” J.E. Creighton ( *The Philosophical Review* 10.1 [Jan 1901], pp. 45-56)\n- “The Doctrine of the Twofold Truth,” F.C. French ( *The Philosophical Review* 10.5 [Sep 1901], pp. 477-487)\n- “‘Useless’ Knowledge: A Discourse Concerning Pragmatism,” F.C.S. Schiller ( *Mind* , New Series 11.42 [Apr 1902], pp. 196-215)\n- “Pragmatism,” J.A. Leighton ( *The Journal of Philosophy, Psychology and Scientific Methods* 1.6 [Mar 17, 1904], pp. 148-156)\n- “On Truth and Practice,” F.H. Bradley ( *Mind* , New Series 13.51 [Jul 1904], pp. 309-335)\n- “Humanism and Truth,” William James ( *Mind* , New Series 13.52 [Oct 1904], pp. 457-475)\n    - “Review: ‘On Truth and Practice’ by F.H. Bradley and ‘Humanism and Truth’ by William James,” A.K. Rogers ( *The Journal of Philosophy, Psychology and Scientific Methods* 1.25 [Dec 8, 1904], pp. 693-695)\n- “In Defense of Humanism,” F.C.S. Schiller ( *Mind* , New Series 13.52 [Oct 1904], pp. 525-542)\n- “‘Absolute’ and ‘Relative’ Truth,” Harold H. Joachim ( *Mind* , New Series 14.53 [Jan 1905], pp. 1-14)\n- “Prof. James on ‘Humanism and Truth’,” H.W.B. Joseph ( *Mind* , New Series 14.53 [Jan 1905], pp. 28-41)\n- “Humanism and Truth Once More,” William James ( *Mind* , New Series 14.54 [Apr 1905], pp. 190-198)\n- “What Pragmatism Is,” Charles S. Peirce ( *The Monist* 15.2 [Apr 1905], pp. 161-181)\n- “Conceptual Completeness and Abstract Truth,” H.A. Overstreet ( *The Philosophical Review* 14.3 [May 1905], pp. 308-321)\n- “Truth and Practice,” A.E. Taylor ( *The Philosophical Review* 14.3 [May 1905], pp. 265-289)\n- “Pragmatism and its Critics,” Addison W. Moore ( *The Philosophical Review* 14.3 [May 1905], pp. 322-343)\n- “Pragmatism v. Absolutism (I.),” R.F. Alfred Hoernle ( *Mind* , New Series 14.55 [Jul 1905], pp. 297-334)\n- “Pragmatism v. Absolutism (II.),” R.F. Alfred Hoernle ( *Mind* , New Series 14.56 [Oct 1905], pp. 441-478)\n- “Truth and Consequences,” A.E. Taylor ( *Mind* , New Series 15.57 [Jan 1906], pp. 81-93)\n- “The Ambiguity of Truth,” F.C.S. Schiller ( *Mind* , New Series 15.58 [Apr 1906], pp. 161-176)\n- *The Nature of Truth* , Harold H. Joachim (Clarendon Press Oxford 1906)\n    - “Review: *The Nature of Truth* , H.H. Joachim,” F.C.S. Schiller ( *The Journal of Philosophy, Psychology and Scientific Methods* 3.20 [Sep 27, 1906], pp. 549-557)\n    - “Review: *The Nature of Truth* , H.H. Joachim,” A.K. Rogers ( *The Philosophical Review* 15.6 [Nov 1906], p. 658)\n    - “Mr Joachim’s Nature of Truth,” G.E. Moore ( *Mind* , New Series 16.62 [Apr 1907], pp. 229-235)\n- “What is Truth?” Bertrand Russell ( *The Independent Review* 9 [Jun 1906], pp. 349-353)\n- “The Nature of Truth,” Bertrand Russell ( *Mind,* New Series 15.60 [Oct 1906], pp. 528-533)\n- “On the Nature of Truth,” Bertrand Russell ( *Proceedings of the Aristotelian Society* , New Series 7 [1906-1907], pp. 28-49)\n- “The Pragmatist’s Meaning of Truth,” John E. Russell ( *The Journal of Philosophy, Psychology and Scientific Methods* 3.22 [Oct 25, 1906], pp. 599-601)\n- “Pragmatism’s Conception of Truth,” William James ( *The Journal of Philosophy, Psychology and Scientific Methods* 4.6 [Mar 14, 1907], pp. 141-155)\n- “On Truth and Copying,” F.H. Bradley ( *Mind* , New Series 16.62 [Apr 1907], pp. 165-180)\n- “Controversy about Truth,” William James &amp; John E. Russell ( *The Journal of Philosophy, Psychology and Scientific Methods* 4.11 [May 23 1907], pp. 289-296)\n- *Pragmatism: A New Name for Some Old Ways of Thinking* , William James (Longmans Green and Co. New York [Jun 1907])\n    - “Review: *The Nature of Truth* , H.H. Joachim and *Pragmatism, a New Name for Some Old Ways of Thinking; Popular Lectures on Philosophy* , William James,” P.E. Winter ( *The American Journal of Psychology* 18.4 [Oct 1907], p. 524)\n- “Truth and Its Verification,” J.B. Pratt ( *The Journal of Philosophy, Psychology and Scientific Methods* 4.12 [Jun 6, 1907], pp. 320-324)\n- “On Truth,” J. Mark Baldwin ( *Psychological Review* 14.4 [Jul 1907], pp. 264-287)\n- “Mr Bradley on Truth and Copying,” Henry Sturt ( *Mind* , New Series 16.63 [Jul 1907], pp. 416-417)\n- “Reality and the Criterion for the Truth of Ideas,” John Dewey ( *Mind* , New Series 16.63 [Jul 1907], pp. 317-342)\n- “Mr Bradley’s Theory of Truth,” F.C.S. Schiller ( *Mind* , New Series 16.63 [Jul 1907], pp. 401-409)\n- “A Word More About Truth,” William James ( *The Journal of Philosophy, Psychology and Scientific Methods* 4.15 [Jul 18, 1907], pp. 396-406)\n- “Professor Pratt on Truth,” William James ( *The Journal of Philosophy, Psychology and Scientific Methods* 4.17 [Aug 15, 1907], pp. 464-467)\n- “The Rationalistic Conception of Truth,” F.C.S. Schiller ( *Proceedings of the Aristotelian Society* , New Series 9 [1908-1909], pp. 85-99)\n- “The Pragmatist Account of Truth and Its Misunderstanders,” William James ( *The Philosophical Review* 17.1 [Jan 1908], pp. 1-17)\n- “Transatlantic Truth,” Bertrand Russell ( *Albany Review* [Jan 1908], pp. 393-410)\n- “Truth and Ideas,” James Pratt ( *The Journal of Philosophy, Psychology and Scientific Methods* 5.5 [Feb 27, 1908], pp. 122-131)\n- “The Problem of Truth,” H.N. Gardiner ( *The Philosophical Review* 17.2 [Mar 1908], pp. 113-137)\n- “Pragmatism,” Ralph Hawtrey ( *New Quarterly* [Mar 1908], pp. 197-210)\n- ““Truth” Versus “Truthfulness”,” William James ( *The Journal of Philosophy, Psychology and Scientific Methods* 5.7 [Mar 26, 1908], pp. 179-181)\n- “Provisional and Eternal Truth,” Wendell T. Bush ( *The Journal of Philosophy, Psychology and Scientific Methods* 5.7 [Mar 26, 1908], pp. 181-184)\n- “On the Ambiguity of Pragmatism,” F.H. Bradley ( *Mind,* New Series 17.66 Apr 1908], pp. 226-237)\n- “Pragmatism and Its Definition of Truth,” C.A. Strong ( *The Journal of Philosophy, Psychology and Scientific Methods* 5.10 [May 7, 1908], pp. 256-264)\n- “The Meaning of the Word ‘Truth’,” William James ( *Mind* , New Series 17.67 [Jul 1908], pp. 455-456)\n- “The Final Ground of Knowledge,” Joseph A. Leighton ( *The Philosophical Review* 17.4 [Jul 1908], pp. 383-399)\n- “The Nature and Criterion of Truth,” J.E. Creighton ( *The Philosophical Review* 17.6 [Nov 1908], pp. 592-605)\n- “On the Meaning of Truth,” Charles M. Bakewell ( *The Philosophical Review* 17.6 [Nov 1908], pp. 579-591)\n- “On a Supposed Criterion of the Absolute Truth of Some Propositions,” F.M. Urban ( *The Journal of Philosophy, Psychology and Scientific Methods* 5.26 [Dec 17, 1908], pp. 701-708)\n- “Truth and Agreement,” John E. Boodin ( *Psychological Review* 16.1 [1909], pp. 55-66)\n- “On Truth and Coherence,” F.H. Bradley ( *Mind* , New Series 18.71 [Jul 1909], pp. 329-342)\n- “The Dilemma of the Intellectualist Theory of Truth,” John Dewey ( *The Journal of Philosophy, Psychology and Scientific Methods* 6.16 [Aug 5, 1909], pp. 433-434)\n- “Coherence and Contradiction,” F.H. Bradley ( *Mind* , New Series 18.72 [Oct 1909], pp. 489-508)\n- *The Meaning of Truth: A Sequel to* “ *Pragmatism* ,” William James (Longmans Green and Co. New York [Oct 1909])\n    - “Review: *The Meaning of Truth* by William James,” Evander Bradley McGilvary ( *International Journal of Ethics* 20.2 [Jan 1910], pp. 244-250)\n    - “Review: *The Meaning of Truth* by William James,” ( *The American Journal of Psychology* 21.1 [Jan 1910], pp. 172-173)\n- “What Pragmatism Is and Is Not,” J.E. Boodin ( *The Journal of Philosophy, Psychology and Scientific Methods* 6.23 [Nov 11, 1909], pp. 627-635)\n\n1910s (75 works)\n\n- “The Pragmatist View of Truth. A Problem Without A Solution,” Paul Carus ( *The Monist* 20.1 [Jan 1910], pp. 139-144)\n- “Truth,” Paul Carus ( *The Monist* 20.1 [Jan 1910], pp. 1-3)\n- “The Relational Account of Truth,” Edmund Jacobson ( *The Journal of Philosophy, Psychology and Scientific Methods* 7. [Oct10 [May 12, 1910], pp. 253-261)\n- “Heinrich Hertz’s Theory of Truth. A Contribution to Critique of Cognition,” Karl Schmidt ( *The Monist* 20.3 [Jul 1910], pp. 445-450)\n- “The Nature of Truth,” John E. Boodin ( *The Philosophical Review* 19.4 [Jul 1910], pp. 395-417)\n    - “Professor Boodin on the Nature of Truth,” Radoslav A. Tsanoff ( *The Philosophical Review* 19.6 [Nov 1910], pp. 632-638)\n    - “The Nature of Truth: A Reply,” John E. Boodin ( *The Philosophical Review* 20.1 [Jan 1911], pp. 59-63)\n    - “The Nature of Truth: Rejoinder,” Radoslav A. Tsanoff ( *The Philosophical Review* 20.1 [Jan 1911], pp. 63-66)\n- “Truth and Its Object,” J.E. Boodin ( *The Journal of Philosophy, Psychology and Scientific Methods* 7.19 [Sep 15, 1910], pp. 508-521)\n- “Truth,” Paul Carus ( *The Monist* 20.4 [Oct 1910], pp. 481-514)\n- “Truth and Nature,” Hartley B. Alexander ( *The Monist* 20.4 [Oct 1910], pp. 585-602)\n- “The ‘Meaning’ and ‘Test’ of Truth,” J.W. Snellman ( *Mind* 20.78 [Apr 1911], pp. 235-242)\n- “On Some Aspects of Truth,” F.H. Bradley ( *Mind* , New Series 20.79 [Jul 1911], pp. 305-341)\n- “Truth as Value and the Value of Truth,” John E. Russell ( *Mind* 20.80 [Oct 1911], pp. 538-539)\n- *William James and Other Essays on the Philosophy of Life* , Josiah Royce (Norwood Press; J.S. Cushing Co., Norwood, Mass., [Nov] 1911) [Essay IV: “The Problem of Truth in the Light of Recent Discussion”]\n- *Truth and Reality: An Introduction to the Theory of Knowledge* , John Elof Boodin. (Macmillan Company New York, 1911)\n    - “Review: *Truth and Reality: An Introduction to the Theory of Knowledge* by John Elof Boodin,” Ellen Bliss Talbot ( *The Philosophical Review* 21.4 [Jul 1912], pp. 468-471)\n    - “Review: *Truth and Reality: An Introduction to the Theory of Knowledge* ,” Charles B. Vibbert ( *The Journal of Philosophy, Psychology and Scientific Methods* 12.2 [Jan 21, 1915], pp. 48-53)\n- “Truth’s “Original Object”,” E.D. Fawcett ( *Mind* 21.81 [Jan 1912], pp. 89-92)\n- “Representational Pragmatism,” Douglas C. Macintosh ( *Mind* 21.82 [Apr 1912], pp. 167-181)\n- “Pragmatism and the Dictum “All Truths Work”,” L. Susan Stebbing ( *Mind* 21.83 [Jul 1912], pp. 471-472)\n- *The New Realism: Cooperative Studies in Philosophy* , Edwin B. Holt, Walter T. Marvin, William Pepperrell Montague, Ralph Barton Perry, Walter B. Pitkin, and Edward Gleason Spaulding (eds.) (Norwood Press, Norwood, Mass., [Aug] 1912) [William Pepperrell Montague, “A Realistic Theory of Truth and Error,” pp. 252-300.]\n- “The ‘Working’ of ‘Truths’,” F.C.S. Schiller ( *Mind* 21.84 [Oct 1912], pp. 532-535)\n    - “The ‘Working’ of Truths and Their ‘Criterion’,” F.C.S. Schiller ( *Mind* 22.88 [Oct 1913], pp. 532-538)\n- “The Notion of Truth in Bergson’s Theory of Knowledge,” L. Susan Stebbing ( *Proceedings of the Aristotelian Society* 13 [1912-1913], pp. 224-256)\n- “Collective Willing and Truth,” S. Alexander ( *Mind* 22.85 [Jan 1913], pp. 14-47)\n- “Conformity, Consistency, and Truth: A Sociological Study,” Alfred H. Lloyd ( *The Journal of Philosophy, Psychology and Scientific Methods* 10.11 [May 22, 1913], pp. 281-296)\n- “Collective Willing and Truth,” S. Alexander ( *Mind* 22.86 [Apr 1913], pp. 161-189)\n- “The Aviary Theory of Truth and Error,” A.W. Moore ( *The Journal of Philosophy, Psychology and Scientific Methods* 10.20 [Sep 25, 1913], pp. 542-546)\n- “Practical Success as the Criterion of Truth,” Henry W. Wright [Nov 1913], pp. 606-622)\n- “Czy prawda jest tylko wiczna, czy też wieczna I odwieczna?” [“Is all truth only true eternally or is it also true without beginning?”], Stanislaus Leśniewski ( *Nowe Tory* 18, 1913, in 1992: 493-528))\n- *Essays on Truth and Reality* , F.H. Bradley (Oxford: Clarendon 1914)\n    - “Review: *Essays on Truth and Reality* by F.H. Bradley,” J.S. Mackenzie ( *International Journal of Ethics* 24.4 [Jul 1914], pp. 453-455)\n    - “Review: *Essays on Truth and Reality* by F.H. Bradley,” George H. Sabine ( *The Philosophical Review* 23.5 [Sep 1914], pp. 550-557)\n    - “Review: *Essays on Truth and Reality* ,” Theodore de Laguna ( *The Journal of Philosophy, Psychology and Scientific Methods* 12.13 [Jun 24, 1915], pp. 358-361)\n- *What Can I Know? An Inquiry Into Truth, Its Nature, the Means of its Attainment, and its Relations to the Practical Life* , George Trumbull (Longmans Green and Co. 1914)\n    - Review: “ *What Can I Know? An Inquiry Into Truth, Its Nature, the Means of its Attainment, and its Relations to the Practical Life* ,” A.C. Armstrong ( *The Philosophical Review* 24.2 [Mar 1915], pp. 217-218)\n    - “Review: *What Can I Know? An Inquiry Into Truth, Its Nature, the Means of its Attainment, and its Relations to the Practical Life* ,” Woodbridge Riley ( *The Journal of Philosophy, Psychology and Scientific Methods* 12.9 [Apr 29, 1915], pp. 247-249)\n- “Truth and Working,” Alfred Sidgwick ( *Mind* 23.89 [Jan 1914], pp. 99-101)\n- “Truth, Reality, and Relation,” Joseph A. Leighton ( *The Philosophical Review* 23.1 [Jan 1914], pp. 17-26)\n- “Aristotle and Abstract Truth—A Reply to Mr. Schiller,” G.R.T. Ross ( *Mind* 23.91 [Jul 1914], pp. 396-401)\n- “Mr Bradley on Truth and Reality,” C.D. Broad ( *Mind* 23.91 [Jul 1914], pp. 349-370)\n- “Isolated Knowledge,” Addison W. Moore ( *The Journal of Philosophy, Psychology and Scientific Methods* 11.15 [Jul 16, 1914], pp. 393-408)\n- “Pragmatism and Truth,” Warner Fite ( *The Philosophical Review* 23.5 [Sep 1914], pp. 506-524)\n- “Definitions and Methodological Principles in Theory of Knowledge,” Bertrand Russell ( *The Monist* 24.4 [Oct 1914], pp. 582-593)\n- “Objectives, Truth and Error,” E.H. Strange ( *Mind* 23.92 [Oct 1914], pp. 489-509)\n- “The Nature of Judgment,” E.H. Strange ( *Proceedings of the Aristotelian Society* 16 [1915-1916], pp. 326-343)\n- “Practical versus Literal Truth,” Durant Drake ( *The Journal of Philosophy, Psychology and Scientific Methods* 12.9 [Apr 29, 1915], pp. 236-243)\n- “The New Developments of Mr Bradley’s Philosophy,” F.C.S. Schiller ( *Mind* 24.95 [Jul 1915], pp. 345-366)\n- “Types of Pragmatist Theory of Truth,” Allan Törnudd ( *The Journal of Philosophy, Psychology and Scientific Methods* 12.18 [Sep 2, 1915], pp. 491-500)\n- “Realism, Pragmatism, and William James,” F.C.S. Schiller ( *Mind* 24.96 [Oct 1915], pp. 516-524)\n- “Pragmatism, Science, and Truth,” A.W. Moore ( *The Philosophical Review* 24.6 [Nov 1915], pp. 631-638)\n- “Fact and Truth,” C. Lloyd Morgan ( *Proceedings of the Aristotelian Society* [1916-1917], pp. 195-215)\n- “Pragmatism and Truth,” M. Jay Flannery ( *The Monist* 26.1 [Jan 1916], pp. 132-134)\n- “Relation and Coherence,” L. Susan Stebbing ( *Proceedings of the Aristotelian Society* 17 [1916-1917], pp. 459-480)\n- “The Permanent Contributions of the Pragmatists,” Joseph Louis Perrier ( *The Journal of Philosophy, Psychology and Scientific Methods* 13.10 [May 11, 1916], pp. 267-273)\n- *Essays in Experimental Logic* , John Dewey (The University of Chicago Press, [Jun] 1916)\n    - “Review of: *Essays in Experimental Logic* ,” Alfred Sidgwick ( *Mind* 26.102 [Apr 1917], pp. 217-222)\n- “Belief and the Criterion of Truth,” A.K. Rogers ( *The Journal of Philosophy, Psychology and Scientific Methods* 13.15 [Jul 20, 1916], pp. 393-410.\n- “The Truth Problem,” Ralph Barton Perry ( *The Journal of Philosophy, Psychology and Scientific Methods* 13.19 [Sep 14, 1916], pp. 505-515)\n- “The Truth Problem. II,” Ralph Barton Perry ( *The Journal of Philosophy, Psychology and Scientific Methods* 13.21 [Oct 12, 1916], pp. 561-573)\n- “Mr Russell’s Lowell Lectures,” L.P. Saunders ( *Mind* 26.101 [Jan 1917], pp. 29-52)\n- “Anthropomorphism and Truth,” J.B. Baillie ( *Proceedings of the Aristotelian Society* 18 [1917-1918], pp. 185-223)\n- “The Relation of Truth to Tests,” Denton L. Geyer ( *The Journal of Philosophy, Psychology and Scientific Methods* 14.23 [Nov 8 1917], pp. 626-633)\n- “The Nature of Certainty,” A.K. Rogers ( *The Philosophical Review* [Nov 1917], pp. 585-601)\n- *Reality and Truth. A Critical and Constructive Essay Concerning Knowledge, Certainty, and Truth* , J.C. Vance (Longmans Green &amp; Co New York, 1917)\n    - “Review: *Reality and Truth. A Critical and Constructive Essay Concerning Knowledge, Certainty, and Truth* ,” ( *Rivista di Filosofia Neo-Scolastica* 10.2 (Apr 30, 1918), pp. 226)\n- “The Philosophy of Logical Atomism,” Bertrand Russell ( *The Monist* 28.4 [Oct 1918], pp. 495-527)\n- “The Philosophy of Logical Atomism,” Bertrand Russell ( *The Monist* 29.1 [Jan 1919], pp. 32-63)\n- “Mr Joachim’s Criticism of ‘Correspondence’,” A.K. Rogers ( *Mind* 28.109 [Jan 1919], pp. 66-74)\n- “Imagination as a Factor Towards Truth,” James Gutmann ( *The Journal of Philosophy, Psychology and Scientific Methods* 16.3 [Jan 30, 1919], pp. 57-71)\n- “The Philosophy of Logical Atomism,” Bertrand Russell ( *The Monist* 29.2 [Apr 1919], pp. 190-222)\n- “The “Correspondence-Notion” of Truth,” Harold H. Joachim ( *Mind* 28.111 [Jul 1919], pp. 330-335)\n- “The Philosophy of Logical Atomism,” Bertrand Russell ( *The Monist* 29.3 [Jul 1919], pp. 345-380)\n- “Mr Joachim’s Coherence-Notion of Truth,” A.R. Wadia ( *Mind* 28.112 [Oct 1919], pp. 427-435)\n\n1920s (26 works)\n\n- “Truth, Value and Biology,” F.C.S. Schiller ( *The Journal of Philosophy, Psychology and Scientific Methods* 17.2 [Jan 15, 1920], pp. 36-44)\n- “Tests of Truth,” Rupert Clendon Lodge ( *The Journal of Philosophy, Psychology and Scientific Methods* 17.3 [Jan 29, 1920], pp. 71-77)\n- “Statements and Meaning,” Alfred Sidgwick ( *Mind* , New Series 30.119 [Jul 1921], pp. 271-286)\n- “Aristotle and the Criterion of Truth,” James Lindsay ( *The Monist* 31.3 [Jul 1921], pp. 470-475)\n- *An Analysis of Certain Theories of Truth* , George Boas (University of California Publications, vol. V, No. 6, Berkeley, CA [1921], pp. 187-290)\n    - “Review: *An Analysis of Certain Theories of Truth* ,” F.C.S. Schiller ( *Mind,* New Series 31.123 [Jul 1922], pp. 362-363)\n- *The Nature of Thought* , Brand Blanshard (George Allen &amp; Unwin Ltd London [1921]), 2vols.\n- “Correspondence and Coherence,” Louis Arnaud Reid ( *The Philosophical Review* 31.1 [Jan 1922], pp. 18-40)\n- “Truth as Correspondence: A Re-Definition,” James L. Mursell ( *The Journal of Philosophy* 19.7 [Mar 30, 1922], pp. 181-189)\n- *What is Truth? An Essay in the Theory of Knowledge* A.K. Rogers (New Haven, CT: Yale University Press, 1923)\n    - “Review of: *What Is Truth? An Essay in the Theory of Knowledge* ,” Herbert W. Schneider ( *The Journal of Philosophy* 20.20 [Sep 27, 1923], pp. 552-560)\n- “A Word About “Coherence”,” Bernard Bosanquet ( *Mind,* New Series 31.123 [Jul 1922], pp. 335-336)\n- “The Form of Philosophical Objectivity,” J.E. Creighton ( *The Philosophical Review* 32.3 [May 1923], pp. 247-262)\n- “Truth and Purpose,” Alfred Sidgwick ( *Mind* , New Series 33.132 [Oct 1924], pp. 385-397)\n- “Bradley on Truth and Falsity,” G.F. Stout ( *Mind* , New Series 34.133 [Jan 1925], pp. 39-54)\n- “Bradley’s Place in Philosophy,” J.H. Muirhead ( *Mind* , New Series 34.134 [Apr 1925], pp. 173-184)\n- “A Liberalistic View of Truth,” C.J. Ducasse ( *The Philosophical Review* 34.6 [Nov 1925], pp. 580-598)\n- “The Truth of Immediate Knowledge,” George Boas ( *The Journal of Philosophy* 23.1 [Jan 7, 1926], pp. 5-10)\n- “Propositions and Judgments,” John Anderson ( *Mind* , New Series 35.138 [Apr 1926], pp. 237-241)\n- “The Truth of Propositions,” John Anderson ( *Mind* , New Series 35.140 [Oct 1926], pp. 466-472)\n- ““Literal Truth”,” Alfred Sidgwick ( *Mind* , New Series 36.141 [Jan 1927], pp. 61-63)\n- “The Two Logics,” F.C.S. Schiller ( *Mind* , New Series 36.141 [Jan 1927], pp. 64-68)\n- “Facts and Propositions,” Frank Ramsey ( *Proceedings of the Aristotelian Society* 7 [1927], pp. 153-170)\n- “Facts and Propositions,” G.E. Moore ( *Proceedings of the Aristotelian Society* 7 [1927], pp. 171-206)\n- “Mr. Montague on the Relativity of Truth,” Donald A. Piatt ( *The Journal of Philosophy* 25.12 [Jun 7, 1928], pp. 323-326)\n- “The Prediction Theory of Truth,” Charles W. Morris ( *The Monist* 38.3 [Jul 1928], pp. 386-401)\n\n1930s (45 works)\n\n- “On the Reality of Things,” William Curtis Swabey ( *The Philosophical Review* 39.4 [Jul 1930], pp. 351-374)\n- “Professor Stout’s Theory of Possibilities, Truth, and Error,” R.F. Alfred Hoernle ( *Mind* 40.159 [Jul 1931], pp. 273-284)\n- “Truth, Action, and Verification,” Charles W. Morris ( *The Monist* 42.3 [July 1932], pp. 321-329)\n- “Truth and Falsity,” G.F. Stout ( *Mind* 41.163 [Jul 1932], pp. 297-310)\n- “The Development of James’s Pragmatism Prior to 1879,” Maurice Baum ( *The Journal of Philosophy* 30.2 [Jan 19, 1933], pp. 43-51)\n- “Logic as Language Habits versus Logic as Formal Truth,” Marie Swabey ( *The Journal of Philosophy* 30.5 [Mar 2, 1933], pp. 119-128)\n- “Material Truth in Rational Thinking,” Kurt Edward Rosinger ( *The Journal of Philosophy* 30.11 [May 25, 1933], pp. 293-302)\n- “Pojęcie prawdy w językach nauk dedukcyjnych,” Alfred Tarski [“The Concept of Truth in Formalized Languages”] Tow. Naukowe Warszawskie, Warszawa. 1933.\n- “What is Poetic Truth?”, Louis Harap ( *The Journal of Philosophy* 30.18 [Aug 31, 1933], pp. 477-488)\n- “Poetry and Truth,” Helen Wodehouse ( *Philosophy* 8.32 [Oct 1933], pp. 446-453)\n- “Verifiability, Truth, and Verification,” Ernest Nagel ( *The Journal of Philosophy* 31.6 [Mar 15, 1934], pp. 141-148)\n- “On Truth,” Max Wertheimer ( *Social Research* 1.2 [May 1934], pp. 135-146)\n- “Truth and Modern Dictatorship,” I. Donsky ( *Philosophy* 9.35 [July 1934], pp. 270-281)\n- “On the Logical Positivists’ Theory of Truth,” Carl G. Hempel ( *Analysis* 2.4 [Jan 1935], pp. 49-59)\n- “The Correspondence Theory of Truth,” Joseph Ratner ( *The Journal of Philosophy* 32.6 [Mar 14, 1935], pp. 141-152)\n- “The Correspondence Theory of Truth,” H.B. Acton ( *Proceedings of the Aristotelian Society* 35 [Apr 29, 1935], pp. 177-194)\n- “Facts and Propositions,” Moritz Schlick ( *Analysis* 2.5 [Apr 1935], pp. 65-70)\n- “Empiricism and Physicalism,” B. von Juhos ( *Analysis* 2.6 [Jun 1935], pp. 81-92)\n- “Truth and the Interest Theory of Value,” Merritt H. Moore ( *The Journal of Philosophy* 32.20 [Sep 26, 1935], pp. 545-551)\n- “Truth in Poetry,” Maud Bodkin ( *Philosophy* 10.40 [Oct 1935], pp. 467-472)\n- “The Criterion of Truth,” A.J. Ayer ( *Analysis* 3.1/2 [Oct 1935], pp. 28-32)\n- “W sprawie względności prawdy,” Marja Kokoszyńska [“On Relativity and Absoluteness of Truth”] ( *Przeglad Filozoficzny* 39, pp. 424-425)\n- “Uber den absoluten Warheitsbegriff und einige andere semantische Begriffe,” Marja Kokoszyńska ( *Erkenntnis* 6.1 [1936], pp. 143-165)\n- *Erkenntnis und Wissenschaftliches Verhalten* , Arne Naess (MA thesis, University of Oslo, 1936)\n- *Language, Truth, and Logic* , A.J. Ayer (London: Dover, 1936)\n- “Some Remarks on Empiricism,” Carl G. Hempel ( *Analysis* 3.3 [Jan 1936], pp. 33-40)\n- ““The Tragic Realm of Truth”,” T.V. Smith ( *The Philosophical Review* 45.2 [Mar 1936], pp. 111-125)\n- “Is Truth a Value?” C. Judson Herrick ( *The Journal of Philosophy* 33.7 [Mar 26, 1936], pp. 169-175)\n- “Verification, Verifiability, and Meaningfulness,” C.J. Ducasse ( *The Journal of Philosophy* 33.9 [Apr 23, 1936], pp. 230-236)\n- “The Relativity of Truth: A Definition,” John Somerville ( *The Philosophical Review* 45.4 [Jul 1936], pp. 399-408)\n- “A Simple Method of Testing Truth-Functions,” J.H. Woodger &amp; W.F. Floyd ( *Analysis* 3.6 [Aug 1936], pp. 92-96)\n- “Truth by Convention: A Symposium by A.J. Ayer, C.H. Whiteley, M. Black,” ( *Analysis* 4.2/3 [Dec 1936], pp. 17-32)\n- “Verification and Experience,” A.J. Ayer ( *Proceedings of the Aristotelian Society* 37 [1936-1937], pp. 137-156)\n- “An Examination of Professor S. Alexander’s Theory of Truth,” Milton R. Konvitz ( *The Journal of Philosophy* 34.7 [Apr 1, 1937], pp. 169-178)\n- “The Truth of Empirical Statements,” B. von Juhos ( *Analysis* 4.5 [Jun 1937], pp. 65-70)\n- “Knowledge by Description,” Morris Lazerowitz ( *The Philosophical Review* 46.4 [Jul 1937], pp. 402-415)\n- “Language and Metaphysical Truth,” H.G. Alexander ( *The Journal of Philosophy* 34.24 [Nov 25, 1937], pp. 645-652)\n- “Man-Made Truth,” H.B. Acton ( *Mind* 47.186 [Apr 1938], pp. 145-158)\n- “On Semantic Problems,” Albert Hofstadter ( *The Journal of Philosophy* 35.9 [Apr 28, 1938], pp. 225-232)\n- “The Synoptic Theory of Truth,” William Savery ( *The Philosophical Review* 47.4 [Jul 1938], pp. 347-374)\n- *“Truth” As Conceived by Those Who Are Not Professional Philosophers* , Arne Naess (1938).\n- “Common Sense and Truth,” Arne Naess ( *Inquiry* )\n- “Reality and Truth,” John J. Toohey ( *The Philosophical Review* 48.5 [Sep 1939], pp. 492-505)\n- “On Undecidable Statements in Enlarged Systems of Logic and the Concept of Truth,” Alfred Tarski ( *The Journal of Symbolic Logic* 4.3 [Sep 1939], pp. 105-112)\n- “On Our Lack of Certainty As To The Truth of Any and All Propositions,” Gardner Williams ( *The Philosophical Review* 48.6 [Nov 1939], pp. 632-637)",
+    "responses": [
+      {
+        "source": "gpt-4o-2024-11-20",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"ADU1\": {\n      \"text\": \"Contemporary work on the nature of truth appears to have arisen in response to Hegel’s views that dominated the philosophical communities of the United States and Britain during the nineteenth century.\",\n      \"label\": \"claim\"\n    },\n    \"ADU2\": {\n      \"text\": \"Hegelianism appears to have waned after a fondness for scientific conclusions emerged, which was piqued by the promise of the natural and physical sciences.\",\n      \"label\": \"claim\"\n    },\n    \"ADU3\": {\n      \"text\": \"Nowhere else was this naturalisation of truth more apparent than in an editorial published in an 1873 issue of the Scientific American.\",\n      \"label\": \"premise\"\n    },\n    \"ADU4\": {\n      \"text\": \"The editorial, “Knowledge of the Truth,” was not an explicit indictment of idealism but it compelled readers to shed “imaginary cosmologies” for a return to the “greatest boon which man can ever possibly obtain: The Knowledge of the Truth” through observations of a mind-independent world.\",\n      \"label\": \"premise\"\n    },\n    \"ADU5\": {\n      \"text\": \"The end of Hegelianism and the rise of contemporary discussions on truth was the result of the confluence of three sources: two infamous and a third all but overlooked.\",\n      \"label\": \"claim\"\n    },\n    \"ADU6\": {\n      \"text\": \"First, the infamous death knell against Hegelianism was sounded by G.E. Moore and Bertrand Russell in 1902 and 1903, respectively.\",\n      \"label\": \"premise\"\n    },\n    \"ADU7\": {\n      \"text\": \"Both favoured a correspondence theory of truth, and both found Hegelianism metaphysically and epistemologically repugnant.\",\n      \"label\": \"premise\"\n    },\n    \"ADU8\": {\n      \"text\": \"The second source of contemporary discussion on truth was the pragmatists, especially William James, John Dewey, and Charles Sanders Peirce.\",\n      \"label\": \"premise\"\n    },\n    \"ADU9\": {\n      \"text\": \"None of the theories on offer by any one of them necessarily has overlapping similarities with any of the other in the triumverate.\",\n      \"label\": \"premise\"\n    },\n    \"ADU10\": {\n      \"text\": \"Third and finally, the overlooked but highly influential reason for the demise of Hegelianism and the rise of contemporary work on truth may be traced to the rise of realism.\",\n      \"label\": \"premise\"\n    },\n    \"ADU11\": {\n      \"text\": \"In the United States, the “American Six” published a manifesto in 1910 that established the doctrinal priorities for philosophical thought in the twentieth century—including the investigation of “relational” accounts of truth.\",\n      \"label\": \"premise\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"ADU2\",\n      \"target\": \"ADU1\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU3\",\n      \"target\": \"ADU2\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU4\",\n      \"target\": \"ADU3\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU5\",\n      \"target\": \"ADU1\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU6\",\n      \"target\": \"ADU5\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU7\",\n      \"target\": \"ADU6\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU8\",\n      \"target\": \"ADU5\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU9\",\n      \"target\": \"ADU8\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU10\",\n      \"target\": \"ADU5\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU11\",\n      \"target\": \"ADU10\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "ADU1": {
+              "text": "Contemporary work on the nature of truth appears to have arisen in response to Hegel’s views that dominated the philosophical communities of the United States and Britain during the nineteenth century.",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "Hegelianism appears to have waned after a fondness for scientific conclusions emerged, which was piqued by the promise of the natural and physical sciences.",
+              "label": "claim"
+            },
+            "ADU3": {
+              "text": "Nowhere else was this naturalisation of truth more apparent than in an editorial published in an 1873 issue of the Scientific American.",
+              "label": "premise"
+            },
+            "ADU4": {
+              "text": "The editorial, “Knowledge of the Truth,” was not an explicit indictment of idealism but it compelled readers to shed “imaginary cosmologies” for a return to the “greatest boon which man can ever possibly obtain: The Knowledge of the Truth” through observations of a mind-independent world.",
+              "label": "premise"
+            },
+            "ADU5": {
+              "text": "The end of Hegelianism and the rise of contemporary discussions on truth was the result of the confluence of three sources: two infamous and a third all but overlooked.",
+              "label": "claim"
+            },
+            "ADU6": {
+              "text": "First, the infamous death knell against Hegelianism was sounded by G.E. Moore and Bertrand Russell in 1902 and 1903, respectively.",
+              "label": "premise"
+            },
+            "ADU7": {
+              "text": "Both favoured a correspondence theory of truth, and both found Hegelianism metaphysically and epistemologically repugnant.",
+              "label": "premise"
+            },
+            "ADU8": {
+              "text": "The second source of contemporary discussion on truth was the pragmatists, especially William James, John Dewey, and Charles Sanders Peirce.",
+              "label": "premise"
+            },
+            "ADU9": {
+              "text": "None of the theories on offer by any one of them necessarily has overlapping similarities with any of the other in the triumverate.",
+              "label": "premise"
+            },
+            "ADU10": {
+              "text": "Third and finally, the overlooked but highly influential reason for the demise of Hegelianism and the rise of contemporary work on truth may be traced to the rise of realism.",
+              "label": "premise"
+            },
+            "ADU11": {
+              "text": "In the United States, the “American Six” published a manifesto in 1910 that established the doctrinal priorities for philosophical thought in the twentieth century—including the investigation of “relational” accounts of truth.",
+              "label": "premise"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU2",
+              "target": "ADU1",
+              "type": "support"
+            },
+            {
+              "source": "ADU3",
+              "target": "ADU2",
+              "type": "support"
+            },
+            {
+              "source": "ADU4",
+              "target": "ADU3",
+              "type": "support"
+            },
+            {
+              "source": "ADU5",
+              "target": "ADU1",
+              "type": "support"
+            },
+            {
+              "source": "ADU6",
+              "target": "ADU5",
+              "type": "support"
+            },
+            {
+              "source": "ADU7",
+              "target": "ADU6",
+              "type": "support"
+            },
+            {
+              "source": "ADU8",
+              "target": "ADU5",
+              "type": "support"
+            },
+            {
+              "source": "ADU9",
+              "target": "ADU8",
+              "type": "support"
+            },
+            {
+              "source": "ADU10",
+              "target": "ADU5",
+              "type": "support"
+            },
+            {
+              "source": "ADU11",
+              "target": "ADU10",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "ADU1": {
+              "text": "Contemporary work on the nature of truth appears to have arisen in response to Hegel’s views that dominated the philosophical communities of the United States and Britain during the nineteenth century.",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "Hegelianism appears to have waned after a fondness for scientific conclusions emerged, which was piqued by the promise of the natural and physical sciences.",
+              "label": "claim"
+            },
+            "ADU4": {
+              "text": "The editorial, “Knowledge of the Truth,” was not an explicit indictment of idealism but it compelled readers to shed “imaginary cosmologies” for a return to the “greatest boon which man can ever possibly obtain: The Knowledge of the Truth” through observations of a mind-independent world.",
+              "label": "premise"
+            },
+            "ADU5": {
+              "text": "The end of Hegelianism and the rise of contemporary discussions on truth was the result of the confluence of three sources: two infamous and a third all but overlooked.",
+              "label": "claim"
+            },
+            "ADU6": {
+              "text": "First, the infamous death knell against Hegelianism was sounded by G.E. Moore and Bertrand Russell in 1902 and 1903, respectively.",
+              "label": "premise"
+            },
+            "ADU7": {
+              "text": "Both favoured a correspondence theory of truth, and both found Hegelianism metaphysically and epistemologically repugnant.",
+              "label": "premise"
+            },
+            "ADU8": {
+              "text": "The second source of contemporary discussion on truth was the pragmatists, especially William James, John Dewey, and Charles Sanders Peirce.",
+              "label": "premise"
+            },
+            "ADU9": {
+              "text": "None of the theories on offer by any one of them necessarily has overlapping similarities with any of the other in the triumverate.",
+              "label": "premise"
+            },
+            "ADU10": {
+              "text": "Third and finally, the overlooked but highly influential reason for the demise of Hegelianism and the rise of contemporary work on truth may be traced to the rise of realism.",
+              "label": "premise"
+            },
+            "ADU11": {
+              "text": "In the United States, the “American Six” published a manifesto in 1910 that established the doctrinal priorities for philosophical thought in the twentieth century—including the investigation of “relational” accounts of truth.",
+              "label": "premise"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU2",
+              "target": "ADU1",
+              "type": "support"
+            },
+            {
+              "source": "ADU5",
+              "target": "ADU1",
+              "type": "support"
+            },
+            {
+              "source": "ADU6",
+              "target": "ADU5",
+              "type": "support"
+            },
+            {
+              "source": "ADU7",
+              "target": "ADU6",
+              "type": "support"
+            },
+            {
+              "source": "ADU8",
+              "target": "ADU5",
+              "type": "support"
+            },
+            {
+              "source": "ADU9",
+              "target": "ADU8",
+              "type": "support"
+            },
+            {
+              "source": "ADU10",
+              "target": "ADU5",
+              "type": "support"
+            },
+            {
+              "source": "ADU11",
+              "target": "ADU10",
+              "type": "support"
+            }
+          ]
+        }
+      },
+      {
+        "source": "claude-3-5-sonnet-20241022",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"A1\": {\n      \"text\": \"Contemporary work on the nature of truth appears to have arisen in response to Hegel's views that dominated the philosophical communities of the United States and Britain during the nineteenth century.\",\n      \"label\": \"claim\"\n    },\n    \"A2\": {\n      \"text\": \"The end of Hegelianism and the rise of contemporary discussions on truth was the result of the confluence of three sources: two infamous and a third all but overlooked.\",\n      \"label\": \"claim\"\n    },\n    \"A3\": {\n      \"text\": \"First, the infamous death knell against Hegelianism was sounded by G.E. Moore and Bertrand Russell in 1902 and 1903, respectively. Both favoured a correspondence theory of truth, and both found Hegelianism metaphysically and epistemologically repugnant.\",\n      \"label\": \"premise\"\n    },\n    \"A4\": {\n      \"text\": \"The second source of contemporary discussion on truth was the pragmatists, especially William James, John Dewey, and Charles Sanders Peirce.\",\n      \"label\": \"premise\"\n    },\n    \"A5\": {\n      \"text\": \"Third and finally, the overlooked but highly influential reason for the demise of Hegelianism and the rise of contemporary work on truth may be traced to the rise of realism.\",\n      \"label\": \"premise\"\n    },\n    \"A6\": {\n      \"text\": \"Beyond these few philosophers, work on truth in the early analytic period is largely unknown.\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"A3\",\n      \"target\": \"A2\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A4\", \n      \"target\": \"A2\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A5\",\n      \"target\": \"A2\", \n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A2\",\n      \"target\": \"A1\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "A1": {
+              "text": "Contemporary work on the nature of truth appears to have arisen in response to Hegel's views that dominated the philosophical communities of the United States and Britain during the nineteenth century.",
+              "label": "claim"
+            },
+            "A2": {
+              "text": "The end of Hegelianism and the rise of contemporary discussions on truth was the result of the confluence of three sources: two infamous and a third all but overlooked.",
+              "label": "claim"
+            },
+            "A3": {
+              "text": "First, the infamous death knell against Hegelianism was sounded by G.E. Moore and Bertrand Russell in 1902 and 1903, respectively. Both favoured a correspondence theory of truth, and both found Hegelianism metaphysically and epistemologically repugnant.",
+              "label": "premise"
+            },
+            "A4": {
+              "text": "The second source of contemporary discussion on truth was the pragmatists, especially William James, John Dewey, and Charles Sanders Peirce.",
+              "label": "premise"
+            },
+            "A5": {
+              "text": "Third and finally, the overlooked but highly influential reason for the demise of Hegelianism and the rise of contemporary work on truth may be traced to the rise of realism.",
+              "label": "premise"
+            },
+            "A6": {
+              "text": "Beyond these few philosophers, work on truth in the early analytic period is largely unknown.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "A3",
+              "target": "A2",
+              "type": "support"
+            },
+            {
+              "source": "A4",
+              "target": "A2",
+              "type": "support"
+            },
+            {
+              "source": "A5",
+              "target": "A2",
+              "type": "support"
+            },
+            {
+              "source": "A2",
+              "target": "A1",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "A2": {
+              "text": "The end of Hegelianism and the rise of contemporary discussions on truth was the result of the confluence of three sources: two infamous and a third all but overlooked.",
+              "label": "claim"
+            },
+            "A3": {
+              "text": "First, the infamous death knell against Hegelianism was sounded by G.E. Moore and Bertrand Russell in 1902 and 1903, respectively. Both favoured a correspondence theory of truth, and both found Hegelianism metaphysically and epistemologically repugnant.",
+              "label": "premise"
+            },
+            "A4": {
+              "text": "The second source of contemporary discussion on truth was the pragmatists, especially William James, John Dewey, and Charles Sanders Peirce.",
+              "label": "premise"
+            },
+            "A5": {
+              "text": "Third and finally, the overlooked but highly influential reason for the demise of Hegelianism and the rise of contemporary work on truth may be traced to the rise of realism.",
+              "label": "premise"
+            },
+            "A6": {
+              "text": "Beyond these few philosophers, work on truth in the early analytic period is largely unknown.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "A3",
+              "target": "A2",
+              "type": "support"
+            },
+            {
+              "source": "A4",
+              "target": "A2",
+              "type": "support"
+            },
+            {
+              "source": "A5",
+              "target": "A2",
+              "type": "support"
+            }
+          ]
+        }
+      }
+    ],
+    "timestamp": 1752755022.4782023
+  }
+]

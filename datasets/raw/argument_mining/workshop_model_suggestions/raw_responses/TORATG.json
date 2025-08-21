@@ -1,0 +1,376 @@
+[
+  {
+    "identifier": "TORATG",
+    "system_prompt": "## GOAL\nArgument‑mine the following paper to extract its comprehensive argumentative structure.\n\n## DEFINITIONS\n1. **Argument**: A set of propositions, including some number of premises and a conclusion. The premises should logically entail the conclusion.\n2. **Claim**: A proposition that asserts something to be true or false, typically requiring justification or evidence.\n3. **Premise**: A proposition that provides evidence, justification, or logical support for a claim or conclusion.\n\n## CRITICAL REQUIREMENTS\n1. **VERBATIM EXTRACTION ONLY**: Each ADU text must be copied EXACTLY from the paper with no modifications, paraphrasing, or combining of separate sentences.\n2. **NO HALLUCINATION**: Do not create, modify, or invent text that does not appear exactly in the source.\n3. **EXACT MATCHING**: Every word, punctuation mark, and spacing must match the original precisely.\n\n## DIRECTIONS\n1. **Identify Argumentative Discourse Units (ADUs)**  \n   - ADU = any contiguous text span functioning as a claim or a premise in the reasoning structure.\n   - **BE HIGHLY SELECTIVE**: Only include ADUs that are crucial to the overarching argument structure.\n   - Focus on significant claims and premises that contribute meaningfully to the argumentative flow.\n   - **AVOID NOISE**: Skip ADUs that are merely descriptive, tangential, or do not substantially advance the argument.\n   - Prioritize quality over quantity - fewer accurate, important ADUs are better than many insignificant ones.\n   - **EXTRACT ONLY**: Copy text spans exactly as they appear, without any modifications.\n2. **Classify each ADU**  \n   - Label = either `\"claim\"` or `\"premise\"`.  \n3. **Detect directed relations**  \n   - Relation = `\"support\"` or `\"attack\"`, from one ADU (source) to another (target).\n   - Map how ADUs connect to form reasoning chains.\n   - Focus on relationships between the most significant ADUs.\n   - Include relationships between premises that strengthen or weaken each other.\n4. **Verbatim spans**  \n   - Each `\"text\"` value must be copied EXACTLY from the paper with zero modifications.\n   - Do not paraphrase, summarize, or combine separate sentences.\n   - Do not add, remove, or change any words, punctuation, or spacing.\n   - If unsure about exact wording, skip that ADU rather than guess.\n\n## WHAT TO CAPTURE\n**INCLUDE ONLY:**\n- Main argumentative threads that are central to the paper's contribution\n- Core claims that represent the paper's primary arguments or findings\n- Key premises that provide essential support for major claims\n- Critical counterarguments and their refutations\n- Reasoning chains that demonstrate how main conclusions are derived\n\n**EXCLUDE (AVOID NOISE):**\n- Minor details, examples, or descriptive content that don't advance the argument\n- Tangential points or side discussions\n- Pure background information or literature review content\n- Methodological details unless they constitute argumentative claims\n- Obvious statements or commonly accepted facts\n- Redundant or repetitive argumentative content\n\n**GUIDING PRINCIPLE**: If removing an ADU would not significantly impact understanding of the paper's argumentative structure, it should be excluded.\n\n## QUALITY CONTROL\n- Before finalizing each ADU, verify the text exists exactly in the source\n- Prefer fewer, accurate ADUs over many potentially modified ones\n- When in doubt about exact wording, omit the ADU\n\n## OUTPUT FORMAT\nReturn **only** a single valid JSON object matching this schema.  \nDo **not** output any extra text, markdown, or explanations.\nDo **not** add comments.\n**RESPOND WITH ONLY**:\n```json\n{\n  \"ADUs\": {\n    \"<ADU_ID>\": {\n      \"text\": \"<exact span from paper>\",\n      \"label\": \"claim\" | \"premise\"\n    }\n    ...\n  },\n  \"relations\": [\n    {\n      \"source\": \"<ADU_ID>\",\n      \"target\": \"<ADU_ID>\",\n      \"type\": \"support\" | \"attack\"\n    }\n  ]\n}\n```",
+    "user_content": "## ALBERTTHEGREATONTHEEUCHARIST AS TRUE FOOD\n\nDavid Torrijos Castrillejo*\n\nS t. Albert the Great defines the Eucharist as 'spiritual food,'1 by stating that 'the ultimate effect of this Sacrament is the grace of spiritually eating and drinking.'2 For this reason, he devoted a prominent place to this dimension of the Eucharist in his studies, which the Doctor universalis exposed by making extensive use of his massive knowledge of natural sciences.3 Indeed, among his many areas of interest, Albert researched into the process of nutrition in living beings and particularly in human beings. Enriched through time, his investigation led to a systematised understanding, which was not reduced to the mere commentaryontheworksofAristotle.4InthesepagesIwilldiscusstheEucharist as true food according to St. Albert considering especially the work De corpore Domini , written at the end of his life.5 There, his great intellectual skills are re-\n\n- *Universidad Eclesiástica San Dámaso (Madrid, España).\n- 1 'The Eucharist is described as spiritual food' (D. Stone, AHistory of the Doctrine of the Holy Eucharist , i, Longmans, New York 1909, 320).\n- 2 '[C]um ultimus effectus sacramenti sit gratia cibationis et potationis spiritualis […].' (Albertus, De sacramentis , tr. 5, p. 1, q. 4, a. 5, ed. Colon., 64, vv. 58-59). So Burr says: 'The notion of Christ as spiritual food is important to Albert' (D. Burr, Eucharistic Presence and Conversion in Late Thirteenth-Century Franciscan Thought , The American Philosophical Society, Philadelphia 1984, 17).\n- 3 «[I]l simbolismo delle specie eucaristiche come nutrimento spirituale del corpo mistico ha talmenteoccupatoilS.Dottoredafargliquasiesaurirel'universalità della sua scienza, onde illustrare con precisione e forza descrittiva le profonde analogie che vigono tra il cibo materiale del pane e del vino e il cibo spirituale delle carni e del sangue del Redentore» (A. Piolanti, Il corpo mistico e le sue relazioni con l'Eucaristia in S. Alberto Magno , Pontificia Università Lateranense, Roma 1939, 159).\n- 4 See J. Cadden, Albertus Magnus' Universal Physiology: the Example of Nutrition , in J.A. Weisheipl (ed.), Albertus Magnus and the Sciences. Commemorative Essays , Pontifical Institute of Mediaeval Studies, Toronto 1980, 338.\n\n5 'It is generally admitted that De sacrificio missae and De sacramento (if authentic) are very late compositions, perhaps his last' (J.A. Weisheipl, The Life and W orks of St. Albert the Great , in Weisheipl [ed.], Albertus Magnus and the Sciences , 42). Therefore, the work could be written between 1275 and 1279. For the authenticity of this treatise, see H.-J. Vogels, Zur Echtheit der eucharistischen Schriften Alberts des Grossen , «Theologie und Philosophie» 53 (1978), 102-119. AnEnglish translation of this treatise is recently appeared: Albert the Great, On the Body of the Lord , translated by Sr. A.M. Surmanski, OP, The Fathers of The Church mediaeval continuation vol. 17, The Catholic University of America Press, Washington, D.C., 2017.\n\nflected, which made him able to combine his philosophical knowledge and his mastery of natural sciences with theology.6\n\nBefore focusing on this dimension of the Eucharist, I will first sketch out St. Albert's ideas on Eucharist.7 According to him, the Body of Christ is truly present in the sacramental species; he thinks that the Body of Christ is also present in the stomach of the disciple when he receives the Eucharist, and even in the stomach of someone who receives it unworthily; indeed, in general, the Body of Christ in its integrity is present wherever one can see the consecrated species of bread and wine. However, if someone receives unworthily the Body of Christ, he does not receive its beneficial effects but rather great damage. By transubstantiation, the bread and wine are entirely changed and instead the Body and Blood of Christ become present, so that nothing of the bread and wine remains after the consecration of the Mass. However, they are neither destroyed nor undergo a natural mutation. After the consecration, the accidents of bread and wine remain without a subject, but they retain their physical properties. At the same time, despite Christ being present in these species, he is not subject to physical conditions affecting such accidents.\n\n*\n\n*\n\n*\n\nCommenting on the famous words from the Gospel of John in which Jesus says that His Flesh is true food and His Blood is true drink (Jn 6:55), Albert says that the type of nourishment provided by this food is spiritual and its aim is that we remain in Christ, since he, by his union with the divinity, is the source of perpetual life.8 But in what sense is the Eucharist not just food but rather 'true' food ( vere est cibus )? The 'truth' of this food proceeds from the first cause that makes it food. To be food is to contribute to life in a vegetative way. However, in thecase of the Eucharist, this food contributes to the truest life possible for a man, the life of grace and glory. Since this is the highest life, in this food the notion of 'food' is used in the most perfect mode ( maxime habet rationem ciborum )\n\n6 See H. Anzulewicz, The Systematic Theology of Albert the Great , in I.M. Resnick (ed.), ACompanion to Albert the Great: Theology, Philosophy, and the Sciences , Brill, Leiden/Boston 2013, 64.\n\n7 For a more complete summary of Albert's doctrine of the Eucharist than mine, with the pertinent references, see Stone, A History of the Doctrine of the Holy Eucharist , i, 320-322; Burr, Eucharistic Presence , 16-19.22-23; G. Macy, Theology of the Eucharist in the High Middle Ages , in I. Levy, G. Macy, K. Van Ausdall (ed.), A Companion to the Eucharist in the Middle Ages , Brill, Leiden/Boston 2011, 385-387.\n\n8 See Albertus, Super Io. , VI, 55, ed. A. Borgnet, 275. The Commentary to the gospel of John could be composed between 1256 and 1257: see Weisheipl, The Life and W orks of St. Albert the Great , 34-36.\n\nbecause there is nothing else mixed with it. Something similar happens with the Blood of Christ, which can be called 'drink' in a supreme degree, then it does not include any contrary, i.e. there is nothing in it that does not contribute to the main purpose of a drink, nothing in it hinders the development of the life of grace.\n\nThe most attentive account of this issue is found in one of Albert's Eucharistic treatises, De corpore Domini ; this work belongs to the main explanations of the Sacrament of the Eucharist made by him, along with his De Sacramentis , his Commentary on the Sentences and his Commentary to the liturgy of the Mass . We will pay attention to a distinction where Albert wonders how the Eucharist can fit into the genre of food.9 Thus, in the first chapter of the first treatise, he speaks about the nobility of this Sacrament, in the second one, about its sweetness and flavour, in the third one, about its preparation and, in the fourth one, about its sweetness to work. He compares the Eucharist with other foods that would prefigure it in the Old Testament and would show some of its eminent prerogatives.\n\nThefifth chapter deals with the nutritional power of the Eucharist; so he compares the Sacrament with other foods. He explains that the Church, without this spiritual food, would be faint with hunger. He notes that common foods only contribute to life under a participation in a heavenly power. Of course, it is also necessary the presence of a corporeal element, i.e. the natural heat in them, which nature is igneous.10 The heat of the fire manages to separate the larger parts from the subtlest and to produce the assimilation of the subtle parts in the subject that makes digestion. However, fire contributes to nutrition only with the help of a heavenly power because the 'assimilation' requires 'equalization' ( aequalitas ), which can only come from the 'equality' of heaven. Indeed, Albert ascribes particular importance to heaven in the natural process of nutrition, particularly to the heat of the sun and to its influence on the sublunary world.11 In a similar way, a heavenly power resides also in the Eucharist, the most prominent one, because, in it, God gives to the Church the best food. Somewhat later, he tells us that our body could not have been configured to image the body of Christ (Phil 3:20-21)\n\n- 9 'Quomodo hoc sacramentum sit in genere cibi?' (Albertus, De corp. , d. 3, ed. A. Borgnet, 230).\n\n10 Cf. Albertus, De corp. , d. 3, tr. 1, c. 5, ed. A. Borgnet, 252. 'The analogy with cooking, which is the basis of the Galenic account of digestion, reinforced the importance of heat. Appropriate because of its association with food and its role in visible substantial change, the idea of coction provided a strong explanatory image for Albert, as it had for his predecessors' (Cadden, Albertus Magnus' Universal Physiology , 327). The heat belongs to the stomach, which is helped by other entrails close to it: see Albertus, De animalibus , l. 1, tr. 3, c. 3, ed. Stadler, 199.\n\n11 See Albertus, Denutr. , tr. 1, c. 3, ed. A. Borgnet, 330; Idem, Dehomine , 1,3,3 (3), ed. Colon., 108, vv. 31-35; 1,4, ed. Colon., 111-112.\n\nwithout the help of this food in which such heavenly power is contained. This power is, in turn, the 'treasure' content in heaven (Deut 28:12).\n\nAs also stated in the Commentary on the Gospel of John , the Eucharist could be called 'food,' even in a more proper sense than ordinary food.12 In fact, other foods are nutritious thanks to the celestial power contained in them but in them there are lots of mixed things that are not useful for living beings. However, in the Eucharist there is the 'truth of food' in the highest measure. In the case of ordinary food, our digestive power has to ensure the separation of 'true food' from impurities. The stomach separates the earthy portion of the food and expels it and so is also the work of liver and veins. In addition, the bitterness and other food excrements must be set aside and expelled in various ways. However, in the Eucharist there is only the 'true food', without any impurity, as Albert stated talking about John. For this reason, the Eucharist deserves to be called true food and true drink.\n\nThe nature of nourishment of the Eucharist should not be explained as a kind of metaphor. So John says that it is a 'true' food in such a way that, if we omit eat it, life would become impossible for us (Jn 6:54). This food satisfies men to the point that everybody who takes it does not desire any other sustenance, although he has to take additional nourishment to support the body. The sustenance provided by the Eucharist suppresses the desires for honor, pleasure, wealth, etc. Therefore, it eliminates every sort of hunger, unless the disciple voluntarily abandons the communion with Christ. According to Albert, hunger reaches the living being when the truth of food is corrupted and missing; at that moment, the members of the body require a new nutrient. However, this food is not capable of suffering any corruption that may cause its disappearance, so that it awakes a yearning within the disciple. For this reason, the Saints want that this food remain in them after the sacramental Communion.\n\nThen, Albert, after comparing the Eucharist with the natural food as participation in heavenly power and as bearer of the truth of food, now he says that the nature of the food is to nourish the living being through a principle of life.13 Appealing to Aristotle, Albert recalls that the first mover of nutrition must be the nutritive power of the living being, which acts on the food to assimilate it in its body, by extending the influence of its soul on the assimilated matter.14 In the case of Eucharistic food, Christ himself is who, by special liberality, puts Himself in this food; so, in the Sacrament there is the source of all life, which is Himself. The Father gives the life to the Son and He, by his very presence, delivery it to\n\n12 See Albertus, De corp. , d. 3, tr. 1, c. 5, ed. A. Borgnet, 253.\n\n13 See ibidem , 254.\n\n14 See Idem, De an. , l. 2, tr. 2, c. 2, ed. Colon., 85, vv. 52-63.\n\nthe Sacrament. Thus, the Eucharist brings to the Christians the life of the grace and the glory. Such a life is spiritual, i.e. 'intellectual.'15\n\nDespite being a 'true food,' the Eucharist differs from other common foods because they nourish living beings in order to preserve their temporal and mortal life, while this Sacrament provides immortal life.16 We have also a philosophical justification of this thesis. When there is a defect in conventional feeding processes, it can be attributed either to the nutrient, or to the living being that is being fed. In the case of the Eucharist, the food may not be beneficial for the communicant because of the lack of his preparation or readiness, but certainly there cannot be any defect in the nutrient as such, because it always contains the power to lead the recipient to eternal life.\n\nAnother feature of the Eucharistic food that differs from common foods is highlighted by a famous passage of St. Augustine: 'I am the food of the fully grown:grow,then,andyouwillfeedonme.YouwillnotchangeMeintoyourself like the food your flesh eats, but you will be changed into Me.'17 Albert agrees withtheconceptionofthenutritionalactivityimplicitinthewordsofAugustine andheexplainsit in the light of his personal Aristotelian background. According to Albert, conventional food acquires the power to nourish from vegetative soul itself, which has to exercise a transformation in it in order to make it nutritious in act; the soul makes it 'similar' to the living being that is being fed: therefore, nutrition is 'assimilation.' But this means that the nutrient cannot overcome the nature of the living being that it will nourish: if the living being is corruptible, its food becomes part of a corruptible body and, sooner or later, it will eventually be corrupted. Consequently, if the Body of Christ would nourish the Christian in the same way of the ordinary food, then the disciple would remain mortal and the food itself would be lost with him. Nevertheless, just the opposite takes place, namely, that the Body of Christ transmutes Christians into Him, so that their weakness is overcome and they gain strength and even eternal life.18\n\n- 15 See Idem, De corp. , d. 3, tr. 1, c. 5, ed. A. Borgnet, 255.\n\n16 See ibidem .\n\n17 'Cibus sum grandium: cresce et manducabis me. Nec tu me in te mutabis sicut cibum carnis tuae, sed tu mutaberis in me' (Augustinus, Conf. , VII, 10, 16, CC 27, 103-104, vv. 18-20). This text is read in the light of Jer 15:19 (Vulg: 'Ipsi convertentur ad te, et tu non converteris ad eos'). Shortly later, Albert also quotes Lam 5:21: 'Converte nos, Domine, ad te, et convertemur.' See Albertus, De corp. , d. 3, tr. 1, c. 5, ed. A. Borgnet, 256. The famous passage of Augustine also appears at the very beginning of the treatment of the Eucharist in his Commentary on the Sentences (IV, d. 8, A, a. 1, sol., ed. A. Borgnet, 175).\n\n18 In the Commentary on John , he argues, for the same reason, that the Body of Christ in the Eucharist cannot be corruptible: '[I]n corpore Christi (quod est res et sacramentum) hoc mirabile est accipere, quod quamvis ipsum fuerit passibile quando dedit in coena, et impassibile sit hodie, et semper fuerit post resurrectionem, et cum ipsum dederit ut cibum in sacramento:\n\nIn this regard, we can recall a passage from the commentary on the Sentences of Peter Lombard, where, after having joined the tradition that refers to a spiritualis manducatio , he questions how can the Eucharist still be called 'food' despite of its many differences with respect to ordinary food.19 Certainly, Christ is neither divided, nor cut, nor masticated, nor undergoes any digestion but, on the contrary, he transforms the believer into His likeness. Albert responds by appealing to three different ways of 'eating' the Body of Christ: a generic one, by joining the Mystical Body of Christ through faith and charity, which was possible even before Incarnation; a more proper one, by meditation and contemplation of the Sacrament of the Eucharist, which would be also possible during the Old Covenant to the extent that the Eucharist as Sacrament had been announced; a third one, by which one can obtain the grace of communion with the Body of Christ by receiving the Sacrament, because in it such grace is present 'as medicine in its glass and the thing caused in its cause.'20 In this sense, Albert declares, there is some similarity between common food and the Eucharist, but it is not complete. The main difference is expressed by the words of Augustine, which are cited here again, according to which the believer is 'assimilated' to Christ through the Eucharist and not vice versa.21 The reason of this is that, in every union, the weakest component is assimilated to the strongest one but the opposite is not true. Moreover, as later will be repeated in De corpore Domini , he says that, if Christ would be assimilated to the being of the believer, then the Sacrament would be useless. Therefore, all physical processes involved in the sensible eating of the Eucharist (fraction, mastication, digestion, etc.) affect only the sacramental species, but not the Body of Christ properly speaking.\n\nComing back to the discussion of De corpore Domini ,22 Albert explains that the 'assimilation' of the believer to Christ does not dissolve the Christian in Him tamen nullam in sacramento, vel tunc, vel postea sustinuit passionem. Non enim ibi exhibuit ut passibile vel non passibile: sed ut passibile exhibuit in cruce in redemptionem, ut impassibile in coelo exhibet ut glorificativum nostrorum corporum: sed ut spiritualem cibum exhibet in sacramento. De exigentia autem talis cibi non est ut patiatur, sed potius ut nos ad se et in se convertat. Et in hoc salvatur veritas nos spiritualiter cibantis: quia spiritualiter cibat, sive spiritualiter sive sacramentaliter manducetur. Et ideo non exhibet in sacramento corpus suum nisi in veritate substantiae, et in veritate cibantis. Ad veritatem autem substantiae corporis Christi, et ad veritatem cibationis, non exigitur quod sit passibile vel impassibile. Et ideo nec actum passionis, nec actum impassibilitatis ibi exhibet' (Albertus, Super Io. , VI, 64, ed. A. Borgnet, 282).\n\n- 19 See Albertus, Super Sent. , IV, d. 9, a. 2, ed. A. Borgnet, 216.\n- 20 '[P]erceptio gratiae communionis corporis mystici, et ex propia causa sacramentali. Et haec manducatio spiritualis numquam separatur a sacramentali: quia hoc modo spirituale accipitur in sacramento, sicut in vase medicina, et causatum in causa' ( ibidem , 217).\n- 21 In a similar way, he quotes the words of Augustine in Albertus, De sacramentis , tr. 5, p. 2, q. 3, ed. Colon., 66, vv. 48-50.\n\n22 See Albertus, De corp. , d. 3, tr. 1, c. 5, ed. A. Borgnet, 256.\n\nin the same way that common food loses its identity and individuality in the subject who assimilates it. On the contrary, as the Son assumed humanity of Christ without consuming it, the Christian is not consumed by the divine food that he receives. Albert develops this argument in order to declare also the union of Christ with his mystical body, the Church. If it is called 'Body of Christ' is precisely because, by receiving His Body and His Blood in the Eucharist, the Church, without abandoning its very nature, is assimilated to Christ thanks to the breath of life and the life-giving warmth of the truth ( sibi eam sibi assimilando in spiritu vitae et calore veritatis vivifico ).23 It is surprising that, among the quotations from Scripture provided on this page about the Church as the mystical body of Christ, especially after quoting the fourth chapter of Ephesians , he has omitted the following verse from the next chapter, which fits pretty well with such a statementaboutfoodpluswarmthinthecontextofthemarriage between Christ and His Church: 'Nemo enim unquam carnem suam odio habuit: sed nutrit et fovet eam, sicut et Christus Ecclesiam' (Eph 5:29; see 1 Thess 2:7).\n\nFinally, Christ behaves as a good shepherd who admirably grazes his flock and gives it to eat his own Body and thus transforms it into his Body; so, by evoking the wedding hymn sung by Adam, He makes Christians flesh of His flesh and bone of His bones (Gn 2:23).\n\nThe third aspect in which the Eucharist differs from ordinary food is its character of general nourishment of both soul and body.24 It nourishes the soul by the spiritualis manducatio while it nourishes the body by the sacramentalis manducatio , so that this Sacrament comforts not only the soul but also the senses. So, Albert listed three traits in common with other foods (to feed through the celestial force, the true nutrient substance in it and the vital principles) and three traits that differ from them (to be root of immortality, to be transforming but not transformed and to be food for the soul and not just for the body).\n\nThe sixth chapter deals with the affinity between food and the subject that is fed, because of their mutual similarity. The Aristotelian nutritional theory that nutrition is a certain assimilation of the nutritious element to the subject appears again. So Albert infers that, if the Eucharist is the most nutritious food, it also will be the most similar to its consumer. Actually, according to Aristotle,25 nutrient and the nourished should be first unalike, but the digestion converts the unalike into alike, by assimilating it to the subject ( nos quasi digerendo nos sibi assimilat ).26 Now, in the present case of a spiritual food, such assimilation should\n\n23 Ibidem , 257. About the influence of the Eucharist on the Church as mystical body of Christ, see Piolanti, Il corpo mistico , 168-179.198.\n\n24 See Albertus, De corp. , d. 3, tr. 1, c. 5, ed. A. Borgnet, 258.\n\n25 See Idem, De an. , l. 2, tr. 2, c. 5, ed. Colon., 88-90; Idem, De homine , 1,3,1, ed. Colon., 107-108.\n\n26 See Idem, De corp ., d. 3, tr. 1, c. 6, ed. A. Borgnet, 260.\n\nnot be suffered by the food but, on the contrary, the one fed will be assimilated to the food that he receives. The first assimilation of the Christian to the Sacramentoccurs through contrition for sins. Furthermore, there is an assimilation of devotion, as the Christian's heart is ignited by the fire of love awakened in meditation of Christ's love (Ps 38:4). The second assimilation concerns the 'image': a Christian is assimilated to the image of the eternal Son of the Father, whose image was the model for the creation of humans; this image was also restored by the Redemption and, in particular, by this Sacrament. Other similarities between the food and the fed are the common human nature, shared by both; the beauty of virtue which embellishes the believer thanks to the Eucharist; the misery due to sin, largely assumed by Christ, not under the aspect of guilt but only of punishment.\n\nThe seventh chapter examines the pervasiveness and subtlety of the spiritual nourishment. Nutrition means that food must penetrate members and this cannot happen without some subtlety of the nutrients, since, as Aristotle says, subtle substances are penetrating.27 Then Albert provides a description of the bodily organs responsible for human nourishment: he mentions teeth, stomach, veins, liver…, with their own functions. He makes use of his Galenic sources, which enumerate four digestions: the first one begins in the mouth and is completed in the stomach; then, the vital juice is extracted from food and is led to the liver, whichproducesbloodasresulting product of the second digestion; the third one happens in the veins when blood reaches them; finally, there is a fourth digestion that takes place in the members of the body, when the result of the former process is finally assimilated by its transformation into a likeness of them.28\n\nSimilarly, the Eucharist nourishes the soul so that it is spiritually masticated by a 'spiritual fraction.' The believer confesses the integrity of the Body of Christ in the Sacrament, despite of being (apparently) broken in the fraction of bread and chewed by the teeth of the Christians.29 The breaking of bread only takes place in the Eucharistic species and this happens for the sake of its meaning; in fact, the reason for the reservation of these species, once the substantial subject that was holding them (the bread) has disappeared-in whose place is now present the Body of Christ-is precisely their function of communicating the meaning\n\n- 27 See Idem, De gen. et corr. , l. 2, tr. 7, ed. Colon., 182, vv. 3-5.\n- 28 See Cadden, Albertus Magnus' Universal Physiology , 335-336.\n\n29 'Hoc igitur modo perficitur etiam nutrimentum animae in sacramento, ut scilicet spiritualiter masticetur […]. Omnibus tamen his praenotandum, de primo, scilicet de masticatione, dicturus, praemittit de fractione quod est de fidei veritate in hoc sacramento, quod fractio quae fit in sacramento sive per manus sacerdotis in altari, sive etiam per dentium fidelium in ore, quando sacramentaliter sumitur sacramentum, non est in corpore Christi: quia illud non frangitur, sed manet integrum et sanum et illibatum in qualibet parte formae sacramenti fractae' (Albertus, De corp. , d. 3, tr. 1, c. 7, ed. A. Borgnet, 265).\n\nof the Sacrament.30 In the case of the breaking of bread, the plurality that exists within the mystical body of Christ, the Church, is signified.31 Similarly, while species are in the stomach of the believer, one can say that the Body of Christ remains in him and, more generally, while they may be perceived by the senses and have not still been dissolved.32\n\nThe act of chewing the species also signifies a meditation on spiritual food itself, i.e. on the very Sacrament.33 By such mastication, the believer can appreciate the sweetness of the food prepared by God for the human being.34 In this sense, the teeth can be compared with the affections thanks to which God's goodness and His judgments are tasted.\n\nThesecondaspect of the digestion process is performed in the stomach by the warmth of fire within it.35 This phase separates the pure from the impure; however, in the Eucharist it is not necessary to purify any impurity, so the disciples must be the ones who are purified in order to receive it worthily. As noted above, heat is the main element of the digestion process. In the case of the Eucharist, the decisive heat is the charity that purifies and cleans everything.36\n\nAs in digestion the nutrient juice is absorbed, so in the Eucharist the sweetness of Christ pervades the heart of the believer. The contemplation of Christ that takes place after purification of the disciple allows him to taste the honey of Christ's presence. Then, the nourishment is distributed through the veins that supply the entire body.37 In the soul, the veins correspond to the thoughts and the affections that behave as powers and members of the body in order to grasp the food for the soul. Thus, the Body of Christ becomes a source of delight from which rivers drip like veins that supply the soul and the body of the Christian.\n\nThe last purification process that takes place in digestion is comparable to careful examination of conscience whose mission is to eliminate any impurity\n\n30 See Piolanti, Il corpo mistico , 163.\n\n- 31 See Albertus, De corp. , d. 3, tr. 1, c. 7, ed. A. Borgnet, 265.\n\n32 See ibidem , 266.\n\n33 See ibidem , 267.\n\n34 Whenhewrotehiscommentarytothe Sentences , he expressed himself in a similar way: '[S]icut crebro redeunt dentes super id quod masticatur, ita meditatio frequenti actu discretionis hujus cibi et memoria Passionis operatur aliquid in spirituali manducatione' (Albertus, Super Sent. , IV, d. 9, a. 2, ed. A. Borgnet, 217).\n\n- 35 See Albertus, De corp. , d. 3, tr. 1, c. 7, ed. A. Borgnet, 268.\n\n36 He also pointed to this analogy in the commentary to the Sentences : 'Trajectio autem cibi ad locum digestionis, non habet propriam similitudinem: sed digestio, quae secundum Philosophum est completio a naturali e proprio calore ex contrariantibus passionibus, refertur ad nos: quia nos quasi digerimur charitate, et complemur: et separatur in nobis impurum a puro: et tunc sequitur unio ut uniamur cibo quem sumimus' (Albertus, Super Sent. , IV, d. 9, a. 2, ed. A. Borgnet, 217).\n\n37 See Albertus, De corp. , d. 3, tr. 1, c. 7, ed. A. Borgnet, 269.\n\nremaining in the Christian. Thus, we must look for Jesus Christ, the physician of souls, who heals diseases with his spiritual food. Finally, the pure nectar of the food of the Lord is infused into the soul of the disciples as spiritual nutrient where they can find all necessary goods for them.\n\nIn writings previous to the treatise De corpore Domini , Albert already advanced an outline of the doctrine that he exposed there and we have just seen. Specifically, in De sacramentis , he established a symbolic reading of the four phases of nutrition by comparing the food division with the separation of the love of sin and temporary pleasures, digestion plus expulsion of impurity as feces with purification of the remains of sin, the transformation of food with the development in grace and, finally, the union of the nutrient with the body with the unity of the spirit when it adheres to God becoming one spirit with Him.38\n\nThe eighth chapter of the distinction of De corpore Domini that we are discussing deals with the capacity of food to join the living being that is fed thanks to the connaturality between them both.39 According to Albert, in the natural feeding process some connaturality between food and the subject that is fed is required; in other case, it would rot in the members and it would generate diseases. However, if such connaturality is given, then it attaches itself to the members of the body and they benefit from the food. In the case of the Eucharist, Christians have to join themselves to Him rather than He to them, so that they become connatural to Him and there is nothing remaining in them foreign to Christ and His divine nature. If this food would be given to someone alien to Christ, it would be lost, as Christ teaches in the gospel (Mt 7:6); so Albert rather speaks of the affinity between children of the same Father.\n\nThe connaturality between Christ and Christians is fivefold; they share with Him the being begotten by God, a pure life, love for their Father God, the light of contemplation and pious union. By supernatural generation, Christians becomeconnatural of Christ, pure life allows them to share with Him his vital energies, love makes the Christians feeling with the same hearth of Christ ( concordes ), contemplation makes them conform to His knowledge and pious union makes them His neighbors. Albert noticed in these dimensions five respective characteristics of the link between food and the subject that is fed. Food is generated according to the subject that is fed, restores forces, introduces warmth in the members of the fed subject, embellishes those members with its life-giving light and, finally, joins them in body and soul.\n\nThe ninth chapter is concerned with the desirability of the food based on some knowledge of food, which the subject that is fed possesses. Referring to Isaac Israeli and Constantine's Pantechne , Albert explains that there are certain\n\n38 See Idem, De sacramentis , tr. 5, p. 2, q. 3, ed. Colon., 66, vv. 54-64.\n\n39 These pages were studied by Piolanti, Il corpo mistico , 172-174.\n\nfoods little sticking to the members: they are consumed by internal warmth, such as eggs, subtle meats and herbs. But there are also others that adhere strongly and firmer to the members, as the ones made of pure wheat grain, for its subtlety allows it to penetrate deep into the nurtured member and to adhere closely to it. Similarly, when Christ joins Christians, it occurs an adhesion to Him by the force that embraces Him, like the nourishment is embraced by the members; second, Hejoins Christians by love as food joins the members, becoming one thing with them; thirdly, He remains stably like a good nutrient; fourthly, He perseveres in proximity to them without anything being lost, as optimal food.\n\nSimilarly, we could continue talking about the Blood of Christ as true drink; such is the subject of the second treaty of the third distinction of De corpore Domini . As he did when he spoke of the Body of Christ, he devotes a number of pages to obtaining all meaning contained in the Sacrament, beginning from the nature of true drink that pertains to the Blood of Christ; he also draws on his wide knowledge of natural sciences and philosophy.\n\n*\n\n*\n\n*\n\nWe have seen how Albert finds a way to get all the richness comprised in the words of Jesus, namely, that the Eucharist is true food and true drink. The main base of his reflections is not a merely symbolic or allegorical reading of the nutritional nature of Sacrament. On the contrary, he emphasizes that it is 'food' and 'drink' in a more genuine sense than ordinary foods and drinks. This is because it performs the purpose of nutrition much better than the usual nourishments. At the end of the day, the point of nutrition is preservation and strengthening of life and the Eucharist achieves this task better than any other food. It provides even a more valuable life, namely, the life of the grace.\n\nThe most important does not lie here in the biological digestive process as such. Rather, according to the famous aphorism of Augustine, the digestive process is reversed in this sacramental feeding: in this case, the food does not become a part of the body of the subject that is fed but backwards. This reversal is the hermeneutical key used by Albert to extract multitude of theological considerations based on the physiology of nutrition, which he well knows thanks to his extensive scientific knowledge. The various processes that food usually suffers before being assimilated must not happen in the Body of Christ but in the soul of the Christian. However, this reversal does not hold universally, as the disciple that feeds himself on the Sacrament is the beneficiary from this (sacramental) process of nutrition. At least in this respect, he resembles more the nourished than the nutrient; in turn, the Body of Christ does not seem to get anything from the disciple. However, one can also notice a certain increase of the Body of Christ through the reception of the Eucharist, but this increase does not take\n\nplace in its Head but in its members (not in Christ but in his disciples); in fact, such an increase would not deal with the Eucharistic Body of Christ, but with His mystical body, the Church.\n\nFinally, Albert's reflection can exemplify how metaphysical realism in the theologyoftheEucharisthelpshimtodevelopthecontentofthefaith.40Hisscholastic disquisitions on the nature of the presence of Christ in the species after transubstantiation constitute an ontological foundation for the realistic content of the faith. Indeed, the Eucharistic treatises of St. Albert show how his certainty of faith in Christ's real presence, supported by a solid metaphysical mortar, erected a deep and beautiful theology of the Eucharist as the Sacrament of communion. Such approach provides also some evidence of the inner life of the Holy bishop of Regensburg.\n\n## Abstract\n\nChristian theology on the Eucharist, already since the Gospel of John refers to the scarcity and abundance of food, by linking this Sacrament to the hunger suffered bytheIsraelites in the desert and their further satiation with manna from heaven. Saint Albert the Great, in his reflection on the Eucharist, includes several ideas taken from his scientific knowledge, especially from Aristotle. These considerations build one of his personal contributions to theological understanding of the spiritualis manducatio that takes place in the Holy Mass. These explanations will be explored in order to understand in which sense the Eucharist is true food and true drink.\n\n40 The thought that the Eucharist is 'true food' also reinforces the realism of transubstantiation, since it is precisely its nature of spiritual food what helps Albert to explain the presence of Christ in the Eucharist: 'Note […] his reliance on the ideas of Christ as sign and, more important, as food for the mystical body. The latter is clearly his favorite recourse when he finds it necessary to explain how the body of Christ can be in several places at once and entirely in each part of the host. Whereas Thomas argues that Christ is entirely in each part of the host because he is present in the manner of substance, and it is the nature of substance to be fully present in each part, Albert says that Christ is so present because he is there as spiritual food, and the same nature of food is in each part of the food as well as in the whole. Albert also feels that Christ's divinity is an important part of the explanation. In fact, the element of divinity is closely related to Christ's role as spiritual food, for it is union with divinity which gives his body the power of feeding spiritually' (Burr, Eucharistic Presence , 23).",
+    "responses": [
+      {
+        "source": "gpt-4o-2024-11-20",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"ADU1\": {\n      \"text\": \"St. Albert the Great defines the Eucharist as 'spiritual food,' by stating that 'the ultimate effect of this Sacrament is the grace of spiritually eating and drinking.'\",\n      \"label\": \"claim\"\n    },\n    \"ADU2\": {\n      \"text\": \"According to him, the Body of Christ is truly present in the sacramental species; he thinks that the Body of Christ is also present in the stomach of the disciple when he receives the Eucharist, and even in the stomach of someone who receives it unworthily; indeed, in general, the Body of Christ in its integrity is present wherever one can see the consecrated species of bread and wine.\",\n      \"label\": \"claim\"\n    },\n    \"ADU3\": {\n      \"text\": \"By transubstantiation, the bread and wine are entirely changed and instead the Body and Blood of Christ become present, so that nothing of the bread and wine remains after the consecration of the Mass.\",\n      \"label\": \"premise\"\n    },\n    \"ADU4\": {\n      \"text\": \"Commenting on the famous words from the Gospel of John in which Jesus says that His Flesh is true food and His Blood is true drink (Jn 6:55), Albert says that the type of nourishment provided by this food is spiritual and its aim is that we remain in Christ, since he, by his union with the divinity, is the source of perpetual life.\",\n      \"label\": \"claim\"\n    },\n    \"ADU5\": {\n      \"text\": \"The 'truth' of this food proceeds from the first cause that makes it food.\",\n      \"label\": \"premise\"\n    },\n    \"ADU6\": {\n      \"text\": \"To be food is to contribute to life in a vegetative way.\",\n      \"label\": \"premise\"\n    },\n    \"ADU7\": {\n      \"text\": \"However, in the case of the Eucharist, this food contributes to the truest life possible for a man, the life of grace and glory.\",\n      \"label\": \"claim\"\n    },\n    \"ADU8\": {\n      \"text\": \"Since this is the highest life, in this food the notion of 'food' is used in the most perfect mode.\",\n      \"label\": \"premise\"\n    },\n    \"ADU9\": {\n      \"text\": \"The nature of nourishment of the Eucharist should not be explained as a kind of metaphor.\",\n      \"label\": \"claim\"\n    },\n    \"ADU10\": {\n      \"text\": \"This food satisfies men to the point that everybody who takes it does not desire any other sustenance, although he has to take additional nourishment to support the body.\",\n      \"label\": \"premise\"\n    },\n    \"ADU11\": {\n      \"text\": \"The sustenance provided by the Eucharist suppresses the desires for honor, pleasure, wealth, etc.\",\n      \"label\": \"claim\"\n    },\n    \"ADU12\": {\n      \"text\": \"Therefore, it eliminates every sort of hunger, unless the disciple voluntarily abandons the communion with Christ.\",\n      \"label\": \"premise\"\n    },\n    \"ADU13\": {\n      \"text\": \"Despite being a 'true food,' the Eucharist differs from other common foods because they nourish living beings in order to preserve their temporal and mortal life, while this Sacrament provides immortal life.\",\n      \"label\": \"claim\"\n    },\n    \"ADU14\": {\n      \"text\": \"When there is a defect in conventional feeding processes, it can be attributed either to the nutrient, or to the living being that is being fed.\",\n      \"label\": \"premise\"\n    },\n    \"ADU15\": {\n      \"text\": \"In the case of the Eucharist, the food may not be beneficial for the communicant because of the lack of his preparation or readiness, but certainly there cannot be any defect in the nutrient as such, because it always contains the power to lead the recipient to eternal life.\",\n      \"label\": \"claim\"\n    },\n    \"ADU16\": {\n      \"text\": \"According to Albert, conventional food acquires the power to nourish from vegetative soul itself, which has to exercise a transformation in it in order to make it nutritious in act; the soul makes it 'similar' to the living being that is being fed: therefore, nutrition is 'assimilation.'\",\n      \"label\": \"premise\"\n    },\n    \"ADU17\": {\n      \"text\": \"But this means that the nutrient cannot overcome the nature of the living being that it will nourish: if the living being is corruptible, its food becomes part of a corruptible body and, sooner or later, it will eventually be corrupted.\",\n      \"label\": \"premise\"\n    },\n    \"ADU18\": {\n      \"text\": \"Nevertheless, just the opposite takes place, namely, that the Body of Christ transmutes Christians into Him, so that their weakness is overcome and they gain strength and even eternal life.\",\n      \"label\": \"claim\"\n    },\n    \"ADU19\": {\n      \"text\": \"Finally, Christ behaves as a good shepherd who admirably grazes his flock and gives it to eat his own Body and thus transforms it into his Body; so, by evoking the wedding hymn sung by Adam, He makes Christians flesh of His flesh and bone of His bones.\",\n      \"label\": \"claim\"\n    },\n    \"ADU20\": {\n      \"text\": \"The third aspect in which the Eucharist differs from ordinary food is its character of general nourishment of both soul and body.\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"ADU1\",\n      \"target\": \"ADU4\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU3\",\n      \"target\": \"ADU2\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU5\",\n      \"target\": \"ADU7\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU6\",\n      \"target\": \"ADU7\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU8\",\n      \"target\": \"ADU7\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU10\",\n      \"target\": \"ADU11\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU11\",\n      \"target\": \"ADU12\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU14\",\n      \"target\": \"ADU15\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU16\",\n      \"target\": \"ADU18\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU17\",\n      \"target\": \"ADU18\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU19\",\n      \"target\": \"ADU20\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "ADU1": {
+              "text": "St. Albert the Great defines the Eucharist as 'spiritual food,' by stating that 'the ultimate effect of this Sacrament is the grace of spiritually eating and drinking.'",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "According to him, the Body of Christ is truly present in the sacramental species; he thinks that the Body of Christ is also present in the stomach of the disciple when he receives the Eucharist, and even in the stomach of someone who receives it unworthily; indeed, in general, the Body of Christ in its integrity is present wherever one can see the consecrated species of bread and wine.",
+              "label": "claim"
+            },
+            "ADU3": {
+              "text": "By transubstantiation, the bread and wine are entirely changed and instead the Body and Blood of Christ become present, so that nothing of the bread and wine remains after the consecration of the Mass.",
+              "label": "premise"
+            },
+            "ADU4": {
+              "text": "Commenting on the famous words from the Gospel of John in which Jesus says that His Flesh is true food and His Blood is true drink (Jn 6:55), Albert says that the type of nourishment provided by this food is spiritual and its aim is that we remain in Christ, since he, by his union with the divinity, is the source of perpetual life.",
+              "label": "claim"
+            },
+            "ADU5": {
+              "text": "The 'truth' of this food proceeds from the first cause that makes it food.",
+              "label": "premise"
+            },
+            "ADU6": {
+              "text": "To be food is to contribute to life in a vegetative way.",
+              "label": "premise"
+            },
+            "ADU7": {
+              "text": "However, in the case of the Eucharist, this food contributes to the truest life possible for a man, the life of grace and glory.",
+              "label": "claim"
+            },
+            "ADU8": {
+              "text": "Since this is the highest life, in this food the notion of 'food' is used in the most perfect mode.",
+              "label": "premise"
+            },
+            "ADU9": {
+              "text": "The nature of nourishment of the Eucharist should not be explained as a kind of metaphor.",
+              "label": "claim"
+            },
+            "ADU10": {
+              "text": "This food satisfies men to the point that everybody who takes it does not desire any other sustenance, although he has to take additional nourishment to support the body.",
+              "label": "premise"
+            },
+            "ADU11": {
+              "text": "The sustenance provided by the Eucharist suppresses the desires for honor, pleasure, wealth, etc.",
+              "label": "claim"
+            },
+            "ADU12": {
+              "text": "Therefore, it eliminates every sort of hunger, unless the disciple voluntarily abandons the communion with Christ.",
+              "label": "premise"
+            },
+            "ADU13": {
+              "text": "Despite being a 'true food,' the Eucharist differs from other common foods because they nourish living beings in order to preserve their temporal and mortal life, while this Sacrament provides immortal life.",
+              "label": "claim"
+            },
+            "ADU14": {
+              "text": "When there is a defect in conventional feeding processes, it can be attributed either to the nutrient, or to the living being that is being fed.",
+              "label": "premise"
+            },
+            "ADU15": {
+              "text": "In the case of the Eucharist, the food may not be beneficial for the communicant because of the lack of his preparation or readiness, but certainly there cannot be any defect in the nutrient as such, because it always contains the power to lead the recipient to eternal life.",
+              "label": "claim"
+            },
+            "ADU16": {
+              "text": "According to Albert, conventional food acquires the power to nourish from vegetative soul itself, which has to exercise a transformation in it in order to make it nutritious in act; the soul makes it 'similar' to the living being that is being fed: therefore, nutrition is 'assimilation.'",
+              "label": "premise"
+            },
+            "ADU17": {
+              "text": "But this means that the nutrient cannot overcome the nature of the living being that it will nourish: if the living being is corruptible, its food becomes part of a corruptible body and, sooner or later, it will eventually be corrupted.",
+              "label": "premise"
+            },
+            "ADU18": {
+              "text": "Nevertheless, just the opposite takes place, namely, that the Body of Christ transmutes Christians into Him, so that their weakness is overcome and they gain strength and even eternal life.",
+              "label": "claim"
+            },
+            "ADU19": {
+              "text": "Finally, Christ behaves as a good shepherd who admirably grazes his flock and gives it to eat his own Body and thus transforms it into his Body; so, by evoking the wedding hymn sung by Adam, He makes Christians flesh of His flesh and bone of His bones.",
+              "label": "claim"
+            },
+            "ADU20": {
+              "text": "The third aspect in which the Eucharist differs from ordinary food is its character of general nourishment of both soul and body.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU1",
+              "target": "ADU4",
+              "type": "support"
+            },
+            {
+              "source": "ADU3",
+              "target": "ADU2",
+              "type": "support"
+            },
+            {
+              "source": "ADU5",
+              "target": "ADU7",
+              "type": "support"
+            },
+            {
+              "source": "ADU6",
+              "target": "ADU7",
+              "type": "support"
+            },
+            {
+              "source": "ADU8",
+              "target": "ADU7",
+              "type": "support"
+            },
+            {
+              "source": "ADU10",
+              "target": "ADU11",
+              "type": "support"
+            },
+            {
+              "source": "ADU11",
+              "target": "ADU12",
+              "type": "support"
+            },
+            {
+              "source": "ADU14",
+              "target": "ADU15",
+              "type": "support"
+            },
+            {
+              "source": "ADU16",
+              "target": "ADU18",
+              "type": "support"
+            },
+            {
+              "source": "ADU17",
+              "target": "ADU18",
+              "type": "support"
+            },
+            {
+              "source": "ADU19",
+              "target": "ADU20",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "ADU2": {
+              "text": "According to him, the Body of Christ is truly present in the sacramental species; he thinks that the Body of Christ is also present in the stomach of the disciple when he receives the Eucharist, and even in the stomach of someone who receives it unworthily; indeed, in general, the Body of Christ in its integrity is present wherever one can see the consecrated species of bread and wine.",
+              "label": "claim"
+            },
+            "ADU3": {
+              "text": "By transubstantiation, the bread and wine are entirely changed and instead the Body and Blood of Christ become present, so that nothing of the bread and wine remains after the consecration of the Mass.",
+              "label": "premise"
+            },
+            "ADU4": {
+              "text": "Commenting on the famous words from the Gospel of John in which Jesus says that His Flesh is true food and His Blood is true drink (Jn 6:55), Albert says that the type of nourishment provided by this food is spiritual and its aim is that we remain in Christ, since he, by his union with the divinity, is the source of perpetual life.",
+              "label": "claim"
+            },
+            "ADU5": {
+              "text": "The 'truth' of this food proceeds from the first cause that makes it food.",
+              "label": "premise"
+            },
+            "ADU6": {
+              "text": "To be food is to contribute to life in a vegetative way.",
+              "label": "premise"
+            },
+            "ADU7": {
+              "text": "However, in the case of the Eucharist, this food contributes to the truest life possible for a man, the life of grace and glory.",
+              "label": "claim"
+            },
+            "ADU9": {
+              "text": "The nature of nourishment of the Eucharist should not be explained as a kind of metaphor.",
+              "label": "claim"
+            },
+            "ADU10": {
+              "text": "This food satisfies men to the point that everybody who takes it does not desire any other sustenance, although he has to take additional nourishment to support the body.",
+              "label": "premise"
+            },
+            "ADU11": {
+              "text": "The sustenance provided by the Eucharist suppresses the desires for honor, pleasure, wealth, etc.",
+              "label": "claim"
+            },
+            "ADU12": {
+              "text": "Therefore, it eliminates every sort of hunger, unless the disciple voluntarily abandons the communion with Christ.",
+              "label": "premise"
+            },
+            "ADU13": {
+              "text": "Despite being a 'true food,' the Eucharist differs from other common foods because they nourish living beings in order to preserve their temporal and mortal life, while this Sacrament provides immortal life.",
+              "label": "claim"
+            },
+            "ADU14": {
+              "text": "When there is a defect in conventional feeding processes, it can be attributed either to the nutrient, or to the living being that is being fed.",
+              "label": "premise"
+            },
+            "ADU15": {
+              "text": "In the case of the Eucharist, the food may not be beneficial for the communicant because of the lack of his preparation or readiness, but certainly there cannot be any defect in the nutrient as such, because it always contains the power to lead the recipient to eternal life.",
+              "label": "claim"
+            },
+            "ADU16": {
+              "text": "According to Albert, conventional food acquires the power to nourish from vegetative soul itself, which has to exercise a transformation in it in order to make it nutritious in act; the soul makes it 'similar' to the living being that is being fed: therefore, nutrition is 'assimilation.'",
+              "label": "premise"
+            },
+            "ADU17": {
+              "text": "But this means that the nutrient cannot overcome the nature of the living being that it will nourish: if the living being is corruptible, its food becomes part of a corruptible body and, sooner or later, it will eventually be corrupted.",
+              "label": "premise"
+            },
+            "ADU18": {
+              "text": "Nevertheless, just the opposite takes place, namely, that the Body of Christ transmutes Christians into Him, so that their weakness is overcome and they gain strength and even eternal life.",
+              "label": "claim"
+            },
+            "ADU20": {
+              "text": "The third aspect in which the Eucharist differs from ordinary food is its character of general nourishment of both soul and body.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU3",
+              "target": "ADU2",
+              "type": "support"
+            },
+            {
+              "source": "ADU5",
+              "target": "ADU7",
+              "type": "support"
+            },
+            {
+              "source": "ADU6",
+              "target": "ADU7",
+              "type": "support"
+            },
+            {
+              "source": "ADU10",
+              "target": "ADU11",
+              "type": "support"
+            },
+            {
+              "source": "ADU11",
+              "target": "ADU12",
+              "type": "support"
+            },
+            {
+              "source": "ADU14",
+              "target": "ADU15",
+              "type": "support"
+            },
+            {
+              "source": "ADU16",
+              "target": "ADU18",
+              "type": "support"
+            },
+            {
+              "source": "ADU17",
+              "target": "ADU18",
+              "type": "support"
+            }
+          ]
+        }
+      },
+      {
+        "source": "claude-3-5-sonnet-20241022",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"1\": {\n      \"text\": \"St. Albert the Great defines the Eucharist as 'spiritual food,' by stating that 'the ultimate effect of this Sacrament is the grace of spiritually eating and drinking.'\",\n      \"label\": \"claim\"\n    },\n    \"2\": {\n      \"text\": \"Commenting on the famous words from the Gospel of John in which Jesus says that His Flesh is true food and His Blood is true drink (Jn 6:55), Albert says that the type of nourishment provided by this food is spiritual and its aim is that we remain in Christ, since he, by his union with the divinity, is the source of perpetual life.\",\n      \"label\": \"claim\"\n    },\n    \"3\": {\n      \"text\": \"The 'truth' of this food proceeds from the first cause that makes it food. To be food is to contribute to life in a vegetative way. However, in thecase of the Eucharist, this food contributes to the truest life possible for a man, the life of grace and glory. Since this is the highest life, in this food the notion of 'food' is used in the most perfect mode\",\n      \"label\": \"claim\"\n    },\n    \"4\": {\n      \"text\": \"Despite being a 'true food,' the Eucharist differs from other common foods because they nourish living beings in order to preserve their temporal and mortal life, while this Sacrament provides immortal life.\",\n      \"label\": \"claim\"\n    },\n    \"5\": {\n      \"text\": \"conventional food acquires the power to nourish from vegetative soul itself, which has to exercise a transformation in it in order to make it nutritious in act; the soul makes it 'similar' to the living being that is being fed: therefore, nutrition is 'assimilation.'\",\n      \"label\": \"premise\"\n    },\n    \"6\": {\n      \"text\": \"if the Body of Christ would nourish the Christian in the same way of the ordinary food, then the disciple would remain mortal and the food itself would be lost with him. Nevertheless, just the opposite takes place, namely, that the Body of Christ transmutes Christians into Him, so that their weakness is overcome and they gain strength and even eternal life.\",\n      \"label\": \"claim\"\n    },\n    \"7\": {\n      \"text\": \"The third aspect in which the Eucharist differs from ordinary food is its character of general nourishment of both soul and body. It nourishes the soul by the spiritualis manducatio while it nourishes the body by the sacramentalis manducatio, so that this Sacrament comforts not only the soul but also the senses.\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"5\",\n      \"target\": \"6\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"3\",\n      \"target\": \"4\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"2\",\n      \"target\": \"3\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"1\",\n      \"target\": \"2\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "1": {
+              "text": "St. Albert the Great defines the Eucharist as 'spiritual food,' by stating that 'the ultimate effect of this Sacrament is the grace of spiritually eating and drinking.'",
+              "label": "claim"
+            },
+            "2": {
+              "text": "Commenting on the famous words from the Gospel of John in which Jesus says that His Flesh is true food and His Blood is true drink (Jn 6:55), Albert says that the type of nourishment provided by this food is spiritual and its aim is that we remain in Christ, since he, by his union with the divinity, is the source of perpetual life.",
+              "label": "claim"
+            },
+            "3": {
+              "text": "The 'truth' of this food proceeds from the first cause that makes it food. To be food is to contribute to life in a vegetative way. However, in thecase of the Eucharist, this food contributes to the truest life possible for a man, the life of grace and glory. Since this is the highest life, in this food the notion of 'food' is used in the most perfect mode",
+              "label": "claim"
+            },
+            "4": {
+              "text": "Despite being a 'true food,' the Eucharist differs from other common foods because they nourish living beings in order to preserve their temporal and mortal life, while this Sacrament provides immortal life.",
+              "label": "claim"
+            },
+            "5": {
+              "text": "conventional food acquires the power to nourish from vegetative soul itself, which has to exercise a transformation in it in order to make it nutritious in act; the soul makes it 'similar' to the living being that is being fed: therefore, nutrition is 'assimilation.'",
+              "label": "premise"
+            },
+            "6": {
+              "text": "if the Body of Christ would nourish the Christian in the same way of the ordinary food, then the disciple would remain mortal and the food itself would be lost with him. Nevertheless, just the opposite takes place, namely, that the Body of Christ transmutes Christians into Him, so that their weakness is overcome and they gain strength and even eternal life.",
+              "label": "claim"
+            },
+            "7": {
+              "text": "The third aspect in which the Eucharist differs from ordinary food is its character of general nourishment of both soul and body. It nourishes the soul by the spiritualis manducatio while it nourishes the body by the sacramentalis manducatio, so that this Sacrament comforts not only the soul but also the senses.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "5",
+              "target": "6",
+              "type": "support"
+            },
+            {
+              "source": "3",
+              "target": "4",
+              "type": "support"
+            },
+            {
+              "source": "2",
+              "target": "3",
+              "type": "support"
+            },
+            {
+              "source": "1",
+              "target": "2",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "2": {
+              "text": "Commenting on the famous words from the Gospel of John in which Jesus says that His Flesh is true food and His Blood is true drink (Jn 6:55), Albert says that the type of nourishment provided by this food is spiritual and its aim is that we remain in Christ, since he, by his union with the divinity, is the source of perpetual life.",
+              "label": "claim"
+            },
+            "3": {
+              "text": "The 'truth' of this food proceeds from the first cause that makes it food. To be food is to contribute to life in a vegetative way. However, in thecase of the Eucharist, this food contributes to the truest life possible for a man, the life of grace and glory. Since this is the highest life, in this food the notion of 'food' is used in the most perfect mode",
+              "label": "claim"
+            },
+            "4": {
+              "text": "Despite being a 'true food,' the Eucharist differs from other common foods because they nourish living beings in order to preserve their temporal and mortal life, while this Sacrament provides immortal life.",
+              "label": "claim"
+            },
+            "5": {
+              "text": "conventional food acquires the power to nourish from vegetative soul itself, which has to exercise a transformation in it in order to make it nutritious in act; the soul makes it 'similar' to the living being that is being fed: therefore, nutrition is 'assimilation.'",
+              "label": "premise"
+            },
+            "6": {
+              "text": "if the Body of Christ would nourish the Christian in the same way of the ordinary food, then the disciple would remain mortal and the food itself would be lost with him. Nevertheless, just the opposite takes place, namely, that the Body of Christ transmutes Christians into Him, so that their weakness is overcome and they gain strength and even eternal life.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "5",
+              "target": "6",
+              "type": "support"
+            },
+            {
+              "source": "3",
+              "target": "4",
+              "type": "support"
+            },
+            {
+              "source": "2",
+              "target": "3",
+              "type": "support"
+            }
+          ]
+        }
+      }
+    ],
+    "timestamp": 1752751668.3416872
+  }
+]

@@ -1,0 +1,377 @@
+[
+  {
+    "identifier": "MOYTPA-2",
+    "system_prompt": "## GOAL\nArgument‑mine the following paper to extract its comprehensive argumentative structure.\n\n## DEFINITIONS\n1. **Argument**: A set of propositions, including some number of premises and a conclusion. The premises should logically entail the conclusion.\n2. **Claim**: A proposition that asserts something to be true or false, typically requiring justification or evidence.\n3. **Premise**: A proposition that provides evidence, justification, or logical support for a claim or conclusion.\n\n## CRITICAL REQUIREMENTS\n1. **VERBATIM EXTRACTION ONLY**: Each ADU text must be copied EXACTLY from the paper with no modifications, paraphrasing, or combining of separate sentences.\n2. **NO HALLUCINATION**: Do not create, modify, or invent text that does not appear exactly in the source.\n3. **EXACT MATCHING**: Every word, punctuation mark, and spacing must match the original precisely.\n\n## DIRECTIONS\n1. **Identify Argumentative Discourse Units (ADUs)**  \n   - ADU = any contiguous text span functioning as a claim or a premise in the reasoning structure.\n   - **BE HIGHLY SELECTIVE**: Only include ADUs that are crucial to the overarching argument structure.\n   - Focus on significant claims and premises that contribute meaningfully to the argumentative flow.\n   - **AVOID NOISE**: Skip ADUs that are merely descriptive, tangential, or do not substantially advance the argument.\n   - Prioritize quality over quantity - fewer accurate, important ADUs are better than many insignificant ones.\n   - **EXTRACT ONLY**: Copy text spans exactly as they appear, without any modifications.\n2. **Classify each ADU**  \n   - Label = either `\"claim\"` or `\"premise\"`.  \n3. **Detect directed relations**  \n   - Relation = `\"support\"` or `\"attack\"`, from one ADU (source) to another (target).\n   - Map how ADUs connect to form reasoning chains.\n   - Focus on relationships between the most significant ADUs.\n   - Include relationships between premises that strengthen or weaken each other.\n4. **Verbatim spans**  \n   - Each `\"text\"` value must be copied EXACTLY from the paper with zero modifications.\n   - Do not paraphrase, summarize, or combine separate sentences.\n   - Do not add, remove, or change any words, punctuation, or spacing.\n   - If unsure about exact wording, skip that ADU rather than guess.\n\n## WHAT TO CAPTURE\n**INCLUDE ONLY:**\n- Main argumentative threads that are central to the paper's contribution\n- Core claims that represent the paper's primary arguments or findings\n- Key premises that provide essential support for major claims\n- Critical counterarguments and their refutations\n- Reasoning chains that demonstrate how main conclusions are derived\n\n**EXCLUDE (AVOID NOISE):**\n- Minor details, examples, or descriptive content that don't advance the argument\n- Tangential points or side discussions\n- Pure background information or literature review content\n- Methodological details unless they constitute argumentative claims\n- Obvious statements or commonly accepted facts\n- Redundant or repetitive argumentative content\n\n**GUIDING PRINCIPLE**: If removing an ADU would not significantly impact understanding of the paper's argumentative structure, it should be excluded.\n\n## QUALITY CONTROL\n- Before finalizing each ADU, verify the text exists exactly in the source\n- Prefer fewer, accurate ADUs over many potentially modified ones\n- When in doubt about exact wording, omit the ADU\n\n## OUTPUT FORMAT\nReturn **only** a single valid JSON object matching this schema.  \nDo **not** output any extra text, markdown, or explanations.\n\nRESPOND WITH ONLY:\n```json\n{\n  \"ADUs\": {\n    \"<ADU_ID>\": {\n      \"text\": \"<exact span from paper>\",\n      \"label\": \"claim\" | \"premise\"\n    }\n    ...\n  },\n  \"relations\": [\n    {\n      \"source\": \"<ADU_ID>\",\n      \"target\": \"<ADU_ID>\",\n      \"type\": \"support\" | \"attack\"\n    }\n  ]\n}\n```",
+    "user_content": "## TRANSCENDENTAL PESSIMISM\n\nUniversity of Western Ontario\n\nPessimism is a concept that is used  in  conflicting  ways.  As  there is no clear definition of pessimism that philosophers can agree upon,  more  often  than  not  it  is up to each one to use the term as they see fit and apply it to a wide range  of  concerns  that  may  have little  in  common.  Faced  with  this, there  are  two  main  options.  One is simply to accept that pessimism is  a  multifaceted  concept  that  has distinct  applications  in  sociology, gender studies, psychology, politics, and philosophy (and even  within  philosophy  itself it is  used  to  describe  a  wide  range of  philosophies).  In  other  words, let people freely  use  pessimism as they see fit in order to describe whatever feature of life they want to highlight. A second option is for philosophers to retain the concept of transcendental pessimism (a  term  first  coined  by Dennis  Darnoi  in  1967)  to  refer specifically to  pessimism  of  the purely philosophical variety (in contrast to the other uses).  I will argue that this latter option  is preferable insofar as it respects a  rich  philosophical  history  and contributes to overall clarity in philosophical discourse.\n\nIn what follows, I will first describe some different ways in which pessimism is currently used - with a  particular  focus  on psychological accounts of pessimism. Second, I will elaborate on the history of  pessimism  in  order  to  show how this history can help us obtain  conceptual  clarity.  Finally, I  will  offer  a  historically  rooted definition  of  pessimism.  As  part of this definition, I will defend the view that philosophical pessimism could be more accurately described\n\nas transcendental pessimism . Until I explain why transcendental pessimism is  the term we should prefer, I will continue to use philosophical pessimism or simply pessimism interchangeably throughout this essay.\n\nMy claim that pessimism is used in numerous different ways that lends itself to ambiguity starts with the most basic  of  observations.  Most  of  us  have  encountered someone at some point in our lives who, when offered an opportunity (for a job, a vacation, a project, and so on),  has  answered  with  a  negative  attitude.  Say,  for example, that we want to go to the beach for the day but our friend does not want to. They could say something like, 'I don't think we should go, you know, it's probably going to rain, we are going to get wet and cold, we'll surely lose something in the sand - doesn't that always happen? - and overall we won't have a good time.' Our friend imagines the worst outcome. They are, we would probably agree, a pessimist - or they have a pessimistic attitude towards  our  invitation.  There  is  indeed  a common  (and  perhaps  prevailing)  understanding  of pessimism that makes reference to a bad attitude and a  generally  negative  disposition  towards  people  and events.  This,  however,  is  not  what  pessimism  means in  philosophical  terms.  Yet,  outside  of  academia,  and sometimes  even  within  it,  it  is  this  psychological perspective on pessimism that remains dominant. The American Psychological Association defines pessimism as:\n\n[T]he  attitude  that  things  will  go  wrong  and  that people's  wishes  or  aims  are  unlikely  to  be  fulfilled. Pessimists  are  people  who  expect  bad  things  to happen to them and to others or who are otherwise doubtful or hesitant about positive outcomes. Most individuals lie somewhere on the spectrum between the two polar opposites of pure optimism and pure pessimism but tend to demonstrate relatively stable situational tendencies in one direction or the other.\n\nIn other words, psychological pessimism is an attitude . Yet, as I will show, philosophical pessimism is a philosophical system that purports to answer questions about the value of existence and explain why suffering is so ubiquitous. This difference has, however, been routinely underappreciated. It is important to keep in mind that viewing pessimism as a psychological predisposition is not wrong per se - there really is, after all , such a thing as a pessimistic temperament. My claim is that it is wrong to conflate it with pessimism as a system.\n\nIn his 1877 book, Pessimism: A History and a Criticism , the English psychologist James Sully wrote:\n\n[T]o most English minds, perhaps, the term pessimism  suggests nothing like a philosophical creed  or  a  speculative  system.  As  a  familiar  word in  popular  literature  it  appears  to  signify  a  certain way of looking at the things of life, a temper of mind with its accompanying intellectual predisposition. In everyday language a man is a pessimist who habitually emphasises the dark and evil aspects of life (...) We do not think of them as a school adopting certain first principles in common, but rather as a peculiar make of a person characterized by a kind of constitutional leaning to a gloomy view of the world and its affairs.\n\nQuite accurately, Sully points out that for most people pessimism is  associated  with  certain  character  traits, rather than a rigorously developed school of thought that  has  first  principles  and  proceeds  to  a  complete system from those principles. Julius Bahnsen, a prominent 19 th  Century German pessimist philosopher noted  regretfully  how  pessimism  'is  used  to  justify every  negative  mood  and  fit  of  hypochondria'.  More recently, Joshua Dienstag makes the cautionary point that  'just  as  theories  of  progress  are  not  the  same thing as a cheerful attitude towards life, neither should pessimism be equated with a foul disposition'.\n\n## MAGEE WOULD LIKE TO RESCUE SCHOPENHAUER'S SYSTEM BY GETTING RID OF THE PSYCHOLOGY MOTIVATING HIS PESSIMISTIC VIEWS\n\nIn  line  with  Dienstag's  cautionary  point,  Bertrand Russell  famously  asserted  that  pessimism  is  not  a philosophical  system  at  all  but  a  mere  temperament. In  his History of Western Philosophy ,  Russell  said  that 'the belief in either pessimism or optimism is a matter of  temperament,  not  of  reason,  but  the  optimistic temperament has been much commoner among Western philosophers. A representative of the opposite party is therefore likely to be useful in bringing forward\n\nconsiderations which would otherwise be overlooked.' Simply put, pessimism (and optimism for that matter) is not really philosophy.\n\nThis psychological line of criticism was also taken up by Bryan Magee who, like Russell, denies pessimism a place in philosophy. For him pessimism is not philosophy.  In reference to Arthur Schopenhauer's philosophy, Magee thinks  that  if  we  could  set  aside  his  psychologically misguided  pessimistic  musings,  we  would  then  find in  his  writings  a  much  better  philosophical  system -  and  one  that  has  no  need  for  pessimism.  In  other words,  Magee  would  like  to  rescue  Schopenhauer's system  by  getting  rid  of  the  psychology  motivating his pessimistic views. As Magee writes, 'it is true that his pessimism is compatible with his philosophy - but that is only because the two are, of necessity, logically unconnected.  Non-pessimism  is  equally  compatible with  his  philosophy.  The  traditional  identification  of him in terms of his pessimism is largely irrelevant to a serious consideration of him as a philosopher.' Instead, Magee  thinks  that  Schopenhauer  makes  important contributions to metaphysics (for example, by arguing for  the oneness of  ultimate  reality)  and  ethics  (for example, by saying that compassion is always the proper moral attitude) with no need to appeal to pessimism. Thus, Magee concludes that there is no such thing as philosophical pessimism to be found in Schopenhauer. By reducing pessimism to psychology, Magee denies its relevance as a philosophical system.\n\n***\n\nBut if philosophical pessimism is to be seen as something more  than  a  'mere'  temperament  or  attitude,  what might this be? Is it about saying that life is filled with pain? Is it about denying progress? Perhaps it is simply about  saying  that  life  is bad ?  If  so,  then  pessimism turns out to be a rather thin and malleable concept that admits almost any philosophy or claim that emphasises the negative in life. But, as I will now argue, there is much  more  to  philosophical  pessimism  than  this.  It is in fact a rich philosophical area that makes a series of specific claims and commitments. Crucially, it has a fruitful history that evolved into what can be properly called a tradition . It is now time to look at this.\n\nFirst, the term pessimism made its appearance during the 18 th Century  in reference to Voltaire's tragic depiction  of  Candide's  voyage  through  the  Americas. Voltaire's  pessimism  was  presented  as  a  response  to Leibniz's  optimism  -  the  view  that  this  was  the  best possible world. In other words, it has a philosophical origin story which is why philosophy has so much to say on the topic. For Voltaire, our pains and sufferings serve no ultimate purpose - this belief lies at the heart of philosophical pessimism.\n\n## IF PHILOSOPHICAL PESSIMISM IS TO BE SEEN AS SOMETHING MORE THAN A 'MERE' TEMPERAMENT OR ATTITUDE, WHAT MIGHT THIS BE?\n\nBut if pessimism is to be considered as a fully-fledged philosophical tradition, then it must be extensive, i.e., it is not enough if one or two philosophers are writing, or  have  written,  on  the  same  topic.  Second,  it  must also  be consistent ,  i.e.,  there  must  be  something  like a  continued  focus  on  this  theme  over  time.  Finally, the  issues  and  questions  raised  should  have  enough in  common  so  that  debate  and  disagreements  are philosophically fruitful , i.e., they acknowledge the work being done by others and that they are not all talking past one another.\n\nThese  conditions  are  all  met  when  we  look  to  19 th Century  Germany.  During  that  period,  there  was  a series  of  philosophers  -  Schopenhauer,  Eduard  von Hartmann, Philipp Mainländer, Julius Bahnsen, Olga Plümacher and Agnes Taubert among others - who were writing about the value of life, suffering, the essence of existence, and whether or not being is preferable to not being. This is the Weltschmerz tradition and these are the Weltschmerz philosophers ( Weltschmerz is a German word  that  means  something  like  'world-weariness'). They  were  the  first  group  of  philosophers  to  discuss these questions in a systematic way and they were also the first to refer to their philosophies as pessimist .\n\nIt is Schopenhauer's The World as Will and Representation (1818)  that  represents  the  true  starting  point  for pessimism as a philosophical system . These early\n\npessimists  not  only  came  together  around  the  idea that  existence  was  suffering,  that  our  suffering  has no ultimate purpose, and that nonbeing is preferable to  being,  but  they  accepted  that  this  is  due,  in  large part, to some feature about the essence of existence. In other words, they accepted a metaphysical position - a metaphysical position laid out by Schopenhauer.\n\nCrucial to this shared philosophical ground for pessimism is the metaphysical concept of will . Schopenhauer was the first to give us a fully developed view of the will as thing-in-itself and ascribed to it an inescapable role in giving existence its fundamentally wretched and pessimistic character. In his metaphysics, the thing-in-itself refers to reality as such, i.e., independently of how we perceive it. Further, it is one single undivided reality  that  unites  everything  that exists in this world of representations. At a fundamental level,  everything  that  is,  is one same  thing: will .  In Schopenhauer's work, this will emerges as a sort of vital force that  -  being  beyond  space,  time  and  causality  exists with the sole purpose of endlessly wanting and desiring. As a result, satisfaction and happiness are not possible - or at least are not possible in the long run due to the insatiable nature of desire. As Schopenhauer put it, 'all will springs from lack, from deficiency, and thus from suffering. Fulfilment brings this to an end; and yet for  one  wish  that  is  fulfilled  there  remain  at least ten that are denied (...) therefore we never obtain lasting happiness or peace'.\n\nUltimately,  all  the  German  pessimists  agreed  that the  fundamental  source  of  our  misgivings  is  found in  the  essence of existence itself - the will -  and  not in  this  or  that  particular  circumstance  of  our  lives. This belief that the essence of existence is the source of our existential predicaments is a central feature of philosophical  pessimism.  For  the  German  pessimists, our existential misgivings are found in the will, and this will lies forever beyond our reach, remaining, therefore, ungraspable and unaffected by our actions in this world no  matter  what  we  may  try  to  do  to  change  it,  e.g. advocate  for  revolutions.  Olga  Plümacher  makes  this point very clearly:\n\nThe  future  will  doubtless  heal  many  wounds  which now  seem  incurable.  Even  the  social  question  will some  day  find  a  solution,  though  no  one  dare  say whether it will be by gentle or by violent means. But the  great  sources  of  suffering  will  still  abide  in  the future for the reason that they spring from the very conditions of life.\n\nPessimists hold steadfast to this point: there is nothing we can do to ever change the essence of existence - the will. For this reason, one can justifiably say that the will ties all the pessimists together. Yet it is also true that each pessimist philosopher conceived of the will in their own  ways  by  introducing  important  modifications. Recall  that  for  Schopenhauer reality at bottom is one and undivided .    By  contrast,  Mainländer and Bahnsen denied the oneness of the will and instead argued that there exists a multiplicity of wills. In other words, for them,  the  fundamental  nature  of  reality  consists  of countless individual wills that struggle and fight against each  other,  which  in  turn  explains  why  every  living being  is  inescapably  caught  up  in  life's  struggles  and pains.  Hartmann  affirms  Schopenhauer's  oneness  of the will but adds that the will is united to reason in order to form a unified force that he called the Unconscious (a view Plümacher accepted). This unconscious force turns our world into a battlefield where reason tries to tame and control the will but, ultimately, to no avail. This is what gives life its wretched character. In the end, these pessimists are all working within the metaphysical and pessimist  framework  established  by  Schopenhauer  albeit with some important tweaks here and there.\n\n***\n\nNow that I have provided a historical sketch of the issues and concerns raised by these German philosophers, it is time to have a look at the formal definition of pessimism that I propose. Let us call this pessimism transcendental pessimism in order to distinguish it from all other uses of  the  term.  It  is transcendental because  it  places  the source our existential predicaments beyond the  world of representations, of objects. The proposed definition has  four  points,  all  rooted  in  the  philosophies  of  the original 19 th Century pessimist philosophers.\n\n- The essence of existence can be known either fully or partially and it is will . This is a metaphysical claim;\n- This will is what characterizes life as an experience conditioned by need, want and pain. Ultimately, suffering is inescapable;\n- There are no ultimate reasons for our sufferings.\n\nThis  means  that  there  is  no  cosmic  plan  or purpose to our suffering;\n\n- Nonexistence is preferable to existence.\n\nIn  the  end,  pessimism  will  likely  remain  a  contested concept. The psychological perspective will likely continue to dominate, and many will likely dismiss the arguments  presented  by  philosophical  pessimists  on the grounds that they are only depressed or miserable. Furthermore,  it  is  likely  that  any  philosophy  that points  out  how  miserable  existence  is  (regardless  of the reasons for doing so) will continue to be labelled as pessimistic.\n\n## ALL THE GERMAN PESSIMISTS AGREED THAT THE FUNDAMENTAL SOURCE OF OUR MISGIVINGS IS FOUND IN THE ESSENCE OF EXISTENCE ITSELF - THE WILL - AND NOT IN THIS OR THAT PARTICULAR CIRCUMSTANCE OF OUR LIVES\n\nThis is what happens with contemporary anti-natalists, to  take  one  prominent  contemporary  example.  Antinatalism is often labelled as a pessimist philosophy . But while anti-natalist philosophers do claim that existence is  overall bad and  that  non-existence  is  preferable  to existence, they eschew all metaphysical talk about the will, the thing-in-itself, or ultimate purposes, choosing to  focus  instead  on  providing  the  best  reasons  for the  idea  that  bringing  new  humans  into  the  world  is always a harm (given how filled with pain and strife life is). While both pessimists and anti-natalists argue for the  preferability  of  nonexistence  over  existence,  the original pessimists also engage with larger philosophical questions that provide us with a comprehensive view of the totality of existence.\n\nIndeed,  the  question  of  whether  or  not  to  procreate is not a central one for the original pessimists. When dealing with our existential sufferings, not procreating was  one,  among  other,  possibilities  they  considered. Hartmann, for example, was very unclear on this point. He argued that future humans will at some point decide how they will bring about an end to human existence and that we are not in a position to know what course of  action  they  will  choose.  Hartmann  is  clearly  a pessimist,  but  he  is  not  a  committed  anti-natalist. On  the  other  hand,  Schopenhauer  is  much  closer  to an  anti-natalist  view  point  insofar  as  he  favoured  an ascetic  approach to life  whereby all  desires,  including the desire to procreate, would be tamed and defeated.\n\nBy not acknowledging the pessimist tradition and by not engaging with the issues they raise (in particular the  metaphysical  and  transcendental  framework  that these  original  pessimists  accepted),  anti-natalists  are setting themselves outside of this important tradition. It is essential to keep in mind that this is not wrong in any way; rather, it is a different philosophical approach, with its own merits. While it is likely that people will continue to refer to anti-natalists as pessimists, given what I have argued here, one could say they are antinatalist  pessimists but  not transcendental  pessimists. I think this is an important distinction to keep in mind because it contributes to philosophical clarity.\n\nUltimately, transcendental pessimism is a well-defined philosophical tradition with a rich history and  a thematic coherence. It is not the same as psychological pessimism and it is not the same as other philosophies that  deal  with  the  wretchedness  of  existence.  While some may continue to use the blanket term 'pessimism' to  refer  to  all  of  these  perspectives,  if  we  aspire  to clarity then the framework of transcendental pessimism can certainly help.\n\nIgnacio  L.  Moya  has  a  PhD  in  philosophy  from  Western University, Canada. He thinks and writes primarily about philosophical  pessimism,  with  a  focus  on  18th  and  19th century  philosophy.  Other  topics  he  works  on  include history  of  philosophy  more  broadly,  animal  rights,  and social justice. Website: ignaciomoyaa.com",
+    "responses": [
+      {
+        "source": "gpt-4o-2024-11-20",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"ADU1\": {\n      \"text\": \"Pessimism is a concept that is used in conflicting ways.\",\n      \"label\": \"claim\"\n    },\n    \"ADU2\": {\n      \"text\": \"There is no clear definition of pessimism that philosophers can agree upon, more often than not it is up to each one to use the term as they see fit and apply it to a wide range of concerns that may have little in common.\",\n      \"label\": \"premise\"\n    },\n    \"ADU3\": {\n      \"text\": \"I will argue that this latter option is preferable insofar as it respects a rich philosophical history and contributes to overall clarity in philosophical discourse.\",\n      \"label\": \"claim\"\n    },\n    \"ADU4\": {\n      \"text\": \"My claim that pessimism is used in numerous different ways that lends itself to ambiguity starts with the most basic of observations.\",\n      \"label\": \"claim\"\n    },\n    \"ADU5\": {\n      \"text\": \"There is indeed a common (and perhaps prevailing) understanding of pessimism that makes reference to a bad attitude and a generally negative disposition towards people and events.\",\n      \"label\": \"premise\"\n    },\n    \"ADU6\": {\n      \"text\": \"This, however, is not what pessimism means in philosophical terms.\",\n      \"label\": \"claim\"\n    },\n    \"ADU7\": {\n      \"text\": \"Yet, outside of academia, and sometimes even within it, it is this psychological perspective on pessimism that remains dominant.\",\n      \"label\": \"premise\"\n    },\n    \"ADU8\": {\n      \"text\": \"My claim is that it is wrong to conflate it with pessimism as a system.\",\n      \"label\": \"claim\"\n    },\n    \"ADU9\": {\n      \"text\": \"In other words, psychological pessimism is an attitude.\",\n      \"label\": \"premise\"\n    },\n    \"ADU10\": {\n      \"text\": \"Philosophical pessimism is a philosophical system that purports to answer questions about the value of existence and explain why suffering is so ubiquitous.\",\n      \"label\": \"claim\"\n    },\n    \"ADU11\": {\n      \"text\": \"It is Schopenhauer's The World as Will and Representation (1818) that represents the true starting point for pessimism as a philosophical system.\",\n      \"label\": \"claim\"\n    },\n    \"ADU12\": {\n      \"text\": \"Ultimately, all the German pessimists agreed that the fundamental source of our misgivings is found in the essence of existence itself - the will - and not in this or that particular circumstance of our lives.\",\n      \"label\": \"claim\"\n    },\n    \"ADU13\": {\n      \"text\": \"This belief that the essence of existence is the source of our existential predicaments is a central feature of philosophical pessimism.\",\n      \"label\": \"claim\"\n    },\n    \"ADU14\": {\n      \"text\": \"The essence of existence can be known either fully or partially and it is will.\",\n      \"label\": \"claim\"\n    },\n    \"ADU15\": {\n      \"text\": \"This will is what characterizes life as an experience conditioned by need, want and pain. Ultimately, suffering is inescapable.\",\n      \"label\": \"claim\"\n    },\n    \"ADU16\": {\n      \"text\": \"There are no ultimate reasons for our sufferings.\",\n      \"label\": \"claim\"\n    },\n    \"ADU17\": {\n      \"text\": \"Nonexistence is preferable to existence.\",\n      \"label\": \"claim\"\n    },\n    \"ADU18\": {\n      \"text\": \"Ultimately, transcendental pessimism is a well-defined philosophical tradition with a rich history and a thematic coherence.\",\n      \"label\": \"claim\"\n    },\n    \"ADU19\": {\n      \"text\": \"It is not the same as psychological pessimism and it is not the same as other philosophies that deal with the wretchedness of existence.\",\n      \"label\": \"claim\"\n    },\n    \"ADU20\": {\n      \"text\": \"If we aspire to clarity then the framework of transcendental pessimism can certainly help.\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"ADU2\",\n      \"target\": \"ADU1\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU3\",\n      \"target\": \"ADU1\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU5\",\n      \"target\": \"ADU4\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU6\",\n      \"target\": \"ADU5\",\n      \"type\": \"attack\"\n    },\n    {\n      \"source\": \"ADU7\",\n      \"target\": \"ADU6\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU9\",\n      \"target\": \"ADU8\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU10\",\n      \"target\": \"ADU8\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU11\",\n      \"target\": \"ADU10\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU12\",\n      \"target\": \"ADU11\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU13\",\n      \"target\": \"ADU12\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU14\",\n      \"target\": \"ADU13\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU15\",\n      \"target\": \"ADU14\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU16\",\n      \"target\": \"ADU15\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU17\",\n      \"target\": \"ADU16\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU18\",\n      \"target\": \"ADU17\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU19\",\n      \"target\": \"ADU18\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU20\",\n      \"target\": \"ADU19\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "ADU1": {
+              "text": "Pessimism is a concept that is used in conflicting ways.",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "There is no clear definition of pessimism that philosophers can agree upon, more often than not it is up to each one to use the term as they see fit and apply it to a wide range of concerns that may have little in common.",
+              "label": "premise"
+            },
+            "ADU3": {
+              "text": "I will argue that this latter option is preferable insofar as it respects a rich philosophical history and contributes to overall clarity in philosophical discourse.",
+              "label": "claim"
+            },
+            "ADU4": {
+              "text": "My claim that pessimism is used in numerous different ways that lends itself to ambiguity starts with the most basic of observations.",
+              "label": "claim"
+            },
+            "ADU5": {
+              "text": "There is indeed a common (and perhaps prevailing) understanding of pessimism that makes reference to a bad attitude and a generally negative disposition towards people and events.",
+              "label": "premise"
+            },
+            "ADU6": {
+              "text": "This, however, is not what pessimism means in philosophical terms.",
+              "label": "claim"
+            },
+            "ADU7": {
+              "text": "Yet, outside of academia, and sometimes even within it, it is this psychological perspective on pessimism that remains dominant.",
+              "label": "premise"
+            },
+            "ADU8": {
+              "text": "My claim is that it is wrong to conflate it with pessimism as a system.",
+              "label": "claim"
+            },
+            "ADU9": {
+              "text": "In other words, psychological pessimism is an attitude.",
+              "label": "premise"
+            },
+            "ADU10": {
+              "text": "Philosophical pessimism is a philosophical system that purports to answer questions about the value of existence and explain why suffering is so ubiquitous.",
+              "label": "claim"
+            },
+            "ADU11": {
+              "text": "It is Schopenhauer's The World as Will and Representation (1818) that represents the true starting point for pessimism as a philosophical system.",
+              "label": "claim"
+            },
+            "ADU12": {
+              "text": "Ultimately, all the German pessimists agreed that the fundamental source of our misgivings is found in the essence of existence itself - the will - and not in this or that particular circumstance of our lives.",
+              "label": "claim"
+            },
+            "ADU13": {
+              "text": "This belief that the essence of existence is the source of our existential predicaments is a central feature of philosophical pessimism.",
+              "label": "claim"
+            },
+            "ADU14": {
+              "text": "The essence of existence can be known either fully or partially and it is will.",
+              "label": "claim"
+            },
+            "ADU15": {
+              "text": "This will is what characterizes life as an experience conditioned by need, want and pain. Ultimately, suffering is inescapable.",
+              "label": "claim"
+            },
+            "ADU16": {
+              "text": "There are no ultimate reasons for our sufferings.",
+              "label": "claim"
+            },
+            "ADU17": {
+              "text": "Nonexistence is preferable to existence.",
+              "label": "claim"
+            },
+            "ADU18": {
+              "text": "Ultimately, transcendental pessimism is a well-defined philosophical tradition with a rich history and a thematic coherence.",
+              "label": "claim"
+            },
+            "ADU19": {
+              "text": "It is not the same as psychological pessimism and it is not the same as other philosophies that deal with the wretchedness of existence.",
+              "label": "claim"
+            },
+            "ADU20": {
+              "text": "If we aspire to clarity then the framework of transcendental pessimism can certainly help.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU2",
+              "target": "ADU1",
+              "type": "support"
+            },
+            {
+              "source": "ADU3",
+              "target": "ADU1",
+              "type": "support"
+            },
+            {
+              "source": "ADU5",
+              "target": "ADU4",
+              "type": "support"
+            },
+            {
+              "source": "ADU6",
+              "target": "ADU5",
+              "type": "attack"
+            },
+            {
+              "source": "ADU7",
+              "target": "ADU6",
+              "type": "support"
+            },
+            {
+              "source": "ADU9",
+              "target": "ADU8",
+              "type": "support"
+            },
+            {
+              "source": "ADU10",
+              "target": "ADU8",
+              "type": "support"
+            },
+            {
+              "source": "ADU11",
+              "target": "ADU10",
+              "type": "support"
+            },
+            {
+              "source": "ADU12",
+              "target": "ADU11",
+              "type": "support"
+            },
+            {
+              "source": "ADU13",
+              "target": "ADU12",
+              "type": "support"
+            },
+            {
+              "source": "ADU14",
+              "target": "ADU13",
+              "type": "support"
+            },
+            {
+              "source": "ADU15",
+              "target": "ADU14",
+              "type": "support"
+            },
+            {
+              "source": "ADU16",
+              "target": "ADU15",
+              "type": "support"
+            },
+            {
+              "source": "ADU17",
+              "target": "ADU16",
+              "type": "support"
+            },
+            {
+              "source": "ADU18",
+              "target": "ADU17",
+              "type": "support"
+            },
+            {
+              "source": "ADU19",
+              "target": "ADU18",
+              "type": "support"
+            },
+            {
+              "source": "ADU20",
+              "target": "ADU19",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "ADU1": {
+              "text": "Pessimism is a concept that is used in conflicting ways.",
+              "label": "claim"
+            },
+            "ADU3": {
+              "text": "I will argue that this latter option is preferable insofar as it respects a rich philosophical history and contributes to overall clarity in philosophical discourse.",
+              "label": "claim"
+            },
+            "ADU4": {
+              "text": "My claim that pessimism is used in numerous different ways that lends itself to ambiguity starts with the most basic of observations.",
+              "label": "claim"
+            },
+            "ADU5": {
+              "text": "There is indeed a common (and perhaps prevailing) understanding of pessimism that makes reference to a bad attitude and a generally negative disposition towards people and events.",
+              "label": "premise"
+            },
+            "ADU6": {
+              "text": "This, however, is not what pessimism means in philosophical terms.",
+              "label": "claim"
+            },
+            "ADU7": {
+              "text": "Yet, outside of academia, and sometimes even within it, it is this psychological perspective on pessimism that remains dominant.",
+              "label": "premise"
+            },
+            "ADU8": {
+              "text": "My claim is that it is wrong to conflate it with pessimism as a system.",
+              "label": "claim"
+            },
+            "ADU12": {
+              "text": "Ultimately, all the German pessimists agreed that the fundamental source of our misgivings is found in the essence of existence itself - the will - and not in this or that particular circumstance of our lives.",
+              "label": "claim"
+            },
+            "ADU13": {
+              "text": "This belief that the essence of existence is the source of our existential predicaments is a central feature of philosophical pessimism.",
+              "label": "claim"
+            },
+            "ADU16": {
+              "text": "There are no ultimate reasons for our sufferings.",
+              "label": "claim"
+            },
+            "ADU17": {
+              "text": "Nonexistence is preferable to existence.",
+              "label": "claim"
+            },
+            "ADU18": {
+              "text": "Ultimately, transcendental pessimism is a well-defined philosophical tradition with a rich history and a thematic coherence.",
+              "label": "claim"
+            },
+            "ADU19": {
+              "text": "It is not the same as psychological pessimism and it is not the same as other philosophies that deal with the wretchedness of existence.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU3",
+              "target": "ADU1",
+              "type": "support"
+            },
+            {
+              "source": "ADU5",
+              "target": "ADU4",
+              "type": "support"
+            },
+            {
+              "source": "ADU6",
+              "target": "ADU5",
+              "type": "attack"
+            },
+            {
+              "source": "ADU7",
+              "target": "ADU6",
+              "type": "support"
+            },
+            {
+              "source": "ADU13",
+              "target": "ADU12",
+              "type": "support"
+            },
+            {
+              "source": "ADU17",
+              "target": "ADU16",
+              "type": "support"
+            },
+            {
+              "source": "ADU18",
+              "target": "ADU17",
+              "type": "support"
+            },
+            {
+              "source": "ADU19",
+              "target": "ADU18",
+              "type": "support"
+            }
+          ]
+        }
+      },
+      {
+        "source": "claude-3-5-sonnet-20241022",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"A1\": {\n      \"text\": \"Pessimism is a concept that is used in conflicting ways. As there is no clear definition of pessimism that philosophers can agree upon, more often than not it is up to each one to use the term as they see fit and apply it to a wide range of concerns that may have little in common.\",\n      \"label\": \"premise\"\n    },\n    \"A2\": {\n      \"text\": \"I will argue that this latter option is preferable insofar as it respects a rich philosophical history and contributes to overall clarity in philosophical discourse.\",\n      \"label\": \"claim\"\n    },\n    \"A3\": {\n      \"text\": \"This psychological line of criticism was also taken up by Bryan Magee who, like Russell, denies pessimism a place in philosophy. For him pessimism is not philosophy.\",\n      \"label\": \"premise\"\n    },\n    \"A4\": {\n      \"text\": \"Crucial to this shared philosophical ground for pessimism is the metaphysical concept of will. Schopenhauer was the first to give us a fully developed view of the will as thing-in-itself and ascribed to it an inescapable role in giving existence its fundamentally wretched and pessimistic character.\",\n      \"label\": \"claim\"\n    },\n    \"A5\": {\n      \"text\": \"All the German pessimists agreed that the fundamental source of our misgivings is found in the essence of existence itself - the will - and not in this or that particular circumstance of our lives.\",\n      \"label\": \"claim\"\n    },\n    \"A6\": {\n      \"text\": \"Ultimately, transcendental pessimism is a well-defined philosophical tradition with a rich history and a thematic coherence. It is not the same as psychological pessimism and it is not the same as other philosophies that deal with the wretchedness of existence.\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"A1\",\n      \"target\": \"A2\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A3\",\n      \"target\": \"A6\",\n      \"type\": \"attack\"\n    },\n    {\n      \"source\": \"A4\",\n      \"target\": \"A5\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A5\",\n      \"target\": \"A6\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "A1": {
+              "text": "Pessimism is a concept that is used in conflicting ways. As there is no clear definition of pessimism that philosophers can agree upon, more often than not it is up to each one to use the term as they see fit and apply it to a wide range of concerns that may have little in common.",
+              "label": "premise"
+            },
+            "A2": {
+              "text": "I will argue that this latter option is preferable insofar as it respects a rich philosophical history and contributes to overall clarity in philosophical discourse.",
+              "label": "claim"
+            },
+            "A3": {
+              "text": "This psychological line of criticism was also taken up by Bryan Magee who, like Russell, denies pessimism a place in philosophy. For him pessimism is not philosophy.",
+              "label": "premise"
+            },
+            "A4": {
+              "text": "Crucial to this shared philosophical ground for pessimism is the metaphysical concept of will. Schopenhauer was the first to give us a fully developed view of the will as thing-in-itself and ascribed to it an inescapable role in giving existence its fundamentally wretched and pessimistic character.",
+              "label": "claim"
+            },
+            "A5": {
+              "text": "All the German pessimists agreed that the fundamental source of our misgivings is found in the essence of existence itself - the will - and not in this or that particular circumstance of our lives.",
+              "label": "claim"
+            },
+            "A6": {
+              "text": "Ultimately, transcendental pessimism is a well-defined philosophical tradition with a rich history and a thematic coherence. It is not the same as psychological pessimism and it is not the same as other philosophies that deal with the wretchedness of existence.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "A1",
+              "target": "A2",
+              "type": "support"
+            },
+            {
+              "source": "A3",
+              "target": "A6",
+              "type": "attack"
+            },
+            {
+              "source": "A4",
+              "target": "A5",
+              "type": "support"
+            },
+            {
+              "source": "A5",
+              "target": "A6",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "A1": {
+              "text": "Pessimism is a concept that is used in conflicting ways. As there is no clear definition of pessimism that philosophers can agree upon, more often than not it is up to each one to use the term as they see fit and apply it to a wide range of concerns that may have little in common.",
+              "label": "premise"
+            },
+            "A2": {
+              "text": "I will argue that this latter option is preferable insofar as it respects a rich philosophical history and contributes to overall clarity in philosophical discourse.",
+              "label": "claim"
+            },
+            "A3": {
+              "text": "This psychological line of criticism was also taken up by Bryan Magee who, like Russell, denies pessimism a place in philosophy. For him pessimism is not philosophy.",
+              "label": "premise"
+            },
+            "A6": {
+              "text": "Ultimately, transcendental pessimism is a well-defined philosophical tradition with a rich history and a thematic coherence. It is not the same as psychological pessimism and it is not the same as other philosophies that deal with the wretchedness of existence.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "A1",
+              "target": "A2",
+              "type": "support"
+            },
+            {
+              "source": "A3",
+              "target": "A6",
+              "type": "attack"
+            }
+          ]
+        }
+      }
+    ],
+    "timestamp": 1752748835.7174675
+  }
+]

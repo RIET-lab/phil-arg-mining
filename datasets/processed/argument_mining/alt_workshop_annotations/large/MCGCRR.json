@@ -1,0 +1,760 @@
+{
+  "arguments": {},
+  "statements": {
+    "Untitled 1": {
+      "type": "equivalence-class",
+      "title": "Untitled 1",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 2",
+          "fromType": "equivalence-class",
+          "to": "Untitled 1",
+          "toType": "equivalence-class"
+        },
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 9",
+          "fromType": "equivalence-class",
+          "to": "Untitled 1",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "top-level-statement",
+          "isTopLevel": true,
+          "text": "The debate about cinematic motion should be understood in terms of necessary reception conditions.",
+          "title": "Untitled 1",
+          "startLine": 1,
+          "startColumn": 1,
+          "endLine": 14,
+          "endColumn": 30
+        }
+      ],
+      "isUsedAsTopLevelStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Untitled 2": {
+      "type": "equivalence-class",
+      "title": "Untitled 2",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 3",
+          "fromType": "equivalence-class",
+          "to": "Untitled 2",
+          "toType": "equivalence-class"
+        },
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 4",
+          "fromType": "equivalence-class",
+          "to": "Untitled 2",
+          "toType": "equivalence-class"
+        },
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 5",
+          "fromType": "equivalence-class",
+          "to": "Untitled 2",
+          "toType": "equivalence-class"
+        },
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 6",
+          "fromType": "equivalence-class",
+          "to": "Untitled 2",
+          "toType": "equivalence-class"
+        },
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 7",
+          "fromType": "equivalence-class",
+          "to": "Untitled 2",
+          "toType": "equivalence-class"
+        },
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 2",
+          "fromType": "equivalence-class",
+          "to": "Untitled 1",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "text": "Gregory Currie rejects weak illusionism, arguing that cinematic images really move, but in a response-dependent way.",
+          "title": "Untitled 2",
+          "startLine": 2,
+          "startColumn": 7,
+          "endLine": 9,
+          "endColumn": 160
+        }
+      ],
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Untitled 3": {
+      "type": "equivalence-class",
+      "title": "Untitled 3",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 3",
+          "fromType": "equivalence-class",
+          "to": "Untitled 2",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "text": "Currie’s rejection of perceptual illusionism is controversial and both illusionists and realists appeal to common intuition about cinematic motion.",
+          "startLine": 3,
+          "startColumn": 11,
+          "endLine": 3,
+          "endColumn": 158,
+          "title": "Untitled 3"
+        }
+      ],
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Untitled 4": {
+      "type": "equivalence-class",
+      "title": "Untitled 4",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 4",
+          "fromType": "equivalence-class",
+          "to": "Untitled 2",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "text": "Andrew Kania claims that Currie does not provide a sufficient argument for realism, only argues against illusionism.",
+          "startLine": 4,
+          "startColumn": 11,
+          "endLine": 4,
+          "endColumn": 127,
+          "title": "Untitled 4"
+        }
+      ],
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Untitled 5": {
+      "type": "equivalence-class",
+      "title": "Untitled 5",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 5",
+          "fromType": "equivalence-class",
+          "to": "Untitled 2",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "text": "The possibility of a third position: that we have an illusion of images moving in front of us (implicit in the debate).",
+          "startLine": 5,
+          "startColumn": 11,
+          "endLine": 6,
+          "endColumn": 31,
+          "data": {
+            "isImplicit": true
+          },
+          "title": "Untitled 5"
+        }
+      ],
+      "data": {
+        "isImplicit": true
+      },
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Untitled 6": {
+      "type": "equivalence-class",
+      "title": "Untitled 6",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 6",
+          "fromType": "equivalence-class",
+          "to": "Untitled 2",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "text": "Kania argues that cinematic motion is an illusion, since no real objects move onscreen—only a sequence of still images.",
+          "startLine": 7,
+          "startColumn": 11,
+          "endLine": 7,
+          "endColumn": 130,
+          "title": "Untitled 6"
+        }
+      ],
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Untitled 7": {
+      "type": "equivalence-class",
+      "title": "Untitled 7",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 8",
+          "fromType": "equivalence-class",
+          "to": "Untitled 7",
+          "toType": "equivalence-class"
+        },
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 7",
+          "fromType": "equivalence-class",
+          "to": "Untitled 2",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "text": "Trevor Ponech asserts that cinema contains “singletons” that undergo real, stroboscopic movement and these can be experienced as objects by the audience.",
+          "title": "Untitled 7",
+          "startLine": 8,
+          "startColumn": 11,
+          "endLine": 9,
+          "endColumn": 160
+        }
+      ],
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Untitled 8": {
+      "type": "equivalence-class",
+      "title": "Untitled 8",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 8",
+          "fromType": "equivalence-class",
+          "to": "Untitled 7",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "text": "According to Ponech, the stroboscopic displacement of these singletons constitutes real movement, even if not identical to garden-variety motion.",
+          "startLine": 9,
+          "startColumn": 15,
+          "endLine": 9,
+          "endColumn": 160,
+          "title": "Untitled 8"
+        }
+      ],
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Untitled 9": {
+      "type": "equivalence-class",
+      "title": "Untitled 9",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 10",
+          "fromType": "equivalence-class",
+          "to": "Untitled 9",
+          "toType": "equivalence-class"
+        },
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 11",
+          "fromType": "equivalence-class",
+          "to": "Untitled 9",
+          "toType": "equivalence-class"
+        },
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 12",
+          "fromType": "equivalence-class",
+          "to": "Untitled 9",
+          "toType": "equivalence-class"
+        },
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 9",
+          "fromType": "equivalence-class",
+          "to": "Untitled 1",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "text": "The experience of cinematic motion depends on specific perceptual conditions (e.g., projection at 24 fps, proper lighting).",
+          "title": "Untitled 9",
+          "startLine": 10,
+          "startColumn": 7,
+          "endLine": 14,
+          "endColumn": 30
+        }
+      ],
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Untitled 10": {
+      "type": "equivalence-class",
+      "title": "Untitled 10",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 10",
+          "fromType": "equivalence-class",
+          "to": "Untitled 9",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "text": "Altering these conditions (e.g., slowing down the projector) means one is no longer experiencing the cinematic artwork as intended.",
+          "startLine": 11,
+          "startColumn": 11,
+          "endLine": 11,
+          "endColumn": 142,
+          "title": "Untitled 10"
+        }
+      ],
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Untitled 11": {
+      "type": "equivalence-class",
+      "title": "Untitled 11",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 11",
+          "fromType": "equivalence-class",
+          "to": "Untitled 9",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "text": "The analogy with music and visual arts supports the idea that proper reception conditions are essential for the intended experience.",
+          "startLine": 12,
+          "startColumn": 11,
+          "endLine": 12,
+          "endColumn": 143,
+          "title": "Untitled 11"
+        }
+      ],
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Untitled 12": {
+      "type": "equivalence-class",
+      "title": "Untitled 12",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 12",
+          "fromType": "equivalence-class",
+          "to": "Untitled 9",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "text": "The perception of movement in cinema is shaped by how the brain interprets sequences of static images.",
+          "startLine": 13,
+          "startColumn": 11,
+          "endLine": 14,
+          "endColumn": 30,
+          "data": {
+            "isImplicit": true
+          },
+          "title": "Untitled 12"
+        }
+      ],
+      "data": {
+        "isImplicit": true
+      },
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Untitled 13": {
+      "type": "equivalence-class",
+      "title": "Untitled 13",
+      "relations": [],
+      "members": [
+        {
+          "type": "statement",
+          "role": "top-level-statement",
+          "isTopLevel": true,
+          "text": "Currie’s theory is most plausible among the three, recognizing motion in cinema as real (though response-dependent), without fully embracing illusionism.",
+          "startLine": 16,
+          "startColumn": 1,
+          "endLine": 16,
+          "endColumn": 153,
+          "title": "Untitled 13"
+        }
+      ],
+      "isUsedAsTopLevelStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    }
+  },
+  "relations": [
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "Untitled 3",
+      "fromType": "equivalence-class",
+      "to": "Untitled 2",
+      "toType": "equivalence-class"
+    },
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "Untitled 4",
+      "fromType": "equivalence-class",
+      "to": "Untitled 2",
+      "toType": "equivalence-class"
+    },
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "Untitled 5",
+      "fromType": "equivalence-class",
+      "to": "Untitled 2",
+      "toType": "equivalence-class"
+    },
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "Untitled 6",
+      "fromType": "equivalence-class",
+      "to": "Untitled 2",
+      "toType": "equivalence-class"
+    },
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "Untitled 8",
+      "fromType": "equivalence-class",
+      "to": "Untitled 7",
+      "toType": "equivalence-class"
+    },
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "Untitled 7",
+      "fromType": "equivalence-class",
+      "to": "Untitled 2",
+      "toType": "equivalence-class"
+    },
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "Untitled 2",
+      "fromType": "equivalence-class",
+      "to": "Untitled 1",
+      "toType": "equivalence-class"
+    },
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "Untitled 10",
+      "fromType": "equivalence-class",
+      "to": "Untitled 9",
+      "toType": "equivalence-class"
+    },
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "Untitled 11",
+      "fromType": "equivalence-class",
+      "to": "Untitled 9",
+      "toType": "equivalence-class"
+    },
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "Untitled 12",
+      "fromType": "equivalence-class",
+      "to": "Untitled 9",
+      "toType": "equivalence-class"
+    },
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "Untitled 9",
+      "fromType": "equivalence-class",
+      "to": "Untitled 1",
+      "toType": "equivalence-class"
+    }
+  ],
+  "map": {
+    "nodes": [
+      {
+        "id": "n0",
+        "title": "Untitled 1",
+        "type": "statement-map-node",
+        "labelText": "The debate about cinematic motion should be understood in terms of necessary reception conditions.",
+        "color": "#1b9e77",
+        "fontColor": "#000000"
+      },
+      {
+        "id": "n1",
+        "title": "Untitled 2",
+        "type": "statement-map-node",
+        "labelText": "Gregory Currie rejects weak illusionism, arguing that cinematic images really move, but in a response-dependent way.",
+        "color": "#1b9e77",
+        "fontColor": "#000000"
+      },
+      {
+        "id": "n2",
+        "title": "Untitled 3",
+        "type": "statement-map-node",
+        "labelText": "Currie’s rejection of perceptual illusionism is controversial and both illusionists and realists appeal to common intuition about cinematic motion.",
+        "color": "#1b9e77",
+        "fontColor": "#000000"
+      },
+      {
+        "id": "n3",
+        "title": "Untitled 4",
+        "type": "statement-map-node",
+        "labelText": "Andrew Kania claims that Currie does not provide a sufficient argument for realism, only argues against illusionism.",
+        "color": "#1b9e77",
+        "fontColor": "#000000"
+      },
+      {
+        "id": "n4",
+        "title": "Untitled 5",
+        "type": "statement-map-node",
+        "labelText": "The possibility of a third position: that we have an illusion of images moving in front of us (implicit in the debate).",
+        "color": "#1b9e77",
+        "fontColor": "#000000"
+      },
+      {
+        "id": "n5",
+        "title": "Untitled 6",
+        "type": "statement-map-node",
+        "labelText": "Kania argues that cinematic motion is an illusion, since no real objects move onscreen—only a sequence of still images.",
+        "color": "#1b9e77",
+        "fontColor": "#000000"
+      },
+      {
+        "id": "n6",
+        "title": "Untitled 7",
+        "type": "statement-map-node",
+        "labelText": "Trevor Ponech asserts that cinema contains “singletons” that undergo real, stroboscopic movement and these can be experienced as objects by the audience.",
+        "color": "#1b9e77",
+        "fontColor": "#000000"
+      },
+      {
+        "id": "n7",
+        "title": "Untitled 8",
+        "type": "statement-map-node",
+        "labelText": "According to Ponech, the stroboscopic displacement of these singletons constitutes real movement, even if not identical to garden-variety motion.",
+        "color": "#1b9e77",
+        "fontColor": "#000000"
+      },
+      {
+        "id": "n8",
+        "title": "Untitled 9",
+        "type": "statement-map-node",
+        "labelText": "The experience of cinematic motion depends on specific perceptual conditions (e.g., projection at 24 fps, proper lighting).",
+        "color": "#1b9e77",
+        "fontColor": "#000000"
+      },
+      {
+        "id": "n9",
+        "title": "Untitled 10",
+        "type": "statement-map-node",
+        "labelText": "Altering these conditions (e.g., slowing down the projector) means one is no longer experiencing the cinematic artwork as intended.",
+        "color": "#1b9e77",
+        "fontColor": "#000000"
+      },
+      {
+        "id": "n10",
+        "title": "Untitled 11",
+        "type": "statement-map-node",
+        "labelText": "The analogy with music and visual arts supports the idea that proper reception conditions are essential for the intended experience.",
+        "color": "#1b9e77",
+        "fontColor": "#000000"
+      },
+      {
+        "id": "n11",
+        "title": "Untitled 12",
+        "type": "statement-map-node",
+        "labelText": "The perception of movement in cinema is shaped by how the brain interprets sequences of static images.",
+        "color": "#1b9e77",
+        "fontColor": "#000000"
+      }
+    ],
+    "edges": [
+      {
+        "id": "e1",
+        "type": "map-edge",
+        "relationType": "support",
+        "from": "n2",
+        "to": "n1",
+        "fromEquivalenceClass": "Untitled 3",
+        "toEquivalenceClass": "Untitled 2"
+      },
+      {
+        "id": "e2",
+        "type": "map-edge",
+        "relationType": "support",
+        "from": "n3",
+        "to": "n1",
+        "fromEquivalenceClass": "Untitled 4",
+        "toEquivalenceClass": "Untitled 2"
+      },
+      {
+        "id": "e3",
+        "type": "map-edge",
+        "relationType": "support",
+        "from": "n4",
+        "to": "n1",
+        "fromEquivalenceClass": "Untitled 5",
+        "toEquivalenceClass": "Untitled 2"
+      },
+      {
+        "id": "e4",
+        "type": "map-edge",
+        "relationType": "support",
+        "from": "n5",
+        "to": "n1",
+        "fromEquivalenceClass": "Untitled 6",
+        "toEquivalenceClass": "Untitled 2"
+      },
+      {
+        "id": "e5",
+        "type": "map-edge",
+        "relationType": "support",
+        "from": "n7",
+        "to": "n6",
+        "fromEquivalenceClass": "Untitled 8",
+        "toEquivalenceClass": "Untitled 7"
+      },
+      {
+        "id": "e6",
+        "type": "map-edge",
+        "relationType": "support",
+        "from": "n6",
+        "to": "n1",
+        "fromEquivalenceClass": "Untitled 7",
+        "toEquivalenceClass": "Untitled 2"
+      },
+      {
+        "id": "e7",
+        "type": "map-edge",
+        "relationType": "support",
+        "from": "n1",
+        "to": "n0",
+        "fromEquivalenceClass": "Untitled 2",
+        "toEquivalenceClass": "Untitled 1"
+      },
+      {
+        "id": "e8",
+        "type": "map-edge",
+        "relationType": "support",
+        "from": "n9",
+        "to": "n8",
+        "fromEquivalenceClass": "Untitled 10",
+        "toEquivalenceClass": "Untitled 9"
+      },
+      {
+        "id": "e9",
+        "type": "map-edge",
+        "relationType": "support",
+        "from": "n10",
+        "to": "n8",
+        "fromEquivalenceClass": "Untitled 11",
+        "toEquivalenceClass": "Untitled 9"
+      },
+      {
+        "id": "e10",
+        "type": "map-edge",
+        "relationType": "support",
+        "from": "n11",
+        "to": "n8",
+        "fromEquivalenceClass": "Untitled 12",
+        "toEquivalenceClass": "Untitled 9"
+      },
+      {
+        "id": "e11",
+        "type": "map-edge",
+        "relationType": "support",
+        "from": "n8",
+        "to": "n0",
+        "fromEquivalenceClass": "Untitled 9",
+        "toEquivalenceClass": "Untitled 1"
+      }
+    ]
+  },
+  "sections": [],
+  "tags": {}
+}

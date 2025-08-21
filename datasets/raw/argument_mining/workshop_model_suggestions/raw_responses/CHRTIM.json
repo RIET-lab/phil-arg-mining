@@ -1,0 +1,388 @@
+[
+  {
+    "identifier": "CHRTIM",
+    "system_prompt": "## GOAL\nArgument‑mine the following paper to extract its comprehensive argumentative structure.\n\n## DEFINITIONS\n1. **Argument**: A set of propositions, including some number of premises and a conclusion. The premises should logically entail the conclusion.\n2. **Claim**: A proposition that asserts something to be true or false, typically requiring justification or evidence.\n3. **Premise**: A proposition that provides evidence, justification, or logical support for a claim or conclusion.\n\n## CRITICAL REQUIREMENTS\n1. **VERBATIM EXTRACTION ONLY**: Each ADU text must be copied EXACTLY from the paper with no modifications, paraphrasing, or combining of separate sentences.\n2. **NO HALLUCINATION**: Do not create, modify, or invent text that does not appear exactly in the source.\n3. **EXACT MATCHING**: Every word, punctuation mark, and spacing must match the original precisely.\n\n## DIRECTIONS\n1. **Identify Argumentative Discourse Units (ADUs)**  \n   - ADU = any contiguous text span functioning as a claim or a premise in the reasoning structure.\n   - **BE HIGHLY SELECTIVE**: Only include ADUs that are crucial to the overarching argument structure.\n   - Focus on significant claims and premises that contribute meaningfully to the argumentative flow.\n   - **AVOID NOISE**: Skip ADUs that are merely descriptive, tangential, or do not substantially advance the argument.\n   - Prioritize quality over quantity - fewer accurate, important ADUs are better than many insignificant ones.\n   - **EXTRACT ONLY**: Copy text spans exactly as they appear, without any modifications.\n2. **Classify each ADU**  \n   - Label = either `\"claim\"` or `\"premise\"`.  \n3. **Detect directed relations**  \n   - Relation = `\"support\"` or `\"attack\"`, from one ADU (source) to another (target).\n   - Map how ADUs connect to form reasoning chains.\n   - Focus on relationships between the most significant ADUs.\n   - Include relationships between premises that strengthen or weaken each other.\n4. **Verbatim spans**  \n   - Each `\"text\"` value must be copied EXACTLY from the paper with zero modifications.\n   - Do not paraphrase, summarize, or combine separate sentences.\n   - Do not add, remove, or change any words, punctuation, or spacing.\n   - If unsure about exact wording, skip that ADU rather than guess.\n\n## WHAT TO CAPTURE\n**INCLUDE ONLY:**\n- Main argumentative threads that are central to the paper's contribution\n- Core claims that represent the paper's primary arguments or findings\n- Key premises that provide essential support for major claims\n- Critical counterarguments and their refutations\n- Reasoning chains that demonstrate how main conclusions are derived\n\n**EXCLUDE (AVOID NOISE):**\n- Minor details, examples, or descriptive content that don't advance the argument\n- Tangential points or side discussions\n- Pure background information or literature review content\n- Methodological details unless they constitute argumentative claims\n- Obvious statements or commonly accepted facts\n- Redundant or repetitive argumentative content\n\n**GUIDING PRINCIPLE**: If removing an ADU would not significantly impact understanding of the paper's argumentative structure, it should be excluded.\n\n## QUALITY CONTROL\n- Before finalizing each ADU, verify the text exists exactly in the source\n- Prefer fewer, accurate ADUs over many potentially modified ones\n- When in doubt about exact wording, omit the ADU\n\n## OUTPUT FORMAT\nReturn **only** a single valid JSON object matching this schema.  \nDo **not** output any extra text, markdown, or explanations.\nDo **not** add comments.\n**RESPOND WITH ONLY**:\n```json\n{\n  \"ADUs\": {\n    \"<ADU_ID>\": {\n      \"text\": \"<exact span from paper>\",\n      \"label\": \"claim\" | \"premise\"\n    }\n    ...\n  },\n  \"relations\": [\n    {\n      \"source\": \"<ADU_ID>\",\n      \"target\": \"<ADU_ID>\",\n      \"type\": \"support\" | \"attack\"\n    }\n  ]\n}\n```",
+    "user_content": "**Forthcoming in** ***Russian Literature*** **.**\n\n**Tolstoy’s Implicit Moral Theory: An Interpretation and Appraisal**\n\n**Abstract**\n\nI sketch an interpretation of Tolstoy’s implicit moral theory on the basis of his masterpieces *War and Peace* and *Anna Karenina* . I suggest that Tolstoy is a theistic moral realist who believes that God’s will identifies the mind-independent truths of morality. He also thinks that, roughly, it suffices to heed natural moral emotions (like love and compassion) to know the right thing to do, that is, God’s will. In appraisal of Tolstoy’s interesting and original theory that I dub ‘theistic populist sentimentalism’, I argue that it prima facie runs into a string of fallacies and undertakes dubious assumptions that render it open to question.\n\n**Keywords**\n\nTheistic Moral Realism; Moral Knowledge; Moral Sentiments; Populism.\n\n**1. Introduction**\n\nWith such exquisite novels and long stories like *War and Peace* , *Anna Karenina* , *The Death of Ivan Ilyich* , *Hadji Murat* and *The Cossacks,* there is little doubt that Tolstoy is one of the towering figures of world literature. But although his works convey interesting ideas about a number of philosophical subjects (such as free will, self-knowledge, emotions, death, God, morality, art, political authority etc.), they have scarcely attracted the attention and reflective scrutiny of analytic philosophers. In this paper, I try to ameliorate this unfortunate predicament and offer a sketch of a philosophical interpretation and appraisal of Tolstoy’s implicit moral theory in his two masterpieces: *War and Peace* and *Anna Karenina* .\n\nI think that Tolstoy’s moral theory merits philosophical attention for at least three reasons. First, his moral theory is interesting from the perspective of the history of moral philosophy because it blends various important ideas (populism, sentimentalism, ethical realism, theism etc.) to build an original theory. Second, his moral theory is interesting from the perspective of the history of ideas because it bears affinities to the views of enlightenment philosophers like Rousseau, Hume and Adam Smith. Third, as I will argue, Tolstoy’s moral theory is interesting from the perspective of moral theory because it highlights certain fallacies and dubious assumptions that a plausible theory of morality should better avoid (or at least clarify what is at stake).\n\nThese three reasons call for a philosophical close study of Tolstoy’s moral theory. In response to this call, I focus on textual evidence from his masterpieces *War and Peace* and *Anna Karenina* and offer a sketch of an interpretation of his implicit moral theory. I contend that Tolstoy advocates a version of theistic moral realism coupled with a populist understanding of moral sentimentalism as the vehicle of moral knowledge. But as I argue, while original and interesting Tolstoy’s moral theory bears certain liabilities that render it worrisome. That is, it prima facie runs into a string of fallacies and undertakes dubious assumptions that leave the theory exposed to criticism.\n\nNeedless to say, I will be appraising the theory as *if* it is a systematic philosophical theory and not a mere literary exercise. This might sound a bit unfair to Tolstoy because he was merely engaged in a literary exploration of moral themes, but if we are to approach literature philosophically we have to interpret texts, attribute views to the authors with some plausibility and then appraise these views. The alternative is to leave literature outside the purview of reflective scrutiny, which is not an option at all (by philosophy’s or literature’s standards). For one thing, literature should stimulate our creative imagination, widen our horizons of the possible and exercise our critical thinking.\n\n**2. Tolstoy’s Moral Theory in** ***War and Peace*** **and** **Anna Karenina**\n\n‘Everybody knows how [should one live]…what I know, I do not know by reason… I know it by my heart…with some peasant…beggars and kings’.\n\nLeo Tolstoy, *Anna Karenina* , Part 8, Section XI, pp.794, 799-800.\n\nTolstoy’s moral theory is implicit in the plot and literary content of his major works. But we can make it explicit by noting some striking structural similarities that the plots of many of his major works exhibit. To make myself clearer, the plots of many of his great works conform to the following *‘humble-but-wise-character motif’* . The protagonist is a man puzzled by some of the perennial philosophical puzzles and in search of the meaning of life. This character always seeks to know how one should live, what if anything we owe to others, whether God exists, what the nature of a person is, the meaning of life etc. Such characters are found scattered in Tolstoy’s early works such as *Childhood, Boyhood, Youth* (‘Vladimir Petrovich’), *The Cossacks* (‘Olenin’), in middle-period works such as *War and Peace (‘Pierre Bezukhov’* and *‘Prince Andrei’)* and *Anna Karenina* (‘Levin’), and in later works such as ‘The Death of Ivan Ilyich’ (‘Ivan Ilyich’) and *Resurrection* (‘Prince Nekhlyoudov’).\n\nThe centrality of this perplexed character in the works of Tolstoy is often noted. It has not, for example, escaped the perceptive eye of Virginia Woolf:\n\n‘‘There is always at the centre of all the brilliant and flashing petals of the flower this *scorpion* , ‘Why live?’ There is always at the centre of the book some Olenin[the hero of *The Cossacks* ], or Pierre[the hero of *War and Peace* ], or Levin[the hero of *Anna Karenina* ] who gathers into himself all experience, turns the world round between his fingers, and never ceases to ask, even as he enjoys it, what is the meaning of it, and what should be our aims’’.\n\nWhat is not so often noted, though, is that the perplexed protagonist usually finds philosophical satisfaction in the comforting words of a humble, uneducated but nonetheless wise character who appeals to natural moral emotions. The humble-but-wise-character reveals the answers to the perplexed protagonist and he instantly realises that he has eventually found philosophical illumination. The presence of this humble-but-wise-character is ubiquitous in Tolstoy’s work. In *The Cossacks* is the old Cossack Yeroshka, in *War and Peace* is the former peasant and soldier Platon Karatayev, in *Anna Karenina* is the peasant Fyodor, in *The Death of Ivan Ilyich* is the peasant and servant Gerasim, in *Resurrection* is the nameless boatman and so on.\n\nObviously, the ubiquitous recurrence of this humble-but-wise-character motif in the plots of many of Tolstoy’s major works cannot be a mere coincidence. Rather, it is more reasonable to infer that Tolstoy had some moral theory in the back of his mind inspiring this particular motif. Tolstoy had some moral theory in mind that he intended to convey to his readers and thought that this particular motif is suitable for the task. This hypothesis explains the ubiquity of the motif in many of Tolstoy’s major works in a non-coincidental and plausible way. What content this moral theory exactly had and whether it is any plausible we will examine as we proceed.\n\nOf course, for reasons of brevity we cannot provide anything like textual evidence and analysis of the motif in all the works of Tolstoy that exhibit it. Here we can only afford to touch on the two middle-period masterpieces: W *ar and Peace* and *Anna Karenina.* Particular differences in all these humble-but-wise-characters’ substantive moral opinions in Tolstoy’s works may exist and may reflect changes in Tolstoy’s own constantly evolving views. The significant thing is that regardless of what the particular differences in substantive moral opinion may be, all these humble-but-wise-characters subscribe to the general motif described above. The differences are inconsequential for the general purpose of this article, which is to describe and scrutinize the contours of Tolstoy’s implicit moral theory, and therefore will be set aside.\n\nLet us set out then with *War and Peace* . The perplexed protagonist of the book is Pierre Bezukhov, literally in Russian, Peter ‘Earless’ who ‘‘cannot hear the particular, indistinct signals of daily life by which more prudent folk govern their lives...’’. Pierre is one of those perplexed protagonists that systematically appear in Tolstoy’s works. He is in search of the meaning of life and looks for answers to his recurring philosophical questions. These questions eventually culminate in the loss of his belief in God but he suddenly rekindles his faith by joining a freemasons’ association.\n\nAlas, even this proves short-lived and yet again loses his faith when Napoleon’s armies invade Russia and he is taken a hostage. He experiences misery and pain, brutal executions by the French troops and evades execution in the nick of time. This ordeal deals a fatal blow to Pierre’s newly rediscovered faith. The evil he experiences shatters his theistic and optimistic worldview. He seems ‘‘to lose all faith in the right ordering of the universe, in humanity, in his own self and God… the world had crumbled before his eyes, leaving only meaningless truths’’ ( *W&amp;P* , p.1146).\n\nBut while kept in prison by the French, Pierre comes to know and befriend an amiable Russian soldier, Platon Karatayev. Platon has been conscripted to the ranks of the Russian army because ‘‘he had gone into someone else’s copse after wood…had been caught by the keeper, had been tried, flogged and sent to serve in the army’’ ( *W&amp;P* , p.1149). As a nineteenth century Russian peasant Platon is, of course, illiterate but he still seems to have carefully carved up a distinctive moral outlook. Platon’s moral outlook comes to Pierre as a revelation of the right way of living and this once again rekindles his lost faith in God and the meaningfulness of life.\n\nPlaton accepts determinism and underlines the significance of natural moral emotions like love and compassion. These moral views come in the context of the historical determinism that Tolstoy famously propounds in *War and Peace.* Everything is in the hands of God, and one cannot escape from what God has predetermined. As Platon says:\n\n‘‘Man proposes, God disposes… There’s no escaping fate. But we are always findin’ fault and complainin’: this ain’t right, and the other don’t suit us. Happiness, friend, is like water in a drag-net – pull it along and it bulges: take it out and it’s empty! Yes, that’s the way out of it’’ ( *W&amp;P* , p.1148-50).\n\nBut the chief trait of Platon is his warm-hearted, cheerful and full of kindness attitude to life that seems to follow from his understanding that things are not really up to him (or others, for that matter). He seems to love everyone around, even the enemies, the French soldiers:\n\n‘‘[H]e felt affection for and lived on sympathetic terms with every creature with whom life brought him into contact, and especially with man – not any particular man but those with whom he happened to be. He loved his dog, loved his comrades and the French, loved Pierre who was his neighbour’’ ( *W&amp;P* , p.1152).\n\nIn the end, the French are driven out of the country and Russian partisans set Pierre free. After the example of Platon Karatayev, Pierre realizes that the good life is a life infused with moral emotions such as love and compassion, in full consciousness that the control of things is not up to us but up to divine providence. With moral knowledge in hand, Pierre marries his beloved Natasha and with his rediscovered faith to God and life seems to eventually find happiness. The novel ends with pictures of familial life and tranquillity.\n\nIn *Anna Karenina* we have again a broadly similar setting. A perplexed man is once again one of the protagonists, Levin, who is puzzled by philosophical questions:\n\n‘‘…Levin thought about the one and only thing that occupied him during this time, apart from farm cares, and sought in everything a link to his questions: ‘What am I? And where am I? And why am I here?...Why is all this being done?’’ ( *AK* , p.792-3).\n\nThese questions culminate in Levin’s loss of faith in life and God. He turns to be an atheist that finds life utterly meaningless ( *AK* , p.406). Levin’s questions, however, go a long way further than mere puzzlement (as in Pierre’s case). They are haunting him, leaving Levin on the verge of suicide (like Lev Tolstoy himself at the period of writing the novel):\n\n‘‘ …  he decided that it was impossible to live that way, that he had either to explain his life so that it did not look like the wicked mockery of some devil, or shoot himself’’ ( *AK* , p.796).\n\nEventually, Levin seems to find a definitive answer to his questions (and his lost faith) from the mouth of a peasant named Fyodor. Fyodor points out to him that an ‘upright’ man:\n\n‘‘…lives for the soul. He remembers God… Everybody knows how [should one live] – by the truth, by God’s way’’ ( *AK* , p.794).\n\nLevin’s haunting questions then are answered:\n\n‘‘At the muzhik’s words about …living for the soul, by the truth, by God’s way, it was as if a host of vague but important thoughts burst from some locked-up place and, all rushing towards the same goal, whirled though his head, blinding him with their light’’ ( *AK* , p.794).\n\nLevin realizes that:\n\n‘‘…all philosophical theories do the same thing, leading man by way of thought that *is strange and unnatural* to him to the knowledge of what he has long known and known so certainly…Is it not seen clearly in the development of each philosopher’s theory that he knows beforehand, as unquestionably as the muzhik Fyodor and no whit more clearly than he, the chief meaning of life, and only wants to return by a dubious mental path to what everybody knows?’’ ( *AK* , p. 798.) (my own emphasis).\n\nAnd continues:\n\n‘‘…what I know, I do not know by reason, it is given to me, it is revealed to me, and *I know it by my heart* , by faith…faith in God, in the good, as the sole purpose of man… in serving the good instead of one’s needs…-along with everyone, with some peasant…with beggars and kings- to understand one and the same thing with certainty…which alone makes life worth living and alone is what we value’’ ( *AK* , p.799-800) (my own emphasis).\n\nAlthough determinism is now absent, the principal feature of living ‘by the truth’ is, like in *War and Peace,* revealed to be ‘God’s way’, which natural moral emotions and especially love help us identify. Levin fully realizes the importance of love when his wife Kitty and his newborn son are in serious jeopardy during a storm. An oak tree snaps at the spot that Kitty and the baby usually attend and Levin who walks to meet them at the spot and sees the fall from some distance is horrified. But he soon finds out that they have sought refuge at the other end of the wood and relieved realizes the importance of love, especially love for one’s family ( *AK* , p.811-2).\n\nWorthy of note is also that Tolstoy’s sentimentalism is not all that simplistic as he sometimes betrays awareness of the fact that a plain hearing of our moral sentiments may not suffice to deliver moral knowledge. Sometimes our moral sentiments may be a bad counsellor for moral conduct and something higher, reflective needs to scrutinize these sentiments before we follow their lead. Indeed, in line with sentimentalists like Hume and Adam Smith he seems to allude to a more sophisticated ideal observer theory of moral sentiments. As Tolstoy describes ( *AK* , p.791):\n\n‘‘…when [Levin] did not think, but lived, he constantly felt in his soul the presence of an infallible judge which of two possible actions was better and which was worse; and whenever he did not act as he should, he felt it at once’’.\n\nBe that as it may, like *War and Peace* , *Anna Karenina* closes with the optimistic message that:\n\n‘‘…my life now, my whole life, regardless of all that may happen to me, every minute of it, is not only meaningless, as it was before, but has the unquestionable meaning of the good which it is in my power to put into it!’’ ( *AK* , p.817).\n\nWith this much of textual evidence in hand, let us now turn to some comparative analysis.\n\n**3. A Brief Analysis of the Textual Evidence**\n\n‘‘Rousseau has been my master since I was fifteen. Rousseau and the Gospels have been the two great and beneficent influences of my life’’\n\nTolstoy’s letter to Bernard Bouvier, 1905.\n\nFour general comparative observations about *War and Peace* and *Anna Karenina* are in due that will help us draw the contours of Tolstoy’s moral theory as suggested by the humble-but-wise-character motif. These comparative observations will also help us understand why Tolstoy considered the humble-but-wise-character motif suitable for conveying to his readers the moral theory (and message) he had in mind.\n\nFirst, in both novels morality is intertwined with belief in God. Morality hinges on belief in God, something that reflects the views of Tolstoy at the time of writing the novels. This indicates that Tolstoy’s moral theory, at least in these two works, is inherently theistic. Unsurprisingly, his theism seems also to be conjoined with moral realism because he seems to imply that God’s will is the objective, mind-independent standard of morality. Recall, for example, his claim that ‘Everybody knows how [should one live] – by the truth, by God’s way’ ( *AK* , p.794). Thus, Tolstoy is a *theistic moral realist* .\n\nSecond, in both novels natural moral sentiments like love, sympathy and compassion are considered to be the right guide to moral knowledge (and happiness). This makes clear that the cognitive means for moral knowledge are moral sentiments. This indicates that Tolstoy’s theory is inherently *sentimentalist* . In contrast to the mostly rationalist (and sometimes even elitist) history of moral philosophy, (Plato’s non-naturalism, Aristotle’s virtue theory, Kant’s deontology, Mill’s utilitarianism) Tolstoy’s novels seem to present us with the exact opposite. All that is required for knowing what is the right thing to do or, more broadly, how should one live is the common sense heeding of natural moral emotions like love, compassion and sympathy.\n\nThird, given that the cognitive means for moral knowledge are moral sentiments and that moral sentiments are, all other things equal, in principle available to everyone, moral knowledge is in principle cognitively accessible to everyone. This indicates that Tolstoy’s moral theory is inherently *cognitively egalitarian* . Absent any pathological reasons that might stifle or impair our sentimental nature and render us Spock-like emotionless creatures, we are all at the same starting point in regard to moral knowledge.\n\nFourth, in both novels the wise character is a humble, uneducated peasant that has realized the right way to live by appeal to natural moral sentiments. This highlights that although the cognitive means for moral knowledge are moral sentiments and these are *potentially* available to everyone, these may not be *actually* available to everyone. For whatever reasons, some people may have stifled their natural emotional nature and impaired their cognitive means for moral knowledge.\n\nIndeed, Tolstoy’s ubiquitous humble-but-wise-characters, his occasional harsh talk of ‘the pride and stupidity of reason’ ( *AK* , p. 797) and his avowed Rousseaunian intellectual heritage (as I explain in a moment) might imply that the reasons for the impairment of sentiments have to do with the corrupting trappings of civilization (like institutionalized education) that, supposedly, foster the vices of pride, vanity and egoism. This indicates that Tolstoy’s theory is inherently *populist* and that, accordingly, moral knowledge is *par excellence* available to the humble and illiterate populace, not tsars or philosopher-kings. In light of these four comparative observations and for ease of exposition, let us call Tolstoy’s moral theory theistic populist sentimentalism.\n\nSetting these four observations aside, it is of historical interest that the populist sentimentalism approach to moral knowledge is likely to be stemming out of Tolstoy’s deep romanticist leanings. As is well known and Tolstoy acknowledged himself many times, his thought was heavily influenced by Jean Jacques Rousseau’s romanticism, one of the head figures of the (anti-)enlightenment cluster of ideas that comprised romanticism. Roughly, Rousseau’s central romanticist insight was that human nature is essentially good, corrupted only by civilization and its trappings (science, authority, institutionalized education etc.) that foster the vices of egoism, vanity and pride. He claimed that civilization and its products ‘‘science, letters, and the arts are the worst enemies of morals… [and that] science and virtue…are incompatible and all sciences have an ignoble origin’’ and, moreover, that ‘‘ethics has its source in human pride’’.  According to Rousseau, ‘‘…man is naturally good…[b]ut… society depraves and perverts men’’. Human nature is good but, alas, corruptible by the products of civilization that foster the vices of egoism, vanity and pride.\n\nIn light of the corrupting effect of civilization on human nature, Rousseau called for the abandonment of social artifice and convention and for a return to ‘life according to nature’. In this call for a return to life according to nature, sentiments are supposed to play a key role. Sentiments should be given full expression and free rein to guide one’s life because they are purely natural and as such unqualifiedly good. In philosophical lore, Rousseau’s romanticism has come to be associated with the notion of the ‘noble savage’, who supposedly remains intact from the corrupting effects of civilization and, hence, retains his endowed good nature.\n\nFollowing Rousseau, Tolstoy might had also thought that one must be corrupted by civilization (institutionalized education, social conventions, power structures etc.) and his sentimental nature stifled to the point of moral blindness to fail to acknowledge intuitive moral facts like, say, that ‘war is evil’ or that ‘exploiting the weak and vulnerable is wrong’. This would be the reason that humble, illiterate peasants can *par excellence* have moral knowledge. They can because, like ‘the noble savage’, they remain natural and uncontaminated by the trappings of civilization that stifle moral sentiments and thus avoid moral blindness.\n\nThis is so far quite abstract, so let us give a simple example in order to explain how Tolstoy’s line of thought is supposed to be working. Suppose a young man is conscripted to the army as part of a mandatory military service. He joins the army willingly because he loves his country and wants to do his share for the place that has given him so much (education, upbringing etc.). One day our hero is ordered to participate in a firing squad and execute a teenager for some reason, which goes against his conscience because he is against the death penalty. In this case, our imaginary private might feel some sympathy for the poor teenager. Yet he might quell his feelings of sympathy because as a private he has been drilled to obey orders without questioning. Thus, compliance to military authority, a power structure imposed by law (and civilization), conduces to stifling and repressing our emotional nature, which is our guide to what is right according to Tolstoy.\n\nMore generally, in true Rousseaunian spirit, Tolstoy might have thought that the enlightenment, rationalist approach to morality is a misguided project, -in Tolstoy’s words-, ‘‘strange and unnatural’’ that fosters ‘‘the pride of reason’’ ( *AK,* p.797), namely, the proud pretension of reason that it can discover moral truths and justify morality.   Enlightenment pursued rational, philosophical inquiry that sought to justify and ground morality on secure foundations. But as many moral antirealists suggest, reason seems to fail to defend the existence of moral facts and justify morality and this may be seen as leading either to moral nihilism or moral scepticism.\n\nFailing to justify why, say, ‘war is evil’ you might question whether indeed war is truly evil or whether we can ever know the truth of the matter (if there is one). Subsequently, you might stifle any moral emotions as deceptive and morally pernicious and even go as far as Nietzsche and deem them the historical-cultural product of the inculcated ‘slave morality’ of the Judeo-Christian tradition. But for Tolstoy the rationalist enlightenment project of justifying and grounding morality only betrays ‘‘the stupidity of reason’’ ( *AK* , p.797), that is, the futile and otiose ambition of reason to justify morality. It is a project that is futile because reason is incapable of justifying morality and otiose because sound common sense with an appeal to our ‘natural’ moral emotions suffices to justify morality and confer moral knowledge.\n\nWith this much about Tolstoy’s Rousseaunian heritage, let us wrap up this section. In conclusion, Tolstoy’s strikingly original moral theory is theistically realist, sentimentalist, cognitively egalitarian and populist. It is also strikingly bold because although he proposes that moral knowledge is in principle accessible to everyone (peasants, beggars and kings alike) it is p *ar excellence* accessible to humble peasants and beggars rather than complacent Platonic philosophers-kings or Russian tsars. Peasants and beggars are more likely to remain natural, uncorrupted by the trappings of civilization, and heed the voice of their heart, that is, their natural moral sentiments.\n\nWith Tolstoy’s theistic populist sentimentalism now sketched, let us now turn to a very brief (and inevitably incomplete) appraisal of the theory.\n\n**4. A Brief Appraisal of Theistic Populist Sentimentalism**\n\n‘‘…nothing can be more unphilosophical than those systems, which assert, that virtue is the same with what is natural, and vice with what is unnatural…’’\n\nDavid Hume, *A Treatise of Human Nature* , Book III, Part I, Section 2.\n\nI raise five problems for Tolstoy’s theistic populist sentimentalism. These five problems are not, of course, meant to demonstrate that the theory is plain false, but are rather meant to raise worries about the theory.\n\nFirst, Tolstoy’s theistic populist sentimentalism seems to run into Moore’s (1903) (in)famous *naturalistic fallacy.* Let us briefly explain what the naturalistic fallacy is about. Moore famously proposed an ‘open question argument’ as a reliable semantic test for reductive analyses of ‘good’. The ‘open question argument’ is supposed to work in the following simple way. Take any x putative analysis of good and consider: Is x (e.g. pleasure) the good? If you have ‘open feel’ semantic intuitions about this question then, good is not synonymous to x and it is not to be reductively analysed to x. Were x to be synonymous with good, it would resemble closed questions like: ‘Is a bachelor an unmarried adult man?’, where there is obvious synonymy and reductive analysis.\n\nMoore applied his open question argument to a whole host of putative analyses and found them all wanting. Somewhat grandiosely, he then proclaimed that any putative analysis of good commits the naturalistic fallacy, namely, fallaciously analyses good. In the same Moorean way we could ask, for example: ‘Is God’s will the good?’ or ‘Are natural moral emotions the right guide to the good?’ and find this an open question, which it implies that good is not to be identified with God’s will or  moral emotions the right guide to it. Actually, Moore (1903:93-7) had applied the ‘open question argument’ to Tolstoy’s intellectual forefather, Rousseau himself and found his romanticist ‘naturalism’ flawed as well. For we could ask: ‘Is the natural the good?’ and find this an open question, which it implies that good is not to be analysed to the natural.\n\nSecond, Tolstoy’s populist sentimentalism seems to commit the so-called *genetic fallacy* . The genetic fallacy is the fallacy where from the causal origins (or ‘genesis’, or etiology) of beliefs/properties/traits etc. we infer a normative evaluation of these beliefs/properties/traits etc. (true/false, good/evil etc.). Tolstoy seems to commit this fallacy because he thinks that the causal origins of our moral beliefs (natural or conventional) may account for whether they are true or false, whether something is good or evil etc. In particular, he thinks that if the causal origins of our moral beliefs and moral qualities are purely natural then these beliefs are true and the qualities virtuous.\n\nOf course, it simply does not follow that knowledge of the causal origins of something (property, event, belief etc.) may account for its normative status (positive or negative). To illustrate this, think of this example. It has been suggested that Karl Marx’s theory of alienation was caused by the fact that he suffered from *hidradenitis suppurative* , a skin disease that stirs self-loathing. However, assuming for the sake of the argument that this surmise about the generation of Marx’s alienation theory is correct, it is mistaken to think that any theorist’s disease in itself would undermine (or support) the epistemic standing of his theory. If the theory is implausible then it should be because of evidential reasons that stand against it, not because of the causal origins of the theory. The causal origins simply seem irrelevant to the epistemic evaluation of the theory. Beliefs, theories, actions, institutions etc. should bear positive or negative normative status because of reasons, not because of their causal origins.\n\nThird, Tolstoy seems to commit what we may call *the romanticist fallacy* . The romanticist fallacy is the fallacy where we invalidly infer from the descriptive fact that something/someone has not come in contact with civilization the positive normative evaluation that it is good, correct or fitting. The inverse version of the fallacy obtains if from the descriptive fact that something/someone has been saturated by civilization we invalidly infer that it bears negative normative evaluation i.e. evil, incorrect, unfitting.\n\nBut again it does not follow that if something/someone is purely natural then it enjoys positive normative status. Accordingly, it does not follow that if something/someone is purely artificial/conventional, then it enjoys negative normative status. Reality is complex enough to obstinately resist such simplistic generalizations because, intuitively, there are natural things that are bad (e.g. excruciating tooth pain), natural things that are good (e.g. healthy herbs), conventional things that are good (e.g. medicine) and conventional things that are bad (e.g. slave trade).\n\nFourth, another line of criticism might parallel the criticism that some contemporary sentimentalists have received. Although for some contemporary sentimentalists our moral judgements simply express our sentiments and do not state matters of moral fact, some assert that we can earn the right to claim some moral statements true or false and some acts right or wrong. The exact details of how this is meant to work are a bit technical and need not concern us here. The important thing is that in this way some sentimentalists want to have it both ways and reap both the dialectical benefits of moral antirealism (ontological parsimony, naturalized epistemology etc.) and traditional moral realism (objectivity, truth etc.).\n\nUnfortunately, critics have responded that they cannot have it both ways for a variety of reasons. We cannot delve into this debate at any depth, so let us adduce only a couple of basic reasons why the project seems problematic. One reason is that in the absence of robust moral facts, it is hard to see what non-arbitrarily grounds moral truth. A second related but more Kantian worry points out that contingent and unruly sentiments cannot supply us with a secure foundation for a rational, objective morality. Sentiments are too subjective, too fickle and undisciplined to build a rational, objective morality on their basis.\n\nTolstoy seems to commit something of the same slip with these contemporary sentimentalists. On the one hand, he is a committed sentimentalist and, on the other hand, he seems to imply that there is an objective\\theistic, mind-independent standard of morality. But then emerge the same kind of worries and even more because of the theistic gloss on the theory. What is it that grounds moral facts if morality is an expression of unruly sentiment?\n\nWell, God’s will in Tolstoy’s theistic framework. This answer, though, runs into Plato’s old Euthyphronic question: Is something good because it is God’s will or God’s will because it is good? Can moral sentiments reliably track moral truth\\God’s will and if yes how is this supposed to work given that sentiments are constitutively nonrepresentational states? If our sentiments do track moral truth\\God’s will, is this the result of cosmic coincidence, divine design or evolutionary design? Or perhaps even divine design through evolutionary design? How are moral disagreements in sentiment supposed to be rationally resolved? and so on.\n\nThese are hard questions for any sentimentalist theory that aspires to cling to objectivity but especially so for Tolstoy’s theistic populist sentimentalism. So, it seems that Tolstoy’s assumption that (theistic) moral realism and sentimentalism can be reconciled invites again serious misgivings. This is not to imply that objectivism\\realism and sentimentalism are in principle irreconcilable. Such a verdict would be premature as there might be a subtle, coherent way to achieve this much.\n\nFifth, a final worry touches on the fuzzy natural\\conventional distinction. It is contentious whether a sharp distinction between the two can be drawn that is clear-cut enough to be employed in moral theorizing. Human beings are conceived, born, raised and engraved in the context of a culture and it is hard to draw the distinction with precision. Of course, we are also natural animals bestowed (via our genome) with latent dispositions and instincts largely inherited by Darwinian evolution, like the language instinct. But to acknowledge this much of common biological wisdom is not to say that we can easily draw a clear-cut distinction that can be of any theoretical use in normative matters. Given these theoretical difficulties in establishing the natural\\conventional distinction, we have reason to construct an account of moral knowledge that obviates any crude commitment to it\n\nIn conclusion, Tolstoy’s theistic populist sentimentalism is an intriguing and original moral theory that is unfortunately worrisome. To the extent that Tolstoy’s theory is interesting and original, the essay is a tribute to ‘Tolstoy the thinker’. The fact that this theory meets challenges is the inevitable fate of all theories of morality.",
+    "responses": [
+      {
+        "source": "gpt-4o-2024-11-20",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"ADU1\": {\n      \"text\": \"I suggest that Tolstoy is a theistic moral realist who believes that God’s will identifies the mind-independent truths of morality.\",\n      \"label\": \"claim\"\n    },\n    \"ADU2\": {\n      \"text\": \"He also thinks that, roughly, it suffices to heed natural moral emotions (like love and compassion) to know the right thing to do, that is, God’s will.\",\n      \"label\": \"claim\"\n    },\n    \"ADU3\": {\n      \"text\": \"I argue that it prima facie runs into a string of fallacies and undertakes dubious assumptions that render it open to question.\",\n      \"label\": \"claim\"\n    },\n    \"ADU4\": {\n      \"text\": \"I think that Tolstoy’s moral theory merits philosophical attention for at least three reasons.\",\n      \"label\": \"claim\"\n    },\n    \"ADU5\": {\n      \"text\": \"First, his moral theory is interesting from the perspective of the history of moral philosophy because it blends various important ideas (populism, sentimentalism, ethical realism, theism etc.) to build an original theory.\",\n      \"label\": \"premise\"\n    },\n    \"ADU6\": {\n      \"text\": \"Second, his moral theory is interesting from the perspective of the history of ideas because it bears affinities to the views of enlightenment philosophers like Rousseau, Hume and Adam Smith.\",\n      \"label\": \"premise\"\n    },\n    \"ADU7\": {\n      \"text\": \"Third, as I will argue, Tolstoy’s moral theory is interesting from the perspective of moral theory because it highlights certain fallacies and dubious assumptions that a plausible theory of morality should better avoid (or at least clarify what is at stake).\",\n      \"label\": \"premise\"\n    },\n    \"ADU8\": {\n      \"text\": \"Tolstoy advocates a version of theistic moral realism coupled with a populist understanding of moral sentimentalism as the vehicle of moral knowledge.\",\n      \"label\": \"claim\"\n    },\n    \"ADU9\": {\n      \"text\": \"The ubiquitous recurrence of this humble-but-wise-character motif in the plots of many of Tolstoy’s major works cannot be a mere coincidence.\",\n      \"label\": \"claim\"\n    },\n    \"ADU10\": {\n      \"text\": \"Rather, it is more reasonable to infer that Tolstoy had some moral theory in the back of his mind inspiring this particular motif.\",\n      \"label\": \"premise\"\n    },\n    \"ADU11\": {\n      \"text\": \"Tolstoy’s moral theory, at least in these two works, is inherently theistic.\",\n      \"label\": \"claim\"\n    },\n    \"ADU12\": {\n      \"text\": \"Tolstoy is a theistic moral realist.\",\n      \"label\": \"claim\"\n    },\n    \"ADU13\": {\n      \"text\": \"Natural moral sentiments like love, sympathy and compassion are considered to be the right guide to moral knowledge (and happiness).\",\n      \"label\": \"claim\"\n    },\n    \"ADU14\": {\n      \"text\": \"This indicates that Tolstoy’s theory is inherently sentimentalist.\",\n      \"label\": \"premise\"\n    },\n    \"ADU15\": {\n      \"text\": \"Moral knowledge is in principle cognitively accessible to everyone.\",\n      \"label\": \"claim\"\n    },\n    \"ADU16\": {\n      \"text\": \"This indicates that Tolstoy’s moral theory is inherently cognitively egalitarian.\",\n      \"label\": \"premise\"\n    },\n    \"ADU17\": {\n      \"text\": \"Tolstoy’s theory is inherently populist and that, accordingly, moral knowledge is par excellence available to the humble and illiterate populace, not tsars or philosopher-kings.\",\n      \"label\": \"claim\"\n    },\n    \"ADU18\": {\n      \"text\": \"Tolstoy’s strikingly original moral theory is theistically realist, sentimentalist, cognitively egalitarian and populist.\",\n      \"label\": \"claim\"\n    },\n    \"ADU19\": {\n      \"text\": \"Tolstoy’s theistic populist sentimentalism seems to run into Moore’s (1903) (in)famous naturalistic fallacy.\",\n      \"label\": \"claim\"\n    },\n    \"ADU20\": {\n      \"text\": \"Tolstoy’s populist sentimentalism seems to commit the so-called genetic fallacy.\",\n      \"label\": \"claim\"\n    },\n    \"ADU21\": {\n      \"text\": \"Tolstoy seems to commit what we may call the romanticist fallacy.\",\n      \"label\": \"claim\"\n    },\n    \"ADU22\": {\n      \"text\": \"Tolstoy’s assumption that (theistic) moral realism and sentimentalism can be reconciled invites again serious misgivings.\",\n      \"label\": \"claim\"\n    },\n    \"ADU23\": {\n      \"text\": \"Tolstoy’s theistic populist sentimentalism is an intriguing and original moral theory that is unfortunately worrisome.\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"ADU5\",\n      \"target\": \"ADU4\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU6\",\n      \"target\": \"ADU4\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU7\",\n      \"target\": \"ADU4\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU10\",\n      \"target\": \"ADU9\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU14\",\n      \"target\": \"ADU13\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU16\",\n      \"target\": \"ADU15\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU18\",\n      \"target\": \"ADU8\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU19\",\n      \"target\": \"ADU3\",\n      \"type\": \"attack\"\n    },\n    {\n      \"source\": \"ADU20\",\n      \"target\": \"ADU3\",\n      \"type\": \"attack\"\n    },\n    {\n      \"source\": \"ADU21\",\n      \"target\": \"ADU3\",\n      \"type\": \"attack\"\n    },\n    {\n      \"source\": \"ADU22\",\n      \"target\": \"ADU3\",\n      \"type\": \"attack\"\n    },\n    {\n      \"source\": \"ADU23\",\n      \"target\": \"ADU3\",\n      \"type\": \"attack\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "ADU1": {
+              "text": "I suggest that Tolstoy is a theistic moral realist who believes that God’s will identifies the mind-independent truths of morality.",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "He also thinks that, roughly, it suffices to heed natural moral emotions (like love and compassion) to know the right thing to do, that is, God’s will.",
+              "label": "claim"
+            },
+            "ADU3": {
+              "text": "I argue that it prima facie runs into a string of fallacies and undertakes dubious assumptions that render it open to question.",
+              "label": "claim"
+            },
+            "ADU4": {
+              "text": "I think that Tolstoy’s moral theory merits philosophical attention for at least three reasons.",
+              "label": "claim"
+            },
+            "ADU5": {
+              "text": "First, his moral theory is interesting from the perspective of the history of moral philosophy because it blends various important ideas (populism, sentimentalism, ethical realism, theism etc.) to build an original theory.",
+              "label": "premise"
+            },
+            "ADU6": {
+              "text": "Second, his moral theory is interesting from the perspective of the history of ideas because it bears affinities to the views of enlightenment philosophers like Rousseau, Hume and Adam Smith.",
+              "label": "premise"
+            },
+            "ADU7": {
+              "text": "Third, as I will argue, Tolstoy’s moral theory is interesting from the perspective of moral theory because it highlights certain fallacies and dubious assumptions that a plausible theory of morality should better avoid (or at least clarify what is at stake).",
+              "label": "premise"
+            },
+            "ADU8": {
+              "text": "Tolstoy advocates a version of theistic moral realism coupled with a populist understanding of moral sentimentalism as the vehicle of moral knowledge.",
+              "label": "claim"
+            },
+            "ADU9": {
+              "text": "The ubiquitous recurrence of this humble-but-wise-character motif in the plots of many of Tolstoy’s major works cannot be a mere coincidence.",
+              "label": "claim"
+            },
+            "ADU10": {
+              "text": "Rather, it is more reasonable to infer that Tolstoy had some moral theory in the back of his mind inspiring this particular motif.",
+              "label": "premise"
+            },
+            "ADU11": {
+              "text": "Tolstoy’s moral theory, at least in these two works, is inherently theistic.",
+              "label": "claim"
+            },
+            "ADU12": {
+              "text": "Tolstoy is a theistic moral realist.",
+              "label": "claim"
+            },
+            "ADU13": {
+              "text": "Natural moral sentiments like love, sympathy and compassion are considered to be the right guide to moral knowledge (and happiness).",
+              "label": "claim"
+            },
+            "ADU14": {
+              "text": "This indicates that Tolstoy’s theory is inherently sentimentalist.",
+              "label": "premise"
+            },
+            "ADU15": {
+              "text": "Moral knowledge is in principle cognitively accessible to everyone.",
+              "label": "claim"
+            },
+            "ADU16": {
+              "text": "This indicates that Tolstoy’s moral theory is inherently cognitively egalitarian.",
+              "label": "premise"
+            },
+            "ADU17": {
+              "text": "Tolstoy’s theory is inherently populist and that, accordingly, moral knowledge is par excellence available to the humble and illiterate populace, not tsars or philosopher-kings.",
+              "label": "claim"
+            },
+            "ADU18": {
+              "text": "Tolstoy’s strikingly original moral theory is theistically realist, sentimentalist, cognitively egalitarian and populist.",
+              "label": "claim"
+            },
+            "ADU19": {
+              "text": "Tolstoy’s theistic populist sentimentalism seems to run into Moore’s (1903) (in)famous naturalistic fallacy.",
+              "label": "claim"
+            },
+            "ADU20": {
+              "text": "Tolstoy’s populist sentimentalism seems to commit the so-called genetic fallacy.",
+              "label": "claim"
+            },
+            "ADU21": {
+              "text": "Tolstoy seems to commit what we may call the romanticist fallacy.",
+              "label": "claim"
+            },
+            "ADU22": {
+              "text": "Tolstoy’s assumption that (theistic) moral realism and sentimentalism can be reconciled invites again serious misgivings.",
+              "label": "claim"
+            },
+            "ADU23": {
+              "text": "Tolstoy’s theistic populist sentimentalism is an intriguing and original moral theory that is unfortunately worrisome.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU5",
+              "target": "ADU4",
+              "type": "support"
+            },
+            {
+              "source": "ADU6",
+              "target": "ADU4",
+              "type": "support"
+            },
+            {
+              "source": "ADU7",
+              "target": "ADU4",
+              "type": "support"
+            },
+            {
+              "source": "ADU10",
+              "target": "ADU9",
+              "type": "support"
+            },
+            {
+              "source": "ADU14",
+              "target": "ADU13",
+              "type": "support"
+            },
+            {
+              "source": "ADU16",
+              "target": "ADU15",
+              "type": "support"
+            },
+            {
+              "source": "ADU18",
+              "target": "ADU8",
+              "type": "support"
+            },
+            {
+              "source": "ADU19",
+              "target": "ADU3",
+              "type": "attack"
+            },
+            {
+              "source": "ADU20",
+              "target": "ADU3",
+              "type": "attack"
+            },
+            {
+              "source": "ADU21",
+              "target": "ADU3",
+              "type": "attack"
+            },
+            {
+              "source": "ADU22",
+              "target": "ADU3",
+              "type": "attack"
+            },
+            {
+              "source": "ADU23",
+              "target": "ADU3",
+              "type": "attack"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "ADU1": {
+              "text": "I suggest that Tolstoy is a theistic moral realist who believes that God’s will identifies the mind-independent truths of morality.",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "He also thinks that, roughly, it suffices to heed natural moral emotions (like love and compassion) to know the right thing to do, that is, God’s will.",
+              "label": "claim"
+            },
+            "ADU3": {
+              "text": "I argue that it prima facie runs into a string of fallacies and undertakes dubious assumptions that render it open to question.",
+              "label": "claim"
+            },
+            "ADU4": {
+              "text": "I think that Tolstoy’s moral theory merits philosophical attention for at least three reasons.",
+              "label": "claim"
+            },
+            "ADU5": {
+              "text": "First, his moral theory is interesting from the perspective of the history of moral philosophy because it blends various important ideas (populism, sentimentalism, ethical realism, theism etc.) to build an original theory.",
+              "label": "premise"
+            },
+            "ADU6": {
+              "text": "Second, his moral theory is interesting from the perspective of the history of ideas because it bears affinities to the views of enlightenment philosophers like Rousseau, Hume and Adam Smith.",
+              "label": "premise"
+            },
+            "ADU7": {
+              "text": "Third, as I will argue, Tolstoy’s moral theory is interesting from the perspective of moral theory because it highlights certain fallacies and dubious assumptions that a plausible theory of morality should better avoid (or at least clarify what is at stake).",
+              "label": "premise"
+            },
+            "ADU8": {
+              "text": "Tolstoy advocates a version of theistic moral realism coupled with a populist understanding of moral sentimentalism as the vehicle of moral knowledge.",
+              "label": "claim"
+            },
+            "ADU9": {
+              "text": "The ubiquitous recurrence of this humble-but-wise-character motif in the plots of many of Tolstoy’s major works cannot be a mere coincidence.",
+              "label": "claim"
+            },
+            "ADU10": {
+              "text": "Rather, it is more reasonable to infer that Tolstoy had some moral theory in the back of his mind inspiring this particular motif.",
+              "label": "premise"
+            },
+            "ADU11": {
+              "text": "Tolstoy’s moral theory, at least in these two works, is inherently theistic.",
+              "label": "claim"
+            },
+            "ADU13": {
+              "text": "Natural moral sentiments like love, sympathy and compassion are considered to be the right guide to moral knowledge (and happiness).",
+              "label": "claim"
+            },
+            "ADU15": {
+              "text": "Moral knowledge is in principle cognitively accessible to everyone.",
+              "label": "claim"
+            },
+            "ADU18": {
+              "text": "Tolstoy’s strikingly original moral theory is theistically realist, sentimentalist, cognitively egalitarian and populist.",
+              "label": "claim"
+            },
+            "ADU22": {
+              "text": "Tolstoy’s assumption that (theistic) moral realism and sentimentalism can be reconciled invites again serious misgivings.",
+              "label": "claim"
+            },
+            "ADU23": {
+              "text": "Tolstoy’s theistic populist sentimentalism is an intriguing and original moral theory that is unfortunately worrisome.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU5",
+              "target": "ADU4",
+              "type": "support"
+            },
+            {
+              "source": "ADU6",
+              "target": "ADU4",
+              "type": "support"
+            },
+            {
+              "source": "ADU7",
+              "target": "ADU4",
+              "type": "support"
+            },
+            {
+              "source": "ADU10",
+              "target": "ADU9",
+              "type": "support"
+            },
+            {
+              "source": "ADU18",
+              "target": "ADU8",
+              "type": "support"
+            },
+            {
+              "source": "ADU22",
+              "target": "ADU3",
+              "type": "attack"
+            },
+            {
+              "source": "ADU23",
+              "target": "ADU3",
+              "type": "attack"
+            }
+          ]
+        }
+      },
+      {
+        "source": "claude-3-5-sonnet-20241022",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"1\": {\n      \"text\": \"I sketch an interpretation of Tolstoy's implicit moral theory on the basis of his masterpieces War and Peace and Anna Karenina. I suggest that Tolstoy is a theistic moral realist who believes that God's will identifies the mind-independent truths of morality. He also thinks that, roughly, it suffices to heed natural moral emotions (like love and compassion) to know the right thing to do, that is, God's will.\",\n      \"label\": \"claim\"\n    },\n    \"2\": {\n      \"text\": \"In appraisal of Tolstoy's interesting and original theory that I dub 'theistic populist sentimentalism', I argue that it prima facie runs into a string of fallacies and undertakes dubious assumptions that render it open to question.\",\n      \"label\": \"claim\"\n    },\n    \"3\": {\n      \"text\": \"Tolstoy's moral theory merits philosophical attention for at least three reasons. First, his moral theory is interesting from the perspective of the history of moral philosophy because it blends various important ideas (populism, sentimentalism, ethical realism, theism etc.) to build an original theory. Second, his moral theory is interesting from the perspective of the history of ideas because it bears affinities to the views of enlightenment philosophers like Rousseau, Hume and Adam Smith. Third, as I will argue, Tolstoy's moral theory is interesting from the perspective of moral theory because it highlights certain fallacies and dubious assumptions that a plausible theory of morality should better avoid (or at least clarify what is at stake).\",\n      \"label\": \"premise\"\n    },\n    \"4\": {\n      \"text\": \"Tolstoy's moral theory is inherently theistic. Unsurprisingly, his theism seems also to be conjoined with moral realism because he seems to imply that God's will is the objective, mind-independent standard of morality.\",\n      \"label\": \"claim\"\n    },\n    \"5\": {\n      \"text\": \"In both novels natural moral sentiments like love, sympathy and compassion are considered to be the right guide to moral knowledge (and happiness). This makes clear that the cognitive means for moral knowledge are moral sentiments.\",\n      \"label\": \"claim\"\n    },\n    \"6\": {\n      \"text\": \"Given that the cognitive means for moral knowledge are moral sentiments and that moral sentiments are, all other things equal, in principle available to everyone, moral knowledge is in principle cognitively accessible to everyone.\",\n      \"label\": \"claim\"\n    },\n    \"7\": {\n      \"text\": \"Tolstoy's theory is inherently populist and that, accordingly, moral knowledge is par excellence available to the humble and illiterate populace, not tsars or philosopher-kings.\",\n      \"label\": \"claim\"\n    },\n    \"8\": {\n      \"text\": \"Tolstoy's theistic populist sentimentalism seems to run into Moore's (in)famous naturalistic fallacy.\",\n      \"label\": \"claim\"\n    },\n    \"9\": {\n      \"text\": \"Tolstoy's populist sentimentalism seems to commit the so-called genetic fallacy.\",\n      \"label\": \"claim\"\n    },\n    \"10\": {\n      \"text\": \"Tolstoy seems to commit what we may call the romanticist fallacy.\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"3\",\n      \"target\": \"1\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"4\",\n      \"target\": \"1\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"5\",\n      \"target\": \"1\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"6\",\n      \"target\": \"1\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"7\",\n      \"target\": \"1\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"8\",\n      \"target\": \"2\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"9\",\n      \"target\": \"2\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"10\",\n      \"target\": \"2\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "1": {
+              "text": "I sketch an interpretation of Tolstoy's implicit moral theory on the basis of his masterpieces War and Peace and Anna Karenina. I suggest that Tolstoy is a theistic moral realist who believes that God's will identifies the mind-independent truths of morality. He also thinks that, roughly, it suffices to heed natural moral emotions (like love and compassion) to know the right thing to do, that is, God's will.",
+              "label": "claim"
+            },
+            "2": {
+              "text": "In appraisal of Tolstoy's interesting and original theory that I dub 'theistic populist sentimentalism', I argue that it prima facie runs into a string of fallacies and undertakes dubious assumptions that render it open to question.",
+              "label": "claim"
+            },
+            "3": {
+              "text": "Tolstoy's moral theory merits philosophical attention for at least three reasons. First, his moral theory is interesting from the perspective of the history of moral philosophy because it blends various important ideas (populism, sentimentalism, ethical realism, theism etc.) to build an original theory. Second, his moral theory is interesting from the perspective of the history of ideas because it bears affinities to the views of enlightenment philosophers like Rousseau, Hume and Adam Smith. Third, as I will argue, Tolstoy's moral theory is interesting from the perspective of moral theory because it highlights certain fallacies and dubious assumptions that a plausible theory of morality should better avoid (or at least clarify what is at stake).",
+              "label": "premise"
+            },
+            "4": {
+              "text": "Tolstoy's moral theory is inherently theistic. Unsurprisingly, his theism seems also to be conjoined with moral realism because he seems to imply that God's will is the objective, mind-independent standard of morality.",
+              "label": "claim"
+            },
+            "5": {
+              "text": "In both novels natural moral sentiments like love, sympathy and compassion are considered to be the right guide to moral knowledge (and happiness). This makes clear that the cognitive means for moral knowledge are moral sentiments.",
+              "label": "claim"
+            },
+            "6": {
+              "text": "Given that the cognitive means for moral knowledge are moral sentiments and that moral sentiments are, all other things equal, in principle available to everyone, moral knowledge is in principle cognitively accessible to everyone.",
+              "label": "claim"
+            },
+            "7": {
+              "text": "Tolstoy's theory is inherently populist and that, accordingly, moral knowledge is par excellence available to the humble and illiterate populace, not tsars or philosopher-kings.",
+              "label": "claim"
+            },
+            "8": {
+              "text": "Tolstoy's theistic populist sentimentalism seems to run into Moore's (in)famous naturalistic fallacy.",
+              "label": "claim"
+            },
+            "9": {
+              "text": "Tolstoy's populist sentimentalism seems to commit the so-called genetic fallacy.",
+              "label": "claim"
+            },
+            "10": {
+              "text": "Tolstoy seems to commit what we may call the romanticist fallacy.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "3",
+              "target": "1",
+              "type": "support"
+            },
+            {
+              "source": "4",
+              "target": "1",
+              "type": "support"
+            },
+            {
+              "source": "5",
+              "target": "1",
+              "type": "support"
+            },
+            {
+              "source": "6",
+              "target": "1",
+              "type": "support"
+            },
+            {
+              "source": "7",
+              "target": "1",
+              "type": "support"
+            },
+            {
+              "source": "8",
+              "target": "2",
+              "type": "support"
+            },
+            {
+              "source": "9",
+              "target": "2",
+              "type": "support"
+            },
+            {
+              "source": "10",
+              "target": "2",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "5": {
+              "text": "In both novels natural moral sentiments like love, sympathy and compassion are considered to be the right guide to moral knowledge (and happiness). This makes clear that the cognitive means for moral knowledge are moral sentiments.",
+              "label": "claim"
+            },
+            "6": {
+              "text": "Given that the cognitive means for moral knowledge are moral sentiments and that moral sentiments are, all other things equal, in principle available to everyone, moral knowledge is in principle cognitively accessible to everyone.",
+              "label": "claim"
+            }
+          },
+          "relations": []
+        }
+      }
+    ],
+    "timestamp": 1752757226.656197
+  }
+]

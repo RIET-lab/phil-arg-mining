@@ -1,0 +1,784 @@
+{
+  "arguments": {},
+  "statements": {
+    "Untitled 1": {
+      "type": "equivalence-class",
+      "title": "Untitled 1",
+      "relations": [],
+      "members": [
+        {
+          "type": "statement",
+          "role": "top-level-statement",
+          "isTopLevel": true,
+          "text": "The contribution that takes it beyond the 1970 volume by Callus and Hunt is the added English translation and the introduction by Michael W. Dunne. ",
+          "startLine": 4,
+          "startColumn": 1,
+          "endLine": 4,
+          "endColumn": 148,
+          "title": "Untitled 1",
+          "section": "s1"
+        }
+      ],
+      "section": "s1",
+      "isUsedAsTopLevelStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Untitled 2": {
+      "type": "equivalence-class",
+      "title": "Untitled 2",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 3",
+          "fromType": "equivalence-class",
+          "to": "Untitled 2",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "top-level-statement",
+          "isTopLevel": true,
+          "text": "John Blund's Treatise on the Soul, written before 1204, marks a key transition in the study of natural philosophy, especially psychology, in the high medieval period.",
+          "title": "Untitled 2",
+          "startLine": 6,
+          "startColumn": 1,
+          "endLine": 7,
+          "endColumn": 143,
+          "section": "s1"
+        }
+      ],
+      "section": "s1",
+      "isUsedAsTopLevelStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Untitled 3": {
+      "type": "equivalence-class",
+      "title": "Untitled 3",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 3",
+          "fromType": "equivalence-class",
+          "to": "Untitled 2",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "text": "Blund was among the first to bring together the twelfth-century Western physiological tradition with insights from Avicenna and Aristotle. ",
+          "startLine": 7,
+          "startColumn": 5,
+          "endLine": 7,
+          "endColumn": 143,
+          "title": "Untitled 3",
+          "section": "s1"
+        }
+      ],
+      "section": "s1",
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Untitled 4": {
+      "type": "equivalence-class",
+      "title": "Untitled 4",
+      "relations": [],
+      "members": [
+        {
+          "type": "statement",
+          "role": "top-level-statement",
+          "isTopLevel": true,
+          "text": "Dunne’s introduction is useful because it brings together much of the current knowledge about this author, his sources, and the audience and nature of the text, and it summarises its contents.",
+          "startLine": 9,
+          "startColumn": 1,
+          "endLine": 9,
+          "endColumn": 192,
+          "title": "Untitled 4",
+          "section": "s1"
+        }
+      ],
+      "section": "s1",
+      "isUsedAsTopLevelStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Untitled 5": {
+      "type": "equivalence-class",
+      "title": "Untitled 5",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 6",
+          "fromType": "equivalence-class",
+          "to": "Untitled 5",
+          "toType": "equivalence-class"
+        },
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 7",
+          "fromType": "equivalence-class",
+          "to": "Untitled 5",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "top-level-statement",
+          "isTopLevel": true,
+          "text": "Much of what Blund puts forward is traditional, drawing from Aristotle and Avicena. ",
+          "title": "Untitled 5",
+          "startLine": 11,
+          "startColumn": 1,
+          "endLine": 13,
+          "endColumn": 82,
+          "section": "s1"
+        }
+      ],
+      "section": "s1",
+      "isUsedAsTopLevelStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Untitled 6": {
+      "type": "equivalence-class",
+      "title": "Untitled 6",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 6",
+          "fromType": "equivalence-class",
+          "to": "Untitled 5",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "text": "His claim that the soul is a perfection of a body potentially having life comes straight from Aristotle.",
+          "startLine": 12,
+          "startColumn": 5,
+          "endLine": 12,
+          "endColumn": 109,
+          "title": "Untitled 6",
+          "section": "s1"
+        }
+      ],
+      "section": "s1",
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Untitled 7": {
+      "type": "equivalence-class",
+      "title": "Untitled 7",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 7",
+          "fromType": "equivalence-class",
+          "to": "Untitled 5",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "text": "Blund’s discussion of the various types of souls conforms largely to Avicenna.",
+          "startLine": 13,
+          "startColumn": 5,
+          "endLine": 13,
+          "endColumn": 82,
+          "title": "Untitled 7",
+          "section": "s1"
+        }
+      ],
+      "section": "s1",
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Untitled 8": {
+      "type": "equivalence-class",
+      "title": "Untitled 8",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 9",
+          "fromType": "equivalence-class",
+          "to": "Untitled 8",
+          "toType": "equivalence-class"
+        },
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 10",
+          "fromType": "equivalence-class",
+          "to": "Untitled 8",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "top-level-statement",
+          "isTopLevel": true,
+          "text": "At the same time, Blund makes new contributions or adopts an individual stance.",
+          "title": "Untitled 8",
+          "startLine": 15,
+          "startColumn": 1,
+          "endLine": 17,
+          "endColumn": 120,
+          "section": "s1"
+        }
+      ],
+      "section": "s1",
+      "isUsedAsTopLevelStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Untitled 9": {
+      "type": "equivalence-class",
+      "title": "Untitled 9",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 9",
+          "fromType": "equivalence-class",
+          "to": "Untitled 8",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "text": "The problem of free will he discusses is foreign to Avicenna",
+          "startLine": 16,
+          "startColumn": 5,
+          "endLine": 16,
+          "endColumn": 65,
+          "title": "Untitled 9",
+          "section": "s1"
+        }
+      ],
+      "section": "s1",
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Untitled 10": {
+      "type": "equivalence-class",
+      "title": "Untitled 10",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 10",
+          "fromType": "equivalence-class",
+          "to": "Untitled 8",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "text": "Against Avicenna, Blund denies that heavenly bodies move voluntarily, and that there is such a thing as a world soul",
+          "startLine": 17,
+          "startColumn": 5,
+          "endLine": 17,
+          "endColumn": 120,
+          "title": "Untitled 10",
+          "section": "s1"
+        }
+      ],
+      "section": "s1",
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Untitled 11": {
+      "type": "equivalence-class",
+      "title": "Untitled 11",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 12",
+          "fromType": "equivalence-class",
+          "to": "Untitled 11",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "top-level-statement",
+          "isTopLevel": true,
+          "text": "The decision to reprint the exact Latin text of the 1970 edition raises questions.",
+          "title": "Untitled 11",
+          "startLine": 19,
+          "startColumn": 1,
+          "endLine": 21,
+          "endColumn": 54,
+          "section": "s1"
+        }
+      ],
+      "section": "s1",
+      "isUsedAsTopLevelStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Untitled 12": {
+      "type": "equivalence-class",
+      "title": "Untitled 12",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 13",
+          "fromType": "equivalence-class",
+          "to": "Untitled 12",
+          "toType": "equivalence-class"
+        },
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 12",
+          "fromType": "equivalence-class",
+          "to": "Untitled 11",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "text": "Marvin L. Colker pointed out that the manuscript readings and critical apparatus of this edition contain questionable exclusions, omissions, and oversights",
+          "title": "Untitled 12",
+          "startLine": 20,
+          "startColumn": 5,
+          "endLine": 21,
+          "endColumn": 54,
+          "section": "s1"
+        }
+      ],
+      "section": "s1",
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Untitled 13": {
+      "type": "equivalence-class",
+      "title": "Untitled 13",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 13",
+          "fromType": "equivalence-class",
+          "to": "Untitled 12",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "text": "The reviewer has confirmed Colker's observations",
+          "startLine": 21,
+          "startColumn": 7,
+          "endLine": 21,
+          "endColumn": 54,
+          "title": "Untitled 13",
+          "section": "s1"
+        }
+      ],
+      "section": "s1",
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Untitled 14": {
+      "type": "equivalence-class",
+      "title": "Untitled 14",
+      "relations": [],
+      "members": [
+        {
+          "type": "statement",
+          "role": "top-level-statement",
+          "isTopLevel": true,
+          "text": "The consequence of reprinting the exact Latin text of the 1970 edition is that the English translation will inherit the gaps or errors from the Latin.",
+          "startLine": 23,
+          "startColumn": 1,
+          "endLine": 23,
+          "endColumn": 150,
+          "title": "Untitled 14",
+          "section": "s1"
+        }
+      ],
+      "section": "s1",
+      "isUsedAsTopLevelStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Untitled 15": {
+      "type": "equivalence-class",
+      "title": "Untitled 15",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 16",
+          "fromType": "equivalence-class",
+          "to": "Untitled 15",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "top-level-statement",
+          "isTopLevel": true,
+          "text": "This is a rich edition.",
+          "title": "Untitled 15",
+          "startLine": 25,
+          "startColumn": 1,
+          "endLine": 26,
+          "endColumn": 172,
+          "section": "s1"
+        }
+      ],
+      "section": "s1",
+      "isUsedAsTopLevelStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Untitled 16": {
+      "type": "equivalence-class",
+      "title": "Untitled 16",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 16",
+          "fromType": "equivalence-class",
+          "to": "Untitled 15",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "text": "It offers a precise translation, and brings together a range of additional material that will assist and stimulate the developing study of Blund’s work in future years.",
+          "startLine": 26,
+          "startColumn": 5,
+          "endLine": 26,
+          "endColumn": 172,
+          "title": "Untitled 16",
+          "section": "s1"
+        }
+      ],
+      "section": "s1",
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    }
+  },
+  "relations": [
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "Untitled 3",
+      "fromType": "equivalence-class",
+      "to": "Untitled 2",
+      "toType": "equivalence-class"
+    },
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "Untitled 6",
+      "fromType": "equivalence-class",
+      "to": "Untitled 5",
+      "toType": "equivalence-class"
+    },
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "Untitled 7",
+      "fromType": "equivalence-class",
+      "to": "Untitled 5",
+      "toType": "equivalence-class"
+    },
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "Untitled 9",
+      "fromType": "equivalence-class",
+      "to": "Untitled 8",
+      "toType": "equivalence-class"
+    },
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "Untitled 10",
+      "fromType": "equivalence-class",
+      "to": "Untitled 8",
+      "toType": "equivalence-class"
+    },
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "Untitled 13",
+      "fromType": "equivalence-class",
+      "to": "Untitled 12",
+      "toType": "equivalence-class"
+    },
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "Untitled 12",
+      "fromType": "equivalence-class",
+      "to": "Untitled 11",
+      "toType": "equivalence-class"
+    },
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "Untitled 16",
+      "fromType": "equivalence-class",
+      "to": "Untitled 15",
+      "toType": "equivalence-class"
+    }
+  ],
+  "map": {
+    "nodes": [
+      {
+        "id": "s1",
+        "title": "MEIJBT",
+        "type": "group-map-node",
+        "color": "#DADADA",
+        "fontColor": "#000000",
+        "level": 1,
+        "labelTitle": "MEIJBT",
+        "children": [
+          {
+            "id": "n0",
+            "title": "Untitled 2",
+            "type": "statement-map-node",
+            "labelText": "John Blund's Treatise on the Soul, written before 1204, marks a key transition in the study of natural philosophy, especially psychology, in the high medieval period.",
+            "color": "#1b9e77",
+            "fontColor": "#000000"
+          },
+          {
+            "id": "n1",
+            "title": "Untitled 3",
+            "type": "statement-map-node",
+            "labelText": "Blund was among the first to bring together the twelfth-century Western physiological tradition with insights from Avicenna and Aristotle. ",
+            "color": "#1b9e77",
+            "fontColor": "#000000"
+          },
+          {
+            "id": "n2",
+            "title": "Untitled 5",
+            "type": "statement-map-node",
+            "labelText": "Much of what Blund puts forward is traditional, drawing from Aristotle and Avicena. ",
+            "color": "#1b9e77",
+            "fontColor": "#000000"
+          },
+          {
+            "id": "n3",
+            "title": "Untitled 6",
+            "type": "statement-map-node",
+            "labelText": "His claim that the soul is a perfection of a body potentially having life comes straight from Aristotle.",
+            "color": "#1b9e77",
+            "fontColor": "#000000"
+          },
+          {
+            "id": "n4",
+            "title": "Untitled 7",
+            "type": "statement-map-node",
+            "labelText": "Blund’s discussion of the various types of souls conforms largely to Avicenna.",
+            "color": "#1b9e77",
+            "fontColor": "#000000"
+          },
+          {
+            "id": "n5",
+            "title": "Untitled 8",
+            "type": "statement-map-node",
+            "labelText": "At the same time, Blund makes new contributions or adopts an individual stance.",
+            "color": "#1b9e77",
+            "fontColor": "#000000"
+          },
+          {
+            "id": "n6",
+            "title": "Untitled 9",
+            "type": "statement-map-node",
+            "labelText": "The problem of free will he discusses is foreign to Avicenna",
+            "color": "#1b9e77",
+            "fontColor": "#000000"
+          },
+          {
+            "id": "n7",
+            "title": "Untitled 10",
+            "type": "statement-map-node",
+            "labelText": "Against Avicenna, Blund denies that heavenly bodies move voluntarily, and that there is such a thing as a world soul",
+            "color": "#1b9e77",
+            "fontColor": "#000000"
+          },
+          {
+            "id": "n8",
+            "title": "Untitled 11",
+            "type": "statement-map-node",
+            "labelText": "The decision to reprint the exact Latin text of the 1970 edition raises questions.",
+            "color": "#1b9e77",
+            "fontColor": "#000000"
+          },
+          {
+            "id": "n9",
+            "title": "Untitled 12",
+            "type": "statement-map-node",
+            "labelText": "Marvin L. Colker pointed out that the manuscript readings and critical apparatus of this edition contain questionable exclusions, omissions, and oversights",
+            "color": "#1b9e77",
+            "fontColor": "#000000"
+          },
+          {
+            "id": "n10",
+            "title": "Untitled 13",
+            "type": "statement-map-node",
+            "labelText": "The reviewer has confirmed Colker's observations",
+            "color": "#1b9e77",
+            "fontColor": "#000000"
+          },
+          {
+            "id": "n11",
+            "title": "Untitled 15",
+            "type": "statement-map-node",
+            "labelText": "This is a rich edition.",
+            "color": "#1b9e77",
+            "fontColor": "#000000"
+          },
+          {
+            "id": "n12",
+            "title": "Untitled 16",
+            "type": "statement-map-node",
+            "labelText": "It offers a precise translation, and brings together a range of additional material that will assist and stimulate the developing study of Blund’s work in future years.",
+            "color": "#1b9e77",
+            "fontColor": "#000000"
+          }
+        ]
+      }
+    ],
+    "edges": [
+      {
+        "id": "e1",
+        "type": "map-edge",
+        "relationType": "support",
+        "from": "n1",
+        "to": "n0",
+        "fromEquivalenceClass": "Untitled 3",
+        "toEquivalenceClass": "Untitled 2"
+      },
+      {
+        "id": "e2",
+        "type": "map-edge",
+        "relationType": "support",
+        "from": "n3",
+        "to": "n2",
+        "fromEquivalenceClass": "Untitled 6",
+        "toEquivalenceClass": "Untitled 5"
+      },
+      {
+        "id": "e3",
+        "type": "map-edge",
+        "relationType": "support",
+        "from": "n4",
+        "to": "n2",
+        "fromEquivalenceClass": "Untitled 7",
+        "toEquivalenceClass": "Untitled 5"
+      },
+      {
+        "id": "e4",
+        "type": "map-edge",
+        "relationType": "support",
+        "from": "n6",
+        "to": "n5",
+        "fromEquivalenceClass": "Untitled 9",
+        "toEquivalenceClass": "Untitled 8"
+      },
+      {
+        "id": "e5",
+        "type": "map-edge",
+        "relationType": "support",
+        "from": "n7",
+        "to": "n5",
+        "fromEquivalenceClass": "Untitled 10",
+        "toEquivalenceClass": "Untitled 8"
+      },
+      {
+        "id": "e6",
+        "type": "map-edge",
+        "relationType": "support",
+        "from": "n10",
+        "to": "n9",
+        "fromEquivalenceClass": "Untitled 13",
+        "toEquivalenceClass": "Untitled 12"
+      },
+      {
+        "id": "e7",
+        "type": "map-edge",
+        "relationType": "support",
+        "from": "n9",
+        "to": "n8",
+        "fromEquivalenceClass": "Untitled 12",
+        "toEquivalenceClass": "Untitled 11"
+      },
+      {
+        "id": "e8",
+        "type": "map-edge",
+        "relationType": "support",
+        "from": "n12",
+        "to": "n11",
+        "fromEquivalenceClass": "Untitled 16",
+        "toEquivalenceClass": "Untitled 15"
+      }
+    ]
+  },
+  "sections": [
+    {
+      "type": "section",
+      "id": "s1",
+      "level": 1,
+      "title": "MEIJBT",
+      "children": [],
+      "ranges": [],
+      "startLine": 2,
+      "startColumn": 1,
+      "endLine": 26,
+      "endColumn": 172,
+      "isGroup": true,
+      "fontColor": "#000000",
+      "color": "#DADADA"
+    }
+  ],
+  "tags": {}
+}
+

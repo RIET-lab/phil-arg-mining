@@ -1,0 +1,301 @@
+[
+  {
+    "identifier": "AUSPBR",
+    "system_prompt": "## GOAL\nArgument‑mine the following paper to extract its comprehensive argumentative structure.\n\n## DEFINITIONS\n1. **Argument**: A set of propositions, including some number of premises and a conclusion. The premises should logically entail the conclusion.\n2. **Claim**: A proposition that asserts something to be true or false, typically requiring justification or evidence.\n3. **Premise**: A proposition that provides evidence, justification, or logical support for a claim or conclusion.\n\n## CRITICAL REQUIREMENTS\n1. **VERBATIM EXTRACTION ONLY**: Each ADU text must be copied EXACTLY from the paper with no modifications, paraphrasing, or combining of separate sentences.\n2. **NO HALLUCINATION**: Do not create, modify, or invent text that does not appear exactly in the source.\n3. **EXACT MATCHING**: Every word, punctuation mark, and spacing must match the original precisely.\n\n## DIRECTIONS\n1. **Identify Argumentative Discourse Units (ADUs)**  \n   - ADU = any contiguous text span functioning as a claim or a premise in the reasoning structure.\n   - **BE HIGHLY SELECTIVE**: Only include ADUs that are crucial to the overarching argument structure.\n   - Focus on significant claims and premises that contribute meaningfully to the argumentative flow.\n   - **AVOID NOISE**: Skip ADUs that are merely descriptive, tangential, or do not substantially advance the argument.\n   - Prioritize quality over quantity - fewer accurate, important ADUs are better than many insignificant ones.\n   - **EXTRACT ONLY**: Copy text spans exactly as they appear, without any modifications.\n2. **Classify each ADU**  \n   - Label = either `\"claim\"` or `\"premise\"`.  \n3. **Detect directed relations**  \n   - Relation = `\"support\"` or `\"attack\"`, from one ADU (source) to another (target).\n   - Map how ADUs connect to form reasoning chains.\n   - Focus on relationships between the most significant ADUs.\n   - Include relationships between premises that strengthen or weaken each other.\n4. **Verbatim spans**  \n   - Each `\"text\"` value must be copied EXACTLY from the paper with zero modifications.\n   - Do not paraphrase, summarize, or combine separate sentences.\n   - Do not add, remove, or change any words, punctuation, or spacing.\n   - If unsure about exact wording, skip that ADU rather than guess.\n\n## WHAT TO CAPTURE\n**INCLUDE ONLY:**\n- Main argumentative threads that are central to the paper's contribution\n- Core claims that represent the paper's primary arguments or findings\n- Key premises that provide essential support for major claims\n- Critical counterarguments and their refutations\n- Reasoning chains that demonstrate how main conclusions are derived\n\n**EXCLUDE (AVOID NOISE):**\n- Minor details, examples, or descriptive content that don't advance the argument\n- Tangential points or side discussions\n- Pure background information or literature review content\n- Methodological details unless they constitute argumentative claims\n- Obvious statements or commonly accepted facts\n- Redundant or repetitive argumentative content\n\n**GUIDING PRINCIPLE**: If removing an ADU would not significantly impact understanding of the paper's argumentative structure, it should be excluded.\n\n## QUALITY CONTROL\n- Before finalizing each ADU, verify the text exists exactly in the source\n- Prefer fewer, accurate ADUs over many potentially modified ones\n- When in doubt about exact wording, omit the ADU\n\n## OUTPUT FORMAT\nReturn **only** a single valid JSON object matching this schema.  \nDo **not** output any extra text, markdown, or explanations.\nDo **not** add comments.\n**RESPOND WITH ONLY**:\n```json\n{\n  \"ADUs\": {\n    \"<ADU_ID>\": {\n      \"text\": \"<exact span from paper>\",\n      \"label\": \"claim\" | \"premise\"\n    }\n    ...\n  },\n  \"relations\": [\n    {\n      \"source\": \"<ADU_ID>\",\n      \"target\": \"<ADU_ID>\",\n      \"type\": \"support\" | \"attack\"\n    }\n  ]\n}\n```",
+    "user_content": "<!-- image -->\n\n## Prosthetic Becoming: how knowledge silences\n\nVictor Excelsius\n\nKeywords: knowledge, erudition, common sense, democracy, otherness, group, subject\n\n## Summary\n\nKnowledge is silent, in other words, the wise man does not shout his knowledge  to  the  four  winds,  there  must  be  favorable,  appropriate channels and winds. For this there are the academy, the Churches and other associations. Knowledge is like a prosthesis, something you put on, mechanically, after amputating, for example, a leg. It is there and it is  not  there, it does not occupy a place, but it is necessary, necessary, indispensable, because it comes from many sources, namely experience, study, reflection, work, living together in society.\n\n## Development\n\n1.\n\nHe  who  knows  will  not  sow  to  the  four  winds  that  which  he  may know of his knowledge, that which may be harmful to humanity. But... is  knowledge  harmful?  Doesn't  man  need  to  know,  to  know  what  he does, what he thinks, the result of his actions? Yes, but in a certain way he is conditioned by what he knows. This is where the anthropologist comes in, his knowledge is not revolutionary or permissive at all, it is, in a way, ecological (Guattari, Pina-Cabral). His home is the world and he seeks technical solutions for something social. And what about art, is there an artistic knowledge as a cultural heritage? In a way, yes. Or not?\n\n2. Gilles Lipovetski says that in the future we  will have  \"quiet majorities\" and \"dangerous minorities.\" And the role of religion in all this,  what  will  it  be?  So,  we  are  what  we  produce,  but  also  what  we consume,  that  is,  in  industrialized  societies,  as  the  UN  SecretaryGeneral says, \"a third of what is produced is wasted, an unparalleled call  for  consumption. This man has been warning the world that it is necessary to change course, perhaps slow down as some philosophers say, start desiring other things, for oneself and for the common home, the common cause, in other words, orient desire. To channel it toward good and not always abstract things in the way we organize ourselves in space, because we produce \"habituation to habitation,\" as I have said, this is how we define ourselves as men, women, beings in general.\n\n3.\n\nIn any case, we fight against a feeling of dirt, of guilt, in relation to ourselves and to others, and no matter how much we wash ourselves, no  matter  how  dirty  the  space  around  us  is,  it's  either  never  clean enough or we only see dirt in it, even if it's clean, that is, the obsessive neurosis has taken hold of the rich man, he spends to feel integrated and is, in fact, always us, so there is a return to the origins on the part of  young  people,  who are more and more enlightened. But in fact, in terms  of  human  geography,  stupidity  varies  from  neighborhood  to neighborhood,  from  context  to  context.  But...what  is actually the context? Is it not the person? Isn't he a monad? In my view, here is the key  to  the  development  of  human  progress,  the  relationship  of  the individual  to  the  social,  the  individual  becoming  the  social,  and  the social  emptying  itself  of  sociological  meaning  and  taking  its  turn,  its time, in the unfolding of the lining of the scene the beings, circumstantial minds, move...\n\nMan is, then, lost, like in the series Lost, he is looking for something, even if it is a point further ahead, maybe behind himself, where he can get lost, where he can find himself, where he can become the Man he never  was,  because  time  goes  by,  he  is  Becoming,  transformation, change  in  the  most  varied  aspects  of  existence.  On  a  trip  to  France, quite troubled, this happened to me. I got lost, in the land of my birth, at various moments, exasperated, not listening to people properly, I got tired of talking and exhausted I ended up in a hospital, almost dead. St. Francis called for me on the other side, but I didn't go, he told me to stay, because I had a more important mission to announce in the land, to say of their good and of God in the land, to keep me alive, to keep the others in the camp alive, to give them hope by my example, not to make life more of a hardship than it already is. So here I am, more than ten years later, still in Lisbon.\n\n5.\n\nThe  reformulation  of  desire  can  only  be  done  through  reflection, inspiration and dialogue, there is no other way, even philosophically, to change Being, the ways of Being into good ways of Being, of Being, of being  part  of,  something  I  call  the  Dialectic  of  Being  and  Belonging... Many  times  one  sees  Being  as  something  isolated  from  the  social, another as a whole, the collective consciousness itself. It is neither one thing nor the other, it is something more, as if a hyper-consciousness of reality attributed to Man...\n\n6.\n\nIn fact, we can look at the study of society through the relationship of the subject, individual, social actor, to itself, in general or in groups and associations  of  individuals  in  particular.  When  the  nuclear  family merges into itself there may be an advantage, but it needs associations\n\nfrom the outside in order to survive, to replicate itself and its model in the societal space, it is therefore by expanding that it survives in the social fabric...\n\n7.\n\nI  advance  here  the  notion  of  psychic  lack,  that  is,  it  is  under  the regime of lack, in the religious extreme, of sin, that we feel committed to the world around us, the world of others. If we had no notion of the separation  between  the  clean  and  the  dirty  we  would  certainly  not have  borders,  flags,  between  the  most  diverse  forms  of  behavior, everything would be liberal, free, in a realm of \"free freedom\". So, there is  a frieze between  the  notion  of  the  individual  and  the  notion  of society,  that  is,  a  speck,  a  minimum  perception  that  not  everything  is clear.  In  this  sphere  social  action  takes  place  (Roche).  Like  on  the highways of any road to something, there is a separation between two or more lanes, be it yellow or white... Like in Jean Rouch's documentaries...\n\n8.\n\nThen there is the myth that men do not cry, that they are not afraid, which is exactly the opposite of reality, social, psychic. In fact, women are much more fearless, because they dare to think, bad or less, right or wrong, and this is what makes them rule the world, with men at their head, with the weight of the world on them, by the myth of muscle, of physical strength, of patriarchy. In the Church, this tradition continues, is it just a way of seeing the world or is it the way exactly the world is constituted  or  should  be  constituted?  For  the  human  adventure  to continue...\n\nThis civilization  of  the  image and,  on  the  other  hand,  of  a \"hyperintellectualization\" of the perception of social reality, has something a little melancholy about it, because based on the Other's jocular commentary, everything depends on the context and even in a big  city  (well,  relatively  big)  like  Lisbon,  there  are  jealousies  and fights  that  make  us  feel  bad  about  each  other,  and  that  can  be explained?  \"Ah!  It's human  nature\"...  Isn't  it, first  of  all,  human stupidity?  I  remind  you  that  ignorance  makes  us  talk  more,  while wisdom makes us keep quiet and be sometimes spectators, sometimes attentive and participative listeners. Portugal is the country in Europe with the lowest literacy rate...this means something...often associated  with  the  rusticity  of  the  character  of  the  Portuguese people...\n\n10.\n\nBehold, then, the genesis sign, the voice of God, the voice of the father, the  voice  of  the  blood,  and  this  determines  much  of  the  biographical path of the social actor, because the reference to a community of origin precedes even his existence and this is verified even in big cities like New York, where the population density is duly proportional to that of Lisbon, a city of embarkation, of passage, of crossing...\n\n11.\n\nWhat is distinctive about the social actor and the actor himself is that one puts in (his roles, his roleplay ) and the other puts out, and it is in this regime of alternation between interiority and exteriority, unfolding, that the whole of the social game is played.\n\nOne way or another, between soccer and the Church, the whole world depends,  more  or  less,  on  the  mediatism,  on  what  we  could  call  the mediaticity of the phenomena ,  that  is,  the  means  through  which  we perceive certain phenomena, like the Church, soccer, politics, interest...\n\n13.\n\nSo, little by little, step by step, we are refining a theory of society, of the  way it  is  composed in  its  diversity,  in  the  form  and  content  of  its communicational exchanges, where knowledge is, most of the time, too exposed, collaborative, and the academy does not always publish for the Internet, because in most cases, that I know of, the university is a sign not of fun, but of intrigue and envy, that envy that is typical of the Portuguese  and  being  a  university  professor  is  perhaps  more important than being a politician, for example...This is symptomatic that something is going wrong, while others can't get into academia, after having been there more than half their lives, the independent and the Catholic, the state and the liberal...\n\n14.\n\nBut...does knowledge silence? There is no place for human rights, for civil  rights,  more  or  less  acquired,  aren't  we  entering  an  eternal regimen of theory, that is, the one who does it says he does it for doing it, when everyone wants to seem sincere, that is the idea that seems to prevail  that  works  in  front  of  and  behind  the  cameras,  that  is,  once again the idea-concept of \"private vices, public virtues\"?\n\nSee, by the way, the polls that indicate the Pornhub site as the most visited in the world. In fact, the anthropocene seems to be coming true, that is, the fame of those who are famous for being what they are, as the radio  host  Alvim  would  say,  is  related  to  the  idea  that  in  sex  all  the energies  of  the  world  are  concentrated,  the  union  of  opposites,  the union of similar, that is, the multiplication of the loaves at its best...\n\n16.\n\nTo this I add the idea of climate change: for those who have studied and  taught  geography,  the  physical  and  the  human,  it  is  easy  to understand a way of understanding the world, without being zoology, philosophy,  ethology  or  sociology,  but  which  is  somewhat  close  to anthropology,  that  is,  the  way  man  relates  to  the  environment  and unbalances it, because, precisely, he is unbalanced, he is out of balance from a point of view that he does not know precedes him and justifies him, but he continues to deny his own nature, which is to be Good, in harmony with the world around him, lashing out at evil and stopping the  advance  of  vices  and  all  that  is  harmful,  destroying  homes  and making man a being too smart to stay alive for long...\n\n17.\n\nAnd  are  we,  indeed,  in  an  age  of  declining  individualism,  certain forms of individualism, as Mafessolli suggests? What individualism is he referring to? Yes, I will understand his message as the promotion of the group, something that is an intermediate between society and the subject. The philosophical subject, the one who inhabits his happiness reducer without being a reducer, being creative, even if cavernous and somewhat addicted...in his own happiness and well-being, because that is not yet forbidden, regulated...\n\nThus, man pushes the problem with his own belly, sneaks up on the infinite and even glimpses it, that is, his future, but soon turns his face away and returns to his routine form of unhappiness...\n\n19.\n\nThus, the multiplication of the loaves today takes place by way of the spirit,  when  even  the  Pope  has  difficulty  controlling  the  irruption  of human nature in the form of organic individuality, that is, there is still a great  struggle  between  creationists  and  Catholics,  between  atheistic evolutionists  and  Christian  transcendents,  that  is,  man  is  no  longer divided in half, but in several parts, the man of Vitruvius, the Christ of Da Vinci's Renaissance arts...\n\n## ***\n\n## CONCLUSION\n\nKnowledge  does  not  occupy  a  place,  but  knowledge  is  power,  and those who occupy and use power (over others, over themselves as a more or less philosophical subject) have their amulets, their talismans, because in every man lies a secret desire of interest or else an arbitrary desire  to  change  something  in  man's  nature,  in  himself  or  in  others. However, true knowledge is silence, this is what we defend and even\n\n## the non\n\nknowledge, equivalent to it, is propagated more in the absence of noise than in the honking of cars, in the bosom of a man who does not stop transforming  himself  into  a  machine  of  function,  of  resolution,  of efficiency and?\n\nLisbon, January 04, 2023",
+    "responses": [
+      {
+        "source": "gpt-4o-2024-11-20",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"ADU1\": {\n      \"text\": \"Knowledge is silent, in other words, the wise man does not shout his knowledge to the four winds, there must be favorable, appropriate channels and winds.\",\n      \"label\": \"claim\"\n    },\n    \"ADU2\": {\n      \"text\": \"Knowledge is like a prosthesis, something you put on, mechanically, after amputating, for example, a leg.\",\n      \"label\": \"claim\"\n    },\n    \"ADU3\": {\n      \"text\": \"He who knows will not sow to the four winds that which he may know of his knowledge, that which may be harmful to humanity.\",\n      \"label\": \"claim\"\n    },\n    \"ADU4\": {\n      \"text\": \"Doesn't man need to know, to know what he does, what he thinks, the result of his actions?\",\n      \"label\": \"claim\"\n    },\n    \"ADU5\": {\n      \"text\": \"Yes, but in a certain way he is conditioned by what he knows.\",\n      \"label\": \"premise\"\n    },\n    \"ADU6\": {\n      \"text\": \"This is where the anthropologist comes in, his knowledge is not revolutionary or permissive at all, it is, in a way, ecological.\",\n      \"label\": \"premise\"\n    },\n    \"ADU7\": {\n      \"text\": \"So, we are what we produce, but also what we consume, that is, in industrialized societies, as the UN Secretary-General says, 'a third of what is produced is wasted, an unparalleled call for consumption.'\",\n      \"label\": \"claim\"\n    },\n    \"ADU8\": {\n      \"text\": \"To channel it toward good and not always abstract things in the way we organize ourselves in space, because we produce 'habituation to habitation,' as I have said, this is how we define ourselves as men, women, beings in general.\",\n      \"label\": \"premise\"\n    },\n    \"ADU9\": {\n      \"text\": \"Man is, then, lost, like in the series Lost, he is looking for something, even if it is a point further ahead, maybe behind himself, where he can get lost, where he can find himself, where he can become the Man he never was, because time goes by, he is Becoming, transformation, change in the most varied aspects of existence.\",\n      \"label\": \"claim\"\n    },\n    \"ADU10\": {\n      \"text\": \"The reformulation of desire can only be done through reflection, inspiration and dialogue, there is no other way, even philosophically, to change Being, the ways of Being into good ways of Being, of Being, of being part of, something I call the Dialectic of Being and Belonging.\",\n      \"label\": \"claim\"\n    },\n    \"ADU11\": {\n      \"text\": \"In fact, we can look at the study of society through the relationship of the subject, individual, social actor, to itself, in general or in groups and associations of individuals in particular.\",\n      \"label\": \"claim\"\n    },\n    \"ADU12\": {\n      \"text\": \"I advance here the notion of psychic lack, that is, it is under the regime of lack, in the religious extreme, of sin, that we feel committed to the world around us, the world of others.\",\n      \"label\": \"claim\"\n    },\n    \"ADU13\": {\n      \"text\": \"If we had no notion of the separation between the clean and the dirty we would certainly not have borders, flags, between the most diverse forms of behavior, everything would be liberal, free, in a realm of 'free freedom.'\",\n      \"label\": \"premise\"\n    },\n    \"ADU14\": {\n      \"text\": \"I remind you that ignorance makes us talk more, while wisdom makes us keep quiet and be sometimes spectators, sometimes attentive and participative listeners.\",\n      \"label\": \"claim\"\n    },\n    \"ADU15\": {\n      \"text\": \"Knowledge does not occupy a place, but knowledge is power, and those who occupy and use power (over others, over themselves as a more or less philosophical subject) have their amulets, their talismans, because in every man lies a secret desire of interest or else an arbitrary desire to change something in man's nature, in himself or in others.\",\n      \"label\": \"claim\"\n    },\n    \"ADU16\": {\n      \"text\": \"However, true knowledge is silence, this is what we defend.\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"ADU1\",\n      \"target\": \"ADU16\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU3\",\n      \"target\": \"ADU1\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU5\",\n      \"target\": \"ADU4\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU6\",\n      \"target\": \"ADU4\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU7\",\n      \"target\": \"ADU8\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU9\",\n      \"target\": \"ADU10\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU12\",\n      \"target\": \"ADU13\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU14\",\n      \"target\": \"ADU16\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "ADU1": {
+              "text": "Knowledge is silent, in other words, the wise man does not shout his knowledge to the four winds, there must be favorable, appropriate channels and winds.",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "Knowledge is like a prosthesis, something you put on, mechanically, after amputating, for example, a leg.",
+              "label": "claim"
+            },
+            "ADU3": {
+              "text": "He who knows will not sow to the four winds that which he may know of his knowledge, that which may be harmful to humanity.",
+              "label": "claim"
+            },
+            "ADU4": {
+              "text": "Doesn't man need to know, to know what he does, what he thinks, the result of his actions?",
+              "label": "claim"
+            },
+            "ADU5": {
+              "text": "Yes, but in a certain way he is conditioned by what he knows.",
+              "label": "premise"
+            },
+            "ADU6": {
+              "text": "This is where the anthropologist comes in, his knowledge is not revolutionary or permissive at all, it is, in a way, ecological.",
+              "label": "premise"
+            },
+            "ADU7": {
+              "text": "So, we are what we produce, but also what we consume, that is, in industrialized societies, as the UN Secretary-General says, 'a third of what is produced is wasted, an unparalleled call for consumption.'",
+              "label": "claim"
+            },
+            "ADU8": {
+              "text": "To channel it toward good and not always abstract things in the way we organize ourselves in space, because we produce 'habituation to habitation,' as I have said, this is how we define ourselves as men, women, beings in general.",
+              "label": "premise"
+            },
+            "ADU9": {
+              "text": "Man is, then, lost, like in the series Lost, he is looking for something, even if it is a point further ahead, maybe behind himself, where he can get lost, where he can find himself, where he can become the Man he never was, because time goes by, he is Becoming, transformation, change in the most varied aspects of existence.",
+              "label": "claim"
+            },
+            "ADU10": {
+              "text": "The reformulation of desire can only be done through reflection, inspiration and dialogue, there is no other way, even philosophically, to change Being, the ways of Being into good ways of Being, of Being, of being part of, something I call the Dialectic of Being and Belonging.",
+              "label": "claim"
+            },
+            "ADU11": {
+              "text": "In fact, we can look at the study of society through the relationship of the subject, individual, social actor, to itself, in general or in groups and associations of individuals in particular.",
+              "label": "claim"
+            },
+            "ADU12": {
+              "text": "I advance here the notion of psychic lack, that is, it is under the regime of lack, in the religious extreme, of sin, that we feel committed to the world around us, the world of others.",
+              "label": "claim"
+            },
+            "ADU13": {
+              "text": "If we had no notion of the separation between the clean and the dirty we would certainly not have borders, flags, between the most diverse forms of behavior, everything would be liberal, free, in a realm of 'free freedom.'",
+              "label": "premise"
+            },
+            "ADU14": {
+              "text": "I remind you that ignorance makes us talk more, while wisdom makes us keep quiet and be sometimes spectators, sometimes attentive and participative listeners.",
+              "label": "claim"
+            },
+            "ADU15": {
+              "text": "Knowledge does not occupy a place, but knowledge is power, and those who occupy and use power (over others, over themselves as a more or less philosophical subject) have their amulets, their talismans, because in every man lies a secret desire of interest or else an arbitrary desire to change something in man's nature, in himself or in others.",
+              "label": "claim"
+            },
+            "ADU16": {
+              "text": "However, true knowledge is silence, this is what we defend.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU1",
+              "target": "ADU16",
+              "type": "support"
+            },
+            {
+              "source": "ADU3",
+              "target": "ADU1",
+              "type": "support"
+            },
+            {
+              "source": "ADU5",
+              "target": "ADU4",
+              "type": "support"
+            },
+            {
+              "source": "ADU6",
+              "target": "ADU4",
+              "type": "support"
+            },
+            {
+              "source": "ADU7",
+              "target": "ADU8",
+              "type": "support"
+            },
+            {
+              "source": "ADU9",
+              "target": "ADU10",
+              "type": "support"
+            },
+            {
+              "source": "ADU12",
+              "target": "ADU13",
+              "type": "support"
+            },
+            {
+              "source": "ADU14",
+              "target": "ADU16",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "ADU1": {
+              "text": "Knowledge is silent, in other words, the wise man does not shout his knowledge to the four winds, there must be favorable, appropriate channels and winds.",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "Knowledge is like a prosthesis, something you put on, mechanically, after amputating, for example, a leg.",
+              "label": "claim"
+            },
+            "ADU3": {
+              "text": "He who knows will not sow to the four winds that which he may know of his knowledge, that which may be harmful to humanity.",
+              "label": "claim"
+            },
+            "ADU4": {
+              "text": "Doesn't man need to know, to know what he does, what he thinks, the result of his actions?",
+              "label": "claim"
+            },
+            "ADU5": {
+              "text": "Yes, but in a certain way he is conditioned by what he knows.",
+              "label": "premise"
+            },
+            "ADU9": {
+              "text": "Man is, then, lost, like in the series Lost, he is looking for something, even if it is a point further ahead, maybe behind himself, where he can get lost, where he can find himself, where he can become the Man he never was, because time goes by, he is Becoming, transformation, change in the most varied aspects of existence.",
+              "label": "claim"
+            },
+            "ADU10": {
+              "text": "The reformulation of desire can only be done through reflection, inspiration and dialogue, there is no other way, even philosophically, to change Being, the ways of Being into good ways of Being, of Being, of being part of, something I call the Dialectic of Being and Belonging.",
+              "label": "claim"
+            },
+            "ADU11": {
+              "text": "In fact, we can look at the study of society through the relationship of the subject, individual, social actor, to itself, in general or in groups and associations of individuals in particular.",
+              "label": "claim"
+            },
+            "ADU12": {
+              "text": "I advance here the notion of psychic lack, that is, it is under the regime of lack, in the religious extreme, of sin, that we feel committed to the world around us, the world of others.",
+              "label": "claim"
+            },
+            "ADU14": {
+              "text": "I remind you that ignorance makes us talk more, while wisdom makes us keep quiet and be sometimes spectators, sometimes attentive and participative listeners.",
+              "label": "claim"
+            },
+            "ADU15": {
+              "text": "Knowledge does not occupy a place, but knowledge is power, and those who occupy and use power (over others, over themselves as a more or less philosophical subject) have their amulets, their talismans, because in every man lies a secret desire of interest or else an arbitrary desire to change something in man's nature, in himself or in others.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU3",
+              "target": "ADU1",
+              "type": "support"
+            },
+            {
+              "source": "ADU5",
+              "target": "ADU4",
+              "type": "support"
+            },
+            {
+              "source": "ADU9",
+              "target": "ADU10",
+              "type": "support"
+            }
+          ]
+        }
+      },
+      {
+        "source": "claude-3-5-sonnet-20241022",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"A1\": {\n      \"text\": \"Knowledge is silent, in other words, the wise man does not shout his knowledge to the four winds, there must be favorable, appropriate channels and winds.\",\n      \"label\": \"claim\"\n    },\n    \"A2\": {\n      \"text\": \"Knowledge is like a prosthesis, something you put on, mechanically, after amputating, for example, a leg. It is there and it is not there, it does not occupy a place, but it is necessary, necessary, indispensable, because it comes from many sources, namely experience, study, reflection, work, living together in society.\",\n      \"label\": \"claim\"\n    },\n    \"A3\": {\n      \"text\": \"ignorance makes us talk more, while wisdom makes us keep quiet and be sometimes spectators, sometimes attentive and participative listeners.\",\n      \"label\": \"claim\"\n    },\n    \"A4\": {\n      \"text\": \"true knowledge is silence\",\n      \"label\": \"claim\"\n    },\n    \"A5\": {\n      \"text\": \"knowledge is power, and those who occupy and use power (over others, over themselves as a more or less philosophical subject) have their amulets, their talismans\",\n      \"label\": \"claim\"\n    },\n    \"A6\": {\n      \"text\": \"in every man lies a secret desire of interest or else an arbitrary desire to change something in man's nature, in himself or in others.\",\n      \"label\": \"premise\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"A3\",\n      \"target\": \"A1\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A2\",\n      \"target\": \"A1\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A4\",\n      \"target\": \"A1\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A6\",\n      \"target\": \"A5\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "A1": {
+              "text": "Knowledge is silent, in other words, the wise man does not shout his knowledge to the four winds, there must be favorable, appropriate channels and winds.",
+              "label": "claim"
+            },
+            "A2": {
+              "text": "Knowledge is like a prosthesis, something you put on, mechanically, after amputating, for example, a leg. It is there and it is not there, it does not occupy a place, but it is necessary, necessary, indispensable, because it comes from many sources, namely experience, study, reflection, work, living together in society.",
+              "label": "claim"
+            },
+            "A3": {
+              "text": "ignorance makes us talk more, while wisdom makes us keep quiet and be sometimes spectators, sometimes attentive and participative listeners.",
+              "label": "claim"
+            },
+            "A4": {
+              "text": "true knowledge is silence",
+              "label": "claim"
+            },
+            "A5": {
+              "text": "knowledge is power, and those who occupy and use power (over others, over themselves as a more or less philosophical subject) have their amulets, their talismans",
+              "label": "claim"
+            },
+            "A6": {
+              "text": "in every man lies a secret desire of interest or else an arbitrary desire to change something in man's nature, in himself or in others.",
+              "label": "premise"
+            }
+          },
+          "relations": [
+            {
+              "source": "A3",
+              "target": "A1",
+              "type": "support"
+            },
+            {
+              "source": "A2",
+              "target": "A1",
+              "type": "support"
+            },
+            {
+              "source": "A4",
+              "target": "A1",
+              "type": "support"
+            },
+            {
+              "source": "A6",
+              "target": "A5",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "A1": {
+              "text": "Knowledge is silent, in other words, the wise man does not shout his knowledge to the four winds, there must be favorable, appropriate channels and winds.",
+              "label": "claim"
+            },
+            "A2": {
+              "text": "Knowledge is like a prosthesis, something you put on, mechanically, after amputating, for example, a leg. It is there and it is not there, it does not occupy a place, but it is necessary, necessary, indispensable, because it comes from many sources, namely experience, study, reflection, work, living together in society.",
+              "label": "claim"
+            },
+            "A3": {
+              "text": "ignorance makes us talk more, while wisdom makes us keep quiet and be sometimes spectators, sometimes attentive and participative listeners.",
+              "label": "claim"
+            },
+            "A4": {
+              "text": "true knowledge is silence",
+              "label": "claim"
+            },
+            "A5": {
+              "text": "knowledge is power, and those who occupy and use power (over others, over themselves as a more or less philosophical subject) have their amulets, their talismans",
+              "label": "claim"
+            },
+            "A6": {
+              "text": "in every man lies a secret desire of interest or else an arbitrary desire to change something in man's nature, in himself or in others.",
+              "label": "premise"
+            }
+          },
+          "relations": [
+            {
+              "source": "A3",
+              "target": "A1",
+              "type": "support"
+            },
+            {
+              "source": "A2",
+              "target": "A1",
+              "type": "support"
+            },
+            {
+              "source": "A4",
+              "target": "A1",
+              "type": "support"
+            },
+            {
+              "source": "A6",
+              "target": "A5",
+              "type": "support"
+            }
+          ]
+        }
+      }
+    ],
+    "timestamp": 1752753885.8081582
+  }
+]

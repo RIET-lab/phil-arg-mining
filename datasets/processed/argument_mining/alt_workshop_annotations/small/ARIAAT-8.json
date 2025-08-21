@@ -1,0 +1,133 @@
+{
+  "arguments": {},
+  "statements": {
+    "Main Claim": {
+      "type": "equivalence-class",
+      "title": "Main Claim",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Implied author",
+          "fromType": "equivalence-class",
+          "to": "Main Claim",
+          "toType": "equivalence-class"
+        },
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Engagement and social consensus trumps 'actual' authorship",
+          "fromType": "equivalence-class",
+          "to": "Main Claim",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "top-level-statement",
+          "isTopLevel": true,
+          "title": "Main Claim",
+          "text": "We may appreciate and engage with works that lack a human creator; these works have aesthetic value",
+          "startLine": 1,
+          "startColumn": 1,
+          "endLine": 1,
+          "endColumn": 113
+        },
+        {
+          "type": "statement",
+          "role": "top-level-statement",
+          "isTopLevel": true,
+          "title": "Main Claim",
+          "isReference": true,
+          "text": " ",
+          "startLine": 3,
+          "startColumn": 1,
+          "endLine": 5,
+          "endColumn": 220
+        }
+      ],
+      "isUsedAsTopLevelStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Implied author": {
+      "type": "equivalence-class",
+      "title": "Implied author",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Implied author",
+          "fromType": "equivalence-class",
+          "to": "Main Claim",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "title": "Implied author",
+          "text": "Aesthetic consumers mentally create an \"\"implied author\"\" ",
+          "startLine": 4,
+          "startColumn": 5,
+          "endLine": 4,
+          "endColumn": 81
+        }
+      ],
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Engagement and social consensus trumps 'actual' authorship": {
+      "type": "equivalence-class",
+      "title": "Engagement and social consensus trumps 'actual' authorship",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Engagement and social consensus trumps 'actual' authorship",
+          "fromType": "equivalence-class",
+          "to": "Main Claim",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "title": "Engagement and social consensus trumps 'actual' authorship",
+          "text": "How people engage with art is more important than trying to \"\"define the essence of true authorship nor to construct a theory of an 'artificial author'.\"\"",
+          "startLine": 5,
+          "startColumn": 5,
+          "endLine": 5,
+          "endColumn": 220
+        }
+      ],
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    }
+  },
+  "relations": [
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "Implied author",
+      "fromType": "equivalence-class",
+      "to": "Main Claim",
+      "toType": "equivalence-class"
+    },
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "Engagement and social consensus trumps 'actual' authorship",
+      "fromType": "equivalence-class",
+      "to": "Main Claim",
+      "toType": "equivalence-class"
+    }
+  ],
+  "sections": [],
+  "tags": {}
+}

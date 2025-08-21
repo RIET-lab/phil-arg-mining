@@ -1,0 +1,628 @@
+{
+  "arguments": {},
+  "statements": {
+    "Untitled 1": {
+      "type": "equivalence-class",
+      "title": "Untitled 1",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 2",
+          "fromType": "equivalence-class",
+          "to": "Untitled 1",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "top-level-statement",
+          "isTopLevel": true,
+          "text": "The text’s main thesis: Only a plural, open conception of Enlightenment (as in Mendelssohn) does justice to women’s actions, agency, and philosophical thought; in this view, culture, education, and enlightenment are universal and emancipatory paths for all humanity.",
+          "title": "Untitled 1",
+          "startLine": 1,
+          "startColumn": 1,
+          "endLine": 16,
+          "endColumn": 26
+        }
+      ],
+      "isUsedAsTopLevelStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Untitled 2": {
+      "type": "equivalence-class",
+      "title": "Untitled 2",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 3",
+          "fromType": "equivalence-class",
+          "to": "Untitled 2",
+          "toType": "equivalence-class"
+        },
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 4",
+          "fromType": "equivalence-class",
+          "to": "Untitled 2",
+          "toType": "equivalence-class"
+        },
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 5",
+          "fromType": "equivalence-class",
+          "to": "Untitled 2",
+          "toType": "equivalence-class"
+        },
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 12",
+          "fromType": "equivalence-class",
+          "to": "Untitled 2",
+          "toType": "equivalence-class"
+        },
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 14",
+          "fromType": "equivalence-class",
+          "to": "Untitled 2",
+          "toType": "equivalence-class"
+        },
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 2",
+          "fromType": "equivalence-class",
+          "to": "Untitled 1",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "text": "The Enlightenment is often narrated through a Kantian lens that explicitly excludes women from its processes and philosophical legacy.",
+          "title": "Untitled 2",
+          "startLine": 2,
+          "startColumn": 4,
+          "endLine": 16,
+          "endColumn": 26
+        }
+      ],
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Untitled 3": {
+      "type": "equivalence-class",
+      "title": "Untitled 3",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 3",
+          "fromType": "equivalence-class",
+          "to": "Untitled 2",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "text": "Kant asserted that enlightenment was limited to citizens and scholars, denying the role of women as either agents or recipients.",
+          "startLine": 3,
+          "startColumn": 7,
+          "endLine": 3,
+          "endColumn": 135,
+          "title": "Untitled 3"
+        }
+      ],
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Untitled 4": {
+      "type": "equivalence-class",
+      "title": "Untitled 4",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 4",
+          "fromType": "equivalence-class",
+          "to": "Untitled 2",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "text": "This narrative marginalizes multifaceted forms of female intellectuality and sociability and derides topics pursued by women as “popular” rather than philosophical, even when they were deeply philosophical.",
+          "startLine": 4,
+          "startColumn": 7,
+          "endLine": 5,
+          "endColumn": 27,
+          "data": {
+            "isImplicit": true
+          },
+          "title": "Untitled 4"
+        }
+      ],
+      "data": {
+        "isImplicit": true
+      },
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Untitled 5": {
+      "type": "equivalence-class",
+      "title": "Untitled 5",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 6",
+          "fromType": "equivalence-class",
+          "to": "Untitled 5",
+          "toType": "equivalence-class"
+        },
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 7",
+          "fromType": "equivalence-class",
+          "to": "Untitled 5",
+          "toType": "equivalence-class"
+        },
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 8",
+          "fromType": "equivalence-class",
+          "to": "Untitled 5",
+          "toType": "equivalence-class"
+        },
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 10",
+          "fromType": "equivalence-class",
+          "to": "Untitled 5",
+          "toType": "equivalence-class"
+        },
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 5",
+          "fromType": "equivalence-class",
+          "to": "Untitled 2",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "text": "Corey Dyck proposes returning to Mendelssohn’s more inclusive conception, in which enlightenment, culture, and education are interlinked aspects of human and social development.",
+          "title": "Untitled 5",
+          "startLine": 6,
+          "startColumn": 7,
+          "endLine": 12,
+          "endColumn": 203
+        }
+      ],
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Untitled 6": {
+      "type": "equivalence-class",
+      "title": "Untitled 6",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 6",
+          "fromType": "equivalence-class",
+          "to": "Untitled 5",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "text": "Mendelssohn distinguishes clearly between enlightenment as a human (universal) and as a citizen (particularized by social role or estate).",
+          "startLine": 7,
+          "startColumn": 11,
+          "endLine": 7,
+          "endColumn": 149,
+          "title": "Untitled 6"
+        }
+      ],
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Untitled 7": {
+      "type": "equivalence-class",
+      "title": "Untitled 7",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 7",
+          "fromType": "equivalence-class",
+          "to": "Untitled 5",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "text": "Human development is viewed as gradual self-cultivation of rational and social faculties, not a sudden break or process exclusive to the scholarly public.",
+          "startLine": 8,
+          "startColumn": 11,
+          "endLine": 8,
+          "endColumn": 165,
+          "title": "Untitled 7"
+        }
+      ],
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Untitled 8": {
+      "type": "equivalence-class",
+      "title": "Untitled 8",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 9",
+          "fromType": "equivalence-class",
+          "to": "Untitled 8",
+          "toType": "equivalence-class"
+        },
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 8",
+          "fromType": "equivalence-class",
+          "to": "Untitled 5",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "text": "Female-led salons in Berlin (Herz, Varnhagen) exemplify institutions that fostered culture and sociability capable of overcoming gender and “estate/class” divisions.",
+          "title": "Untitled 8",
+          "startLine": 9,
+          "startColumn": 11,
+          "endLine": 10,
+          "endColumn": 161
+        }
+      ],
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Untitled 9": {
+      "type": "equivalence-class",
+      "title": "Untitled 9",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 9",
+          "fromType": "equivalence-class",
+          "to": "Untitled 8",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "text": "These salons promoted equality, liberty, and refinement as antidotes to prevailing prejudices, realizing in practice Mendelssohnian enlightenment.",
+          "startLine": 10,
+          "startColumn": 15,
+          "endLine": 10,
+          "endColumn": 161,
+          "title": "Untitled 9"
+        }
+      ],
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Untitled 10": {
+      "type": "equivalence-class",
+      "title": "Untitled 10",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 11",
+          "fromType": "equivalence-class",
+          "to": "Untitled 10",
+          "toType": "equivalence-class"
+        },
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 10",
+          "fromType": "equivalence-class",
+          "to": "Untitled 5",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "text": "Holst argued that developing one’s faculties is the essential vocation of all humans, including women; she grounded the universal right to education on this foundation.",
+          "title": "Untitled 10",
+          "startLine": 11,
+          "startColumn": 11,
+          "endLine": 12,
+          "endColumn": 203
+        }
+      ],
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Untitled 11": {
+      "type": "equivalence-class",
+      "title": "Untitled 11",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 11",
+          "fromType": "equivalence-class",
+          "to": "Untitled 10",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "text": "Holst used Mendelssohn’s distinctions to argue that gender is only “accidental/extra-essential” for the essential human vocation, thus supporting full rights to self-cultivation for women.",
+          "startLine": 12,
+          "startColumn": 15,
+          "endLine": 12,
+          "endColumn": 203,
+          "title": "Untitled 11"
+        }
+      ],
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Untitled 12": {
+      "type": "equivalence-class",
+      "title": "Untitled 12",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 13",
+          "fromType": "equivalence-class",
+          "to": "Untitled 12",
+          "toType": "equivalence-class"
+        },
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 12",
+          "fromType": "equivalence-class",
+          "to": "Untitled 2",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "text": "Elise Reimarus exemplifies women’s critical, prudent, and persistent engagement in the debates surrounding prejudice, toleration, and the pace of enlightenment.",
+          "title": "Untitled 12",
+          "startLine": 13,
+          "startColumn": 7,
+          "endLine": 14,
+          "endColumn": 200
+        }
+      ],
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Untitled 13": {
+      "type": "equivalence-class",
+      "title": "Untitled 13",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 13",
+          "fromType": "equivalence-class",
+          "to": "Untitled 12",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "text": "Women acted as mediators and strategists in the crucial philosophical debates of the age—on freedom, religion, culture, and education—using both strategies of resistance and transformation.",
+          "startLine": 14,
+          "startColumn": 11,
+          "endLine": 14,
+          "endColumn": 200,
+          "title": "Untitled 13"
+        }
+      ],
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Untitled 14": {
+      "type": "equivalence-class",
+      "title": "Untitled 14",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 14",
+          "fromType": "equivalence-class",
+          "to": "Untitled 2",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "text": "Neglecting Mendelssohn and the women philosophers of the late eighteenth century preserves an exclusive and distorted history of the Enlightenment and modern philosophy.",
+          "startLine": 15,
+          "startColumn": 7,
+          "endLine": 16,
+          "endColumn": 26,
+          "data": {
+            "isImplicit": true
+          },
+          "title": "Untitled 14"
+        }
+      ],
+      "data": {
+        "isImplicit": true
+      },
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    }
+  },
+  "relations": [
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "Untitled 3",
+      "fromType": "equivalence-class",
+      "to": "Untitled 2",
+      "toType": "equivalence-class"
+    },
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "Untitled 4",
+      "fromType": "equivalence-class",
+      "to": "Untitled 2",
+      "toType": "equivalence-class"
+    },
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "Untitled 6",
+      "fromType": "equivalence-class",
+      "to": "Untitled 5",
+      "toType": "equivalence-class"
+    },
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "Untitled 7",
+      "fromType": "equivalence-class",
+      "to": "Untitled 5",
+      "toType": "equivalence-class"
+    },
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "Untitled 9",
+      "fromType": "equivalence-class",
+      "to": "Untitled 8",
+      "toType": "equivalence-class"
+    },
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "Untitled 8",
+      "fromType": "equivalence-class",
+      "to": "Untitled 5",
+      "toType": "equivalence-class"
+    },
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "Untitled 11",
+      "fromType": "equivalence-class",
+      "to": "Untitled 10",
+      "toType": "equivalence-class"
+    },
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "Untitled 10",
+      "fromType": "equivalence-class",
+      "to": "Untitled 5",
+      "toType": "equivalence-class"
+    },
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "Untitled 5",
+      "fromType": "equivalence-class",
+      "to": "Untitled 2",
+      "toType": "equivalence-class"
+    },
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "Untitled 13",
+      "fromType": "equivalence-class",
+      "to": "Untitled 12",
+      "toType": "equivalence-class"
+    },
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "Untitled 12",
+      "fromType": "equivalence-class",
+      "to": "Untitled 2",
+      "toType": "equivalence-class"
+    },
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "Untitled 14",
+      "fromType": "equivalence-class",
+      "to": "Untitled 2",
+      "toType": "equivalence-class"
+    },
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "Untitled 2",
+      "fromType": "equivalence-class",
+      "to": "Untitled 1",
+      "toType": "equivalence-class"
+    }
+  ],
+  "sections": [],
+  "tags": {}
+}

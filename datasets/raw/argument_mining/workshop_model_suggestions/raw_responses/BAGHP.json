@@ -1,0 +1,353 @@
+[
+  {
+    "identifier": "BAGHP",
+    "system_prompt": "## GOAL\nArgument‑mine the following paper to extract its comprehensive argumentative structure.\n\n## DEFINITIONS\n1. **Argument**: A set of propositions, including some number of premises and a conclusion. The premises should logically entail the conclusion.\n2. **Claim**: A proposition that asserts something to be true or false, typically requiring justification or evidence.\n3. **Premise**: A proposition that provides evidence, justification, or logical support for a claim or conclusion.\n\n## CRITICAL REQUIREMENTS\n1. **VERBATIM EXTRACTION ONLY**: Each ADU text must be copied EXACTLY from the paper with no modifications, paraphrasing, or combining of separate sentences.\n2. **NO HALLUCINATION**: Do not create, modify, or invent text that does not appear exactly in the source.\n3. **EXACT MATCHING**: Every word, punctuation mark, and spacing must match the original precisely.\n\n## DIRECTIONS\n1. **Identify Argumentative Discourse Units (ADUs)**  \n   - ADU = any contiguous text span functioning as a claim or a premise in the reasoning structure.\n   - **BE HIGHLY SELECTIVE**: Only include ADUs that are crucial to the overarching argument structure.\n   - Focus on significant claims and premises that contribute meaningfully to the argumentative flow.\n   - **AVOID NOISE**: Skip ADUs that are merely descriptive, tangential, or do not substantially advance the argument.\n   - Prioritize quality over quantity - fewer accurate, important ADUs are better than many insignificant ones.\n   - **EXTRACT ONLY**: Copy text spans exactly as they appear, without any modifications.\n2. **Classify each ADU**  \n   - Label = either `\"claim\"` or `\"premise\"`.  \n3. **Detect directed relations**  \n   - Relation = `\"support\"` or `\"attack\"`, from one ADU (source) to another (target).\n   - Map how ADUs connect to form reasoning chains.\n   - Focus on relationships between the most significant ADUs.\n   - Include relationships between premises that strengthen or weaken each other.\n4. **Verbatim spans**  \n   - Each `\"text\"` value must be copied EXACTLY from the paper with zero modifications.\n   - Do not paraphrase, summarize, or combine separate sentences.\n   - Do not add, remove, or change any words, punctuation, or spacing.\n   - If unsure about exact wording, skip that ADU rather than guess.\n\n## WHAT TO CAPTURE\n**INCLUDE ONLY:**\n- Main argumentative threads that are central to the paper's contribution\n- Core claims that represent the paper's primary arguments or findings\n- Key premises that provide essential support for major claims\n- Critical counterarguments and their refutations\n- Reasoning chains that demonstrate how main conclusions are derived\n\n**EXCLUDE (AVOID NOISE):**\n- Minor details, examples, or descriptive content that don't advance the argument\n- Tangential points or side discussions\n- Pure background information or literature review content\n- Methodological details unless they constitute argumentative claims\n- Obvious statements or commonly accepted facts\n- Redundant or repetitive argumentative content\n\n**GUIDING PRINCIPLE**: If removing an ADU would not significantly impact understanding of the paper's argumentative structure, it should be excluded.\n\n## QUALITY CONTROL\n- Before finalizing each ADU, verify the text exists exactly in the source\n- Prefer fewer, accurate ADUs over many potentially modified ones\n- When in doubt about exact wording, omit the ADU\n\n## OUTPUT FORMAT\nReturn **only** a single valid JSON object matching this schema.  \nDo **not** output any extra text, markdown, or explanations.\n\nRESPOND WITH ONLY:\n```json\n{\n  \"ADUs\": {\n    \"<ADU_ID>\": {\n      \"text\": \"<exact span from paper>\",\n      \"label\": \"claim\" | \"premise\"\n    }\n    ...\n  },\n  \"relations\": [\n    {\n      \"source\": \"<ADU_ID>\",\n      \"target\": \"<ADU_ID>\",\n      \"type\": \"support\" | \"attack\"\n    }\n  ]\n}\n```",
+    "user_content": "This is a pre-print. Please cite from the published version in The Routledge Companion to Pragmatism , eds. Scott Aikin and Robert B. Talisse. New York: Routledge (2023), 75-80.\n\n## HILARY PUTNAM\n\nMaria Baghramian and Matthew Shields\n\n## Introduction\n\nAmerican, Harvard-based philosopher Hilary Putnam (1926 -2016) began a sustained and rich engagement with pragmatism in the latter part of his career. This turn to pragmatism was part of a larger rethinking of his own earlier philosophical positions. The early Putnam was well known for highly original and influential work on realism in philosophy of science and mathematics, functionalism in philosophy of mind, and semantic externalism in philosophy of language. 1 According to the latter position, human language and thought aim primarily to represent a language and thought-independent reality. Although Putnam never completely abandoned his commitment to semantic externalism nor to realism, he began to question this general picture of the relationship between language/thought and the world. In developing this new outlook in the 1980s, Putnam began to invoke the ideas of the first-generation pragmatists, John Dewey and William James in particular, and, to a lesser extent, Charles Sanders Peirce.\n\nPutnam's first exposure to pragmatism came in his undergraduate days in Pennsylvania, where his first teacher in the philosophy of science, C. West Churchman, was a pragmatist (a student of E. A. Singer Jr., who was, in turn, a student of William James). During his graduate studies, he also took a course at UCLA with Abraham Kaplan, who was strongly influenced by Dewey (Bella, Boncompagni, and Putnam 2015). But Putnam credits his 'conversion' to pragmatism in large part to his wife Ruth Anna Putnam, a renowned scholar of the pragmatist tradition (Putnam and Putnam 2017: 18).\n\n## Putnam's Approach to Pragmatism\n\nThe label 'neo -pragmatism' or 'new pragmatism' has been applied to the work of a varied group of philosophers, chief among them W. V. O. Quine, Richard Rorty, Robert Brandom but also Joseph Margolis, Nicholas Rescher, Richard Bernstein, Susan Haack, and Huw Price. Even Wittgenstein and Habermas have been characterized as pragmatists by some commentators. But the questions of what exactly neo-pragmatism consists in and what connections it has with its ancestors remain open. For Putnam, pragmatism's primary appeal lies in its advocacy of a set of 'fundamental theses' or interrelated conceptual and philosophical sensibilities rather than in narrowly circumscribed doctrines (1994: 152). 2 In fact, with respect to specific pragmatists' views, such as those of James and Dewey on truth or fictionalism about theoretical entities. Putnam is adamant that he does not endorse them (e.g. 2012 and 2017). For Putnam, pragmatism should be approached 'not as a movement … but as a way of thinking that I find of lasting importance, and an option (or at least an open question) that should figure in presentday philosophical thought' (Putnam 1995: xi).\n\n1 See, for example, the papers collected in Putnam (1975).\n\n2  The positions  numbered below in this section draw from and  also expand  on Putnam's own list  in  his 1994 work (152).\n\nIn its negative mode, pragmatism amounts to a rejection of what Putnam dubs 'metaphysical realism', a philosophical orientation that takes there to be 'a set of 'ultimate' objects, the furniture of the world … whose 'existence' is absolute, not relative to our discourse at all, and a notion of truth as 'correspondence' to these ultimate objects', which philosophers can supposedly observe by occupying a God's -eye view on the way the world ultimately is (1989: 231). 3 In contrast to this influential metaphysical realist orientation, the positive vision that Putnam endorses from the pragmatist tradition consists in the following general commitments:\n\n1. Anti-reductionism and pluralism  about  what  there  is -views  he  found  representatively (though not satisfactorily) defended by James:\n\n[W]e must avoid the common philosophical error of supposing that the term reality must refer to a single superthing instead of looking at the ways in which we endlessly renegotiate -and are forced to renegotiate -our notion of reality as our language and our life develop (1999: 9).\n\nAt the same time, Putnam rejects James's specific brand of pluralism for suggesting that the world is a product of our own making. But Putnam agrees with the pragmatists that reality should not be cannibalized into a 'single superthing':\n\nThe world cannot be completely described in the language game of theoretical physics, not because there are regions in which physics is false, but because, to use Aristotelian language, the world has many levels of forms, and there is no realistic possibility of reducing them all to the level of fundamental physics (2012: 65).\n\nWhether we consider our everyday language of middle-sized dry goods or the more rarified languages of ethics, mathematics, the social and human sciences, or literary criticism, all are examples of languages that cannot be fully reduced or translated into the language of fundamental physics; the meaning of what we say in these domains would be lost by such reductions, along with knowledge we have gained. The domain of fundamental physics does not have a monopoly over meaningful, truth-apt, and reality-involving inquiry. Even within fundamental physics, we find a wealth of examples of the ongoing process of human inquiry expanding and revising our notion of reality:\n\n[Q]uantum mechanics is a wonderful example of how with the development of knowledge our idea of what counts as even a possible knowledge claim, our idea of what counts as even a possible object, and our idea of what counts as even a possible property are all subject to change (1999: 8).\n\n2. Realism. Despite the many changes in Putnam's views during his philosophical career, one of his permanent preoccupations is the search for a satisfactory account of realism. Putnam defends what he calls 'natural realism' in the last decades of his life, drawing\n\n3  When we refer  to 'metaphysical realism' in  this  chapter,  we  have  in  mind  how  Putnam  characterizes this view in the cited passage. For discussion of Putnam's changing views of metaphysical realism, see Putnam (2015).\n\ndir ectly from James. To articulate a satisfactory realism, we must 'overcome the disastrous idea that has haunted Western philosophy since the seventeenth century, the idea that perception involves an interface between the mind and the 'external' objects we p erceive' (1999: 43). Most traditional and even contemporary accounts of perception assume that perception is always mediated by sense data or sensations: external objects impinge on us, which prompts sense data (or some equivalent notion), which we then interpret. On these views, we do not perceive tables or chairs; rather, we perceive sense data that we then interpret as tables or chairs. For Putnam, this philosophical picture is a dead end because it leaves mysterious how we are able to come into contact with the world or objects at all , prompting, in turn, a constant philosophical back-and-forth between the untenable positions of metaphysical realism and an idealist antirealism. Following James, Putnam's natural realism holds that 'successful perception i s a sensing of aspects of the reality 'out there' and not a mere affectation of a person's subjectivity by those aspects' (1999: 10). In other words, the natural realist accepts our perceptual reports and truth claims just as we articulate them in our everyday lives: we perceive tables and chairs, 'not immaterial intermediaries' or sense data that we then interpret as tables or chairs (2017: 144). Citing James, Putnam explains that his position vindicates the 'natural realism of the common man' (1999: 38).\n\n3. Rejection of dualisms. Inspired by Dewey, Putnam repudiates various unhelpful and pernicious philosophical dualisms, including, most importantly, the subjective-objective dualism and its close relative, the fact-value dichotomy (e.g. Putnam 2002). Description and evaluation, according to Putnam, should not be seen as 'two separate watertight boxes in which statements or uses of statements can be put. All description presupposes evaluation (although not necessarily moral evaluation) and all evaluation presupposes description' (2012: 70). But the interpenetration of fact and value does not open the floodgates to relativism. For Putnam, in order to make any claim about the way the world is, we need a sense of what is important and what not, what to pay attention to and what to pass over, what the relevant grounds for one's judgments are, how much weight they have, and some indication of how they are to be assessed or criticized. In short, we need a sense of realism in all of our inquiries, theoretical or practical, and this realism is necessarily bound up with and enabled by, rather than cordoned off from, values.\n4. Fallibilism conjoined with anti-skepticism. Following the first-generation pragmatists, Putnam endorses the view that all beliefs are open to revision and all interpretations and methods of inquiry have a provisional authority only (1989, 1994). But he also draws the lesson from Peirce that doubt itself requires justification. While any claim can be questioned for the pragmatist, this questioning must be earned: it must be shown that we have genuine reason to doubt, a burden that, in turn, prevents pragmatism from collapsing into skepticism. In fact, Putnam believes that the very notion 'that one can be both fallibilistic and antiskeptical is perhaps the unique insight of American pragmatism' (1994: 152). The stakes of this rejection of skepticism also implicate our political and moral lives because Putnam points out that 'it is an open question whether an enlightened society can avoid a corrosive moral scepticism without tumbling back into moral authoritarianism' (1995: 2).\n5. The primacy of the agent point of view. Putnam argues that philosophy should not be in the business of attempting to indict, eliminate, or reduce concepts such as truth, reason, or meaning that play a fundamental role for the kinds of speaking and thinking creatures we are:\n\nThe heart of pragmatism, it seems to me -of James's and Dewey's pragmatism, if not of Peirce's was the insistence on the supremacy of the agent point of view. If we find that we must take a certain point of view, use a certain 'conceptual system', when we are engaged in practical activity, in the widest sense of 'practical activity', then we must not simultaneously advance the claim that it is not really 'the way things are in themselves' (1987: 70).\n\nPutnam's point is not that we should therefore return to traditional philosophical accounts of these concepts -where, for example, truth consists in correspondence to the way the world absolutely is. Instead, Putnam wants us to locate the role these foundational concepts play in our lives, what they allow us to do that we could not do otherwise. For example, Putnam argues that '[t]here is no eliminating the normative' in our linguistic and conc eptual lives because our sense that utterances and thoughts can be correct or incorrect, true or false, is necessary for us to take ourselves to be talking and thinking about a shared world with others (1989: 246). As he puts the point elsewhere:\n\n[T]he pragmatists urged that the agent point of view, the first-person normative point of view, and the concepts indispensable to that point of view should be taken just as seriously as the concepts indispensable to the third-person descriptive point of view (2017: 168).\n\nWe take up this line of thought in the following section.\n\n## Putnam Versus Rorty on Pragmatism\n\nPutnam's endorsement and deployment of the above theses are often particularly apparent in his engagement with the work of Richard Rorty, who also claims the heritage of pragmatism for his project. Although Putnam shares elements of Rorty's critique of their contemporaries' philosophical views -in particular, a repudiation of a God's -eye view on the world and a corresponding metaphysical realism -Putnam n onetheless rejects many of Rorty's specific views and Rorty's claims that his views have a pragmatist lineage. Following Dewey, both Putnam and Rorty argue that our justifications and standards for warrant for our beliefs are shaped by our historically situated interests and values. Epistemic standards are therefore never absolute or immutable but plural and evolve over time (Putnam 1990). Putnam and Rorty disagree strongly, however, on whether 'in ordinary circumstances, there is usually a fact of the matter as to whether the statements people make are warranted or not' and 'whether a statement is warranted or not is independent of whether the majority of one's cultural peers would say it is warranted or unwarranted' (1990: 21). From Rorty's perspective, wh ether a belief counts as warranted is exclusively a question about whether our fellow speakers and thinkers would count the belief as warranted; warrant or justification is therefore always fundamentally a social matter (because, in his view, there is no sense to be made of the world 'telling us' how it ought to be made sense of). In turn, Rorty believes that we should move 'everything over from epistemology and metaphysics to cultural politics, from claims to knowledge and appeals to self-evidence to sugge stions about what we should try' (Rorty 1998: 57). For Putnam, however, the answerability of our beliefs and warrants for those beliefs to a world over and above our peers and a 'reality not of our own invention plays a deep role in our lives and is to be respected' (Putnam 1999: 9)\n\nIf we assume, for example, that other speakers and thinkers have a final say over what counts as right or wrong, we would never be able to coherently disagree with a communal consensus, rendering impossible, in turn, the very notion of our making rational changes to our categories for understanding the world. Furthermore, our very practices of agreement and disagreement require that we take ourselves to be answerable to a world over and above our respective, idiosyncratic, or culturally specific commitments. If we did not, then we would have no reason to engage speakers whose semantic and epistemic commitments differ from our own. When, for example, other speakers utter declaratival sentence ' S ' and we utter ' ~S ' , such utterances would then not be treated as contradictory but rather as products of hermetically sealed ways of talking and thinking about the world. But, for Putnam, pragmatists should aim to do justice to deeply ingrained practices such as those of agreement and disagreement rather than ignoring or eliminating them: '[M]y knowledge that I disagree with what you just said , is also knowledge that is as sure as any that we have. Such knowledge must be taken seriously by philosophers, not treated as an illusion to be explained away' ( 1994: 322). Once we center the agent point of view and, to take a specific example, our practices of agreement and disagreement even for speakers whose beliefs otherwise differ substantially from our own, Putnam points out that we dis cover that ' as thinkers we are committed to there being some kind of truth, some kind of correctness which is substantial' (1989: 246). In other words, it is crucial to how we make sense of ourselves and the world that we do take our thoughts and utterances to be answerable to a world whose intelligibility our peers do not have a decisive ability to determine, but that exists over and above any communal consensus, no matter how resilient or robust.\n\nPutnam's pragmatist approach to and preservation of the not ions of truth, reality, reason, and meaning, however, should not be confused with traditional metaphysical realism. His position is that we should locate and analyze the crucial role these concepts play in our lives rather than resurrecting  an illusory  God's -eye  view  or  attempting  to  excise  them  in  the  service  of  our philosophical theories. To fail to do so -in the ways that, on Putnam's reading, Rorty does would be a betrayal of the pragmatist tradition and its 'insistence on the supremacy o f the agent point of view'.\n\n## Conclusion\n\nIn addition to Putnam's endorsement of a pragmatist orientation to specific philosophical questions, he also shares the pragmatists' view that philosophy can and should matter to our moral and spiritual lives (1995; Putnam and Putnam 2017). This connection between philosophy and life as it shows up for agents (rather than as reimagined in a desiccated form from the philosopher's arm -chair), as we have seen, works in both directions: '[I]f there was one great insight in pragmatism, it was the insistence that what has weight in our lives should also have weight in philosophy' (1999: 70). In their co-authored collection of papers, both Putnams describe their hope that a pragmatist orientation will shape what philosophy w ill 'look in the twenty -first century and beyond' (2017: 18).\n\nIn the previous sections, we sketched how in Putnam's own work, he borrowed from classical pragmatism in navigating the contested terrain concerning the nature of realism, truth, and rationality, using the resources of this tradition to defend views of these concepts that do not succumb either to traditional accounts that ignore the ways we are situated within history and culture or to revisionary approaches, such as Rorty's, that aim to rid phil osophers of these concepts altogether. The pragmatist future for philosophy the Putnams imagined had an even broader scope, extending these insights into our moral and politics lives, into 'reflection on our ways of living, and especially on what is wrong with those ways of living' (2013: 34).\n\n## Acknowledgements\n\nThe work on this publication has been made possible through funding from the European Union's Horizon 2020 research and innovation program under grant agreement No. 870883. The information and opinions contained herein are those of the authors and do not necessarily reflect those of the European Commission.\n\n## Bibliography\n\nBella, M., Anna, B., and Putnam H. (2015) 'Interview with Hilary Putnam', European Journal of Pragmatism and American Philosophy [Online] , VII-1 &lt;http://journals.openedition.org/ejpap/357&gt;. Putnam, H. (1975) Mind, Language and Reality: Philosophical Papers, Volume 2 , Cambridge: Harvard University Press.\n\n- -(1989) Realism and Reason: Philosophical Papers, Volume 3 , Cambridge: Cambridge University Press.\n- -(1990) Realism with a Human Face , Cambridge: Harvard University Press\n- -(1994) Words and Life , Cambridge: Harvard University Press.\n- -(1995) Pragmatism: An Open Question , Cambridge: Blackwell Publishers.\n- -(1999) The Threefold Cord , New York: Columbia University Press.\n- -(2002) The Collapse of the Fact/Value Dichotomy and Other Essays , Cambridge: Harvard University Press.\n- -(2012) Philosophy in an Age of Science: Physics, Mathematics, and Skepticism . Harvard University Press\n- -(2013) 'From quantum mechanics to ethics and back again' in M. Baghramian (ed.) Reading Putnam , London/New York: Routledge.\n- -(2015) 'Intellectual Autobiography' in R.E. Auxier, D.R. Anderson, and L.E. Hahn (eds.) The Philosophy of Hilary Putnam , Chicago: Open Court Publishing Company.\n\nPutnam, H. &amp; Putnam, R.A. (2017) Pragmatism as a Way of Life: The Lasting Legacy of William James and John Dewey , Cambridge: Harvard University Press.\n\nRorty, R. (1998) Truth and Progress: Philosophical Papers, Volume 3 , Cambridge: Cambridge University Press.\n\n## Further Reading\n\nGoodman, R.B. (2008) 'Some Sources of Putnam's Pragmatism' in (eds.) M.U.R. Monroy, C.C. Silva, C.M. Vidal Following Putnam's Trail , New York: Rodopi B.V.\n\nHildebrand, D. (2000) 'Putnam, Pragmatism, and Dewey,' Transactions of the Charles S. Peirce Society 36 109-132.\n\nMacArthur, D. (2008) 'Putnam, Pragmatism and the Fate of Metaphysics,' European Journal of Analytic Philosophy 4 33-46.\n\n- Misak, C. (2013) 'Hilary Putnam (1926 )' in The American Pragmatists . Oxford: Oxford University Press.\n\nPihlström, S . (2004) 'Putnam and Rorty on their Pragmatist Heritage: Re -Reading James and Dewey' in E. Khalil (ed.) Dewey, Pragmatism and Economic Methodology , London: Routledge.",
+    "responses": [
+      {
+        "source": "gpt-4o-2024-11-20",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"ADU1\": {\n      \"text\": \"American, Harvard-based philosopher Hilary Putnam (1926 -2016) began a sustained and rich engagement with pragmatism in the latter part of his career.\",\n      \"label\": \"claim\"\n    },\n    \"ADU2\": {\n      \"text\": \"This turn to pragmatism was part of a larger rethinking of his own earlier philosophical positions.\",\n      \"label\": \"premise\"\n    },\n    \"ADU3\": {\n      \"text\": \"For Putnam, pragmatism's primary appeal lies in its advocacy of a set of 'fundamental theses' or interrelated conceptual and philosophical sensibilities rather than in narrowly circumscribed doctrines (1994: 152).\",\n      \"label\": \"claim\"\n    },\n    \"ADU4\": {\n      \"text\": \"In its negative mode, pragmatism amounts to a rejection of what Putnam dubs 'metaphysical realism', a philosophical orientation that takes there to be 'a set of 'ultimate' objects, the furniture of the world … whose 'existence' is absolute, not relative to our discourse at all, and a notion of truth as 'correspondence' to these ultimate objects', which philosophers can supposedly observe by occupying a God's -eye view on the way the world ultimately is (1989: 231).\",\n      \"label\": \"premise\"\n    },\n    \"ADU5\": {\n      \"text\": \"In contrast to this influential metaphysical realist orientation, the positive vision that Putnam endorses from the pragmatist tradition consists in the following general commitments:\",\n      \"label\": \"claim\"\n    },\n    \"ADU6\": {\n      \"text\": \"Anti-reductionism and pluralism about what there is -views he found representatively (though not satisfactorily) defended by James:\",\n      \"label\": \"claim\"\n    },\n    \"ADU7\": {\n      \"text\": \"[W]e must avoid the common philosophical error of supposing that the term reality must refer to a single superthing instead of looking at the ways in which we endlessly renegotiate -and are forced to renegotiate -our notion of reality as our language and our life develop (1999: 9).\",\n      \"label\": \"premise\"\n    },\n    \"ADU8\": {\n      \"text\": \"The world cannot be completely described in the language game of theoretical physics, not because there are regions in which physics is false, but because, to use Aristotelian language, the world has many levels of forms, and there is no realistic possibility of reducing them all to the level of fundamental physics (2012: 65).\",\n      \"label\": \"premise\"\n    },\n    \"ADU9\": {\n      \"text\": \"Realism. Despite the many changes in Putnam's views during his philosophical career, one of his permanent preoccupations is the search for a satisfactory account of realism.\",\n      \"label\": \"claim\"\n    },\n    \"ADU10\": {\n      \"text\": \"Putnam defends what he calls 'natural realism' in the last decades of his life, drawing directly from James.\",\n      \"label\": \"premise\"\n    },\n    \"ADU11\": {\n      \"text\": \"Rejection of dualisms. Inspired by Dewey, Putnam repudiates various unhelpful and pernicious philosophical dualisms, including, most importantly, the subjective-objective dualism and its close relative, the fact-value dichotomy (e.g. Putnam 2002).\",\n      \"label\": \"claim\"\n    },\n    \"ADU12\": {\n      \"text\": \"Fallibilism conjoined with anti-skepticism. Following the first-generation pragmatists, Putnam endorses the view that all beliefs are open to revision and all interpretations and methods of inquiry have a provisional authority only (1989, 1994).\",\n      \"label\": \"claim\"\n    },\n    \"ADU13\": {\n      \"text\": \"But he also draws the lesson from Peirce that doubt itself requires justification.\",\n      \"label\": \"premise\"\n    },\n    \"ADU14\": {\n      \"text\": \"The primacy of the agent point of view. Putnam argues that philosophy should not be in the business of attempting to indict, eliminate, or reduce concepts such as truth, reason, or meaning that play a fundamental role for the kinds of speaking and thinking creatures we are:\",\n      \"label\": \"claim\"\n    },\n    \"ADU15\": {\n      \"text\": \"Putnam's endorsement and deployment of the above theses are often particularly apparent in his engagement with the work of Richard Rorty, who also claims the heritage of pragmatism for his project.\",\n      \"label\": \"claim\"\n    },\n    \"ADU16\": {\n      \"text\": \"Although Putnam shares elements of Rorty's critique of their contemporaries' philosophical views -in particular, a repudiation of a God's -eye view on the world and a corresponding metaphysical realism -Putnam nonetheless rejects many of Rorty's specific views and Rorty's claims that his views have a pragmatist lineage.\",\n      \"label\": \"premise\"\n    },\n    \"ADU17\": {\n      \"text\": \"Putnam's pragmatist approach to and preservation of the notions of truth, reality, reason, and meaning, however, should not be confused with traditional metaphysical realism.\",\n      \"label\": \"claim\"\n    },\n    \"ADU18\": {\n      \"text\": \"His position is that we should locate and analyze the crucial role these concepts play in our lives rather than resurrecting an illusory God's-eye view or attempting to excise them in the service of our philosophical theories.\",\n      \"label\": \"premise\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"ADU2\",\n      \"target\": \"ADU1\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU4\",\n      \"target\": \"ADU3\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU5\",\n      \"target\": \"ADU3\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU7\",\n      \"target\": \"ADU6\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU8\",\n      \"target\": \"ADU6\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU10\",\n      \"target\": \"ADU9\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU13\",\n      \"target\": \"ADU12\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU16\",\n      \"target\": \"ADU15\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU18\",\n      \"target\": \"ADU17\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "ADU1": {
+              "text": "American, Harvard-based philosopher Hilary Putnam (1926 -2016) began a sustained and rich engagement with pragmatism in the latter part of his career.",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "This turn to pragmatism was part of a larger rethinking of his own earlier philosophical positions.",
+              "label": "premise"
+            },
+            "ADU3": {
+              "text": "For Putnam, pragmatism's primary appeal lies in its advocacy of a set of 'fundamental theses' or interrelated conceptual and philosophical sensibilities rather than in narrowly circumscribed doctrines (1994: 152).",
+              "label": "claim"
+            },
+            "ADU4": {
+              "text": "In its negative mode, pragmatism amounts to a rejection of what Putnam dubs 'metaphysical realism', a philosophical orientation that takes there to be 'a set of 'ultimate' objects, the furniture of the world … whose 'existence' is absolute, not relative to our discourse at all, and a notion of truth as 'correspondence' to these ultimate objects', which philosophers can supposedly observe by occupying a God's -eye view on the way the world ultimately is (1989: 231).",
+              "label": "premise"
+            },
+            "ADU5": {
+              "text": "In contrast to this influential metaphysical realist orientation, the positive vision that Putnam endorses from the pragmatist tradition consists in the following general commitments:",
+              "label": "claim"
+            },
+            "ADU6": {
+              "text": "Anti-reductionism and pluralism about what there is -views he found representatively (though not satisfactorily) defended by James:",
+              "label": "claim"
+            },
+            "ADU7": {
+              "text": "[W]e must avoid the common philosophical error of supposing that the term reality must refer to a single superthing instead of looking at the ways in which we endlessly renegotiate -and are forced to renegotiate -our notion of reality as our language and our life develop (1999: 9).",
+              "label": "premise"
+            },
+            "ADU8": {
+              "text": "The world cannot be completely described in the language game of theoretical physics, not because there are regions in which physics is false, but because, to use Aristotelian language, the world has many levels of forms, and there is no realistic possibility of reducing them all to the level of fundamental physics (2012: 65).",
+              "label": "premise"
+            },
+            "ADU9": {
+              "text": "Realism. Despite the many changes in Putnam's views during his philosophical career, one of his permanent preoccupations is the search for a satisfactory account of realism.",
+              "label": "claim"
+            },
+            "ADU10": {
+              "text": "Putnam defends what he calls 'natural realism' in the last decades of his life, drawing directly from James.",
+              "label": "premise"
+            },
+            "ADU11": {
+              "text": "Rejection of dualisms. Inspired by Dewey, Putnam repudiates various unhelpful and pernicious philosophical dualisms, including, most importantly, the subjective-objective dualism and its close relative, the fact-value dichotomy (e.g. Putnam 2002).",
+              "label": "claim"
+            },
+            "ADU12": {
+              "text": "Fallibilism conjoined with anti-skepticism. Following the first-generation pragmatists, Putnam endorses the view that all beliefs are open to revision and all interpretations and methods of inquiry have a provisional authority only (1989, 1994).",
+              "label": "claim"
+            },
+            "ADU13": {
+              "text": "But he also draws the lesson from Peirce that doubt itself requires justification.",
+              "label": "premise"
+            },
+            "ADU14": {
+              "text": "The primacy of the agent point of view. Putnam argues that philosophy should not be in the business of attempting to indict, eliminate, or reduce concepts such as truth, reason, or meaning that play a fundamental role for the kinds of speaking and thinking creatures we are:",
+              "label": "claim"
+            },
+            "ADU15": {
+              "text": "Putnam's endorsement and deployment of the above theses are often particularly apparent in his engagement with the work of Richard Rorty, who also claims the heritage of pragmatism for his project.",
+              "label": "claim"
+            },
+            "ADU16": {
+              "text": "Although Putnam shares elements of Rorty's critique of their contemporaries' philosophical views -in particular, a repudiation of a God's -eye view on the world and a corresponding metaphysical realism -Putnam nonetheless rejects many of Rorty's specific views and Rorty's claims that his views have a pragmatist lineage.",
+              "label": "premise"
+            },
+            "ADU17": {
+              "text": "Putnam's pragmatist approach to and preservation of the notions of truth, reality, reason, and meaning, however, should not be confused with traditional metaphysical realism.",
+              "label": "claim"
+            },
+            "ADU18": {
+              "text": "His position is that we should locate and analyze the crucial role these concepts play in our lives rather than resurrecting an illusory God's-eye view or attempting to excise them in the service of our philosophical theories.",
+              "label": "premise"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU2",
+              "target": "ADU1",
+              "type": "support"
+            },
+            {
+              "source": "ADU4",
+              "target": "ADU3",
+              "type": "support"
+            },
+            {
+              "source": "ADU5",
+              "target": "ADU3",
+              "type": "support"
+            },
+            {
+              "source": "ADU7",
+              "target": "ADU6",
+              "type": "support"
+            },
+            {
+              "source": "ADU8",
+              "target": "ADU6",
+              "type": "support"
+            },
+            {
+              "source": "ADU10",
+              "target": "ADU9",
+              "type": "support"
+            },
+            {
+              "source": "ADU13",
+              "target": "ADU12",
+              "type": "support"
+            },
+            {
+              "source": "ADU16",
+              "target": "ADU15",
+              "type": "support"
+            },
+            {
+              "source": "ADU18",
+              "target": "ADU17",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "ADU1": {
+              "text": "American, Harvard-based philosopher Hilary Putnam (1926 -2016) began a sustained and rich engagement with pragmatism in the latter part of his career.",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "This turn to pragmatism was part of a larger rethinking of his own earlier philosophical positions.",
+              "label": "premise"
+            },
+            "ADU3": {
+              "text": "For Putnam, pragmatism's primary appeal lies in its advocacy of a set of 'fundamental theses' or interrelated conceptual and philosophical sensibilities rather than in narrowly circumscribed doctrines (1994: 152).",
+              "label": "claim"
+            },
+            "ADU4": {
+              "text": "In its negative mode, pragmatism amounts to a rejection of what Putnam dubs 'metaphysical realism', a philosophical orientation that takes there to be 'a set of 'ultimate' objects, the furniture of the world … whose 'existence' is absolute, not relative to our discourse at all, and a notion of truth as 'correspondence' to these ultimate objects', which philosophers can supposedly observe by occupying a God's -eye view on the way the world ultimately is (1989: 231).",
+              "label": "premise"
+            },
+            "ADU5": {
+              "text": "In contrast to this influential metaphysical realist orientation, the positive vision that Putnam endorses from the pragmatist tradition consists in the following general commitments:",
+              "label": "claim"
+            },
+            "ADU6": {
+              "text": "Anti-reductionism and pluralism about what there is -views he found representatively (though not satisfactorily) defended by James:",
+              "label": "claim"
+            },
+            "ADU7": {
+              "text": "[W]e must avoid the common philosophical error of supposing that the term reality must refer to a single superthing instead of looking at the ways in which we endlessly renegotiate -and are forced to renegotiate -our notion of reality as our language and our life develop (1999: 9).",
+              "label": "premise"
+            },
+            "ADU8": {
+              "text": "The world cannot be completely described in the language game of theoretical physics, not because there are regions in which physics is false, but because, to use Aristotelian language, the world has many levels of forms, and there is no realistic possibility of reducing them all to the level of fundamental physics (2012: 65).",
+              "label": "premise"
+            },
+            "ADU9": {
+              "text": "Realism. Despite the many changes in Putnam's views during his philosophical career, one of his permanent preoccupations is the search for a satisfactory account of realism.",
+              "label": "claim"
+            },
+            "ADU11": {
+              "text": "Rejection of dualisms. Inspired by Dewey, Putnam repudiates various unhelpful and pernicious philosophical dualisms, including, most importantly, the subjective-objective dualism and its close relative, the fact-value dichotomy (e.g. Putnam 2002).",
+              "label": "claim"
+            },
+            "ADU12": {
+              "text": "Fallibilism conjoined with anti-skepticism. Following the first-generation pragmatists, Putnam endorses the view that all beliefs are open to revision and all interpretations and methods of inquiry have a provisional authority only (1989, 1994).",
+              "label": "claim"
+            },
+            "ADU13": {
+              "text": "But he also draws the lesson from Peirce that doubt itself requires justification.",
+              "label": "premise"
+            },
+            "ADU14": {
+              "text": "The primacy of the agent point of view. Putnam argues that philosophy should not be in the business of attempting to indict, eliminate, or reduce concepts such as truth, reason, or meaning that play a fundamental role for the kinds of speaking and thinking creatures we are:",
+              "label": "claim"
+            },
+            "ADU15": {
+              "text": "Putnam's endorsement and deployment of the above theses are often particularly apparent in his engagement with the work of Richard Rorty, who also claims the heritage of pragmatism for his project.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU2",
+              "target": "ADU1",
+              "type": "support"
+            },
+            {
+              "source": "ADU4",
+              "target": "ADU3",
+              "type": "support"
+            },
+            {
+              "source": "ADU5",
+              "target": "ADU3",
+              "type": "support"
+            },
+            {
+              "source": "ADU7",
+              "target": "ADU6",
+              "type": "support"
+            },
+            {
+              "source": "ADU8",
+              "target": "ADU6",
+              "type": "support"
+            },
+            {
+              "source": "ADU13",
+              "target": "ADU12",
+              "type": "support"
+            }
+          ]
+        }
+      },
+      {
+        "source": "claude-3-5-sonnet-20241022",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"A1\": {\n      \"text\": \"For Putnam, pragmatism's primary appeal lies in its advocacy of a set of 'fundamental theses' or interrelated conceptual and philosophical sensibilities rather than in narrowly circumscribed doctrines\",\n      \"label\": \"claim\"\n    },\n    \"A2\": {\n      \"text\": \"pragmatism amounts to a rejection of 'metaphysical realism', a philosophical orientation that takes there to be 'a set of 'ultimate' objects, the furniture of the world … whose 'existence' is absolute, not relative to our discourse at all, and a notion of truth as 'correspondence' to these ultimate objects', which philosophers can supposedly observe by occupying a God's -eye view on the way the world ultimately is\",\n      \"label\": \"claim\"\n    },\n    \"A3\": {\n      \"text\": \"The world cannot be completely described in the language game of theoretical physics, not because there are regions in which physics is false, but because, to use Aristotelian language, the world has many levels of forms, and there is no realistic possibility of reducing them all to the level of fundamental physics\",\n      \"label\": \"claim\"\n    },\n    \"A4\": {\n      \"text\": \"Description and evaluation, according to Putnam, should not be seen as 'two separate watertight boxes in which statements or uses of statements can be put. All description presupposes evaluation (although not necessarily moral evaluation) and all evaluation presupposes description'\",\n      \"label\": \"claim\"\n    },\n    \"A5\": {\n      \"text\": \"While any claim can be questioned for the pragmatist, this questioning must be earned: it must be shown that we have genuine reason to doubt, a burden that, in turn, prevents pragmatism from collapsing into skepticism\",\n      \"label\": \"claim\"\n    },\n    \"A6\": {\n      \"text\": \"The heart of pragmatism, it seems to me -of James's and Dewey's pragmatism, if not of Peirce's was the insistence on the supremacy of the agent point of view. If we find that we must take a certain point of view, use a certain 'conceptual system', when we are engaged in practical activity, in the widest sense of 'practical activity', then we must not simultaneously advance the claim that it is not really 'the way things are in themselves'\",\n      \"label\": \"claim\"\n    },\n    \"A7\": {\n      \"text\": \"whether a statement is warranted or not is independent of whether the majority of one's cultural peers would say it is warranted or unwarranted\",\n      \"label\": \"claim\"\n    },\n    \"A8\": {\n      \"text\": \"reality not of our own invention plays a deep role in our lives and is to be respected\",\n      \"label\": \"premise\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"A8\",\n      \"target\": \"A7\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A3\",\n      \"target\": \"A2\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A5\",\n      \"target\": \"A1\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A6\",\n      \"target\": \"A1\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A4\",\n      \"target\": \"A2\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "A1": {
+              "text": "For Putnam, pragmatism's primary appeal lies in its advocacy of a set of 'fundamental theses' or interrelated conceptual and philosophical sensibilities rather than in narrowly circumscribed doctrines",
+              "label": "claim"
+            },
+            "A2": {
+              "text": "pragmatism amounts to a rejection of 'metaphysical realism', a philosophical orientation that takes there to be 'a set of 'ultimate' objects, the furniture of the world … whose 'existence' is absolute, not relative to our discourse at all, and a notion of truth as 'correspondence' to these ultimate objects', which philosophers can supposedly observe by occupying a God's -eye view on the way the world ultimately is",
+              "label": "claim"
+            },
+            "A3": {
+              "text": "The world cannot be completely described in the language game of theoretical physics, not because there are regions in which physics is false, but because, to use Aristotelian language, the world has many levels of forms, and there is no realistic possibility of reducing them all to the level of fundamental physics",
+              "label": "claim"
+            },
+            "A4": {
+              "text": "Description and evaluation, according to Putnam, should not be seen as 'two separate watertight boxes in which statements or uses of statements can be put. All description presupposes evaluation (although not necessarily moral evaluation) and all evaluation presupposes description'",
+              "label": "claim"
+            },
+            "A5": {
+              "text": "While any claim can be questioned for the pragmatist, this questioning must be earned: it must be shown that we have genuine reason to doubt, a burden that, in turn, prevents pragmatism from collapsing into skepticism",
+              "label": "claim"
+            },
+            "A6": {
+              "text": "The heart of pragmatism, it seems to me -of James's and Dewey's pragmatism, if not of Peirce's was the insistence on the supremacy of the agent point of view. If we find that we must take a certain point of view, use a certain 'conceptual system', when we are engaged in practical activity, in the widest sense of 'practical activity', then we must not simultaneously advance the claim that it is not really 'the way things are in themselves'",
+              "label": "claim"
+            },
+            "A7": {
+              "text": "whether a statement is warranted or not is independent of whether the majority of one's cultural peers would say it is warranted or unwarranted",
+              "label": "claim"
+            },
+            "A8": {
+              "text": "reality not of our own invention plays a deep role in our lives and is to be respected",
+              "label": "premise"
+            }
+          },
+          "relations": [
+            {
+              "source": "A8",
+              "target": "A7",
+              "type": "support"
+            },
+            {
+              "source": "A3",
+              "target": "A2",
+              "type": "support"
+            },
+            {
+              "source": "A5",
+              "target": "A1",
+              "type": "support"
+            },
+            {
+              "source": "A6",
+              "target": "A1",
+              "type": "support"
+            },
+            {
+              "source": "A4",
+              "target": "A2",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "A1": {
+              "text": "For Putnam, pragmatism's primary appeal lies in its advocacy of a set of 'fundamental theses' or interrelated conceptual and philosophical sensibilities rather than in narrowly circumscribed doctrines",
+              "label": "claim"
+            },
+            "A3": {
+              "text": "The world cannot be completely described in the language game of theoretical physics, not because there are regions in which physics is false, but because, to use Aristotelian language, the world has many levels of forms, and there is no realistic possibility of reducing them all to the level of fundamental physics",
+              "label": "claim"
+            },
+            "A4": {
+              "text": "Description and evaluation, according to Putnam, should not be seen as 'two separate watertight boxes in which statements or uses of statements can be put. All description presupposes evaluation (although not necessarily moral evaluation) and all evaluation presupposes description'",
+              "label": "claim"
+            },
+            "A5": {
+              "text": "While any claim can be questioned for the pragmatist, this questioning must be earned: it must be shown that we have genuine reason to doubt, a burden that, in turn, prevents pragmatism from collapsing into skepticism",
+              "label": "claim"
+            },
+            "A6": {
+              "text": "The heart of pragmatism, it seems to me -of James's and Dewey's pragmatism, if not of Peirce's was the insistence on the supremacy of the agent point of view. If we find that we must take a certain point of view, use a certain 'conceptual system', when we are engaged in practical activity, in the widest sense of 'practical activity', then we must not simultaneously advance the claim that it is not really 'the way things are in themselves'",
+              "label": "claim"
+            },
+            "A7": {
+              "text": "whether a statement is warranted or not is independent of whether the majority of one's cultural peers would say it is warranted or unwarranted",
+              "label": "claim"
+            },
+            "A8": {
+              "text": "reality not of our own invention plays a deep role in our lives and is to be respected",
+              "label": "premise"
+            }
+          },
+          "relations": [
+            {
+              "source": "A8",
+              "target": "A7",
+              "type": "support"
+            },
+            {
+              "source": "A5",
+              "target": "A1",
+              "type": "support"
+            },
+            {
+              "source": "A6",
+              "target": "A1",
+              "type": "support"
+            }
+          ]
+        }
+      }
+    ],
+    "timestamp": 1752748886.2205582
+  }
+]

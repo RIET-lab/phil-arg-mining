@@ -1,0 +1,343 @@
+[
+  {
+    "identifier": "MEIJBT",
+    "system_prompt": "## GOAL\nArgument‑mine the following paper to extract its comprehensive argumentative structure.\n\n## DEFINITIONS\n1. **Argument**: A set of propositions, including some number of premises and a conclusion. The premises should logically entail the conclusion.\n2. **Claim**: A proposition that asserts something to be true or false, typically requiring justification or evidence.\n3. **Premise**: A proposition that provides evidence, justification, or logical support for a claim or conclusion.\n\n## CRITICAL REQUIREMENTS\n1. **VERBATIM EXTRACTION ONLY**: Each ADU text must be copied EXACTLY from the paper with no modifications, paraphrasing, or combining of separate sentences.\n2. **NO HALLUCINATION**: Do not create, modify, or invent text that does not appear exactly in the source.\n3. **EXACT MATCHING**: Every word, punctuation mark, and spacing must match the original precisely.\n\n## DIRECTIONS\n1. **Identify Argumentative Discourse Units (ADUs)**  \n   - ADU = any contiguous text span functioning as a claim or a premise in the reasoning structure.\n   - **BE HIGHLY SELECTIVE**: Only include ADUs that are crucial to the overarching argument structure.\n   - Focus on significant claims and premises that contribute meaningfully to the argumentative flow.\n   - **AVOID NOISE**: Skip ADUs that are merely descriptive, tangential, or do not substantially advance the argument.\n   - Prioritize quality over quantity - fewer accurate, important ADUs are better than many insignificant ones.\n   - **EXTRACT ONLY**: Copy text spans exactly as they appear, without any modifications.\n2. **Classify each ADU**  \n   - Label = either `\"claim\"` or `\"premise\"`.  \n3. **Detect directed relations**  \n   - Relation = `\"support\"` or `\"attack\"`, from one ADU (source) to another (target).\n   - Map how ADUs connect to form reasoning chains.\n   - Focus on relationships between the most significant ADUs.\n   - Include relationships between premises that strengthen or weaken each other.\n4. **Verbatim spans**  \n   - Each `\"text\"` value must be copied EXACTLY from the paper with zero modifications.\n   - Do not paraphrase, summarize, or combine separate sentences.\n   - Do not add, remove, or change any words, punctuation, or spacing.\n   - If unsure about exact wording, skip that ADU rather than guess.\n\n## WHAT TO CAPTURE\n**INCLUDE ONLY:**\n- Main argumentative threads that are central to the paper's contribution\n- Core claims that represent the paper's primary arguments or findings\n- Key premises that provide essential support for major claims\n- Critical counterarguments and their refutations\n- Reasoning chains that demonstrate how main conclusions are derived\n\n**EXCLUDE (AVOID NOISE):**\n- Minor details, examples, or descriptive content that don't advance the argument\n- Tangential points or side discussions\n- Pure background information or literature review content\n- Methodological details unless they constitute argumentative claims\n- Obvious statements or commonly accepted facts\n- Redundant or repetitive argumentative content\n\n**GUIDING PRINCIPLE**: If removing an ADU would not significantly impact understanding of the paper's argumentative structure, it should be excluded.\n\n## QUALITY CONTROL\n- Before finalizing each ADU, verify the text exists exactly in the source\n- Prefer fewer, accurate ADUs over many potentially modified ones\n- When in doubt about exact wording, omit the ADU\n\n## OUTPUT FORMAT\nReturn **only** a single valid JSON object matching this schema.  \nDo **not** output any extra text, markdown, or explanations.\n\nRESPOND WITH ONLY:\n```json\n{\n  \"ADUs\": {\n    \"<ADU_ID>\": {\n      \"text\": \"<exact span from paper>\",\n      \"label\": \"claim\" | \"premise\"\n    }\n    ...\n  },\n  \"relations\": [\n    {\n      \"source\": \"<ADU_ID>\",\n      \"target\": \"<ADU_ID>\",\n      \"type\": \"support\" | \"attack\"\n    }\n  ]\n}\n```",
+    "user_content": "Downloaded by [Yale University Library] at 09:07 17 November 2013\n\n<!-- image -->\n\n## BOOK REVIEW\n\nD. A. Callus and R. W. Hunt (eds): John Blund: Treatise on the Soul . Oxford: Oxford University Press, 2013 (with a new introduction and English translation by Michael W. Dunne (Auctores Britannici Medii Aevi II.) for the British Academy), pp. l, 258. £60 (hb). ISBN 9780197265147\n\nThe volume under review reprints the Latin text of the work Treatise on the Soul (Lat. Tractatus de Anima ) by the late twelfth-century author John Blund (c.1175 -1248), as edited by Daniel Callus and Richard Hunt in 1970. 1 It also takes from that work an introduction, and indices of authors, names and keywords. To this it adds a facing English translation and a longer introduction -both prepared by Michael Dunne -and a subject index. An appendix with diagrams and explanations of some of Blund ' s technical points is reproduced from the recent German translation (Dorothée Werner, John Blund. Tractatus de Anima. Traktat über die Seele. Lateinisch-Deutsch . Freiburg: Herder, 2005).\n\nJohn Blund ' s Treatise on the Soul , written before 1204, marks a key transition in the study of natural philosophy, especially psychology, in the highmedieval period. Blund was among the /uniFB01 rst to bring together the strongly developed twelfth-century Western physiological tradition with insights from Avicenna and Aristotle, and to introduce newly translated works of natural philosophy at Oxford.\n\nScholarship on Blund has increased since Callus in 1943 rediscovered a manuscript of the Treatise in a miscellany of writings. The current volume draws strongly from existing work. Reprinted here is the introduction from the edition by Callus and Hunt, which provides what was in 1970 the most comprehensive account of Blund ' s life, work, and intellectual context. This introduction also details the manuscripts used in establishing the Latin text ((C) Cambridge, St John ' s College, MS. 120; (P) Prague, University Library IV D 13 (667); (V) Vatican City, MS. Vat. lat. 833). Much of Dunne ' s own, new introduction for this volume relies heavily on Dag Nikolaus Hasse ' s work on Blund ' s reception of Avicenna ' s On the Soul -one of the most detailed studies on Blund since Callus ' writings (Dag Nikolaus Hasse, Avicenna ' s De anima in the Latin West: The Formation of a Peripatetic Philosophy of the Soul 1160 -1300 . London: Warburg Institute, 2000). Still, a student of Blund ' s Treatise will /uniFB01 nd Dunne ' s introduction useful, because it brings together much of the current knowledge about this\n\n1 Daniel A. Callus and Richard W. Hunt (eds), Iohannes Blund. Tractatus de Anima , Oxford: Oxford University Press for the British Academy, 1970.\n\nDownloaded by [Yale University Library] at 09:07 17 November 2013\n\nauthor, his sources, and the audience and nature of the text. It also conveniently summarises its contents.\n\nWhat does Blund ' s Treatise on the Soul offer? Its form is disputative, moving systematically between positions, objections, replies, and solutions. It discusses what the soul is (chaps I -III), and covers the nature of the vegetative (IV -V), sensitive (VI -XXI), and rational (XXII -XXVI) souls and their powers, which includes a discussion of free will (XXVI). A chapter on divine providence (XXVII) is listed in the headings, but is absent from the known manuscripts -either it is lost, or the work was left un /uniFB01 nished.\n\nMuch of what Blund puts forward is traditional. For example, his claim that the soul is a perfection of a body potentially having life (II) comes straight from Aristotle. Further, Blund ' s discussion of the various types of souls conforms largely to Avicenna. Blund distinguishes a vegetative soul, which has powers of nutrition, growth, and generation (V); a sensitive soul, which apprehends and causes bodily movement (VI); and an incorporeal, immortal, and essentially simple rational soul (XXII -XXIV). By far the largest portion of Blund ' s text concerns the sensitive soul. He details processes of external perception (sight, hearing, smell, taste, and touch) (VIII -XVI), and internal perception (common sense, imagination, estimation, and memory) (XVII -XXI).\n\nAt the same time, Blund makes new contributions or adopts an individual stance. For example, the problem of free will he discusses (XXVI) is foreign to Avicenna, and demonstrates Blund ' s innovative combination of peripatetic learning with ideas from Anselm. Moreover, against Avicenna, Blund denies that heavenly bodies move voluntarily (I), and that there is such a thing as a world soul (XXV). He equally takes some existing puzzles further, for example, concerning the status of estimation -a power to apprehend the non-sensible properties ( ' intentions ' ) of things (XIX). Though an inner sense power, its high degree of abstraction makes estimation suspiciously similar to intellectual cognition. Blund sharpens this puzzle. He asks: Does the sheep, which apprehends the danger of the wolf, apprehend universals? In favour, he notes that in estimation, the animal seems to apprehend the notions wolf and danger , which are universal. But Blund rejects this analysis. All an animal apprehends is that this wolf , as it occurs in perception, is dangerous, and that concerns particulars exclusively. Hence estimation can safely count as a sensory power.\n\nTo whom might this new publication of Blund ' s work be of interest? The contribution that takes it beyond the 1970 volume by Callus and Hunt is the added English translation. This translation will make Blund ' s work more easily accessible for non-specialists. Dunne ' s translation suits scholarly purposes well. It is careful, precise, and stays close to the original wording and sentence structure of the Latin. This allows the reader to follow Blund ' s argumentative moves closely. Divergences appear to aim at simplifying or clarifying the text for the reader. For example, Dunne may shorten the\n\nDownloaded by [Yale University Library] at 09:07 17 November 2013\n\noften long Latin sentences, give noun phrases rather than pronouns, or full titles where Blund only gives parts.\n\nThe decision to reprint the exact Latin text of the 1970 edition raises questions. Already in a 1972 review, Marvin L. Colker pointed out that the manuscript readings and critical apparatus of this edition contain questionable exclusions, omissions, and oversights (Marvin L. Colker, ' Iohannes Blund. Tractatus de Anima , edited by D.A. Callus and R.W. Hunt ' , Speculum 47, no. 1, 1972: 108 -10. doi: 10.2307/2851225). Sometimes entire phrases were left out, or alternative readings that directly affect the meaning were not recorded. Colker ' s observations, based on manuscript C, have been con /uniFB01 rmed by this reviewer. The consequences are clear: the English translation will inherit the gaps or errors from the Latin.\n\nIn preparing editions like these, there is always a balancing act between scholarly rigour on the one hand, and timeliness on the other. Further checks will delay the publication of a work that can aid many researchers. However, precisely because these editions can outlast philosophical fashions and form resources for generations of scholars, it is a missed opportunity not to have spent that extra time to verify the Latin.\n\nOverall this is a rich edition. It offers a precise translation, and brings together a range of additional material that will assist and stimulate the developing study of Blund ' s work in future years.\n\nC.S. Meijns\n\nUniversity College London © 2013, C.S. Meijns http://dx.doi.org/10.1080/09608788.2013.852966",
+    "responses": [
+      {
+        "source": "gpt-4o-2024-11-20",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"ADU1\": {\n      \"text\": \"John Blund ' s Treatise on the Soul , written before 1204, marks a key transition in the study of natural philosophy, especially psychology, in the highmedieval period.\",\n      \"label\": \"claim\"\n    },\n    \"ADU2\": {\n      \"text\": \"Blund was among the /uniFB01 rst to bring together the strongly developed twelfth-century Western physiological tradition with insights from Avicenna and Aristotle, and to introduce newly translated works of natural philosophy at Oxford.\",\n      \"label\": \"premise\"\n    },\n    \"ADU3\": {\n      \"text\": \"Much of what Blund puts forward is traditional.\",\n      \"label\": \"claim\"\n    },\n    \"ADU4\": {\n      \"text\": \"For example, his claim that the soul is a perfection of a body potentially having life (II) comes straight from Aristotle.\",\n      \"label\": \"premise\"\n    },\n    \"ADU5\": {\n      \"text\": \"Further, Blund ' s discussion of the various types of souls conforms largely to Avicenna.\",\n      \"label\": \"premise\"\n    },\n    \"ADU6\": {\n      \"text\": \"At the same time, Blund makes new contributions or adopts an individual stance.\",\n      \"label\": \"claim\"\n    },\n    \"ADU7\": {\n      \"text\": \"For example, the problem of free will he discusses (XXVI) is foreign to Avicenna, and demonstrates Blund ' s innovative combination of peripatetic learning with ideas from Anselm.\",\n      \"label\": \"premise\"\n    },\n    \"ADU8\": {\n      \"text\": \"Moreover, against Avicenna, Blund denies that heavenly bodies move voluntarily (I), and that there is such a thing as a world soul (XXV).\",\n      \"label\": \"premise\"\n    },\n    \"ADU9\": {\n      \"text\": \"The contribution that takes it beyond the 1970 volume by Callus and Hunt is the added English translation.\",\n      \"label\": \"claim\"\n    },\n    \"ADU10\": {\n      \"text\": \"This translation will make Blund ' s work more easily accessible for non-specialists.\",\n      \"label\": \"premise\"\n    },\n    \"ADU11\": {\n      \"text\": \"The decision to reprint the exact Latin text of the 1970 edition raises questions.\",\n      \"label\": \"claim\"\n    },\n    \"ADU12\": {\n      \"text\": \"Already in a 1972 review, Marvin L. Colker pointed out that the manuscript readings and critical apparatus of this edition contain questionable exclusions, omissions, and oversights.\",\n      \"label\": \"premise\"\n    },\n    \"ADU13\": {\n      \"text\": \"The consequences are clear: the English translation will inherit the gaps or errors from the Latin.\",\n      \"label\": \"claim\"\n    },\n    \"ADU14\": {\n      \"text\": \"Overall this is a rich edition.\",\n      \"label\": \"claim\"\n    },\n    \"ADU15\": {\n      \"text\": \"It offers a precise translation, and brings together a range of additional material that will assist and stimulate the developing study of Blund ' s work in future years.\",\n      \"label\": \"premise\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"ADU2\",\n      \"target\": \"ADU1\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU4\",\n      \"target\": \"ADU3\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU5\",\n      \"target\": \"ADU3\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU7\",\n      \"target\": \"ADU6\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU8\",\n      \"target\": \"ADU6\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU10\",\n      \"target\": \"ADU9\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU12\",\n      \"target\": \"ADU11\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU13\",\n      \"target\": \"ADU11\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU15\",\n      \"target\": \"ADU14\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "ADU1": {
+              "text": "John Blund ' s Treatise on the Soul , written before 1204, marks a key transition in the study of natural philosophy, especially psychology, in the highmedieval period.",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "Blund was among the /uniFB01 rst to bring together the strongly developed twelfth-century Western physiological tradition with insights from Avicenna and Aristotle, and to introduce newly translated works of natural philosophy at Oxford.",
+              "label": "premise"
+            },
+            "ADU3": {
+              "text": "Much of what Blund puts forward is traditional.",
+              "label": "claim"
+            },
+            "ADU4": {
+              "text": "For example, his claim that the soul is a perfection of a body potentially having life (II) comes straight from Aristotle.",
+              "label": "premise"
+            },
+            "ADU5": {
+              "text": "Further, Blund ' s discussion of the various types of souls conforms largely to Avicenna.",
+              "label": "premise"
+            },
+            "ADU6": {
+              "text": "At the same time, Blund makes new contributions or adopts an individual stance.",
+              "label": "claim"
+            },
+            "ADU7": {
+              "text": "For example, the problem of free will he discusses (XXVI) is foreign to Avicenna, and demonstrates Blund ' s innovative combination of peripatetic learning with ideas from Anselm.",
+              "label": "premise"
+            },
+            "ADU8": {
+              "text": "Moreover, against Avicenna, Blund denies that heavenly bodies move voluntarily (I), and that there is such a thing as a world soul (XXV).",
+              "label": "premise"
+            },
+            "ADU9": {
+              "text": "The contribution that takes it beyond the 1970 volume by Callus and Hunt is the added English translation.",
+              "label": "claim"
+            },
+            "ADU10": {
+              "text": "This translation will make Blund ' s work more easily accessible for non-specialists.",
+              "label": "premise"
+            },
+            "ADU11": {
+              "text": "The decision to reprint the exact Latin text of the 1970 edition raises questions.",
+              "label": "claim"
+            },
+            "ADU12": {
+              "text": "Already in a 1972 review, Marvin L. Colker pointed out that the manuscript readings and critical apparatus of this edition contain questionable exclusions, omissions, and oversights.",
+              "label": "premise"
+            },
+            "ADU13": {
+              "text": "The consequences are clear: the English translation will inherit the gaps or errors from the Latin.",
+              "label": "claim"
+            },
+            "ADU14": {
+              "text": "Overall this is a rich edition.",
+              "label": "claim"
+            },
+            "ADU15": {
+              "text": "It offers a precise translation, and brings together a range of additional material that will assist and stimulate the developing study of Blund ' s work in future years.",
+              "label": "premise"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU2",
+              "target": "ADU1",
+              "type": "support"
+            },
+            {
+              "source": "ADU4",
+              "target": "ADU3",
+              "type": "support"
+            },
+            {
+              "source": "ADU5",
+              "target": "ADU3",
+              "type": "support"
+            },
+            {
+              "source": "ADU7",
+              "target": "ADU6",
+              "type": "support"
+            },
+            {
+              "source": "ADU8",
+              "target": "ADU6",
+              "type": "support"
+            },
+            {
+              "source": "ADU10",
+              "target": "ADU9",
+              "type": "support"
+            },
+            {
+              "source": "ADU12",
+              "target": "ADU11",
+              "type": "support"
+            },
+            {
+              "source": "ADU13",
+              "target": "ADU11",
+              "type": "support"
+            },
+            {
+              "source": "ADU15",
+              "target": "ADU14",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "ADU1": {
+              "text": "John Blund ' s Treatise on the Soul , written before 1204, marks a key transition in the study of natural philosophy, especially psychology, in the highmedieval period.",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "Blund was among the /uniFB01 rst to bring together the strongly developed twelfth-century Western physiological tradition with insights from Avicenna and Aristotle, and to introduce newly translated works of natural philosophy at Oxford.",
+              "label": "premise"
+            },
+            "ADU3": {
+              "text": "Much of what Blund puts forward is traditional.",
+              "label": "claim"
+            },
+            "ADU4": {
+              "text": "For example, his claim that the soul is a perfection of a body potentially having life (II) comes straight from Aristotle.",
+              "label": "premise"
+            },
+            "ADU5": {
+              "text": "Further, Blund ' s discussion of the various types of souls conforms largely to Avicenna.",
+              "label": "premise"
+            },
+            "ADU6": {
+              "text": "At the same time, Blund makes new contributions or adopts an individual stance.",
+              "label": "claim"
+            },
+            "ADU7": {
+              "text": "For example, the problem of free will he discusses (XXVI) is foreign to Avicenna, and demonstrates Blund ' s innovative combination of peripatetic learning with ideas from Anselm.",
+              "label": "premise"
+            },
+            "ADU8": {
+              "text": "Moreover, against Avicenna, Blund denies that heavenly bodies move voluntarily (I), and that there is such a thing as a world soul (XXV).",
+              "label": "premise"
+            },
+            "ADU9": {
+              "text": "The contribution that takes it beyond the 1970 volume by Callus and Hunt is the added English translation.",
+              "label": "claim"
+            },
+            "ADU10": {
+              "text": "This translation will make Blund ' s work more easily accessible for non-specialists.",
+              "label": "premise"
+            },
+            "ADU11": {
+              "text": "The decision to reprint the exact Latin text of the 1970 edition raises questions.",
+              "label": "claim"
+            },
+            "ADU13": {
+              "text": "The consequences are clear: the English translation will inherit the gaps or errors from the Latin.",
+              "label": "claim"
+            },
+            "ADU14": {
+              "text": "Overall this is a rich edition.",
+              "label": "claim"
+            },
+            "ADU15": {
+              "text": "It offers a precise translation, and brings together a range of additional material that will assist and stimulate the developing study of Blund ' s work in future years.",
+              "label": "premise"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU2",
+              "target": "ADU1",
+              "type": "support"
+            },
+            {
+              "source": "ADU4",
+              "target": "ADU3",
+              "type": "support"
+            },
+            {
+              "source": "ADU5",
+              "target": "ADU3",
+              "type": "support"
+            },
+            {
+              "source": "ADU7",
+              "target": "ADU6",
+              "type": "support"
+            },
+            {
+              "source": "ADU8",
+              "target": "ADU6",
+              "type": "support"
+            },
+            {
+              "source": "ADU10",
+              "target": "ADU9",
+              "type": "support"
+            },
+            {
+              "source": "ADU13",
+              "target": "ADU11",
+              "type": "support"
+            },
+            {
+              "source": "ADU15",
+              "target": "ADU14",
+              "type": "support"
+            }
+          ]
+        }
+      },
+      {
+        "source": "claude-3-5-sonnet-20241022",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"A1\": {\n      \"text\": \"John Blund's Treatise on the Soul, written before 1204, marks a key transition in the study of natural philosophy, especially psychology, in the highmedieval period.\",\n      \"label\": \"claim\"\n    },\n    \"A2\": {\n      \"text\": \"Blund was among the first to bring together the strongly developed twelfth-century Western physiological tradition with insights from Avicenna and Aristotle, and to introduce newly translated works of natural philosophy at Oxford.\",\n      \"label\": \"premise\"\n    },\n    \"A3\": {\n      \"text\": \"Much of what Blund puts forward is traditional. For example, his claim that the soul is a perfection of a body potentially having life (II) comes straight from Aristotle.\",\n      \"label\": \"claim\"\n    },\n    \"A4\": {\n      \"text\": \"At the same time, Blund makes new contributions or adopts an individual stance.\",\n      \"label\": \"claim\"\n    },\n    \"A5\": {\n      \"text\": \"For example, the problem of free will he discusses (XXVI) is foreign to Avicenna, and demonstrates Blund's innovative combination of peripatetic learning with ideas from Anselm.\",\n      \"label\": \"premise\"\n    },\n    \"A6\": {\n      \"text\": \"Moreover, against Avicenna, Blund denies that heavenly bodies move voluntarily (I), and that there is such a thing as a world soul (XXV).\",\n      \"label\": \"premise\"\n    },\n    \"A7\": {\n      \"text\": \"Already in a 1972 review, Marvin L. Colker pointed out that the manuscript readings and critical apparatus of this edition contain questionable exclusions, omissions, and oversights\",\n      \"label\": \"claim\"\n    },\n    \"A8\": {\n      \"text\": \"Sometimes entire phrases were left out, or alternative readings that directly affect the meaning were not recorded.\",\n      \"label\": \"premise\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"A2\",\n      \"target\": \"A1\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A5\",\n      \"target\": \"A4\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A6\",\n      \"target\": \"A4\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A8\",\n      \"target\": \"A7\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A3\",\n      \"target\": \"A4\",\n      \"type\": \"attack\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "A1": {
+              "text": "John Blund's Treatise on the Soul, written before 1204, marks a key transition in the study of natural philosophy, especially psychology, in the highmedieval period.",
+              "label": "claim"
+            },
+            "A2": {
+              "text": "Blund was among the first to bring together the strongly developed twelfth-century Western physiological tradition with insights from Avicenna and Aristotle, and to introduce newly translated works of natural philosophy at Oxford.",
+              "label": "premise"
+            },
+            "A3": {
+              "text": "Much of what Blund puts forward is traditional. For example, his claim that the soul is a perfection of a body potentially having life (II) comes straight from Aristotle.",
+              "label": "claim"
+            },
+            "A4": {
+              "text": "At the same time, Blund makes new contributions or adopts an individual stance.",
+              "label": "claim"
+            },
+            "A5": {
+              "text": "For example, the problem of free will he discusses (XXVI) is foreign to Avicenna, and demonstrates Blund's innovative combination of peripatetic learning with ideas from Anselm.",
+              "label": "premise"
+            },
+            "A6": {
+              "text": "Moreover, against Avicenna, Blund denies that heavenly bodies move voluntarily (I), and that there is such a thing as a world soul (XXV).",
+              "label": "premise"
+            },
+            "A7": {
+              "text": "Already in a 1972 review, Marvin L. Colker pointed out that the manuscript readings and critical apparatus of this edition contain questionable exclusions, omissions, and oversights",
+              "label": "claim"
+            },
+            "A8": {
+              "text": "Sometimes entire phrases were left out, or alternative readings that directly affect the meaning were not recorded.",
+              "label": "premise"
+            }
+          },
+          "relations": [
+            {
+              "source": "A2",
+              "target": "A1",
+              "type": "support"
+            },
+            {
+              "source": "A5",
+              "target": "A4",
+              "type": "support"
+            },
+            {
+              "source": "A6",
+              "target": "A4",
+              "type": "support"
+            },
+            {
+              "source": "A8",
+              "target": "A7",
+              "type": "support"
+            },
+            {
+              "source": "A3",
+              "target": "A4",
+              "type": "attack"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "A3": {
+              "text": "Much of what Blund puts forward is traditional. For example, his claim that the soul is a perfection of a body potentially having life (II) comes straight from Aristotle.",
+              "label": "claim"
+            },
+            "A4": {
+              "text": "At the same time, Blund makes new contributions or adopts an individual stance.",
+              "label": "claim"
+            },
+            "A6": {
+              "text": "Moreover, against Avicenna, Blund denies that heavenly bodies move voluntarily (I), and that there is such a thing as a world soul (XXV).",
+              "label": "premise"
+            },
+            "A7": {
+              "text": "Already in a 1972 review, Marvin L. Colker pointed out that the manuscript readings and critical apparatus of this edition contain questionable exclusions, omissions, and oversights",
+              "label": "claim"
+            },
+            "A8": {
+              "text": "Sometimes entire phrases were left out, or alternative readings that directly affect the meaning were not recorded.",
+              "label": "premise"
+            }
+          },
+          "relations": [
+            {
+              "source": "A6",
+              "target": "A4",
+              "type": "support"
+            },
+            {
+              "source": "A8",
+              "target": "A7",
+              "type": "support"
+            },
+            {
+              "source": "A3",
+              "target": "A4",
+              "type": "attack"
+            }
+          ]
+        }
+      }
+    ],
+    "timestamp": 1752747942.981235
+  }
+]

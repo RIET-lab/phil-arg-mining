@@ -1,0 +1,374 @@
+[
+  {
+    "identifier": "YLDHHF",
+    "system_prompt": "## GOAL\nArgument‑mine the following paper to extract its comprehensive argumentative structure.\n\n## DEFINITIONS\n1. **Argument**: A set of propositions, including some number of premises and a conclusion. The premises should logically entail the conclusion.\n2. **Claim**: A proposition that asserts something to be true or false, typically requiring justification or evidence.\n3. **Premise**: A proposition that provides evidence, justification, or logical support for a claim or conclusion.\n\n## CRITICAL REQUIREMENTS\n1. **VERBATIM EXTRACTION ONLY**: Each ADU text must be copied EXACTLY from the paper with no modifications, paraphrasing, or combining of separate sentences.\n2. **NO HALLUCINATION**: Do not create, modify, or invent text that does not appear exactly in the source.\n3. **EXACT MATCHING**: Every word, punctuation mark, and spacing must match the original precisely.\n\n## DIRECTIONS\n1. **Identify Argumentative Discourse Units (ADUs)**  \n   - ADU = any contiguous text span functioning as a claim or a premise in the reasoning structure.\n   - **BE HIGHLY SELECTIVE**: Only include ADUs that are crucial to the overarching argument structure.\n   - Focus on significant claims and premises that contribute meaningfully to the argumentative flow.\n   - **AVOID NOISE**: Skip ADUs that are merely descriptive, tangential, or do not substantially advance the argument.\n   - Prioritize quality over quantity - fewer accurate, important ADUs are better than many insignificant ones.\n   - **EXTRACT ONLY**: Copy text spans exactly as they appear, without any modifications.\n2. **Classify each ADU**  \n   - Label = either `\"claim\"` or `\"premise\"`.  \n3. **Detect directed relations**  \n   - Relation = `\"support\"` or `\"attack\"`, from one ADU (source) to another (target).\n   - Map how ADUs connect to form reasoning chains.\n   - Focus on relationships between the most significant ADUs.\n   - Include relationships between premises that strengthen or weaken each other.\n4. **Verbatim spans**  \n   - Each `\"text\"` value must be copied EXACTLY from the paper with zero modifications.\n   - Do not paraphrase, summarize, or combine separate sentences.\n   - Do not add, remove, or change any words, punctuation, or spacing.\n   - If unsure about exact wording, skip that ADU rather than guess.\n\n## WHAT TO CAPTURE\n**INCLUDE ONLY:**\n- Main argumentative threads that are central to the paper's contribution\n- Core claims that represent the paper's primary arguments or findings\n- Key premises that provide essential support for major claims\n- Critical counterarguments and their refutations\n- Reasoning chains that demonstrate how main conclusions are derived\n\n**EXCLUDE (AVOID NOISE):**\n- Minor details, examples, or descriptive content that don't advance the argument\n- Tangential points or side discussions\n- Pure background information or literature review content\n- Methodological details unless they constitute argumentative claims\n- Obvious statements or commonly accepted facts\n- Redundant or repetitive argumentative content\n\n**GUIDING PRINCIPLE**: If removing an ADU would not significantly impact understanding of the paper's argumentative structure, it should be excluded.\n\n## QUALITY CONTROL\n- Before finalizing each ADU, verify the text exists exactly in the source\n- Prefer fewer, accurate ADUs over many potentially modified ones\n- When in doubt about exact wording, omit the ADU\n\n## OUTPUT FORMAT\nReturn **only** a single valid JSON object matching this schema.  \nDo **not** output any extra text, markdown, or explanations.\nDo **not** add comments.\n**RESPOND WITH ONLY**:\n```json\n{\n  \"ADUs\": {\n    \"<ADU_ID>\": {\n      \"text\": \"<exact span from paper>\",\n      \"label\": \"claim\" | \"premise\"\n    }\n    ...\n  },\n  \"relations\": [\n    {\n      \"source\": \"<ADU_ID>\",\n      \"target\": \"<ADU_ID>\",\n      \"type\": \"support\" | \"attack\"\n    }\n  ]\n}\n```",
+    "user_content": "Introduction: Humanity Has Fallen - In the Silence of Collapse\n\nThroughout history, humanity has created countless narratives and value systems in an attempt to make sense of its own existence. These systems sought to define humanity's place in the universe and assign it a purpose. However, the fundamental truth hidden behind these narratives was often overlooked: humanity has been crushed under the weight of its own creations. Nietzsche's proclamation that 'God is dead' signified the destruction of old values; yet, this void was never truly filled with new meaning. The result was humanity's defeat by its own existential tragedy. It is precisely at this point that a sharp and unsettling declaration emerges: 'Humanity Has Fallen!'\n\nThis statement signifies not only a biological or social collapse but also the destruction of human consciousness and cognitive capacity. Once, the cognitive gap between chimpanzees and humans represented an evolutionary divide; today, that divide has opened within humanity itself. Differences among individuals now reflect a profound chasm in levels of consciousness rather than evolutionary stages. Humanity has become lost within its self-created technological prisons, drowning in the false freedoms of the simulation age. Truth has fragmented, and consciousness has been suffocated by the mire of consumption and superficial experiences.\n\nWhy, then, has humanity succumbed to this collapse? The answer lies in the concept of Cosmic Motion. Motion is inevitable and destructive; it encompasses not only change but also an end and a transformation. Humanity failed to grasp the inevitability of this motion, mistaking freedom for the illusion of will. However, freedom does not arise from will but from the awareness of cosmic inevitability. Awareness is not resistance to motion; it is the beginning of an existence in harmony with it. From this understanding, a new being will emerge: the Free Human.\n\nThis article will explore the philosophical depths behind humanity's cognitive collapse and existential exhaustion, uncovering the profound meaning of the declaration 'Humanity Has Fallen!' The inevitable submission to cosmic motion and the birth of the Free Human from this collapse will form the core of this discussion. The ultimate question remains: Can humanity rise again from its self-created collapse, or will this fall mark the closing act of cosmic motion's inevitable conclusion?\n\nDevelopment: Cognitive Collapse and the Inevitability of Cosmic Motion\n\nSince the dawn of existence, humanity has pursued meaning. From myths to science, from religion to ideologies, every narrative has been an escape to ease the burden of conscious existence. Yet, this escape marked the beginning of an unnoticed exhaustion. Each new narrative was not an attempt to reach truth but a means to conceal its uncertainty. The result was a deepening cognitive void. Humanity's collapse begins here: overwhelmed by its self-created meanings, it accelerated its flight from true responsibility.\n\nCognitive collapse arises not from the boundlessness of human intellectual capacity but from humanity's failure to recognize its own limits. The cognitive gap that once existed between chimpanzees and humans has now opened within humanity itself. This divide concerns not only access to information but also the capacity to comprehend it. People, drowning in the false gratifications of superficial experiences, have lost the ability to delve into the depths of meaning. The false freedoms of the simulation age have replaced true freedom. Freedom has been reduced to a multiplicity of choices, where even the act of choosing is confined to the predictable cycles of algorithms. Humanity has become a prisoner in its own technological cages.\n\nThis prison, by creating the illusion of freedom, has accelerated the collapse. Individuals, believing they are making choices in a world of consumption and spectacle, are in fact following predetermined paths. Truth has shattered. Each person, constructing a false image of themselves from algorithmic reflections, is trapped in a consumption-driven cycle of fleeting satisfaction. In this cycle, there is no room for the responsibility of existence-only the pursuit of momentary pleasures. The most silent moment of collapse occurs here: humanity falls without realizing it has lost its freedom.\n\nBut was this fall inevitable? The answer is yes. For motion, at the core of every existential process, is a cosmic necessity. Cosmic Motion is not merely movement; it is the inescapable law of destruction, transformation, and rebirth. How does this motion manifest within individual consciousness? What stages does it follow across societies and individuals? Humanity failed to comprehend the inevitability of this motion, mistaking freedom for the illusion of will. Yet freedom does not arise from will -it emerges from the understanding of cosmic inevitability. Cosmic Motion cannot be resisted; it can only be embraced. Such alignment is only possible through awareness.\n\nAwareness is not resistance to motion; it is the beginning of unity with it. How does the process of awareness begin? What transformations follow when one accepts motion? The being who attains this awareness is no longer an ordinary human. The Free Human is the conscious entity who understands the inevitability of motion and surrenders to it. This being is a product of awareness, not will. For freedom lies not in the ability to choose, but in acting with the understanding of necessity. Thus, the Free Human redefines the morality of existence. Their morality arises from existential responsibility-untethered from any external authority or false concept of freedom.\n\nHowever, the birth of the Free Human requires the complete destruction of the existing order. Cosmic Motion makes this destruction inevitable; the emergence of the new is only possible through the end of the old. Is technology an accelerator of this motion, or merely an illusion opposing it? Humanity cannot align with this motion without first accepting its collapse. Can humanity break free from the technological prison woven with false narratives and superficial gratifications? Or is it destined to be lost in the depths of this simulation?\n\nCosmic Motion eliminates the misaligned. Those who achieve harmony discover their creative potential within the destructive nature of motion. Here, a new form of existence emerges from the collapse. This new form is The Free Human. Their freedom lies beyond false choices and superficial pleasures, grounded in the awareness of cosmic necessity. They redefine the morality of existence, bowing to no false conception of freedom or authority.\n\nUltimately, humanity can only rise from its self-inflicted collapse by comprehending the law of Cosmic Motion and evolving into The Free Human. If this transformation fails to occur, the declaration 'Humanity Has Fallen!' will remain a silent scream at the closing of the final act. But if the transformation succeeds, this statement will mark the beginning of the greatest rebirth in human history: The Age of the Free Human.\n\nThe essential question remains:\n\n'Can the Free Human emerge, or will Cosmic Motion close humanity's final curtain?'\n\nConclusion: From Collapse to Rebirth - The Inevitable Journey of the Free Human\n\nThe declaration 'Humanity Has Fallen!' is not merely an announcement of cognitive and existential collapse; it is also the harbinger of an inevitable rebirth. Collapse is a necessary phase of motion; every destruction opens the door to a creative genesis. As long as humanity fails to grasp the destructive nature of motion, it remains destined to be lost in the illusory freedoms and technological deceptions of the simulation age. Today's humanity is trapped in a cycle where freedom is reduced to the illusion of choice, constructing false identities from algorithmic reflections while neglecting the responsibility of existence. In this cycle, the pursuit of fleeting pleasures overshadows all. And it is here, in the silence of collapse, that humanity fallsunaware that it has already lost its freedom.\n\nYet, this fall is not merely an end. Motion, at the core of every existential process, is a cosmic necessity. Cosmic Motion is not just movement; it is the inescapable law of destruction, transformation, and rebirth. It cannot be resisted; it can only be embraced. Such alignment is only possible through awareness. Awareness is not resistance to motion but the beginning of unity with it. This awareness marks the transition from ordinary humanity to something greater. The Free Human emerges-a conscious entity who understands the inevitability of motion and surrenders to it. This being is a product of awareness, not of will. For freedom lies not in the ability to choose but in acting with the understanding of necessity.\n\nHowever, the birth of the Free Human requires the complete destruction of the existing order. Is technology an accelerator of this motion, or merely an illusion opposing it? Humanity cannot align with motion without first accepting its collapse. Can humanity break free from the technological prison woven with false narratives and superficial gratifications? Or is it destined to be lost in the depths of this simulation?\n\nCosmic Motion eliminates the misaligned. Those who achieve harmony discover their creative potential within the destructive nature of motion. It is here, in the aftermath of collapse, that a new form of existence emerges. This new existence is The Free\n\nHuman. Their freedom lies beyond false choices and superficial pleasures, grounded in the awareness of cosmic necessity. They redefine the morality of existence, bowing to no false conception of freedom or external authority.\n\nUltimately, humanity can only rise from its self-inflicted collapse by comprehending the law of Cosmic Motion and evolving into The Free Human. Should this transformation fail to occur, the declaration 'Humanity Has Fallen!' will remain a silent scream at the closing of the final act. Yet, if the transformation succeeds, this statement will mark the dawn of the greatest rebirth in human history: The Age of the Free Human.\n\nThe essential question remains:\n\n'Can the Free Human emerge, or will Cosmic Motion close humanity's final curtain?'",
+    "responses": [
+      {
+        "source": "gpt-4o-2024-11-20",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"ADU1\": {\n      \"text\": \"Humanity has been crushed under the weight of its own creations.\",\n      \"label\": \"claim\"\n    },\n    \"ADU2\": {\n      \"text\": \"Nietzsche's proclamation that 'God is dead' signified the destruction of old values; yet, this void was never truly filled with new meaning.\",\n      \"label\": \"premise\"\n    },\n    \"ADU3\": {\n      \"text\": \"The result was humanity's defeat by its own existential tragedy.\",\n      \"label\": \"claim\"\n    },\n    \"ADU4\": {\n      \"text\": \"Humanity has become lost within its self-created technological prisons, drowning in the false freedoms of the simulation age.\",\n      \"label\": \"claim\"\n    },\n    \"ADU5\": {\n      \"text\": \"Truth has fragmented, and consciousness has been suffocated by the mire of consumption and superficial experiences.\",\n      \"label\": \"premise\"\n    },\n    \"ADU6\": {\n      \"text\": \"Cognitive collapse arises not from the boundlessness of human intellectual capacity but from humanity's failure to recognize its own limits.\",\n      \"label\": \"claim\"\n    },\n    \"ADU7\": {\n      \"text\": \"The cognitive gap that once existed between chimpanzees and humans has now opened within humanity itself.\",\n      \"label\": \"premise\"\n    },\n    \"ADU8\": {\n      \"text\": \"Freedom has been reduced to a multiplicity of choices, where even the act of choosing is confined to the predictable cycles of algorithms.\",\n      \"label\": \"claim\"\n    },\n    \"ADU9\": {\n      \"text\": \"Cosmic Motion is not merely movement; it is the inescapable law of destruction, transformation, and rebirth.\",\n      \"label\": \"claim\"\n    },\n    \"ADU10\": {\n      \"text\": \"Awareness is not resistance to motion; it is the beginning of unity with it.\",\n      \"label\": \"claim\"\n    },\n    \"ADU11\": {\n      \"text\": \"The Free Human is the conscious entity who understands the inevitability of motion and surrenders to it.\",\n      \"label\": \"claim\"\n    },\n    \"ADU12\": {\n      \"text\": \"The birth of the Free Human requires the complete destruction of the existing order.\",\n      \"label\": \"claim\"\n    },\n    \"ADU13\": {\n      \"text\": \"Cosmic Motion eliminates the misaligned.\",\n      \"label\": \"claim\"\n    },\n    \"ADU14\": {\n      \"text\": \"Ultimately, humanity can only rise from its self-inflicted collapse by comprehending the law of Cosmic Motion and evolving into The Free Human.\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"ADU2\",\n      \"target\": \"ADU3\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU5\",\n      \"target\": \"ADU4\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU7\",\n      \"target\": \"ADU6\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU9\",\n      \"target\": \"ADU10\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU10\",\n      \"target\": \"ADU11\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU12\",\n      \"target\": \"ADU11\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU13\",\n      \"target\": \"ADU14\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "ADU1": {
+              "text": "Humanity has been crushed under the weight of its own creations.",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "Nietzsche's proclamation that 'God is dead' signified the destruction of old values; yet, this void was never truly filled with new meaning.",
+              "label": "premise"
+            },
+            "ADU3": {
+              "text": "The result was humanity's defeat by its own existential tragedy.",
+              "label": "claim"
+            },
+            "ADU4": {
+              "text": "Humanity has become lost within its self-created technological prisons, drowning in the false freedoms of the simulation age.",
+              "label": "claim"
+            },
+            "ADU5": {
+              "text": "Truth has fragmented, and consciousness has been suffocated by the mire of consumption and superficial experiences.",
+              "label": "premise"
+            },
+            "ADU6": {
+              "text": "Cognitive collapse arises not from the boundlessness of human intellectual capacity but from humanity's failure to recognize its own limits.",
+              "label": "claim"
+            },
+            "ADU7": {
+              "text": "The cognitive gap that once existed between chimpanzees and humans has now opened within humanity itself.",
+              "label": "premise"
+            },
+            "ADU8": {
+              "text": "Freedom has been reduced to a multiplicity of choices, where even the act of choosing is confined to the predictable cycles of algorithms.",
+              "label": "claim"
+            },
+            "ADU9": {
+              "text": "Cosmic Motion is not merely movement; it is the inescapable law of destruction, transformation, and rebirth.",
+              "label": "claim"
+            },
+            "ADU10": {
+              "text": "Awareness is not resistance to motion; it is the beginning of unity with it.",
+              "label": "claim"
+            },
+            "ADU11": {
+              "text": "The Free Human is the conscious entity who understands the inevitability of motion and surrenders to it.",
+              "label": "claim"
+            },
+            "ADU12": {
+              "text": "The birth of the Free Human requires the complete destruction of the existing order.",
+              "label": "claim"
+            },
+            "ADU13": {
+              "text": "Cosmic Motion eliminates the misaligned.",
+              "label": "claim"
+            },
+            "ADU14": {
+              "text": "Ultimately, humanity can only rise from its self-inflicted collapse by comprehending the law of Cosmic Motion and evolving into The Free Human.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU2",
+              "target": "ADU3",
+              "type": "support"
+            },
+            {
+              "source": "ADU5",
+              "target": "ADU4",
+              "type": "support"
+            },
+            {
+              "source": "ADU7",
+              "target": "ADU6",
+              "type": "support"
+            },
+            {
+              "source": "ADU9",
+              "target": "ADU10",
+              "type": "support"
+            },
+            {
+              "source": "ADU10",
+              "target": "ADU11",
+              "type": "support"
+            },
+            {
+              "source": "ADU12",
+              "target": "ADU11",
+              "type": "support"
+            },
+            {
+              "source": "ADU13",
+              "target": "ADU14",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "ADU1": {
+              "text": "Humanity has been crushed under the weight of its own creations.",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "Nietzsche's proclamation that 'God is dead' signified the destruction of old values; yet, this void was never truly filled with new meaning.",
+              "label": "premise"
+            },
+            "ADU3": {
+              "text": "The result was humanity's defeat by its own existential tragedy.",
+              "label": "claim"
+            },
+            "ADU4": {
+              "text": "Humanity has become lost within its self-created technological prisons, drowning in the false freedoms of the simulation age.",
+              "label": "claim"
+            },
+            "ADU5": {
+              "text": "Truth has fragmented, and consciousness has been suffocated by the mire of consumption and superficial experiences.",
+              "label": "premise"
+            },
+            "ADU6": {
+              "text": "Cognitive collapse arises not from the boundlessness of human intellectual capacity but from humanity's failure to recognize its own limits.",
+              "label": "claim"
+            },
+            "ADU7": {
+              "text": "The cognitive gap that once existed between chimpanzees and humans has now opened within humanity itself.",
+              "label": "premise"
+            },
+            "ADU8": {
+              "text": "Freedom has been reduced to a multiplicity of choices, where even the act of choosing is confined to the predictable cycles of algorithms.",
+              "label": "claim"
+            },
+            "ADU9": {
+              "text": "Cosmic Motion is not merely movement; it is the inescapable law of destruction, transformation, and rebirth.",
+              "label": "claim"
+            },
+            "ADU10": {
+              "text": "Awareness is not resistance to motion; it is the beginning of unity with it.",
+              "label": "claim"
+            },
+            "ADU11": {
+              "text": "The Free Human is the conscious entity who understands the inevitability of motion and surrenders to it.",
+              "label": "claim"
+            },
+            "ADU12": {
+              "text": "The birth of the Free Human requires the complete destruction of the existing order.",
+              "label": "claim"
+            },
+            "ADU13": {
+              "text": "Cosmic Motion eliminates the misaligned.",
+              "label": "claim"
+            },
+            "ADU14": {
+              "text": "Ultimately, humanity can only rise from its self-inflicted collapse by comprehending the law of Cosmic Motion and evolving into The Free Human.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU2",
+              "target": "ADU3",
+              "type": "support"
+            },
+            {
+              "source": "ADU5",
+              "target": "ADU4",
+              "type": "support"
+            },
+            {
+              "source": "ADU7",
+              "target": "ADU6",
+              "type": "support"
+            },
+            {
+              "source": "ADU9",
+              "target": "ADU10",
+              "type": "support"
+            },
+            {
+              "source": "ADU10",
+              "target": "ADU11",
+              "type": "support"
+            },
+            {
+              "source": "ADU12",
+              "target": "ADU11",
+              "type": "support"
+            },
+            {
+              "source": "ADU13",
+              "target": "ADU14",
+              "type": "support"
+            }
+          ]
+        }
+      },
+      {
+        "source": "claude-3-5-sonnet-20241022",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"A1\": {\n      \"text\": \"humanity has been crushed under the weight of its own creations\",\n      \"label\": \"claim\"\n    },\n    \"A2\": {\n      \"text\": \"Differences among individuals now reflect a profound chasm in levels of consciousness rather than evolutionary stages\",\n      \"label\": \"claim\"\n    },\n    \"A3\": {\n      \"text\": \"Humanity has become lost within its self-created technological prisons, drowning in the false freedoms of the simulation age\",\n      \"label\": \"claim\"\n    },\n    \"A4\": {\n      \"text\": \"Motion is inevitable and destructive; it encompasses not only change but also an end and a transformation\",\n      \"label\": \"premise\"\n    },\n    \"A5\": {\n      \"text\": \"freedom does not arise from will but from the awareness of cosmic inevitability\",\n      \"label\": \"claim\"\n    },\n    \"A6\": {\n      \"text\": \"Awareness is not resistance to motion; it is the beginning of an existence in harmony with it\",\n      \"label\": \"claim\"\n    },\n    \"A7\": {\n      \"text\": \"Cognitive collapse arises not from the boundlessness of human intellectual capacity but from humanity's failure to recognize its own limits\",\n      \"label\": \"claim\"\n    },\n    \"A8\": {\n      \"text\": \"Freedom has been reduced to a multiplicity of choices, where even the act of choosing is confined to the predictable cycles of algorithms\",\n      \"label\": \"claim\"\n    },\n    \"A9\": {\n      \"text\": \"The Free Human is the conscious entity who understands the inevitability of motion and surrenders to it\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"A3\",\n      \"target\": \"A1\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A7\",\n      \"target\": \"A2\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A8\",\n      \"target\": \"A3\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A4\",\n      \"target\": \"A5\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A6\",\n      \"target\": \"A5\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A4\",\n      \"target\": \"A9\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A5\",\n      \"target\": \"A9\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "A1": {
+              "text": "humanity has been crushed under the weight of its own creations",
+              "label": "claim"
+            },
+            "A2": {
+              "text": "Differences among individuals now reflect a profound chasm in levels of consciousness rather than evolutionary stages",
+              "label": "claim"
+            },
+            "A3": {
+              "text": "Humanity has become lost within its self-created technological prisons, drowning in the false freedoms of the simulation age",
+              "label": "claim"
+            },
+            "A4": {
+              "text": "Motion is inevitable and destructive; it encompasses not only change but also an end and a transformation",
+              "label": "premise"
+            },
+            "A5": {
+              "text": "freedom does not arise from will but from the awareness of cosmic inevitability",
+              "label": "claim"
+            },
+            "A6": {
+              "text": "Awareness is not resistance to motion; it is the beginning of an existence in harmony with it",
+              "label": "claim"
+            },
+            "A7": {
+              "text": "Cognitive collapse arises not from the boundlessness of human intellectual capacity but from humanity's failure to recognize its own limits",
+              "label": "claim"
+            },
+            "A8": {
+              "text": "Freedom has been reduced to a multiplicity of choices, where even the act of choosing is confined to the predictable cycles of algorithms",
+              "label": "claim"
+            },
+            "A9": {
+              "text": "The Free Human is the conscious entity who understands the inevitability of motion and surrenders to it",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "A3",
+              "target": "A1",
+              "type": "support"
+            },
+            {
+              "source": "A7",
+              "target": "A2",
+              "type": "support"
+            },
+            {
+              "source": "A8",
+              "target": "A3",
+              "type": "support"
+            },
+            {
+              "source": "A4",
+              "target": "A5",
+              "type": "support"
+            },
+            {
+              "source": "A6",
+              "target": "A5",
+              "type": "support"
+            },
+            {
+              "source": "A4",
+              "target": "A9",
+              "type": "support"
+            },
+            {
+              "source": "A5",
+              "target": "A9",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "A1": {
+              "text": "humanity has been crushed under the weight of its own creations",
+              "label": "claim"
+            },
+            "A2": {
+              "text": "Differences among individuals now reflect a profound chasm in levels of consciousness rather than evolutionary stages",
+              "label": "claim"
+            },
+            "A3": {
+              "text": "Humanity has become lost within its self-created technological prisons, drowning in the false freedoms of the simulation age",
+              "label": "claim"
+            },
+            "A4": {
+              "text": "Motion is inevitable and destructive; it encompasses not only change but also an end and a transformation",
+              "label": "premise"
+            },
+            "A5": {
+              "text": "freedom does not arise from will but from the awareness of cosmic inevitability",
+              "label": "claim"
+            },
+            "A6": {
+              "text": "Awareness is not resistance to motion; it is the beginning of an existence in harmony with it",
+              "label": "claim"
+            },
+            "A7": {
+              "text": "Cognitive collapse arises not from the boundlessness of human intellectual capacity but from humanity's failure to recognize its own limits",
+              "label": "claim"
+            },
+            "A8": {
+              "text": "Freedom has been reduced to a multiplicity of choices, where even the act of choosing is confined to the predictable cycles of algorithms",
+              "label": "claim"
+            },
+            "A9": {
+              "text": "The Free Human is the conscious entity who understands the inevitability of motion and surrenders to it",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "A3",
+              "target": "A1",
+              "type": "support"
+            },
+            {
+              "source": "A7",
+              "target": "A2",
+              "type": "support"
+            },
+            {
+              "source": "A8",
+              "target": "A3",
+              "type": "support"
+            },
+            {
+              "source": "A4",
+              "target": "A5",
+              "type": "support"
+            },
+            {
+              "source": "A6",
+              "target": "A5",
+              "type": "support"
+            },
+            {
+              "source": "A4",
+              "target": "A9",
+              "type": "support"
+            },
+            {
+              "source": "A5",
+              "target": "A9",
+              "type": "support"
+            }
+          ]
+        }
+      }
+    ],
+    "timestamp": 1752754189.23
+  }
+]

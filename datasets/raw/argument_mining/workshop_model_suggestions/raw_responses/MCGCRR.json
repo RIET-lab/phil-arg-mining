@@ -1,0 +1,384 @@
+[
+  {
+    "identifier": "MCGCRR",
+    "system_prompt": "## GOAL\nArgument‑mine the following paper to extract its comprehensive argumentative structure.\n\n## DEFINITIONS\n1. **Argument**: A set of propositions, including some number of premises and a conclusion. The premises should logically entail the conclusion.\n2. **Claim**: A proposition that asserts something to be true or false, typically requiring justification or evidence.\n3. **Premise**: A proposition that provides evidence, justification, or logical support for a claim or conclusion.\n\n## CRITICAL REQUIREMENTS\n1. **VERBATIM EXTRACTION ONLY**: Each ADU text must be copied EXACTLY from the paper with no modifications, paraphrasing, or combining of separate sentences.\n2. **NO HALLUCINATION**: Do not create, modify, or invent text that does not appear exactly in the source.\n3. **EXACT MATCHING**: Every word, punctuation mark, and spacing must match the original precisely.\n\n## DIRECTIONS\n1. **Identify Argumentative Discourse Units (ADUs)**  \n   - ADU = any contiguous text span functioning as a claim or a premise in the reasoning structure.\n   - **BE HIGHLY SELECTIVE**: Only include ADUs that are crucial to the overarching argument structure.\n   - Focus on significant claims and premises that contribute meaningfully to the argumentative flow.\n   - **AVOID NOISE**: Skip ADUs that are merely descriptive, tangential, or do not substantially advance the argument.\n   - Prioritize quality over quantity - fewer accurate, important ADUs are better than many insignificant ones.\n   - **EXTRACT ONLY**: Copy text spans exactly as they appear, without any modifications.\n2. **Classify each ADU**  \n   - Label = either `\"claim\"` or `\"premise\"`.  \n3. **Detect directed relations**  \n   - Relation = `\"support\"` or `\"attack\"`, from one ADU (source) to another (target).\n   - Map how ADUs connect to form reasoning chains.\n   - Focus on relationships between the most significant ADUs.\n   - Include relationships between premises that strengthen or weaken each other.\n4. **Verbatim spans**  \n   - Each `\"text\"` value must be copied EXACTLY from the paper with zero modifications.\n   - Do not paraphrase, summarize, or combine separate sentences.\n   - Do not add, remove, or change any words, punctuation, or spacing.\n   - If unsure about exact wording, skip that ADU rather than guess.\n\n## WHAT TO CAPTURE\n**INCLUDE ONLY:**\n- Main argumentative threads that are central to the paper's contribution\n- Core claims that represent the paper's primary arguments or findings\n- Key premises that provide essential support for major claims\n- Critical counterarguments and their refutations\n- Reasoning chains that demonstrate how main conclusions are derived\n\n**EXCLUDE (AVOID NOISE):**\n- Minor details, examples, or descriptive content that don't advance the argument\n- Tangential points or side discussions\n- Pure background information or literature review content\n- Methodological details unless they constitute argumentative claims\n- Obvious statements or commonly accepted facts\n- Redundant or repetitive argumentative content\n\n**GUIDING PRINCIPLE**: If removing an ADU would not significantly impact understanding of the paper's argumentative structure, it should be excluded.\n\n## QUALITY CONTROL\n- Before finalizing each ADU, verify the text exists exactly in the source\n- Prefer fewer, accurate ADUs over many potentially modified ones\n- When in doubt about exact wording, omit the ADU\n\n## OUTPUT FORMAT\nReturn **only** a single valid JSON object matching this schema.  \nDo **not** output any extra text, markdown, or explanations.\nDo **not** add comments.\n**RESPOND WITH ONLY**:\n```json\n{\n  \"ADUs\": {\n    \"<ADU_ID>\": {\n      \"text\": \"<exact span from paper>\",\n      \"label\": \"claim\" | \"premise\"\n    }\n    ...\n  },\n  \"relations\": [\n    {\n      \"source\": \"<ADU_ID>\",\n      \"target\": \"<ADU_ID>\",\n      \"type\": \"support\" | \"attack\"\n    }\n  ]\n}\n```",
+    "user_content": "POLISH JOURNAL OF PHILOSOPHY Vol. VI, No. 1 (Spring 2012), 57-68.\n\n## Cinematic Realism Reconsidered\n\nRafe McGregor University of York\n\nAbstract. The  purpose  of  this  paper  is  to  re-examine  the  debate  about  cinematic motion  in  terms  of  the  necessity  for  reception  conditions  in  art.  I  shall  argue  that Gregory  Currie's  rejection  of  weak  illusionism-the  view  that  cinematic  motion  is illusory-is  sound,  because  cinematic  images  really  move,  albeit  in  a  responsedependent rather than garden-variety manner. In §1 I present Andrew Kania's rigorous and compelling critique of Currie's realism. I assess Trevor Ponech's response to Kania in §2, and show that his focus on the cinematic experience is indicative of the direction the debate should take. §3 demonstrates that the issue is underpinned by the question of the role of reception conditions in the experience of art. In §4 I apply my observations on reception conditions to the problem of cinematic motion and conclude that Kania's objections are unsuccessful due to his failure to acknowledge the necessary conditions for cinematic experience.\n\n## 1. The Illusion of Realism\n\nGregory Currie produced the first comprehensive philosophy of film in the analytic tradition with Image and Mind in 1995, and identified the essence of film as 'moving pictures' (Currie, 1997, p. 47). His ontology of film is strictly  realist,  and  he  rejects  both  cognitive  and  perceptual  illusionism  in film.  In  cognitive  or  strong  illusionism  the  viewer  believes  that  she occupies the position  of the camera, and  is therefore  present in the story. Currie correctly notes that audiences neither react nor think in this way, and dismisses  the  ' Imagined Observer Hypothesis '  (Currie,  1995,  p.  167). 1 In perceptual or weak illusionism, cinematic  experience  represents the  world in a particular way, even though the viewer knows this to be false, and the thesis  is  that  the  movement  of  images  onscreen  is  illusory  in  this  sense. Currie's rejection of this claim is highly controversial, with both illusionists and  realists  appealing  to  an  intuitive  view  of  cinematic  motion.  In  'The Illusion  of  Realism  in  Film' Kania refers to the  'common-sense'  view  of the  illusion  of  movement  (Kania,  2002,  p.  243),  and  film  theorists  and critics seem to take it for granted that the succession of still frames in film\n\n1 Currie also refers to this hypothesis as imagining seeing .\n\nproduce an illusion of continuous motion. On the other hand, Currie (1995, p. 38) maintains that the burden of proof lies with the illusionists, and his argument against perceptual illusionism is supported by aestheticians such as Berys Gaut (1998, p. 331) 2 and Dominic McIver Lopes (1998, p. 347).\n\nAlthough  Kania  endorses  Currie's  theory  of  film,  and  his  general position  on cinematic realism,  he believes that the rejection  of perceptual illusionism  is  unjustified.  He  begins  with  the  accurate  observation  that Currie  fails  to  present  an  argument  for  realism,  merely  arguing  against illusionism. 3 An  apparently  even  more  telling  criticism  is  that  Currie equivocates  between  proposing  'garden-variety  motion  possessed  by  such things as  my bicycle as I ride to school' and 'special response-dependent motion' (Kania, 2002, p. 247). Garden-variety motion is characterised by an object  occupying  'contiguous  spatial  locations  at  contiguous  moments  in time' (Kania, 2002, p. 250). Film is not analogous because there are twentyfour  discrete  impacts  of  light  on  the  screen  each  second  rather  than  a continuity  of  light  on  the  screen  as  the  images  (appear  to)  move.  In describing the  cinematic image as produced by the 'continuous  impact  of light on screen,' Currie (1995, p. 41) has thus made 'a simple factual error' (Kania, 2002, p. 250).\n\nI  am  not  convinced  that  Currie  ever  proposes  garden-variety  motion, although he does vacillate between a strong and a weak  sense of 'real'(Currie, 1997, p. 44). Fundamentally, he believes that the movement of  images  is  analogous to-even like-the property  of colour. Movement and  colour  are  both  real,  but  also  dependent  on  a  psychological  reaction, and thus extrinsic (Currie, 1995, p. 32). Colours are not an illusion because I am not in error when I see red in the Tricolore . 'Roughly, for things to be red they merely have to look red to us in normal conditions' (Currie, 1997, p.  47).  In  discussing  cinematic  motion  as  response-dependent,  Currie addresses the objection from the Müller-Lyer illusion: if cinematic motion is  a  'veridical  experience  of  a  response-dependent  property'  a  parallel argument could be constructed for the illusion created by the Müller-Lyer as veridical (1995, p. 44). Thus the experience of the two lines 'is not the metrical  property  of  objects  we  measure  with  rigid  rods,  but  rather  a response-dependent length,' and one's perception of this responsedependent  length  is  regarded  as  veridical  (Currie,  1995,  p.  44).  Both  the Müller-Lyer illusion and cinematic motion involve perception independent of  belief  and  the  problem  for  Currie  is  that  regarding  response-dependent motion as real has the consequence of dismissing a paradigmatic illusion.\n\nCurrie's  answer  identifies  the  difference  between  the  Müller-Lyer  and cinematic motion as being that the appearance of the former suggests that\n\n2 Recently, however, Gaut has rejected Currie's view. See Gaut, 2010, p. 65.\n\n3 For the sake of brevity I shall henceforth use illusionism to refer to perceptual (or weak) illusionism, and realism for the opposing view.\n\nan  independent  check,  e.g.  conventional  measurement,  would  reveal  an illusion; the experience of film does not, however,  suggest that an independent check-e.g. slowing down the projector speed-would reveal the  movement  as  illusory.  This  is  a  very  weak  defence,  because  no convincing  illusion  draws  attention  to  its  illusory  nature.  Furthermore, Kania explains why slowing down the projector speed so that it produces a succession of still images is exactly analogous to measuring the lines of the Müller-Lyer:\n\nThe point is that once you have understood what is going on at the lower level of the mechanics of projection…you will change your mind about what to say at the higher level of perception of the normally projected film. (Kania, 2002, p. 249)\n\nThe Müller-Lyer  is  a  paradigmatic  perceptual  illusion,  and  it  seems  as  if cinematic motion belongs to the same category.\n\nCurrie's conception of the movement of images is essential to his claim that there is real movement onscreen, and is contested by Kania on the basis that Currie creates a false dichotomy. Kania agrees with Currie that there is no illusion of physical objects in motion onscreen, but rejects his alternative of a veridical experience of images in motion. 'An obvious third possibility is that we have an illusion of images moving in front of us' (Kania, 2002, p. 252). Kania believes the key to Currie's position is ascertaining whether the images  themselves  are  reidentifiable  objects,  and-if  so-whether  they move. He refers to Currie's refutation of the argument from wave motion. This  objection  to  realism  is  that  the  appeal  to  response  dependence  in cinematic motion has the undesirable consequence that the movement of a wave is real. There is no single, reidentifiable object in a wave, however, only a transfer of energy from molecule to molecule. Currie (1995, p. 45) claims that the cases are different because the body of water is a physical object which we perceive to be moving (spreading) as a wave. In cinematic motion, there is no physical object that moves, i.e. no illusion of movement; there is the real movement of an image.\n\nKania's  concern  is  that  Currie  first  disassociates  the  image  from  the object it represents in order to show that there is no illusion taking place, and then assumes that this image is 'a single reidentifiable thing' and thus not an illusion itself (Kania, 2002, p. 253). He presents a highly entertaining example of a dialogue between Paul (an illusionist) and  Vince (a realist), who have just watched a film where John Wayne strides across the screen (Kania,  2002,  pp.  253-254).  Both  Paul  and  Vince  agree  that  they  were watching an image of Wayne walking, but Vince holds that the image itself moved. When Paul slows the speed of the projection down, it is clear that the images are different, e.g., one shows the left side of Wayne's face and the  next  his  whole  face  from  the  front.  Vince  then  admits  that  the\n\nreidentifiable image  itself  is  an illusion  created  by  the  speed  of  the projection,  and  thus  that  cinematic  motion  is  an  illusion  of  successive images.  Currie's  recourse  to  images  rather  than  objects  is  therefore  not enough to save his position: all movement on the screen is illusory.\n\n## 2. The Reality of Stroboscopic Motion\n\nAlthough  Ponech's  'External  Realism  about  Cinematic  Motion'  is  a response  to  Kania,  he  maintains  that  his  view  is  closer  to  Kania's  than Currie's,  as  he  agrees  that  cinematic  motion  is  external  and  prior  to  the interpretation  of  information by the  mind  (Ponech, 2006, p. 368). Ponech identifies the essence of the debate as being 'whether the image undergoes objective displacement, that is, moves continuously in a contiguous space, independent of any perceptual uptake' (Ponech, 2006, p. 354). His intended solution  is  extremely  ambitious:  to  show, contra Kania  and  Currie,  that cinematic images exhibit garden-variety motion (Ponech, 2006, p. 355).\n\nPonech differentiates visual displays from display formats, and demonstrates  that  the  former  possess  two  essential  properties,  pixels  and stroboscopic motion. Stroboscopic motion:\n\ndenotes  the  continuous  transformations  a  display  undergoes,  transformations partly constitutive of it. A display is more than a static field of pixels. It is also a course  of events.  Periods  of  illumination  alternate  with  periods  of  nonillumination; the pixels' brightness and intensity fluctuate…This flashing is the display's stroboscopic motion. (Ponech, 2006, p. 357)\n\nThe stroboscopic motion of pixels produces and sustains cinematic imagesof-things, e.g. W , the image-of-John-Wayne:\n\nW is a singleton. 'Singleton' designates a visible structure standing out from its background and other such structures in its vicinity. As such it is one perceptual target, perhaps among many, present in the display space. Like any singleton it is  not  an  abstract  entity  but  a  tangible  object  of  experience.  Viewers  are  in sensory contact with it and have perceptual representations which are about it. (Ponech, 2006, p. 360)\n\nThe stroboscopic motion of singletons forms the basis of Ponech's theory and  while  he  admits  that  singletons  do  not  move  in  the  same  way  as bicycles,  he  believes  that  they  meet  Kania's  criteria  for  garden-variety motion  because  they  occupy  contiguous  spatial  locations  at  contiguous moments in time. Thus: 'The singleton, W , undergoes objective displacement within the visual display,' a process Ponech calls ' continuous stroboscopic displacement ' (Ponech, 2006, p. 362). The claim that W does not  exhibit  garden-variety  motion  is  an  arbitrary  restriction  of  the  term because W moves as follows:\n\nIt does not achieve objective displacement in the same way its depictum did…It does so through the mechanism of stroboscopy. W 's change of position from L to L n is  a  visible,  stroboscopically  generated  occurrent  event  in  the  display space. (Ponech, 2006, p. 365)\n\nSingletons  are  real  perceptual  objects  and  their  continuous  stroboscopic displacement is real movement.  When  an  observer  has  a  cinematic experience of a singleton in motion, therefore, there is no illusion involved.\n\n'Singletons'  are  Ponech's  technical  term  for  Currie's  identification  of an image of a particular as a 'particular reidentifiable thing' (Currie, 1996, p.  340).  Currie  claims  that  there  are  ' images of  reidentifiable  physical objects moving in front of our eyes,' as opposed to the objects themselves (Currie, 1996, p. 338). (The  exception is, of course, animation, where the images  are  not  of  physical  objects. 4 )  Cinematic  technology  produces  the particular reidentifiable thing onscreen, and Currie believes that this thing really moves:\n\nWe see a cinematic image of a man, and we see that it is in one place on the screen, and we later see that it is in another; indeed, we see that image move from one place to another on the screen. (Currie, 1995, pp. 40-41)\n\nI  shall  henceforth  use  Ponech's term  when  discussing this type  of image. Kania denies the existence of singletons, 5 and I present the three characterisations of cinematic motion as follows:\n\nPonech: the motion of singletons is objectively real. Currie:  the  motion  of  singletons  is  subjectively  real  (because  it  is response-dependent, like colour). Kania: singletons and cinematic motion are illusory (and thus   response- dependent).\n\nI  do  not  wish to discuss the ontological status of singletons in detail, so I shall restrict my observations to the obvious: if one considers their reality in terms of existence and independence, they are different to bicycles. In his description of stroboscopic  motion, Ponech notes: 'This type of  motion is not to be confused with objective displacement. Pixels do not roll across the screen like billiard balls' (Ponech, 2006, p. 357). But the motion of bicycles and billiard balls is exactly the kind of motion to which Kania is referring when he discusses garden-variety motion. He is quite clear that for 'normal' or  garden-variety  motion there  must be: (1) an object ,  and  (2)  that  object must  occupy contiguous  spatial  locations  at  contiguous  moments  in  time (Kania,  2002,  p.  250).  The  absence  of  the  object  is  Kania's  reason  for\n\n4 See: Currie 1995, p. 41; Currie 1996, p. 340; and Kania, 2002, p. 252.\n\n5 I address his objection in §4.\n\nclaiming  that  there  is  no  garden-variety  movement  in  the  cinema,  as opposed to the theatre (Kania, 2002, p. 248).\n\nSingletons do move  by  occupying  contiguous  spatial locations at continuous moments in time. They are not, however, objects. And because they  are  not  objects  they  do  not  move  objectively,  as  Ponech  states.  I present  three  examples,  applied  to  the  motion  of  objects  and  singletons respectively:\n\n- (1)   I watch Dr Kania cycle to school.\n- (2)   My dog watches Dr Kania cycle to school.\n- (3) Dr Kania cycles to school.\n4. (1*) I watch my television screen while W moves across it.\n5. (2*) My dog watches my television screen while W moves across it.\n6. (3*) W moves across my television screen.\n\nWhat happens in (1) to (3)? There is garden-variety motion in all cases: an object, a man on his bicycle, moves contiguously. At a particular point in time, man and bicycle are at home; at a subsequent point in time, man and bicycle  are  at  school.  The  presence  or  absence  of  observers  human  or canine  makes  no  difference  to  the  sequence  of  events  that  result  in  the object arriving at school. In (1*), I  watch W move contiguously. It  is not clear what happens in (2*), suffice to say that my dog does not perceive W . All we can really say about (2*) and (3*) therefore, are that pixels (really) flash. Like Locke's secondary qualities these flashing pixels have the power to  produce W in  a  being  which  has  the  relevant  perceptual  apparatus.  But the sequence of events that take W from one side of the screen to the other only occurs when it is perceived by me. When I am present, pixels flash and W moves across the screen; when I am absent, pixels flash.\n\nWhile  Ponech  has  shown  that  singletons  move  in  the  same  way  as objects-contiguously in space and time-he cannot show that they exhibit garden-variety  motion  because  they  are  not  objects.  His  reference  to  a singleton  as  a  'perceptual  object'  reinforces  the  point  (Ponech,  2006,  p. 367).  A  singleton  is  a  perceptual  object  only  for  beings  that  possess  the appropriate perceptual apparatus. I have that apparatus, my  dog does  not. My  dog  can  see  the  bicycle,  but  does  not  see  the  same  colour  as  I  see. Ponech notes that singletons are not abstract entities but tangible objects of experience .  The  unstated  difference  here  is  between tangible  objects and tangible objects of experience . Tangible objects like bicycles appear to have an independent existence, but tangible objects of experience like singletons appear to remain a potentiality until a creature with the matching perceptual apparatus experiences them. In Ponech's terms, therefore: W 's movement is internal; the flashing pixels are external.\n\nIt  seems  as  if  the  debate,  which  is  a  very  specific  issue  within  a  subcategory of philosophy of art, has exhausted itself. I think there is more to\n\nsay,  however,  and  that  Ponech  indicates  the  direction  the  enquiry  should take  when  he  denies  that  Kania's  slowing  down  of  the  film  projector demonstrates illusionism:\n\nReductionism  thus  mistakenly  believes  we  glimpse  cinema's  true  nature  by slowing  or  freezing  the  exhibition  machinery.  All  we  thereby  glimpse  is  a quasi-cinematic display momentarily deprived of one of its ontological primitives. (Ponech, 2006, p. 359)\n\nThe  second  sentence  suggests  that  a  necessary  condition  for  cinematic experience  is  absent.  In  what  follows,  I  shall  focus  on  film  and  music, although-as my brief examples of literature and painting show-the issue of reception conditions is relevant to all art.\n\n## 3. Reception Conditions for Art Forms\n\nKania's  argument  against  Currie  relies  upon  a  single  contention,  the connection  between  the  succession  of  still  images  that  constitute  the medium of film, and the perception of the moving images on the screen. He summarises his position: 'Yet again we can see that film's frame-by-frame nature forces us to deny that its images really move, in any standard sense' (Kania, 2002, pp. 250-251). This is simply not the case, however, as I shall demonstrate.  Kania  makes  an  error  when  he  states  that  'the  number  of frames per second is irrelevant to the necessary condition of paradigmatic movement' (Kania, 2002, p. 257). There is no mystery or trickery in film projection:  static  frames  are  projected  at  the  speed  of  twenty-four  frames per second (fps) because this is the optimum speed at which human beings perceive  motion  onscreen.  This  perception  is  caused  by  persistence  of vision and the phi phenomena. The former consists in the brain's retention of  images on the retina for a fraction of a second after the removal of the stimulus; the latter is the phenomenon that causes the rotating blades of a fan to appear as a complete circle at certain speeds. The speed of projection thus operates so as to guarantee that the audience will experience a film and not  a  slide  show,  and  won't  see  dark  intervals  between  the  frames. Projection at 24 fps is therefore a necessary condition for the reception of the art form of film by an audience.\n\nI  propose  an  analogy  with  a  non-visual  art,  namely  music.  I  can experience, e.g., Holst's The Planets in a number of ways, from attending a live  performance  to  playing  a  record  or  CD,  or  downloading  it  onto  my MP3 player. In each case, there are various factors that count towards me experiencing Holst, such as the instruments used to produce the music and the  ability  of  the  musicians  to  follow  the  score  faithfully.  If  I  attended  a performance where 'Mars, the Bringer of War' was played on a didgeridoo, I  could  not  be  said  to  have  experienced  Holst.  Nor  would  I  have  the\n\nexperience if I played a faulty CD where all I could hear was the whirring of  the  disk  in  the  player.  I  would  not  have  the  musical  or  aesthetic experience of Holst if I played a 33⅓ revolutions per minute (rpm) record of The Planets at 45 rpm either. I would hear sounds, perhaps even music, but not Holst, and certainly not have an aesthetic experience.\n\nThe  presentation  and  appreciation  of  art  involves  different  types  of media  and  different  reception  conditions.  Art  forms  are  not  necessarily restricted to a particular medium, but whatever medium is used determines the necessary conditions for an audience to be able to experience the work. It  seems  that  many-if  not  most-of  these  are  so  obvious  that  they frequently escape notice. Remaining with non-visual art, I would not have the  experience  of  James  Joyce's Ulysses if  I  read  a  word  a  day.    In  fact, even at the rate of a word an hour, every hour, the novel would take about thirty years to complete. The literary experience differs for each person, but there  is  a  requirement  that  a  work  be  consumed regularly, and  with short enough  intervals  that  one's  memory  and  understanding  can  function appropriately.  Visual  arts  have  similarly  obvious  reception  conditions:  I wouldn't be able to fully appreciate Picasso's Les Demoiselles D'Avignon if I lay on the floor to look at it, or if the light was too dark for me to make out  the  depiction.  Reception  conditions  for  the  experience  of  paintings require sufficient light and a view with as little of an angle as possible, i.e. from directly in front, at approximately eye-level.\n\nI think the analogy between film and music is forceful. First, I can have the  aesthetic  experience  of  Orson  Welles' Citizen  Kane in  a  number  of ways, and this experience is not reliant upon a specific medium. I can attend a performance of the film, watch it on video on my television, or watch it on  my  computer  on  the  train.  As  with  a  musical  performance,  certain reception conditions  must prevail  in  order  for  me to  have the  experience, and  there  may  be  arguments  advanced  as  to  the  ideal  conditions  for  the ideal experience, e.g. watching the film in a theatre, where the light is at an optimum  level  and  the  screen  is  an  optimum  size.  Second,  there  are circumstances where I will not actually have the Citizen Kane experience. Significantly, those circumstances include watching the film at 1 fps and 48 fps: in fact, at any speed other than the 24 fps at which it was designed to be shown. I did not experience Holst at 45 rpm, and I do not experience Welles at  45  fps.  Ponech's  description  of  a quasi-cinematic  display is  therefore entirely accurate.\n\nThe experience of film is the experience of seeing moving images under specific perceptual circumstances (e.g., 24 fps on a white screen in a dark room),  which  are  necessary  for  the  experience.  This  conception  of  the cinematic experience results in a serious problem for Kania. As the art form is  independent  of  the  specific  medium  used  in  production,  the  nature  of cinematic motion must be considered independently from the means used to\n\nproduce the motion. The view that the illusory nature of film can be proved by  slowing  the  projector  down  is  thus  doubly  fallacious:  because  there are-or could be-other methods of producing the work, and because once the conditions for aesthetic experience and perception are changed, one can no longer be said to experience the work of art. With this in mind, I return to Currie's theory of perceptual realism.\n\n## 4. The Myth of Illusion\n\nI  agree  with  Kania's scepticism  of claims that put the burden of proof  on the opposing argument, but Currie seems correct in this instance. If one is considering  perception  in  general,  or  any  particular  aspect  thereof,  the default setting is that humans with fully functioning senses perceive reality rather than illusion. If you want me to believe that the lines in the MüllerLyer  illusion  are  equal  in  length,  then  you  must  demonstrate  the  fact.  It looks like the one is longer than the other, and until the illusion is revealed to  me, I assume my perception is veridical. Similarly, it seems to me that film consists of moving pictures. If the pictures do not move, then I require convincing.  While  I  acknowledge  that  Currie's  failure  to  provide  an argument for the reality  of  movement  is  indeed a  weakness, I still accept that it is the illusion that requires proof.\n\nIn Image and Mind Currie's 'view is simply that cinematic motion is real  in the  weak sense,' meaning that the movement is real as opposed to illusory (Currie, 1995, p. 44). He thus accepts that cinematic motion is not real in the strong sense, where real is contrasted with illusory and apparent. Subsequently, however, he admits to being unable to decide which sense of real is applicable to cinematic motion, and offers support for both (Currie, 1997, p. 47). All of Currie's arguments rely on the comparison of the reality of  cinematic  movement  with the reality  of  colour, but the suggestion that the  movement  is  real  in  the  strong  sense  is  an  alignment  with  Ponech's external  realism.  In  perceiving  motion  onscreen  one  would  not  normally admit  to  being  deceived  (as  by  the  Müller-Lyer  illusion),  but  one  might well  think  that  the  movement,  like  the  colours,  was  apparent  rather  than independently  real.  I  have  rejected  Ponech's  theory  in  §2,  and  I  shall therefore  interpret  Currie's  thesis  as  allowing  for  real  movement  in  the weak  sense,  i.e.  that  movement  is  real,  but  an  instance  of  responsedependent movement.\n\nIn this  case, Kania's objection to Currie's handling of the Müller-Lyer counter-example must be addressed. An uninformed glance at the MüllerLyer  wouldn't  provoke  a  desire  to  measure  the  lines  any  more  than watching a film provokes the desire to slow down the projection speed. If, however,  I  decide  that  I  require  an  independent  check,  then-as  Kania states-slowing down the projection speed seems entirely appropriate. Such\n\na  check  would  indeed  show  that  the  work  of  art  I  am  appreciating  is produced  by  the  projection  of  a  series  of  static  images,  but  the  act  of checking (the slowing down of these images) would mean a departure from the appreciation of the work itself. Measuring the Müller-Lyer lines shows that  the  illusion  is  produced  by  the  arrows,  and  slowing  down the rate of projection shows that a film  is produced by a series  of static images. But Currie, Kania, and Ponech are concerned with the art of film and that art involves certain necessary reception conditions, one of which is projection at  24  fps.  Watching  the  film  at  a  different  speed  may  be  educational  or entertaining, but is no longer an experience of the work of art.\n\nIn addressing the counter-example of the wave, Currie holds that where the  body  of  water  is  a  physical  object  that  appears  to  move,  there  is  no physical  object  in  cinematic  motion,  only  a  singleton.  Kania  rejects  this concept. In his dialogue, he has Paul present John Wayne frame-by-frame to  show  that  the  image  is  different  in  each  frame.  I  cannot  accept  this argument because it involves a departure from the reception conditions of the  film,  but  I  offer  another  on  Kania's  behalf.  There  is  a  particularly effective sequence of about thirty seconds in Agustín Díaz Yanes' Alatriste (2006), where Captain Alatriste meets his archenemy, Gualterio Malatesta. The scene begins with an oblique view of a narrow alley: Alatriste enters bottom right and walks away from the camera. He stops and turns back to the  camera,  whereupon  the  view  changes  to  a  shot  of  his  body  from  the front,  with  the  camera  zooming  slowly  in  to  his  face.  The  audience  then sees Alatriste's point of view as a herd of sheep trot around the corner. The shot returns to Alatriste's face, follows his hand as he draws his dagger, and the prologue to Malatesta's entrance finishes with a close-up of the tension on  Alatriste's  face.  The  image  at  the  beginning,  of  Alatriste's  broadbrimmed hat and cloak seen from behind and above, is completely different from the close-up frontal shot of his face at the end. Although the sequence either  follows  Alatriste  or  his  point  of  view  throughout,  it  clearly  begins and  ends  with  two  different  images.  Kania  claims  that  images  are  not singletons, and cannot therefore really move.\n\nThe  experience  of  film,  however,  provides  evidence  to  the  contrary. When I watch the above sequence, I don't see Viggo Mortensen onscreen because  the  camera  is  not  transparent.  I  see  a  two-dimensional  cinematic representation of Mortensen (and Captain Alatriste), and this representation takes the form of an image that changes hundreds-or perhaps thousandsof  times  during  the  film.  As  Currie  notes,  'no  particular  light  wave  or particle  is  more  than  minutely  constitutive  of  it'  (Currie,  1995,  p.  41).  I wasn't confused when the camera switched from the view of Mortensen's silhouette  emerging  from the shadows to a close-up  of  his face because  I recognised  the  image  of  the  actor  throughout;  this  recognition  occurs because  the  representative  image  is  reidentifiable.  In  motion  pictures-as\n\nopposed to photographs-there is no paradox in the image both changing and  remaining  the  same.  If  I  am  shown  two  photographs  of  John  Wayne taken  from  different  angles,  I  will  call  them  different.  Show  me  a  film where  he  strides  across  the  screen,  and  I  will  say  that  the  singleton W moved. Slow the film down or speed it up as much as you like, but if we're talking about cinema then I expect images to move, and movement means change.\n\nThe  point  is  that  the  discussion  is  about  film  and  Currie  has  already identified  film  as  essentially moving pictures.  Definitions  may  differ,  but there is general agreement that film consists of a depiction of some sort (be it a shadow, photograph, picture, or image) which moves, 6 i.e. depiction and motion  are  essential  to  the  art  form.  Kania's  objection  fails  because cinematic  motion  is  the  real  movement  of  singletons.  This  movement  is apparent  (i.e.,  response  dependent),  but  it  is  not  illusory  (i.e.,  deceptive). The fact that cinematic motion is produced by static frames shows only that a  certain  speed  of  projection-24  fps-is  a  reception  condition  of  the  art form.  Once  one  departs  from  that  projection  speed,  one  is  no  longer experiencing the art form, which is where the analogy with the Müller-Lyer illusion  breaks  down.  Ponech's  attempt  to  prove  that  singletons  exhibit garden-variety  motion  also  fails.  They  may  indeed  move  contiguously  in space and time, but they are not objects and differ from objects in that their existence  is  dependent  on  perception.  I  conclude,  therefore,  that  Currie's theory of cinematic motion is the most plausible of the three options.\n\n## References\n\nCarroll, N. (1996). Defining the Moving Image. In Carroll, N., &amp; Choi, J. (Eds.), Philosophy  of  Film  and  Motion  Pictures (113-133).  Oxford: Blackwell.\n\nCurrie,  G.  (1995). Image  and  Mind:  Film,  Philosophy,  and  Cognitive Science . Cambridge: Cambridge University Press (2008 edition).\n\nCurrie, G. (1996). Film, Reality, and Illusion. In Bordwell, D., &amp; Carroll, N. (Eds.), Post-Theory: Reconstructing Film Studies (325-344). Madison: The University of Wisconsin Press.\n\nCurrie, G. (1997). The Film Theory that Never Was: A Nervous Manifesto. In Allen, R., &amp; Smith, M. (Eds.), Film Theory and Philosophy (42-59). London: Oxford University Press, 1997.\n\nGaut,  B.  (1998). Imagination,  Interpretation,  and Film. Philosophical Studies , 89 (2/3) 331-341.\n\n6 Noël Carroll notes several marginal cases in film where images do not move, but even if one accepts these there must be the potential for movement. See: Carroll, 1996, p. 125.\n\nGaut,  B.  (2010). A  Philosophy  of  Cinematic  Art .  Cambridge:  Cambridge University Press.\n\nKania,  A.  (2002).  The  Illusion  of  Realism  in  Film. British  Journal  of Aesthetics , 42 (3), 243-258.\n\nLopes, D.M.  (1998). Imagination, Illusion and Experience in Film. Philosophical Studies , 89 (2/3), 343-353.\n\nPonech,  T.  (2006).  External  Realism  about  Cinematic  Motion. British Journal of Aesthetics , 46 (4), 349-368.",
+    "responses": [
+      {
+        "source": "gpt-4o-2024-11-20",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"ADU1\": {\n      \"text\": \"Gregory Currie produced the first comprehensive philosophy of film in the analytic tradition with Image and Mind in 1995, and identified the essence of film as 'moving pictures' (Currie, 1997, p. 47).\",\n      \"label\": \"claim\"\n    },\n    \"ADU2\": {\n      \"text\": \"His ontology of film is strictly realist, and he rejects both cognitive and perceptual illusionism in film.\",\n      \"label\": \"claim\"\n    },\n    \"ADU3\": {\n      \"text\": \"In cognitive or strong illusionism the viewer believes that she occupies the position of the camera, and is therefore present in the story.\",\n      \"label\": \"premise\"\n    },\n    \"ADU4\": {\n      \"text\": \"Currie correctly notes that audiences neither react nor think in this way, and dismisses the 'Imagined Observer Hypothesis' (Currie, 1995, p. 167).\",\n      \"label\": \"premise\"\n    },\n    \"ADU5\": {\n      \"text\": \"In perceptual or weak illusionism, cinematic experience represents the world in a particular way, even though the viewer knows this to be false, and the thesis is that the movement of images onscreen is illusory in this sense.\",\n      \"label\": \"premise\"\n    },\n    \"ADU6\": {\n      \"text\": \"Currie's rejection of this claim is highly controversial, with both illusionists and realists appealing to an intuitive view of cinematic motion.\",\n      \"label\": \"claim\"\n    },\n    \"ADU7\": {\n      \"text\": \"Kania agrees with Currie that there is no illusion of physical objects in motion onscreen, but rejects his alternative of a veridical experience of images in motion.\",\n      \"label\": \"claim\"\n    },\n    \"ADU8\": {\n      \"text\": \"An obvious third possibility is that we have an illusion of images moving in front of us (Kania, 2002, p. 252).\",\n      \"label\": \"claim\"\n    },\n    \"ADU9\": {\n      \"text\": \"Ponech identifies the essence of the debate as being 'whether the image undergoes objective displacement, that is, moves continuously in a contiguous space, independent of any perceptual uptake' (Ponech, 2006, p. 354).\",\n      \"label\": \"claim\"\n    },\n    \"ADU10\": {\n      \"text\": \"Ponech differentiates visual displays from display formats, and demonstrates that the former possess two essential properties, pixels and stroboscopic motion.\",\n      \"label\": \"premise\"\n    },\n    \"ADU11\": {\n      \"text\": \"Singletons are real perceptual objects and their continuous stroboscopic displacement is real movement.\",\n      \"label\": \"claim\"\n    },\n    \"ADU12\": {\n      \"text\": \"While Ponech has shown that singletons move in the same way as objects—contiguously in space and time—he cannot show that they exhibit garden-variety motion because they are not objects.\",\n      \"label\": \"claim\"\n    },\n    \"ADU13\": {\n      \"text\": \"Kania's argument against Currie relies upon a single contention, the connection between the succession of still images that constitute the medium of film, and the perception of the moving images on the screen.\",\n      \"label\": \"claim\"\n    },\n    \"ADU14\": {\n      \"text\": \"Projection at 24 fps is therefore a necessary condition for the reception of the art form of film by an audience.\",\n      \"label\": \"claim\"\n    },\n    \"ADU15\": {\n      \"text\": \"The experience of film is the experience of seeing moving images under specific perceptual circumstances (e.g., 24 fps on a white screen in a dark room), which are necessary for the experience.\",\n      \"label\": \"claim\"\n    },\n    \"ADU16\": {\n      \"text\": \"If one is considering perception in general, or any particular aspect thereof, the default setting is that humans with fully functioning senses perceive reality rather than illusion.\",\n      \"label\": \"claim\"\n    },\n    \"ADU17\": {\n      \"text\": \"Currie's theory of cinematic motion is the most plausible of the three options.\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"ADU1\",\n      \"target\": \"ADU2\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU3\",\n      \"target\": \"ADU4\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU5\",\n      \"target\": \"ADU6\",\n      \"type\": \"attack\"\n    },\n    {\n      \"source\": \"ADU7\",\n      \"target\": \"ADU8\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU9\",\n      \"target\": \"ADU10\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU11\",\n      \"target\": \"ADU12\",\n      \"type\": \"attack\"\n    },\n    {\n      \"source\": \"ADU13\",\n      \"target\": \"ADU14\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU14\",\n      \"target\": \"ADU15\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU16\",\n      \"target\": \"ADU17\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "ADU1": {
+              "text": "Gregory Currie produced the first comprehensive philosophy of film in the analytic tradition with Image and Mind in 1995, and identified the essence of film as 'moving pictures' (Currie, 1997, p. 47).",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "His ontology of film is strictly realist, and he rejects both cognitive and perceptual illusionism in film.",
+              "label": "claim"
+            },
+            "ADU3": {
+              "text": "In cognitive or strong illusionism the viewer believes that she occupies the position of the camera, and is therefore present in the story.",
+              "label": "premise"
+            },
+            "ADU4": {
+              "text": "Currie correctly notes that audiences neither react nor think in this way, and dismisses the 'Imagined Observer Hypothesis' (Currie, 1995, p. 167).",
+              "label": "premise"
+            },
+            "ADU5": {
+              "text": "In perceptual or weak illusionism, cinematic experience represents the world in a particular way, even though the viewer knows this to be false, and the thesis is that the movement of images onscreen is illusory in this sense.",
+              "label": "premise"
+            },
+            "ADU6": {
+              "text": "Currie's rejection of this claim is highly controversial, with both illusionists and realists appealing to an intuitive view of cinematic motion.",
+              "label": "claim"
+            },
+            "ADU7": {
+              "text": "Kania agrees with Currie that there is no illusion of physical objects in motion onscreen, but rejects his alternative of a veridical experience of images in motion.",
+              "label": "claim"
+            },
+            "ADU8": {
+              "text": "An obvious third possibility is that we have an illusion of images moving in front of us (Kania, 2002, p. 252).",
+              "label": "claim"
+            },
+            "ADU9": {
+              "text": "Ponech identifies the essence of the debate as being 'whether the image undergoes objective displacement, that is, moves continuously in a contiguous space, independent of any perceptual uptake' (Ponech, 2006, p. 354).",
+              "label": "claim"
+            },
+            "ADU10": {
+              "text": "Ponech differentiates visual displays from display formats, and demonstrates that the former possess two essential properties, pixels and stroboscopic motion.",
+              "label": "premise"
+            },
+            "ADU11": {
+              "text": "Singletons are real perceptual objects and their continuous stroboscopic displacement is real movement.",
+              "label": "claim"
+            },
+            "ADU12": {
+              "text": "While Ponech has shown that singletons move in the same way as objects—contiguously in space and time—he cannot show that they exhibit garden-variety motion because they are not objects.",
+              "label": "claim"
+            },
+            "ADU13": {
+              "text": "Kania's argument against Currie relies upon a single contention, the connection between the succession of still images that constitute the medium of film, and the perception of the moving images on the screen.",
+              "label": "claim"
+            },
+            "ADU14": {
+              "text": "Projection at 24 fps is therefore a necessary condition for the reception of the art form of film by an audience.",
+              "label": "claim"
+            },
+            "ADU15": {
+              "text": "The experience of film is the experience of seeing moving images under specific perceptual circumstances (e.g., 24 fps on a white screen in a dark room), which are necessary for the experience.",
+              "label": "claim"
+            },
+            "ADU16": {
+              "text": "If one is considering perception in general, or any particular aspect thereof, the default setting is that humans with fully functioning senses perceive reality rather than illusion.",
+              "label": "claim"
+            },
+            "ADU17": {
+              "text": "Currie's theory of cinematic motion is the most plausible of the three options.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU1",
+              "target": "ADU2",
+              "type": "support"
+            },
+            {
+              "source": "ADU3",
+              "target": "ADU4",
+              "type": "support"
+            },
+            {
+              "source": "ADU5",
+              "target": "ADU6",
+              "type": "attack"
+            },
+            {
+              "source": "ADU7",
+              "target": "ADU8",
+              "type": "support"
+            },
+            {
+              "source": "ADU9",
+              "target": "ADU10",
+              "type": "support"
+            },
+            {
+              "source": "ADU11",
+              "target": "ADU12",
+              "type": "attack"
+            },
+            {
+              "source": "ADU13",
+              "target": "ADU14",
+              "type": "support"
+            },
+            {
+              "source": "ADU14",
+              "target": "ADU15",
+              "type": "support"
+            },
+            {
+              "source": "ADU16",
+              "target": "ADU17",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "ADU1": {
+              "text": "Gregory Currie produced the first comprehensive philosophy of film in the analytic tradition with Image and Mind in 1995, and identified the essence of film as 'moving pictures' (Currie, 1997, p. 47).",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "His ontology of film is strictly realist, and he rejects both cognitive and perceptual illusionism in film.",
+              "label": "claim"
+            },
+            "ADU3": {
+              "text": "In cognitive or strong illusionism the viewer believes that she occupies the position of the camera, and is therefore present in the story.",
+              "label": "premise"
+            },
+            "ADU4": {
+              "text": "Currie correctly notes that audiences neither react nor think in this way, and dismisses the 'Imagined Observer Hypothesis' (Currie, 1995, p. 167).",
+              "label": "premise"
+            },
+            "ADU5": {
+              "text": "In perceptual or weak illusionism, cinematic experience represents the world in a particular way, even though the viewer knows this to be false, and the thesis is that the movement of images onscreen is illusory in this sense.",
+              "label": "premise"
+            },
+            "ADU6": {
+              "text": "Currie's rejection of this claim is highly controversial, with both illusionists and realists appealing to an intuitive view of cinematic motion.",
+              "label": "claim"
+            },
+            "ADU7": {
+              "text": "Kania agrees with Currie that there is no illusion of physical objects in motion onscreen, but rejects his alternative of a veridical experience of images in motion.",
+              "label": "claim"
+            },
+            "ADU9": {
+              "text": "Ponech identifies the essence of the debate as being 'whether the image undergoes objective displacement, that is, moves continuously in a contiguous space, independent of any perceptual uptake' (Ponech, 2006, p. 354).",
+              "label": "claim"
+            },
+            "ADU10": {
+              "text": "Ponech differentiates visual displays from display formats, and demonstrates that the former possess two essential properties, pixels and stroboscopic motion.",
+              "label": "premise"
+            },
+            "ADU11": {
+              "text": "Singletons are real perceptual objects and their continuous stroboscopic displacement is real movement.",
+              "label": "claim"
+            },
+            "ADU13": {
+              "text": "Kania's argument against Currie relies upon a single contention, the connection between the succession of still images that constitute the medium of film, and the perception of the moving images on the screen.",
+              "label": "claim"
+            },
+            "ADU14": {
+              "text": "Projection at 24 fps is therefore a necessary condition for the reception of the art form of film by an audience.",
+              "label": "claim"
+            },
+            "ADU15": {
+              "text": "The experience of film is the experience of seeing moving images under specific perceptual circumstances (e.g., 24 fps on a white screen in a dark room), which are necessary for the experience.",
+              "label": "claim"
+            },
+            "ADU16": {
+              "text": "If one is considering perception in general, or any particular aspect thereof, the default setting is that humans with fully functioning senses perceive reality rather than illusion.",
+              "label": "claim"
+            },
+            "ADU17": {
+              "text": "Currie's theory of cinematic motion is the most plausible of the three options.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU1",
+              "target": "ADU2",
+              "type": "support"
+            },
+            {
+              "source": "ADU3",
+              "target": "ADU4",
+              "type": "support"
+            },
+            {
+              "source": "ADU5",
+              "target": "ADU6",
+              "type": "attack"
+            },
+            {
+              "source": "ADU9",
+              "target": "ADU10",
+              "type": "support"
+            },
+            {
+              "source": "ADU13",
+              "target": "ADU14",
+              "type": "support"
+            },
+            {
+              "source": "ADU14",
+              "target": "ADU15",
+              "type": "support"
+            },
+            {
+              "source": "ADU16",
+              "target": "ADU17",
+              "type": "support"
+            }
+          ]
+        }
+      },
+      {
+        "source": "claude-3-5-sonnet-20241022",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"1\": {\n      \"text\": \"Gregory Currie produced the first comprehensive philosophy of film in the analytic tradition with Image and Mind in 1995, and identified the essence of film as 'moving pictures'\",\n      \"label\": \"premise\"\n    },\n    \"2\": {\n      \"text\": \"In cognitive or strong illusionism the viewer believes that she occupies the position of the camera, and is therefore present in the story. Currie correctly notes that audiences neither react nor think in this way, and dismisses the 'Imagined Observer Hypothesis'\",\n      \"label\": \"premise\"\n    },\n    \"3\": {\n      \"text\": \"In perceptual or weak illusionism, cinematic experience represents the world in a particular way, even though the viewer knows this to be false, and the thesis is that the movement of images onscreen is illusory in this sense.\",\n      \"label\": \"premise\"\n    },\n    \"4\": {\n      \"text\": \"The experience of film is the experience of seeing moving images under specific perceptual circumstances (e.g., 24 fps on a white screen in a dark room), which are necessary for the experience.\",\n      \"label\": \"claim\"\n    },\n    \"5\": {\n      \"text\": \"As the art form is independent of the specific medium used in production, the nature of cinematic motion must be considered independently from the means used to produce the motion.\",\n      \"label\": \"premise\"\n    },\n    \"6\": {\n      \"text\": \"The view that the illusory nature of film can be proved by slowing the projector down is thus doubly fallacious: because there are-or could be-other methods of producing the work, and because once the conditions for aesthetic experience and perception are changed, one can no longer be said to experience the work of art.\",\n      \"label\": \"claim\"\n    },\n    \"7\": {\n      \"text\": \"cinematic motion is the real movement of singletons. This movement is apparent (i.e., response dependent), but it is not illusory (i.e., deceptive).\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"2\",\n      \"target\": \"1\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"3\",\n      \"target\": \"1\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"5\",\n      \"target\": \"4\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"4\",\n      \"target\": \"6\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"5\",\n      \"target\": \"6\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"4\",\n      \"target\": \"7\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"6\",\n      \"target\": \"7\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "1": {
+              "text": "Gregory Currie produced the first comprehensive philosophy of film in the analytic tradition with Image and Mind in 1995, and identified the essence of film as 'moving pictures'",
+              "label": "premise"
+            },
+            "2": {
+              "text": "In cognitive or strong illusionism the viewer believes that she occupies the position of the camera, and is therefore present in the story. Currie correctly notes that audiences neither react nor think in this way, and dismisses the 'Imagined Observer Hypothesis'",
+              "label": "premise"
+            },
+            "3": {
+              "text": "In perceptual or weak illusionism, cinematic experience represents the world in a particular way, even though the viewer knows this to be false, and the thesis is that the movement of images onscreen is illusory in this sense.",
+              "label": "premise"
+            },
+            "4": {
+              "text": "The experience of film is the experience of seeing moving images under specific perceptual circumstances (e.g., 24 fps on a white screen in a dark room), which are necessary for the experience.",
+              "label": "claim"
+            },
+            "5": {
+              "text": "As the art form is independent of the specific medium used in production, the nature of cinematic motion must be considered independently from the means used to produce the motion.",
+              "label": "premise"
+            },
+            "6": {
+              "text": "The view that the illusory nature of film can be proved by slowing the projector down is thus doubly fallacious: because there are-or could be-other methods of producing the work, and because once the conditions for aesthetic experience and perception are changed, one can no longer be said to experience the work of art.",
+              "label": "claim"
+            },
+            "7": {
+              "text": "cinematic motion is the real movement of singletons. This movement is apparent (i.e., response dependent), but it is not illusory (i.e., deceptive).",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "2",
+              "target": "1",
+              "type": "support"
+            },
+            {
+              "source": "3",
+              "target": "1",
+              "type": "support"
+            },
+            {
+              "source": "5",
+              "target": "4",
+              "type": "support"
+            },
+            {
+              "source": "4",
+              "target": "6",
+              "type": "support"
+            },
+            {
+              "source": "5",
+              "target": "6",
+              "type": "support"
+            },
+            {
+              "source": "4",
+              "target": "7",
+              "type": "support"
+            },
+            {
+              "source": "6",
+              "target": "7",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "1": {
+              "text": "Gregory Currie produced the first comprehensive philosophy of film in the analytic tradition with Image and Mind in 1995, and identified the essence of film as 'moving pictures'",
+              "label": "premise"
+            },
+            "2": {
+              "text": "In cognitive or strong illusionism the viewer believes that she occupies the position of the camera, and is therefore present in the story. Currie correctly notes that audiences neither react nor think in this way, and dismisses the 'Imagined Observer Hypothesis'",
+              "label": "premise"
+            },
+            "3": {
+              "text": "In perceptual or weak illusionism, cinematic experience represents the world in a particular way, even though the viewer knows this to be false, and the thesis is that the movement of images onscreen is illusory in this sense.",
+              "label": "premise"
+            },
+            "4": {
+              "text": "The experience of film is the experience of seeing moving images under specific perceptual circumstances (e.g., 24 fps on a white screen in a dark room), which are necessary for the experience.",
+              "label": "claim"
+            },
+            "5": {
+              "text": "As the art form is independent of the specific medium used in production, the nature of cinematic motion must be considered independently from the means used to produce the motion.",
+              "label": "premise"
+            },
+            "6": {
+              "text": "The view that the illusory nature of film can be proved by slowing the projector down is thus doubly fallacious: because there are-or could be-other methods of producing the work, and because once the conditions for aesthetic experience and perception are changed, one can no longer be said to experience the work of art.",
+              "label": "claim"
+            },
+            "7": {
+              "text": "cinematic motion is the real movement of singletons. This movement is apparent (i.e., response dependent), but it is not illusory (i.e., deceptive).",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "2",
+              "target": "1",
+              "type": "support"
+            },
+            {
+              "source": "3",
+              "target": "1",
+              "type": "support"
+            },
+            {
+              "source": "5",
+              "target": "4",
+              "type": "support"
+            },
+            {
+              "source": "4",
+              "target": "6",
+              "type": "support"
+            },
+            {
+              "source": "5",
+              "target": "6",
+              "type": "support"
+            },
+            {
+              "source": "4",
+              "target": "7",
+              "type": "support"
+            },
+            {
+              "source": "6",
+              "target": "7",
+              "type": "support"
+            }
+          ]
+        }
+      }
+    ],
+    "timestamp": 1752755499.5594728
+  }
+]

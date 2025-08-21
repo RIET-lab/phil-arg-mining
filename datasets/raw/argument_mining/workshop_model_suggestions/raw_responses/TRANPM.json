@@ -1,0 +1,228 @@
+[
+  {
+    "identifier": "TRANPM",
+    "system_prompt": "## GOAL\nArgument‑mine the following paper to extract its comprehensive argumentative structure.\n\n## DEFINITIONS\n1. **Argument**: A set of propositions, including some number of premises and a conclusion. The premises should logically entail the conclusion.\n2. **Claim**: A proposition that asserts something to be true or false, typically requiring justification or evidence.\n3. **Premise**: A proposition that provides evidence, justification, or logical support for a claim or conclusion.\n\n## CRITICAL REQUIREMENTS\n1. **VERBATIM EXTRACTION ONLY**: Each ADU text must be copied EXACTLY from the paper with no modifications, paraphrasing, or combining of separate sentences.\n2. **NO HALLUCINATION**: Do not create, modify, or invent text that does not appear exactly in the source.\n3. **EXACT MATCHING**: Every word, punctuation mark, and spacing must match the original precisely.\n\n## DIRECTIONS\n1. **Identify Argumentative Discourse Units (ADUs)**  \n   - ADU = any contiguous text span functioning as a claim or a premise in the reasoning structure.\n   - **BE HIGHLY SELECTIVE**: Only include ADUs that are crucial to the overarching argument structure.\n   - Focus on significant claims and premises that contribute meaningfully to the argumentative flow.\n   - **AVOID NOISE**: Skip ADUs that are merely descriptive, tangential, or do not substantially advance the argument.\n   - Prioritize quality over quantity - fewer accurate, important ADUs are better than many insignificant ones.\n   - **EXTRACT ONLY**: Copy text spans exactly as they appear, without any modifications.\n2. **Classify each ADU**  \n   - Label = either `\"claim\"` or `\"premise\"`.  \n3. **Detect directed relations**  \n   - Relation = `\"support\"` or `\"attack\"`, from one ADU (source) to another (target).\n   - Map how ADUs connect to form reasoning chains.\n   - Focus on relationships between the most significant ADUs.\n   - Include relationships between premises that strengthen or weaken each other.\n4. **Verbatim spans**  \n   - Each `\"text\"` value must be copied EXACTLY from the paper with zero modifications.\n   - Do not paraphrase, summarize, or combine separate sentences.\n   - Do not add, remove, or change any words, punctuation, or spacing.\n   - If unsure about exact wording, skip that ADU rather than guess.\n\n## WHAT TO CAPTURE\n**INCLUDE ONLY:**\n- Main argumentative threads that are central to the paper's contribution\n- Core claims that represent the paper's primary arguments or findings\n- Key premises that provide essential support for major claims\n- Critical counterarguments and their refutations\n- Reasoning chains that demonstrate how main conclusions are derived\n\n**EXCLUDE (AVOID NOISE):**\n- Minor details, examples, or descriptive content that don't advance the argument\n- Tangential points or side discussions\n- Pure background information or literature review content\n- Methodological details unless they constitute argumentative claims\n- Obvious statements or commonly accepted facts\n- Redundant or repetitive argumentative content\n\n**GUIDING PRINCIPLE**: If removing an ADU would not significantly impact understanding of the paper's argumentative structure, it should be excluded.\n\n## QUALITY CONTROL\n- Before finalizing each ADU, verify the text exists exactly in the source\n- Prefer fewer, accurate ADUs over many potentially modified ones\n- When in doubt about exact wording, omit the ADU\n\n## OUTPUT FORMAT\nReturn **only** a single valid JSON object matching this schema.  \nDo **not** output any extra text, markdown, or explanations.\n\nRESPOND WITH ONLY:\n```json\n{\n  \"ADUs\": {\n    \"<ADU_ID>\": {\n      \"text\": \"<exact span from paper>\",\n      \"label\": \"claim\" | \"premise\"\n    }\n    ...\n  },\n  \"relations\": [\n    {\n      \"source\": \"<ADU_ID>\",\n      \"target\": \"<ADU_ID>\",\n      \"type\": \"support\" | \"attack\"\n    }\n  ]\n}\n```",
+    "user_content": "## NOSTRI PERPETUO MEMOR .\n\n## PER LA STORIA EDITORIALE DELLE OPERE DI MARCO AURELIO SEVERINO (CON UNA LETTERA INEDITA)\n\nORESTE TRABUCCO\n\nIl norimberghese Johann Georg Volkamer (fig. 1), dopo sei mesi trascorsi a Napoli, nel febbraio 1642 riprendeva la via di casa, ma frapponendo un stanza  a  Roma che si allargò ad un trimestre. A Napoli era venuto da Padova, dove s'era distinto entro la Natio germanica artistarum , tra quanti vi approdavano per antica consuetudine, allora irrobustita dal magistero del westfalico Johann Vesling. Vesling anatomico tra i maggiori del tempo suo, che a Padova aveva dato in luce nel 1641 il proprio Syntagma anatomicum ; nel 1647 ne sarebbe  apparsa  una  nuova  edizione  riccamente  illustrata:  qui,  nell'aggiunta antiporta,  si  evocava  icasticamente  la  nobile  tradizione  vesaliana  distintiva dello Studio (fig. 2). Volkamer a Padova corroborava la lezione appresa in patria, nell'ateneo altdorfino, da un illustre maestro, Caspar Hofmann; e, a più dotarsi di perizia anatomica, s'era poi insediato a Napoli discepolo di Marco Aurelio Severino, il calabrese professore di anatomia e chirurgia dello Studio partenopeo,  il  chirurgo  rinomatissimo  dell'Ospedale  degli  Incurabili.  Così Volkamer secondava un percorso comune a molti connazionali compagni di\n\nstudi,  stante  il  pregio  in  cui  il magister Vesling  teneva  Severino  dacché  a stampa,  nel  1632,  il  suo opus  magnum di  materia  chirurgica,  il De  recondita abscessuum  natura distribuito in sette libri. Tornato in patria, Volkamer ebbe molti  anni  e  fecondi:  nella  sua  Norimberga  sarebbe  vissuto  fino  al  1693, lungamente  sovrintendendo  all'attività medica nel  dominio  urbano; giungendo fino a presiedere l'Accademia Cesareo-Leopoldina.\n\nVolkamer lasciava Napoli avendo nei propri bauli un copioso bagaglio cartaceo: un fascio ben folto di opere manoscritte affidategli dal maestro napoletano, affinché ne curasse la pubblicazione in terra tedesca. Segnato dalle persecuzioni inquisitoriali originanti dal misoneismo oppostogli dalla corporazione medica partenopea, ansioso di collocazione editoriale pari alla fama europea ormai consolidata, Severino faceva Volkamer suo legato nella respublica medica coeva; e Volkamer adempiva, con dedizione, con sagacia, con non comune competenza.\n\nLa lettera che qui di seguito si pubblica dice appieno della relazione Severino-Volkamer,  della  trama  di  rapporti  italiani  e  italo-tedeschi  entro  cui essa si situava, dei modi con cui essa maturava in edizione di opere mediche tra le più cospicue del medio Seicento. E dice dunque del vasto commercio intellettuale proprio di un attivissimo cittadino della respublica literaria quale fu Severino.\n\nI suoi rapporti con la Germania in quel principio del 1642 sono più che patavina.\n\nsaldi,  per  dimestichezza coltivata con la Natio  germanica  artistarum Tra  i  mediatori  garanti  del  flusso  epistolare  con  i  corrispondenti  tedeschi  i Guerigli, librai veneziani fortunatamente attivi sulla scena lagunare, editori, per non dir d'altro, delle Novelle amorose degli Incogniti; e, dal novero di quei corrispondenti tedeschi, affiora il nome del francofortese Ludwig von Hörni-\n\ngk (fig. 3), perito di medicina e di legge, che a Padova era anch'egli venuto a perfezionare le conoscenze mediche già acquisite in patria. Uomo di corte e d'apparato Hörnigk, e uomo di libri, che, ratificata la pace di Westfalia, sarà agente  imperiale  deputato  al  controllo  del  commercio  librario  nella  città assiana, di libri mercato principe. E pure affiora il nome del grande Caspar Hofmann, primo maestro di Volkamer e cattedratico celeberrimo di Altdorf, che firmerà i versi a piè del ritratto di Severino, posto ad ornare la Zootomia democritaea ,  di  cui  ci  apprestiamo  a  far  più  piena  menzione;  Hofmann  che, mentre ancora infuria la guerra dei Trent'anni, leva un inno alla pace anelata da chi s'è votato alla scienza e leva alla scienza di Severino che contrasta la morte dilagante nelle contrade europee:\n\nTu quoque nobiscum tendis quasi foedere pacto, Velle adiutam omni tempore Aletheian, Ut, postquam Europam turbat Mars improbus armis Conspirantque adeo cuncta elementa neci, Musarum Charitumque et Apollinis arcitenentis, Et fera barbaris undique conspicitur. Strenua sumamus vim contra arma hostis amari, Ne qua progressus insubidus faciat! Macte, Severine, hoc animo, virtute fideque, His comes aeternum nomen honosque fruat!\n\nLa relazione epistolare di Severino con Hörnigk preludeva alla nuova edizione francofortese del De recondita abscessuum natura - ora aumentato nel corpo dei sette libri già editi e aggiuntovi un ottavo libro -, che veniva nel 1643. Promotore  ne  era  appunto  Hörnigk,  che  Severino  eleggeva  nuovo  dedicatario dell'opera e al quale faceva pure pervenire, mediante Volkamer in cammino verso la patria, i rami incisi a nutrire il corredo iconografico, anch'esso incrementato. Nel paratesto del libro una lettera da Francoforte di Hörnigk a Seve-\n\nrino del principio di novembre 1642; Hörnigk attestava la fama subito sortita dall'opera  di  Severino  -  la  prima,  assai  tardiva,  stampata  quando  il  suo autore,  a  lungo  penalizzato  dall'essere  in  primo  luogo  chirurgo,  seppur chirurgo  di  rango  universitario,  aveva  ormai  varcato  la  soglia  dei  cinquant'anni -, col quale il savant tedesco non aveva avuto alcun rapporto durante la sua permanenza italiana, ma la cui alta reputazione s'era rapidamente radicata nella Padova dello Studio e tra gli immatricolati della Natio germanica artistarum dopo l'apparizione del trattato di anatomo-patologia e chirurgia ora ripubblicato a Francoforte. Iniziava così la lunga teoria di opere severiniane date alle stampe in Germania; in questa prima l'inserzione di una lista di Clarissimorum virorum de M. Aurelio Severino operis De recondita abscessuum natura autore iudicia faceva risaltare la volontà celebrativa che accompagnava il patrocinio di Hörnigk.\n\nL'anno successivo, nel 1644, Volkamer confezionava abilmente un appetitoso avant-goût delibando  dai  manoscritti  severiniani  in  suo  possesso: reinsediato nella natia Norimberga, qui, per i tipi di Wolfgang Endter, faceva uscire un volumetto in dodicesimo (fig. 4) costituito per gran parte dalla traduzione latina di mano di Severino del Curioso tratado de la naturaleza y calidad del chocolate che Antonio Colmenero de Ledesma aveva pubblicato a Madrid nel 1631; Volkamer vi giustapponeva un breve testo programmatico intitolato Idea  universae  chirurgiae  restauratae  feliciter ,  in  cui  il  maestro  partenopeo  annunciava il suo monumentale programma editoriale, solo in parte realizzato e realizzato prevalentemente in Germania - negli anni avvenire, ma, come attesta  il corpus manoscritto oggi serbato nella Lancisiana di Roma, poggiante su ben concrete fondamenta testuali. Volkamer poneva la sua intelligenza, la sua elevata condizione al servizio dell'opera di Severino; dimostrava di esse-\n\nre editore intraprendente ed originale, ma fedele, pazientissimamente fedele, alla  volontà  del  maestro:  quanto  del  voluminoso  carteggio  tra  i  due  si conserva è tutto punteggiato di capillari istruzioni editoriali inviate da Napoli a Norimberga, con tono trepidante per i ritardi, i mancati recapiti, gli smarrimenti: i libri di Severino si facevano tra Italia e Germania, in una Germania su cui si abbattevano i lampi più corruschi di Marte. Volkamer così presentava l' Idea severiniana:\n\nCum sub praelo iam ferveret praesens opusculum, supervenere literae ex Italia ab excellentissimo Severino perscriptae, quibus seriem suarum lucubrationum inclusam voluit, quam publico literatorum orbi expositam, lector amice, aequi bonique consule.\n\nSeverino offriva al lettore l'affollato catalogo delle proprie opere - tutte da venire, tranne lo stampato e ristampato De recondita abscessuum natura -, ponendolo  sotto  l'egida  di  illustri  amici,  quali  William  Harvey,  Johann  Vesling, Thomas Bartholin - e ricordava pure Volkamer, in Italia allievo di Vesling e suo -:\n\nHis scilicet partibus et his membris corpus chirurgiae veteris per nos restitutae constat. Cuius operis parte et membra singula videre primus, sic comis ut doctus vir, cum Neapolim divertisset, Petrus Castellus; secundus Henricus Blauodaeus, cl. Parisiensis professor; tertius sagacissimus Guilielmus Harveius; quartus eruditissimus aeque ac celebratissimus Ioannes Veslingius; quintus ingeniosissimus  Ioannes  Georgius  Volcamerus  norimbergensis;  et  novissime  singula perlegit  cl.  Vir  Thomas  Barhlolinus,  Casparo  patre  doctissimus  doctior  filius […].\n\nIl  giovane  Volkamer s'era prontamente fatto esperto della respublica literaria contemporanea e vi era ormai intrinseco. La Chocolata inda nel latino di Seve-\n\nrino  era  opera  di  storia  naturale  d'oltremare  consona  altresì  al  palato  degli hommes  de  lettres ;  appena  poco  prima,  nel  1643,  René  Moreau,  vessillifero della gloriosa facoltà medica parigina e gran conoscitore di testi antichi, possessore di una leggendaria biblioteca, Moreau maestro di uno dei campioni del libertinage érudit quale Gabriel Naudé, aveva dato alle stampe del Cramoisy la sua traduzione (fig. 5) del breve trattato del Colmenero, che l'aveva appunto  intitolato Curioso  tratado ;  Moreau  dedicava  la  sua  traduzione  ad  Alphonse de Richelieu, cardinale arcivescovo di Lione, e fratello del grande Armand, morto l'anno prima. Volkamer, che aveva ben speso il suo tempo romano, dedicava, altrettanto sapientemente, al prestigioso Paolo Zacchia, archiatra pontificio, nel novero dei fautori di Severino elencati sulle soglie dell'edizione francofortese del De recondita abscessuum natura .\n\nVolkamer pubblicava il libretto severiniano del 1644 per i tipi norimberghesi di Wolfgang Endter; sull'impresa di Endter avrebbe principalmente fatto  conto  von  Hörnigk  nell'attuazione  della  politica  editoriale  filoasburgica quando investito dell'ufficio di agente imperiale per il mercato librario tedesco. Hörnigk e Volkamer collaboravano; collaboravano a vantaggio di Severino con risultati notevoli: nel 1643 si aveva l'edizione francofortese del De recondita abscessuum natura , nel 1644 usciva la Chocolata inda a Norimberga, nel 1645,  ancora  a  Norimberga, literis endterianis ,  la Zootomia democritaea ,  l'opera maggiore di Severino. Nella dedica della Chocolata inda a  Zacchia Volkamer aveva tali parole per la Zootomia :\n\nDemocritaea […] zootomia, sagacissimi viri hoc seculo passim decantati indagatio.  Anatomica scil.  Opificii  animantium organici membrorumque suorum actionis et usus universi contemplatio, a primo Democrito diligentissime exercitata, quo […] opere ad ἐνέργειαν anatomicam nil videris optaverisve praestantius.\n\nSeverino intitolava la Zootomia a Democrito, il Democritus sector rappresentato nell'antiporta, evocando chi era per lui novus Democritus , l'illustre amico d'oltremanica William Harvey, della cui sententia si faceva energico banditore entro  la  sua anatome generalis totius  animantium opificii ,  a  buona  ragione  intendendo compagnons de route Johann Vesling e Thomas Bartholin: Vesling che accoglieva la circolazione del sangue nel suo Syntagma anatomicum ,  manuale neoterico  di  pronto  e  diffuso  successo;  Bartholin  che  alle  tesi  harveiane de motu cordis et sanguinis aggiornava, dal 1641, l'autorevolissimo, durevole manuale  del  padre  Caspar,  le Institutiones  anatomicae ,  ora novis  recentiorum opinionibus et observationibus auctae . La Zootomia severiniana era opera di lunga e faticosa gestazione, stratificata attraverso più di tre decenni, di struttura ripetutamente mutata lungo il tragitto redazionale. Struttura, nel suo farsi, animata in profondità da un doppio movimento - più perspicuo, per quanto ci è dato ricostruire, nelle forme testuali alle spalle di quella finale, in cui il rapporto tra anatomia e fisiologia si rarefà, delegato ad una materia che ne eccede progressivamente il perimetro -: l'apologia della nuova anatomia comparata e al contempo la volontà di aggredire le aporie insite nella teoria harveiana che, spingendo all'estremo la confutazione del sistema galenico, svincolava la fisiologia circolatoria da quella respiratoria, rimuovendo tra di esse ogni relazione.  La Zootomia esaltava  congiuntamente  una  tradizione  bicipite:  la nuova, rivoluzionaria, anatomia seicentesca come rappresa in Italia, tra Padova e Napoli, intorno al nucleo harveiano; e altresì la naturalis philosophia fiorita nel Mezzogiorno d'Italia, di cui Severino s'investiva erede, egli calabrese, epigono di Telesio e di Campanella, ma pure di Giulio Iasolino, suo maestro a Napoli, dove aveva trapiantato la lezione vesaliana udita a Padova. L'apolo-\n\ngia di queste due tradizioni, rese concomitanti in nome di un'interpretazione non poco deformante, sostanzia la Praefatio della Zootomia ;  firmata  da Volkamer,  ma,  se  non  sgorgata  dalla  stessa  mano  di  Severino,  certo  da  lui dettata in avvertimenti diretti a guidare lo stilo di Volkamer.\n\nDi Severino, come rivela la lettera che pubblichiamo, sono invece senza dubbio i versi - centone virgiliano - posti a fronte del suo ritratto incluso nella Zootomia , che egli dispone siano firmati da Volkamer, devoto esecutore appieno  obbediente,  aggiungendovi  la  didascalia:  «De  cl.  viri  specie  sibi  primum cognita et excudi curata venerabundus sic alludebat» (figg. 6-7). I versi, col ritratto, erano parte di un fastoso apparato celebrativo - si sono già citati quelli di Hofmann -, che, tra il molto altro, comprendeva pure la suddetta antiporta ed il ritratto di Iasolino: effetto perseguito la consacrazione europea di Severino epigono di una prestigiosa tradizione, ora lui maestro - che i suoi elogi sagacemente voleva apparissero dischiusi da altrui mani. Quando, nel febbraio 1642, Severino scriveva a Volkamer di stanza a Roma, la struttura in fieri della Zootomia prevedeva l'annessione di pagine relative ai problemi della respirazione ittica; pagine di status assai fluido, ad un certo punto destinate a comporre una vasta opera sulla respirazione animale mai venuta a stampa, se non limitatamente ad un postumo florilegio di testi pubblicato a Napoli nel 1659, poi riproposto dopo due anni ad Amsterdam, dallo Jansson che acquisiva i medesimi fogli napoletani anteponendovi il proprio frontespizio (fig. 8) nell'elenco  accluso  alla  succitata Idea universae  chirurgiae  restauratae già compare un De respiratione piscium quale opera autonoma .\n\nLe lettere di Severino a Volkamer cercò e trovò e trascrisse ad Erlangen - dove sono tuttora - Luigi Amabile, che, imbattutosi nei documenti relativi alle  vicissitudini  inquisitoriali  di  Severino,  accumulò  assai  copiosa  materia\n\nper un libro, però mai scritto, su di lui, congeniale al medico eminente e allo storico vigoroso del Sant'Uffizio. Le carte preparatorie di Amabile giacquero lungamente inerti nella Biblioteca Nazionale di Napoli, sinché Maurizio Torrini,  datosi  a  ricostruire  la  vicenda  di  rilievo  europeo  di  chi  fu  maestro  del 'suo' Tommaso Cornelio, ne additò compiutamente il valore, a suffragare una storia della cultura napoletana nel secolo della rivoluzione scientifica che sapesse in primo luogo nutrirsi di rigore documentale.\n\nORESTE TRABUCCO UNIVERSITÀ DEGLI STUDI DI BERGAMO\n\n## APPENDICE\n\nFig. 1\n\n<!-- image -->\n\nFig. 2\n\n<!-- image -->\n\nFig. 3\n\n<!-- image -->\n\n## CHOCOLATA INDA;\n\nDequalitate &amp; natur\n\nOpulculum\n\nCHOCOLAT\n\nAuthore\n\nRo DE LEDES MA, Med;\n\n<!-- image -->\n\nANTONIO CoLME\n\nFac. Profellorein Ecila -\n\nn\n\nHifpanico àntehac idiomate edi- urbc,\n\nMarco Aurelio Scverino Gymnalio Neapolirano Rcgio Anatomcs &amp; Chirurgiæ Prof.P.\n\nNoRIMBERG\n\nFig. 4\n\n## D CHOCOLATE DISCOVRS CVRIEVX,\n\nDIVISE EN QVATRE PARTIES\n\nPar cAntoine Colmenero de Ledefma Medecin €5\n\nMadrid [an 1631. &amp; dc quclqucs Annorations. clclaircy\n\nPar RENE MOREAV Profefeur du Medccinc à Paris. Roy\n\n<!-- image -->\n\nA P A R I $.\n\nFuë $. Cicognc;\n\nM. D C, XLIII\n\nFig. 5\n\n<!-- image -->\n\nFig. 6\n\n<!-- image -->\n\nFig. 7\n\n<!-- image -->\n\n## A NTIPER I PA TIA $,\n\n## DE RESPIRATIONE PISCIUM D I A T R I B A\n\nCommentarius in Theophrafti Ercfii Ibcllum hujus argumenti.\n\nDE\n\nM A R € [ T HU R I I CR A TIG E NÆ\n\nInRcgio Gymnalio Ncapolitano Anatomcs, &amp; Chi-\n\n<!-- image -->\n\n661 .\n\nFig. 8\n\nGoogle\n\n## [M. A. SEVERINO A J. G. VOLKAMER] *\n\nTibi, vir clarissime, salutem et Musarum omnium afflatum\n\nOptatissimas quidem tuas 21 februarii datas accepi sic laetus, ut amplexus et exosculatus fuerim. At vero quas debueras martio ineunte, non subiunxisti, multo desideratiores desideratissimis. Quandoquidem per has erat mihi necessarius nuncius receptarum additionum ad opus De abscessibus , quas miseram commendato fasciculo literarum antistiti seu priori coenobitarum carthusianorum romanorum, qui sunt in D. Mariae de Angelis dicto &lt;coenobio&gt;; miseram, inquam, cum literis ordinario cursori (postae) datis.\n\nPraeter  haec  autem  additamenta  miseram  per  tardiorem  tabellarium (procacii) Iulii Iasolini imaginem aere insculptam seu rectius depictam, cuius portorium persolvi Neapoli fecique debito conductionis immunem. Per quem\n\n* La  lettera  che  qui  si  pubblica  è  conservata,  autografa,  nel  Briefsammlung  Trew  della Universitätsbibliothek Erlangen-Nürnberg:  cfr.  E. SCHMIDT-HERRLING, Katalog der Handschriften  der  Universitätsbibliothek  Erlangen.  Neubearbeitung ,  V  Band, Die  Briefsammlung des Nürnberger Arztes Chr. J. Trew (1695-1769) , Erlangen, Universitätsbibliothek, 1940, p. 567.  Se  ne  ha  oggi  riproduzione  digitale: h ttp://digital.bib-bvb.de/view/bvbmets/viewer.0.6.4.jspfolder\\_id=0&amp;dvs=1578594337245~47&amp;pid=14145225&amp; locale=it\\_IT .  Di  mano  di Luigi Amabile se ne ha duplice copia in Biblioteca Nazionale «Vittorio Emanuele III» di Napoli, ms. XI.A.A.36, cc. 190, 190bis. La trascrizione che se ne dà è largamente conservativa, tranne che per lo scioglimento delle abbreviature - ma non quelle di formularità epistolare -, la riduzione delle maiuscole all'uso odierno - ma si conserva la maiuscola iniziale per le formule di rispetto -, la restituzione dei numeri cardinali con la cifra araba, la conversione delle parentesi quadre in parentesi tonde; si mantiene la grafia, giacché di Severino peculiare, m η rocentron . L'interpunzione - ma assai più limitati gli interventi nel testo poetico annesso alla lettera - e la paragrafatura sono riformate per maggior comprensione del dettato; le citazioni letterali d'autore sono isolate tra virgolette caporali. Le glosse marginali, relative al testo della lettera e all'epigrafe a piè del testo poetico, di mano di Severino, sono trascritte nelle note il cui esponente si colloca in capo alla parola cui ciascuna glossa è riferita. Si accoglie, tra parentesi aguzze, a compensare l'evidente  lacuna,  l'integrazione  di  Amabile: D. Mariae de Angelis dicto &gt; D. Mariae de Angelis dicto &lt;coenobio&gt; .\n\ntabellarium et tertias meas literas misi, cum quibus adalligatum est m η rocentron 1  ex Virgilio, quod tuo nomine subponendum et imagini Severini; inquam mirocentronem 2  «de inconnexis continuum, de diversis unum, de seriis ludicrum, de alieno nostrum». Quem tamen centonem ampliavi meliore ocio atque ad te mitto, rursus his litteris annexum.\n\nMisi per cursorem ordinarium binas parentis tui literas. Habebis et cum his adiunctas literas amici, quae si ad me pertinuerint aut ad mea, quaeso lectas  remittas  vel  remittendas  Larcheo  vel  Manfredo,  viris  clarissimis,  des. Quoniam imminentem abscessum tuum ab urbe Roma probabiliter arbitror, literas ad te primas conseram cum aeneis tabellis, quas ab excellentissimo Ludovico Hornigkio petitas, mittam Venetias ad typographos Gaspari Guerilii haeredes, per quos homines integerrimos venerunt ad me literae amicissimi istius, quas modo dedi.\n\nLegi per literas tuas ad D. m   Capucium te fortassis aditurum in Gallos; quae res si fiat, curabis, quaeso, resciendum de Petro Charisio Ionae dano-aphniensi, amico meo degente in Orliens 3 urbe, in qua coniugio duxit illustrem matronam. Is mihi debitor est sexcentorum et literarum praesertim, quas nullas e Gallia mihi scripsit, nonnullis ad eum per me datis excitus. Hunc meo nomine salutandum vel per te ipsum vel per alios amantissime velim.\n\nΤῆς τῶν ἰχθύων ἀναπνεύσεος rem  tibi  uni  communicatam  ne  reveles, quaeso, cuiquam, donec paratum iam in editione videris nostrum commentariolum, quem in dies a discessu tuo continenter meditor et proludo nostrae Zootomiae democritaeae operi adiungendum.\n\nHofmanni clarissimi nullas adhuc habui literas; verum alteras Hornigkii\n\n1 µ ηρόκεντρον\n\n2 centonem\n\n3 aurelianensi\n\nperamantes, ut alias, significavi.\n\nValetudinem tuam cura tibi et nobis quam diligentissime nostri perpetuo memor.\n\nNeapoli, 8 febr. 1642\n\n## Claritudinis tuae ad omnia paratissimus amicus ut servus M. Aurelius Severinus\n\nIanus Georgius Volchamerus norimbergensis de cl. viri specie sibi primum cognita et excudi curata\n\nAd suae gentis viros studiosos e Virgilio centonem 4 venerabundus sic alludebat.\n\n[\n\nfuori : Al m. to Ill .e Seg. re et padron colendissimo il sig. r  Giovanni Georgio Volchamero 8 februarii a. o 42 A Roma]\n\n4 alias carmen",
+    "responses": [
+      {
+        "source": "gpt-4o-2024-11-20",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"ADU1\": {\n      \"text\": \"Volkamer lasciava Napoli avendo nei propri bauli un copioso bagaglio cartaceo: un fascio ben folto di opere manoscritte affidategli dal maestro napoletano, affinché ne curasse la pubblicazione in terra tedesca.\",\n      \"label\": \"premise\"\n    },\n    \"ADU2\": {\n      \"text\": \"Segnato dalle persecuzioni inquisitoriali originanti dal misoneismo oppostogli dalla corporazione medica partenopea, ansioso di collocazione editoriale pari alla fama europea ormai consolidata, Severino faceva Volkamer suo legato nella respublica medica coeva; e Volkamer adempiva, con dedizione, con sagacia, con non comune competenza.\",\n      \"label\": \"claim\"\n    },\n    \"ADU3\": {\n      \"text\": \"La lettera che qui di seguito si pubblica dice appieno della relazione Severino-Volkamer, della trama di rapporti italiani e italo-tedeschi entro cui essa si situava, dei modi con cui essa maturava in edizione di opere mediche tra le più cospicue del medio Seicento.\",\n      \"label\": \"claim\"\n    },\n    \"ADU4\": {\n      \"text\": \"E dice dunque del vasto commercio intellettuale proprio di un attivissimo cittadino della respublica literaria quale fu Severino.\",\n      \"label\": \"premise\"\n    },\n    \"ADU5\": {\n      \"text\": \"La relazione epistolare di Severino con Hörnigk preludeva alla nuova edizione francofortese del De recondita abscessuum natura - ora aumentato nel corpo dei sette libri già editi e aggiuntovi un ottavo libro -, che veniva nel 1643.\",\n      \"label\": \"premise\"\n    },\n    \"ADU6\": {\n      \"text\": \"Promotore ne era appunto Hörnigk, che Severino eleggeva nuovo dedicatario dell'opera e al quale faceva pure pervenire, mediante Volkamer in cammino verso la patria, i rami incisi a nutrire il corredo iconografico, anch'esso incrementato.\",\n      \"label\": \"premise\"\n    },\n    \"ADU7\": {\n      \"text\": \"Iniziava così la lunga teoria di opere severiniane date alle stampe in Germania; in questa prima l'inserzione di una lista di Clarissimorum virorum de M. Aurelio Severino operis De recondita abscessuum natura autore iudicia faceva risaltare la volontà celebrativa che accompagnava il patrocinio di Hörnigk.\",\n      \"label\": \"claim\"\n    },\n    \"ADU8\": {\n      \"text\": \"Volkamer pubblicava il libretto severiniano del 1644 per i tipi norimberghesi di Wolfgang Endter; sull'impresa di Endter avrebbe principalmente fatto conto von Hörnigk nell'attuazione della politica editoriale filoasburgica quando investito dell'ufficio di agente imperiale per il mercato librario tedesco.\",\n      \"label\": \"premise\"\n    },\n    \"ADU9\": {\n      \"text\": \"Hörnigk e Volkamer collaboravano; collaboravano a vantaggio di Severino con risultati notevoli: nel 1643 si aveva l'edizione francofortese del De recondita abscessuum natura, nel 1644 usciva la Chocolata inda a Norimberga, nel 1645, ancora a Norimberga, literis endterianis, la Zootomia democritaea, l'opera maggiore di Severino.\",\n      \"label\": \"claim\"\n    },\n    \"ADU10\": {\n      \"text\": \"La Zootomia severiniana era opera di lunga e faticosa gestazione, stratificata attraverso più di tre decenni, di struttura ripetutamente mutata lungo il tragitto redazionale.\",\n      \"label\": \"premise\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"ADU1\",\n      \"target\": \"ADU2\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU3\",\n      \"target\": \"ADU4\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU5\",\n      \"target\": \"ADU7\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU6\",\n      \"target\": \"ADU7\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU8\",\n      \"target\": \"ADU9\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU10\",\n      \"target\": \"ADU9\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "ADU1": {
+              "text": "Volkamer lasciava Napoli avendo nei propri bauli un copioso bagaglio cartaceo: un fascio ben folto di opere manoscritte affidategli dal maestro napoletano, affinché ne curasse la pubblicazione in terra tedesca.",
+              "label": "premise"
+            },
+            "ADU2": {
+              "text": "Segnato dalle persecuzioni inquisitoriali originanti dal misoneismo oppostogli dalla corporazione medica partenopea, ansioso di collocazione editoriale pari alla fama europea ormai consolidata, Severino faceva Volkamer suo legato nella respublica medica coeva; e Volkamer adempiva, con dedizione, con sagacia, con non comune competenza.",
+              "label": "claim"
+            },
+            "ADU3": {
+              "text": "La lettera che qui di seguito si pubblica dice appieno della relazione Severino-Volkamer, della trama di rapporti italiani e italo-tedeschi entro cui essa si situava, dei modi con cui essa maturava in edizione di opere mediche tra le più cospicue del medio Seicento.",
+              "label": "claim"
+            },
+            "ADU4": {
+              "text": "E dice dunque del vasto commercio intellettuale proprio di un attivissimo cittadino della respublica literaria quale fu Severino.",
+              "label": "premise"
+            },
+            "ADU5": {
+              "text": "La relazione epistolare di Severino con Hörnigk preludeva alla nuova edizione francofortese del De recondita abscessuum natura - ora aumentato nel corpo dei sette libri già editi e aggiuntovi un ottavo libro -, che veniva nel 1643.",
+              "label": "premise"
+            },
+            "ADU6": {
+              "text": "Promotore ne era appunto Hörnigk, che Severino eleggeva nuovo dedicatario dell'opera e al quale faceva pure pervenire, mediante Volkamer in cammino verso la patria, i rami incisi a nutrire il corredo iconografico, anch'esso incrementato.",
+              "label": "premise"
+            },
+            "ADU7": {
+              "text": "Iniziava così la lunga teoria di opere severiniane date alle stampe in Germania; in questa prima l'inserzione di una lista di Clarissimorum virorum de M. Aurelio Severino operis De recondita abscessuum natura autore iudicia faceva risaltare la volontà celebrativa che accompagnava il patrocinio di Hörnigk.",
+              "label": "claim"
+            },
+            "ADU8": {
+              "text": "Volkamer pubblicava il libretto severiniano del 1644 per i tipi norimberghesi di Wolfgang Endter; sull'impresa di Endter avrebbe principalmente fatto conto von Hörnigk nell'attuazione della politica editoriale filoasburgica quando investito dell'ufficio di agente imperiale per il mercato librario tedesco.",
+              "label": "premise"
+            },
+            "ADU9": {
+              "text": "Hörnigk e Volkamer collaboravano; collaboravano a vantaggio di Severino con risultati notevoli: nel 1643 si aveva l'edizione francofortese del De recondita abscessuum natura, nel 1644 usciva la Chocolata inda a Norimberga, nel 1645, ancora a Norimberga, literis endterianis, la Zootomia democritaea, l'opera maggiore di Severino.",
+              "label": "claim"
+            },
+            "ADU10": {
+              "text": "La Zootomia severiniana era opera di lunga e faticosa gestazione, stratificata attraverso più di tre decenni, di struttura ripetutamente mutata lungo il tragitto redazionale.",
+              "label": "premise"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU1",
+              "target": "ADU2",
+              "type": "support"
+            },
+            {
+              "source": "ADU3",
+              "target": "ADU4",
+              "type": "support"
+            },
+            {
+              "source": "ADU5",
+              "target": "ADU7",
+              "type": "support"
+            },
+            {
+              "source": "ADU6",
+              "target": "ADU7",
+              "type": "support"
+            },
+            {
+              "source": "ADU8",
+              "target": "ADU9",
+              "type": "support"
+            },
+            {
+              "source": "ADU10",
+              "target": "ADU9",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "ADU1": {
+              "text": "Volkamer lasciava Napoli avendo nei propri bauli un copioso bagaglio cartaceo: un fascio ben folto di opere manoscritte affidategli dal maestro napoletano, affinché ne curasse la pubblicazione in terra tedesca.",
+              "label": "premise"
+            },
+            "ADU2": {
+              "text": "Segnato dalle persecuzioni inquisitoriali originanti dal misoneismo oppostogli dalla corporazione medica partenopea, ansioso di collocazione editoriale pari alla fama europea ormai consolidata, Severino faceva Volkamer suo legato nella respublica medica coeva; e Volkamer adempiva, con dedizione, con sagacia, con non comune competenza.",
+              "label": "claim"
+            },
+            "ADU3": {
+              "text": "La lettera che qui di seguito si pubblica dice appieno della relazione Severino-Volkamer, della trama di rapporti italiani e italo-tedeschi entro cui essa si situava, dei modi con cui essa maturava in edizione di opere mediche tra le più cospicue del medio Seicento.",
+              "label": "claim"
+            },
+            "ADU4": {
+              "text": "E dice dunque del vasto commercio intellettuale proprio di un attivissimo cittadino della respublica literaria quale fu Severino.",
+              "label": "premise"
+            },
+            "ADU5": {
+              "text": "La relazione epistolare di Severino con Hörnigk preludeva alla nuova edizione francofortese del De recondita abscessuum natura - ora aumentato nel corpo dei sette libri già editi e aggiuntovi un ottavo libro -, che veniva nel 1643.",
+              "label": "premise"
+            },
+            "ADU6": {
+              "text": "Promotore ne era appunto Hörnigk, che Severino eleggeva nuovo dedicatario dell'opera e al quale faceva pure pervenire, mediante Volkamer in cammino verso la patria, i rami incisi a nutrire il corredo iconografico, anch'esso incrementato.",
+              "label": "premise"
+            },
+            "ADU7": {
+              "text": "Iniziava così la lunga teoria di opere severiniane date alle stampe in Germania; in questa prima l'inserzione di una lista di Clarissimorum virorum de M. Aurelio Severino operis De recondita abscessuum natura autore iudicia faceva risaltare la volontà celebrativa che accompagnava il patrocinio di Hörnigk.",
+              "label": "claim"
+            },
+            "ADU8": {
+              "text": "Volkamer pubblicava il libretto severiniano del 1644 per i tipi norimberghesi di Wolfgang Endter; sull'impresa di Endter avrebbe principalmente fatto conto von Hörnigk nell'attuazione della politica editoriale filoasburgica quando investito dell'ufficio di agente imperiale per il mercato librario tedesco.",
+              "label": "premise"
+            },
+            "ADU10": {
+              "text": "La Zootomia severiniana era opera di lunga e faticosa gestazione, stratificata attraverso più di tre decenni, di struttura ripetutamente mutata lungo il tragitto redazionale.",
+              "label": "premise"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU1",
+              "target": "ADU2",
+              "type": "support"
+            },
+            {
+              "source": "ADU3",
+              "target": "ADU4",
+              "type": "support"
+            },
+            {
+              "source": "ADU5",
+              "target": "ADU7",
+              "type": "support"
+            },
+            {
+              "source": "ADU6",
+              "target": "ADU7",
+              "type": "support"
+            }
+          ]
+        }
+      },
+      {
+        "source": "claude-3-5-sonnet-20241022",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"1\": {\n      \"text\": \"Volkamer lasciava Napoli avendo nei propri bauli un copioso bagaglio cartaceo: un fascio ben folto di opere manoscritte affidategli dal maestro napoletano, affinché ne curasse la pubblicazione in terra tedesca.\",\n      \"label\": \"premise\"\n    },\n    \"2\": {\n      \"text\": \"Segnato dalle persecuzioni inquisitoriali originanti dal misoneismo oppostogli dalla corporazione medica partenopea, ansioso di collocazione editoriale pari alla fama europea ormai consolidata, Severino faceva Volkamer suo legato nella respublica medica coeva; e Volkamer adempiva, con dedizione, con sagacia, con non comune competenza.\",\n      \"label\": \"claim\"\n    },\n    \"3\": {\n      \"text\": \"Volkamer poneva la sua intelligenza, la sua elevata condizione al servizio dell'opera di Severino; dimostrava di essere editore intraprendente ed originale, ma fedele, pazientissimamente fedele, alla volontà del maestro\",\n      \"label\": \"claim\"\n    },\n    \"4\": {\n      \"text\": \"quanto del voluminoso carteggio tra i due si conserva è tutto punteggiato di capillari istruzioni editoriali inviate da Napoli a Norimberga, con tono trepidante per i ritardi, i mancati recapiti, gli smarrimenti: i libri di Severino si facevano tra Italia e Germania, in una Germania su cui si abbattevano i lampi più corruschi di Marte.\",\n      \"label\": \"premise\"\n    },\n    \"5\": {\n      \"text\": \"Hörnigk e Volkamer collaboravano; collaboravano a vantaggio di Severino con risultati notevoli: nel 1643 si aveva l'edizione francofortese del De recondita abscessuum natura, nel 1644 usciva la Chocolata inda a Norimberga, nel 1645, ancora a Norimberga, literis endterianis, la Zootomia democritaea, l'opera maggiore di Severino.\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"1\",\n      \"target\": \"2\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"4\",\n      \"target\": \"3\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"3\",\n      \"target\": \"5\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "1": {
+              "text": "Volkamer lasciava Napoli avendo nei propri bauli un copioso bagaglio cartaceo: un fascio ben folto di opere manoscritte affidategli dal maestro napoletano, affinché ne curasse la pubblicazione in terra tedesca.",
+              "label": "premise"
+            },
+            "2": {
+              "text": "Segnato dalle persecuzioni inquisitoriali originanti dal misoneismo oppostogli dalla corporazione medica partenopea, ansioso di collocazione editoriale pari alla fama europea ormai consolidata, Severino faceva Volkamer suo legato nella respublica medica coeva; e Volkamer adempiva, con dedizione, con sagacia, con non comune competenza.",
+              "label": "claim"
+            },
+            "3": {
+              "text": "Volkamer poneva la sua intelligenza, la sua elevata condizione al servizio dell'opera di Severino; dimostrava di essere editore intraprendente ed originale, ma fedele, pazientissimamente fedele, alla volontà del maestro",
+              "label": "claim"
+            },
+            "4": {
+              "text": "quanto del voluminoso carteggio tra i due si conserva è tutto punteggiato di capillari istruzioni editoriali inviate da Napoli a Norimberga, con tono trepidante per i ritardi, i mancati recapiti, gli smarrimenti: i libri di Severino si facevano tra Italia e Germania, in una Germania su cui si abbattevano i lampi più corruschi di Marte.",
+              "label": "premise"
+            },
+            "5": {
+              "text": "Hörnigk e Volkamer collaboravano; collaboravano a vantaggio di Severino con risultati notevoli: nel 1643 si aveva l'edizione francofortese del De recondita abscessuum natura, nel 1644 usciva la Chocolata inda a Norimberga, nel 1645, ancora a Norimberga, literis endterianis, la Zootomia democritaea, l'opera maggiore di Severino.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "1",
+              "target": "2",
+              "type": "support"
+            },
+            {
+              "source": "4",
+              "target": "3",
+              "type": "support"
+            },
+            {
+              "source": "3",
+              "target": "5",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "1": {
+              "text": "Volkamer lasciava Napoli avendo nei propri bauli un copioso bagaglio cartaceo: un fascio ben folto di opere manoscritte affidategli dal maestro napoletano, affinché ne curasse la pubblicazione in terra tedesca.",
+              "label": "premise"
+            },
+            "2": {
+              "text": "Segnato dalle persecuzioni inquisitoriali originanti dal misoneismo oppostogli dalla corporazione medica partenopea, ansioso di collocazione editoriale pari alla fama europea ormai consolidata, Severino faceva Volkamer suo legato nella respublica medica coeva; e Volkamer adempiva, con dedizione, con sagacia, con non comune competenza.",
+              "label": "claim"
+            },
+            "4": {
+              "text": "quanto del voluminoso carteggio tra i due si conserva è tutto punteggiato di capillari istruzioni editoriali inviate da Napoli a Norimberga, con tono trepidante per i ritardi, i mancati recapiti, gli smarrimenti: i libri di Severino si facevano tra Italia e Germania, in una Germania su cui si abbattevano i lampi più corruschi di Marte.",
+              "label": "premise"
+            }
+          },
+          "relations": [
+            {
+              "source": "1",
+              "target": "2",
+              "type": "support"
+            }
+          ]
+        }
+      }
+    ],
+    "timestamp": 1752748474.1553705
+  }
+]

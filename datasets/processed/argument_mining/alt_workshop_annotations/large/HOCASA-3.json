@@ -1,0 +1,673 @@
+{
+  "arguments": {},
+  "statements": {
+    "Untitled 1": {
+      "type": "equivalence-class",
+      "title": "Untitled 1",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 2",
+          "fromType": "equivalence-class",
+          "to": "Untitled 1",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "top-level-statement",
+          "isTopLevel": true,
+          "text": "The paper’s main lesson is that an effective theory of analogy integrates both semantic (concept/conceptualist) structure and contextual/judgmental analysis.",
+          "title": "Untitled 1",
+          "startLine": 1,
+          "startColumn": 1,
+          "endLine": 17,
+          "endColumn": 26
+        }
+      ],
+      "isUsedAsTopLevelStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Untitled 2": {
+      "type": "equivalence-class",
+      "title": "Untitled 2",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 3",
+          "fromType": "equivalence-class",
+          "to": "Untitled 2",
+          "toType": "equivalence-class"
+        },
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 11",
+          "fromType": "equivalence-class",
+          "to": "Untitled 2",
+          "toType": "equivalence-class"
+        },
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 15",
+          "fromType": "equivalence-class",
+          "to": "Untitled 2",
+          "toType": "equivalence-class"
+        },
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 2",
+          "fromType": "equivalence-class",
+          "to": "Untitled 1",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "text": "Cajetan’s theory of analogy is a central and influential treatment in Thomistic philosophy.",
+          "title": "Untitled 2",
+          "startLine": 2,
+          "startColumn": 4,
+          "endLine": 17,
+          "endColumn": 26
+        }
+      ],
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Untitled 3": {
+      "type": "equivalence-class",
+      "title": "Untitled 3",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 4",
+          "fromType": "equivalence-class",
+          "to": "Untitled 3",
+          "toType": "equivalence-class"
+        },
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 5",
+          "fromType": "equivalence-class",
+          "to": "Untitled 3",
+          "toType": "equivalence-class"
+        },
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 7",
+          "fromType": "equivalence-class",
+          "to": "Untitled 3",
+          "toType": "equivalence-class"
+        },
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 8",
+          "fromType": "equivalence-class",
+          "to": "Untitled 3",
+          "toType": "equivalence-class"
+        },
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 10",
+          "fromType": "equivalence-class",
+          "to": "Untitled 3",
+          "toType": "equivalence-class"
+        },
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 3",
+          "fromType": "equivalence-class",
+          "to": "Untitled 2",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "text": "Critics argue that Cajetan’s theory exposes weaknesses in medieval semantic assumptions.",
+          "title": "Untitled 3",
+          "startLine": 3,
+          "startColumn": 7,
+          "endLine": 11,
+          "endColumn": 157
+        }
+      ],
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Untitled 4": {
+      "type": "equivalence-class",
+      "title": "Untitled 4",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 4",
+          "fromType": "equivalence-class",
+          "to": "Untitled 3",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "text": "Medieval semantic theory assumes words signify by discrete concepts, and proposition meaning is the sum of word meanings.",
+          "startLine": 4,
+          "startColumn": 11,
+          "endLine": 4,
+          "endColumn": 132,
+          "title": "Untitled 4"
+        }
+      ],
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Untitled 5": {
+      "type": "equivalence-class",
+      "title": "Untitled 5",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 6",
+          "fromType": "equivalence-class",
+          "to": "Untitled 5",
+          "toType": "equivalence-class"
+        },
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 5",
+          "fromType": "equivalence-class",
+          "to": "Untitled 3",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "text": "This theory, say critics like Ashworth and Ross, cannot capture language’s complexity and variety, especially in analogical cases.",
+          "title": "Untitled 5",
+          "startLine": 5,
+          "startColumn": 11,
+          "endLine": 7,
+          "endColumn": 35
+        }
+      ],
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Untitled 6": {
+      "type": "equivalence-class",
+      "title": "Untitled 6",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 6",
+          "fromType": "equivalence-class",
+          "to": "Untitled 5",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "text": "To make sense of analogy, one must look at how words function in sentences and context, not just at their independent semantic features.",
+          "startLine": 6,
+          "startColumn": 15,
+          "endLine": 7,
+          "endColumn": 35,
+          "data": {
+            "isImplicit": true
+          },
+          "title": "Untitled 6"
+        }
+      ],
+      "data": {
+        "isImplicit": true
+      },
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Untitled 7": {
+      "type": "equivalence-class",
+      "title": "Untitled 7",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 7",
+          "fromType": "equivalence-class",
+          "to": "Untitled 3",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "text": "Ross claims that the classical theory of analogy is flawed because it relies on conceptualist and compositionalist assumptions.",
+          "startLine": 8,
+          "startColumn": 11,
+          "endLine": 8,
+          "endColumn": 138,
+          "title": "Untitled 7"
+        }
+      ],
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Untitled 8": {
+      "type": "equivalence-class",
+      "title": "Untitled 8",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 9",
+          "fromType": "equivalence-class",
+          "to": "Untitled 8",
+          "toType": "equivalence-class"
+        },
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 8",
+          "fromType": "equivalence-class",
+          "to": "Untitled 3",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "text": "Maurer and Gilson assert that Cajetan’s approach is too centered on concepts, neglecting the key role of judgment in analogy.",
+          "title": "Untitled 8",
+          "startLine": 9,
+          "startColumn": 11,
+          "endLine": 10,
+          "endColumn": 154
+        }
+      ],
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Untitled 9": {
+      "type": "equivalence-class",
+      "title": "Untitled 9",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 9",
+          "fromType": "equivalence-class",
+          "to": "Untitled 8",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "text": "Burrell and others maintain that analogy is best understood at the level of judgment and language use, not abstract concept analysis alone.",
+          "startLine": 10,
+          "startColumn": 15,
+          "endLine": 10,
+          "endColumn": 154,
+          "title": "Untitled 9"
+        }
+      ],
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Untitled 10": {
+      "type": "equivalence-class",
+      "title": "Untitled 10",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 10",
+          "fromType": "equivalence-class",
+          "to": "Untitled 3",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "text": "Simon emphasizes that analogical unity requires partial abstraction and mental operation rooted in context, not reducible to one abstract feature.",
+          "startLine": 11,
+          "startColumn": 11,
+          "endLine": 11,
+          "endColumn": 157,
+          "title": "Untitled 10"
+        }
+      ],
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Untitled 11": {
+      "type": "equivalence-class",
+      "title": "Untitled 11",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 12",
+          "fromType": "equivalence-class",
+          "to": "Untitled 11",
+          "toType": "equivalence-class"
+        },
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 13",
+          "fromType": "equivalence-class",
+          "to": "Untitled 11",
+          "toType": "equivalence-class"
+        },
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 11",
+          "fromType": "equivalence-class",
+          "to": "Untitled 2",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "text": "Proper analysis of analogy must consider context and actual use in sentences, not just abstract word-level semantics.",
+          "title": "Untitled 11",
+          "startLine": 12,
+          "startColumn": 7,
+          "endLine": 15,
+          "endColumn": 147
+        }
+      ],
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Untitled 12": {
+      "type": "equivalence-class",
+      "title": "Untitled 12",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 12",
+          "fromType": "equivalence-class",
+          "to": "Untitled 11",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "text": "Hochschild contends that Cajetan’s semantic analysis is compatible with attention to context, judgment, and interpretation.",
+          "startLine": 13,
+          "startColumn": 11,
+          "endLine": 13,
+          "endColumn": 134,
+          "title": "Untitled 12"
+        }
+      ],
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Untitled 13": {
+      "type": "equivalence-class",
+      "title": "Untitled 13",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 14",
+          "fromType": "equivalence-class",
+          "to": "Untitled 13",
+          "toType": "equivalence-class"
+        },
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 13",
+          "fromType": "equivalence-class",
+          "to": "Untitled 11",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "text": "Medieval logic often analyzed terms in the context of complete arguments and inferences, not just as isolated units.",
+          "title": "Untitled 13",
+          "startLine": 14,
+          "startColumn": 11,
+          "endLine": 15,
+          "endColumn": 147
+        }
+      ],
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Untitled 14": {
+      "type": "equivalence-class",
+      "title": "Untitled 14",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 14",
+          "fromType": "equivalence-class",
+          "to": "Untitled 13",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "text": "Cajetan, in later chapters, insists that interpreting analogical meaning requires attention to linguistic and argumentative context.",
+          "startLine": 15,
+          "startColumn": 15,
+          "endLine": 15,
+          "endColumn": 147,
+          "title": "Untitled 14"
+        }
+      ],
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Untitled 15": {
+      "type": "equivalence-class",
+      "title": "Untitled 15",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 15",
+          "fromType": "equivalence-class",
+          "to": "Untitled 2",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "text": "Semantic and contextual/judgment-based analysis are not inherently opposed; their opposition has been overstated by some critics.",
+          "startLine": 16,
+          "startColumn": 7,
+          "endLine": 17,
+          "endColumn": 26,
+          "data": {
+            "isImplicit": true
+          },
+          "title": "Untitled 15"
+        }
+      ],
+      "data": {
+        "isImplicit": true
+      },
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    }
+  },
+  "relations": [
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "Untitled 4",
+      "fromType": "equivalence-class",
+      "to": "Untitled 3",
+      "toType": "equivalence-class"
+    },
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "Untitled 6",
+      "fromType": "equivalence-class",
+      "to": "Untitled 5",
+      "toType": "equivalence-class"
+    },
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "Untitled 5",
+      "fromType": "equivalence-class",
+      "to": "Untitled 3",
+      "toType": "equivalence-class"
+    },
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "Untitled 7",
+      "fromType": "equivalence-class",
+      "to": "Untitled 3",
+      "toType": "equivalence-class"
+    },
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "Untitled 9",
+      "fromType": "equivalence-class",
+      "to": "Untitled 8",
+      "toType": "equivalence-class"
+    },
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "Untitled 8",
+      "fromType": "equivalence-class",
+      "to": "Untitled 3",
+      "toType": "equivalence-class"
+    },
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "Untitled 10",
+      "fromType": "equivalence-class",
+      "to": "Untitled 3",
+      "toType": "equivalence-class"
+    },
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "Untitled 3",
+      "fromType": "equivalence-class",
+      "to": "Untitled 2",
+      "toType": "equivalence-class"
+    },
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "Untitled 12",
+      "fromType": "equivalence-class",
+      "to": "Untitled 11",
+      "toType": "equivalence-class"
+    },
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "Untitled 14",
+      "fromType": "equivalence-class",
+      "to": "Untitled 13",
+      "toType": "equivalence-class"
+    },
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "Untitled 13",
+      "fromType": "equivalence-class",
+      "to": "Untitled 11",
+      "toType": "equivalence-class"
+    },
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "Untitled 11",
+      "fromType": "equivalence-class",
+      "to": "Untitled 2",
+      "toType": "equivalence-class"
+    },
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "Untitled 15",
+      "fromType": "equivalence-class",
+      "to": "Untitled 2",
+      "toType": "equivalence-class"
+    },
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "Untitled 2",
+      "fromType": "equivalence-class",
+      "to": "Untitled 1",
+      "toType": "equivalence-class"
+    }
+  ],
+  "sections": [],
+  "tags": {}
+}

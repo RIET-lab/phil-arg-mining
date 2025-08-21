@@ -1,0 +1,427 @@
+[
+  {
+    "identifier": "SCHROB-6",
+    "system_prompt": "## GOAL\nArgument‑mine the following paper to extract its comprehensive argumentative structure.\n\n## DEFINITIONS\n1. **Argument**: A set of propositions, including some number of premises and a conclusion. The premises should logically entail the conclusion.\n2. **Claim**: A proposition that asserts something to be true or false, typically requiring justification or evidence.\n3. **Premise**: A proposition that provides evidence, justification, or logical support for a claim or conclusion.\n\n## CRITICAL REQUIREMENTS\n1. **VERBATIM EXTRACTION ONLY**: Each ADU text must be copied EXACTLY from the paper with no modifications, paraphrasing, or combining of separate sentences.\n2. **NO HALLUCINATION**: Do not create, modify, or invent text that does not appear exactly in the source.\n3. **EXACT MATCHING**: Every word, punctuation mark, and spacing must match the original precisely.\n\n## DIRECTIONS\n1. **Identify Argumentative Discourse Units (ADUs)**  \n   - ADU = any contiguous text span functioning as a claim or a premise in the reasoning structure.\n   - **BE HIGHLY SELECTIVE**: Only include ADUs that are crucial to the overarching argument structure.\n   - Focus on significant claims and premises that contribute meaningfully to the argumentative flow.\n   - **AVOID NOISE**: Skip ADUs that are merely descriptive, tangential, or do not substantially advance the argument.\n   - Prioritize quality over quantity - fewer accurate, important ADUs are better than many insignificant ones.\n   - **EXTRACT ONLY**: Copy text spans exactly as they appear, without any modifications.\n2. **Classify each ADU**  \n   - Label = either `\"claim\"` or `\"premise\"`.  \n3. **Detect directed relations**  \n   - Relation = `\"support\"` or `\"attack\"`, from one ADU (source) to another (target).\n   - Map how ADUs connect to form reasoning chains.\n   - Focus on relationships between the most significant ADUs.\n   - Include relationships between premises that strengthen or weaken each other.\n4. **Verbatim spans**  \n   - Each `\"text\"` value must be copied EXACTLY from the paper with zero modifications.\n   - Do not paraphrase, summarize, or combine separate sentences.\n   - Do not add, remove, or change any words, punctuation, or spacing.\n   - If unsure about exact wording, skip that ADU rather than guess.\n\n## WHAT TO CAPTURE\n**INCLUDE ONLY:**\n- Main argumentative threads that are central to the paper's contribution\n- Core claims that represent the paper's primary arguments or findings\n- Key premises that provide essential support for major claims\n- Critical counterarguments and their refutations\n- Reasoning chains that demonstrate how main conclusions are derived\n\n**EXCLUDE (AVOID NOISE):**\n- Minor details, examples, or descriptive content that don't advance the argument\n- Tangential points or side discussions\n- Pure background information or literature review content\n- Methodological details unless they constitute argumentative claims\n- Obvious statements or commonly accepted facts\n- Redundant or repetitive argumentative content\n\n**GUIDING PRINCIPLE**: If removing an ADU would not significantly impact understanding of the paper's argumentative structure, it should be excluded.\n\n## QUALITY CONTROL\n- Before finalizing each ADU, verify the text exists exactly in the source\n- Prefer fewer, accurate ADUs over many potentially modified ones\n- When in doubt about exact wording, omit the ADU\n\n## OUTPUT FORMAT\nReturn **only** a single valid JSON object matching this schema.  \nDo **not** output any extra text, markdown, or explanations.\nDo **not** add comments.\n**RESPOND WITH ONLY**:\n```json\n{\n  \"ADUs\": {\n    \"<ADU_ID>\": {\n      \"text\": \"<exact span from paper>\",\n      \"label\": \"claim\" | \"premise\"\n    }\n    ...\n  },\n  \"relations\": [\n    {\n      \"source\": \"<ADU_ID>\",\n      \"target\": \"<ADU_ID>\",\n      \"type\": \"support\" | \"attack\"\n    }\n  ]\n}\n```",
+    "user_content": "<!-- image -->\n\nResearch on Broudy's Theory of the Uses of Schooling Author(s): John G. Schmitz Source: The Journal of Aesthetic Education, Vol. 26, No. 4, Special Issue: Essays in Honor of Harry S. Broudy (Winter, 1992), pp. 79-95 Published by: University of Illinois Press Stable URL: http://www.jstor.org/stable/3332718 Accessed: 16-05-2017 15:29 UTC\n\n## REFERENCES\n\nLinked references are available on JSTOR for this article: http://www.jstor.org/stable/3332718?seq=1&amp;cid=pdf-reference#references\\_tab\\_contents You may need to log in to JSTOR to access the linked references.\n\nJSTOR is a not-for-profit service that helps scholars, researchers, and students discover, use, and build upon a wide range of content in a trusted digital archive. We use information technology and tools to increase productivity and facilitate new forms of scholarship. For more information about JSTOR, please contact support@jstor.org.\n\nYour use of the JSTOR archive indicates your acceptance of the Terms &amp; Conditions of Use, available at http://about.jstor.org/terms\n\n<!-- image -->\n\nUniversity of Illinois Press is collaborating with JSTOR to digitize, preserve and extend access to The Journal of Aesthetic Education\n\n## Research on Broudy's Theory of the Uses of Schooling\n\n## JOHN G. SCHMITZ\n\nIf replication is used as a criterion for the efficiency of schooling, then most schooling is a waste of time because tests for retention of specific items of school learnings give disappointing results. If application of theory is used as a criterion, schooling is also a waste of time, for only when we are very familiar with a domain of phenomena and only when we possess the technical skill to deal with it can we be said to be applying knowledge. I would argue-and I hope research will confirm-that as far as general education is concerned, two other uses of schooling are the functional ones.1\n\nShould our society provide general education for all? Over the course of several decades of scholarship Harry Broudy has argued that it should. He has supported his position with various philosophical, political, and psychological arguments, which he has woven together into what few other twentieth-century scholars have attempted-a systematic theory of general education.\n\nOne of the key arguments in Broudy's overall theory, his account of the uses of schooling, takes aim at the viewpoint that general education is impractical.2 According to this viewpoint, the range of everyday outcomes of general education is narrow and the vocational significance of general education is limited. General education is dispensable to the everyday life of the self and the smooth functioning of society. It is a luxury. Like any luxury, it should be reserved for the few rather than the many. General education is nice but not necessary.\n\nBroudy confronts this viewpoint by attacking its underlying psychology, the \"received doctrine\" of the uses of schooling.3 The received doctrine provides a correct psychology of specialized education, as Broudy shows us, but a seriously incorrect psychology of general education. A key duty of a psychology of general education is to identify the outcomes of a general\n\nJohn G. Schmitz, a doctoral student in the philosophy of education at the University of Illinois, is completing his dissertation on the uses of schooling. He is the author of an article in the Proceedings of the Philosophy of Education Society and has coauthored work in the psychology of text comprehension. His research has been supported by a grant to H. S. Broudy from the Spencer Foundation.\n\nJournal of Aesthetic Education, Vol. 26, No. 4, Winter 1992 @1992 Board of Trustees of the University of Illinois\n\nstudies curriculum. Broudy argues that the received doctrine fails at this job because it leads us to focus on the wrong set of outcomes. Evidence of the rich everyday uses of general education is there to be observed, but we overlook it because we are wearing the wrong spectacles. We understand general education the same way we understand specialized education; we should not.\n\nAccording to the received doctrine, the outcomes of general education are not different in kind from the outcomes of specialized education. There are two of these outcomes: the replicative use of schooling is the ability to replicate one's learnings as learned, and the applicative use is the ability to apply learnings to solve problems.4 What characterizes both the specialist and the generalist, in the received doctrine, is recall power and problemsolving power, although to varying degrees. The generalist has sacrificed depth for scope; he or she recalls less and solves fewer problems within a particular domain but replicates some learnings and solves some problems across a wider range of domains.\n\nUp to this point it may seem that the received doctrine actually has the story right and is more of an ally of general education than an enemy. The problem arises when we test the generalist some years after schooling. If recall and problem solving were substantially undiminished, then that result would support the practicality of general education and indicate that the generalist is still able to replicate and apply his or her learnings when necessary in everyday situations. But the reverse is often the case, Broudy claims.5 Graphing recall power and problem-solving power over time, we see that they rapidly decay. If recall power and problem-solving power characterize the generally educated mind, then general education is impractical. Most general learnings cannot be recalled, and most everyday problems cannot be solved without specialized knowledge and experience. Little else seems left that allows a student to say, \"This is why I received a general education\" or for society to say, \"This is why we should provide general education for all.\"\n\nBroudy argues that a common program of general education will not be realized in our society until the received doctrine is displaced as our psychology of general education and an alternative psychology is formulated. In order to displace the doctrine, Broudy urges education researchers to undertake a \"search for evidence\"6 to explore the \"two other uses of schooling,\" the interpretive and associative. These are uses of schooling that function frequently and importantly in everyday life but have been neglected by researchers and policymakers.\n\nIn this article we report progress recently made in that search for evidence on the interpretive and associative uses of schooling. In spring 1991 we administered a new version of Broudy's \"newspaper test\" of the uses of schooling to a broad ability sample of high school seniors. We sought evidence of the life uses in a population younger than has previously been\n\nsampled by the newspaper test. The study provides evidence in support of Broudy's account of the \"other uses\" of schooling, and we point out future directions for the gathering of additional evidence. We begin the essay by first reviewing Broudy's theory of the uses of schooling.\n\nI\n\nAccording to Broudy's account, general education is unlikely to result in the replicative and applicative uses of schooling but can be expected to yield the associative and interpretive uses of schooling.7 The latter uses, Broudy's \"life uses of schooling,\"8 demonstrate the value of general education. Interestingly, it is their tacit functioning that explains their relative obscurity. The latter uses, Broudy's yield\n\nWhat defines the generally educated mind, in Broudy's theory, is not the ability to recall or apply general learnings but rather the ability to frame thinking and experience by means of tacit contexts. Our experience of the world is mediated by the contexts that we have available to frame it: \"Experience becomes intelligible only in so far that the mind orders the phenomena.\"9 General education is practical, in Broudy's account, because it expands a student's interpretive power, that is, the capacity to construct ordered and enriched tacit contexts from which, literally, we think, feel, judge, decide, imagine, intuit, and appreciate.10 The flow of tacit contexts is the fundamental medium of our thinking and experience, and the ordering and richness of these contexts strongly influence the richness and efficacy of our everyday lives. The interpretive and associative uses of schooling are context-building uses that function continuously in everyday life but are hidden below the surface of awareness.11 expands\n\nThe interpretive use of schooling refers to citizens' everyday use of disciplinary knowledge to order their thinking and experience.12 For Broudy, the scholarly disciplines provide a systematic range of \"stencils\" that we can map over the world to understand different aspects of it.13 The interpretive power of generally educated citizens is a result of their having internalized the basic stencils of the disciplines. Often more than one set of stencils must be used; the multidimensional character of everyday life frequently requires that more than one stencil be drawn on to comprehend a situation. When we read newspaper articles on the end of the Cold War, for example, we need a variety of stencils-economic, civic, and intellectual-in order to comprehend this rich topic. The interpretive use of schooling represents the ability of the generalists to approximate the understanding of the specialist; not the latter's recall or problem-solving power, but their understanding.\n\nWhen schooling provides resources that enrich thinking and experience, the associative use of schooling is functioning.14 Rather than seeing the world through ordered disciplinary contexts, we see the world through relatively isolated images and concepts that are traceable to the disciplines. These images and concepts are often not logically related to a situation; that\n\nis, their elicitation is often haphazard and sometimes even random. The imagery acquired from schooling is Broudy's main example of the associative use of schooling. He considers the associative use a primary one because our thinking and experience often rely on highly generalizable imagic vehicles and because formal schooling increases the number and quality of these vehicles.15 Understanding the end of the Cold War, for example, relies in part on images of the Iron Curtain. Although the associative use of schooling is secondary in importance to the interpretive use, Broudy shows us that it plays a key role in our everyday lives.\n\nBuilding on the account of the British chemist and philosopher Michael Polanyi,16 Broudy characterizes the life uses as tacit knowing, a \"knowingwith\" rather than a \"knowing-that\" mode of knowing.17 We are able to approximate the specialist's understanding not because we can recall propositions, or \"knowings that,\" but rather because we can frame our thinking and experience by \"knowing with\" the key concepts, stencils, and imagery of the disciplines. In Polanyi's terms, our \"focal awareness\" of a situation, like an article on the end of the Cold War, depends on our \"subsidiary awareness\" of a tacit context constructed of stencils and imagery from political science and other relevant disciplines.\n\nFrom Broudy's view, an adequate comprehension of complex stories like the end of the Cold War is dependent on the ability to construct enriched and ordered tacit contexts. The associations and interpretations that constitute these tacit contexts are not themselves the focus; the stories are. We attend to the overall meanings of such stories through the tacit contexts in place. Each new story requires a shift of tacit context. Interpretive power during the nightly newscast is the ability to shift rapidly between tacit contexts in order to frame each story. With a tacit context in place, we can, for example, think critically about the news, link a story with personal concerns, and imagine alternative possibilities. The rapid assembly of tacit contexts makes possible our comprehension of and reflection on fast-moving complex discourse like TV newscasts.18\n\nBroudy's tacit-context theory is consistent with a variety of research that emphasizes the unconscious mechanisms that underlie everyday thinking and experience. One might regard the wide range of findings now being published as an indication of an \"unconscious turn\" in psychology. One especially relevant area of research reveals the key role of tacit knowledge and implicit memory in human cognition.19 Another area explores the pervasive unconscious influences on social judgment.20 A third area-the everyday-cognition and situated-cognition literature-includes studies of the role of tacit knowledge in everyday life.21 A fourth area of relevant research-cognitive-resource theory-provides less direct support. These theorists assume that thinking is constrained by the limited capacity of cognitive resources such as short-term memory and selective attention.22 On this viewpoint, tacit knowledge is a solution to the problem of resource\n\nallocation: the largely automatic flow of tacit contexts reduces the demand on short-term memory and selective attention. Finally, Broudy's tacit-context theory is also consistent with cognitive approaches to intuition.23\n\nTacit knowledge is no stranger to the philosophy of education literature. Broudy's work on tacit knowledge is more extensive than that of any other writer in this field, but there are others who share his interest.24\n\nIt is the tacit functioning of the life uses, in Broudy's view, that explains why the failure to replicate and apply is not an indictment of general education. Failure to replicate and apply is not necessarily evidence of inability to assemble tacit contexts for framing everyday thinking and experience. Even if generalists cannot recall many of the specific inputs provided by their schooling, their perspective of the world has been broadened. The \"distillates\" of general education function tacitly to enrich and order their thinking and experience. Specific inputs have been transformed into general knowledge that they do not need to recall actively in order to use-a kind of implicit transfer of learnings.25 The inputs provided by general education fan out into diverse everyday outputs that operate below the surface of awareness.\n\nThere are many occasions in everyday life when t general learnings is valuable. We crisscross a co scape as we move from one situation to another. daily news, for example, we encounter a rapidly s current events: a sequence of stories on the end o warming, the right to die, and civil unrest. The ric everyday situations such as reading the daily news i value of the life uses of schooling.\n\nBroudy's chart of the uses of schooling, reproduc ther understand this complexity.26 Nine basic dom identified and their interconnections charted. The chart is intended to be inclusive; for any situation S, S can be mapped over a cell or cells of the chart.27\n\nBroudy's chart also provides a perspective on the infrastructure of general knowledge that he calls the allusionary base. The life uses of schooling are made possible by the conceptual, imagic, and valuative resources stored in the allusionary base. A set of core associative and interpretive resources can be identified for each cell in the chart. For example, within the Civic/ Intellectual cell we can identify those resources essential to an understanding of democracy and the responsibilities of citizenship. The allusionary base of the generally educated mind exhibits adequate scope of resources, the breadth of resources across domains of the chart, and adequate depth of resources, the extent of resources within domains. Achieving adequate scope and depth of resources is not enough, however; the generally educated mind must exhibit flexibility of resources, the degree of connectedness of resources within and across domains. Resources stored in the allusionary\n\n| BROUDY'S OF THE SCHOOLING   | USES U   |    | CHART OF   | O   | <   |    | Z   |    | U   |\n|-----------------------------|----------|----|------------|-----|-----|----|-----|----|-----|\n| ECONOMIC                    | X        | X  | X          | X   | X   |    | X   | X  | X   |\n| HEALTH                      | X X      | X  |            | X   | X   | X  |     | X  | X   |\n| RECREATION                  |          | X  | X          | X   | X   | X  | X   | X  | X   |\n| AFFECTIONAL                 |          | X  | X          | X   | X   | X  | X   | X  | X   |\n| CIVIC                       | XX       | X  | X          |     | X   | X  | X   |    | X   |\n| INTELLECTUAL                |          | X  | X          | X   | X   | X  | X   | X  | X   |\n| AESTHETIC                   | X        | X  | X          | X   | X   |    | X   | X  | X   |\n| MORAL                       | X X      | X  |            | X   | X   | X  |     | X  | X   |\n| RELIGIOUS                   | X X      | X  | X          |     | X   | X  | X   | X  |     |\n\nbase must be highly connected in order use. For example, flexibility of the allu standing ill-structured situations.28 watching the TV news is a paradigmati educated mind must possess adequate q which the allusionary base is stocked lected by the consensus of the learned.2 ders and enriches his or her thinking and principles, and images drawn from the\n\nApplying a scientific metaphor, the \" function of the scope, depth, flexibility, \"Critical mass\" is the point at which the cient for basic context building across all resented by the chart. If the two life us tional, the allusionary base must have c power is a function of the richness of t\n\nII\n\nBroudy urges researchers to abandon th and to research the life uses of schoolin ploring their functioning in everyday s to restrict research on schooling to the\n\napplicative uses. Broudy argues that a \"search for evidence\" of the life uses, free from the confining methodology of the dogma, is necessary to further uncover and illuminate these uses.31 A key constraint of such research is that its methods and tests should be \"ecologically valid.\"32 To appreciate the value of general education, Broudy argues, we have to understand the real-world outcomes of general education. Methods and tests that mimic multidimensional, real-world situations should be used; everyday life is not an achievement test.33 Broudy's search for evidence is a search for a greater understanding of the uses of schooling in everyday contexts.\n\nBroudy's own contribution to the search for evidence are the studies that he has conducted using his Newspaper Test of the Life Uses of Schooling.34 A variety of open-ended essay tests, the newspaper test mimics a complex and important real-world task, reading the daily newspaper, to study the life uses of schooling. The test provides observations on generalist-like rather than specialist-like outcomes of general education since it focuses on the associative and interpretive uses of schooling rather than the replicative and applicative. Broudy has utilized two different versions of the test in two studies at the University of Illinois, the first with graduate students and the second with undergraduates.35 Students in both studies displayed the life uses of schooling, and when they did not, evidence suggested that students lacked formal coursework in corresponding areas.\n\nBecause the newspaper test had never been given to high school students, we decided in 1991 to administer a version to second-semester high school seniors. Do high school seniors display the life uses of schooling? Do we observe everyday interpretive power or a lack thereof? We modified the newspaper test that had been used in the second study and administered it to forty-five high school seniors drawn from two high schools and three ability groups, with approximately fifteen students in each group. Group one was a sample of primarily college-bound students in an advancedplacement English class at a four-year high school. One fourth of the group was composed of minority students: one African-American, two Asians, and one Indian. Groups two and three were composed of one third of minority students, most of whom were African-Americans, from mediumand low-level English classes at a different four-year high school. The instrument included new passages and revised instructions; both were intended not only to gear the test to a younger sample of students, but also to try new approaches of eliciting the life uses of schooling.36 We selected brief passages from the New York Times that we categorized as rich enough to engender rich responses, but not too unfamiliar or complex. The following six passages were included in the twelve-passage test.\n\nTime Warner, Inc. said yesterday that by the end of the year 10,000 of its subscribers in Queens would be able to communicate through\n\ntheir television sets for services like home shopping and information banks. (New TVs)\n\nWhat the data show is that the United States is becoming ever more a suburban nation. There is an unparalleled growth in jobs and population away from the confines of the old central cities. (Suburbs)\n\n\"In the wake of war, the president says he seeks a new world order,\" Senator Mitchell said, \"We say, join us in putting our own house in order.\" (Iraqi War)\n\nIn Henry IV Shakespeare's passionate characters are moving psychologically from a world of certainty to the modern one of doubt and transience. (Modern Life)\n\nUniversity-educated African women are avoiding marriage in everincreasing numbers. The rebellion against marriage-and male chauvinism-is a revolutionary departure from African customs. (African Women)\n\nI was writing about a decade (the 1980s) in which the surface became everything. Everything was surface-food, clothes-that is what defined people. So I wrote a book that is all surface action: no narrative, no characters to latch onto, flat, endlessly repetitive. (1980s)37\n\nFor each passage we requested both a main-idea response and what we called a \"below-the-surface\" response. We described the main-idea response as only the \"tip of the iceberg\" of the meaning of each passage and explained that there was much more meaning \"below the surface.\" By distinguishing between the main-idea response and the below-the-surface response, we hoped to separate clearly for the students the task of summarizing or paraphrasing the passage from their second and more important task, probing their understanding of each passage and then writing down the ideas and images that came to mind.38 The below-the-surface response was to give us the best evidence of the life uses. By urging students to probe their understanding of a passage rather than just giving a paraphrase or summary, we would sample the range of typical associations and interpretations that function in students' everyday comprehension of such passages. The test instructions included an example list of below-the-surface ideas for a medical ethics passage on the right to die: quality of life, \"playing God,\" health care costs, and parental rights. Students had four and onehalf minutes to read each passage and write down the main idea and the open-ended, below-the-surface response.\n\nWe gathered a large set of responses that varied markedly in richness, fluency, type of response, and evidence for the life uses. These variations were strongly related to ability group. The group-one students, for example, consistently produced rich and fluent responses, most of which displayed evidence of the interpretive and associative uses. Almost all these\n\nstudents responded to all the passages presented. Their responses tended to take the form of coherent paragraphs. Group-two and group-three students gave responses that were often less rich and fluent, often exhibiting inaccuracies and ambiguities and often taking the form of lists of sentences, phrases, and isolated terms (any of these kinds of lists constituted a perfectly acceptable response format). Considerably less evidence of the interpretive use was observed in groups two and three, but evidence for the associative use was more common. There was a substantial number of blanks and ambiguous responses given by these two groups, especially by group three.\n\nThe following three responses, one from each ability group, were given for the passage on African women. Although the first can be taken as representative of group-one responses, the second and third should be regarded as better than most within their respective groups.\n\nUneducated people usually must accept the role society puts upon them. African women usually have to deal with male chauvinism, much the way American women did in the first two hundred years of our countries existence. But as people become educated, they see there is more life has to offer. Any minority can go through this change. It is up to society to change their norms.\n\nWe do not pay so much attention to tradition and customs now. African women are proud of what they have.\n\nIn today's world we are not afraid to digress from what our parents believe in.\n\nWomen are fighting for their rights.\n\nWomen realize that they don't have to have a man to accomplish what they want.\n\nWomen can stand up for themselves.\n\nwomen want to be independent they want to support themselves they want equality\n\nThese responses vary in richness, coherence, and fluency, but all provide evidence of the interpretive use of schooling. The criterion we rely on here is of the most basic variety-the ability to construct an interpretation that is ordered to some significant degree by concepts traceable to schooling.\n\nThe last response is not rich enough to qualify as a strong example of an interpretive response, but it is an interpretive response nonetheless since it expresses a coherent interpretation of the text that is ordered by concepts traceable to schooling: independence and equality. It is a simple interpretation, but it is a coherent one as far as it goes. Between the two concepts is a logical linkage-one dimension of equality is the right to lead an independent lifestyle-which is not explicit in the passage and which the student had to provide. Connecting concepts to assemble an interpretation is one\n\nkind of ordering that marks the interpretive use. The first and second responses provide stronger examples of the interpretive response because they connect a wider range of concepts. When these two students raided their allusionary base, paraphrasing Broudy, they found a bit more, or perhaps were more successful in expressing what they found.\n\nAnother kind of evidence of the interpretive use of schooling is provided by the implicit questions that we argue are presupposed by the responses. These questions are traceable (in principle) to disciplinary origins and are often foundational to the inquiry of particular disciplines. They provide another example of the ordering function that characterizes the interpretive use.\n\nFor example, consider a response to the New TVs passa question as to whether or not this is positive, will it be ye reduce the humanness in our daily lives.... Is this faster, method really going to be better?\" One of the explicit q this response can be paraphrased as, \"Do the new TVs progress?\" But more importantly for our purposes, we als responding implicit question that is implied by the stud namely, \"What is progress?\" It is difficult to understand t ity to ask the explicit question without appeal to an impli implicit question helps explain how the explicit question by the student. The implicit question functions as a templ about and analyzing situations in terms of their progres and implications, and it is reasonable to trace the origins question to courses in literature and social sciences. \"What foundational question common to several areas of inquir tant outcome of schooling that the stencils that student foundational disciplinary questions that can operate tacitly.\n\nWe identified the same implicit question in several othe the New TVs passage, for example, \"More and more servic impersonal and automated\" and \"One automatically think as a technological advance, but at the same time, you many would argue it's actually a step back.\"\n\nHere are more responses to the New TVs passage and th implicit questions that we have identified. One student wr general info, good 'at your own rate' information gather local area. Community might draw closer together throu events.\" We identified the following implicit questions: H formation be more efficiently distributed, how can techn help citizens assimilate information better, and how can co enhanced by better information access?\n\nAnother student took an economic approach to discussin item: \"Wanting to get in the chain of home shopping net with other television and movie companies.\" This studen\n\nthe company's motives for pursuing the new TVs. Why would a company develop such a technology? What are its economic motives? Another student assumed an important political question. For this student, the new TVs \"indicate the power of big business and potential control it has on society.\" This student answered the implicit question, \"What are the relations between political power and the new TVs?\"\n\nWe were able to identify these kinds of implicit questions in responses to other passages as well. In the Modern Life passage, for example, we see the historian's spectacles in place and some foundational historical questions at work. One student challenged the premise of the passage: \"The world psychologically has never been certain and stable.\" This student assumed an implicit question that is obvious but still important, \"Is the history accurate?\" We can also identify another, more specific question underlying the response: \"Are certainty and stability defining features of the modern age?\" Another student's inquisitive response followed the same vein: \"Our world was made up of certainty and stability.\"\n\nOne of the responses to the Modern Life passage echoed the responses we have discussed here concerning the nature of progress. This response is notable for its synoptic view of the modern world: \"Can stability be reached using modern techniques?\" The student is asking, \"Can we regain the personal and social stability of earlier times using modern methods? Can we use the techniques and ideologies that helped lessen stability to regain it?\" As with the responses to the New TVs passage, the response presupposes implicit questions such as \"What is progress?\"\n\nThese responses to the Modern Life passage are further evidence of the functioning of foundational questions that implicitly guide and orient students' thinking. One kind of knowledge that general education transmits embodies the key questions of a discipline. Disciplines are organized not only around core concepts but also around core questions. To recapitulate, another criterion of the interpretive use is evidence for the functioning of implicit questions that are traceable to disciplinary origins.\n\nWe move now to examples of the associative use of schooling. The associative use represents the relatively isolated use of images and concepts that function in a primarily enriching rather than ordering role in a student's understanding. The following examples are drawn from responses to various passages.\n\nOne student wrote that the new TVs will lead to even more of a \"TV society.\" Another wrote that the danger involved with the new TVs is that we become \"toys at the hands of some computerized machines.\" The homogenized lifestyle of the suburbs is described as the \"sameness of the suburbs; the identical houses, the sculpted landscapes.\" The new world order idea is \"rather utopian-like.\" The war with Iraq was misguided because \"we have plenty of problems in our own backyard.\" One student's brief response was, \"Only the fittest survive.\" In modern life \"things can become clouded.\" The\n\nwords \"white picket fences\" describe a student's peaceful perceptions of the early 1960s. For the African Women passage, a student responded that \"women are no longer taking a 'back seat' to men.\" Another wrote that such women used to stay at home \"barefoot and pregnant.\" The 1980s were \"very plastic,\" \"materialistic,\" and \"one dimensional.\" In the 1980s, only \"a person's shell\" mattered, there was \"no substance.\" Industrialization has \"\"created a monster.\"\n\nThe preceding examples of the associative use run from more disciplinary in origin to cultural in origin. \"Utopian-like\" and \"survival of the fittest\" are strong candidates for schooling-related outcomes, whereas \"barefoot and pregnant\" and \"back seat\" are less so. For the present study, at least, we cannot provide a convincing tracing of the associative uses to origins in a student's schooling experience. Nonetheless, all the examples can at least be traced in principle to schooling-related experiences.\n\nIn Broudy's view, the interpretive and associative responses we gathered in our study were made possible by the operation of tacit contexts. We do not claim that our data provide direct evidence of such contexts-that may not even be possible. We claim that there is a plausible interpretation of the data that implicates such contexts and that is consistent with the psychology research cited earlier.\n\nThe use of the term \"norms\" by one student, for example, provides indirect evidence that a moral-sociological context is at work within which students' understanding of \"norms\" is nested. A student's use of \"norms\" cannot be easily explained in isolation from this broader framework. To understand the function of norms in human society is to understand a variety of more basic concepts concerning the nature of humans and their patterns of interaction. Such fundamental understandings usually \"go without saying\" in everyday thinking and discourse-which is precisely how tacit contexts operate. We do not need to recall our frameworks regarding human nature and social interaction to say or write \"norms.\" Similarly, we do not need to review the basic disciplinary questions, which are key elements of our frameworks, in order to interpret a situation via these questions. This may seem obvious, but the thrust of Broudy's theory is that we should not take for granted what we take for granted in everyday thinking and discourse and that we should revise our views of general education accordingly. General education is justified not by recall power and problem-solving power but by the contexts that constitute the tacit grounds of thinking and experience.\n\n## III\n\nAs we mentioned earlier, substantial group-related differences were revealed in the responses. We expected group-related differences-Broudy's model predicts significant variability in the richness and quality of\n\nresponses--but we expected a stronger showing among group-two and -three students, especially for relatively familiar and simple passages like New TVs. Many group-two and -three students gave responses that were unordered and that included inaccurate and irrelevant elements, if they responded at all. Were students displaying a lack of interpretive power, or were other factors at work, or both?\n\nWe do not know from these data the instances when we were observing gaps in the allusionary base or were observing the influence of factors that militated against the interpretive and associative uses. For example, perhaps the instructions were too complex, the response time allowed was too brief, or the classroom atmosphere was unconducive. Moreover, the perceived \"status\" of the experimenter may have clashed with the race, gender, and socioeconomic status of some students, thus contributing to loweffort responses. The self-perceptions of lower-ability students may have blocked their expression of relevant learnings.39 Evidence exists that all the preceding factors help explain the poor showing of groups two and three. At the same time, however, there is little doubt that substantial differences in everyday interpretive power were displayed. Some students could assemble rich frameworks that guided their comprehension of the newspaper passages; many students could not.\n\n## IV\n\nThe present version of Broudy's newspaper test was designed to find evidence of the life uses in a younger sample of students. We were successful in meeting this objective. Other research objectives will require new versions of the test and new experimental approaches. We list four objectives for future research with the newspaper test as well as new versions of the test that are matched to each objective.\n\nWhat is the evidence that the standard achievement tests undersample students' ability for the life uses of schooling, as Broudy suggests?40 The Achievement Test Hypothesis version would compare recall and problem solving against interpretive power for the same content. For example, does a student possess interpretive and associative resources for a topic like the end of the Cold War that replicative and applicative questions fail to sample adequately?\n\nCan the newspaper test be modified into an achievement test? If the previous experiment supported Broudy's claim, then it would be reasonable to develop and pilot a prototypical achievement test. The Wide-Ranging Newspaper Test would include a large number of brief passages drawn from across the content domains of Broudy's chart. The analysis of results would attempt to gauge the scope, depth, and flexibility of resources in the allusionary base, thereby yielding an interpretive power score.\n\nCan the newspaper test be used to provide a more detailed study of\n\nspecific \"areas\" of the allusionary base? The Single-Passage Test would detail a student's understanding of a rich newspaper passage. For example, such a test would provide a method for gauging how rich was the context that the group-three student assembled for the African Women passage. Were the concepts \"equality\" and \"independence\" surface markers of richer holdings unexpressed by the response?\n\nCan we use the newspaper test to study foundational concepts acquired through schooling? What would the test reveal regarding the operation of foundational concepts like wholeness and fragmentation, stability and rapid change, certainty and uncertainty, and rationality and irrationality?41 The Foundational Concept Test would attempt to survey the uses of these concepts. Such an approach could also be used further to explore the role of foundational questions in everyday thinking.\n\n## V\n\nAre there enough practical outcomes of general education to justify the resources and effort required to deliver it to all citizens? Can it be shown that the generally educated mind is equipped for a wide range of everyday thinking and experience and, conversely, that failure to be so equipped places one at a severe disadvantage, weakening one's ability to exercise the rights and privileges of citizenship, undermining one's vocational life, and slowing the all-around growth of the self?\n\nBroudy argues that the practicality of general education can be established if the psychology of general education shifts its focus from the replicative and applicative uses of schooling to the life uses. Such a reorientation requires that we study the uses in context rather than just in the laboratory and that we do not neglect the tacit in favor of the explicit. Both of these methodological requirements explain why the psychology of general education has been reluctant to study the life uses more thoroughly; these methods clash with a strict quantitative approach to data gathering and analysis. That these methods have not been widely adopted, however, also explains why the psychology of general education has not succeeded in identifying and explaining the everyday outcomes of general education. Harry Broudy's theory of the uses of schooling teaches us this lesson, and his newspaper test shows us how we can do our homework.\n\n## NOTES\n\n1. H. S. Broudy, \"Research into Imagic Association and Cognitive Interpretation,\" Research in the Teaching of English 7, no. 2 (Fall 1973): 246.\n2. H. S. Broudy, The Uses of Schooling (New York: Routledge, 1988), p. 3.\n3. H. S. Broudy, \"On Knowing With,\" in Proceedings of the Philosophy of Educatio Society 1970, ed. H. B. Dunkel (Carbondale, Ill.: Philosophy of Education Society 1970), p. 92.\n\n4. Broudy, The Uses of Schooling, p. 7.\n5. Ibid., p. 13.\n6. Ibid., p. 34.\n7. Ibid., p. 38.\n8. H. S. Broudy, \"The Life Uses of Schooling as a Field for Research,\" in Philosophical Re-direction of Educational Research: Seventy-first Yearbook of the National Society for the Study of Education, ed. L. Thomas (Chicago: University of Chicago Press, 1972), p. 219.\n9. Broudy, The Uses of Schooling, p. 20. Broudy's view takes a constructivist account of perception and comprehension that parallels recent trends like schema theory in the cognitive sciences. See D. Rumelhart and A. Ortony, \"The Representation of Knowledge in Memory,\" in Schooling and the Acquisition of Knowledge, ed. R. C. Anderson, R. J. Spiro, and W. Montague (Hillsdale, N.J.: Erlbaum, 1977), pp. 99136. See also R. C. Anderson and P. D. Pearson, \"A Schema-Theoretic View of Basic Processes in Reading Comprehension,\" in Handbook of Research on Reading, ed. P. D. Pearson (New York: Longman, 1984), pp. 255-91. For a similar approach taken in the psychology of aesthetics, see R. W. Neperud, \"A Propositional View of Aesthetic Experiencing,\" in The Foundations of Aesthetics, Art, and Art Education, ed. F. H. Farley and R. W. Neperud (New York: Praeger, 1988), pp. 273-320.\n10. H. S. Broudy, \"Types of Knowledge,\" in Schooling and the Acquisition of Knowledge, p. 12.\n11. Ibid., p. 15. \"Interpretive power\" is meant to include associative power.\n12. Broudy, The Uses of Schooling, p. 19.\n13. H. S. Broudy, \"Report on Case Studies of the Uses of Knowledge to the Spencer Foundation\" (Unpublished manuscript, 1982), p. 18.\n14. Broudy, The Uses of Schooling, p. 17.\n15. Ibid., p. 68.\n16. Michael Polanyi, Personal Knowledge (Chicago: University of Chicago Press, 1958), p. 55.\n17. Broudy, \"On Knowing With,\" p. 89, and \"Tacit Knowing as a Rationale for Liberal Education,\" Teachers College Record, 80, no. 3 (Feb. 1979): 446-62.\n18. Although many everyday situations may not be as fast-moving or conceptually complex, the ability rapidly to assemble ordered and enriched tacit contexts is not diminished in importance. Rapid assembly is a key prerequisite for other everyday thinking such as social cognition.\n19. See A. S. Reber, \"Implicit Learning and Tacit Knowledge,\" Journal of Experimental Psychology: General 118, no. 3 (1989): 213-35. Also, D. L. Schacter, \"Implicit Memory: History and Current Status,\" Journal of Experimental Psychology: Learning, Memory and Cognition 13, no. 3 (1987): 501-18.\n20. J. S. Uleman, \"A Framework for Thinking Intentionally about Unintentional Thought,\" in Unintended Thought, ed. J. S. Uleman and J. Bargh (New York: Guilford, 1989), pp. 425-29. This chapter explores the varieties of automatic kinds of everyday thinking about self and other, going beyond earlier, more limited definitions of automatic processes. The study of automaticity is a key topic for future research on tacit contexts.\n21. J. S. Brown, A Collins, and P. Duguid, \"Situated Cognition and the Culture of Learning,\" Educational Researcher 18, no. 1 (January-February 1989): 32-42. Their call for future research on the psychology and epistemology of situated cognition identifies the need to \"frame a convincing account of the relationship between explicit knowledge and implicit understanding\" (p. 41); also see G. Cohen, Memory in the Real World (Hillsdale, N.J.: Erlbaum, 1989), pp. 140 and 220.\n22. See M. Posner, \"Chronometric Explorations of Mind\" (Hillsdale, N.J.: Erlbaum, 1978), p. 153.\n23. See K. S. Bowers, G. Regehr, C. Balthazard, and K. Parker, \"Intuition in the Context of Discovery,\" Cognitive Psychology 22 (1990): 72-110.\n24. See J. Soltis, \"Education and the Concept of Knowledge,\" in Philosophy and Education: Eightieth Yearbook of the National Society for the Study of Education, ed. J.\n\nSoltis (Chicago: University of Chicago Press, 1981), p. 113. See also A. Diller, \"On Tacit Knowing and Apprenticeship,\" in Proceedings of the Philosophy of Education Society 1974, ed. M. Parsons (Carbondale, Ill.: Philosophy of Education Society, 1974), pp. 59-67.\n\n25. Broudy's view of transfer is similar to what Jerome Bruner refers to as \"general transfer\"; see Jerome Bruner, The Process of Education (Cambridge, Mass.: Harvard University Press, 1960), p. 6. We note here that Broudy's account of the uses of schooling was first articulated during the structure-of-knowledge zeitgeist of the late fifties and early sixties (H. S. Broudy, B. Othanel Smith, and J. Burnett, Democracy and Excellence in American Secondary Education [Chicago: Rand McNally, 19641), the zeitgeist marked by the 1959 Woods Hole Conference on science education (of which Bruner's book is a synopsis), and by the 1963 Structure of Knowledge Conference at the University of Illinois; see S. Elam, ed., Education and the Structure of Knowledge (Chicago: Rand McNally, 1964).\n26. H. S. Broudy, \"Becoming Educated in Contemporary Society,\" in Society as Educator in an Age of Transition: Eighty-Sixth Yearbook of the National Society for the Study of Education, ed. K. D. Benne and S. Tozer (Chicago: University of Chicago Press, 1987), p. 248.\n27. Most S's can be assigned a primary location in one or two cells of the chart, but often they can be linked to all cells of the chart, especially if the S's are rich, as in an article on the end of the Cold War.\n28. R. J. Spiro, W. Vispoel, J. G. Schmitz, A. Samarapungavan, and A. E. Boerger, \"Knowledge Acquisition for Application: Cognitive Flexibility and Transfer in Complex Content Domains,\" in Executive Control Processes in Reading, ed. B. K. Britton and S. M. Glynn (Hillsdale, N.J.: Erlbaum, 1987), pp. 177-99.\n29. \"Quality\" raises the contentious debate between the advocates of the canon and those who seek to reject, revise, or reinterpret it. It is worth saying that writings can be located in Broudy's work that are consistent with some measure of revision and reinterpretation of the canon. For example, Broudy defines the humanities as the \"systematic examination, critique and redefinition of the virtues and diverse formulae for the good life.\" See H. S. Broudy, Truth and Credibility: The Citizen's Dilemma (New York: Longman, 1981), p. 142. In addition, Broudy writes in a recent article that cultural literacy \"includes the study of the great truths wherever they are found.\" H. S. Broudy, \"Cultural Literacy and General Education,\" Journal of Aesthetic Education 24, no. 1 (Spring 1990): 14.\n30. Broudy, The Life Uses, p. 20.\n31. Although the advent of the cognitivist approaches like schema theory has increased our understanding of the life uses, much research remains to be undertaken, as we discuss later in the essay.\n32. Ulric Neisser is generally credited with introducing this term. U. Neisser, Cognition and Reality (New York: Freeman, 1976), p. 2.\n33. The fixation of our society on standardized test scores might be more justified if the tests truly sampled students' potential for life uses of schooling.\n34. Broudy's development of this test anticipated recent calls for new modes of assessment that foster richer views of thinking and creativity. For example, see T. James, \"Research and the Renewal of Education: A Report from the National Academy of Education\" (New York: National Academy of Education, 1991), pp. 47-50.\n35. H. S. Broudy, The Uses of Schooling, pp. 38-48; and H. S. Broudy, M. Wentworth, and J. G. Schmitz, the National Center for Arts Education Study (unpublished manuscript).\n36. Several lessons were learned from the previous study. They followed from our observation that although a wide range of life uses was displayed in the responses, we could have gathered richer and more numerous responses. That is to say, we had believed that nonresponses and \"thin\" responses were due not to a lack of relevant associative and interpretive resources, but to factors related to the passage content and the test instructions. It was perhaps not clear enough to\n\nthe students that rich interpretive and associative responses were desired; perhaps there was not enough time for students to comprehend and record their responses to those passages that they found unfamiliar and complex.\n\n37. The passage titles did not appear in the text.\n38. Giving the main idea is a species of interpretative use, according to Broudy, but our analysis did not focus on this response for two reasons. First, \"close paraphrases\" of newspaper passages were often given as responses in the last study, making it difficult to gauge whether students were going \"beyond the information given\" or just rearranging the words of the passage. Second, we gathered a substantial number of thin responses in the previous study, so we were interested in trying out a new response format that would elicit richer responses.\n39. For example, a group-three student said in response to the instructions, \"Don't you know what kind of students we are?\"\n40. Broudy, \"Cultural Literacy and General Education,\" p. 7.\n41. Rand Spiro has used these categories in his research on cognitive flexibility and text comprehension at the Center for the Study of Reading, University of Illinois. Another example of foundational contexts is provided by Steven Pepper's concept of \"root metaphors.\" See S. C. Pepper, World Hypotheses (Berkeley: University of California Press, 1957), p. 84.",
+    "responses": [
+      {
+        "source": "gpt-4o-2024-11-20",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"ADU1\": {\n      \"text\": \"If replication is used as a criterion for the efficiency of schooling, then most schooling is a waste of time because tests for retention of specific items of school learnings give disappointing results.\",\n      \"label\": \"premise\"\n    },\n    \"ADU2\": {\n      \"text\": \"If application of theory is used as a criterion, schooling is also a waste of time, for only when we are very familiar with a domain of phenomena and only when we possess the technical skill to deal with it can we be said to be applying knowledge.\",\n      \"label\": \"premise\"\n    },\n    \"ADU3\": {\n      \"text\": \"I would argue-and I hope research will confirm-that as far as general education is concerned, two other uses of schooling are the functional ones.\",\n      \"label\": \"claim\"\n    },\n    \"ADU4\": {\n      \"text\": \"Should our society provide general education for all? Over the course of several decades of scholarship Harry Broudy has argued that it should.\",\n      \"label\": \"claim\"\n    },\n    \"ADU5\": {\n      \"text\": \"One of the key arguments in Broudy's overall theory, his account of the uses of schooling, takes aim at the viewpoint that general education is impractical.\",\n      \"label\": \"claim\"\n    },\n    \"ADU6\": {\n      \"text\": \"According to this viewpoint, the range of everyday outcomes of general education is narrow and the vocational significance of general education is limited.\",\n      \"label\": \"premise\"\n    },\n    \"ADU7\": {\n      \"text\": \"General education is dispensable to the everyday life of the self and the smooth functioning of society.\",\n      \"label\": \"premise\"\n    },\n    \"ADU8\": {\n      \"text\": \"Broudy confronts this viewpoint by attacking its underlying psychology, the 'received doctrine' of the uses of schooling.\",\n      \"label\": \"claim\"\n    },\n    \"ADU9\": {\n      \"text\": \"The received doctrine provides a correct psychology of specialized education, as Broudy shows us, but a seriously incorrect psychology of general education.\",\n      \"label\": \"claim\"\n    },\n    \"ADU10\": {\n      \"text\": \"According to the received doctrine, the outcomes of general education are not different in kind from the outcomes of specialized education.\",\n      \"label\": \"premise\"\n    },\n    \"ADU11\": {\n      \"text\": \"There are two of these outcomes: the replicative use of schooling is the ability to replicate one's learnings as learned, and the applicative use is the ability to apply learnings to solve problems.\",\n      \"label\": \"premise\"\n    },\n    \"ADU12\": {\n      \"text\": \"Broudy argues that a common program of general education will not be realized in our society until the received doctrine is displaced as our psychology of general education and an alternative psychology is formulated.\",\n      \"label\": \"claim\"\n    },\n    \"ADU13\": {\n      \"text\": \"In order to displace the doctrine, Broudy urges education researchers to undertake a 'search for evidence' to explore the 'two other uses of schooling,' the interpretive and associative.\",\n      \"label\": \"claim\"\n    },\n    \"ADU14\": {\n      \"text\": \"According to Broudy's account, general education is unlikely to result in the replicative and applicative uses of schooling but can be expected to yield the associative and interpretive uses of schooling.\",\n      \"label\": \"claim\"\n    },\n    \"ADU15\": {\n      \"text\": \"What defines the generally educated mind, in Broudy's theory, is not the ability to recall or apply general learnings but rather the ability to frame thinking and experience by means of tacit contexts.\",\n      \"label\": \"claim\"\n    },\n    \"ADU16\": {\n      \"text\": \"General education is practical, in Broudy's account, because it expands a student's interpretive power, that is, the capacity to construct ordered and enriched tacit contexts from which, literally, we think, feel, judge, decide, imagine, intuit, and appreciate.\",\n      \"label\": \"claim\"\n    },\n    \"ADU17\": {\n      \"text\": \"The interpretive use of schooling refers to citizens' everyday use of disciplinary knowledge to order their thinking and experience.\",\n      \"label\": \"claim\"\n    },\n    \"ADU18\": {\n      \"text\": \"When schooling provides resources that enrich thinking and experience, the associative use of schooling is functioning.\",\n      \"label\": \"claim\"\n    },\n    \"ADU19\": {\n      \"text\": \"Broudy argues that the practicality of general education can be established if the psychology of general education shifts its focus from the replicative and applicative uses of schooling to the life uses.\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"ADU1\",\n      \"target\": \"ADU3\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU2\",\n      \"target\": \"ADU3\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU6\",\n      \"target\": \"ADU5\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU7\",\n      \"target\": \"ADU5\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU8\",\n      \"target\": \"ADU5\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU9\",\n      \"target\": \"ADU8\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU10\",\n      \"target\": \"ADU9\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU11\",\n      \"target\": \"ADU10\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU13\",\n      \"target\": \"ADU12\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU14\",\n      \"target\": \"ADU12\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU15\",\n      \"target\": \"ADU14\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU16\",\n      \"target\": \"ADU14\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU17\",\n      \"target\": \"ADU14\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU18\",\n      \"target\": \"ADU14\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU19\",\n      \"target\": \"ADU12\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "ADU1": {
+              "text": "If replication is used as a criterion for the efficiency of schooling, then most schooling is a waste of time because tests for retention of specific items of school learnings give disappointing results.",
+              "label": "premise"
+            },
+            "ADU2": {
+              "text": "If application of theory is used as a criterion, schooling is also a waste of time, for only when we are very familiar with a domain of phenomena and only when we possess the technical skill to deal with it can we be said to be applying knowledge.",
+              "label": "premise"
+            },
+            "ADU3": {
+              "text": "I would argue-and I hope research will confirm-that as far as general education is concerned, two other uses of schooling are the functional ones.",
+              "label": "claim"
+            },
+            "ADU4": {
+              "text": "Should our society provide general education for all? Over the course of several decades of scholarship Harry Broudy has argued that it should.",
+              "label": "claim"
+            },
+            "ADU5": {
+              "text": "One of the key arguments in Broudy's overall theory, his account of the uses of schooling, takes aim at the viewpoint that general education is impractical.",
+              "label": "claim"
+            },
+            "ADU6": {
+              "text": "According to this viewpoint, the range of everyday outcomes of general education is narrow and the vocational significance of general education is limited.",
+              "label": "premise"
+            },
+            "ADU7": {
+              "text": "General education is dispensable to the everyday life of the self and the smooth functioning of society.",
+              "label": "premise"
+            },
+            "ADU8": {
+              "text": "Broudy confronts this viewpoint by attacking its underlying psychology, the 'received doctrine' of the uses of schooling.",
+              "label": "claim"
+            },
+            "ADU9": {
+              "text": "The received doctrine provides a correct psychology of specialized education, as Broudy shows us, but a seriously incorrect psychology of general education.",
+              "label": "claim"
+            },
+            "ADU10": {
+              "text": "According to the received doctrine, the outcomes of general education are not different in kind from the outcomes of specialized education.",
+              "label": "premise"
+            },
+            "ADU11": {
+              "text": "There are two of these outcomes: the replicative use of schooling is the ability to replicate one's learnings as learned, and the applicative use is the ability to apply learnings to solve problems.",
+              "label": "premise"
+            },
+            "ADU12": {
+              "text": "Broudy argues that a common program of general education will not be realized in our society until the received doctrine is displaced as our psychology of general education and an alternative psychology is formulated.",
+              "label": "claim"
+            },
+            "ADU13": {
+              "text": "In order to displace the doctrine, Broudy urges education researchers to undertake a 'search for evidence' to explore the 'two other uses of schooling,' the interpretive and associative.",
+              "label": "claim"
+            },
+            "ADU14": {
+              "text": "According to Broudy's account, general education is unlikely to result in the replicative and applicative uses of schooling but can be expected to yield the associative and interpretive uses of schooling.",
+              "label": "claim"
+            },
+            "ADU15": {
+              "text": "What defines the generally educated mind, in Broudy's theory, is not the ability to recall or apply general learnings but rather the ability to frame thinking and experience by means of tacit contexts.",
+              "label": "claim"
+            },
+            "ADU16": {
+              "text": "General education is practical, in Broudy's account, because it expands a student's interpretive power, that is, the capacity to construct ordered and enriched tacit contexts from which, literally, we think, feel, judge, decide, imagine, intuit, and appreciate.",
+              "label": "claim"
+            },
+            "ADU17": {
+              "text": "The interpretive use of schooling refers to citizens' everyday use of disciplinary knowledge to order their thinking and experience.",
+              "label": "claim"
+            },
+            "ADU18": {
+              "text": "When schooling provides resources that enrich thinking and experience, the associative use of schooling is functioning.",
+              "label": "claim"
+            },
+            "ADU19": {
+              "text": "Broudy argues that the practicality of general education can be established if the psychology of general education shifts its focus from the replicative and applicative uses of schooling to the life uses.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU1",
+              "target": "ADU3",
+              "type": "support"
+            },
+            {
+              "source": "ADU2",
+              "target": "ADU3",
+              "type": "support"
+            },
+            {
+              "source": "ADU6",
+              "target": "ADU5",
+              "type": "support"
+            },
+            {
+              "source": "ADU7",
+              "target": "ADU5",
+              "type": "support"
+            },
+            {
+              "source": "ADU8",
+              "target": "ADU5",
+              "type": "support"
+            },
+            {
+              "source": "ADU9",
+              "target": "ADU8",
+              "type": "support"
+            },
+            {
+              "source": "ADU10",
+              "target": "ADU9",
+              "type": "support"
+            },
+            {
+              "source": "ADU11",
+              "target": "ADU10",
+              "type": "support"
+            },
+            {
+              "source": "ADU13",
+              "target": "ADU12",
+              "type": "support"
+            },
+            {
+              "source": "ADU14",
+              "target": "ADU12",
+              "type": "support"
+            },
+            {
+              "source": "ADU15",
+              "target": "ADU14",
+              "type": "support"
+            },
+            {
+              "source": "ADU16",
+              "target": "ADU14",
+              "type": "support"
+            },
+            {
+              "source": "ADU17",
+              "target": "ADU14",
+              "type": "support"
+            },
+            {
+              "source": "ADU18",
+              "target": "ADU14",
+              "type": "support"
+            },
+            {
+              "source": "ADU19",
+              "target": "ADU12",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "ADU1": {
+              "text": "If replication is used as a criterion for the efficiency of schooling, then most schooling is a waste of time because tests for retention of specific items of school learnings give disappointing results.",
+              "label": "premise"
+            },
+            "ADU2": {
+              "text": "If application of theory is used as a criterion, schooling is also a waste of time, for only when we are very familiar with a domain of phenomena and only when we possess the technical skill to deal with it can we be said to be applying knowledge.",
+              "label": "premise"
+            },
+            "ADU3": {
+              "text": "I would argue-and I hope research will confirm-that as far as general education is concerned, two other uses of schooling are the functional ones.",
+              "label": "claim"
+            },
+            "ADU4": {
+              "text": "Should our society provide general education for all? Over the course of several decades of scholarship Harry Broudy has argued that it should.",
+              "label": "claim"
+            },
+            "ADU5": {
+              "text": "One of the key arguments in Broudy's overall theory, his account of the uses of schooling, takes aim at the viewpoint that general education is impractical.",
+              "label": "claim"
+            },
+            "ADU6": {
+              "text": "According to this viewpoint, the range of everyday outcomes of general education is narrow and the vocational significance of general education is limited.",
+              "label": "premise"
+            },
+            "ADU7": {
+              "text": "General education is dispensable to the everyday life of the self and the smooth functioning of society.",
+              "label": "premise"
+            },
+            "ADU9": {
+              "text": "The received doctrine provides a correct psychology of specialized education, as Broudy shows us, but a seriously incorrect psychology of general education.",
+              "label": "claim"
+            },
+            "ADU10": {
+              "text": "According to the received doctrine, the outcomes of general education are not different in kind from the outcomes of specialized education.",
+              "label": "premise"
+            },
+            "ADU11": {
+              "text": "There are two of these outcomes: the replicative use of schooling is the ability to replicate one's learnings as learned, and the applicative use is the ability to apply learnings to solve problems.",
+              "label": "premise"
+            },
+            "ADU12": {
+              "text": "Broudy argues that a common program of general education will not be realized in our society until the received doctrine is displaced as our psychology of general education and an alternative psychology is formulated.",
+              "label": "claim"
+            },
+            "ADU14": {
+              "text": "According to Broudy's account, general education is unlikely to result in the replicative and applicative uses of schooling but can be expected to yield the associative and interpretive uses of schooling.",
+              "label": "claim"
+            },
+            "ADU15": {
+              "text": "What defines the generally educated mind, in Broudy's theory, is not the ability to recall or apply general learnings but rather the ability to frame thinking and experience by means of tacit contexts.",
+              "label": "claim"
+            },
+            "ADU16": {
+              "text": "General education is practical, in Broudy's account, because it expands a student's interpretive power, that is, the capacity to construct ordered and enriched tacit contexts from which, literally, we think, feel, judge, decide, imagine, intuit, and appreciate.",
+              "label": "claim"
+            },
+            "ADU17": {
+              "text": "The interpretive use of schooling refers to citizens' everyday use of disciplinary knowledge to order their thinking and experience.",
+              "label": "claim"
+            },
+            "ADU18": {
+              "text": "When schooling provides resources that enrich thinking and experience, the associative use of schooling is functioning.",
+              "label": "claim"
+            },
+            "ADU19": {
+              "text": "Broudy argues that the practicality of general education can be established if the psychology of general education shifts its focus from the replicative and applicative uses of schooling to the life uses.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU1",
+              "target": "ADU3",
+              "type": "support"
+            },
+            {
+              "source": "ADU2",
+              "target": "ADU3",
+              "type": "support"
+            },
+            {
+              "source": "ADU6",
+              "target": "ADU5",
+              "type": "support"
+            },
+            {
+              "source": "ADU7",
+              "target": "ADU5",
+              "type": "support"
+            },
+            {
+              "source": "ADU10",
+              "target": "ADU9",
+              "type": "support"
+            },
+            {
+              "source": "ADU11",
+              "target": "ADU10",
+              "type": "support"
+            },
+            {
+              "source": "ADU14",
+              "target": "ADU12",
+              "type": "support"
+            },
+            {
+              "source": "ADU15",
+              "target": "ADU14",
+              "type": "support"
+            },
+            {
+              "source": "ADU16",
+              "target": "ADU14",
+              "type": "support"
+            },
+            {
+              "source": "ADU17",
+              "target": "ADU14",
+              "type": "support"
+            },
+            {
+              "source": "ADU18",
+              "target": "ADU14",
+              "type": "support"
+            },
+            {
+              "source": "ADU19",
+              "target": "ADU12",
+              "type": "support"
+            }
+          ]
+        }
+      },
+      {
+        "source": "claude-3-5-sonnet-20241022",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"1\": {\n      \"text\": \"If replication is used as a criterion for the efficiency of schooling, then most schooling is a waste of time because tests for retention of specific items of school learnings give disappointing results. If application of theory is used as a criterion, schooling is also a waste of time, for only when we are very familiar with a domain of phenomena and only when we possess the technical skill to deal with it can we be said to be applying knowledge. I would argue-and I hope research will confirm-that as far as general education is concerned, two other uses of schooling are the functional ones.\",\n      \"label\": \"claim\"\n    },\n    \"2\": {\n      \"text\": \"According to this viewpoint, the range of everyday outcomes of general education is narrow and the vocational significance of general education is limited. General education is dispensable to the everyday life of the self and the smooth functioning of society. It is a luxury. Like any luxury, it should be reserved for the few rather than the many. General education is nice but not necessary.\",\n      \"label\": \"premise\"\n    },\n    \"3\": {\n      \"text\": \"Evidence of the rich everyday uses of general education is there to be observed, but we overlook it because we are wearing the wrong spectacles. We understand general education the same way we understand specialized education; we should not.\",\n      \"label\": \"claim\"\n    },\n    \"4\": {\n      \"text\": \"What defines the generally educated mind, in Broudy's theory, is not the ability to recall or apply general learnings but rather the ability to frame thinking and experience by means of tacit contexts.\",\n      \"label\": \"claim\"\n    },\n    \"5\": {\n      \"text\": \"The interpretive use of schooling refers to citizens' everyday use of disciplinary knowledge to order their thinking and experience.\",\n      \"label\": \"claim\"\n    },\n    \"6\": {\n      \"text\": \"When schooling provides resources that enrich thinking and experience, the associative use of schooling is functioning.\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"2\",\n      \"target\": \"1\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"3\",\n      \"target\": \"1\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"4\",\n      \"target\": \"1\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"5\",\n      \"target\": \"4\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"6\",\n      \"target\": \"4\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "1": {
+              "text": "If replication is used as a criterion for the efficiency of schooling, then most schooling is a waste of time because tests for retention of specific items of school learnings give disappointing results. If application of theory is used as a criterion, schooling is also a waste of time, for only when we are very familiar with a domain of phenomena and only when we possess the technical skill to deal with it can we be said to be applying knowledge. I would argue-and I hope research will confirm-that as far as general education is concerned, two other uses of schooling are the functional ones.",
+              "label": "claim"
+            },
+            "2": {
+              "text": "According to this viewpoint, the range of everyday outcomes of general education is narrow and the vocational significance of general education is limited. General education is dispensable to the everyday life of the self and the smooth functioning of society. It is a luxury. Like any luxury, it should be reserved for the few rather than the many. General education is nice but not necessary.",
+              "label": "premise"
+            },
+            "3": {
+              "text": "Evidence of the rich everyday uses of general education is there to be observed, but we overlook it because we are wearing the wrong spectacles. We understand general education the same way we understand specialized education; we should not.",
+              "label": "claim"
+            },
+            "4": {
+              "text": "What defines the generally educated mind, in Broudy's theory, is not the ability to recall or apply general learnings but rather the ability to frame thinking and experience by means of tacit contexts.",
+              "label": "claim"
+            },
+            "5": {
+              "text": "The interpretive use of schooling refers to citizens' everyday use of disciplinary knowledge to order their thinking and experience.",
+              "label": "claim"
+            },
+            "6": {
+              "text": "When schooling provides resources that enrich thinking and experience, the associative use of schooling is functioning.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "2",
+              "target": "1",
+              "type": "support"
+            },
+            {
+              "source": "3",
+              "target": "1",
+              "type": "support"
+            },
+            {
+              "source": "4",
+              "target": "1",
+              "type": "support"
+            },
+            {
+              "source": "5",
+              "target": "4",
+              "type": "support"
+            },
+            {
+              "source": "6",
+              "target": "4",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "1": {
+              "text": "If replication is used as a criterion for the efficiency of schooling, then most schooling is a waste of time because tests for retention of specific items of school learnings give disappointing results. If application of theory is used as a criterion, schooling is also a waste of time, for only when we are very familiar with a domain of phenomena and only when we possess the technical skill to deal with it can we be said to be applying knowledge. I would argue-and I hope research will confirm-that as far as general education is concerned, two other uses of schooling are the functional ones.",
+              "label": "claim"
+            },
+            "2": {
+              "text": "According to this viewpoint, the range of everyday outcomes of general education is narrow and the vocational significance of general education is limited. General education is dispensable to the everyday life of the self and the smooth functioning of society. It is a luxury. Like any luxury, it should be reserved for the few rather than the many. General education is nice but not necessary.",
+              "label": "premise"
+            },
+            "3": {
+              "text": "Evidence of the rich everyday uses of general education is there to be observed, but we overlook it because we are wearing the wrong spectacles. We understand general education the same way we understand specialized education; we should not.",
+              "label": "claim"
+            },
+            "4": {
+              "text": "What defines the generally educated mind, in Broudy's theory, is not the ability to recall or apply general learnings but rather the ability to frame thinking and experience by means of tacit contexts.",
+              "label": "claim"
+            },
+            "5": {
+              "text": "The interpretive use of schooling refers to citizens' everyday use of disciplinary knowledge to order their thinking and experience.",
+              "label": "claim"
+            },
+            "6": {
+              "text": "When schooling provides resources that enrich thinking and experience, the associative use of schooling is functioning.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "2",
+              "target": "1",
+              "type": "support"
+            },
+            {
+              "source": "3",
+              "target": "1",
+              "type": "support"
+            },
+            {
+              "source": "4",
+              "target": "1",
+              "type": "support"
+            },
+            {
+              "source": "5",
+              "target": "4",
+              "type": "support"
+            },
+            {
+              "source": "6",
+              "target": "4",
+              "type": "support"
+            }
+          ]
+        }
+      }
+    ],
+    "timestamp": 1752754612.3435805
+  }
+]

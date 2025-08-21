@@ -1,0 +1,273 @@
+[
+  {
+    "identifier": "KURACO",
+    "system_prompt": "## GOAL\nArgument‑mine the following paper to extract its comprehensive argumentative structure.\n\n## DEFINITIONS\n1. **Argument**: A set of propositions, including some number of premises and a conclusion. The premises should logically entail the conclusion.\n2. **Claim**: A proposition that asserts something to be true or false, typically requiring justification or evidence.\n3. **Premise**: A proposition that provides evidence, justification, or logical support for a claim or conclusion.\n\n## CRITICAL REQUIREMENTS\n1. **VERBATIM EXTRACTION ONLY**: Each ADU text must be copied EXACTLY from the paper with no modifications, paraphrasing, or combining of separate sentences.\n2. **NO HALLUCINATION**: Do not create, modify, or invent text that does not appear exactly in the source.\n3. **EXACT MATCHING**: Every word, punctuation mark, and spacing must match the original precisely.\n\n## DIRECTIONS\n1. **Identify Argumentative Discourse Units (ADUs)**  \n   - ADU = any contiguous text span functioning as a claim or a premise in the reasoning structure.\n   - **BE HIGHLY SELECTIVE**: Only include ADUs that are crucial to the overarching argument structure.\n   - Focus on significant claims and premises that contribute meaningfully to the argumentative flow.\n   - **AVOID NOISE**: Skip ADUs that are merely descriptive, tangential, or do not substantially advance the argument.\n   - Prioritize quality over quantity - fewer accurate, important ADUs are better than many insignificant ones.\n   - **EXTRACT ONLY**: Copy text spans exactly as they appear, without any modifications.\n2. **Classify each ADU**  \n   - Label = either `\"claim\"` or `\"premise\"`.  \n3. **Detect directed relations**  \n   - Relation = `\"support\"` or `\"attack\"`, from one ADU (source) to another (target).\n   - Map how ADUs connect to form reasoning chains.\n   - Focus on relationships between the most significant ADUs.\n   - Include relationships between premises that strengthen or weaken each other.\n4. **Verbatim spans**  \n   - Each `\"text\"` value must be copied EXACTLY from the paper with zero modifications.\n   - Do not paraphrase, summarize, or combine separate sentences.\n   - Do not add, remove, or change any words, punctuation, or spacing.\n   - If unsure about exact wording, skip that ADU rather than guess.\n\n## WHAT TO CAPTURE\n**INCLUDE ONLY:**\n- Main argumentative threads that are central to the paper's contribution\n- Core claims that represent the paper's primary arguments or findings\n- Key premises that provide essential support for major claims\n- Critical counterarguments and their refutations\n- Reasoning chains that demonstrate how main conclusions are derived\n\n**EXCLUDE (AVOID NOISE):**\n- Minor details, examples, or descriptive content that don't advance the argument\n- Tangential points or side discussions\n- Pure background information or literature review content\n- Methodological details unless they constitute argumentative claims\n- Obvious statements or commonly accepted facts\n- Redundant or repetitive argumentative content\n\n**GUIDING PRINCIPLE**: If removing an ADU would not significantly impact understanding of the paper's argumentative structure, it should be excluded.\n\n## QUALITY CONTROL\n- Before finalizing each ADU, verify the text exists exactly in the source\n- Prefer fewer, accurate ADUs over many potentially modified ones\n- When in doubt about exact wording, omit the ADU\n\n## OUTPUT FORMAT\nReturn **only** a single valid JSON object matching this schema.  \nDo **not** output any extra text, markdown, or explanations.\nDo **not** add comments.\n**RESPOND WITH ONLY**:\n```json\n{\n  \"ADUs\": {\n    \"<ADU_ID>\": {\n      \"text\": \"<exact span from paper>\",\n      \"label\": \"claim\" | \"premise\"\n    }\n    ...\n  },\n  \"relations\": [\n    {\n      \"source\": \"<ADU_ID>\",\n      \"target\": \"<ADU_ID>\",\n      \"type\": \"support\" | \"attack\"\n    }\n  ]\n}\n```",
+    "user_content": "Copyright © South African Journal of Philosophy\n\n## SOUTH AFRICAN JOURNAL\n\n## OF PHILOSOPHY\n\nISSN 0258-0136   EISSN 2073-4867\n\nhttp://dx.doi.org/10.1080/02580136.2013.865098\n\n## Aesthetic consciousness of site-speci  c art 1 Þ\n\n## Regina-Nino Kurg\n\nTallinn University, Uus-Sadama 5, Tallinn 10120, Estonia reginanino@yahoo.com\n\nThe  aim  of  this  article  is  to  examine  Edmund  Husserl's  theory  of  aesthetic consciousness  and  the  possibility  to  apply  it  to  site-specific  art.  The  central focus will be on the idea of the limited synthetic unity of  the  aesthetic  object  that is  introduced  by  Husserl  in  order  to  differentiate  positional  and  aesthetic  attitude towards the object. I claim that strongly  site-specific  art ,  which  is  a  work  of  art about  a  place  and  in  the  place,  challenges  the  view  that  the  synthetic  unity  of the  aesthetic  object  is  limited.  Moreover,  following  Husserl's  theory,  it  becomes questionable whether strongly site-specific art is art at  all.  I  try  to  answer  these objections by explaining how the artist prescribes the appearances and boundaries of a strongly site-specific object of art, thereby satisfying the demand for the limitedness of the synthetic unity of the aesthetic object.\n\n## Aesthetic consciousness and strongly site-specific art\n\nHusserl  did  not  develop  a  coherent  and  well-structured  theory  of  aesthetics.  However,  he emphasised the importance of aesthetic consciousness and even drew parallels between the phenomenological  and  aesthetic  attitude  (Husserl  1994:  p.  134).  His  ideas  about  aesthetic consciousness can be summarised as follows: (1) aesthetic consciousness has interest in the manner of appearing of the object (Hua 23: 462 [389]); 2  it is (2) turning toward the manner of appearing, and has thematic primacy (Hua 23: 464 [392]). Aesthetic interest is not theoretical nor practical interest but (3) purely 'sensuous' interest (Hua 23: 168 [145]) and has (4) no interest in the existence or nonexistence of the presented object (Hua 23: 459 [387]). The aesthetic object has (5) restricted synthetic unity compared to the synthetic unity of a perceptual object (Hua 23: 705 [588]). 3 In this article, the central focus will be on the limited synthetic unity of the aesthetic object and on the possibility to experience it in the case of strongly site-specific art .\n\nKevin Melchionne suggests that we can understand site-specificity in  three categories. A work of  art  is:  (1) about but not for place  ( not site-specific,  for  example,  landscape  painting);  (2) for but not about place (weakly site-specific art); and (3) for and about place (strongly site-specific art)  (Melchionne  1998:  p.  43).  For  Melchionne,  the  work  of  art  is  site-specific  only  when it  is in and for the  place  (Melchionne  1988:  p.  43).  A  landscape  painting  that  is  only about a specific  place  is  not  site-specific  work  of  art  because  the  (physical)  painting  can  be  moved from one (exhibition) place to another and not being linked to its location. Weakly site-specific works are, for instance, pedestal sculptures that have gained, mostly by tradition, a symbiotic relationship to the place they stand - a public sculpture can become a local landmark, a symbol of  the  city,  or  just  a  familiar  face  for  people  who  live  in  the  neighbourhood  (Melchionne 1998:  pp.  42-43).  Strongly  site-specific  works  of  art,  on  the  other  hand,  are created into  a certain place to be a response to 'the political, historical or aesthetic quality of  a  place  through which the site itself  becomes  the  content  of  the  work'  (my  italics)  (Melchionne  1998:  p.  43).\n\n1 An earlier  draft  of  this  paper  was  presented  at  the  'Phenomenology  and  its  Futures'  conference  at  the  University  of  Johannesburg, Johannesburg, South Africa, 29-31 March 2013.\n\n2 In my article, I refer to two volumes of Husserliana: Collected Works : Phantasy, Image Consciousness, and Memory (Hua 23) and Cartesian Meditations (Hua 1). The   rst page number refers to the translations in English and the second, in square brackets, to the texts in German. Þ\n\n3 It has been claimed that the idea of indifference to existence or nonexistence and the restriction to the mode of appearance of an object is Husserlian in origin (whereas the claim of disinterestness to the object goes back at least to Kant) (Mohanty 2008: pp. 313-314).\n\nOne of the examples of strongly site-specific art is the installation 'HA' by the Icelandic artist, Sara Björnsdóttir, at  the  Reykjavik  Art  Museum (2012). In the interview with the exhibition's curator, she defines site-specific works of art as those that are 'made in and about certain place' (Björnsdóttir  2012).  Her  installation  comprises  video  screenings  on  the  wall  of  the  exhibition hall that shows images of the same room, so that the visitor is looking at the space where she is standing in. There are no other 'objects' in the hall except for the moving images on the wall. The artist  says  that  she  wants  to  move  people's  certainties  about  where they are and what they see, and to make them think about how the world appears to us (Björnsdóttir 2012). This example of strongly  site-specific  art  seems  to  fit  well  with  Husserl's  understanding  of  aesthetic  valuation, which is 'essentially connected with the distinction between the consciousness of an object as such and the object's manner of appearing [ Erscheinungsweise ]' (Hua 23: 461 [388]). However, it  will  be  more  difficult  to  understand  how  we  can  have  limited  synthetic  unity  of  an  aesthetic object of site-specific art.\n\n## Limited synthetic unity\n\nIn a text written in 1921-1924, Husserl argues that the aesthetic object has limited synthetic unity [ beschränkte synthetische Einheit ], which means that its horizon is different from the horizon of the thing pure and simple (the perceptual object) (Hua 23: 699 [581]). The notion of 'horizon' has a specific meaning in Husserl's phenomenology. In Cartesian Meditations , Husserl defines horizons as 'predelineated' potentialities [ vorgezeichnete Potentialitäten ]  (Hua 1: 45 [82]). In the process of 4 perceiving a die, for example, we have the genuinely perceived [ eigentlich wahrgenommene ] sides of the object and the sides 'also meant' [ die mitgemeinten ]. The latter sides are not yet perceived, they are anticipated and in that sense potentialities: if we walk around the object, we can see it from another side or if we come closer to it, we see some aspects that we did not see from a distance; we focus on the colour of the die at one moment and its shape at another moment, and, in addition to the manifold visual perspectives, a die can be touched or even heard (when we throw a die on the table). We expect an object to appear in certain ways in the future but we also expect it to have a 'horizon of the past', that is, a potentiality of awakenable recollections (Hua 1: 44 [82]).\n\nIn Husserl's terms, these multiform and changeable manners of appearing of a die are combined into a unity in our consciousness - it is called a synthesis . The one identical die appears in various appearances, and it is only because of the synthesis that we experience it as one and the same die although experiencing it differently in the course of time (Hua 1: 39-40 [77-78]). Therefore the synthesis is also called the synthesis of identification (Hua 1: 101 [131]).\n\nHusserl says that in a positional attitude we consider how a thing would appear 'in the continuing course of possible experience' in the real life (Hua 23: 703 [585]). In aesthetic attitude, the situation is different. We do not include other possible experiences or other possible appearances of an object into the synthetic unity of the object than those prescribed by the artist. In the same vein, we are not interested in how the artistic fiction fits with the real world; it is separated from it: 'the extent to which what I see there [in an artistic fiction] accommodates itself harmoniously and synthetically to the universal synthesis of possible experience does not interest me' (Hua 23: 704-705 [587]). Moreover, Husserl says that what serves us aesthetically would have the function of awakening only certain moments and horizons, and everything else, without exception, would be wholly excluded from the horizon of the theme (Hua 23: 704 [586]). A beautiful landscape, for example, presents itself from a certain perspective; it has certain optical appearances that make up the synthesis of the aesthetic object. All other possible appearances of the landscape are cut off :\n\nBut my aesthetic belief, the belief pertaining to the aesthetic object, restricts  me  to  the  series  of optical appearances that I obtain from this position, from the entrance to the valley, and to the unity optically  constituted  in  the  series  as  something  identifiable  and  cognizable  by  itself. The  infinite horizon beyond this, with all of its attendant syntheses accessible to me immediately and mediately\n\n4 As Smith and McIntyre understand Husserl's notion of horizon, there are two sorts of horizon - 'object-horizon' and 'act-horizon' (Smith &amp; McIntyre 1982: pp. 236-246). I present here the latter.\n\n(producible my me), is cut off [ ist  abgeschnitten ],  inasmuch  as  it  is  not  the  horizon  of  thematic acceptance that I am now carrying out. This restricted synthetic unity, in just the way in which it is intuited there, is my aesthetic object. (Hua 23: 705 [587-588])\n\nRobert  Irwin's  site-specific  installation  'Scrim  Veil  -  Black  Rectangle  -  Natural  Light' presented at the Whitney Museum of American Art, New York (1977), is an example of a strongly site-specific  work  of  art  that  shows  clearly  how  the  artist  influences  the  way  the  space  appears to  the  beholder. 5 Many visitors complained that it was just an empty room because they could not detect any object inside it. But the artist claimed otherwise. The aim of the artist was to draw people's attention to 'looking at and seeing all of those things that have been going on all along but which previously have been too incidental or too meaningless to really seriously enter into our visual  structure,  our  picture  of  the  world'  (Weschler  2008:  p.  187).  To  accomplish  that  aim,  he took great notice of how the room would appear to the visitor. He explained it as follows:\n\nI did a very simple thing, which was just to paint the end wall the same colour that the side walls had become, throwing the room out of order. It's not the kind of thing that a visitor would cogitate on, but you knew something was amiss in that room. […] So when you walked into this room at the Whitney, it threw you - you had to stop for a moment because something was amiss. I then suspended with scrim a black line from the ceiling the length of  the  room  [120  feet]  at  eye  level. And  then  I  placed  a  corresponding  eye-level  black line around the walls of the room. People would literally walk right into it, bump into it, because you couldn't place this black line in space. So in effect you were forced to become a firsthand perceiver. (Davies &amp; Irwin 2008: pp. 52-53)\n\nHusserl finds that, in the case of works of art, it is the role of the artist to choose what will appear and how it appears (Hua 23: 706 [588]). In my view, the emphasis on the selective process of choosing one of the object's appearances in the creation of art leads us to the understanding that it is possible to have many aesthetic appearances of one object (although Husserl does not explain it this way). The object as such does not change in that course. For instance, we do not experience different sites when we see a painting of the site or we see a site-specific work of art about it or we simply perceive it; however, we can have different aesthetic objects about the same place. When Husserl asks us to find out 'from which side does the object work best aesthetically?' (Hua 23: 41 [37]), it does not follow that there can be only one side that works aesthetically.\n\nWhat appears to us in a picture of a specific landscape is restricted compared to the perceptual experience of the same landscape. I believe that, in the same way, we can compare the limitedness  of  the  synthetic  unities  of  various  aesthetic  objects  of  the  same  perceptual  object.  While standing in the exhibition room of Sara Björnsdóttir's installation 'HA', we see more than just the pictorial presentation of the room, and therefore the room has for us more appearances than those presented by the video image. If Sara Björnsdóttir's video screenings were presented somewhere else,  in  another  museum,  then,  firstly,  it  would  not  be  a  site-specific  work  of  art  anymore  and, secondly, the synthetic unity of the aesthetic object would be more limited than in the Reykjavik Art Museum. One could say that we are not even experiencing the same aesthetic object since the degree of limitedness is different.\n\nNow, even if one agrees that the synthetic unity  of  a  work  of  art about a  place  is  limited compared to the synthetic unity of a work of art that is about and in the place, one does not have to agree, therefore, that the synthetic unity is limited in the latter case. Husserl believes that in the aesthetic attitude, the beholder should not go 'beyond the 'image'' [ nicht über das ' Bild ' hinaus ] that is defined by the artist (Hua 23: 705 [587]). It means that if it is a depiction, then 'what is\n\n5 One could object that Irwin's installation is a strongly site-speci  c art since, according to him, the installation was not Þ about the space. He says: 'The subject of art is aesthetic perception' (Davies &amp; Irwin 2008: p. 162); and he prefers the term 'site-generated art' instead of 'site-speci  c' (Weschler 2008: p. 198). However, I think that we can experience the installation as strongly site-speci  c art: we are in the Þ Þ room experiencing how the room appears to us.\n\ndepicted in the How of its being depicted determines the boundary of what appears insofar as it  appears' (Hua 23: 706 [588]). If it is a narrative or a novel, the reader should not go beyond the  narrative  and  have  further  fictional  invention  about  the  persons  or  the  landscape,  because then  he  would  not  be  living  in  the  fictional  work  of  the  artist  anymore  (Hua  23:  706  [588]). 6 As Husserl explains it:\n\nJust as in a narrative, a novel, and the like. I can go beyond the narrative to the extent that I become more deeply engrossed, elucidating what is narrated as such, the landscape, the persons, and so on: But my phantasy is not free in this further development (obviously it is not free with respect to the style of agreement with the prefigurings). On the contrary, I am bound - the unity of the appearances as presented appearances must always be what is narrated as such and nothing else. (Hua 23: 706 [588])\n\nHowever,  it  seems  that,  in  the  installation  'HA',  the  beholder  is  asked  to  go  'beyond  the 'image'' and see also the place where the pictorial presentation of the place is exhibited. The visitor can walk around and see the place from different perspectives, and come to the conclusion that the experience of the space is free from the boundaries and restrictions given by the artist. The same happens in visiting Robert Irwin's installation in which case we are asked to look at the room itself without any mediating pictorial presentations. In this way, it becomes questionable whether strongly site-specific art is art at all.\n\nIn  my  view,  to  answer  these  objections  we  have  to  reconsider  how  to  define  the  'frame'  or the 'boundaries' of a work of art. As Robert Irwin puts it, the 'marriage of figure and ground', that is, the marriage of object and space/place, is a heritage from modern art that has led to the understanding of 'nonobject art' in contemporary art (Davies &amp; Irwin 2008: p. 161). Following this  idea  we  may say that the installation 'HA' encompasses the pictorial representations of the space and the space itself. The exhibition room is not the background for the video screenings but it  has  to  be  taken  as  part  of  the  work  of  art.  Therefore, when the beholder moves around in the exhibition space, he or she is still inside the boundaries of the work of art.\n\nHowever,  I  do  not  believe  that  the  'marriage  of  figure  and  ground'  should  lead  us  to  the understanding that there are no limits for the works of art or that it expands endlessly in space. Strongly  site-specific  works  of  art  have  frames  and  these  are  prescribed  by  the  artist.  Robert Irwin's and Sara Björnsdóttir's installations, for example, are about a specific exhibition room and not about some other room in the same museum. And even if we say that the boundaries of the video screenings of Björnsdóttir's installation extend to the exhibition room, it does not mean that they extend any further. The visitor may take into account the space around the museum or compare the appearances of this room with the appearances of some other room, but in that case he or she goes 'beyond the image' and is not experiencing the work of art presented by the artist.\n\nAs mentioned earlier, in the positional attitude we consider all the possible appearances that we could have of an object. But this infinity of possible experiences is not part of aesthetic attitude: 'Only what 'appears as it appears', which comes to harmonious unity in this presentation, interests me.' (Hua 23: 705 [587]) As Husserl says, when we are seeing a beautiful landscape our aesthetic interest aims at the landscape just as it presents itself .  Moreover, it aims at the landscape 'from here,  from  this  entrance  to  the  valley'  (Hua  23:  704  [586]).  This  restricted  view  is  present  in site-specific  art  as  well.  Our  aesthetic  experience  pertains  to  a  very  specific  place  and  is  turned toward the appearing of the space visible to us under the conditions set by the artist. The artist prescribes  the  size  of  the  work  of  art  and  also  optical  appearances:  he  or  she  sets  the  lighting conditions, the colours of the space, decides from which side the visitor enters the space and can also put some filters in order to create optical illusions, and so on. All these conditions created by the artist prescribe the manner of appearing of the space to the beholder.\n\n6 According to my understanding of Husserl's texts,  every  artistic Þ ction  (every  object  of  art)  is  contemplated  aesthetically.  One  can experience aesthetically art and non-art, but if it is a work of art then one also (necessarily) has aesthetic consciousness. Therefore, wherever he describes the boundaries of artistic   ction without, explicitly, saying it in the context of aesthetic experience, I take it as a Þ description of aesthetic object.\n\n## Conclusion\n\nIn this article, I examined the notion of limited synthetic unity of an aesthetic object in Husserl's theory of aesthetic consciousness. I have suggested that strongly site-specific art challenges the requirement for limitedness since the synthetic unity of an aesthetic object seems not to be restricted to the appearances prescribed by the artist. I claimed that the degree of limitedness of the synthetic unity of a not site-specific work of art is greater than that of a strongly site-specific work of art. I also claimed that if we compare the positional and the aesthetic attitude, we see that the synthetic unity of an aesthetic object is restricted compared to the infinite or universal synthetic unity of perceptual objects, and that it is also true in the case of strongly site-specific art - the boundaries and the optical appearances of the specific space are prescribed by the artist. Accordingly, if the beholder wants to contemplate aesthetically the object of art created by the artist, he or she has to take these restrictions into account. Therefore, the artist has an important role to play in defining the limits of the appearances of a strongly site-specific work of art, and it is still possible to experience a strongly site-specific work as a work of art .\n\n## References\n\nBjörnsdóttir, S. 2012. 'Installation 'HA'', Reykjavík Art Museum - Hafnarhús Exhibition.\n\nDavies, H.M., Irwin, R. 2008. Robert Irwin: Primaries and Secondaries . San Diego: Museum of Contemporary Art San Diego.\n\nHusserl, E. 1960. Cartesian Meditations: an Introduction to Phenomenology (Hua 1). The Hague: Martinus Nijhoff Publishers.\n\nHusserl,  E.  1994.  'Husserl  an  von  Hofmannsthal,  12.1.1907',  in: Briefwechsel.  Band  3.7. Wissenschaftlerkorrespondenz . Dordrecht: Kluwer Academic Publishers.\n\nHusserl, E. 2005. Phantasy, Image Consciousness, and Memory (1898-1925) (Hua 23). Dordrecht: Springer.\n\nMelchionne, K. 1998. 'Re-thinking site-specificity in public art: some critical and philosophical problems', Art Criticism 12(2): 36-49.\n\nMohanty, J. 2008. The Philosophy of Edmund Husserl: a Historical Development .  New Haven: Yale University Press.\n\nSmith,  D.W.,  McIntyre,  R.  1982. Husserl  and  Intentionality:  a  Study  of  Mind,  Meaning,  and Language . Dordrecht: Kluwer Academic Publishers.\n\nWeschler, L. 2008. Seeing is Forgetting the Name of the Thing One Sees: Over Thirty Years of Conversations with Robert Irwin . Berkeley: University of California Press.",
+    "responses": [
+      {
+        "source": "gpt-4o-2024-11-20",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"ADU1\": {\n      \"text\": \"The aim of this article is to examine Edmund Husserl's theory of aesthetic consciousness and the possibility to apply it to site-specific art.\",\n      \"label\": \"claim\"\n    },\n    \"ADU2\": {\n      \"text\": \"I claim that strongly site-specific art, which is a work of art about a place and in the place, challenges the view that the synthetic unity of the aesthetic object is limited.\",\n      \"label\": \"claim\"\n    },\n    \"ADU3\": {\n      \"text\": \"Moreover, following Husserl's theory, it becomes questionable whether strongly site-specific art is art at all.\",\n      \"label\": \"claim\"\n    },\n    \"ADU4\": {\n      \"text\": \"I try to answer these objections by explaining how the artist prescribes the appearances and boundaries of a strongly site-specific object of art, thereby satisfying the demand for the limitedness of the synthetic unity of the aesthetic object.\",\n      \"label\": \"claim\"\n    },\n    \"ADU5\": {\n      \"text\": \"Husserl argues that the aesthetic object has limited synthetic unity [beschränkte synthetische Einheit], which means that its horizon is different from the horizon of the thing pure and simple (the perceptual object).\",\n      \"label\": \"premise\"\n    },\n    \"ADU6\": {\n      \"text\": \"In aesthetic attitude, the situation is different. We do not include other possible experiences or other possible appearances of an object into the synthetic unity of the object than those prescribed by the artist.\",\n      \"label\": \"premise\"\n    },\n    \"ADU7\": {\n      \"text\": \"Husserl says that what serves us aesthetically would have the function of awakening only certain moments and horizons, and everything else, without exception, would be wholly excluded from the horizon of the theme.\",\n      \"label\": \"premise\"\n    },\n    \"ADU8\": {\n      \"text\": \"Strongly site-specific works of art are created into a certain place to be a response to 'the political, historical or aesthetic quality of a place through which the site itself becomes the content of the work.'\",\n      \"label\": \"premise\"\n    },\n    \"ADU9\": {\n      \"text\": \"Husserl finds that, in the case of works of art, it is the role of the artist to choose what will appear and how it appears.\",\n      \"label\": \"premise\"\n    },\n    \"ADU10\": {\n      \"text\": \"I claimed that the degree of limitedness of the synthetic unity of a not site-specific work of art is greater than that of a strongly site-specific work of art.\",\n      \"label\": \"claim\"\n    },\n    \"ADU11\": {\n      \"text\": \"I also claimed that if we compare the positional and the aesthetic attitude, we see that the synthetic unity of an aesthetic object is restricted compared to the infinite or universal synthetic unity of perceptual objects, and that it is also true in the case of strongly site-specific art - the boundaries and the optical appearances of the specific space are prescribed by the artist.\",\n      \"label\": \"claim\"\n    },\n    \"ADU12\": {\n      \"text\": \"Accordingly, if the beholder wants to contemplate aesthetically the object of art created by the artist, he or she has to take these restrictions into account.\",\n      \"label\": \"claim\"\n    },\n    \"ADU13\": {\n      \"text\": \"Therefore, the artist has an important role to play in defining the limits of the appearances of a strongly site-specific work of art, and it is still possible to experience a strongly site-specific work as a work of art.\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"ADU2\",\n      \"target\": \"ADU5\",\n      \"type\": \"attack\"\n    },\n    {\n      \"source\": \"ADU3\",\n      \"target\": \"ADU9\",\n      \"type\": \"attack\"\n    },\n    {\n      \"source\": \"ADU4\",\n      \"target\": \"ADU3\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU6\",\n      \"target\": \"ADU2\",\n      \"type\": \"attack\"\n    },\n    {\n      \"source\": \"ADU7\",\n      \"target\": \"ADU2\",\n      \"type\": \"attack\"\n    },\n    {\n      \"source\": \"ADU8\",\n      \"target\": \"ADU2\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU11\",\n      \"target\": \"ADU10\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU12\",\n      \"target\": \"ADU11\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU13\",\n      \"target\": \"ADU12\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "ADU1": {
+              "text": "The aim of this article is to examine Edmund Husserl's theory of aesthetic consciousness and the possibility to apply it to site-specific art.",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "I claim that strongly site-specific art, which is a work of art about a place and in the place, challenges the view that the synthetic unity of the aesthetic object is limited.",
+              "label": "claim"
+            },
+            "ADU3": {
+              "text": "Moreover, following Husserl's theory, it becomes questionable whether strongly site-specific art is art at all.",
+              "label": "claim"
+            },
+            "ADU4": {
+              "text": "I try to answer these objections by explaining how the artist prescribes the appearances and boundaries of a strongly site-specific object of art, thereby satisfying the demand for the limitedness of the synthetic unity of the aesthetic object.",
+              "label": "claim"
+            },
+            "ADU5": {
+              "text": "Husserl argues that the aesthetic object has limited synthetic unity [beschränkte synthetische Einheit], which means that its horizon is different from the horizon of the thing pure and simple (the perceptual object).",
+              "label": "premise"
+            },
+            "ADU6": {
+              "text": "In aesthetic attitude, the situation is different. We do not include other possible experiences or other possible appearances of an object into the synthetic unity of the object than those prescribed by the artist.",
+              "label": "premise"
+            },
+            "ADU7": {
+              "text": "Husserl says that what serves us aesthetically would have the function of awakening only certain moments and horizons, and everything else, without exception, would be wholly excluded from the horizon of the theme.",
+              "label": "premise"
+            },
+            "ADU8": {
+              "text": "Strongly site-specific works of art are created into a certain place to be a response to 'the political, historical or aesthetic quality of a place through which the site itself becomes the content of the work.'",
+              "label": "premise"
+            },
+            "ADU9": {
+              "text": "Husserl finds that, in the case of works of art, it is the role of the artist to choose what will appear and how it appears.",
+              "label": "premise"
+            },
+            "ADU10": {
+              "text": "I claimed that the degree of limitedness of the synthetic unity of a not site-specific work of art is greater than that of a strongly site-specific work of art.",
+              "label": "claim"
+            },
+            "ADU11": {
+              "text": "I also claimed that if we compare the positional and the aesthetic attitude, we see that the synthetic unity of an aesthetic object is restricted compared to the infinite or universal synthetic unity of perceptual objects, and that it is also true in the case of strongly site-specific art - the boundaries and the optical appearances of the specific space are prescribed by the artist.",
+              "label": "claim"
+            },
+            "ADU12": {
+              "text": "Accordingly, if the beholder wants to contemplate aesthetically the object of art created by the artist, he or she has to take these restrictions into account.",
+              "label": "claim"
+            },
+            "ADU13": {
+              "text": "Therefore, the artist has an important role to play in defining the limits of the appearances of a strongly site-specific work of art, and it is still possible to experience a strongly site-specific work as a work of art.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU2",
+              "target": "ADU5",
+              "type": "attack"
+            },
+            {
+              "source": "ADU3",
+              "target": "ADU9",
+              "type": "attack"
+            },
+            {
+              "source": "ADU4",
+              "target": "ADU3",
+              "type": "support"
+            },
+            {
+              "source": "ADU6",
+              "target": "ADU2",
+              "type": "attack"
+            },
+            {
+              "source": "ADU7",
+              "target": "ADU2",
+              "type": "attack"
+            },
+            {
+              "source": "ADU8",
+              "target": "ADU2",
+              "type": "support"
+            },
+            {
+              "source": "ADU11",
+              "target": "ADU10",
+              "type": "support"
+            },
+            {
+              "source": "ADU12",
+              "target": "ADU11",
+              "type": "support"
+            },
+            {
+              "source": "ADU13",
+              "target": "ADU12",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "ADU1": {
+              "text": "The aim of this article is to examine Edmund Husserl's theory of aesthetic consciousness and the possibility to apply it to site-specific art.",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "I claim that strongly site-specific art, which is a work of art about a place and in the place, challenges the view that the synthetic unity of the aesthetic object is limited.",
+              "label": "claim"
+            },
+            "ADU3": {
+              "text": "Moreover, following Husserl's theory, it becomes questionable whether strongly site-specific art is art at all.",
+              "label": "claim"
+            },
+            "ADU4": {
+              "text": "I try to answer these objections by explaining how the artist prescribes the appearances and boundaries of a strongly site-specific object of art, thereby satisfying the demand for the limitedness of the synthetic unity of the aesthetic object.",
+              "label": "claim"
+            },
+            "ADU6": {
+              "text": "In aesthetic attitude, the situation is different. We do not include other possible experiences or other possible appearances of an object into the synthetic unity of the object than those prescribed by the artist.",
+              "label": "premise"
+            },
+            "ADU10": {
+              "text": "I claimed that the degree of limitedness of the synthetic unity of a not site-specific work of art is greater than that of a strongly site-specific work of art.",
+              "label": "claim"
+            },
+            "ADU11": {
+              "text": "I also claimed that if we compare the positional and the aesthetic attitude, we see that the synthetic unity of an aesthetic object is restricted compared to the infinite or universal synthetic unity of perceptual objects, and that it is also true in the case of strongly site-specific art - the boundaries and the optical appearances of the specific space are prescribed by the artist.",
+              "label": "claim"
+            },
+            "ADU12": {
+              "text": "Accordingly, if the beholder wants to contemplate aesthetically the object of art created by the artist, he or she has to take these restrictions into account.",
+              "label": "claim"
+            },
+            "ADU13": {
+              "text": "Therefore, the artist has an important role to play in defining the limits of the appearances of a strongly site-specific work of art, and it is still possible to experience a strongly site-specific work as a work of art.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU4",
+              "target": "ADU3",
+              "type": "support"
+            },
+            {
+              "source": "ADU6",
+              "target": "ADU2",
+              "type": "attack"
+            },
+            {
+              "source": "ADU11",
+              "target": "ADU10",
+              "type": "support"
+            },
+            {
+              "source": "ADU12",
+              "target": "ADU11",
+              "type": "support"
+            },
+            {
+              "source": "ADU13",
+              "target": "ADU12",
+              "type": "support"
+            }
+          ]
+        }
+      },
+      {
+        "source": "claude-3-5-sonnet-20241022",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"A1\": {\n      \"text\": \"aesthetic consciousness has interest in the manner of appearing of the object\",\n      \"label\": \"claim\"\n    },\n    \"A2\": {\n      \"text\": \"aesthetic interest is not theoretical nor practical interest but purely 'sensuous' interest\",\n      \"label\": \"claim\"\n    },\n    \"A3\": {\n      \"text\": \"the aesthetic object has restricted synthetic unity compared to the synthetic unity of a perceptual object\",\n      \"label\": \"claim\"\n    },\n    \"A4\": {\n      \"text\": \"strongly site-specific works of art are created into a certain place to be a response to 'the political, historical or aesthetic quality of a place through which the site itself becomes the content of the work'\",\n      \"label\": \"premise\"\n    },\n    \"A5\": {\n      \"text\": \"in the aesthetic attitude, the beholder should not go 'beyond the 'image'' that is defined by the artist\",\n      \"label\": \"claim\"\n    },\n    \"A6\": {\n      \"text\": \"Strongly site-specific works of art have frames and these are prescribed by the artist\",\n      \"label\": \"claim\"\n    },\n    \"A7\": {\n      \"text\": \"Our aesthetic experience pertains to a very specific place and is turned toward the appearing of the space visible to us under the conditions set by the artist\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"A4\",\n      \"target\": \"A6\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A5\",\n      \"target\": \"A6\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A6\",\n      \"target\": \"A7\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A7\",\n      \"target\": \"A3\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "A1": {
+              "text": "aesthetic consciousness has interest in the manner of appearing of the object",
+              "label": "claim"
+            },
+            "A2": {
+              "text": "aesthetic interest is not theoretical nor practical interest but purely 'sensuous' interest",
+              "label": "claim"
+            },
+            "A3": {
+              "text": "the aesthetic object has restricted synthetic unity compared to the synthetic unity of a perceptual object",
+              "label": "claim"
+            },
+            "A4": {
+              "text": "strongly site-specific works of art are created into a certain place to be a response to 'the political, historical or aesthetic quality of a place through which the site itself becomes the content of the work'",
+              "label": "premise"
+            },
+            "A5": {
+              "text": "in the aesthetic attitude, the beholder should not go 'beyond the 'image'' that is defined by the artist",
+              "label": "claim"
+            },
+            "A6": {
+              "text": "Strongly site-specific works of art have frames and these are prescribed by the artist",
+              "label": "claim"
+            },
+            "A7": {
+              "text": "Our aesthetic experience pertains to a very specific place and is turned toward the appearing of the space visible to us under the conditions set by the artist",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "A4",
+              "target": "A6",
+              "type": "support"
+            },
+            {
+              "source": "A5",
+              "target": "A6",
+              "type": "support"
+            },
+            {
+              "source": "A6",
+              "target": "A7",
+              "type": "support"
+            },
+            {
+              "source": "A7",
+              "target": "A3",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "A1": {
+              "text": "aesthetic consciousness has interest in the manner of appearing of the object",
+              "label": "claim"
+            },
+            "A6": {
+              "text": "Strongly site-specific works of art have frames and these are prescribed by the artist",
+              "label": "claim"
+            },
+            "A7": {
+              "text": "Our aesthetic experience pertains to a very specific place and is turned toward the appearing of the space visible to us under the conditions set by the artist",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "A6",
+              "target": "A7",
+              "type": "support"
+            }
+          ]
+        }
+      }
+    ],
+    "timestamp": 1752757177.186889
+  }
+]

@@ -1,0 +1,546 @@
+[
+  {
+    "identifier": "BROMAS-10",
+    "system_prompt": "## GOAL\nArgument‑mine the following paper to extract its comprehensive argumentative structure.\n\n## DEFINITIONS\n1. **Argument**: A set of propositions, including some number of premises and a conclusion. The premises should logically entail the conclusion.\n2. **Claim**: A proposition that asserts something to be true or false, typically requiring justification or evidence.\n3. **Premise**: A proposition that provides evidence, justification, or logical support for a claim or conclusion.\n\n## CRITICAL REQUIREMENTS\n1. **VERBATIM EXTRACTION ONLY**: Each ADU text must be copied EXACTLY from the paper with no modifications, paraphrasing, or combining of separate sentences.\n2. **NO HALLUCINATION**: Do not create, modify, or invent text that does not appear exactly in the source.\n3. **EXACT MATCHING**: Every word, punctuation mark, and spacing must match the original precisely.\n\n## DIRECTIONS\n1. **Identify Argumentative Discourse Units (ADUs)**  \n   - ADU = any contiguous text span functioning as a claim or a premise in the reasoning structure.\n   - **BE HIGHLY SELECTIVE**: Only include ADUs that are crucial to the overarching argument structure.\n   - Focus on significant claims and premises that contribute meaningfully to the argumentative flow.\n   - **AVOID NOISE**: Skip ADUs that are merely descriptive, tangential, or do not substantially advance the argument.\n   - Prioritize quality over quantity - fewer accurate, important ADUs are better than many insignificant ones.\n   - **EXTRACT ONLY**: Copy text spans exactly as they appear, without any modifications.\n2. **Classify each ADU**  \n   - Label = either `\"claim\"` or `\"premise\"`.  \n3. **Detect directed relations**  \n   - Relation = `\"support\"` or `\"attack\"`, from one ADU (source) to another (target).\n   - Map how ADUs connect to form reasoning chains.\n   - Focus on relationships between the most significant ADUs.\n   - Include relationships between premises that strengthen or weaken each other.\n4. **Verbatim spans**  \n   - Each `\"text\"` value must be copied EXACTLY from the paper with zero modifications.\n   - Do not paraphrase, summarize, or combine separate sentences.\n   - Do not add, remove, or change any words, punctuation, or spacing.\n   - If unsure about exact wording, skip that ADU rather than guess.\n\n## WHAT TO CAPTURE\n**INCLUDE ONLY:**\n- Main argumentative threads that are central to the paper's contribution\n- Core claims that represent the paper's primary arguments or findings\n- Key premises that provide essential support for major claims\n- Critical counterarguments and their refutations\n- Reasoning chains that demonstrate how main conclusions are derived\n\n**EXCLUDE (AVOID NOISE):**\n- Minor details, examples, or descriptive content that don't advance the argument\n- Tangential points or side discussions\n- Pure background information or literature review content\n- Methodological details unless they constitute argumentative claims\n- Obvious statements or commonly accepted facts\n- Redundant or repetitive argumentative content\n\n**GUIDING PRINCIPLE**: If removing an ADU would not significantly impact understanding of the paper's argumentative structure, it should be excluded.\n\n## QUALITY CONTROL\n- Before finalizing each ADU, verify the text exists exactly in the source\n- Prefer fewer, accurate ADUs over many potentially modified ones\n- When in doubt about exact wording, omit the ADU\n\n## OUTPUT FORMAT\nReturn **only** a single valid JSON object matching this schema.  \nDo **not** output any extra text, markdown, or explanations.\nDo **not** add comments.\n**RESPOND WITH ONLY**:\n```json\n{\n  \"ADUs\": {\n    \"<ADU_ID>\": {\n      \"text\": \"<exact span from paper>\",\n      \"label\": \"claim\" | \"premise\"\n    }\n    ...\n  },\n  \"relations\": [\n    {\n      \"source\": \"<ADU_ID>\",\n      \"target\": \"<ADU_ID>\",\n      \"type\": \"support\" | \"attack\"\n    }\n  ]\n}\n```",
+    "user_content": "Please note that this is an earlier version\n\nFeminist Interpretations of Mary Astell , edited by Alice Sowaal and Penny A. Weiss, Re-reading the Canon series (University Park, PA: Penn State University Press, 2016), 16-34.\n\n## Please cite the published version\n\nof a paper now published in: .\n\n## Mary Astell and the Virtues Jacqueline Broad\n\nIn 1694, Mary Astell published her first work, a short treatise titled A Serious Proposal to the Ladies, for the Advancement of their True and Greatest Interest . Her proposal was a call for a women's college or 'a Retreat from the World' in which young English women might be given a thorough academic training in reason and religion (SP I 18). In one key passage of the work,\n\n## Astell writes that\n\nAltho' it has been said by Men of more Wit than Wisdom, and perhaps of more malice than either, that Women are naturally incapable of acting Prudently, or that they are necessarily determined to folly, I must by no means grant it; that Hypothesis would render my endeavours impertinent, for then it would be in vain to advise the one, or endeavour the Reformation of the other. Besides, there are Examples in all Ages, which sufficiently confute the Ignorance and Malice of this Assertion.\n\nThe Incapacity, if there be any, is acquired not natural; and none of their Follies are so necessary, but that they might avoid them if they pleas'd themselves. (SP I 9-10) Recent scholars have highlighted the modern feminist sentiment in these words. In her annotations to the Proposal, Patricia Springborg observes that here 'Astell seriously engages the question of the relation between gender and custom, arguing throughout that women's subordination is customary, not natural,' and that she subscribes to 'nurture over nature as formative of character' (SP I 50n25). Astell suggests that women are disadvantaged compared to\n\nmen-or that they have a certain 'incapacity' by virtue of their womanhood-but that their incapacity is a social construct rather than the product of nature or biology. The primary blame for women's defects lies with 'the mistakes of our Education; which like an Error in the first Concoction, spreads its ill Influence through all our Lives' (SP I 10). For Astell, the proper intellectual education of women is the key to rectifying their disadvantage.\n\nIf we look closely at the passage, however, when Astell says that women's incapacity 'is acquired not natural' (SP I 10), she targets a specific incapacity. Her comment comes on the heels of an earlier observation that some men believe that 'Women are naturally incapable of acting Prudently , or that they are necessarily determined to folly' (SP I 9; my italics). 1 In response to these men, Astell alludes to 'Examples in all Ages' (SP I 10) or to counterexamples that refute their generalizations about women's lack of prudence. (In a later work, her Reflections upon Marriage of 1706, Astell would name several exemplary women, such as Samson's mother who 'so prudently answer'd' the vulgar fears of her husband, and the wise woman of Abel who 'by her Prudence deliver'd the City and appeas'd a dangerous Rebellion' [RM 24].) Placed in its proper context, then, Astell's paradigmatic feminist claim about 'custom versus nature' is in fact a claim about women's capacity for prudent conduct. In the second part of her Proposal (first published in 1697), Astell develops this point by saying that\n\nRational Creatures shou'd endeavour to have right Ideas of every thing that comes under their Cognizance, but yet our Ideas of Morality, our thoughts about Religion are those which we shou'd with greatest speed and diligence rectifie, because they are of most importance, the Life to come, as well as all the Occurences [ sic ] of This, depending on them. We shou'd search for Truth in our most abstracted Speculations, but it concerns us nearly to follow her close in what relates to the Conduct of our Lives. For the main thing we are to drive at in all our Studies, and that which is the greatest Improvement of our\n\nUnderstandings is the Art of Prudence , the being all of a Piece, managing all our Words and Actions as becomes Wise Persons and Good Christians. (SP II 120; my italics) In this paper, I interpret Astell's Proposal in light of these remarks and in light of Astell's explicit design to bring about a reformation in women's moral education.\n\nAt first glance, it might be odd to think that 'the Art of Prudence' plays such a central role in Astell's work. To our modern way of thinking, prudence is typically an ability to avoid undesirable consequences, or to be circumspect and discreet in one's actions. More specifically, prudence is a way to bring about good to one's self, or to promote one's rational self-interest. A woman might be considered prudent when she marries a man of equal social standing even though he is lacking in virtue; or she might be regarded as prudent when she fails to admonish a friend's wickedness for the sake of retaining the friendship. It is difficult to reconcile such 'prudence' with Astell's opinion that 'our Ideas of Morality, our thoughts about Religion are those which we shou'd with greatest speed and diligence rectifie, because they are of most importance' (SP II 120). If Astell's goal is to bring about a moral reformation for women, then why does she describe prudence as 'the main thing we are to drive at in all our Studies'?\n\nIn what follows, I offer an explanation for why the art of prudence is a vital part of Astell's educational program. But before I do so, it will be necessary to broaden my focus to Astell's wider ethical project in both parts of the Proposal , and in her later work, The Christian Religion, as Profess'd by a Daughter of the Church of England (1705). In particular, I propose to offer an interpretation of Astell's feminist philosophy from the point of view of her theory of virtue . This ethical interpretation of Astell's writings might be useful and instructive for at least two reasons. First, by highlighting Astell's indebtedness to the virtue approach, it is possible to identify different meanings or resonances in her feminist terminology-in this case, not only the term prudence but also happiness, freedom , love, admiration, generosity, courage, and\n\nfriendship . These are important concepts in Astell's feminist thought, and they are sometimes misunderstood or simply overlooked. Part of the problem is that Astell's words do not always carry the same meanings now that they did then. In some cases, they stand for ethical and religious concepts that have long passed out of usage. But by highlighting such forgotten meanings, I think it might be possible to uncover something of philosophical interest to modern feminist ethicists. Second, an interpretation of Astell as a moral philosopher can help us to recognize why she is so different to her present-day feminist counterparts. As we will see, Astell's feminism is grounded on promoting excellence of character in women rather than the consistent application of political concepts and principles, such as the principles of equality and justice, to women in the public sphere. Again, while Astell's emphasis on virtuous character might make her feminism sound rather strange to modern ears, this can be interpreted as a strength and not a weakness.\n\n## Virtue, happiness, and freedom\n\nIn the past few decades, commentators have identified the various philosophical commitments underlying Astell's feminism. Some scholars highlight her promotion of an egalitarian concept of reason and rationality (Atherton 1993; Smith 1982); some point to her use of Cartesian method in the pursuit of truth and knowledge (Kinnaird 1979; Perry 1985; Perry 1986; Springborg 1997, xxiii-xxvii; and Springborg 2005, chap. 2); and others examine her theory of mind (Bryson 1998; Sowaal 2007), and the Malebranchean aspects of her theory of causation (Taylor 2001; Broad 2002, 90-113; Ellenzweig 2003; O'Neill 2007). But we are yet to see any systematic treatment of the moral philosophy behind Astell's feminism. This is surprising given that Astell consistently reminds her readers that 'it is to little purpose to Think well and speak well, unless we Live well , this is our Great Affair and truest Excellency' (SP II 147). While\n\nAstell embraces certain tenets of Cartesian rationalism and Malebranchean metaphysics, her philosophy is always put to work for a moral or moral-theological purpose. 'Truths merely Speculative and which have no influence upon Practice, which neither contribute to the good of Soul or Body,' she says, 'are but idle Amusements, an impertinent and criminal wast of Time' (SP II 97). In Astell's view, the over-riding purpose of philosophy is to provide guidance on 'the Art of Well-Living ' (SP II 97).\n\nPerhaps one reason that Astell is not typically seen as a moral philosopher is that her approach predates the two dominant moral traditions, Kantian deontology and utilitarianism. In the past few decades, however, there has been a significant revival of interest in a third tradition: the ancient 'virtue' approach to ethics. Generally speaking, virtue ethics is concerned with the virtues or with those admirable character traits ('moral excellences') that are seen as requisite for leading a good life or attaining lasting happiness and well-being. In the classical tradition, and in the later thought of the Roman philosopher Cicero (106-43 BCE), the primary or cardinal virtues are prudence (wisdom), justice, temperance, and courage. In the early modern period, this list of virtues is typically supplemented with the theological or Christian virtues of faith, hope, and charity or love (1 Corinthians 13:13), as well as humility and meekness. 2\n\nAt first glance, Astell would not appear to be a virtue theorist. As a sincere and devout Christian, 3 she frequently uses the language of an ethics of duty in her writings. Her longest and most mature work, The Christian Religion , 4 is divided into five sections, three of which are devoted to 'our Duty to GOD more immediately' (CR 122-195), 'our Duty to our Neighbour' (CR 198-244), and 'our Duty to our Selves' (CR 245-390). At the start of this text, she poses a fundamental moral question to her readers: 'what Obligations am I under?' (CR 10). And in the second Proposal , Astell warns that 'it cannot be thought sufficient that Women shou'd but just know whats Commanded and what Forbid, without being inform'd of the Reasons why, since\n\nthis is not like to secure them in their Duty ' (SP II 148; my italic). In light of these comments, Astell appears to subscribe to the view that the most important moral question is a deontic one, such as 'what are my duties?' or 'what is it right or obligatory to do?' Because she does not support the virtue-ethical principle that 'goodness is prior to rightness,' we must hesitate to call her a virtue ethicist in the strictest sense. 5\n\nNotwithstanding this fact, Astell's moral approach still shares many features in common with the ancient virtue tradition that originated with Plato (c. 428-348 BCE) and Aristotle (384322 BCE), and was later adapted by Stoic and Christian thinkers. For Astell, the primary virtues (or the virtues that she highlights above all others) are love, prudence, courage, generosity, and friendship. As we will see, in both the Proposals and The Christian Religion , Astell highlights the importance of moral character and moral education, she presents guidelines for attaining happiness, she gives advice on perfecting one's capacity for practical judgment, she defines the vital role of the passions (or emotions) in moral action, and she highlights the moral significance of friendship. These topics are now considered to be the typical subject matter of virtue ethics. 6\n\nAbove all, Astell teaches women that virtue and a virtuous character are things that ought to be pursued for the sake of attaining true and lasting happiness: ''tis Virtue only,' she says, 'which can make you truly happy in the world as well as in the next' (SP I 46). She maintains that our souls are naturally inclined toward happiness or towards the good in general. It is in fact impossible to will something that we think is not good: for 'why do we Prefer a thing but because we Judge it Best?' she asks, 'And why do we Chuse it but because it Seems Good for us?' (SP II 153). Our irresistible inclination toward happiness provides a vital clue about how we should live: natural reason informs us that we must endeavor to be ' as happy as possibly we may ' (SP II 82-3). The only problem is that we do not have a clear and distinct idea of happiness. Most people blindly follow the path that their parents, teachers, neighbors, and church\n\nleaders have recommended. They come to think that happiness can be found in sensual pleasures or material goods, and other mutable things of this world. Both men and women are susceptible to the influence of custom, but in the case of women the problem is compounded by the fact that they are poorly educated. Men have 'all the advantages of Nature, and without controversy have, or may have all the assistance of Art' (RM 63). But a woman is taught that 'tis enough for her to believe,' and that 'to examine why, and wherefore, belongs not to her' (SP I 16). She is given so little training in reason and argument, that she is incapable of rectifying the mistakes of her upbringing and she is unable to use her reason to determine the true source of happiness. Yet this matter-about wherein her happiness consists-is 'the most important concern' of a woman's life (SP II 83). The purpose of Astell's seminary is to give women a serious training in religion and philosophy so that they might gain knowledge of true happiness and the good in general. Here they will learn that lasting happiness can only ever consist in spiritual union with an immutable, infinite, perfectly wise and perfectly benevolent being-that is, with God himself.\n\nOn this subject, Astell's thought closely resembles that of the French philosopher Nicolas Malebranche (1638-1715) and his English disciple John Norris (1657-1711). The similarities are not surprising given that Astell's first foray into philosophical debate was an exchange of letters with Norris concerning the love of God. 7 In their correspondence, the two writers discuss the moral and metaphysical opinions of Norris's 'Discourse concerning the Measure of Divine Love,' a long essay in the third volume of his Practical Discourses (1693). In the 'Discourse,' Norris maintains that God has designed human beings such that the natural or irresistible inclination of the will is towards the good in general, or God himself. But as a result of the Fall, human inclinations have become corrupted and individuals stray from the path to truth and happiness. To return to the path, Norris teaches that the individual must methodically exercise\n\nfreedom of the will in the search for wisdom and happiness. This emphasis on human freedom is also a key feature of Malebranche's Search After Truth (1674-5). 8\n\nLike Norris and Malebranche, Astell emphasizes that the proper exercising of freedom is vital to the attainment of happiness. In the Proposal , she points out that every woman is free to question her moral upbringing and 'break the enchanted Circle that custom has plac'd' her in (SP I 7). 'Why shou'd not we assert our Liberty,' she asks, 'and not suffer every Trifler to impose a Yoke of Impertinent Customs on us?' (SP II 73). In The Christian Religion, Astell provides a definition of freedom or 'true Liberty': it consists, she says, 'in making a right use of our Reason, in preserving our Judgments free, and our Integrity unspotted, (which sets us out of the reach of the most Absolute Tyrant) not in a bare power to do what we Will' (CR 278). Freedom consists to some degree in the power 'to do what we will' (i.e., in acting upon our inclinations), but it does not consist in this alone. More importantly, freedom also consists in the power of refraining from doing what we will; it consists in 'pulling on the reins,' so to speak, when the will has a strong inclination to assent to particular goods, but is not properly guided by reason.\n\nFeminist emancipation, on this view, consists in liberating the will from the 'manacle' of custom (SP II 93); freedom is freedom of the will rather than freedom from bodily constraint. For Astell, women are not free when they are deprived of their ability to exercise their freedom in the giving and withholding of assent-when they are taught, that is, to have a blind faith rather than examine the 'whys' and 'wherefores' of their beliefs. In the Proposal , she emphasizes that women are free to avoid sin and error by not 'fixing their foot' or forming conclusions about what is good or true based upon confused and obscure ideas (SP II 90, 110). Women go astray when they let customary notions of right and wrong determine their judgments. In order to avoid error and sin, they must be careful and 'Judge of Nothing' but what they see clearly (SP II 122).\n\n'It is in your Power to regain your Freedom,' she reminds her female readers, 'if you please but t'endeavour it' (SP II 74).\n\nOn the basis of such comments, some scholars claim that Astell's feminism is founded on an extreme reverence for mind, on the one hand, and a denigration of the body, on the other. Cynthia Bryson asserts that, for Astell, 'the body was unimportant to philosophy; for her, and other Cartesians, all that really mattered was the 'freedom' of the disembodied mind for 'selfdetermination'' (45). Along similar lines, Catharine Stimpson says that Astell teaches women 'to repress the body in order to release the mind' (1986, xii). But if we look carefully at Astell's theory of virtue, we can see that for her the female moral agent is always an embodied subject. In her moral philosophy, she does not ignore the fact that, as whole human beings, women are intimately associated and connected with their bodies.\n\n## Admiration and love\n\nIn particular, Astell takes into account the fact that women cannot avoid feeling the passions , those necessary by-products of the mind-body union. 9 While women cannot prevent the passions from having an impact on the mind, according to Astell, they can direct them to objects of greater worth by a process of transference or channeling, and in this way a passion might be transformed into a virtue. This is in fact the essence of a virtue for Astell: having a virtue consists in having a certain disposition to feel, choose, or act in accordance with right reason toward the right ends.\n\nThe passion of admiration provides an apt example of how a passion might become a virtue. Astell observes that our feelings of admiration fix the mind's attention (SP II 144). In fact, 'Admiration gives Rise to all the Passions; for unless we were Affected with the Newness of an Object, or some other remarkable Circumstance, so as to be attentively engag'd in the\n\nContemplation of it, we shou'd not be any wise mov'd, but it wou'd pass by unregarded' (SP II 165-6). 10 When our admiration is reserved for things of little merit, then it is bad or vicious. But the passion of admiration can be useful: it can help us to concentrate our attention on a previously unknown object, and retain it in our memory. It is important that we train ourselves, so that we are not 'struck with little things, or ... busie our Minds about them, but ... fix all our Attention on, and ... keep all our Admiration for things of the greatest moment, such as are those which relate to another World' (SP II 166). At this point, the proper exercising of the free will and the art of suspending one's judgment become important. The passion of admiration becomes a virtue when it is purposely directed to things of the greatest worth, such as everlasting happiness and God (SP II 166-7).\n\nBut generally speaking, for Astell, there is really only one passion that matters: the passion of love. Love is not only 'the predominant Passion in everyone,' but a 'great inducement to all manner of Vertue' (SP II 159, 166). A woman motivated by love will want to bring about good for others, and her actions will be inspired by kindness and concern for another's well-being. Nevertheless, if a woman acts from the passion of love alone, this is no guarantee that she will get things right morally speaking; after all, she might have wrong notions about where the true good lies. To become a virtue, the passion of love must be informed by reason, and directed at the right objects, in the right measure. In the case of other people, Astell says, we must cultivate a love of benevolence or charity alone: we must wish well or will good to them, but we must not fool ourselves that they can satisfy our desire for lasting happiness. In the case of God, we must cultivate a love of desire or concupiscence: we must love and desire him as our good, and true happiness will be 'the natural Effect as well as the Reward' of such love (SP II 167).\n\nOnce again, for Astell, the exercising of freedom is vital to the process of re-training the passion of love. As a result of their upbringing, women cannot avoid feeling an inordinate love of desire for other people and material things. But when such passions arise, Astell advises that women must suspend their 'Inclinations as we both May and Ought, and restrain them from determining our Will, till we have fairly and fully examin'd and ballanc'd, according to the best of our Knowledge, the several degrees of Good and Evil present and future that are in the Objects set before us' (SP II 155). If the object of our love is morally unworthy, then we must divert our passion to another object, or somehow modify, redirect, or transfer it. In Astell's view, the key passions, such as sorrow, desire, joy, admiration, and hatred, are simply different modifications of love; so if we train ourselves to love the right objects, then the other passions will follow suit. 'The due performance of which,' Astell says, 'is what we call Vertue, which consists in governing Animal Impressions, in directing our Passions to such Objects, and keeping 'em in such a pitch, as right Reason requires' (SP II 161).\n\nThere are three further virtues that play an important role in Astell's feminism: generosity, courage, and friendship.\n\n## Generosity and courage\n\nAstell's moral concept of generosity closely resembles that of René Descartes and Henry More. 11 In the seventeenth century, generosity does not always stand for liberality or munificence of character, as it does today. It is not (or not simply ) a willingness to give to others. Instead this virtue has more in common with the ancient moral ideal of magnanimity or megalopsychia , a kind of high-mindedness or greatness of spirit. 12 Generosity is the legitimate self-esteem that comes from recognition of one's capacity for self-determination, or one's freedom to choose the good for oneself and others. Both Descartes and More highlight the importance of cultivating\n\ngenerosity ( generosité ) in this sense. In the Passions of the Soul (1649), Descartes stipulates that the virtue has two components: it consists in knowing that one ought to be praised or blamed only in so far as one exercises one's freedom well or badly; and it consists in feeling within oneself 'a firm and constant resolution' to use one's freedom to do what is best (AT XI 446; CSM I 384). Above all, a generous person has mastery over her passions, including not only love but also desire, jealousy, envy, hatred, and anger; she is always 'courteous, gracious and obliging to everyone' (AT XI 448; CSM I 385). In a work that is heavily indebted to Descartes' Passions, the Account of Virtue (first published in 1690), More characterizes generosity in similar terms: it 'consists in this,' he says, 'That a Man exercise his own freedom and liberty of Thinking in the best manner he can; that he rest contented herein; and as to Fortune, and the World's Opinion, to look on them as things of indifferency' (143).\n\nAstell appropriates Descartes' and More's concept of generosity for feminist purposes. In her Proposal and The Christian Religion , she teaches women that once they have the virtue of generosity they need not feel anger or fear toward their persecutors. This virtue enables women to disregard 'the Censures of ill People' (SP II 95), and to have a 'Generous Disdain of such things as are beneath us' (CR 265). A 'Great and Generous Mind without Pride ' knows 'what is Valuable and what Contemptible,' and 'that all Men may make a due use of their Liberty as well as we, which is that which distinguishes them' (CR 285). A virtuous woman does not strive 'to pull down others'; she has 'too just a Sentiment of [her] own Merit to envy or detract from others,' and harbors only 'a generous Resolution to repair [her own] former neglects by future diligence' (CR 74). To have a generous mind is to be free from meanness and petty resentment toward others, because one knows that one's dignity and esteem comes from a private struggle alone, and is not dependent on other people's good opinion. Like Descartes, Astell maintains that this virtue consists in a firm resolution to exercise one's freedom toward the best ends. In a 1714\n\nletter to her friend Ann Coventry, Astell says 'It is indeed essential to y e . Character of y e . Generous y t . they govern y m .selves by Right Reason, &amp; not by Example, or y e . receiv'd Maxims &amp; Fashions of the Age.' 13 Scorn and contempt 'is therefore to be submitted to, I had almost said Gloried in, by all who make a Right use of their Liberty, endeavouring to do always what is Best.' 14\n\nAlong similar lines, Astell urges women to cultivate the traditional Aristotelian virtue of courage in their search for happiness. For her, courage is not the typically masculine character trait of being bold and fearless in the face of physical danger; it does not require the pursuit of heroic deeds and honor in the public political domain. A woman as well as a man might cultivate the excellence of courage, as a private virtue rather than a civic one. She might ' put on the whole Armor of God without degenerating into a Masculine Temper' and 'without any offence to the Men' (CR 103). This is because courage consists in 'Bravery of the Mind' (SP II 73) or a 'Bravery and Greatness of Soul' (SP I 46). It is the mental capacity to stand firm and to show resolution in the face of psychological pressures-such as ridicule and criticism ('the scoffs and insignificant noises of ludicrous Wits and pert Buffoons' [SP I 44])-as well as in the face of one's own weaknesses, such as indocility (unruliness) or laziness. An enlightened woman might not necessarily risk her life on the battlefield, but she must be prepared to sacrifice her public reputation. Such women require courage in order to bear 'being Censur'd as Singular and Laugh'd at for Fools, rather than comply with the evil Customs of the Age' (SP II 172). For 'how hard is it to quit an old road?' Astell asks,\n\nWhat courage as well as prudence does it require? How clear a Judgment to overlook the Prejudices of Education and Example and to discern what is best, and how strong a resolution, notwithstanding all the Scoffs and Noises of the world to adhere to it! (SP I 33)\n\nAbove all, courage comes from knowing that true happiness cannot be found in the particular goods of this world, only the general good of the next. This knowledge renders us ' firm and bold in Difficulties, and intrepid in the greatest Dangers' (CR 284). It enables us 'to throw off Sloth and to Conquer the Prejudices of Education, Authority and Custom' (SP II 94). Once a woman acquires such firmness of character, she might 'Conquer the World … without doing violence to any person' (CR 103); she might become the 'greatest Hero' (CR 104).\n\n## Friendship\n\nIn Astell's view, women can learn to acquire the virtue of courage with the assistance of another virtue-that of friendship. Rosalind Hursthouse notes that friendship is an 'awkward exception' to the fact that virtues are typically character traits or 'a state of one's character' (1999, 11). But we can think of 'being a friend' as having a certain disposition to love other people in a certain way. In Astell's mind, friendship is 'one of the brightest Vertues' (L 80) and 'a Vertue which comprehends all the rest; none being fit for this, who is not adorned with every other Vertue' (SP I 36). In her Proposal, Astell says that one of the main benefits of an all-female academy is that it will encourage the cultivation of 'noble Vertuous and Disinteress'd' friendships between women (SP I 20). Her concept of friendship thus differs from the modern notion of friendship, which some see as a potential source of moral degeneration rather than advancement. 15 For Astell, friendship consists in:\n\nthe greatest usefulness, the most refin'd and disinteress'd Benevolence, a love that thinks nothing within the bounds of Power and Duty, too much to do or suffer for its Beloved; And makes no distinction betwixt its Friend and its self except that in Temporals it prefers her interest. (SP I 36-7)\n\nTo conceive of friendship on Astell's terms, as a source of moral improvement rather than corruption, it is useful to consider the parallels between Astell's notion of friendship and the ancient Aristotelian conception. 16 Astell herself never refers to Aristotle, but she puts forward a concept that has much in common with his normative ideal of friendship as the mutual desire to promote another's well-being for her own sake. In book eight of the Nicomachean Ethics (350 BC), Aristotle identifies a form of friendship based upon mutual recognition of the other's moral goodness or excellence of character. Such friendship, known as 'perfect' or 'character' friendship, requires that two friends develop certain intentions toward one another. It consists in wanting, and actively promoting, a friend's well-being for her own sake, and not for selfinterested motives. Character friends love one another for who they essentially are, and not (or not only ) for the pleasure and utility that they bring to the relationship. 17 Such friendship does not happen overnight. It is the outcome of two persons spending a long period of time together, such that they become familiar with each other's character and develop lasting ties of love and affection.\n\nIn keeping with this view of friendship, Astell emphasizes that it is important for friends to learn to love one another for who they essentially are. In her academy, she says, close friendships will help to contribute toward a woman's moral advancement because virtuous friends will be as devoted to 'bettering the beloved Person' as they are to bettering themselves (SP I 37). There can be no selfishness or envy among such friends, for 'how can she repine at anothers wel-fare, who reckons it the greatest part of her own?' (SP I 20). Like Cicero, Astell suggests that friends have a duty 'to watch over each other for Good, to advise, encourage and direct, and to observe the minutest fault in order to its amendment' (SP I 37). Through kind admonition and 'watching over each others Souls for their mutual Good' (CR 230), friends can further each other's moral\n\nperfection. In this way, friendship is a special instance of the theological virtue of charity, or the love of benevolence, at work in promoting the good of others.\n\n## Prudence\n\nBy now, it ought to be clear that Astell does not use the term 'prudence' in the modern, nonmoral, sense of rational self-interest. In the context of her work, prudence is in fact synonymous with the ancient moral concept of phronesis or practical wisdom. 18 In his Politics , Aristotle defines phronesis as the capacity to deliberate upon the correct means to bring about the right end in a situation that calls for action. In the early modern period, moral philosophers continued to uphold this ideal, and like Aristotle, they regarded it as a necessary condition of virtue. In his 1710 Treatise on Christian Prudence , John Norris advises that 'there is no possibility of a Man's being Vertuous without Prudence' (TCP 5). Following Aristotle (whom he cites on page 75), Norris defines prudence as ' Practical Knowledge ' (TCP 67) or an ability to 'judge right in the very instant of Action' (TCP 34). More specifically, prudence is 'the same with the last Practical Dictate of the Understanding, judging rightly , and directing the Will to the choice of that which is right and fit to be Chosen' (TCP 69). Prudence requires that we choose the right end; and the right end, according to Norris, is that which causes, or is an object of, our lasting happiness. 19\n\nOnce prudence is understood in this sense, as a capacity for practical moral judgment , it is possible to detect numerous references to the idea in the Proposal . Astell says that women suffer from 'a want of understanding to compare and judge of things, to chuse a right End, to proportion the Means to the End, and to rate ev'ry thing according to its proper value' (SP I 13). They live 'at Random without any design or end,' and they lack the 'judgment to discern when to fix' upon a steady course of action (SP I 31). As a remedy, she calls upon women to acquire a 'true Practical Knowledge' (SP I 24), and a clear 'Judgment to overlook the Prejudices of\n\nEducation and Example and to discern what is best' (SP I 33). The 'Art of Prudence' is not only 'the being all of a Piece, managing all our Words and Actions as becomes Wise Persons and Good Christians' (SP II 120), but also drawing advantage from everything that happens. It is the ability to judge which actions are 'not only Fit but Necessary' in certain circumstances, even though in different times and places the same actions might be inappropriate (SP II 127). Above all, prudence gives us a capacity for sound judgment in situations that call for moral action. When the passions threaten to gain mastery over our will,\n\nRecollection, a sedate and sober frame of Mind, prevents this Mischief, it keeps our Reason always on her Guard and ready to exert her self; it fits us to Judge truly of all occurrences, and to draw advantage from whatever happens. This is the true Art of Prudence, for that which properly speaks us Wise, is the accommodating all the Accidents of Life to the great End of Living. And since the Passiveness of our Nature makes us liable to many Sufferings which we cou'd wish to avoid, Wisdom consists in the using those Powers, which GOD has given us the free disposal of, in such a manner, as to make those very things which befal us against our Will, an occasion of Good to us. (SP II 162-3)\n\nWe can now see why Astell recommends the art of prudence as ' the main thing we are to drive at in all our Studies' (SP II 120; my italics). Out of all the virtues, women need prudence most of all in order to do the best thing or to get things right in the sphere of moral action. A prudent woman will choose the right end, she will choose happiness or the good in general. She will correctly exercise her freedom when making judgments about what to do, and she will direct her love to the right objects. She will have the correct emotional responses in practical situations: she will admire the right things, she will be generous when confronted with the moral failings of others , and courageous in the face of adversity and criticism. She will contract virtuous friendships , or friendships that promote the moral well-being of both herself and her friend.\n\nTaken as a whole, these are the most crucial factors in a woman's moral reformation. Without prudence, a woman will lose the most precious thing possible-everlasting happiness and union with God. All the core features of Astell's educational program-the proper exercising of freedom of the will, the suspension of judgment, the redirecting of the passions, and so on-are designed to help women achieve this vital moral-theological objective.\n\n## Conclusion\n\nOn the whole, then, Astell conceives of the problem of female subordination and male domination in markedly different terms to those of most modern feminists. For Astell, the problem is a moral one. The 'vilest slavery' for women is not political or social in nature, but rather moral and psychological. It involves 'the Captivation of … Understandings' (SP II 136), and the enslavement of souls (SP II 94). Since the source of a woman's oppression is principally inside her own mind, Astell's solution focuses on a woman's interior life or her moral character. Her study plan prompts women to think about 'what sorts of persons' they should be, rather than 'what sorts of action are right or obligatory.' Astell herself concedes that 'The Men therefore may still enjoy their Prerogatives for us, we mean not to intrench on any of their Lawful Privileges' (SP II 179), 'our only endeavour shall be to be absolute Monarchs in our own Bosoms' (SP II 180).\n\nIn light of this interior focus, Astell's proposal might be criticized for its failure to rectify women's disadvantages in the external world. Some critics might point out that not only does Astell's moral philosophy fail to address the social and political inequalities between men and women, it positively reinforces them. In the Proposal, Astell promotes certain character traitssuch as charity (an attitude of benevolence or loving kindness toward others), generosity (a remedy to anger and resentment), and courage (in the face of physical and psychological\n\nthreats)-that encourage women to submit to, rather than challenge, the external status quo. The virtue of justice, which might have enabled Astell to promote the notion of women 'receiving benefits according to merit,' 20 is curiously absent from her feminist thought. In short, while Astell's ethical theory might be described as feminist in intention, on the surface it would appear to be indistinguishable from any anti -feminist theory that sought to perpetuate women's political subordination by focusing on internal happiness at the expense of external freedom.\n\nNevertheless, in my view, Astell's theory of virtue might still hold some interest for modern-day feminist ethics, and her emphasis on excellence of character might be considered a strength rather than a weakness of her feminist philosophy. In a recent article, Alison Jaggar identifies two assumptions shared by feminist ethicists: 'The first of these is that the subordination of women is morally wrong; the second is that the moral experience of women should be treated as respectfully as the moral experience of men' (1990, 97-8). Though a modern feminist might not accept every aspect of Astell's approach, her moral philosophy meets these broad criteria for a feminist ethic. Astell accepts that the subordination of women is morally wrong in some sense , and she consistently treats the sexes as morally on a par. More importantly, in her theory of virtue, she envisions 'morally desirable alternatives that will promote women's emancipation' (Jaggar 1990, 98).\n\nAbove all, Astell implicitly challenges those moral theorists who regard women as inferior in terms of their moral status and their capacity for practical judgment. Aristotle famously held the view that husbands are justified in ruling over their wives because women lack the capacity for phronesis or prudence, the prime virtue of rulers. 21 Women are unable to acquire prudence because they cannot control their passions and act upon their rational deliberations in situations that call for moral action. For this same reason, according to Aristotle, it is not possible for husbands and wives to have equal character friendships with one another. So long as women are\n\nin the position of the ruled and men are the rulers, men and women will remain unequal partners in friendship. Women might still be virtuous, but they will have a different kind of virtue to men, and are incapable of acquiring the highest virtue. By contrast, Astell allows that women can cultivate prudence, and that they have the capacity to be as virtuous as the best of men. Admittedly, in some passages, Astell extols the traditional 'feminine' virtues of her time, such as modesty and chastity; but in others, she deliberately rejects those virtues typically recommended to women alone-especially the virtue of obedience. She warns women that 'A blind Obedience is what a Rational Creature shou'd never pay ... a blind Obedience is an Obeying without reason , for ought we know, against it ' (RM 75).\n\nIn addition, Astell reconceives the classical virtues of courage, friendship, and generosity as essential tools in the service of female emancipation. In her study of Plato and the Virtue of Courage (2006), Linda R. Rabieh comments on some recent feminist critiques of courage as a macho-military quality, typically associated with war and violence. Rabieh points outs that Because they [the feminist critics] treat it from the outset as a sickness, they do not investigate its many facets. As a result, feminist critics miss the possibility that a dialectical investigation of courage and what kind of virtue it is cannot only uncover a healthy conception of a courage but can also shed greater light on a genuine human excellence.\n\n(17)\n\nThree hundred years earlier, Astell had already reconceived of courage in terms that were amenable to feminist thought. For her, it was not the capacity to face death and injury without fear, but rather the strength to face criticism and ridicule for embracing a singular lifestyle as a woman. In Astell's philosophy, the character trait of courage becomes a feminist virtue when it is put to service in the fight against custom, especially those customary practices that thwart a woman's moral and intellectual advancement.\n\nAlong the same lines, Astell maintains that female friendships can act as 'props' or support networks for women who hold unconventional views about women and their place in the world. 22 Such friendships can provide women with a moral vantage point from which to identify, and then challenge, customary practices that are detrimental to their happiness and well-being. More recently, Marilyn Friedman (1993) has argued that friends can help us to reprogram our moral thinking and reflect critically on our moral starting points, such as our families, churches, schools, and neighborhoods. For her, friendship can be a socially and politically disruptive force: it can lead us to challenge the subjection of women in our communities of origin, and thus initiate socio-political reform. Astell likewise promotes the power of female friendships to counter the customs and preconceptions of early modern society, especially those that obstruct a woman's moral and intellectual advancement. For Astell, the value of female friendship lies in promoting and nurturing values that will enable women to overcome the prejudices of their upbringing and find true and lasting happiness.\n\nFinally, we have seen that Astell also valorizes the Cartesian virtue of generosity as a species of legitimate self-esteem for women. Of this virtue, Lisa Shapiro notes that The first step in acquiring generosity is to recognise that we are freely willing, … and that this recognition comes principally with a critical reflection on what we find ourselves taking for granted. For it is precisely with this reflection, which essentially involves turning our thoughts away from those to which we are predisposed, that we exercise our freedom. (1999, 257-8)\n\nWhile such a revolution in thinking might not be a sufficient condition in itself for feminist emancipation, it is undoubtedly a necessary one. Any attempt at feminist consciousness-raising must begin with instilling this attitude of 'critical reflection on what we find ourselves taking for granted.' This is what Astell's Proposal does: it encourages women to see that they have the\n\nmeans to their liberation-and their moral development and self-esteem-within themselves. Every woman, with the help of a 'generous Resolution,' might resolve to throw off the 'Yoke of Impertinent Customs' and attain firmness of mind (SP II 73, 74). Herein lies a point of enduring relevance in Astell's feminist theory of virtue. 23\n\n## References\n\nAnonymous. 1685. London Jests . London: Dorman Newman.\n\nAstell, Mary, and John Norris. 2005. Letters Concerning the Love of God .  Edited by E. Derek Taylor and Melvyn New. Aldershot, UK: Ashgate. [Cited in the text as L.]\n\nAstell, Mary. 2013. The Christian Religion, as Professed by a Daughter of the Church of England . Edited by Jacqueline Broad. Toronto, ON: Centre for Reformation and Renaissance Studies and Iter Publishing.\n\nÑÑÑ. 1997. A Serious Proposal to the Ladies, Parts I and II. Edited by Patricia Springborg. London: Pickering and Chatto. [Cited in the text as SP I and SP II.]\n\nÑÑÑ. 1996. Reflections upon Marriage . In Astell: Political Writings , edited by Patricia Springborg, 1-80. Cambridge: Cambridge University Press. [Cited in the text as RM.]\n\nÑÑÑ. 1709. Bart'lemy Fair: Or, An Enquiry after Wit; In which due Respect is had to a Letter Concerning Enthusiasm, To my LORD ***. London: Richard Wilkin.\n\nÑÑÑ. 1705. The Christian Religion, As Profess'd by a Daughter of the Church of England. London: S.H. for R. Wilkin. [Cited in the text as CR.]\n\nÑÑÑ. 1704a. Moderation truly Stated: Or, A Review of a Late Pamphlet, Entitul'd. Moderation a Vertue. London: J. L. for Rich. Wilkin.\n\nÑÑÑ. 1704b. A Fair Way with the Dissenters and their Patrons . London: E. P. for Richard Wilkin.\n\nÑÑÑ. 1704c. An Impartial Enquiry Into The Causes Of Rebellion and Civil War In This Kingdom . London: E. P. for Richard Wilkin.\n\nAtherton, Margaret. 1993. 'Cartesian Reason and Gendered Reason.' In A Mind of One's Own: Feminist Essays on Reason and Objectivity, edited by Louise M. Antony and Charlotte Witt , 1934. Boulder and Oxford: Westview Press.\n\nBradshaw, Leah. 1991. 'Political Rule, Prudence, and the 'Woman Question' in Aristotle.' Canadian Journal of Political Science 24, no. 3: 557-73.\n\nBroad,  Jacqueline.  2009.  'Mary  Astell  on  Virtuous  Friendship.' Parergon:  Journal  of  the Australian and New Zealand Association for Medieval and Early Modern Studies 26, no. 2: 6586.\n\nÑÑÑ. 2007. 'Astell, Cartesian Ethics, and the Critique of Custom.' In Mary Astell: Reason, Gender,  Faith ,  edited  by  William  Kolbrener  and  Michal  Michelson,  165-80.  Aldershot,  UK: Ashgate.\n\nÑÑÑ. 2002. Women Philosophers of the Seventeenth Century . Cambridge: Cambridge University Press.\n\nBrown, Deborah J. 2006. Descartes and the Passionate Mind . Cambridge: Cambridge University Press.\n\nBryson, Cynthia. 1998. 'Mary Astell: Defender of the Disembodied Mind.' Hypatia 13, no. 4: 40-62.\n\nCocking,  Dean,  and  Jeanette  Kennett.  2000.  'Friendship  and  Moral  Danger.' Journal  of Philosophy 97, no. 5: 278-96.\n\nCooper, John M. 1977. 'Aristotle on the Forms of Friendship.' Review of Metaphysics 30, no. 4: 619-48.\n\nDescartes, René. 1996. Les Passions de l'Ame. Vol. 11 of Oeuvres de Descartes . Edited by Charles Adam and Paul Tannery. Paris: Librairie Philosophique J. Vrin. [Cited in the text as AT.]\n\nÑÑÑ. 1985. Passions of the Soul. Vol. 1 of The Philosophical Writings of Descartes , translated by John Cottingham, Robert Stoothoff, and Dugald Murdoch. Cambridge: Cambridge University Press. [Cited in the text as CSM I.]\n\nEllenzweig, Sarah. 2003. 'The Love of God and the Radical Enlightenment: Mary Astell's Brush with Spinoza.' Journal of the History of Ideas 64, no. 3: 379-97.\n\nFriedman, Marilyn. 1993. What are Friends For? Feminist Perspectives on Personal Relationships and Moral Theory. Ithaca and London: Cornell University Press.\n\n[Gould, Robert]. 1682. Love Given O're: or, A Satyr Against the Pride, Lust, and Inconstancy, &amp;c. of Woman . London: Andrew Green.\n\nGreen, Karen. 2005. 'On Translating Christine de Pizan as a Philosopher.' In Healing the Body Politic: The Political Thought of Christine de Pizan , edited by Karen Green and Constant J. Mews, 117-37. Turnhout: Brepols.\n\nÑÑÑ. 2007. ' Phronesis Feminised: Prudence from Christine de Pizan to Elizabeth I.' In Virtue, Liberty, and Toleration: Political Ideas of European Women, 1400-1800, edited by Jacqueline Broad and Karen Green, 23-38. Dordrecht: Springer.\n\nHursthouse, Rosalind. 1999. On Virtue Ethics . Oxford: Oxford University Press.\n\nJaggar,  Alison  M.  1990.  'Feminist  Ethics:  Projects,  Problems,  Prospects.'  In Feminist Ethics, edited by Claudia Card, 97-8. Lawrence, KS: University Press of Kansas.\n\nKinnaird, Joan K. 1979. 'Mary Astell and the Conservative Contribution to English Feminism.' The Journal of British Studies 19, no. 1: 53-75.\n\nKolbrener, William. 2007. 'Astell's 'Design of Friendship' in Letters and A Serious Proposal, Part  I .'  In Mary  Astell:  Reason,  Gender,  Faith ,  edited  by  William  Kolbrener  and  Michal Michelson, 49-64. Aldershot, UK: Ashgate.\n\nKremer, Elmar J. 2000. 'Malebranche on Human Freedom.' In The Cambridge Companion to Malebranche , edited by Steven Nadler, 190-219. Cambridge: Cambridge University Press.\n\nMore, Henry. 1997. An Account of Virtue: Or, Dr. Henry More's Abridgment of Morals, Put into English. Translated by Edward Southwell . Facsimile edition. Bristol: Thoemmes Press.\n\nNorris, John. 1710. A Treatise Concerning Christian Prudence. London: Samuel Manship. [Cited in the text as TCP.]\n\nOakley, Justin. 1996. 'Varieties of Virtue Ethics.' Ratio 9: 128-52.\n\nO'Neill, Eileen. 2007. 'Mary Astell on the Causation of Sensation.' In Mary Astell: Reason , Gender, Faith , edited by William Kolbrener and Michal Michelson, 145-163. Aldershot, UK: Ashgate.\n\nPerry, Ruth. 1986. The Celebrated Mary Astell: An Early English Feminist . Chicago: University of Chicago Press.\n\nÑÑÑ. 1985. 'Radical Doubt and the Liberation of Women.' Eighteenth-Century Studies 18, no. 4: 472-93.\n\nPorter, Jean. 2001. 'Virtue Ethics.' In The Cambridge Companion to Christian Ethics, edited by Robin Gill, 96-111. Cambridge: Cambridge University Press.\n\nRabieh , Linda R. 2006. Plato and the Virtue of Courage . Baltimore: John Hopkins University Press.\n\nShapiro, Lisa. 1999. 'Cartesian Generosity.' In Norms and Modes of Thinking in Descartes , edited by Tuomo Aho and Mikko Yrjonsuuri. Acta Philosophica Fennica 64: 249-75.\n\nSlote, Michael. 2010. 'Justice as a Virtue.' Stanford Encyclopedia of Philosophy , edited by Edward N. Zalta. Accessed May 31, 2010.\n\nhttp://plato.stanford.edu/archives/fall2010/entries/justice-virtue/.\n\nSmith,  Hilda  L.  1982. Reason's  Disciples:  Seventeenth-Century  English  Feminists. Urbana: University of Illinois Press.\n\nSowaal, Alice. 2007. 'Mary Astell's Serious Proposal : Mind, Method, and Custom.' Philosophy Compass 2, no. 2: 227-243.\n\nSpringborg, Patricia. 2005. Mary Astell: Theorist of Freedom from Domination . Cambridge: Cambridge University Press.\n\nÑÑÑ. 1997. Introduction to A Serious Proposal to the Ladies, Parts I and II , by Mary Astell, ix-xli. London: Pickering and Chatto.\n\nSprint, John. 1699. The Bride-Womans Counseller. London: H. Hills.\n\nStimpson, Catharine. 1986. Preface to The Celebrated Mary Astell: An Early English Feminist, by Ruth Perry, xi-xii. Chicago: University of Chicago Press.\n\nTaylor, E. Derek. 2001. 'Mary Astell's Ironic Assault on John Locke's Theory of Matter.' Journal of the History of Ideas 62, no. 3: 505-22.\n\nTilmouth, Christopher. 2007. 'Generosity and the Utility of the Passions: Cartesian Ethics in Restoration England.' The Seventeenth Century 22, no. 1: 144-167.\n\nTrianosky, Gregory. 1990. 'What is Virtue Ethics all About?' American Philosophical Quarterly 27, no. 4: 335-44.\n\n- 1 Opinions about women's innate inconstancy and lasciviousness were prevalent in popular jest books and marital advice manuals of the period. See, for example, Gould 1682; Anonymous 1685; and Sprint 1699.\n\n2\n\nSee Porter 2001.\n\n- 3 Astell was the author of several pamphlets in defence of High-Church Anglicanism. See Astell 1704a, 1704b, 1704c. The last two works are republished in Astell 1996.\n- 4 In this paper, I refer to the 1705 first edition of Astell's Christian Religion (Astell 1705). My modernized version of the 1717 second edition (Astell 2013) has recently been published in The Other Voice in Early Modern Europe: Toronto Series.\n\n5 On the essential requirements of virtue ethics, see Oakley 1996, 138; Trianosky 1990, 335.\n\n6 See Hursthouse 1999, 3.\n\n7 For a modern edition of Astell's correspondence with Norris, see Astell and Norris 2005. The Astell-Norris correspondence (1693-4) was originally published in 1695.\n\n8 On this topic, see Kremer 2000.\n\n9 On this topic, see Broad 2007.\n\n10 Here Astell echoes Descartes' views about the passion of admiration or wonder (AT XI 373; CSM I 350).\n\n- 11 In  her  second Proposal ,  Astell  acknowledges  her  indebtedness  to  both  More's Account  of Virtue and  Descartes' Passions  of  the  Soul (see  SP  II  165).  There  are  various  unnamed references to Descartes' Passions in her other works (Astell 1705, 286-7; Astell 1709, 140).\n- 12 On Cartesian generosity, see Brown 2006, 188-209; Shapiro 1999; and Tilmouth 2007. On Astell's concept of generosity, see Sowaal 2007, 228, 232.\n- 13 Mary Astell to Ann Coventry, July 26, 1714; in appendix C to Perry 1986, 370. In this letter, Astell  appears  to  be  paraphrasing A  Discourse  concerning  Generosity (1693),  an  anonymous\n\nwork (sometimes attributed to John Somers) that is heavily indebted to Descartes' concept of generosity in the Passions .  Unlike Descartes, Astell never explicitly affirms that this virtue is 'the key to all the other virtues' (AT XI 454; CSM I 388).\n\n- 14 Mary Astell to Ann Coventry, July 26, 1714; in appendix C to Perry 1986, 371.\n\n15 See Cocking and Kennett 2000.\n\n- 16 On this topic, see Broad 2009. On Astell and friendship more generally, see Kolbrener 2007.\n- 17 On this topic, see Cooper 1977, 635.\n\n18 On this same topic in the work of Christine de Pizan, see Green 2005 and Green 2007.\n\n19 Though Norris did not publish the Treatise till 1710, this work enlarges upon the themes of an earlier essay, 'A Discourse Concerning Worldly and Divine Wisdom,' in the second volume of his Practical Discourses (1693). It is likely that Astell was familiar with this essay. There are similarities  between  Astell's  idea  of  prudence  and  Norris's  Christianized  conception  of  the virtue.\n\n- 20 On the topic of justice as a virtue, see Slote 2010.\n- 21 See Bradshaw 1991.\n- 22 See Broad 2009.\n\n23 I  would  like  to  acknowledge  the  generous  financial  assistance  of  the  Australian  Research Council: this paper was completed during my tenure as an ARC Future Fellow in the School of Philosophical, Historical, and International Studies at Monash University, Melbourne, Australia. An earlier version of this paper was presented in the Philosophy Department staff seminar series at  Monash in 2010. I am very grateful for the comments and questions of participants at that seminar, including Karen Green, Justin Oakley, Linda Barclay, Rob Sparrow, and John Bigelow. I  am  also  extremely  grateful  for  the  tremendous  advice  and  assistance  of  the  editors  of  this volume, Alice Sowaal and Penny Weiss.",
+    "responses": [
+      {
+        "source": "gpt-4o-2024-11-20",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"ADU1\": {\n      \"text\": \"In 1694, Mary Astell published her first work, a short treatise titled A Serious Proposal to the Ladies, for the Advancement of their True and Greatest Interest.\",\n      \"label\": \"claim\"\n    },\n    \"ADU2\": {\n      \"text\": \"Her proposal was a call for a women's college or 'a Retreat from the World' in which young English women might be given a thorough academic training in reason and religion.\",\n      \"label\": \"claim\"\n    },\n    \"ADU3\": {\n      \"text\": \"Altho' it has been said by Men of more Wit than Wisdom, and perhaps of more malice than either, that Women are naturally incapable of acting Prudently, or that they are necessarily determined to folly, I must by no means grant it; that Hypothesis would render my endeavours impertinent, for then it would be in vain to advise the one, or endeavour the Reformation of the other.\",\n      \"label\": \"premise\"\n    },\n    \"ADU4\": {\n      \"text\": \"Besides, there are Examples in all Ages, which sufficiently confute the Ignorance and Malice of this Assertion.\",\n      \"label\": \"premise\"\n    },\n    \"ADU5\": {\n      \"text\": \"The Incapacity, if there be any, is acquired not natural; and none of their Follies are so necessary, but that they might avoid them if they pleas'd themselves.\",\n      \"label\": \"claim\"\n    },\n    \"ADU6\": {\n      \"text\": \"For Astell, the proper intellectual education of women is the key to rectifying their disadvantage.\",\n      \"label\": \"claim\"\n    },\n    \"ADU7\": {\n      \"text\": \"Placed in its proper context, then, Astell's paradigmatic feminist claim about 'custom versus nature' is in fact a claim about women's capacity for prudent conduct.\",\n      \"label\": \"claim\"\n    },\n    \"ADU8\": {\n      \"text\": \"In this paper, I interpret Astell's Proposal in light of these remarks and in light of Astell's explicit design to bring about a reformation in women's moral education.\",\n      \"label\": \"claim\"\n    },\n    \"ADU9\": {\n      \"text\": \"At first glance, it might be odd to think that 'the Art of Prudence' plays such a central role in Astell's work.\",\n      \"label\": \"claim\"\n    },\n    \"ADU10\": {\n      \"text\": \"In what follows, I offer an explanation for why the art of prudence is a vital part of Astell's educational program.\",\n      \"label\": \"claim\"\n    },\n    \"ADU11\": {\n      \"text\": \"This ethical interpretation of Astell's writings might be useful and instructive for at least two reasons.\",\n      \"label\": \"claim\"\n    },\n    \"ADU12\": {\n      \"text\": \"First, by highlighting Astell's indebtedness to the virtue approach, it is possible to identify different meanings or resonances in her feminist terminology.\",\n      \"label\": \"premise\"\n    },\n    \"ADU13\": {\n      \"text\": \"Second, an interpretation of Astell as a moral philosopher can help us to recognize why she is so different to her present-day feminist counterparts.\",\n      \"label\": \"premise\"\n    },\n    \"ADU14\": {\n      \"text\": \"Astell's feminism is grounded on promoting excellence of character in women rather than the consistent application of political concepts and principles, such as the principles of equality and justice, to women in the public sphere.\",\n      \"label\": \"claim\"\n    },\n    \"ADU15\": {\n      \"text\": \"Above all, Astell teaches women that virtue and a virtuous character are things that ought to be pursued for the sake of attaining true and lasting happiness.\",\n      \"label\": \"claim\"\n    },\n    \"ADU16\": {\n      \"text\": \"The purpose of Astell's seminary is to give women a serious training in religion and philosophy so that they might gain knowledge of true happiness and the good in general.\",\n      \"label\": \"claim\"\n    },\n    \"ADU17\": {\n      \"text\": \"Like Norris and Malebranche, Astell emphasizes that the proper exercising of freedom is vital to the attainment of happiness.\",\n      \"label\": \"claim\"\n    },\n    \"ADU18\": {\n      \"text\": \"Feminist emancipation, on this view, consists in liberating the will from the 'manacle' of custom.\",\n      \"label\": \"claim\"\n    },\n    \"ADU19\": {\n      \"text\": \"For Astell, women are not free when they are deprived of their ability to exercise their freedom in the giving and withholding of assent.\",\n      \"label\": \"claim\"\n    },\n    \"ADU20\": {\n      \"text\": \"In Astell's view, the female moral agent is always an embodied subject.\",\n      \"label\": \"claim\"\n    },\n    \"ADU21\": {\n      \"text\": \"In particular, Astell takes into account the fact that women cannot avoid feeling the passions, those necessary by-products of the mind-body union.\",\n      \"label\": \"premise\"\n    },\n    \"ADU22\": {\n      \"text\": \"This is in fact the essence of a virtue for Astell: having a virtue consists in having a certain disposition to feel, choose, or act in accordance with right reason toward the right ends.\",\n      \"label\": \"claim\"\n    },\n    \"ADU23\": {\n      \"text\": \"Once again, for Astell, the exercising of freedom is vital to the process of re-training the passion of love.\",\n      \"label\": \"claim\"\n    },\n    \"ADU24\": {\n      \"text\": \"There are three further virtues that play an important role in Astell's feminism: generosity, courage, and friendship.\",\n      \"label\": \"claim\"\n    },\n    \"ADU25\": {\n      \"text\": \"Astell appropriates Descartes' and More's concept of generosity for feminist purposes.\",\n      \"label\": \"claim\"\n    },\n    \"ADU26\": {\n      \"text\": \"Along similar lines, Astell urges women to cultivate the traditional Aristotelian virtue of courage in their search for happiness.\",\n      \"label\": \"claim\"\n    },\n    \"ADU27\": {\n      \"text\": \"In Astell's view, women can learn to acquire the virtue of courage with the assistance of another virtue-that of friendship.\",\n      \"label\": \"claim\"\n    },\n    \"ADU28\": {\n      \"text\": \"In her Proposal, Astell says that one of the main benefits of an all-female academy is that it will encourage the cultivation of 'noble Vertuous and Disinteress'd' friendships between women.\",\n      \"label\": \"claim\"\n    },\n    \"ADU29\": {\n      \"text\": \"By now, it ought to be clear that Astell does not use the term 'prudence' in the modern, nonmoral, sense of rational self-interest.\",\n      \"label\": \"claim\"\n    },\n    \"ADU30\": {\n      \"text\": \"In the context of her work, prudence is in fact synonymous with the ancient moral concept of phronesis or practical wisdom.\",\n      \"label\": \"claim\"\n    },\n    \"ADU31\": {\n      \"text\": \"Out of all the virtues, women need prudence most of all in order to do the best thing or to get things right in the sphere of moral action.\",\n      \"label\": \"claim\"\n    },\n    \"ADU32\": {\n      \"text\": \"On the whole, then, Astell conceives of the problem of female subordination and male domination in markedly different terms to those of most modern feminists.\",\n      \"label\": \"claim\"\n    },\n    \"ADU33\": {\n      \"text\": \"For Astell, the problem is a moral one.\",\n      \"label\": \"claim\"\n    },\n    \"ADU34\": {\n      \"text\": \"The 'vilest slavery' for women is not political or social in nature, but rather moral and psychological.\",\n      \"label\": \"claim\"\n    },\n    \"ADU35\": {\n      \"text\": \"Nevertheless, in my view, Astell's theory of virtue might still hold some interest for modern-day feminist ethics, and her emphasis on excellence of character might be considered a strength rather than a weakness of her feminist philosophy.\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"ADU3\",\n      \"target\": \"ADU5\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU4\",\n      \"target\": \"ADU5\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU5\",\n      \"target\": \"ADU6\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU7\",\n      \"target\": \"ADU8\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU12\",\n      \"target\": \"ADU11\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU13\",\n      \"target\": \"ADU11\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU14\",\n      \"target\": \"ADU11\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU15\",\n      \"target\": \"ADU16\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU17\",\n      \"target\": \"ADU18\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU18\",\n      \"target\": \"ADU19\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU21\",\n      \"target\": \"ADU20\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU23\",\n      \"target\": \"ADU22\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU25\",\n      \"target\": \"ADU24\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU26\",\n      \"target\": \"ADU24\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU27\",\n      \"target\": \"ADU24\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU30\",\n      \"target\": \"ADU29\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU31\",\n      \"target\": \"ADU30\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU33\",\n      \"target\": \"ADU32\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU34\",\n      \"target\": \"ADU33\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU35\",\n      \"target\": \"ADU32\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "ADU1": {
+              "text": "In 1694, Mary Astell published her first work, a short treatise titled A Serious Proposal to the Ladies, for the Advancement of their True and Greatest Interest.",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "Her proposal was a call for a women's college or 'a Retreat from the World' in which young English women might be given a thorough academic training in reason and religion.",
+              "label": "claim"
+            },
+            "ADU3": {
+              "text": "Altho' it has been said by Men of more Wit than Wisdom, and perhaps of more malice than either, that Women are naturally incapable of acting Prudently, or that they are necessarily determined to folly, I must by no means grant it; that Hypothesis would render my endeavours impertinent, for then it would be in vain to advise the one, or endeavour the Reformation of the other.",
+              "label": "premise"
+            },
+            "ADU4": {
+              "text": "Besides, there are Examples in all Ages, which sufficiently confute the Ignorance and Malice of this Assertion.",
+              "label": "premise"
+            },
+            "ADU5": {
+              "text": "The Incapacity, if there be any, is acquired not natural; and none of their Follies are so necessary, but that they might avoid them if they pleas'd themselves.",
+              "label": "claim"
+            },
+            "ADU6": {
+              "text": "For Astell, the proper intellectual education of women is the key to rectifying their disadvantage.",
+              "label": "claim"
+            },
+            "ADU7": {
+              "text": "Placed in its proper context, then, Astell's paradigmatic feminist claim about 'custom versus nature' is in fact a claim about women's capacity for prudent conduct.",
+              "label": "claim"
+            },
+            "ADU8": {
+              "text": "In this paper, I interpret Astell's Proposal in light of these remarks and in light of Astell's explicit design to bring about a reformation in women's moral education.",
+              "label": "claim"
+            },
+            "ADU9": {
+              "text": "At first glance, it might be odd to think that 'the Art of Prudence' plays such a central role in Astell's work.",
+              "label": "claim"
+            },
+            "ADU10": {
+              "text": "In what follows, I offer an explanation for why the art of prudence is a vital part of Astell's educational program.",
+              "label": "claim"
+            },
+            "ADU11": {
+              "text": "This ethical interpretation of Astell's writings might be useful and instructive for at least two reasons.",
+              "label": "claim"
+            },
+            "ADU12": {
+              "text": "First, by highlighting Astell's indebtedness to the virtue approach, it is possible to identify different meanings or resonances in her feminist terminology.",
+              "label": "premise"
+            },
+            "ADU13": {
+              "text": "Second, an interpretation of Astell as a moral philosopher can help us to recognize why she is so different to her present-day feminist counterparts.",
+              "label": "premise"
+            },
+            "ADU14": {
+              "text": "Astell's feminism is grounded on promoting excellence of character in women rather than the consistent application of political concepts and principles, such as the principles of equality and justice, to women in the public sphere.",
+              "label": "claim"
+            },
+            "ADU15": {
+              "text": "Above all, Astell teaches women that virtue and a virtuous character are things that ought to be pursued for the sake of attaining true and lasting happiness.",
+              "label": "claim"
+            },
+            "ADU16": {
+              "text": "The purpose of Astell's seminary is to give women a serious training in religion and philosophy so that they might gain knowledge of true happiness and the good in general.",
+              "label": "claim"
+            },
+            "ADU17": {
+              "text": "Like Norris and Malebranche, Astell emphasizes that the proper exercising of freedom is vital to the attainment of happiness.",
+              "label": "claim"
+            },
+            "ADU18": {
+              "text": "Feminist emancipation, on this view, consists in liberating the will from the 'manacle' of custom.",
+              "label": "claim"
+            },
+            "ADU19": {
+              "text": "For Astell, women are not free when they are deprived of their ability to exercise their freedom in the giving and withholding of assent.",
+              "label": "claim"
+            },
+            "ADU20": {
+              "text": "In Astell's view, the female moral agent is always an embodied subject.",
+              "label": "claim"
+            },
+            "ADU21": {
+              "text": "In particular, Astell takes into account the fact that women cannot avoid feeling the passions, those necessary by-products of the mind-body union.",
+              "label": "premise"
+            },
+            "ADU22": {
+              "text": "This is in fact the essence of a virtue for Astell: having a virtue consists in having a certain disposition to feel, choose, or act in accordance with right reason toward the right ends.",
+              "label": "claim"
+            },
+            "ADU23": {
+              "text": "Once again, for Astell, the exercising of freedom is vital to the process of re-training the passion of love.",
+              "label": "claim"
+            },
+            "ADU24": {
+              "text": "There are three further virtues that play an important role in Astell's feminism: generosity, courage, and friendship.",
+              "label": "claim"
+            },
+            "ADU25": {
+              "text": "Astell appropriates Descartes' and More's concept of generosity for feminist purposes.",
+              "label": "claim"
+            },
+            "ADU26": {
+              "text": "Along similar lines, Astell urges women to cultivate the traditional Aristotelian virtue of courage in their search for happiness.",
+              "label": "claim"
+            },
+            "ADU27": {
+              "text": "In Astell's view, women can learn to acquire the virtue of courage with the assistance of another virtue-that of friendship.",
+              "label": "claim"
+            },
+            "ADU28": {
+              "text": "In her Proposal, Astell says that one of the main benefits of an all-female academy is that it will encourage the cultivation of 'noble Vertuous and Disinteress'd' friendships between women.",
+              "label": "claim"
+            },
+            "ADU29": {
+              "text": "By now, it ought to be clear that Astell does not use the term 'prudence' in the modern, nonmoral, sense of rational self-interest.",
+              "label": "claim"
+            },
+            "ADU30": {
+              "text": "In the context of her work, prudence is in fact synonymous with the ancient moral concept of phronesis or practical wisdom.",
+              "label": "claim"
+            },
+            "ADU31": {
+              "text": "Out of all the virtues, women need prudence most of all in order to do the best thing or to get things right in the sphere of moral action.",
+              "label": "claim"
+            },
+            "ADU32": {
+              "text": "On the whole, then, Astell conceives of the problem of female subordination and male domination in markedly different terms to those of most modern feminists.",
+              "label": "claim"
+            },
+            "ADU33": {
+              "text": "For Astell, the problem is a moral one.",
+              "label": "claim"
+            },
+            "ADU34": {
+              "text": "The 'vilest slavery' for women is not political or social in nature, but rather moral and psychological.",
+              "label": "claim"
+            },
+            "ADU35": {
+              "text": "Nevertheless, in my view, Astell's theory of virtue might still hold some interest for modern-day feminist ethics, and her emphasis on excellence of character might be considered a strength rather than a weakness of her feminist philosophy.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU3",
+              "target": "ADU5",
+              "type": "support"
+            },
+            {
+              "source": "ADU4",
+              "target": "ADU5",
+              "type": "support"
+            },
+            {
+              "source": "ADU5",
+              "target": "ADU6",
+              "type": "support"
+            },
+            {
+              "source": "ADU7",
+              "target": "ADU8",
+              "type": "support"
+            },
+            {
+              "source": "ADU12",
+              "target": "ADU11",
+              "type": "support"
+            },
+            {
+              "source": "ADU13",
+              "target": "ADU11",
+              "type": "support"
+            },
+            {
+              "source": "ADU14",
+              "target": "ADU11",
+              "type": "support"
+            },
+            {
+              "source": "ADU15",
+              "target": "ADU16",
+              "type": "support"
+            },
+            {
+              "source": "ADU17",
+              "target": "ADU18",
+              "type": "support"
+            },
+            {
+              "source": "ADU18",
+              "target": "ADU19",
+              "type": "support"
+            },
+            {
+              "source": "ADU21",
+              "target": "ADU20",
+              "type": "support"
+            },
+            {
+              "source": "ADU23",
+              "target": "ADU22",
+              "type": "support"
+            },
+            {
+              "source": "ADU25",
+              "target": "ADU24",
+              "type": "support"
+            },
+            {
+              "source": "ADU26",
+              "target": "ADU24",
+              "type": "support"
+            },
+            {
+              "source": "ADU27",
+              "target": "ADU24",
+              "type": "support"
+            },
+            {
+              "source": "ADU30",
+              "target": "ADU29",
+              "type": "support"
+            },
+            {
+              "source": "ADU31",
+              "target": "ADU30",
+              "type": "support"
+            },
+            {
+              "source": "ADU33",
+              "target": "ADU32",
+              "type": "support"
+            },
+            {
+              "source": "ADU34",
+              "target": "ADU33",
+              "type": "support"
+            },
+            {
+              "source": "ADU35",
+              "target": "ADU32",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "ADU1": {
+              "text": "In 1694, Mary Astell published her first work, a short treatise titled A Serious Proposal to the Ladies, for the Advancement of their True and Greatest Interest.",
+              "label": "claim"
+            },
+            "ADU3": {
+              "text": "Altho' it has been said by Men of more Wit than Wisdom, and perhaps of more malice than either, that Women are naturally incapable of acting Prudently, or that they are necessarily determined to folly, I must by no means grant it; that Hypothesis would render my endeavours impertinent, for then it would be in vain to advise the one, or endeavour the Reformation of the other.",
+              "label": "premise"
+            },
+            "ADU4": {
+              "text": "Besides, there are Examples in all Ages, which sufficiently confute the Ignorance and Malice of this Assertion.",
+              "label": "premise"
+            },
+            "ADU5": {
+              "text": "The Incapacity, if there be any, is acquired not natural; and none of their Follies are so necessary, but that they might avoid them if they pleas'd themselves.",
+              "label": "claim"
+            },
+            "ADU6": {
+              "text": "For Astell, the proper intellectual education of women is the key to rectifying their disadvantage.",
+              "label": "claim"
+            },
+            "ADU7": {
+              "text": "Placed in its proper context, then, Astell's paradigmatic feminist claim about 'custom versus nature' is in fact a claim about women's capacity for prudent conduct.",
+              "label": "claim"
+            },
+            "ADU8": {
+              "text": "In this paper, I interpret Astell's Proposal in light of these remarks and in light of Astell's explicit design to bring about a reformation in women's moral education.",
+              "label": "claim"
+            },
+            "ADU9": {
+              "text": "At first glance, it might be odd to think that 'the Art of Prudence' plays such a central role in Astell's work.",
+              "label": "claim"
+            },
+            "ADU10": {
+              "text": "In what follows, I offer an explanation for why the art of prudence is a vital part of Astell's educational program.",
+              "label": "claim"
+            },
+            "ADU11": {
+              "text": "This ethical interpretation of Astell's writings might be useful and instructive for at least two reasons.",
+              "label": "claim"
+            },
+            "ADU13": {
+              "text": "Second, an interpretation of Astell as a moral philosopher can help us to recognize why she is so different to her present-day feminist counterparts.",
+              "label": "premise"
+            },
+            "ADU14": {
+              "text": "Astell's feminism is grounded on promoting excellence of character in women rather than the consistent application of political concepts and principles, such as the principles of equality and justice, to women in the public sphere.",
+              "label": "claim"
+            },
+            "ADU16": {
+              "text": "The purpose of Astell's seminary is to give women a serious training in religion and philosophy so that they might gain knowledge of true happiness and the good in general.",
+              "label": "claim"
+            },
+            "ADU17": {
+              "text": "Like Norris and Malebranche, Astell emphasizes that the proper exercising of freedom is vital to the attainment of happiness.",
+              "label": "claim"
+            },
+            "ADU21": {
+              "text": "In particular, Astell takes into account the fact that women cannot avoid feeling the passions, those necessary by-products of the mind-body union.",
+              "label": "premise"
+            },
+            "ADU22": {
+              "text": "This is in fact the essence of a virtue for Astell: having a virtue consists in having a certain disposition to feel, choose, or act in accordance with right reason toward the right ends.",
+              "label": "claim"
+            },
+            "ADU23": {
+              "text": "Once again, for Astell, the exercising of freedom is vital to the process of re-training the passion of love.",
+              "label": "claim"
+            },
+            "ADU24": {
+              "text": "There are three further virtues that play an important role in Astell's feminism: generosity, courage, and friendship.",
+              "label": "claim"
+            },
+            "ADU25": {
+              "text": "Astell appropriates Descartes' and More's concept of generosity for feminist purposes.",
+              "label": "claim"
+            },
+            "ADU26": {
+              "text": "Along similar lines, Astell urges women to cultivate the traditional Aristotelian virtue of courage in their search for happiness.",
+              "label": "claim"
+            },
+            "ADU27": {
+              "text": "In Astell's view, women can learn to acquire the virtue of courage with the assistance of another virtue-that of friendship.",
+              "label": "claim"
+            },
+            "ADU29": {
+              "text": "By now, it ought to be clear that Astell does not use the term 'prudence' in the modern, nonmoral, sense of rational self-interest.",
+              "label": "claim"
+            },
+            "ADU30": {
+              "text": "In the context of her work, prudence is in fact synonymous with the ancient moral concept of phronesis or practical wisdom.",
+              "label": "claim"
+            },
+            "ADU31": {
+              "text": "Out of all the virtues, women need prudence most of all in order to do the best thing or to get things right in the sphere of moral action.",
+              "label": "claim"
+            },
+            "ADU32": {
+              "text": "On the whole, then, Astell conceives of the problem of female subordination and male domination in markedly different terms to those of most modern feminists.",
+              "label": "claim"
+            },
+            "ADU33": {
+              "text": "For Astell, the problem is a moral one.",
+              "label": "claim"
+            },
+            "ADU34": {
+              "text": "The 'vilest slavery' for women is not political or social in nature, but rather moral and psychological.",
+              "label": "claim"
+            },
+            "ADU35": {
+              "text": "Nevertheless, in my view, Astell's theory of virtue might still hold some interest for modern-day feminist ethics, and her emphasis on excellence of character might be considered a strength rather than a weakness of her feminist philosophy.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU3",
+              "target": "ADU5",
+              "type": "support"
+            },
+            {
+              "source": "ADU4",
+              "target": "ADU5",
+              "type": "support"
+            },
+            {
+              "source": "ADU5",
+              "target": "ADU6",
+              "type": "support"
+            },
+            {
+              "source": "ADU7",
+              "target": "ADU8",
+              "type": "support"
+            },
+            {
+              "source": "ADU13",
+              "target": "ADU11",
+              "type": "support"
+            },
+            {
+              "source": "ADU14",
+              "target": "ADU11",
+              "type": "support"
+            },
+            {
+              "source": "ADU23",
+              "target": "ADU22",
+              "type": "support"
+            },
+            {
+              "source": "ADU25",
+              "target": "ADU24",
+              "type": "support"
+            },
+            {
+              "source": "ADU26",
+              "target": "ADU24",
+              "type": "support"
+            },
+            {
+              "source": "ADU27",
+              "target": "ADU24",
+              "type": "support"
+            },
+            {
+              "source": "ADU30",
+              "target": "ADU29",
+              "type": "support"
+            },
+            {
+              "source": "ADU31",
+              "target": "ADU30",
+              "type": "support"
+            },
+            {
+              "source": "ADU33",
+              "target": "ADU32",
+              "type": "support"
+            },
+            {
+              "source": "ADU34",
+              "target": "ADU33",
+              "type": "support"
+            },
+            {
+              "source": "ADU35",
+              "target": "ADU32",
+              "type": "support"
+            }
+          ]
+        }
+      },
+      {
+        "source": "claude-3-5-sonnet-20241022",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"1\": {\n      \"text\": \"Altho' it has been said by Men of more Wit than Wisdom, and perhaps of more malice than either, that Women are naturally incapable of acting Prudently, or that they are necessarily determined to folly, I must by no means grant it; that Hypothesis would render my endeavours impertinent, for then it would be in vain to advise the one, or endeavour the Reformation of the other.\",\n      \"label\": \"claim\"\n    },\n    \"2\": {\n      \"text\": \"The Incapacity, if there be any, is acquired not natural; and none of their Follies are so necessary, but that they might avoid them if they pleas'd themselves.\",\n      \"label\": \"claim\"\n    },\n    \"3\": {\n      \"text\": \"The primary blame for women's defects lies with 'the mistakes of our Education; which like an Error in the first Concoction, spreads its ill Influence through all our Lives'\",\n      \"label\": \"premise\"\n    },\n    \"4\": {\n      \"text\": \"Rational Creatures shou'd endeavour to have right Ideas of every thing that comes under their Cognizance, but yet our Ideas of Morality, our thoughts about Religion are those which we shou'd with greatest speed and diligence rectifie, because they are of most importance, the Life to come, as well as all the Occurences of This, depending on them.\",\n      \"label\": \"claim\"\n    },\n    \"5\": {\n      \"text\": \"For the main thing we are to drive at in all our Studies, and that which is the greatest Improvement of our Understandings is the Art of Prudence, the being all of a Piece, managing all our Words and Actions as becomes Wise Persons and Good Christians.\",\n      \"label\": \"claim\"\n    },\n    \"6\": {\n      \"text\": \"'tis Virtue only,' she says, 'which can make you truly happy in the world as well as in the next'\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"3\",\n      \"target\": \"2\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"4\",\n      \"target\": \"5\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"5\",\n      \"target\": \"6\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "1": {
+              "text": "Altho' it has been said by Men of more Wit than Wisdom, and perhaps of more malice than either, that Women are naturally incapable of acting Prudently, or that they are necessarily determined to folly, I must by no means grant it; that Hypothesis would render my endeavours impertinent, for then it would be in vain to advise the one, or endeavour the Reformation of the other.",
+              "label": "claim"
+            },
+            "2": {
+              "text": "The Incapacity, if there be any, is acquired not natural; and none of their Follies are so necessary, but that they might avoid them if they pleas'd themselves.",
+              "label": "claim"
+            },
+            "3": {
+              "text": "The primary blame for women's defects lies with 'the mistakes of our Education; which like an Error in the first Concoction, spreads its ill Influence through all our Lives'",
+              "label": "premise"
+            },
+            "4": {
+              "text": "Rational Creatures shou'd endeavour to have right Ideas of every thing that comes under their Cognizance, but yet our Ideas of Morality, our thoughts about Religion are those which we shou'd with greatest speed and diligence rectifie, because they are of most importance, the Life to come, as well as all the Occurences of This, depending on them.",
+              "label": "claim"
+            },
+            "5": {
+              "text": "For the main thing we are to drive at in all our Studies, and that which is the greatest Improvement of our Understandings is the Art of Prudence, the being all of a Piece, managing all our Words and Actions as becomes Wise Persons and Good Christians.",
+              "label": "claim"
+            },
+            "6": {
+              "text": "'tis Virtue only,' she says, 'which can make you truly happy in the world as well as in the next'",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "3",
+              "target": "2",
+              "type": "support"
+            },
+            {
+              "source": "4",
+              "target": "5",
+              "type": "support"
+            },
+            {
+              "source": "5",
+              "target": "6",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "1": {
+              "text": "Altho' it has been said by Men of more Wit than Wisdom, and perhaps of more malice than either, that Women are naturally incapable of acting Prudently, or that they are necessarily determined to folly, I must by no means grant it; that Hypothesis would render my endeavours impertinent, for then it would be in vain to advise the one, or endeavour the Reformation of the other.",
+              "label": "claim"
+            },
+            "2": {
+              "text": "The Incapacity, if there be any, is acquired not natural; and none of their Follies are so necessary, but that they might avoid them if they pleas'd themselves.",
+              "label": "claim"
+            },
+            "3": {
+              "text": "The primary blame for women's defects lies with 'the mistakes of our Education; which like an Error in the first Concoction, spreads its ill Influence through all our Lives'",
+              "label": "premise"
+            },
+            "5": {
+              "text": "For the main thing we are to drive at in all our Studies, and that which is the greatest Improvement of our Understandings is the Art of Prudence, the being all of a Piece, managing all our Words and Actions as becomes Wise Persons and Good Christians.",
+              "label": "claim"
+            },
+            "6": {
+              "text": "'tis Virtue only,' she says, 'which can make you truly happy in the world as well as in the next'",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "3",
+              "target": "2",
+              "type": "support"
+            },
+            {
+              "source": "5",
+              "target": "6",
+              "type": "support"
+            }
+          ]
+        }
+      }
+    ],
+    "timestamp": 1752856187.564785
+  }
+]

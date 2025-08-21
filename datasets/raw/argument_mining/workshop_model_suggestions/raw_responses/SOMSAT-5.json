@@ -1,0 +1,294 @@
+[
+  {
+    "identifier": "SOMSAT-5",
+    "system_prompt": "## GOAL\nArgument‑mine the following paper to extract its comprehensive argumentative structure.\n\n## DEFINITIONS\n1. **Argument**: A set of propositions, including some number of premises and a conclusion. The premises should logically entail the conclusion.\n2. **Claim**: A proposition that asserts something to be true or false, typically requiring justification or evidence.\n3. **Premise**: A proposition that provides evidence, justification, or logical support for a claim or conclusion.\n\n## CRITICAL REQUIREMENTS\n1. **VERBATIM EXTRACTION ONLY**: Each ADU text must be copied EXACTLY from the paper with no modifications, paraphrasing, or combining of separate sentences.\n2. **NO HALLUCINATION**: Do not create, modify, or invent text that does not appear exactly in the source.\n3. **EXACT MATCHING**: Every word, punctuation mark, and spacing must match the original precisely.\n\n## DIRECTIONS\n1. **Identify Argumentative Discourse Units (ADUs)**  \n   - ADU = any contiguous text span functioning as a claim or a premise in the reasoning structure.\n   - **BE HIGHLY SELECTIVE**: Only include ADUs that are crucial to the overarching argument structure.\n   - Focus on significant claims and premises that contribute meaningfully to the argumentative flow.\n   - **AVOID NOISE**: Skip ADUs that are merely descriptive, tangential, or do not substantially advance the argument.\n   - Prioritize quality over quantity - fewer accurate, important ADUs are better than many insignificant ones.\n   - **EXTRACT ONLY**: Copy text spans exactly as they appear, without any modifications.\n2. **Classify each ADU**  \n   - Label = either `\"claim\"` or `\"premise\"`.  \n3. **Detect directed relations**  \n   - Relation = `\"support\"` or `\"attack\"`, from one ADU (source) to another (target).\n   - Map how ADUs connect to form reasoning chains.\n   - Focus on relationships between the most significant ADUs.\n   - Include relationships between premises that strengthen or weaken each other.\n4. **Verbatim spans**  \n   - Each `\"text\"` value must be copied EXACTLY from the paper with zero modifications.\n   - Do not paraphrase, summarize, or combine separate sentences.\n   - Do not add, remove, or change any words, punctuation, or spacing.\n   - If unsure about exact wording, skip that ADU rather than guess.\n\n## WHAT TO CAPTURE\n**INCLUDE ONLY:**\n- Main argumentative threads that are central to the paper's contribution\n- Core claims that represent the paper's primary arguments or findings\n- Key premises that provide essential support for major claims\n- Critical counterarguments and their refutations\n- Reasoning chains that demonstrate how main conclusions are derived\n\n**EXCLUDE (AVOID NOISE):**\n- Minor details, examples, or descriptive content that don't advance the argument\n- Tangential points or side discussions\n- Pure background information or literature review content\n- Methodological details unless they constitute argumentative claims\n- Obvious statements or commonly accepted facts\n- Redundant or repetitive argumentative content\n\n**GUIDING PRINCIPLE**: If removing an ADU would not significantly impact understanding of the paper's argumentative structure, it should be excluded.\n\n## QUALITY CONTROL\n- Before finalizing each ADU, verify the text exists exactly in the source\n- Prefer fewer, accurate ADUs over many potentially modified ones\n- When in doubt about exact wording, omit the ADU\n\n## OUTPUT FORMAT\nReturn **only** a single valid JSON object matching this schema.  \nDo **not** output any extra text, markdown, or explanations.\n\nRESPOND WITH ONLY:\n```json\n{\n  \"ADUs\": {\n    \"<ADU_ID>\": {\n      \"text\": \"<exact span from paper>\",\n      \"label\": \"claim\" | \"premise\"\n    }\n    ...\n  },\n  \"relations\": [\n    {\n      \"source\": \"<ADU_ID>\",\n      \"target\": \"<ADU_ID>\",\n      \"type\": \"support\" | \"attack\"\n    }\n  ]\n}\n```",
+    "user_content": "## SARTRE AND THE VIRTUAL\n\nA DELEUZIAN INTERPRETATION OF THE TRANSCENDENCE OF THE EGO\n\nHenry Somers-Hall\n\nWhen Deleuze wishes to provide a critique of the transcendental ego, it is Sartre's early essay, The Transcendence of the Ego , that he turns to in order to justify his move to a conception of the transcendental free from subjective notions. The aim of this essay is to show the purpose for which Deleuze uses Sartre's critique of Husserl against Kant, and to show the interrelation between this critique and the establishment of transcendental empiricism. Deleuze gives Kant the status of an enemy, a term that carries with it the full weight of his estimation of, as well as opposition to the transcendental idealist project. Deleuze's own transcendental empiricism rests on the rejection of two of the fundamental tenets of transcendental idealism, first, the claim that 'the conditions of the object of knowledge must be the same as the conditions of knowledge,' 1 and its corollary, the necessity of the transcendental ego in organizing the transcendental field. Deleuze believes that these two claims in fact imply one another, so that a rejection of one forces us also to reject the other. If this is correct, it would mean that The Transcendence of the Ego would implicitly contain the major axioms of the Deleuzian system, particularly the division between actual states of affairs and virtual singularities. The aim of this paper is therefore to outline the structure of the SartreDeleuze argument, and then to show how Deleuze's claims are in fact, a little optimistic.\n\nthat this unity can only operate through structures parallel to those which govern the judgments of the understanding (as judgment itself generates unities in the form of propositions). Thus, for Kant, the transcendental field is individuated (it contains a transcendental ego) and structured in a way which parallels the empirical world (the categories are derived from the functions of judgment). For Sartre, the difficulty with this argument is that it fails to recognize the possibility of the object itself providing the grounds for the unity of experience, thus Sartre will take issue with the need for the 'I think' having a transcendental correlate. Deleuze, on the other hand, is opposed to any form of individuation of the transcendental field, arguing that if the transcendental field is individuated, the question of the genesis of form itself becomes impossible to deal with, as it is already presupposed within the transcendental field. Deleuze presents this move as a move from transcendental idealism to a form of t r a n s c e n d e n t a l empiricism, as t he conditions of experience now lie outside of a subject.\n\nCentral to this analysis will be both Sartre and Deleuze's responses to Kant, and in particular to the argument of the transcendental deduction. The transcendental deduction is the centerpiece of the Critique of Pure Reason , attempting to show that experience is grounded in the categories, transcendental correlates of the logical structures of judgment. The argumentproceeds by showing that the unity which is inherent in experience (as shown by the fact that 'it must be possible for the 'I think' to accompany all my representations.') 2 indicates a synthetic unity at the transcendental level, and\n\nIn reconstructing a move from Transcendental Idealism to Transcendental Empiricism through Sartre's critique of the Transcendental Ego 3 , there are three difficulties that must be overcome. First, there is the schematic nature of the references to Sartre in Deleuze's writings. Whilst Deleuze credits Sartre with providing a 'decisive' 4 critique of the notion of a transcendental subject, Deleuze provides almost no commentary on the text itself. This presents difficulties as the text, as it stands, is not overtly critical of Kant, its target rather being the Transcendental Ego of Husserl. Second, although Sartre's essay is clearly aimed at a Husserlian conception of the ego, Sartre's intention in this essay is not to critique phenomenology itself. His statement that 'all the results of phenomenology begin to crumble if the I is not, by the same title as the world, a relative existent,' 5 is followed by an attempt to re-\n\nPHILOSOPHY TODAY                                               SPEP SUPPLEMENT 2006\n\nconfigure the transcendental ego in order to give it such a nature, and in the process to preserve the results in question. Given Deleuze's hostility to the phenomenological project in general, we must ask how he is able to make use of this argument by the self-proclaimed savior of the phenomenological tradition. Third, Deleuze takes it for granted that Sartre's essay ends in failure, that 'it is not more possible to preserve for [the transcendental field] the form of consciousness' 6 than it is to preserve the I . In order for Deleuze to put the argument to his own use it must also therefore be the case that what Sartre discovers is not a problem specific to the structure of phenomenology, but a general problem, or at least a problem that is applicable to other systems containing certain functional analogues. From a purely phenomenological angle, Kant cannot be the target of Sartre's critique, as the critical structures discovered by Kant in the transcendental deduction have no place in a philosophy of description such as phenomenology, and it is for this reason that Kant is excluded from Sartre's discussion. While Sartre may claim that the standard view of Kant, as positing an existent transcendental ego, comes from the failure of the neo-Kantian movement to separate questions of validity from those of fact, 7 claims that the transcendental ego 'does not bind up the unity of phenomena' 8 would be very difficult to reconcile with any reading of the transcendental deduction.\n\nFor Kant, the identity of the conditions for the object and the conditions for knowledge of the object is guaranteed by the fact that it is the transcendental unity of apperception which allows the categories to condition the object such that the understanding can know it. Thus, the rules governing consciousness necessarily also cover the objects for consciousness. From a transcendental perspective, what consciousness desires to 'know' is already within consciousness. Once the phenomenological concept of intentionality is seen as one of the primary characteristics of consciousness, consciousness becomes essentially 'consciousness of' the object, as opposed to the Kantian consciousness that is a container for representations. On this conception of consciousness, it is therefore possible to study the object in its own right. The object stands transcendent to consciousness, and is thereby governed by its own conditions, which are the subject matter of the phenomenological method. 9 Furthermore, as Husserlian phenomenology does not presuppose that the object is a function of the understanding, the Kantian transcendental analysis is replaced by a pure description, free from all assumptions, of the object. The point at issue between Sartre and Husserl in this essay is whether a Husserlian phenomenology presupposes the transcendental ego for the same reasons that it is required within the Kantian system, namely to create a point from which various moments of consciousness can engage in various acts of apprehension, yet still maintain a coherent unity. If this function is necessary, then phenomenology once again returns to the situation of an internal synthesis. If consciousness emanated from a transcendental ego, we would need to explain how it would be possible for such a consciousness to make contact with the object, which is fundamentally other to it. Husserl's solution to this seemingly intractable problem is to presuppose a medium that shares the properties of both consciousness and the object, which can thereby communicate between the object and the consciousness. Such a medium, or hyle , undercuts the fundamental doctrine of phenomenology, 'To the things themselves,' as now consciousness is consciousness not of an object, but instead of the representation of the object through the hyle . Furthermore, in the work of Husserl, the hyle is a function of consciousness, returning us precisely to the theory of contained representations as put forward by Kant.\n\nThis probably explains why Sartre's article begins with a reference to the transcendental deduction. Kant's statement that 'the I think must be able to accompany all my representations' 10 raises the issue that whilst the I mustbe able to accompany our representations, is this because the I makes possible the unity of our representations, or rather is it the case that our representations are structured in such a way that it is always possible to prefix an I Think to them? 11 What Sartre is instead considering is the possibility that the unity of our representations is not caused by the transcendental ego, but that, if this unity can be grounded by some other means, this does not exclude the possibility of the 'I think' accompanying all of our representations. In fact, it would make it possi-\n\nble, as it would form the set of representations to which the 'I think' is applied. As we have said, consciousness is always consciousness of an object, and thus is a relation to a particular object, as well as a particular mode of thinking of this object. An individual will naturally be conscious of a variety of different objects, states of affairs and events, which raises an important problem for t h e Husserlian phenomenologist, namely how these fragmentary experiences in disparate locations and at disparate times can be attributed to the same individual. The transcendental ego is introduced to solve this problem, as a structure from which acts of consciousness emanate both guarantees the unity of these acts, as continuity is provided from their common source, and also provides personality, as these acts, though individually replaceable, form a coherent whole nonetheless, within the transcendental ego. Thus, the role of the transcendental ego, as unifying consciousness, plays functionally the same role as the transcendental unity of apperception within the Kantian system. Sartre rejects this reason for the transcendental ego on the grounds that unity can be supplied by consciousness itself, and therefore doesn't provide a necessary reason for its existence.\n\nWe can answer the question of the unity of consciousness by pointing to the unity of the object, which does not itself require a subject to make its unity possible. Consciousness 'unifies itself through escaping itself.' 12 That is, the unity comes from the order present in the object which is transcendent to consciousness. Thus the roll of a dice unifies consciousness through the necessary relations between its faces as it progressively gives itself to consciousness. The chaos of consciousness itself also participates in this unity through the retention of previous experiences. The ego is not needed to unify consciousness as acts of consciousnesses themselves transverse one another in such a way as to provide a decentered unity. Rather than emanating from a central point, they are interwoven in such a way as to make this central spoke redundant. Wecanfurther say that rather than unifying the phenomenal world, transcendental consciousness would instead lead to its fragmentation, as the transcendental functions slice through the temporally unified field. Such a function would in fact destroy the unity, rather than being its precondition.\n\nFor Kant, whilst the transcendental unity of apperception is a formal unity, as Sartre well recognises, this formal unity is in fact the foundation for the synthesis of experience, and for judgments of experience. As the act of judging requires a synthesis on the part of the subject, the relation of concepts presupposes the synthesizing ability of the transcendental unity of apperception. Using Husserl's notion of consciousness as an intending towards the concept, the transcendental ego is no longer necessary as that which grounds the act of judging. Concepts are intended towards, and justified, not by the a priori synthesis of the ego itself, but by this spontaneous act of consciousness itself. With this recognition, it is possible to reinterpret the nature of this formal requirement put forward by Kant. Kant's concept of synthesis as being enacted by the subject validates the notion of a subject. For Sartre, once he has shown the possibility of consciousness unifying itself without the necessity of a pre-existing subject, this formal condition can become one, not of a transcendental presupposition of consciousness, but rather of an implication of the unity of consciousness. The transversal strands of consciousness provide this unity, and it is this unity of consciousness that permits the attribution of the 'I.' Thus, for Sartre, it is the unity of consciousness that forms the transcendental field, a consciousness which is impersonal through the removal of the concept of the 'I' from its foundational role. The ego still exists, but is now a unity on the same level as any other object to which consciousness relates. It is a formal unity produced by the unity of consciousness.\n\nSartre lays out the implications of the rejection of the transcendental ego as a series of four consequences. These consequences form the conditions for the Deleuzian transcendental field, and are thus the conditions for a transcendentally structured empiricism: 13\n\nFirst, the transcendental field becomes impersonal, or, if you like, pre-personal, without an I.\n\nSecond, the I only appears at the level of humanity, and is only one aspect of the me , the active aspect.\n\nThird, the I Think can accompany our representations because it appears as the foundation of unity which it did not help to create; rather, this prior unity makes the I Think possible.\n\nFourth, one may ask if personality (even the abstract personality of an I ) is a necessary accompaniment of consciousness, and if one cannot conceive of absolutely impersonal consciousnesses. 14\n\nThese premises are almost sufficient to outline the major structures of the Deleuzian transcendental system. The conditions for objects and the conditions for the knowledge of objects can no longer be identical precisely because the transcendental field is not quantitatively identical with the field of empirical states of affairs. This is because the I , which exists at the level of the empirical, or the human, no longer finds a transcendental correlate. The difference in structure between the two fields is also made apparent by Sartre's notion of the personal. The personal does not apply simply so a certain level of acculturation at the level of humanity, or a level of differentiation between different I s within the empirical world, but instead to a form of structure. The I has its personality 'however formal, however abstract one may suppose it to be.' 15 Thus, personal becomes a signifier for the structures of the natural attitude. We must also note that it is not just the I which does not occur on the transcendental field, but in fact all objectivity falls away. 'The ego is a noematic rather than noetic entity. A tree or a chair exist no differently.' 16 From this statement, we can universalize the result of Sartre's analysis of the ego on this point, as we may have suspected from the reliance of the concept of the transcendental object on the subject revealed by the transcendental deduction. These implications of course find their phenomenological description in La NausØe , and we can see here the Bergsonian influence. Whilst the empirical field may be structured in accordance with a transitional logic of states of affairs, the transcendental field is now non-objectival. There can be no direct correlation between what synthesizes and what are the results of these syntheses. As Deleuze will say in relation to his own project,\n\n'it does not suffice to say of the foundation that it is another matter-it is also another geography, without being another world.' 17\n\nThe first three implications of Sartre's critique define the general conditions that Deleuze claims a transcendental empiricism must meet. The fourth, however, is rather a question, as to whether consciousness itself is impersonal or personal, or rather, whether it exists at the level of the transcendental, or the empirical. To this question, Sartre will answer that it is impersonal, as the noematic existence of the I allows all content to be placed within this personalized structure, allowing consciousness to become fully impersonal. If consciousness is without content, the problem of Husserl, of how the transcendental ego could comeinto contact with the things themselves is dissolved, as we no longer have the interaction of two substances, as consciousness is now entirely empty. Consciousness is now free to return once again to the things themselves. For Deleuze, the answer to this question will be that it is personal, as what is important for him is not that the transcendental field is pre-personal, but that it is pre-individual. That is, that what is logically prior to all individualised states of affairs is not itself individuated. Consciousness, whilst lacking content, is still an individual. It is like a point in a geometrical space that automatically brings with it the axes through which it is specified. Thus, Deleuze's critique of Sartre will invert the normal line of attack. Whereas Merleau-Ponty critiques Sartre's concept of consciousness as being too minimal to allow any relation to Being to be established, Deleuze argues that the concept of consciousness is already too full, thus imparting an illegitimate structure to the transcendental field.\n\nThe Sartrean view must in the end be rejected due to the strength of its assertions regarding the synthetic powers of objects themselves. For Sartre, it is this series of objects within the world which allow consciousness to synthesize itself, thus removing the need for a transcendental ego standing behind consciousness. Consciousness is individuated and unified by this series of objects within the world. Sartre believed by this that he had also solved some ancillary problems relating to the transcendental ego, namely the problems of concrete action within the world, and of solipsism\n\ncreated by the transcendental ego's necessary withdrawal from the world. In fact the presence of others within the world will in the end destroy the innocence of the transcendental field for Sartre, through the discovery of the synthetic role of consciousness itself, as we can see in Sartre's discussion of our encounters with others in the section of Being and Nothingness entitled 'The Look.' Thus, although the two consciousnesses share the same transcendental field, each one asserts his own right to be an individual, and this struggle between individuals itself takes place within the transcendental field. Each has the potential to 'disintegrate' the other's relations to the world through 'the unfolding about itself of its own distances.' 18 This means that I see the other as a part of the transcendental field, but as a part which individuates itself through the particular relations it holds to the world about it. The look is the attempt by each consciousness to subsume the other within its own synthesis of the transcendental field. The disintegration is literally the failure of this synthesis. The transcendental field therefore allows of the possibility of multiple different syntheses. This is to say that consciousness is not merely an individuating, but also a personalized presence within the transcendental field (synthesis are multiple and depend on the particular consciousness). As this contradicts the first implication of the removal of the transcendental ego, we can now see that what guarantees the pre-personal nature of the transcendental field is precisely that it is also pre-individual. This result is fully recognized by Sartre, for whom this dynamic personalization of the transcendental field answers questions left open within the Transcendence of the Ego , but still involves a radical move away from the project Deleuze is proposing. 19 Wehave therefore seen the reasons Sartre wishes to remove the notion of the transcendental Ego. Deleuze is much more of a classical metaphysician than Sartre, and therefore the implications he takes from the depersonalization of the transcendental field are very different from those of Sartre.\n\nFor Kant, the theses of the transcendental unity of apperception and the identity of the conditions for knowledge of an object and the conditions of an object themselves imply one another. What Deleuze takes from Sartre's analysis of the transcendental ego is that its po- sition within the transcendental field can no longer be upheld. 'The task of a philosophy which does not wish to fall into the traps of consciousness and the cogito is to purge the transcendental field of all resemblance.' 20 Following from Kant's theory of judgment, we can state that the rejection of the subject means that the logic of the transcendental field cannot be that of a subject-predicate structure. For Kant, in order for a judgment to be made of an object, what is required is for the representations of the object to be subsumed to form a judgment, thus, the statement 'All metals are heavy' requires the subsumption of the representations of 'heaviness' under that of 'metal.' Whilst the judgment itself is based on the reciprocal determination of these terms through the structure of the subordination of the predicate to the subject, the two terms, predicate and subject, are still, in themselves, fully determined. Thus, in order for them to be synthesized, it is necessary that they be held together through a function that remains outside of them. This function, for Kant, is the 'I think,' which remains constant through its application to different elements, thus allowing, through its attachment to these concepts, an element of homogeneity to enter into them, thus overcoming their intrinsic heterogeneity. Removing the transcendental ego from the process of synthesis therefore will require a new model of the way in which the elements of a representation can both exist prior to the subject whilst retaining the possibility of their synthesis.\n\nDeleuze argues that without the possibility of a new logic, philosophy has been led to consider the foundation of the world in terms of two alternatives. On the one hand the 'supreme ,' which relates either to a transcendenI tal subject, or to an absolute Being, and on the other, the undifferentiated abyss. That is to say, in explaining the existence of a subject-predicate structure of states of affairs, it has generally been considered that either this subjectpredicate structure must prefigure that of the empirical world, or that the ground must itself be indeterminate. Thus for Kant, the parallelism between the transcendental and empirical is justified through the necessity of a transcendental field, and at the same time the belief that if this field is to be structured, it must be structured analogously to the empirical. The lack of\n\na belief in an alternative form of differentiation therefore justifies this parallelism by ruling out any other possibilities. In transcendental idealism, the finite subject determines the complete set of possible subject-predicate relations through the table of judgements. Whilst the subject may be finite, his understanding is synthetic, which allows all possible permutations to be related to the pure subject-object structure of the transcendental field. This is for Deleuze merely a variation on the traditional metaphysical concept of God, who as a perfect being contains all possible predicates. In this case, the supreme subject is infinite, and so it forms an analytic unity, possibility already being encompassed in its perfection. In this model, the subject predicate structure of God leads to a parallel structure in states of affairs as their properties are derivative of those of God. Whilst Deleuze recognises that some philosophers have chosen the model of an undifferentiated abyss above that of the transcendental/metaphysical models, this abyss has also always been expressed in terms of subjectpredicate structure. Hence Schopenhauer, for instance, although recognizing the will as existing prior to the categories in an undifferentiated form, allows it only to find coherent expression through the world of representation. Even Nietzsche, in The Birth of Tragedy , requires Dionysus to speak through Apollo. In contrast to both these approaches, Deleuze is looking for a conception of the transcendental field as both pre-individual, in contrast to the transcendental and metaphysical philosophers, for whom being is already individuated at its origin-i.e., already possesses a subjectpredicate structure, and as differentiated, in contrast to the thinkers of the abyss, for whom nothing can be said of being, except as it presents itself in the schematized forms of the phenomenal world. Such a logic moves beyond the conditioning of the Kantian transcendental method by explaining the origin, not just of individual states of affairs, but of the possibility of any state of affairs whatsoever. This is because it is an investigation of the possibility of subject-property structures in general, rather than just showing how empirical structures are conditioned by the transcendental field. Deleuze will say of this logic that it is no longer 'of the form, but neither of the formless: it is rather of the pure unformed.' 21 Form and formlessness cover the two traditional options provided by philosophy. The third option represents the Deleuzian alternative. That which is unformed in itself, but which is still determinable. As the unformed will generate the formed, we can see that there is a fundamental difference in kind between the transcendental and the empirical.\n\nThe difficulty is that, as it stands, and regardless of Deleuze's claims for his proof, Deleuze's arguments have only established the possibility of transcendental empiricism. The structure of his argument runs from the transcendental deduction of Kant, through the rejection of its fundamental axiom, the transcendental unity of apperception in Sartre's work, to the implications of this rejection, as drawn out by Deleuze himself. Sartre does indeed reject the transcendental ego, and while this may be a necessary condition for the move to transcendental empiricism, it proves not to be sufficient. As Deleuze himself will argue, Sartre replaces the unifying function of the transcendental ego with the individuating function of consciousness. In effect, while the specific structures developed by Kant are removed, the underlying logic remains the same within the Sartrean system, with the more developed conception of consciousness finally taking the place t o t h e t r a n s c e n d e n t a l unity of apperception found in Kant's philosophy. This is perhaps not so surprising when we consider Sartre's fundamental axiom, that consciousness is always consciousness of x. The implication of this is that neither consciousness nor its correlate can exist independently of the other, paralleling the celebrated result of Kant himself. The import of this is that Sartre's critique of Kant, whilst providing the grounds for a move away from the concept of a transcendental ego, does not warrant the radical rejection of the structural relations within the transcendental field proposed by Deleuze.\n\n## ENDNOTES\n\n- 1. Gilles, Deleuze, The Logic of Sense , trans. M. Lester (London: Athlone, 1990), 105.\n- 2. Immanuel Kant, I., Critique of Pure Reason , trans. Norman Kemp Smith (London: Macmillan, 1929), 152.\n- carved wood.' Jean-Paul Sartre, 'A Fundamental Idea of t he Phenomenology of Husserl: Intentionality,' taken from Sartre, Truth and Existence , trans. Adrian Van den Hoven (Chicago: University of Chicago Press, 1992), xxvii.\n- 3. I have here equated the transcendental unity of apperception with the transcendental ego. While there are some important differences between the two structures, I hope that the logic of the argument will justify the identification in this context at least.\n- 4. Deleuze, The Logic of Sense , 103.\n- 5. Jean-Paul Sartre, The Transcendence of the Ego , trans. Forrest Williams (New York: Hill and Wang, 1960), 42.\n- 6. Deleuze, The Logic of Sense , 105.\n- 7. Sartre, The Transcendence of the Ego , 34.\n- 8. Ibid., 100.\n- 9. 'Thus, in a stroke, those famous 'subjective'reactions, hatred, love, fear, sympathy, which floated in the foul-smelling brine of the mind, tear themselves away: they are nothing but ways of discovering the world. It is things which are suddenly revealed to us as hateful, sympathetic, horrible, lovable. It is a property of this Japanese mask to be terrible, an inexhaustible, irreducible property which constitutes its very nature-and not the sum of our subjective reactions to a piece of\n- 10. Kant, Critique of Pure Reason , B131-32.\n- 11. Sartre, The Transcendence of the Ego , 34.\n- 12. Ibid., 38.\n- 13. 'In fact this bestowal of sense [which corresponds to the notion of the virtual] . . . would correspond to the conditions posed by Sartre in his decisive article of 1937' (Deleuze, The Logic of Sense , 98).\n- 14. Sartre, The Transcendence of the Ego , 37.\n- 15. Ibid., 41.\n- 16. Ibid., 88.\n- 17. Deleuze, The Logic of Sense , 99.\n- 18. Jean-Paul Sartre, Being and Nothingness: An Essay in Phenomenological Ontology , trans. Hazel Barnes (London: Methuen), 255.\n- 19. 'Formerly I believed that I could escape solipsism by refuting Husserl's concept of the existence of the transcendental 'Ego.'. . . but actually although I am still persuaded that the hypothesis of a transcendental subject is useless and disastrous, abandoning it does not help one bit in solving the problem of the existence of others' (ibid., 235).\n- 20. Deleuze, The Logic of Sense , 123.\n- 21. Ibid., 107.\n\nUniversity of Warwick. CV4 7AL United Kingdom",
+    "responses": [
+      {
+        "source": "gpt-4o-2024-11-20",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"ADU1\": {\n      \"text\": \"The aim of this essay is to show the purpose for which Deleuze uses Sartre's critique of Husserl against Kant, and to show the interrelation between this critique and the establishment of transcendental empiricism.\",\n      \"label\": \"claim\"\n    },\n    \"ADU2\": {\n      \"text\": \"Deleuze's own transcendental empiricism rests on the rejection of two of the fundamental tenets of transcendental idealism, first, the claim that 'the conditions of the object of knowledge must be the same as the conditions of knowledge,' and its corollary, the necessity of the transcendental ego in organizing the transcendental field.\",\n      \"label\": \"premise\"\n    },\n    \"ADU3\": {\n      \"text\": \"Deleuze believes that these two claims in fact imply one another, so that a rejection of one forces us also to reject the other.\",\n      \"label\": \"premise\"\n    },\n    \"ADU4\": {\n      \"text\": \"If this is correct, it would mean that The Transcendence of the Ego would implicitly contain the major axioms of the Deleuzian system, particularly the division between actual states of affairs and virtual singularities.\",\n      \"label\": \"claim\"\n    },\n    \"ADU5\": {\n      \"text\": \"Deleuze, on the other hand, is opposed to any form of individuation of the transcendental field, arguing that if the transcendental field is individuated, the question of the genesis of form itself becomes impossible to deal with, as it is already presupposed within the transcendental field.\",\n      \"label\": \"premise\"\n    },\n    \"ADU6\": {\n      \"text\": \"Central to this analysis will be both Sartre and Deleuze's responses to Kant, and in particular to the argument of the transcendental deduction.\",\n      \"label\": \"claim\"\n    },\n    \"ADU7\": {\n      \"text\": \"Sartre rejects this reason for the transcendental ego on the grounds that unity can be supplied by consciousness itself, and therefore doesn't provide a necessary reason for its existence.\",\n      \"label\": \"premise\"\n    },\n    \"ADU8\": {\n      \"text\": \"We can answer the question of the unity of consciousness by pointing to the unity of the object, which does not itself require a subject to make its unity possible.\",\n      \"label\": \"premise\"\n    },\n    \"ADU9\": {\n      \"text\": \"Consciousness 'unifies itself through escaping itself.'\",\n      \"label\": \"premise\"\n    },\n    \"ADU10\": {\n      \"text\": \"The first three implications of Sartre's critique define the general conditions that Deleuze claims a transcendental empiricism must meet.\",\n      \"label\": \"claim\"\n    },\n    \"ADU11\": {\n      \"text\": \"The difficulty is that, as it stands, and regardless of Deleuze's claims for his proof, Deleuze's arguments have only established the possibility of transcendental empiricism.\",\n      \"label\": \"claim\"\n    },\n    \"ADU12\": {\n      \"text\": \"Sartre does indeed reject the transcendental ego, and while this may be a necessary condition for the move to transcendental empiricism, it proves not to be sufficient.\",\n      \"label\": \"premise\"\n    },\n    \"ADU13\": {\n      \"text\": \"The import of this is that Sartre's critique of Kant, whilst providing the grounds for a move away from the concept of a transcendental ego, does not warrant the radical rejection of the structural relations within the transcendental field proposed by Deleuze.\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"ADU2\",\n      \"target\": \"ADU1\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU3\",\n      \"target\": \"ADU2\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU4\",\n      \"target\": \"ADU3\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU5\",\n      \"target\": \"ADU4\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU7\",\n      \"target\": \"ADU6\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU8\",\n      \"target\": \"ADU7\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU9\",\n      \"target\": \"ADU8\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU12\",\n      \"target\": \"ADU11\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU13\",\n      \"target\": \"ADU12\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "ADU1": {
+              "text": "The aim of this essay is to show the purpose for which Deleuze uses Sartre's critique of Husserl against Kant, and to show the interrelation between this critique and the establishment of transcendental empiricism.",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "Deleuze's own transcendental empiricism rests on the rejection of two of the fundamental tenets of transcendental idealism, first, the claim that 'the conditions of the object of knowledge must be the same as the conditions of knowledge,' and its corollary, the necessity of the transcendental ego in organizing the transcendental field.",
+              "label": "premise"
+            },
+            "ADU3": {
+              "text": "Deleuze believes that these two claims in fact imply one another, so that a rejection of one forces us also to reject the other.",
+              "label": "premise"
+            },
+            "ADU4": {
+              "text": "If this is correct, it would mean that The Transcendence of the Ego would implicitly contain the major axioms of the Deleuzian system, particularly the division between actual states of affairs and virtual singularities.",
+              "label": "claim"
+            },
+            "ADU5": {
+              "text": "Deleuze, on the other hand, is opposed to any form of individuation of the transcendental field, arguing that if the transcendental field is individuated, the question of the genesis of form itself becomes impossible to deal with, as it is already presupposed within the transcendental field.",
+              "label": "premise"
+            },
+            "ADU6": {
+              "text": "Central to this analysis will be both Sartre and Deleuze's responses to Kant, and in particular to the argument of the transcendental deduction.",
+              "label": "claim"
+            },
+            "ADU7": {
+              "text": "Sartre rejects this reason for the transcendental ego on the grounds that unity can be supplied by consciousness itself, and therefore doesn't provide a necessary reason for its existence.",
+              "label": "premise"
+            },
+            "ADU8": {
+              "text": "We can answer the question of the unity of consciousness by pointing to the unity of the object, which does not itself require a subject to make its unity possible.",
+              "label": "premise"
+            },
+            "ADU9": {
+              "text": "Consciousness 'unifies itself through escaping itself.'",
+              "label": "premise"
+            },
+            "ADU10": {
+              "text": "The first three implications of Sartre's critique define the general conditions that Deleuze claims a transcendental empiricism must meet.",
+              "label": "claim"
+            },
+            "ADU11": {
+              "text": "The difficulty is that, as it stands, and regardless of Deleuze's claims for his proof, Deleuze's arguments have only established the possibility of transcendental empiricism.",
+              "label": "claim"
+            },
+            "ADU12": {
+              "text": "Sartre does indeed reject the transcendental ego, and while this may be a necessary condition for the move to transcendental empiricism, it proves not to be sufficient.",
+              "label": "premise"
+            },
+            "ADU13": {
+              "text": "The import of this is that Sartre's critique of Kant, whilst providing the grounds for a move away from the concept of a transcendental ego, does not warrant the radical rejection of the structural relations within the transcendental field proposed by Deleuze.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU2",
+              "target": "ADU1",
+              "type": "support"
+            },
+            {
+              "source": "ADU3",
+              "target": "ADU2",
+              "type": "support"
+            },
+            {
+              "source": "ADU4",
+              "target": "ADU3",
+              "type": "support"
+            },
+            {
+              "source": "ADU5",
+              "target": "ADU4",
+              "type": "support"
+            },
+            {
+              "source": "ADU7",
+              "target": "ADU6",
+              "type": "support"
+            },
+            {
+              "source": "ADU8",
+              "target": "ADU7",
+              "type": "support"
+            },
+            {
+              "source": "ADU9",
+              "target": "ADU8",
+              "type": "support"
+            },
+            {
+              "source": "ADU12",
+              "target": "ADU11",
+              "type": "support"
+            },
+            {
+              "source": "ADU13",
+              "target": "ADU12",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "ADU1": {
+              "text": "The aim of this essay is to show the purpose for which Deleuze uses Sartre's critique of Husserl against Kant, and to show the interrelation between this critique and the establishment of transcendental empiricism.",
+              "label": "claim"
+            },
+            "ADU3": {
+              "text": "Deleuze believes that these two claims in fact imply one another, so that a rejection of one forces us also to reject the other.",
+              "label": "premise"
+            },
+            "ADU4": {
+              "text": "If this is correct, it would mean that The Transcendence of the Ego would implicitly contain the major axioms of the Deleuzian system, particularly the division between actual states of affairs and virtual singularities.",
+              "label": "claim"
+            },
+            "ADU5": {
+              "text": "Deleuze, on the other hand, is opposed to any form of individuation of the transcendental field, arguing that if the transcendental field is individuated, the question of the genesis of form itself becomes impossible to deal with, as it is already presupposed within the transcendental field.",
+              "label": "premise"
+            },
+            "ADU6": {
+              "text": "Central to this analysis will be both Sartre and Deleuze's responses to Kant, and in particular to the argument of the transcendental deduction.",
+              "label": "claim"
+            },
+            "ADU7": {
+              "text": "Sartre rejects this reason for the transcendental ego on the grounds that unity can be supplied by consciousness itself, and therefore doesn't provide a necessary reason for its existence.",
+              "label": "premise"
+            },
+            "ADU8": {
+              "text": "We can answer the question of the unity of consciousness by pointing to the unity of the object, which does not itself require a subject to make its unity possible.",
+              "label": "premise"
+            },
+            "ADU9": {
+              "text": "Consciousness 'unifies itself through escaping itself.'",
+              "label": "premise"
+            },
+            "ADU10": {
+              "text": "The first three implications of Sartre's critique define the general conditions that Deleuze claims a transcendental empiricism must meet.",
+              "label": "claim"
+            },
+            "ADU11": {
+              "text": "The difficulty is that, as it stands, and regardless of Deleuze's claims for his proof, Deleuze's arguments have only established the possibility of transcendental empiricism.",
+              "label": "claim"
+            },
+            "ADU12": {
+              "text": "Sartre does indeed reject the transcendental ego, and while this may be a necessary condition for the move to transcendental empiricism, it proves not to be sufficient.",
+              "label": "premise"
+            },
+            "ADU13": {
+              "text": "The import of this is that Sartre's critique of Kant, whilst providing the grounds for a move away from the concept of a transcendental ego, does not warrant the radical rejection of the structural relations within the transcendental field proposed by Deleuze.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU4",
+              "target": "ADU3",
+              "type": "support"
+            },
+            {
+              "source": "ADU5",
+              "target": "ADU4",
+              "type": "support"
+            },
+            {
+              "source": "ADU7",
+              "target": "ADU6",
+              "type": "support"
+            },
+            {
+              "source": "ADU8",
+              "target": "ADU7",
+              "type": "support"
+            },
+            {
+              "source": "ADU9",
+              "target": "ADU8",
+              "type": "support"
+            },
+            {
+              "source": "ADU12",
+              "target": "ADU11",
+              "type": "support"
+            },
+            {
+              "source": "ADU13",
+              "target": "ADU12",
+              "type": "support"
+            }
+          ]
+        }
+      },
+      {
+        "source": "claude-3-5-sonnet-20241022",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"A1\": {\n      \"text\": \"When Deleuze wishes to provide a critique of the transcendental ego, it is Sartre's early essay, The Transcendence of the Ego, that he turns to in order to justify his move to a conception of the transcendental free from subjective notions.\",\n      \"label\": \"premise\"\n    },\n    \"A2\": {\n      \"text\": \"Deleuze's own transcendental empiricism rests on the rejection of two of the fundamental tenets of transcendental idealism, first, the claim that 'the conditions of the object of knowledge must be the same as the conditions of knowledge,' and its corollary, the necessity of the transcendental ego in organizing the transcendental field.\",\n      \"label\": \"claim\"\n    },\n    \"A3\": {\n      \"text\": \"Deleuze believes that these two claims in fact imply one another, so that a rejection of one forces us also to reject the other.\",\n      \"label\": \"claim\"\n    },\n    \"A4\": {\n      \"text\": \"For Kant, the transcendental field is individuated (it contains a transcendental ego) and structured in a way which parallels the empirical world (the categories are derived from the functions of judgment).\",\n      \"label\": \"premise\"\n    },\n    \"A5\": {\n      \"text\": \"Deleuze is opposed to any form of individuation of the transcendental field, arguing that if the transcendental field is individuated, the question of the genesis of form itself becomes impossible to deal with, as it is already presupposed within the transcendental field.\",\n      \"label\": \"claim\"\n    },\n    \"A6\": {\n      \"text\": \"For Sartre, the difficulty with this argument is that it fails to recognize the possibility of the object itself providing the grounds for the unity of experience\",\n      \"label\": \"claim\"\n    },\n    \"A7\": {\n      \"text\": \"The task of a philosophy which does not wish to fall into the traps of consciousness and the cogito is to purge the transcendental field of all resemblance.\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"A1\",\n      \"target\": \"A2\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A3\",\n      \"target\": \"A2\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A4\",\n      \"target\": \"A5\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A6\",\n      \"target\": \"A5\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A5\",\n      \"target\": \"A7\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "A1": {
+              "text": "When Deleuze wishes to provide a critique of the transcendental ego, it is Sartre's early essay, The Transcendence of the Ego, that he turns to in order to justify his move to a conception of the transcendental free from subjective notions.",
+              "label": "premise"
+            },
+            "A2": {
+              "text": "Deleuze's own transcendental empiricism rests on the rejection of two of the fundamental tenets of transcendental idealism, first, the claim that 'the conditions of the object of knowledge must be the same as the conditions of knowledge,' and its corollary, the necessity of the transcendental ego in organizing the transcendental field.",
+              "label": "claim"
+            },
+            "A3": {
+              "text": "Deleuze believes that these two claims in fact imply one another, so that a rejection of one forces us also to reject the other.",
+              "label": "claim"
+            },
+            "A4": {
+              "text": "For Kant, the transcendental field is individuated (it contains a transcendental ego) and structured in a way which parallels the empirical world (the categories are derived from the functions of judgment).",
+              "label": "premise"
+            },
+            "A5": {
+              "text": "Deleuze is opposed to any form of individuation of the transcendental field, arguing that if the transcendental field is individuated, the question of the genesis of form itself becomes impossible to deal with, as it is already presupposed within the transcendental field.",
+              "label": "claim"
+            },
+            "A6": {
+              "text": "For Sartre, the difficulty with this argument is that it fails to recognize the possibility of the object itself providing the grounds for the unity of experience",
+              "label": "claim"
+            },
+            "A7": {
+              "text": "The task of a philosophy which does not wish to fall into the traps of consciousness and the cogito is to purge the transcendental field of all resemblance.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "A1",
+              "target": "A2",
+              "type": "support"
+            },
+            {
+              "source": "A3",
+              "target": "A2",
+              "type": "support"
+            },
+            {
+              "source": "A4",
+              "target": "A5",
+              "type": "support"
+            },
+            {
+              "source": "A6",
+              "target": "A5",
+              "type": "support"
+            },
+            {
+              "source": "A5",
+              "target": "A7",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "A3": {
+              "text": "Deleuze believes that these two claims in fact imply one another, so that a rejection of one forces us also to reject the other.",
+              "label": "claim"
+            },
+            "A6": {
+              "text": "For Sartre, the difficulty with this argument is that it fails to recognize the possibility of the object itself providing the grounds for the unity of experience",
+              "label": "claim"
+            },
+            "A7": {
+              "text": "The task of a philosophy which does not wish to fall into the traps of consciousness and the cogito is to purge the transcendental field of all resemblance.",
+              "label": "claim"
+            }
+          },
+          "relations": []
+        }
+      }
+    ],
+    "timestamp": 1752749290.79858
+  }
+]

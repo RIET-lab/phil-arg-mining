@@ -1,0 +1,85 @@
+{
+  "ADUs": {
+    "Untitled 1": {
+      "type": "Major Claim",
+      "text": "Man has the chance to become everything."
+    },
+    "Untitled 2": {
+      "type": "Claim",
+      "text": "All things share a portion of God within them, in their own way."
+    },
+    "Untitled 3": {
+      "type": "Claim",
+      "text": "Man contains all things in himself as their center, just like God contains all things as their origin."
+    },
+    "Untitled 4": {
+      "type": "Claim",
+      "text": "Anaxagoras' philosophy can be used in support of principles or theories consistent with the Neoplatonic concept that all things exist in all things in their own mode.",
+      "isImplicit": true
+    },
+    "Untitled 5": {
+      "type": "Claim",
+      "text": "Anaxagoras' philosophy is a precursor to the Neoplatonic concept all things exist in all things in their own mode."
+    },
+    "Untitled 6": {
+      "type": "Claim",
+      "text": "Anaxagoras's metaphysical principle is a subset of Anaxagoras' overarching philosophy.",
+      "isImplicit": true
+    },
+    "Untitled 7": {
+      "type": "Claim",
+      "text": "Anaxagoras's metaphysical principle is supportive of allegorical interpretation."
+    },
+    "Untitled 8": {
+      "type": "Claim",
+      "text": "Allegorical interpretation is indispensable for the specific form of syncretism at play here and related attempts to reveal hidden truths in every text or level of reality."
+    },
+    "Untitled 9": {
+      "type": "Claim",
+      "text": "Conventional/contemporary thought holds that man has a fixed position in the ontological hierarchy.",
+      "isImplicit": true
+    }
+  },
+  "relations": [
+    {
+      "src": "Untitled 3",
+      "tgt": "Untitled 2",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 2",
+      "tgt": "Untitled 1",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 5",
+      "tgt": "Untitled 4",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 6",
+      "tgt": "Untitled 4",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 7",
+      "tgt": "Untitled 4",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 8",
+      "tgt": "Untitled 4",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 4",
+      "tgt": "Untitled 1",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 9",
+      "tgt": "Untitled 1",
+      "type": "support"
+    }
+  ]
+}

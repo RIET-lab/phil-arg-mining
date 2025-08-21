@@ -1,0 +1,9 @@
+The ethical impact of using open-source intelligence (OSINT) for risk-based border checks depends on the specifics of its implementation, not merely on the public availability of the data.
+ + Data-driven, risk-based security measures, which perform 'social sorting', inherently conflict with fundamental rights like privacy.
+ + In situational risk assessment, which avoids personal data, ethical issues still arise.
+  + Situational risk indicators can lead to structural discrimination if they disproportionately affect salient social groups (e.g., all travelers from a specific country).
+  + Mining the darknet for situational risks can violate privacy by using information published without consent and can create a chilling effect on legitimate anonymous activities.
+ + In traveler-specific risk profiling, OSINT use raises even more severe ethical issues.
+  + Obtaining valid, informed consent for OSINT profiling is highly questionable, as travelers may not be aware of all public data about them, leading to violations of 'contextual integrity'.
+  + OSINT profiling can create a chilling effect on legitimate expression (e.g., political criticism) for fear of negative consequences at the border.
+  + Automated profiling risks creating discriminatory 'black box' systems that unfairly target vulnerable groups.

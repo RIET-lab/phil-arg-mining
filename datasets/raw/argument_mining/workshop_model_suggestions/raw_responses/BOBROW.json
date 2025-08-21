@@ -1,0 +1,346 @@
+[
+  {
+    "identifier": "BOBROW",
+    "system_prompt": "## GOAL\nArgument‑mine the following paper to extract its comprehensive argumentative structure.\n\n## DEFINITIONS\n1. **Argument**: A set of propositions, including some number of premises and a conclusion. The premises should logically entail the conclusion.\n2. **Claim**: A proposition that asserts something to be true or false, typically requiring justification or evidence.\n3. **Premise**: A proposition that provides evidence, justification, or logical support for a claim or conclusion.\n\n## CRITICAL REQUIREMENTS\n1. **VERBATIM EXTRACTION ONLY**: Each ADU text must be copied EXACTLY from the paper with no modifications, paraphrasing, or combining of separate sentences.\n2. **NO HALLUCINATION**: Do not create, modify, or invent text that does not appear exactly in the source.\n3. **EXACT MATCHING**: Every word, punctuation mark, and spacing must match the original precisely.\n\n## DIRECTIONS\n1. **Identify Argumentative Discourse Units (ADUs)**  \n   - ADU = any contiguous text span functioning as a claim or a premise in the reasoning structure.\n   - **BE HIGHLY SELECTIVE**: Only include ADUs that are crucial to the overarching argument structure.\n   - Focus on significant claims and premises that contribute meaningfully to the argumentative flow.\n   - **AVOID NOISE**: Skip ADUs that are merely descriptive, tangential, or do not substantially advance the argument.\n   - Prioritize quality over quantity - fewer accurate, important ADUs are better than many insignificant ones.\n   - **EXTRACT ONLY**: Copy text spans exactly as they appear, without any modifications.\n2. **Classify each ADU**  \n   - Label = either `\"claim\"` or `\"premise\"`.  \n3. **Detect directed relations**  \n   - Relation = `\"support\"` or `\"attack\"`, from one ADU (source) to another (target).\n   - Map how ADUs connect to form reasoning chains.\n   - Focus on relationships between the most significant ADUs.\n   - Include relationships between premises that strengthen or weaken each other.\n4. **Verbatim spans**  \n   - Each `\"text\"` value must be copied EXACTLY from the paper with zero modifications.\n   - Do not paraphrase, summarize, or combine separate sentences.\n   - Do not add, remove, or change any words, punctuation, or spacing.\n   - If unsure about exact wording, skip that ADU rather than guess.\n\n## WHAT TO CAPTURE\n**INCLUDE ONLY:**\n- Main argumentative threads that are central to the paper's contribution\n- Core claims that represent the paper's primary arguments or findings\n- Key premises that provide essential support for major claims\n- Critical counterarguments and their refutations\n- Reasoning chains that demonstrate how main conclusions are derived\n\n**EXCLUDE (AVOID NOISE):**\n- Minor details, examples, or descriptive content that don't advance the argument\n- Tangential points or side discussions\n- Pure background information or literature review content\n- Methodological details unless they constitute argumentative claims\n- Obvious statements or commonly accepted facts\n- Redundant or repetitive argumentative content\n\n**GUIDING PRINCIPLE**: If removing an ADU would not significantly impact understanding of the paper's argumentative structure, it should be excluded.\n\n## QUALITY CONTROL\n- Before finalizing each ADU, verify the text exists exactly in the source\n- Prefer fewer, accurate ADUs over many potentially modified ones\n- When in doubt about exact wording, omit the ADU\n\n## OUTPUT FORMAT\nReturn **only** a single valid JSON object matching this schema.  \nDo **not** output any extra text, markdown, or explanations.\nDo **not** add comments.\n**RESPOND WITH ONLY**:\n```json\n{\n  \"ADUs\": {\n    \"<ADU_ID>\": {\n      \"text\": \"<exact span from paper>\",\n      \"label\": \"claim\" | \"premise\"\n    }\n    ...\n  },\n  \"relations\": [\n    {\n      \"source\": \"<ADU_ID>\",\n      \"target\": \"<ADU_ID>\",\n      \"type\": \"support\" | \"attack\"\n    }\n  ]\n}\n```",
+    "user_content": "## Refutation of the article entitled 'Why Frege did not plagiarize the Stoics', PART II\n\nSusanne Bobzien, University of Oxford\n\nIn their paper entitled 'Why Frege did not plagiarize the Stoics: more on the  relationship  between  Fregean  and  Stoic  logic'  (Gabriel  et  al.  2024) Gottfried Gabriel, Karlheinz Hülser and Dolf Rami provide an extended set of arguments for the purpose of showing that Frege did not plagiarize, and could not have plagiarized, the Stoics via Prantl's long chapter on Stoic logic  (Prantl  1855)  or  at  all.  This  four-part  refutation  of  the  paper demonstrates bit by bit that the authors were unsuccessful in pretty much all parts of their argument: individual arguments either miss the point or are methodologically or historically or otherwise factually inaccurate. There are also several other shortcomings. Parts I to III focus mostly wholly on general points that  run  through  the  entire  paper.  Part  IV  lists  individual errors  and  some  unfortunate  recurrent  methodological  and/or  editorial mishaps.\n\nPART II: The authors repeatedly - and wrongly - claim that there is a tradition  of  Stoic  logic  (and  Stoic  logical  terminology)  transmitted continuously  from  antiquity  to  the  19 th century  that  was  generally known  in  the  18 th and  19 th centuries.  In  this  second  part  of  the refutation it is shown that the authors are mistaken on these points, and why.\n\nIn  their  introduction  and  passim  the  authors  argue  that  Frege  took  the German 19 th   century  philosophical  and  logical  tradition  for  granted  and drew on them without acknowledgement, and that this is not plagiarism (e.g. p.435). They assume that in 19 th (and presumably early 20 th ) century Germany, if a theory is generally known and available, then reference to its author is not required. Let us agree on this for argument's sake, although general scholarly practice in the late 19 th and early 20 th centuries does not fully bear this out. In the rest of their introduction the authors argue, among other things: (i) '[i]t is a key feature of Frege's working method to take important traditional views on logic or philosophy as a starting point and then  either  criticize  and  correct  these  views  or  develop  them  in  a  new direction on the basis of new and more systematic background assumptions'\n\nwithout citing his sources; (ii) Stoic logic was part of the traditional view; (iii) therefore , Frege did not plagiarize the Stoics (p.438).\n\nNow, if (ii) were true, this argument might have some force. Only some, since the extent of similarities between Frege's late work and Stoic logic as presented in (not by !, see Refutation Part I) Prantl is of such an extent, that even then one would have expected a mention of either Stoics or Prantl in any academic publication of the time. 1 However, as this second part of the Refutation will show, (ii) is false, and because of this the authors' argument fails regardless.\n\nWhat do the authors have to say about (ii)? On p.437 we find the - entirely unsubstantiated - claim that '[t]here are many philosophers who paved the way for the revolution in logic in the nineteenth century, and who were (a) either well-informed about Stoic logic and referred to relevant sources in their works (e.g. cf. van Calker 1822; Hamilton 1863, Sigwart 1871, 1873 ) or (b) made use of Stoic ideas without knowing their origin' (bracketed letters mine). Lipsius (1547-1606) and the movement of Neo-Stoicism are added for good measure (p.437, fn.9). 2\n\nConsider (a) first . Christoph Sigwart (Sigwart 1871) got his knowledge of Stoic logic from Prantl, to whom he lavishly refers, and Sigwart's work may have incentivized Frege to read Prantl's chapter on Stoic logic (cf. Bobzien 2024b on both points). We do not know precisely when Frege borrowed and read  Sigwart.  In Van Calker 1822,  the  only  pages  on  which  Stoics  are mentioned are pp.59-64. On these pages no content of Stoic logic proper (as opposed to epistemology and ontology) is mentioned. Reference is to ethics, epistemology, ontology and to the detail that for the Stoics logic ( hê logikê technê ,  which includes epistemology and grammar) was a part of philosophy, a factoid much-discussed by the ancient commentators and by\n\n1  Sigwart 1871, Eucken 1878, 1879, Zeller 1856-68; Trendelenburg 1862; Ueberweg 1871; etc. all mention Prantl. Other philosophers and logicians at his time do mention the Stoics (e.g. Husserl, Boole 1854: 3, 24, 49). Neither refers to Stoic logic proper.\n\n2 Gabriel  et  al.  2024  fn.9: (c) 'J.  Lipsius  (1547-1606)  founded  Neo-Stoicism,  a widespread movement, rather influential until the French revolution. It made a modern version of Stoic thought popular in Europe. Though its influence was mainly a political one, some knowledge of Stoic logic was included, too … (d) the more so, as many people read Seneca's writings. (e) Insofar, and for further reasons, also in Frege's time various pieces of Stoic logical thinking were, so to speak 'in the air'.'\n\n19 th century  philosophers  (such  as  Hirzel,  see  Bobzien  2024a).  Of  the ancient  texts  and  passages Van  Calker  refers  to, not  one deals  with  the content of Stoic logic proper. Hamilton 1863 refers to the Stoics precisely twice: on p.10, with the claim that for the Stoics logic is a science (which translates technê ), the same point as in Van Calker; on p.223, attributing to the Stoics the Lazy Argument ( argos logos ),  for  a  detailed  discussion of which see Bobzien 1998, ch.5, of which it is said correctly that the Stoics 'employed [it] as a subsidiary to their doctrine of fate'. There is not a word about Stoic logic proper in the entire book. Hamilton 1863 and Van Calker 1822 are in no way unusual in what they report, and more importantly don't report, about the Stoics. The focus exclusively on epistemology, ontology, ethics,  and  the  classificatory  question  of  whether  logic  was  a  part  or  a method of philosophy was the norm until Prantl's 1855 .  How do we know this? Well, when writing Bobzien 2021, as one would expect of a scholarly project, Bobzien read all the relevant passages in German 19 th -century logic books that Frege might have had access to, as well as some in Latin and in English, to see whether there was any evidence of knowledge at the time of Stoic  logic  proper  (as  opposed  to  epistemology  and  ontology)  as  it  is reported - mostly in the Greek footnotes - in Prantl (cf. Bobzien's 2022 APA Eastern Division Meeting summary paper). The answer is that there is nothing  even  remotely  similar .  (A  longer  paper  on  this  point  is  in preparation. Remember Bobzien 2021 had a firm 30,000-word limit, so she had  to  be  selective.)  As  for  the  footnote  on  Justus Lipsius and  the movement of Neo-Stoicism no evidence is given that Stoic logic proper was in any way part of the movement. This does not surprise, since it is rather unlikely that such evidence exists. The argument using Seneca in the same footnote also provides no evidence that there was any knowledge of Stoic logic: of the nineteen Seneca 'fragments' in Hülser 1987-8 not one deals with the content of Stoic logic proper. Jonathan Barnes' barely twelve pages on Seneca in his Logic and the Imperial Stoa (Barnes 1997) confirms this. So given this complete absence of Stoic logic proper in Pre-Prantlian logic textbooks  in19 th century  Germany  (and  beyond),  the  authors'  point (a) above collapses, as does the authors' inference that 'in Frege's time various pieces of Stoic logical thinking were, so to speak, ' in the air ' ' (p.437, fn. 9, my emphasis).\n\nWhat then about (b) ,  that  '[t]here are many philosophers who paved the way for the revolution in logic in the 19th century, and who […] made use of Stoic ideas without knowing their origin' (p.437)? The authors repeatedly\n\nrefer to this hypothesis that in the 18 th and 19 th centuries many philosophers and logicians made use of ideas of Stoic logic proper without knowing that they are Stoic. 3 Perhaps the 'various pieces of Stoic logical thinking [that] were, so to speak, ' in the air ' ' (p.437, fn. 9) belong here? And also the claims that (iii) Stoic logic was 'a widely known traditional view' 'on logic' or (iv) an 'important traditional view&lt;s&gt; on logic or philosophy' (p.438)? What all these claims have in common is that, in their article, the authors do not offer a single concrete piece of evidence or illustration, of what they have in mind. The authors never say or even hint what these ideas of Stoic logic proper were and whereabouts they were floating in the 19 th century.\n\nWhat could have caused the authors to make these claims? Hidden in fn. 14 we read what is the closest to a hint towards an explanation behind (b) : '[s]everal  textbooks  on  logic  in  the  nineteenth  century  are  full  of  Stoic terminology, since (i) there is a tradition of incorporating Stoic ideas that goes back to the ancient commentators and (ii) propositional logic made a big comeback.' (p.439, fn. 14). No example is given of this alleged Stoic terminology, nor are any of those textbooks mentioned. Nor are we told what the big comeback of propositional logic was. 4 But it offers sufficient information to work with and to refute the claim made.\n\nThe claim of the alleged incorporation of Stoic ideas of logic in many logic textbooks in the (eighteenth and) nineteenth centuries is the result of a once very  common  confusion  between  the  following  two  distinct  families  of theories:  Stoic  propositional  logic  and  Peripatetic-Platonist  hypothetical\n\n3 The  fact  that  there  were  other, non-logical ,  Stoic  ideas  around  and  people  were unaware that they go back to Stoic philosophy is undisputed and not at issue here.\n\n4 In their last footnote (fn.49) the authors write: 'Where ( sic ) there any direct or indirect influences of Stoic ideas on logic in the eighteenth and nineteenth centuries in general? … Maybe the influence of Stoic logic on Frege's conception of logic can be exclusively traced back to the indirect influences of Stoic logic on Kantian logic. We will leave a detailed discussion of this topic for another occasion.' No illustration is provided. The paper only offers a reference to Kant's Logik (Kant 1800, §25), where Kant notes that 'All men are mortal' is not a hypothetical judgement. This suggests that Kant's view differed from that of Chrysippus (see e.g. Bobzien &amp; Shogry 2020 for details, an article the authors know). Since Kant's logical terminology is fully in the non-Stoic tradition of hypothetical syllogistic  and  Kant's  work  shows no familiarity  with  propositional logic, the future project of showing that Kant was the father of all middlemen between Stoic logic and Frege is an interesting one.\n\nsyllogistic. On the one hand, there is the original Stoic syllogistic , which includes  a  Gentzen-style  deductive  system  of  sequent  logic  built  from axiomatic sequences, a negation rule, a simple cut rule, and two further rules  (most  likely  two  more  complex  cut  rules),  iterative  definitions  of operators and of non-simple propositions, a formal notion of validity, as well as a basic notion of completeness, a variable-sharing requirement, and a  lot  more  that  shows  Stoic  awareness  of  essential  elements  of  formal propositional logics (most recently set out in Bobzien 2019, an article the authors  know).  On  the  other  hand,  there  is later  Peripatetic-Platonist hypothetical  syllogistic .  This  hypothetical  syllogistic  has none of  the above features and contains virtually no Stoic terminology. So the authors' claim (b) is simply incorrect.\n\nA little more detail may prove helpful. It is true that between the second century BCE and the third century CE some Stoic logic was fed into the development of the Peripatetic and then Platonist hypothetical syllogistics. (For details see Bobzien 2000a, 2002a, 2002b, 2004, 2014, Speca 2001.) However, at the end of antiquity with perhaps one or two exceptions, all terms  of  hypothetical  syllogistic  are  non-Stoic.  They  were  deliberately replaced with Peripatetic and Platonist terms, based on Greek words present in Aristotle's logic and Plato's dialogues (Bobzien 2002a, 2014, In prep.). At that point, the logic we find in the commentators is a fossilised collection of  mostly  non-propositional  argument  forms  that  were  memorized  and applied  where  deemed  useful  and  that  have  lost  all  the  characteristic features of a propositional logic that were present in Stoic logic. (For details of this development see e.g., roughly in historical order of subject matter, Bobzien 1996, Bobzien 2019, 1997, 2002a, Barnes 1985, Bobzien 2002b, 2004, 2014, 2002c, In prep., Barnes 2002, Bobzien 2000a, 2000b, 2002d, Barnes 1984, also Slomkowski 1997, Speca 2001). It is this theory that was called  hypothetical  syllogistic  from  later  antiquity  onwards  into  the beginning  of  the  20 th century. For  the  Stoics ,  the  term  hypothetical syllogistic denoted something completely different, namely a special part of logic about arguments that contain a supposition ( hupothesis ) instead of a proposition ( axiôma ) as premise (cf. Bobzien 1997, Barnes 1997, Bobzien 2002a).  It  is  this  Peripatetic-Platonist  'logic'  with  its  entirely  non-Stoic character and non-Stoic terminology, which exhibits no sign of a genuine propositional logic and is in many ways confused (see e.g. Bobzien 2004, Bobzien 2014, Bobzien In prep.) that made its way via Arabic, Latin and Byzantine Greek writers through the Middle Ages into modernity, where it\n\nwas eventually translated  into  modern languages  and  further  developed, without ever reaching the status of a genuine propositional logic that Stoic logic had achieved (see above). A comparison of the ancient hypothetical syllogistic with Van Calker 1822, Bolzano 1837, Trendelenburg 1840/1862, 1870.3,  Mill  1843  (German  tr.  1872),  DeMorgan1847,  Ulrici  1852, Boole1854,  Ueberweg  1857,  Hamilton  1863,  etc.,  shows  that  they all discuss  features  of  this  ossified  non-propositional  logic  and  show  no knowledge  of  the  original  Stoic  propositional  logic  that  Prantl  in  his collection of fragments excavated (no doubt drawing on some classicists' editions  for  the  texts  in  his  footnotes)  and  shared  with  the  -  by  then methodologically more demanding - scholars, philosophers and logicians interested in the history of logic. Prantl's work became quickly standard, but other than Sigwart 1871, 1873, (and Frege!) hardly anyone took note of the chapter on Stoic logic , or if they did, realized that Prantl was thoroughly mistaken in his assessment. (Naturally Frege would have realized this, see Bobzien 2021.)\n\nIt is the comparison between the 19 th century non-Stoic approach, steeped in Aristotelian and medieval logic, to the family of hypothetical syllogistics that  were  transmitted  from  late  antiquity  on  the  one  hand  with  the completely different down-to-earth, clear, scientific sounding definitions of all basic logical notions in the Stoic sources in Prantl's footnotes on the other that explains precisely why we can be so sure that Frege drew on Stoic logic much more directly and can have done so only via Prantl (see Bobzien 2021,  2024a,  2024b),  including  the  massive  collection  of  original  texts Frege found in the footnotes . 5 Even mathematically trained logicians like Bolzano, Boole, and DeMorgan still clearly reveal, often in different ways, their  background  in  Aristotelian  logic  and  the  traditional  hypothetical syllogistic and how this makes them struggle to explain their own precursor theories of modern, 19 th century, propositional logic while being trapped in Aristotelian terminology and conceptual structures. So although propositional logic may have been floating somewhere in the German air at Frege's time, there was nothing floating that was even remotely as close to Frege's late work in philosophical logic and philosophy of language than what he found in Prantl's chapter, including the copious footnotes.\n\n5 For Frege's knowledge of Greek see Refutation Part I, Kreiser 2001, Bobzien 2021, Bobzien 2024a.\n\nIt can be concluded that the authors' claims (b) that 19 th century logicians (other than Frege and Prantl and Sigwart where he draws on Prantl) 'made use of Stoic ideas without knowing their origin', that in the 19 th century Stoic logic was 'a widely known traditional view', that 'several textbooks on logic in the nineteenth century are full of Stoic terminology', and that 'pieces of [proper] Stoic logic[…] were, so to speak, 'in the air'', and that 'Frege saw his conception of logic as competitive with and superior to the Stoics,  and  therefore  cannot  be  seen  as  someone  who  reinvented  or plagiarized Stoic logic' 6 are each and every one without any foundation in our evidence and cannot be used as sound reasons against the fact that in his  later  work  Frege  lavishly  borrowed  from  (proper)  Stoic  logic  as  he found it in Prantl's chapter on the Stoics, including the copious footnotes. Thus, in this second part of the refutation, one central part of the argument has been thoroughly deflated.\n\n## References\n\nBarnes,  Jonathan.  1997. Logic  and  the  Imperial  Stoa .  Leiden  and  New York: Brill.\n\nBarnes, Jonathan. 1984. Terms and Sentences Theophrastus on Hypothetical Syllogisms. Proceedings of the British Academy 69:279-326.\n\nBarnes, Jonathan. 1985. Theophrastus and Hypothetical Syllogistic. In J. Wiesner (ed.), Aristoteles: Werk und Wirkung I (Berlin 1985), 557-76.\n\n6 This last claim, from p.445, is particularly puzzling. First, as Frege never mentions the Stoics, let alone Stoic logic, we do not know how he thought his logic compared to theirs. Second, the notions of reinventing and plagiarizing are fully compatible with the re-inventors  or  plagiarizers  going  beyond  what  they  reinvent  or  plagiarize  in  their theory. If some journal-reviewing professor takes original ideas from some graduate students' submission (that they then reject), rephrases them more professionally, adds some complexity, and publishes the result as their own work without acknowledgment of their source, this is unquestionably plagiarism.\n\nBarnes, Jonathan. 2002. Syllogistic in the Anonymous Heiberg. In Katerina Ierodiakonou  (ed.),  Byzantine  philosophy  and  its  ancient  sources.  New York: Clarendon Press.\n\nBobzien,  Susanne.  1996.  Stoic  Syllogistic. Oxford  Studies  in  Ancient Philosophy 14, 133-92. http://philpapers.org/rec/BOBSS\n\nBobzien,  Susanne.  1997.  The  Stoics  on  Hypotheses  and  Hypothetical DOI:\n\nArgument. Phronesis 42, 299-312. http://dx.doi.org/10.1163/15685289760518180\n\nBobzien,  Susanne.  2000a.  Wholly  hypothetical  syllogisms. Phronesis 45, 87-137. DOI: http://dx.doi.org/10.1163/156852800510144\n\nBobzien, Susanne. 2000b. Why the order of the figures of the hypothetical syllogisms was changed. Classical Quarterly 50.1, 247-51. DOI: http://dx.doi.org/10.1093/cq/50.1.247\n\nBobzien, Susanne. 2002a. The development of Modus Ponens in antiquity, Phronesis 47, 359-394. DOI: http://dx.doi.org/10.1163/156852802321016541\n\nBobzien, Susanne. 2002b. Pre-Stoic hypothetical syllogistic in Galen. In V. Nutton  (ed .)  The  Unknown  Galen , Bulletin  of  the  Institute  of  Classical Studies, S77, 57-72. DOI: http://dx.doi.org/10.1111/j.20415370.2002.tb02279.x\n\nBobzien, Susanne. 2002c. Propositional logic in  Ammonius.  In  H. Linneweber-Lammerskitten/G.  Mohr  (eds): Interpretation  und Argument (Festschrift for G. Seel), Würzburg 103-119.\n\nBobzien, Susanne. 2002d. A Greek parallel to Boethius' De Hypotheticis Syllogismis . Mnemosyne 55, 285-300. (First edition of an anon. scholium , with tr. &amp; comm.) DOI: http://dx.doi.org/10.1163/156852502760185270\n\nBobzien, Susanne. 2004. Hypothetical syllogistic in Galen - Propositional logic off the rails? Rhizai Journal for Ancient Philosophy and Science 2, 57-102. http://graphilline.com/product/292/rhizai.html\n\nBobzien, Susanne. 2014. Alexander of Aphrodisias on Aristotle's theory of the Stoic indemonstrables. In M. Lee / M. Schiefsky (eds), From refutation to assent: strategies of argument in Greek and Roman philosophy, Essays in Honour of Gisela Striker , New York: OUP 199-227. DOI: http://philpapers.org/rec/BOBAOA\n\nBobzien, Susanne. 2019. Stoic sequent logic and proof theory. Journal of the History and Philosophy of Logic 40, 234-265. DOI: http://dx.doi.org/10.1080/01445340.2019.1579624\n\nBobzien,  Susanne  and  Simon  Shogry.  2020.  Stoic  logic  and  multiple generality. Philosophers' Imprint Vol.20 no.31, 1-36. http://hdl.handle.net/2027/spo.3521354.0020.031  (Repr.  in Philosopher's Annual vol.40, 2020. http://www.pgrim.org/philosophersannual/ )\n\nBobzien,  Susanne.  2021.  Frege  plagiarised  the  Stoics.  In  F.  Leigh  (ed.) Themes in Plato, Aristotle, and Hellenistic Philosophy: Keeling Lectures 2011-18 ,. London: Wiley 149-206. http://humanities-digitallibrary.org/index.php/hdl/catalog/book/keeling-lectures\n\nBobzien, Susanne. 2024a. Frege, Hirzel, and Stoic  logic. In  Erich  Reck (ed.), Frege's  Place  in  the  History  of  Logic , History  and  Philosophy  of Logic 45.5.\n\nBobzien, Susanne. 2024b. Frege, Sigwart, and Stoic logic, in Erich Reck (ed.), Frege's  Place  in  the  History  of  Logic , History  and  Philosophy  of Logic 45.5.\n\nBobzien, Susanne. In Prep, The making of a Platonist 'propositional' logic.\n\nBobzien, Susanne. Refutation of the article entitled 'Why Frege did not plagiarize the Stoics', PART I, in preparation.\n\nBolzano, Bernard. 1837. Wissenschaftslehre , 4 vols. Sulzbach: Seidel. (2nd rev. ed. by W. Schultz, Leipzig I-II 1929, III 1980, IV 1931; ed. by Jan Berg: Bolzano's Gesamtausgabe , vols. 11-14, 1985-2000).\n\nBoole,  G.  1847. The  Mathematical  Analysis  of  Logic,  Being  an  Essay Towards  a  Calculus  of  Deductive  Reasoning .  Cambridge:  Macmillan, Barclay,  &amp;  Macmillan,  and  London:  George  Bell;  reprinted,  Oxford: Blackwell, 1951.\n\nBoole, George. 1854. An Investigation of the Laws of Thought on Which are  Founded  the  Mathematical  Theories  of  Logic  and  Probabilities . Cambridge:  Macmillan.  (Reprinted  with  corrections,  New  York:  Dover Publications,  1958;  reissued  Cambridge:  Cambridge  University  Press, 2009).\n\nvan Calker, F. 1822. Denklehre oder Logik und Dialektik ,  Bonn: Eduard Weber.\n\nDe Morgan, Augustus. 1847. Formal logic; or, The Calculus of Inference , Necessary and Probably . London: Taylor and Walton.\n\nEucken, R. 1879. Geschichte der philosophischen Terminologie . Leipzig: Veit.\n\nGabriel, Gottfried, Karlheinz Hülser and Sven Schlotter. 2009. Zur Miete bei  Frege  -  Rudolf  Hirzel  und  die  Rezeption  der  stoischen  Logik  und Semantik in Jena. History and Philosophy of Logic 30/4:i369-388.\n\nGabriel, Gottfried , Karlheinz Hülser and Dolf Rami. 2024. Why Frege did plagiarize the Stoics. In Erich Reck (ed.), Frege's Place in the History of Logic , History and Philosophy of Logic 45.5.\n\nHamilton, W. 1863. Logic . Cincinnati: Moore, Wilstach, Keys &amp; Co.\n\nHülser  Karlheinz  (ed.  &amp;  tr).  1987-88. Die  Fragmente zur  Dialektik  der Stoiker.  Neue  Sammlung  der  Texte  mit deutscher Übersetzung  und Kommentarten . 4 Vols. Stuttgart: Frommann-Holzboog.\n\nKant, I. 1800. Logik ,  in  Kants Werke. Akademie Textausgabe, Vol. 9, 1150, Berlin 1968: W. de Gruyter.\n\nKreiser, L. 2001. Gottlob Frege. Leben - Werk - Zeit . Hamburg, F. Meiner.\n\nMill, John Stuart. 1843. A System of Logic, Ratiocinative and Inductive . London: Longmans, Green &amp; co. (German tr.: 1872)\n\nvon Prantl, C. 1855. Geschichte der Logik in Abendlande [ History of Logic in the Occident ]. Vol. 1. Leipzig: Hirzel.\n\nSigwart  1871,  1873  Sigwart,  Christoph.  1873. Logik .  Tübingen:  H. Laupp'sche Buchhandlung.\n\nSlomkowski, Paul. 1997. Aristotle's Topics . Leiden and New York: Brill.\n\nSpeca, Anthony 2001. Hypothetical syllogistic and Stoic logic . Leiden and New York: Brill, 2001.\n\nTrendelenburg, Friedrich Adolf. 1840. Logische Untersuchungen .  2  vols. Leipzig: Hirzel (1862 2 ; 1870 3 ).\n\nUeberweg,  Friedrich.  1857/1871. System  der  Logik  und  Geschichte  der logischen Lehren . Bonn: Marcus. Tr. T. M. Lindsay. 1871. System of Logic and History of Logical Doctrines . London: Longmans, Green &amp; co.\n\nUlrici, Hermann. 1852. System der Logik . Leipzig: Weigel.\n\nZeller, E. 1856-1868. Die Philosophie der Griechen in ihrer geschichtlichen  Entwicklung ,  2.  völlig  umgearbeitete  Auflage,  3  V ols, Leipzig: R. Reisland.\n\nJanuary 2025",
+    "responses": [
+      {
+        "source": "gpt-4o-2024-11-20",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"ADU1\": {\n      \"text\": \"The authors repeatedly - and wrongly - claim that there is a tradition of Stoic logic (and Stoic logical terminology) transmitted continuously from antiquity to the 19th century that was generally known in the 18th and 19th centuries.\",\n      \"label\": \"claim\"\n    },\n    \"ADU2\": {\n      \"text\": \"In this second part of the refutation it is shown that the authors are mistaken on these points, and why.\",\n      \"label\": \"claim\"\n    },\n    \"ADU3\": {\n      \"text\": \"They assume that in 19th (and presumably early 20th) century Germany, if a theory is generally known and available, then reference to its author is not required.\",\n      \"label\": \"premise\"\n    },\n    \"ADU4\": {\n      \"text\": \"Let us agree on this for argument's sake, although general scholarly practice in the late 19th and early 20th centuries does not fully bear this out.\",\n      \"label\": \"premise\"\n    },\n    \"ADU5\": {\n      \"text\": \"(ii) Stoic logic was part of the traditional view;\",\n      \"label\": \"claim\"\n    },\n    \"ADU6\": {\n      \"text\": \"However, as this second part of the Refutation will show, (ii) is false, and because of this the authors' argument fails regardless.\",\n      \"label\": \"claim\"\n    },\n    \"ADU7\": {\n      \"text\": \"On p.437 we find the - entirely unsubstantiated - claim that '[t]here are many philosophers who paved the way for the revolution in logic in the nineteenth century, and who were (a) either well-informed about Stoic logic and referred to relevant sources in their works (e.g. cf. van Calker 1822; Hamilton 1863, Sigwart 1871, 1873) or (b) made use of Stoic ideas without knowing their origin' (bracketed letters mine).\",\n      \"label\": \"premise\"\n    },\n    \"ADU8\": {\n      \"text\": \"So given this complete absence of Stoic logic proper in Pre-Prantlian logic textbooks in 19th century Germany (and beyond), the authors' point (a) above collapses, as does the authors' inference that 'in Frege's time various pieces of Stoic logical thinking were, so to speak, 'in the air'' (p.437, fn. 9, my emphasis).\",\n      \"label\": \"claim\"\n    },\n    \"ADU9\": {\n      \"text\": \"The authors repeatedly refer to this hypothesis that in the 18th and 19th centuries many philosophers and logicians made use of ideas of Stoic logic proper without knowing that they are Stoic.\",\n      \"label\": \"claim\"\n    },\n    \"ADU10\": {\n      \"text\": \"What all these claims have in common is that, in their article, the authors do not offer a single concrete piece of evidence or illustration, of what they have in mind.\",\n      \"label\": \"claim\"\n    },\n    \"ADU11\": {\n      \"text\": \"The claim of the alleged incorporation of Stoic ideas of logic in many logic textbooks in the (eighteenth and) nineteenth centuries is the result of a once very common confusion between the following two distinct families of theories: Stoic propositional logic and Peripatetic-Platonist hypothetical syllogistic.\",\n      \"label\": \"claim\"\n    },\n    \"ADU12\": {\n      \"text\": \"On the one hand, there is the original Stoic syllogistic, which includes a Gentzen-style deductive system of sequent logic built from axiomatic sequences, a negation rule, a simple cut rule, and two further rules (most likely two more complex cut rules), iterative definitions of operators and of non-simple propositions, a formal notion of validity, as well as a basic notion of completeness, a variable-sharing requirement, and a lot more that shows Stoic awareness of essential elements of formal propositional logics.\",\n      \"label\": \"premise\"\n    },\n    \"ADU13\": {\n      \"text\": \"On the other hand, there is later Peripatetic-Platonist hypothetical syllogistic.\",\n      \"label\": \"premise\"\n    },\n    \"ADU14\": {\n      \"text\": \"This hypothetical syllogistic has none of the above features and contains virtually no Stoic terminology.\",\n      \"label\": \"premise\"\n    },\n    \"ADU15\": {\n      \"text\": \"So the authors' claim (b) is simply incorrect.\",\n      \"label\": \"claim\"\n    },\n    \"ADU16\": {\n      \"text\": \"It can be concluded that the authors' claims (b) that 19th century logicians (other than Frege and Prantl and Sigwart where he draws on Prantl) 'made use of Stoic ideas without knowing their origin', that in the 19th century Stoic logic was 'a widely known traditional view', that 'several textbooks on logic in the nineteenth century are full of Stoic terminology', and that 'pieces of [proper] Stoic logic[…] were, so to speak, 'in the air'', and that 'Frege saw his conception of logic as competitive with and superior to the Stoics, and therefore cannot be seen as someone who reinvented or plagiarized Stoic logic' are each and every one without any foundation in our evidence and cannot be used as sound reasons against the fact that in his later work Frege lavishly borrowed from (proper) Stoic logic as he found it in Prantl's chapter on the Stoics, including the copious footnotes.\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"ADU1\",\n      \"target\": \"ADU2\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU3\",\n      \"target\": \"ADU4\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU5\",\n      \"target\": \"ADU6\",\n      \"type\": \"attack\"\n    },\n    {\n      \"source\": \"ADU7\",\n      \"target\": \"ADU8\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU9\",\n      \"target\": \"ADU10\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU11\",\n      \"target\": \"ADU15\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU12\",\n      \"target\": \"ADU13\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU13\",\n      \"target\": \"ADU14\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU15\",\n      \"target\": \"ADU16\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "ADU1": {
+              "text": "The authors repeatedly - and wrongly - claim that there is a tradition of Stoic logic (and Stoic logical terminology) transmitted continuously from antiquity to the 19th century that was generally known in the 18th and 19th centuries.",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "In this second part of the refutation it is shown that the authors are mistaken on these points, and why.",
+              "label": "claim"
+            },
+            "ADU3": {
+              "text": "They assume that in 19th (and presumably early 20th) century Germany, if a theory is generally known and available, then reference to its author is not required.",
+              "label": "premise"
+            },
+            "ADU4": {
+              "text": "Let us agree on this for argument's sake, although general scholarly practice in the late 19th and early 20th centuries does not fully bear this out.",
+              "label": "premise"
+            },
+            "ADU5": {
+              "text": "(ii) Stoic logic was part of the traditional view;",
+              "label": "claim"
+            },
+            "ADU6": {
+              "text": "However, as this second part of the Refutation will show, (ii) is false, and because of this the authors' argument fails regardless.",
+              "label": "claim"
+            },
+            "ADU7": {
+              "text": "On p.437 we find the - entirely unsubstantiated - claim that '[t]here are many philosophers who paved the way for the revolution in logic in the nineteenth century, and who were (a) either well-informed about Stoic logic and referred to relevant sources in their works (e.g. cf. van Calker 1822; Hamilton 1863, Sigwart 1871, 1873) or (b) made use of Stoic ideas without knowing their origin' (bracketed letters mine).",
+              "label": "premise"
+            },
+            "ADU8": {
+              "text": "So given this complete absence of Stoic logic proper in Pre-Prantlian logic textbooks in 19th century Germany (and beyond), the authors' point (a) above collapses, as does the authors' inference that 'in Frege's time various pieces of Stoic logical thinking were, so to speak, 'in the air'' (p.437, fn. 9, my emphasis).",
+              "label": "claim"
+            },
+            "ADU9": {
+              "text": "The authors repeatedly refer to this hypothesis that in the 18th and 19th centuries many philosophers and logicians made use of ideas of Stoic logic proper without knowing that they are Stoic.",
+              "label": "claim"
+            },
+            "ADU10": {
+              "text": "What all these claims have in common is that, in their article, the authors do not offer a single concrete piece of evidence or illustration, of what they have in mind.",
+              "label": "claim"
+            },
+            "ADU11": {
+              "text": "The claim of the alleged incorporation of Stoic ideas of logic in many logic textbooks in the (eighteenth and) nineteenth centuries is the result of a once very common confusion between the following two distinct families of theories: Stoic propositional logic and Peripatetic-Platonist hypothetical syllogistic.",
+              "label": "claim"
+            },
+            "ADU12": {
+              "text": "On the one hand, there is the original Stoic syllogistic, which includes a Gentzen-style deductive system of sequent logic built from axiomatic sequences, a negation rule, a simple cut rule, and two further rules (most likely two more complex cut rules), iterative definitions of operators and of non-simple propositions, a formal notion of validity, as well as a basic notion of completeness, a variable-sharing requirement, and a lot more that shows Stoic awareness of essential elements of formal propositional logics.",
+              "label": "premise"
+            },
+            "ADU13": {
+              "text": "On the other hand, there is later Peripatetic-Platonist hypothetical syllogistic.",
+              "label": "premise"
+            },
+            "ADU14": {
+              "text": "This hypothetical syllogistic has none of the above features and contains virtually no Stoic terminology.",
+              "label": "premise"
+            },
+            "ADU15": {
+              "text": "So the authors' claim (b) is simply incorrect.",
+              "label": "claim"
+            },
+            "ADU16": {
+              "text": "It can be concluded that the authors' claims (b) that 19th century logicians (other than Frege and Prantl and Sigwart where he draws on Prantl) 'made use of Stoic ideas without knowing their origin', that in the 19th century Stoic logic was 'a widely known traditional view', that 'several textbooks on logic in the nineteenth century are full of Stoic terminology', and that 'pieces of [proper] Stoic logic[…] were, so to speak, 'in the air'', and that 'Frege saw his conception of logic as competitive with and superior to the Stoics, and therefore cannot be seen as someone who reinvented or plagiarized Stoic logic' are each and every one without any foundation in our evidence and cannot be used as sound reasons against the fact that in his later work Frege lavishly borrowed from (proper) Stoic logic as he found it in Prantl's chapter on the Stoics, including the copious footnotes.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU1",
+              "target": "ADU2",
+              "type": "support"
+            },
+            {
+              "source": "ADU3",
+              "target": "ADU4",
+              "type": "support"
+            },
+            {
+              "source": "ADU5",
+              "target": "ADU6",
+              "type": "attack"
+            },
+            {
+              "source": "ADU7",
+              "target": "ADU8",
+              "type": "support"
+            },
+            {
+              "source": "ADU9",
+              "target": "ADU10",
+              "type": "support"
+            },
+            {
+              "source": "ADU11",
+              "target": "ADU15",
+              "type": "support"
+            },
+            {
+              "source": "ADU12",
+              "target": "ADU13",
+              "type": "support"
+            },
+            {
+              "source": "ADU13",
+              "target": "ADU14",
+              "type": "support"
+            },
+            {
+              "source": "ADU15",
+              "target": "ADU16",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "ADU1": {
+              "text": "The authors repeatedly - and wrongly - claim that there is a tradition of Stoic logic (and Stoic logical terminology) transmitted continuously from antiquity to the 19th century that was generally known in the 18th and 19th centuries.",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "In this second part of the refutation it is shown that the authors are mistaken on these points, and why.",
+              "label": "claim"
+            },
+            "ADU3": {
+              "text": "They assume that in 19th (and presumably early 20th) century Germany, if a theory is generally known and available, then reference to its author is not required.",
+              "label": "premise"
+            },
+            "ADU4": {
+              "text": "Let us agree on this for argument's sake, although general scholarly practice in the late 19th and early 20th centuries does not fully bear this out.",
+              "label": "premise"
+            },
+            "ADU5": {
+              "text": "(ii) Stoic logic was part of the traditional view;",
+              "label": "claim"
+            },
+            "ADU6": {
+              "text": "However, as this second part of the Refutation will show, (ii) is false, and because of this the authors' argument fails regardless.",
+              "label": "claim"
+            },
+            "ADU7": {
+              "text": "On p.437 we find the - entirely unsubstantiated - claim that '[t]here are many philosophers who paved the way for the revolution in logic in the nineteenth century, and who were (a) either well-informed about Stoic logic and referred to relevant sources in their works (e.g. cf. van Calker 1822; Hamilton 1863, Sigwart 1871, 1873) or (b) made use of Stoic ideas without knowing their origin' (bracketed letters mine).",
+              "label": "premise"
+            },
+            "ADU8": {
+              "text": "So given this complete absence of Stoic logic proper in Pre-Prantlian logic textbooks in 19th century Germany (and beyond), the authors' point (a) above collapses, as does the authors' inference that 'in Frege's time various pieces of Stoic logical thinking were, so to speak, 'in the air'' (p.437, fn. 9, my emphasis).",
+              "label": "claim"
+            },
+            "ADU9": {
+              "text": "The authors repeatedly refer to this hypothesis that in the 18th and 19th centuries many philosophers and logicians made use of ideas of Stoic logic proper without knowing that they are Stoic.",
+              "label": "claim"
+            },
+            "ADU10": {
+              "text": "What all these claims have in common is that, in their article, the authors do not offer a single concrete piece of evidence or illustration, of what they have in mind.",
+              "label": "claim"
+            },
+            "ADU13": {
+              "text": "On the other hand, there is later Peripatetic-Platonist hypothetical syllogistic.",
+              "label": "premise"
+            },
+            "ADU14": {
+              "text": "This hypothetical syllogistic has none of the above features and contains virtually no Stoic terminology.",
+              "label": "premise"
+            },
+            "ADU15": {
+              "text": "So the authors' claim (b) is simply incorrect.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU1",
+              "target": "ADU2",
+              "type": "support"
+            },
+            {
+              "source": "ADU3",
+              "target": "ADU4",
+              "type": "support"
+            },
+            {
+              "source": "ADU5",
+              "target": "ADU6",
+              "type": "attack"
+            },
+            {
+              "source": "ADU7",
+              "target": "ADU8",
+              "type": "support"
+            },
+            {
+              "source": "ADU9",
+              "target": "ADU10",
+              "type": "support"
+            },
+            {
+              "source": "ADU13",
+              "target": "ADU14",
+              "type": "support"
+            }
+          ]
+        }
+      },
+      {
+        "source": "claude-3-5-sonnet-20241022",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"1\": {\n      \"text\": \"In their paper entitled 'Why Frege did not plagiarize the Stoics: more on the relationship between Fregean and Stoic logic' (Gabriel et al. 2024) Gottfried Gabriel, Karlheinz Hülser and Dolf Rami provide an extended set of arguments for the purpose of showing that Frege did not plagiarize, and could not have plagiarized, the Stoics via Prantl's long chapter on Stoic logic (Prantl 1855) or at all.\",\n      \"label\": \"premise\"\n    },\n    \"2\": {\n      \"text\": \"The authors repeatedly - and wrongly - claim that there is a tradition of Stoic logic (and Stoic logical terminology) transmitted continuously from antiquity to the 19th century that was generally known in the 18th and 19th centuries.\",\n      \"label\": \"claim\"\n    },\n    \"3\": {\n      \"text\": \"In their introduction and passim the authors argue that Frege took the German 19th century philosophical and logical tradition for granted and drew on them without acknowledgement, and that this is not plagiarism\",\n      \"label\": \"premise\"\n    },\n    \"4\": {\n      \"text\": \"if a theory is generally known and available, then reference to its author is not required\",\n      \"label\": \"premise\"\n    },\n    \"5\": {\n      \"text\": \"The claim of the alleged incorporation of Stoic ideas of logic in many logic textbooks in the (eighteenth and) nineteenth centuries is the result of a once very common confusion between the following two distinct families of theories: Stoic propositional logic and Peripatetic-Platonist hypothetical syllogistic.\",\n      \"label\": \"claim\"\n    },\n    \"6\": {\n      \"text\": \"It is true that between the second century BCE and the third century CE some Stoic logic was fed into the development of the Peripatetic and then Platonist hypothetical syllogistics.\",\n      \"label\": \"premise\"\n    },\n    \"7\": {\n      \"text\": \"at the end of antiquity with perhaps one or two exceptions, all terms of hypothetical syllogistic are non-Stoic. They were deliberately replaced with Peripatetic and Platonist terms, based on Greek words present in Aristotle's logic and Plato's dialogues\",\n      \"label\": \"premise\"\n    },\n    \"8\": {\n      \"text\": \"So although propositional logic may have been floating somewhere in the German air at Frege's time, there was nothing floating that was even remotely as close to Frege's late work in philosophical logic and philosophy of language than what he found in Prantl's chapter, including the copious footnotes.\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"5\",\n      \"target\": \"2\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"6\",\n      \"target\": \"5\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"7\",\n      \"target\": \"5\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"3\",\n      \"target\": \"4\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"4\",\n      \"target\": \"2\",\n      \"type\": \"attack\"\n    },\n    {\n      \"source\": \"8\",\n      \"target\": \"2\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "1": {
+              "text": "In their paper entitled 'Why Frege did not plagiarize the Stoics: more on the relationship between Fregean and Stoic logic' (Gabriel et al. 2024) Gottfried Gabriel, Karlheinz Hülser and Dolf Rami provide an extended set of arguments for the purpose of showing that Frege did not plagiarize, and could not have plagiarized, the Stoics via Prantl's long chapter on Stoic logic (Prantl 1855) or at all.",
+              "label": "premise"
+            },
+            "2": {
+              "text": "The authors repeatedly - and wrongly - claim that there is a tradition of Stoic logic (and Stoic logical terminology) transmitted continuously from antiquity to the 19th century that was generally known in the 18th and 19th centuries.",
+              "label": "claim"
+            },
+            "3": {
+              "text": "In their introduction and passim the authors argue that Frege took the German 19th century philosophical and logical tradition for granted and drew on them without acknowledgement, and that this is not plagiarism",
+              "label": "premise"
+            },
+            "4": {
+              "text": "if a theory is generally known and available, then reference to its author is not required",
+              "label": "premise"
+            },
+            "5": {
+              "text": "The claim of the alleged incorporation of Stoic ideas of logic in many logic textbooks in the (eighteenth and) nineteenth centuries is the result of a once very common confusion between the following two distinct families of theories: Stoic propositional logic and Peripatetic-Platonist hypothetical syllogistic.",
+              "label": "claim"
+            },
+            "6": {
+              "text": "It is true that between the second century BCE and the third century CE some Stoic logic was fed into the development of the Peripatetic and then Platonist hypothetical syllogistics.",
+              "label": "premise"
+            },
+            "7": {
+              "text": "at the end of antiquity with perhaps one or two exceptions, all terms of hypothetical syllogistic are non-Stoic. They were deliberately replaced with Peripatetic and Platonist terms, based on Greek words present in Aristotle's logic and Plato's dialogues",
+              "label": "premise"
+            },
+            "8": {
+              "text": "So although propositional logic may have been floating somewhere in the German air at Frege's time, there was nothing floating that was even remotely as close to Frege's late work in philosophical logic and philosophy of language than what he found in Prantl's chapter, including the copious footnotes.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "5",
+              "target": "2",
+              "type": "support"
+            },
+            {
+              "source": "6",
+              "target": "5",
+              "type": "support"
+            },
+            {
+              "source": "7",
+              "target": "5",
+              "type": "support"
+            },
+            {
+              "source": "3",
+              "target": "4",
+              "type": "support"
+            },
+            {
+              "source": "4",
+              "target": "2",
+              "type": "attack"
+            },
+            {
+              "source": "8",
+              "target": "2",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "1": {
+              "text": "In their paper entitled 'Why Frege did not plagiarize the Stoics: more on the relationship between Fregean and Stoic logic' (Gabriel et al. 2024) Gottfried Gabriel, Karlheinz Hülser and Dolf Rami provide an extended set of arguments for the purpose of showing that Frege did not plagiarize, and could not have plagiarized, the Stoics via Prantl's long chapter on Stoic logic (Prantl 1855) or at all.",
+              "label": "premise"
+            },
+            "2": {
+              "text": "The authors repeatedly - and wrongly - claim that there is a tradition of Stoic logic (and Stoic logical terminology) transmitted continuously from antiquity to the 19th century that was generally known in the 18th and 19th centuries.",
+              "label": "claim"
+            },
+            "3": {
+              "text": "In their introduction and passim the authors argue that Frege took the German 19th century philosophical and logical tradition for granted and drew on them without acknowledgement, and that this is not plagiarism",
+              "label": "premise"
+            },
+            "4": {
+              "text": "if a theory is generally known and available, then reference to its author is not required",
+              "label": "premise"
+            },
+            "6": {
+              "text": "It is true that between the second century BCE and the third century CE some Stoic logic was fed into the development of the Peripatetic and then Platonist hypothetical syllogistics.",
+              "label": "premise"
+            },
+            "7": {
+              "text": "at the end of antiquity with perhaps one or two exceptions, all terms of hypothetical syllogistic are non-Stoic. They were deliberately replaced with Peripatetic and Platonist terms, based on Greek words present in Aristotle's logic and Plato's dialogues",
+              "label": "premise"
+            },
+            "8": {
+              "text": "So although propositional logic may have been floating somewhere in the German air at Frege's time, there was nothing floating that was even remotely as close to Frege's late work in philosophical logic and philosophy of language than what he found in Prantl's chapter, including the copious footnotes.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "3",
+              "target": "4",
+              "type": "support"
+            },
+            {
+              "source": "4",
+              "target": "2",
+              "type": "attack"
+            },
+            {
+              "source": "8",
+              "target": "2",
+              "type": "support"
+            }
+          ]
+        }
+      }
+    ],
+    "timestamp": 1752753937.426738
+  }
+]

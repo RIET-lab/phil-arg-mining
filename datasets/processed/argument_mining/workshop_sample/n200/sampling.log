@@ -1,0 +1,694 @@
+2025-07-17 03:33:11,000 [INFO] === DATASET SAMPLING ===
+2025-07-17 03:33:11,000 [INFO] Input file: data/metadata/2025-07-09-en-combined-metadata.csv
+2025-07-17 03:33:11,001 [INFO] Output directory: data/annotations/samples/n200
+2025-07-17 03:33:11,001 [INFO] Sample size: 200
+2025-07-17 03:33:11,001 [INFO] Random seed: 42
+2025-07-17 03:33:11,001 [INFO] Allow author repeats: False
+2025-07-17 03:33:11,001 [INFO] Allow year repeats: True
+2025-07-17 03:33:11,001 [INFO] Allow category repeats: True
+2025-07-17 03:33:11,001 [INFO] Loading dataset...
+2025-07-17 03:33:11,354 [INFO] Loaded 87872 papers
+2025-07-17 03:33:11,354 [INFO] Filtering papers...
+2025-07-17 03:33:11,380 [INFO] After type filter: 79244 papers (removed 8628)
+2025-07-17 03:34:58,143 [INFO] After docling + length filter: 66337 papers (removed 12907)
+2025-07-17 03:34:58,227 [INFO] Starting title clustering...
+2025-07-17 03:34:58,234 [INFO] Computing TF-IDF vectors...
+2025-07-17 03:34:58,810 [INFO] TF-IDF matrix shape: (66337, 38272)
+2025-07-17 03:34:58,810 [INFO] Determining optimal number of clusters...
+2025-07-17 03:34:58,810 [INFO] Performing K-means clustering with k=94...
+2025-07-17 03:35:09,160 [INFO] Created 94 clusters with sizes: [382, 395, 699, 556, 364, 438, 912, 436, 5719, 460, 750, 946, 381, 461, 506, 485, 411, 402, 275, 406, 466, 107, 211, 257, 320, 1783, 419, 337, 522, 3798, 310, 424, 234, 414, 582, 376, 500, 469, 559, 9492, 365, 692, 1176, 6408, 516, 368, 288, 716, 317, 822, 385, 331, 341, 533, 1007, 306, 780, 331, 316, 936, 360, 55, 329, 367, 350, 179, 112, 308, 133, 599, 493, 507, 175, 275, 441, 676, 337, 412, 270, 133, 204, 410, 101, 417, 612, 415, 234, 334, 230, 695, 573, 946, 168, 589]
+2025-07-17 03:35:09,166 [INFO] Stratifying within clusters...
+2025-07-17 03:35:09,166 [INFO] Cleaning year data...
+2025-07-17 03:35:09,627 [INFO] Created 42283 unique strata (largest: 201, smallest: 1)
+2025-07-17 03:35:09,628 [INFO] Allocating samples...
+2025-07-17 03:35:09,629 [INFO] Before adjustment: 198 samples allocated (target: 200)
+2025-07-17 03:35:09,629 [INFO] After adjustment: 200 samples allocated (target: 200)
+2025-07-17 03:35:09,630 [INFO] Allocated samples across 94 clusters
+2025-07-17 03:35:09,630 [INFO] Drawing samples...
+2025-07-17 03:35:09,743 [INFO] Philosophy-related papers available: 30246/66337 (45.6%)
+2025-07-17 03:35:09,743 [INFO] Sampling from cluster 39: 31 samples
+2025-07-17 03:35:09,825 [INFO] Sampling from cluster 43: 19 samples
+2025-07-17 03:35:09,902 [INFO] Cluster 43 shortage: 3 samples
+2025-07-17 03:35:10,306 [INFO] Generated 6 suggestions for cluster 43
+2025-07-17 03:35:10,311 [INFO] Sampling from cluster 8: 17 samples
+2025-07-17 03:35:10,468 [INFO] Cluster 8 shortage: 8 samples
+2025-07-17 03:35:10,812 [INFO] Generated 16 suggestions for cluster 8
+2025-07-17 03:35:10,817 [INFO] Sampling from cluster 29: 11 samples
+2025-07-17 03:35:10,865 [INFO] Cluster 29 shortage: 2 samples
+2025-07-17 03:35:11,068 [INFO] Generated 4 suggestions for cluster 29
+2025-07-17 03:35:11,071 [INFO] Sampling from cluster 25: 5 samples
+2025-07-17 03:35:11,085 [INFO] Sampling from cluster 42: 4 samples
+2025-07-17 03:35:11,096 [INFO] Sampling from cluster 54: 3 samples
+2025-07-17 03:35:11,104 [INFO] Sampling from cluster 11: 3 samples
+2025-07-17 03:35:11,113 [INFO] Sampling from cluster 91: 3 samples
+2025-07-17 03:35:11,122 [INFO] Sampling from cluster 59: 3 samples
+2025-07-17 03:35:11,131 [INFO] Sampling from cluster 6: 3 samples
+2025-07-17 03:35:11,140 [INFO] Sampling from cluster 49: 2 samples
+2025-07-17 03:35:11,146 [INFO] Sampling from cluster 56: 2 samples
+2025-07-17 03:35:11,152 [INFO] Sampling from cluster 10: 2 samples
+2025-07-17 03:35:11,158 [INFO] Sampling from cluster 47: 2 samples
+2025-07-17 03:35:11,163 [INFO] Sampling from cluster 2: 2 samples
+2025-07-17 03:35:11,169 [INFO] Sampling from cluster 89: 2 samples
+2025-07-17 03:35:11,174 [INFO] Sampling from cluster 41: 2 samples
+2025-07-17 03:35:11,180 [INFO] Sampling from cluster 75: 2 samples
+2025-07-17 03:35:11,185 [INFO] Sampling from cluster 84: 2 samples
+2025-07-17 03:35:11,206 [INFO] Cluster 84 shortage: 1 samples
+2025-07-17 03:35:11,242 [INFO] Generated 2 suggestions for cluster 84
+2025-07-17 03:35:11,242 [INFO] Sampling from cluster 69: 2 samples
+2025-07-17 03:35:11,248 [INFO] Sampling from cluster 93: 2 samples
+2025-07-17 03:35:11,253 [INFO] Sampling from cluster 34: 2 samples
+2025-07-17 03:35:11,258 [INFO] Sampling from cluster 90: 2 samples
+2025-07-17 03:35:11,263 [INFO] Sampling from cluster 38: 2 samples
+2025-07-17 03:35:11,269 [INFO] Sampling from cluster 3: 2 samples
+2025-07-17 03:35:11,274 [INFO] Sampling from cluster 53: 2 samples
+2025-07-17 03:35:11,279 [INFO] Sampling from cluster 28: 2 samples
+2025-07-17 03:35:11,284 [INFO] Sampling from cluster 44: 2 samples
+2025-07-17 03:35:11,289 [INFO] Sampling from cluster 71: 2 samples
+2025-07-17 03:35:11,302 [INFO] Cluster 71 shortage: 1 samples
+2025-07-17 03:35:11,332 [INFO] Generated 2 suggestions for cluster 71
+2025-07-17 03:35:11,332 [INFO] Sampling from cluster 14: 2 samples
+2025-07-17 03:35:11,338 [INFO] Sampling from cluster 36: 2 samples
+2025-07-17 03:35:11,343 [INFO] Sampling from cluster 70: 1 samples
+2025-07-17 03:35:11,348 [INFO] Sampling from cluster 15: 1 samples
+2025-07-17 03:35:11,352 [INFO] Sampling from cluster 37: 1 samples
+2025-07-17 03:35:11,357 [INFO] Sampling from cluster 20: 1 samples
+2025-07-17 03:35:11,362 [INFO] Sampling from cluster 13: 1 samples
+2025-07-17 03:35:11,366 [INFO] Sampling from cluster 9: 1 samples
+2025-07-17 03:35:11,371 [INFO] Sampling from cluster 74: 1 samples
+2025-07-17 03:35:11,375 [INFO] Sampling from cluster 5: 1 samples
+2025-07-17 03:35:11,380 [INFO] Sampling from cluster 7: 1 samples
+2025-07-17 03:35:11,384 [INFO] Sampling from cluster 31: 1 samples
+2025-07-17 03:35:11,389 [INFO] Sampling from cluster 26: 1 samples
+2025-07-17 03:35:11,393 [INFO] Sampling from cluster 83: 1 samples
+2025-07-17 03:35:11,398 [INFO] Sampling from cluster 85: 1 samples
+2025-07-17 03:35:11,402 [INFO] Sampling from cluster 33: 1 samples
+2025-07-17 03:35:11,407 [INFO] Sampling from cluster 77: 1 samples
+2025-07-17 03:35:11,411 [INFO] Sampling from cluster 16: 1 samples
+2025-07-17 03:35:11,415 [INFO] Sampling from cluster 81: 1 samples
+2025-07-17 03:35:11,419 [INFO] Sampling from cluster 19: 1 samples
+2025-07-17 03:35:11,423 [INFO] Sampling from cluster 17: 1 samples
+2025-07-17 03:35:11,435 [INFO] Cluster 17 shortage: 1 samples
+2025-07-17 03:35:11,459 [INFO] Generated 2 suggestions for cluster 17
+2025-07-17 03:35:11,459 [INFO] Sampling from cluster 1: 1 samples
+2025-07-17 03:35:11,464 [INFO] Sampling from cluster 50: 1 samples
+2025-07-17 03:35:11,469 [INFO] Sampling from cluster 0: 1 samples
+2025-07-17 03:35:11,473 [INFO] Sampling from cluster 12: 1 samples
+2025-07-17 03:35:11,477 [INFO] Sampling from cluster 35: 1 samples
+2025-07-17 03:35:11,482 [INFO] Sampling from cluster 45: 1 samples
+2025-07-17 03:35:11,494 [INFO] Cluster 45 shortage: 1 samples
+2025-07-17 03:35:11,544 [INFO] Generated 2 suggestions for cluster 45
+2025-07-17 03:35:11,544 [INFO] Sampling from cluster 63: 1 samples
+2025-07-17 03:35:11,557 [INFO] Cluster 63 shortage: 1 samples
+2025-07-17 03:35:11,579 [INFO] Generated 2 suggestions for cluster 63
+2025-07-17 03:35:11,580 [INFO] Sampling from cluster 40: 1 samples
+2025-07-17 03:35:11,584 [INFO] Sampling from cluster 4: 1 samples
+2025-07-17 03:35:11,596 [INFO] Cluster 4 shortage: 1 samples
+2025-07-17 03:35:11,618 [INFO] Generated 2 suggestions for cluster 4
+2025-07-17 03:35:11,619 [INFO] Sampling from cluster 60: 1 samples
+2025-07-17 03:35:11,623 [INFO] Sampling from cluster 64: 1 samples
+2025-07-17 03:35:11,627 [INFO] Sampling from cluster 52: 1 samples
+2025-07-17 03:35:11,639 [INFO] Cluster 52 shortage: 1 samples
+2025-07-17 03:35:11,660 [INFO] Generated 2 suggestions for cluster 52
+2025-07-17 03:35:11,661 [INFO] Sampling from cluster 76: 1 samples
+2025-07-17 03:35:11,665 [INFO] Sampling from cluster 27: 1 samples
+2025-07-17 03:35:11,669 [INFO] Sampling from cluster 87: 1 samples
+2025-07-17 03:35:11,673 [INFO] Sampling from cluster 57: 1 samples
+2025-07-17 03:35:11,678 [INFO] Sampling from cluster 51: 1 samples
+2025-07-17 03:35:11,682 [INFO] Sampling from cluster 62: 1 samples
+2025-07-17 03:35:11,686 [INFO] Sampling from cluster 24: 1 samples
+2025-07-17 03:35:11,690 [INFO] Sampling from cluster 48: 1 samples
+2025-07-17 03:35:11,694 [INFO] Sampling from cluster 58: 1 samples
+2025-07-17 03:35:11,698 [INFO] Sampling from cluster 30: 1 samples
+2025-07-17 03:35:11,702 [INFO] Sampling from cluster 67: 1 samples
+2025-07-17 03:35:11,706 [INFO] Sampling from cluster 55: 1 samples
+2025-07-17 03:35:11,718 [INFO] Cluster 55 shortage: 1 samples
+2025-07-17 03:35:11,736 [INFO] Generated 2 suggestions for cluster 55
+2025-07-17 03:35:11,736 [INFO] Sampling from cluster 46: 1 samples
+2025-07-17 03:35:11,740 [INFO] Sampling from cluster 73: 1 samples
+2025-07-17 03:35:11,744 [INFO] Sampling from cluster 18: 1 samples
+2025-07-17 03:35:11,748 [INFO] Sampling from cluster 78: 1 samples
+2025-07-17 03:35:11,753 [INFO] Sampling from cluster 23: 1 samples
+2025-07-17 03:35:11,764 [INFO] Cluster 23 shortage: 1 samples
+2025-07-17 03:35:11,780 [INFO] Generated 2 suggestions for cluster 23
+2025-07-17 03:35:11,780 [INFO] Sampling from cluster 86: 1 samples
+2025-07-17 03:35:11,785 [INFO] Sampling from cluster 32: 1 samples
+2025-07-17 03:35:11,789 [INFO] Sampling from cluster 88: 1 samples
+2025-07-17 03:35:11,800 [INFO] Cluster 88 shortage: 1 samples
+2025-07-17 03:35:11,814 [INFO] Generated 2 suggestions for cluster 88
+2025-07-17 03:35:11,815 [INFO] Sampling from cluster 22: 1 samples
+2025-07-17 03:35:11,819 [INFO] Sampling from cluster 80: 1 samples
+2025-07-17 03:35:11,823 [INFO] Sampling from cluster 65: 1 samples
+2025-07-17 03:35:11,826 [INFO] Sampling from cluster 72: 1 samples
+2025-07-17 03:35:11,830 [INFO] Sampling from cluster 92: 1 samples
+2025-07-17 03:35:11,835 [INFO] Philosophy papers in sample: 155/177 (87.6%)
+2025-07-17 03:35:11,835 [INFO] Successfully sampled 177 papers
+2025-07-17 03:35:11,837 [INFO] Generated 46 suggestions for missing samples
+2025-07-17 03:35:11,837 [WARNING] Only 177 papers sampled out of 200 requested
+2025-07-17 03:35:11,837 [WARNING] Generated 46 suggestions to fill gaps
+2025-07-17 03:35:11,843 [INFO] Sample saved to: data/annotations/samples/n200/sample.csv
+2025-07-17 03:35:12,406 [INFO] Stratified dataset saved to: data/annotations/samples/n200/stratified_dataset.csv
+2025-07-17 03:35:12,411 [INFO] Suggestions saved to: data/annotations/samples/n200/suggestions.csv
+2025-07-17 03:35:12,411 [INFO] 
+=== SAMPLING SUMMARY ===
+2025-07-17 03:35:12,412 [INFO] Total papers in dataset: 87,872
+2025-07-17 03:35:12,412 [INFO] Papers sampled: 177
+2025-07-17 03:35:12,412 [INFO] Sampling rate: 0.20%
+2025-07-17 03:35:12,412 [INFO] Number of clusters: 94
+2025-07-17 03:35:12,412 [INFO] Random seed used: 42
+2025-07-17 03:35:12,412 [INFO] Suggestions generated: 46
+2025-07-17 03:35:12,413 [INFO] Sample spans 80 clusters
+2025-07-17 03:35:12,413 [INFO] Results saved to: data/annotations/samples/n200
+2025-07-17 03:35:13,746 [INFO] === SAMPLE SUPPLEMENTATION ===
+2025-07-17 03:35:13,746 [INFO] Sample directory: data/annotations/samples/n200
+2025-07-17 03:35:13,746 [INFO] Target sample size: 200
+2025-07-17 03:35:13,747 [INFO] Random seed: 42
+2025-07-17 03:35:13,752 [INFO] Found existing sample with 177 papers
+2025-07-17 03:35:13,752 [INFO] Found suggestions file with 46 suggestions
+2025-07-17 03:35:13,753 [INFO] Current sample size: 177
+2025-07-17 03:35:13,753 [INFO] Target sample size: 200
+2025-07-17 03:35:13,753 [INFO] Shortfall: 23
+2025-07-17 03:35:13,753 [INFO] Randomizing suggestions order (seed: 42)
+2025-07-17 03:50:00,710 [INFO] Updated sample size: 195
+2025-07-17 03:50:00,711 [INFO] Added 18 approved suggestions to sample
+2025-07-17 03:50:00,718 [INFO] Updated sample saved to: data/annotations/samples/n200/sample.csv
+2025-07-17 03:50:00,721 [INFO] Original sample backed up to: data/annotations/samples/n200/sample_original.csv
+2025-07-17 03:50:00,721 [INFO] 
+=== SUPPLEMENTATION SUMMARY ===
+2025-07-17 03:50:00,722 [INFO] Original sample size: 177
+2025-07-17 03:50:00,722 [INFO] Final sample size: 195
+2025-07-17 03:50:00,722 [INFO] Suggestions added: 18
+2025-07-17 03:50:00,722 [INFO] Target achieved: False
+2025-07-17 03:50:00,722 [WARNING] Could not reach target size of 200
+2025-07-17 03:50:00,722 [WARNING] Consider relaxing constraints or generating more suggestions
+2025-07-17 03:54:52,123 [INFO] === ADDING PAPERS TO SAMPLE ===
+2025-07-17 03:54:52,123 [INFO] Sample directory: data/annotations/samples/n200
+2025-07-17 03:54:52,123 [INFO] Papers to add: 5
+2025-07-17 03:54:52,123 [INFO] Philosophy only: True
+2025-07-17 03:54:52,123 [INFO] Random seed: 42
+2025-07-17 03:54:52,465 [INFO] Loaded sample with 195 papers
+2025-07-17 03:54:52,465 [INFO] Loaded stratified dataset with 66337 papers
+2025-07-17 03:54:52,488 [INFO] Found 66142 papers not in current sample
+2025-07-17 03:54:52,647 [INFO] Filtered to 30085 philosophy-related papers
+2025-07-17 03:54:52,648 [INFO] Selected 15 random candidates
+2025-07-17 04:10:44,745 [INFO] Successfully added 3 papers to sample
+2025-07-17 04:10:44,903 [INFO] Updated sample saved to: data/annotations/samples/n200/sample.csv
+2025-07-17 04:10:44,907 [INFO] Original sample backed up to: data/annotations/samples/n200/sample_before_additions.csv
+2025-07-17 04:11:36,256 [INFO] === ADDING PAPERS TO SAMPLE ===
+2025-07-17 04:11:36,256 [INFO] Sample directory: data/annotations/samples/n200
+2025-07-17 04:11:36,257 [INFO] Papers to add: 2
+2025-07-17 04:11:36,257 [INFO] Philosophy only: True
+2025-07-17 04:11:36,257 [INFO] Random seed: 42
+2025-07-17 04:11:36,591 [INFO] Loaded sample with 198 papers
+2025-07-17 04:11:36,591 [INFO] Loaded stratified dataset with 66337 papers
+2025-07-17 04:11:36,608 [INFO] Found 66139 papers not in current sample
+2025-07-17 04:11:36,771 [INFO] Filtered to 30082 philosophy-related papers
+2025-07-17 04:11:36,773 [INFO] Selected 6 random candidates
+2025-07-17 04:12:47,876 [INFO] Successfully added 2 papers to sample
+2025-07-17 04:12:47,884 [INFO] Updated sample saved to: data/annotations/samples/n200/sample.csv
+2025-07-17 22:59:28,001 [INFO] === PAPER REPLACEMENT ===
+2025-07-17 22:59:28,001 [INFO] Sample directory: data/annotations/samples/n200
+2025-07-17 22:59:28,021 [INFO] Paper to replace: GORHOS
+2025-07-17 22:59:28,021 [INFO] Random seed: 42
+2025-07-17 22:59:28,384 [INFO] Loaded sample with 200 papers
+2025-07-17 22:59:28,384 [INFO] Loaded stratified dataset with 66337 papers
+2025-07-17 22:59:28,777 [INFO] Finding candidates from stratum: 39|Q1|11/12th Century Philosophy, Misc
+2025-07-17 22:59:28,783 [INFO] Found 0 available papers in stratum
+2025-07-17 22:59:28,783 [WARNING] No replacement candidates available in the same stratum
+2025-07-17 22:59:28,784 [ERROR] No replacement candidates found
+2025-07-17 23:03:38,495 [INFO] === PAPER REPLACEMENT ===
+2025-07-17 23:03:38,495 [INFO] Sample directory: data/annotations/samples/n200
+2025-07-17 23:03:38,495 [INFO] Paper to replace: GORHOS
+2025-07-17 23:03:38,496 [INFO] Random seed: 42
+2025-07-17 23:03:38,843 [INFO] Loaded sample with 200 papers
+2025-07-17 23:03:38,843 [INFO] Loaded stratified dataset with 66337 papers
+2025-07-17 23:03:39,259 [INFO] Finding candidates from stratum: 39|Q1|11/12th Century Philosophy, Misc
+2025-07-17 23:03:39,266 [INFO] Found 0 available papers in stratum
+2025-07-17 23:03:39,266 [WARNING] No replacement candidates available in the same stratum
+2025-07-17 23:03:39,267 [ERROR] No replacement candidates found
+2025-07-17 23:03:58,549 [INFO] === PAPER REPLACEMENT ===
+2025-07-17 23:03:58,549 [INFO] Sample directory: data/annotations/samples/n200
+2025-07-17 23:03:58,550 [INFO] Paper to replace: REAETW
+2025-07-17 23:03:58,550 [INFO] Random seed: 42
+2025-07-17 23:03:58,884 [INFO] Loaded sample with 200 papers
+2025-07-17 23:03:58,884 [INFO] Loaded stratified dataset with 66337 papers
+2025-07-17 23:03:59,273 [INFO] Finding candidates from stratum: 39|Q1|13th/14th Century Philosophy
+2025-07-17 23:03:59,279 [INFO] Found 0 available papers in stratum
+2025-07-17 23:03:59,279 [WARNING] No replacement candidates available in the same stratum
+2025-07-17 23:03:59,280 [ERROR] No replacement candidates found
+2025-07-17 23:05:21,767 [INFO] === PAPER REPLACEMENT ===
+2025-07-17 23:05:21,767 [INFO] Sample directory: data/annotations/samples/n200
+2025-07-17 23:05:21,767 [INFO] Paper to replace: KORCPI
+2025-07-17 23:05:21,767 [INFO] Random seed: 42
+2025-07-17 23:05:22,106 [INFO] Loaded sample with 200 papers
+2025-07-17 23:05:22,107 [INFO] Loaded stratified dataset with 66337 papers
+2025-07-17 23:05:22,512 [INFO] Finding candidates from stratum: 39|Q1|15th/16th Century Philosophy, Misc
+2025-07-17 23:05:22,519 [INFO] Found 0 available papers in stratum
+2025-07-17 23:05:22,519 [WARNING] No replacement candidates available in the same stratum
+2025-07-17 23:05:22,520 [ERROR] No replacement candidates found
+2025-07-17 23:05:29,538 [INFO] === PAPER REPLACEMENT ===
+2025-07-17 23:05:29,538 [INFO] Sample directory: data/annotations/samples/n200
+2025-07-17 23:05:29,538 [INFO] Paper to replace: TAPJP
+2025-07-17 23:05:29,538 [INFO] Random seed: 42
+2025-07-17 23:05:29,876 [INFO] Loaded sample with 200 papers
+2025-07-17 23:05:29,876 [INFO] Loaded stratified dataset with 66337 papers
+2025-07-17 23:05:30,253 [INFO] Finding candidates from stratum: 39|Q1|17th/18th Century British Philosophy, Misc
+2025-07-17 23:05:30,259 [INFO] Found 3 available papers in stratum
+2025-07-17 23:34:18,070 [INFO] === PAPER REPLACEMENT ===
+2025-07-17 23:34:18,070 [INFO] Sample directory: data/annotations/samples/n200
+2025-07-17 23:34:18,088 [INFO] Paper to replace: GORHOS
+2025-07-17 23:34:18,088 [INFO] Random seed: 42
+2025-07-17 23:34:18,430 [INFO] Loaded sample with 200 papers
+2025-07-17 23:34:18,431 [INFO] Loaded stratified dataset with 66337 papers
+2025-07-17 23:34:18,898 [INFO] Finding candidates from stratum: 39|Q1|11/12th Century Philosophy, Misc
+2025-07-17 23:34:18,906 [INFO] Found 0 available papers in stratum
+2025-07-17 23:34:18,906 [WARNING] No replacement candidates available in the same stratum
+2025-07-17 23:34:18,906 [ERROR] No replacement candidates found
+2025-07-17 23:34:53,305 [INFO] === PAPER REPLACEMENT ===
+2025-07-17 23:34:53,305 [INFO] Sample directory: data/annotations/samples/n200
+2025-07-17 23:34:53,306 [INFO] Paper to replace: REAETW
+2025-07-17 23:34:53,306 [INFO] Random seed: 42
+2025-07-17 23:34:53,652 [INFO] Loaded sample with 200 papers
+2025-07-17 23:34:53,652 [INFO] Loaded stratified dataset with 66337 papers
+2025-07-17 23:34:54,052 [INFO] Finding candidates from stratum: 39|Q1|13th/14th Century Philosophy
+2025-07-17 23:34:54,059 [INFO] Found 0 available papers in stratum
+2025-07-17 23:34:54,059 [WARNING] No replacement candidates available in the same stratum
+2025-07-17 23:34:54,060 [ERROR] No replacement candidates found
+2025-07-17 23:35:39,352 [INFO] === PAPER REPLACEMENT ===
+2025-07-17 23:35:39,352 [INFO] Sample directory: data/annotations/samples/n200
+2025-07-17 23:35:39,352 [INFO] Paper to replace: KORCPI
+2025-07-17 23:35:39,353 [INFO] Random seed: 42
+2025-07-17 23:35:39,696 [INFO] Loaded sample with 200 papers
+2025-07-17 23:35:39,696 [INFO] Loaded stratified dataset with 66337 papers
+2025-07-17 23:35:40,106 [INFO] Finding candidates from stratum: 39|Q1|15th/16th Century Philosophy, Misc
+2025-07-17 23:35:40,114 [INFO] Found 0 available papers in stratum
+2025-07-17 23:35:40,114 [WARNING] No replacement candidates available in the same stratum
+2025-07-17 23:35:40,115 [ERROR] No replacement candidates found
+2025-07-17 23:37:04,123 [INFO] === PAPER REPLACEMENT ===
+2025-07-17 23:37:04,123 [INFO] Sample directory: data/annotations/samples/n200
+2025-07-17 23:37:04,124 [INFO] Paper to replace: TAPJP
+2025-07-17 23:37:04,124 [INFO] Random seed: 42
+2025-07-17 23:37:04,467 [INFO] Loaded sample with 200 papers
+2025-07-17 23:37:04,468 [INFO] Loaded stratified dataset with 66337 papers
+2025-07-17 23:37:04,881 [INFO] Finding candidates from stratum: 39|Q1|17th/18th Century British Philosophy, Misc
+2025-07-17 23:37:04,889 [INFO] Found 3 available papers in stratum
+2025-07-17 23:38:41,102 [INFO] Successfully replaced TAPJP with MCRMST-2
+2025-07-17 23:38:41,110 [INFO] Updated sample saved to: data/annotations/samples/n200/sample.csv
+2025-07-17 23:38:41,163 [INFO] Original sample backed up to: data/annotations/samples/n200/sample_before_replacements.csv
+2025-07-17 23:38:58,393 [INFO] === PAPER REPLACEMENT ===
+2025-07-17 23:38:58,393 [INFO] Sample directory: data/annotations/samples/n200
+2025-07-17 23:38:58,393 [INFO] Paper to replace: MORLEV
+2025-07-17 23:38:58,394 [INFO] Random seed: 42
+2025-07-17 23:38:58,729 [INFO] Loaded sample with 200 papers
+2025-07-17 23:38:58,729 [INFO] Loaded stratified dataset with 66337 papers
+2025-07-17 23:38:59,136 [INFO] Finding candidates from stratum: 39|Q1|17th/18th Century Logic
+2025-07-17 23:38:59,143 [INFO] Found 0 available papers in stratum
+2025-07-17 23:38:59,143 [WARNING] No replacement candidates available in the same stratum
+2025-07-17 23:38:59,144 [ERROR] No replacement candidates found
+2025-07-17 23:39:57,383 [INFO] === PAPER REPLACEMENT ===
+2025-07-17 23:39:57,383 [INFO] Sample directory: data/annotations/samples/n200
+2025-07-17 23:39:57,384 [INFO] Paper to replace: EBEIOI
+2025-07-17 23:39:57,384 [INFO] Random seed: 42
+2025-07-17 23:39:57,727 [INFO] Loaded sample with 200 papers
+2025-07-17 23:39:57,727 [INFO] Loaded stratified dataset with 66337 papers
+2025-07-17 23:39:58,122 [INFO] Finding candidates from stratum: 39|Q1|17th/18th Century Philosophy
+2025-07-17 23:39:58,128 [INFO] Found 0 available papers in stratum
+2025-07-17 23:39:58,128 [WARNING] No replacement candidates available in the same stratum
+2025-07-17 23:39:58,129 [ERROR] No replacement candidates found
+2025-07-18 02:53:14,793 [INFO] === PAPER REPLACEMENT ===
+2025-07-18 02:53:14,793 [INFO] Sample directory: data/annotations/samples/n200
+2025-07-18 02:53:14,810 [INFO] Paper to replace: DRIFSA
+2025-07-18 02:53:14,810 [INFO] Random seed: 42
+2025-07-18 02:53:15,174 [INFO] Loaded sample with 200 papers
+2025-07-18 02:53:15,174 [INFO] Loaded stratified dataset with 66337 papers
+2025-07-18 02:53:15,584 [INFO] Finding candidates from stratum: 39|Q1|18th Century German Philosophy, Misc
+2025-07-18 02:53:15,592 [INFO] Found 0 available papers in stratum
+2025-07-18 02:53:15,592 [WARNING] No replacement candidates available in the same stratum
+2025-07-18 02:53:15,593 [ERROR] No replacement candidates found
+2025-07-18 02:54:48,977 [INFO] === PAPER REPLACEMENT ===
+2025-07-18 02:54:48,977 [INFO] Sample directory: data/annotations/samples/n200
+2025-07-18 02:54:48,978 [INFO] Paper to replace: ANDHK
+2025-07-18 02:54:48,978 [INFO] Random seed: 42
+2025-07-18 02:54:49,310 [INFO] Loaded sample with 200 papers
+2025-07-18 02:54:49,310 [INFO] Loaded stratified dataset with 66337 papers
+2025-07-18 02:54:49,705 [INFO] Finding candidates from stratum: 39|Q1|19th Century Philosophy
+2025-07-18 02:54:49,713 [INFO] Found 0 available papers in stratum
+2025-07-18 02:54:49,713 [WARNING] No replacement candidates available in the same stratum
+2025-07-18 02:54:49,713 [ERROR] No replacement candidates found
+2025-07-18 02:55:44,279 [INFO] === PAPER REPLACEMENT ===
+2025-07-18 02:55:44,280 [INFO] Sample directory: data/annotations/samples/n200
+2025-07-18 02:55:44,280 [INFO] Paper to replace: MEIJBT
+2025-07-18 02:55:44,280 [INFO] Random seed: 42
+2025-07-18 02:55:44,623 [INFO] Loaded sample with 200 papers
+2025-07-18 02:55:44,623 [INFO] Loaded stratified dataset with 66337 papers
+2025-07-18 02:55:45,022 [INFO] Finding candidates from stratum: 39|Q2|13th/14th Century Philosophy, Misc
+2025-07-18 02:55:45,028 [INFO] Found 1 available papers in stratum
+2025-07-18 02:56:21,160 [INFO] User chose to keep current paper
+2025-07-18 02:58:18,816 [INFO] === PAPER REPLACEMENT ===
+2025-07-18 02:58:18,816 [INFO] Sample directory: data/annotations/samples/n200
+2025-07-18 02:58:18,817 [INFO] Paper to replace: ANTRSW
+2025-07-18 02:58:18,817 [INFO] Random seed: 42
+2025-07-18 02:58:19,160 [INFO] Loaded sample with 200 papers
+2025-07-18 02:58:19,160 [INFO] Loaded stratified dataset with 66337 papers
+2025-07-18 02:58:19,574 [INFO] Finding candidates from stratum: 39|Q2|17th/18th Century Philosophy
+2025-07-18 02:58:19,582 [INFO] Found 1 available papers in stratum
+2025-07-18 02:58:31,099 [INFO] User chose to keep current paper
+2025-07-18 03:00:41,890 [INFO] === PAPER REPLACEMENT ===
+2025-07-18 03:00:41,890 [INFO] Sample directory: data/annotations/samples/n200
+2025-07-18 03:00:41,891 [INFO] Paper to replace: PAUEGA
+2025-07-18 03:00:41,891 [INFO] Random seed: 42
+2025-07-18 03:00:42,217 [INFO] Loaded sample with 200 papers
+2025-07-18 03:00:42,218 [INFO] Loaded stratified dataset with 66337 papers
+2025-07-18 03:00:42,621 [INFO] Finding candidates from stratum: 39|Q2|19th Century American Philosophy, Misc
+2025-07-18 03:00:42,628 [INFO] Found 0 available papers in stratum
+2025-07-18 03:00:42,628 [WARNING] No replacement candidates available in the same stratum
+2025-07-18 03:00:42,629 [ERROR] No replacement candidates found
+2025-07-18 03:01:03,222 [INFO] === PAPER REPLACEMENT ===
+2025-07-18 03:01:03,222 [INFO] Sample directory: data/annotations/samples/n200
+2025-07-18 03:01:03,222 [INFO] Paper to replace: MARLDD-44
+2025-07-18 03:01:03,222 [INFO] Random seed: 42
+2025-07-18 03:01:03,549 [INFO] Loaded sample with 200 papers
+2025-07-18 03:01:03,549 [INFO] Loaded stratified dataset with 66337 papers
+2025-07-18 03:01:03,938 [INFO] Finding candidates from stratum: 39|Q2|19th Century German Philosophy, Misc
+2025-07-18 03:01:03,946 [INFO] Found 1 available papers in stratum
+2025-07-18 03:01:39,214 [INFO] Successfully replaced MARLDD-44 with MARQQK
+2025-07-18 03:01:39,250 [INFO] Updated sample saved to: data/annotations/samples/n200/sample.csv
+2025-07-18 03:01:47,665 [INFO] === PAPER REPLACEMENT ===
+2025-07-18 03:01:47,665 [INFO] Sample directory: data/annotations/samples/n200
+2025-07-18 03:01:47,665 [INFO] Paper to replace: MARZZF
+2025-07-18 03:01:47,665 [INFO] Random seed: 42
+2025-07-18 03:01:47,988 [INFO] Loaded sample with 200 papers
+2025-07-18 03:01:47,988 [INFO] Loaded stratified dataset with 66337 papers
+2025-07-18 03:01:48,384 [INFO] Finding candidates from stratum: 39|Q2|19th Century Philosophy, Miscellaneous
+2025-07-18 03:01:48,392 [INFO] Found 0 available papers in stratum
+2025-07-18 03:01:48,392 [WARNING] No replacement candidates available in the same stratum
+2025-07-18 03:01:48,393 [ERROR] No replacement candidates found
+2025-07-18 03:03:06,857 [INFO] === PAPER REPLACEMENT ===
+2025-07-18 03:03:06,858 [INFO] Sample directory: data/annotations/samples/n200
+2025-07-18 03:03:06,858 [INFO] Paper to replace: WESMPT
+2025-07-18 03:03:06,858 [INFO] Random seed: 42
+2025-07-18 03:03:07,191 [INFO] Loaded sample with 200 papers
+2025-07-18 03:03:07,191 [INFO] Loaded stratified dataset with 66337 papers
+2025-07-18 03:03:07,587 [INFO] Finding candidates from stratum: 39|Q3|17th/18th Century British Philosophy, Misc
+2025-07-18 03:03:07,595 [INFO] Found 0 available papers in stratum
+2025-07-18 03:03:07,595 [WARNING] No replacement candidates available in the same stratum
+2025-07-18 03:03:07,596 [ERROR] No replacement candidates found
+2025-07-18 03:03:34,244 [INFO] === PAPER REPLACEMENT ===
+2025-07-18 03:03:34,244 [INFO] Sample directory: data/annotations/samples/n200
+2025-07-18 03:03:34,245 [INFO] Paper to replace: TRANPM
+2025-07-18 03:03:34,245 [INFO] Random seed: 42
+2025-07-18 03:03:34,564 [INFO] Loaded sample with 200 papers
+2025-07-18 03:03:34,564 [INFO] Loaded stratified dataset with 66337 papers
+2025-07-18 03:03:34,947 [INFO] Finding candidates from stratum: 39|Q3|17th/18th Century German Philosophy
+2025-07-18 03:03:34,954 [INFO] Found 0 available papers in stratum
+2025-07-18 03:03:34,954 [WARNING] No replacement candidates available in the same stratum
+2025-07-18 03:03:34,955 [ERROR] No replacement candidates found
+2025-07-18 03:03:55,902 [INFO] === PAPER REPLACEMENT ===
+2025-07-18 03:03:55,903 [INFO] Sample directory: data/annotations/samples/n200
+2025-07-18 03:03:55,903 [INFO] Paper to replace: ROLSNR
+2025-07-18 03:03:55,904 [INFO] Random seed: 42
+2025-07-18 03:03:56,238 [INFO] Loaded sample with 200 papers
+2025-07-18 03:03:56,238 [INFO] Loaded stratified dataset with 66337 papers
+2025-07-18 03:03:56,625 [INFO] Finding candidates from stratum: 39|Q3|17th/18th Century Philosophy, Miscellaneous
+2025-07-18 03:03:56,631 [INFO] Found 0 available papers in stratum
+2025-07-18 03:03:56,631 [WARNING] No replacement candidates available in the same stratum
+2025-07-18 03:03:56,632 [ERROR] No replacement candidates found
+2025-07-18 03:04:58,442 [INFO] === PAPER REPLACEMENT ===
+2025-07-18 03:04:58,442 [INFO] Sample directory: data/annotations/samples/n200
+2025-07-18 03:04:58,443 [INFO] Paper to replace: HAUAGT
+2025-07-18 03:04:58,443 [INFO] Random seed: 42
+2025-07-18 03:04:58,775 [INFO] Loaded sample with 200 papers
+2025-07-18 03:04:58,776 [INFO] Loaded stratified dataset with 66337 papers
+2025-07-18 03:04:59,173 [INFO] Finding candidates from stratum: 39|Q3|19th Century German Philosophy
+2025-07-18 03:04:59,181 [INFO] Found 0 available papers in stratum
+2025-07-18 03:04:59,181 [WARNING] No replacement candidates available in the same stratum
+2025-07-18 03:04:59,181 [ERROR] No replacement candidates found
+2025-07-18 03:05:36,290 [INFO] === PAPER REPLACEMENT ===
+2025-07-18 03:05:36,290 [INFO] Sample directory: data/annotations/samples/n200
+2025-07-18 03:05:36,291 [INFO] Paper to replace: STRHSK
+2025-07-18 03:05:36,291 [INFO] Random seed: 42
+2025-07-18 03:05:36,613 [INFO] Loaded sample with 200 papers
+2025-07-18 03:05:36,613 [INFO] Loaded stratified dataset with 66337 papers
+2025-07-18 03:05:36,988 [INFO] Finding candidates from stratum: 39|Q4|17th/18th Century British Philosophy, Misc
+2025-07-18 03:05:36,994 [INFO] Found 1 available papers in stratum
+2025-07-18 03:05:56,340 [INFO] Successfully replaced STRHSK with DUNEMA
+2025-07-18 03:05:56,346 [INFO] Updated sample saved to: data/annotations/samples/n200/sample.csv
+2025-07-18 03:06:26,945 [INFO] === PAPER REPLACEMENT ===
+2025-07-18 03:06:26,945 [INFO] Sample directory: data/annotations/samples/n200
+2025-07-18 03:06:26,945 [INFO] Paper to replace: STRAJH
+2025-07-18 03:06:26,946 [INFO] Random seed: 42
+2025-07-18 03:06:27,266 [INFO] Loaded sample with 200 papers
+2025-07-18 03:06:27,267 [INFO] Loaded stratified dataset with 66337 papers
+2025-07-18 03:06:27,658 [INFO] Finding candidates from stratum: 39|Q4|17th/18th Century Philosophy
+2025-07-18 03:06:27,666 [INFO] Found 0 available papers in stratum
+2025-07-18 03:06:27,666 [WARNING] No replacement candidates available in the same stratum
+2025-07-18 03:06:27,667 [ERROR] No replacement candidates found
+2025-07-18 03:07:14,333 [INFO] === PAPER REPLACEMENT ===
+2025-07-18 03:07:14,333 [INFO] Sample directory: data/annotations/samples/n200
+2025-07-18 03:07:14,334 [INFO] Paper to replace: BARROD-5
+2025-07-18 03:07:14,334 [INFO] Random seed: 42
+2025-07-18 03:07:14,659 [INFO] Loaded sample with 200 papers
+2025-07-18 03:07:14,660 [INFO] Loaded stratified dataset with 66337 papers
+2025-07-18 03:07:15,040 [INFO] Finding candidates from stratum: 39|Q4|19th Century American Philosophy, Misc
+2025-07-18 03:07:15,046 [INFO] Found 0 available papers in stratum
+2025-07-18 03:07:15,047 [WARNING] No replacement candidates available in the same stratum
+2025-07-18 03:07:15,047 [ERROR] No replacement candidates found
+2025-07-18 03:07:35,547 [INFO] === PAPER REPLACEMENT ===
+2025-07-18 03:07:35,547 [INFO] Sample directory: data/annotations/samples/n200
+2025-07-18 03:07:35,547 [INFO] Paper to replace: BAGHP
+2025-07-18 03:07:35,548 [INFO] Random seed: 42
+2025-07-18 03:07:35,876 [INFO] Loaded sample with 200 papers
+2025-07-18 03:07:35,877 [INFO] Loaded stratified dataset with 66337 papers
+2025-07-18 03:07:36,279 [INFO] Finding candidates from stratum: 39|Q4|20th Century American Pragmatism, Misc
+2025-07-18 03:07:36,287 [INFO] Found 0 available papers in stratum
+2025-07-18 03:07:36,287 [WARNING] No replacement candidates available in the same stratum
+2025-07-18 03:07:36,302 [ERROR] No replacement candidates found
+2025-07-18 03:09:52,447 [INFO] === PAPER REPLACEMENT ===
+2025-07-18 03:09:52,447 [INFO] Sample directory: data/annotations/samples/n200
+2025-07-18 03:09:52,447 [INFO] Paper to replace: DUNTLA
+2025-07-18 03:09:52,447 [INFO] Random seed: 42
+2025-07-18 03:09:52,770 [INFO] Loaded sample with 200 papers
+2025-07-18 03:09:52,771 [INFO] Loaded stratified dataset with 66337 papers
+2025-07-18 03:09:53,180 [INFO] Finding candidates from stratum: 43|Q2|17th/18th Century British Philosophy, Misc
+2025-07-18 03:09:53,187 [INFO] Found 1 available papers in stratum
+2025-07-18 03:10:22,549 [INFO] Successfully replaced DUNTLA with BROMAS-10
+2025-07-18 03:10:22,556 [INFO] Updated sample saved to: data/annotations/samples/n200/sample.csv
+2025-07-18 03:11:48,372 [INFO] === PAPER REPLACEMENT ===
+2025-07-18 03:11:48,372 [INFO] Sample directory: data/annotations/samples/n200
+2025-07-18 03:11:48,373 [INFO] Paper to replace: BOELAW
+2025-07-18 03:11:48,373 [INFO] Random seed: 42
+2025-07-18 03:11:48,694 [INFO] Loaded sample with 200 papers
+2025-07-18 03:11:48,695 [INFO] Loaded stratified dataset with 66337 papers
+2025-07-18 03:11:49,086 [INFO] Finding candidates from stratum: 43|Q3|17th/18th Century British Philosophy, Misc
+2025-07-18 03:11:49,094 [INFO] Found 1 available papers in stratum
+2025-07-18 03:12:01,034 [INFO] Successfully replaced BOELAW with BRODMO-6
+2025-07-18 03:12:01,040 [INFO] Updated sample saved to: data/annotations/samples/n200/sample.csv
+2025-07-18 03:13:25,232 [INFO] === PAPER REPLACEMENT ===
+2025-07-18 03:13:25,233 [INFO] Sample directory: data/annotations/samples/n200
+2025-07-18 03:13:25,233 [INFO] Paper to replace: ADRTWO-3
+2025-07-18 03:13:25,233 [INFO] Random seed: 42
+2025-07-18 03:13:25,568 [INFO] Loaded sample with 200 papers
+2025-07-18 03:13:25,568 [INFO] Loaded stratified dataset with 66337 papers
+2025-07-18 03:13:25,963 [INFO] Finding candidates from stratum: 8|Q3|17th/18th Century British Philosophy, Misc
+2025-07-18 03:13:25,971 [INFO] Found 1 available papers in stratum
+2025-07-18 03:13:38,753 [INFO] Successfully replaced ADRTWO-3 with WESTIC
+2025-07-18 03:13:38,759 [INFO] Updated sample saved to: data/annotations/samples/n200/sample.csv
+2025-07-18 03:14:16,828 [INFO] === PAPER REPLACEMENT ===
+2025-07-18 03:14:16,828 [INFO] Sample directory: data/annotations/samples/n200
+2025-07-18 03:14:16,829 [INFO] Paper to replace: SEPPAP
+2025-07-18 03:14:16,829 [INFO] Random seed: 42
+2025-07-18 03:14:17,148 [INFO] Loaded sample with 200 papers
+2025-07-18 03:14:17,148 [INFO] Loaded stratified dataset with 66337 papers
+2025-07-18 03:14:17,519 [INFO] Finding candidates from stratum: 29|Q1|13th/14th Century Philosophy, Misc
+2025-07-18 03:14:17,525 [INFO] Found 0 available papers in stratum
+2025-07-18 03:14:17,525 [WARNING] No replacement candidates available in the same stratum
+2025-07-18 03:14:17,526 [ERROR] No replacement candidates found
+2025-07-18 03:15:21,042 [INFO] === PAPER REPLACEMENT ===
+2025-07-18 03:15:21,042 [INFO] Sample directory: data/annotations/samples/n200
+2025-07-18 03:15:21,042 [INFO] Paper to replace: DEWAEC
+2025-07-18 03:15:21,042 [INFO] Random seed: 42
+2025-07-18 03:15:21,363 [INFO] Loaded sample with 200 papers
+2025-07-18 03:15:21,364 [INFO] Loaded stratified dataset with 66337 papers
+2025-07-18 03:15:21,770 [INFO] Finding candidates from stratum: 25|Q1|13th/14th Century Philosophy
+2025-07-18 03:15:21,778 [INFO] Found 0 available papers in stratum
+2025-07-18 03:15:21,778 [WARNING] No replacement candidates available in the same stratum
+2025-07-18 03:15:21,779 [ERROR] No replacement candidates found
+2025-07-18 03:15:49,005 [INFO] === PAPER REPLACEMENT ===
+2025-07-18 03:15:49,005 [INFO] Sample directory: data/annotations/samples/n200
+2025-07-18 03:15:49,006 [INFO] Paper to replace: MIHVAE
+2025-07-18 03:15:49,006 [INFO] Random seed: 42
+2025-07-18 03:15:49,326 [INFO] Loaded sample with 200 papers
+2025-07-18 03:15:49,326 [INFO] Loaded stratified dataset with 66337 papers
+2025-07-18 03:15:49,714 [INFO] Finding candidates from stratum: 25|Q1|17th/18th Century Philosophy, Misc
+2025-07-18 03:15:49,721 [INFO] Found 0 available papers in stratum
+2025-07-18 03:15:49,722 [WARNING] No replacement candidates available in the same stratum
+2025-07-18 03:15:49,722 [ERROR] No replacement candidates found
+2025-07-18 03:16:34,430 [INFO] === PAPER REPLACEMENT ===
+2025-07-18 03:16:34,431 [INFO] Sample directory: data/annotations/samples/n200
+2025-07-18 03:16:34,431 [INFO] Paper to replace: DOWMOA
+2025-07-18 03:16:34,431 [INFO] Random seed: 42
+2025-07-18 03:16:34,761 [INFO] Loaded sample with 200 papers
+2025-07-18 03:16:34,762 [INFO] Loaded stratified dataset with 66337 papers
+2025-07-18 03:16:35,147 [INFO] Finding candidates from stratum: 42|Q1|17th/18th Century French Philosophy, Misc
+2025-07-18 03:16:35,155 [INFO] Found 1 available papers in stratum
+2025-07-18 03:16:51,746 [INFO] Successfully replaced DOWMOA with WOLEAS
+2025-07-18 03:16:51,752 [INFO] Updated sample saved to: data/annotations/samples/n200/sample.csv
+2025-07-18 03:17:55,890 [INFO] === PAPER REPLACEMENT ===
+2025-07-18 03:17:55,890 [INFO] Sample directory: data/annotations/samples/n200
+2025-07-18 03:17:55,890 [INFO] Paper to replace: GAZTLT
+2025-07-18 03:17:55,891 [INFO] Random seed: 42
+2025-07-18 03:17:56,221 [INFO] Loaded sample with 200 papers
+2025-07-18 03:17:56,221 [INFO] Loaded stratified dataset with 66337 papers
+2025-07-18 03:17:56,618 [INFO] Finding candidates from stratum: 11|Q1|13th/14th Century Philosophy, Misc
+2025-07-18 03:17:56,625 [INFO] Found 0 available papers in stratum
+2025-07-18 03:17:56,625 [WARNING] No replacement candidates available in the same stratum
+2025-07-18 03:17:56,626 [ERROR] No replacement candidates found
+2025-07-18 03:20:40,844 [INFO] === PAPER REPLACEMENT ===
+2025-07-18 03:20:40,845 [INFO] Sample directory: data/annotations/samples/n200
+2025-07-18 03:20:40,845 [INFO] Paper to replace: ALETPO-8
+2025-07-18 03:20:40,845 [INFO] Random seed: 42
+2025-07-18 03:20:41,179 [INFO] Loaded sample with 200 papers
+2025-07-18 03:20:41,179 [INFO] Loaded stratified dataset with 66337 papers
+2025-07-18 03:20:41,585 [INFO] Finding candidates from stratum: 56|Q1|13th/14th Century Philosophy
+2025-07-18 03:20:41,592 [INFO] Found 0 available papers in stratum
+2025-07-18 03:20:41,592 [WARNING] No replacement candidates available in the same stratum
+2025-07-18 03:20:41,593 [ERROR] No replacement candidates found
+2025-07-18 03:21:18,971 [INFO] === PAPER REPLACEMENT ===
+2025-07-18 03:21:18,971 [INFO] Sample directory: data/annotations/samples/n200
+2025-07-18 03:21:18,972 [INFO] Paper to replace: MIRTAD
+2025-07-18 03:21:18,972 [INFO] Random seed: 42
+2025-07-18 03:21:19,296 [INFO] Loaded sample with 200 papers
+2025-07-18 03:21:19,296 [INFO] Loaded stratified dataset with 66337 papers
+2025-07-18 03:21:19,665 [INFO] Finding candidates from stratum: 47|Q1|20th Century Continental Philosophy
+2025-07-18 03:21:19,672 [INFO] Found 0 available papers in stratum
+2025-07-18 03:21:19,672 [WARNING] No replacement candidates available in the same stratum
+2025-07-18 03:21:19,672 [ERROR] No replacement candidates found
+2025-07-18 03:21:42,636 [INFO] === PAPER REPLACEMENT ===
+2025-07-18 03:21:42,636 [INFO] Sample directory: data/annotations/samples/n200
+2025-07-18 03:21:42,636 [INFO] Paper to replace: MCKRDW
+2025-07-18 03:21:42,637 [INFO] Random seed: 42
+2025-07-18 03:21:42,958 [INFO] Loaded sample with 200 papers
+2025-07-18 03:21:42,959 [INFO] Loaded stratified dataset with 66337 papers
+2025-07-18 03:21:43,355 [INFO] Finding candidates from stratum: 2|Q1|17th/18th Century Philosophy
+2025-07-18 03:21:43,362 [INFO] Found 0 available papers in stratum
+2025-07-18 03:21:43,362 [WARNING] No replacement candidates available in the same stratum
+2025-07-18 03:21:43,363 [ERROR] No replacement candidates found
+2025-07-18 03:22:27,028 [INFO] === PAPER REPLACEMENT ===
+2025-07-18 03:22:27,028 [INFO] Sample directory: data/annotations/samples/n200
+2025-07-18 03:22:27,029 [INFO] Paper to replace: GLUPEO-3
+2025-07-18 03:22:27,029 [INFO] Random seed: 42
+2025-07-18 03:22:27,360 [INFO] Loaded sample with 200 papers
+2025-07-18 03:22:27,360 [INFO] Loaded stratified dataset with 66337 papers
+2025-07-18 03:22:27,741 [INFO] Finding candidates from stratum: 84|Q1|15th/16th Century Philosophy
+2025-07-18 03:22:27,748 [INFO] Found 0 available papers in stratum
+2025-07-18 03:22:27,748 [WARNING] No replacement candidates available in the same stratum
+2025-07-18 03:22:27,748 [ERROR] No replacement candidates found
+2025-07-18 03:24:15,551 [INFO] === PAPER REPLACEMENT ===
+2025-07-18 03:24:15,551 [INFO] Sample directory: data/annotations/samples/n200
+2025-07-18 03:24:15,552 [INFO] Paper to replace: SCHROB-6
+2025-07-18 03:24:15,552 [INFO] Random seed: 42
+2025-07-18 03:24:15,873 [INFO] Loaded sample with 200 papers
+2025-07-18 03:24:15,873 [INFO] Loaded stratified dataset with 66337 papers
+2025-07-18 03:24:16,276 [INFO] Finding candidates from stratum: 44|Q1|Aesthetics
+2025-07-18 03:24:16,284 [INFO] Found 0 available papers in stratum
+2025-07-18 03:24:16,284 [WARNING] No replacement candidates available in the same stratum
+2025-07-18 03:24:16,284 [ERROR] No replacement candidates found
+2025-07-18 03:24:34,871 [INFO] === PAPER REPLACEMENT ===
+2025-07-18 03:24:34,871 [INFO] Sample directory: data/annotations/samples/n200
+2025-07-18 03:24:34,871 [INFO] Paper to replace: WYBOLA-2
+2025-07-18 03:24:34,872 [INFO] Random seed: 42
+2025-07-18 03:24:35,203 [INFO] Loaded sample with 200 papers
+2025-07-18 03:24:35,203 [INFO] Loaded stratified dataset with 66337 papers
+2025-07-18 03:24:35,575 [INFO] Finding candidates from stratum: 14|Q1|20th Century Philosophy, Misc
+2025-07-18 03:24:35,581 [INFO] Found 0 available papers in stratum
+2025-07-18 03:24:35,581 [WARNING] No replacement candidates available in the same stratum
+2025-07-18 03:24:35,582 [ERROR] No replacement candidates found
+2025-07-18 03:25:44,869 [INFO] === PAPER REPLACEMENT ===
+2025-07-18 03:25:44,870 [INFO] Sample directory: data/annotations/samples/n200
+2025-07-18 03:25:44,870 [INFO] Paper to replace: SMIAOO
+2025-07-18 03:25:44,870 [INFO] Random seed: 42
+2025-07-18 03:25:45,202 [INFO] Loaded sample with 200 papers
+2025-07-18 03:25:45,202 [INFO] Loaded stratified dataset with 66337 papers
+2025-07-18 03:25:45,595 [INFO] Finding candidates from stratum: 74|Q1|19th Century Austrian Philosophy, Misc
+2025-07-18 03:25:45,602 [INFO] Found 0 available papers in stratum
+2025-07-18 03:25:45,603 [WARNING] No replacement candidates available in the same stratum
+2025-07-18 03:25:45,603 [ERROR] No replacement candidates found
+2025-07-18 03:27:02,310 [INFO] === PAPER REPLACEMENT ===
+2025-07-18 03:27:02,311 [INFO] Sample directory: data/annotations/samples/n200
+2025-07-18 03:27:02,311 [INFO] Paper to replace: WENTMO-2
+2025-07-18 03:27:02,311 [INFO] Random seed: 42
+2025-07-18 03:27:02,642 [INFO] Loaded sample with 200 papers
+2025-07-18 03:27:02,642 [INFO] Loaded stratified dataset with 66337 papers
+2025-07-18 03:27:03,049 [INFO] Finding candidates from stratum: 50|Q1|20th Century Continental Philosophy
+2025-07-18 03:27:03,056 [INFO] Found 0 available papers in stratum
+2025-07-18 03:27:03,057 [WARNING] No replacement candidates available in the same stratum
+2025-07-18 03:27:03,065 [ERROR] No replacement candidates found
+2025-07-18 03:27:23,813 [INFO] === PAPER REPLACEMENT ===
+2025-07-18 03:27:23,813 [INFO] Sample directory: data/annotations/samples/n200
+2025-07-18 03:27:23,813 [INFO] Paper to replace: JLEHOC
+2025-07-18 03:27:23,813 [INFO] Random seed: 42
+2025-07-18 03:27:24,144 [INFO] Loaded sample with 200 papers
+2025-07-18 03:27:24,144 [INFO] Loaded stratified dataset with 66337 papers
+2025-07-18 03:27:24,525 [INFO] Finding candidates from stratum: 12|Q1|13th/14th Century Philosophy
+2025-07-18 03:27:24,531 [INFO] Found 0 available papers in stratum
+2025-07-18 03:27:24,531 [WARNING] No replacement candidates available in the same stratum
+2025-07-18 03:27:24,546 [ERROR] No replacement candidates found
+2025-07-18 03:28:13,675 [INFO] === PAPER REPLACEMENT ===
+2025-07-18 03:28:13,675 [INFO] Sample directory: data/annotations/samples/n200
+2025-07-18 03:28:13,676 [INFO] Paper to replace: FRASBC-2
+2025-07-18 03:28:13,676 [INFO] Random seed: 42
+2025-07-18 03:28:13,995 [INFO] Loaded sample with 200 papers
+2025-07-18 03:28:13,995 [INFO] Loaded stratified dataset with 66337 papers
+2025-07-18 03:28:14,387 [INFO] Finding candidates from stratum: 62|Q1|15th/16th Century Philosophy, Misc
+2025-07-18 03:28:14,394 [INFO] Found 0 available papers in stratum
+2025-07-18 03:28:14,394 [WARNING] No replacement candidates available in the same stratum
+2025-07-18 03:28:14,395 [ERROR] No replacement candidates found
+2025-07-18 03:29:04,958 [INFO] === PAPER REPLACEMENT ===
+2025-07-18 03:29:04,958 [INFO] Sample directory: data/annotations/samples/n200
+2025-07-18 03:29:04,958 [INFO] Paper to replace: PROCPA
+2025-07-18 03:29:04,958 [INFO] Random seed: 42
+2025-07-18 03:29:05,279 [INFO] Loaded sample with 200 papers
+2025-07-18 03:29:05,279 [INFO] Loaded stratified dataset with 66337 papers
+2025-07-18 03:29:05,649 [INFO] Finding candidates from stratum: 73|Q1|Applied Ethics, General Works
+2025-07-18 03:29:05,655 [INFO] Found 0 available papers in stratum
+2025-07-18 03:29:05,655 [WARNING] No replacement candidates available in the same stratum
+2025-07-18 03:29:05,656 [ERROR] No replacement candidates found
+2025-07-18 03:29:38,991 [INFO] === PAPER REPLACEMENT ===
+2025-07-18 03:29:38,992 [INFO] Sample directory: data/annotations/samples/n200
+2025-07-18 03:29:38,992 [INFO] Paper to replace: TOIPOO-3
+2025-07-18 03:29:38,992 [INFO] Random seed: 42
+2025-07-18 03:29:39,314 [INFO] Loaded sample with 200 papers
+2025-07-18 03:29:39,314 [INFO] Loaded stratified dataset with 66337 papers
+2025-07-18 03:29:39,714 [INFO] Finding candidates from stratum: 86|Q1|13th/14th Century Philosophy, Misc
+2025-07-18 03:29:39,721 [INFO] Found 0 available papers in stratum
+2025-07-18 03:29:39,721 [WARNING] No replacement candidates available in the same stratum
+2025-07-18 03:29:39,722 [ERROR] No replacement candidates found
+2025-07-18 03:29:57,158 [INFO] === PAPER REPLACEMENT ===
+2025-07-18 03:29:57,158 [INFO] Sample directory: data/annotations/samples/n200
+2025-07-18 03:29:57,158 [INFO] Paper to replace: LAPSRS
+2025-07-18 03:29:57,159 [INFO] Random seed: 42
+2025-07-18 03:29:57,488 [INFO] Loaded sample with 200 papers
+2025-07-18 03:29:57,488 [INFO] Loaded stratified dataset with 66337 papers
+2025-07-18 03:29:57,869 [INFO] Finding candidates from stratum: 32|Q1|13th/14th Century Philosophy
+2025-07-18 03:29:57,875 [INFO] Found 0 available papers in stratum
+2025-07-18 03:29:57,876 [WARNING] No replacement candidates available in the same stratum
+2025-07-18 03:29:57,876 [ERROR] No replacement candidates found
+2025-07-18 03:30:23,263 [INFO] === PAPER REPLACEMENT ===
+2025-07-18 03:30:23,263 [INFO] Sample directory: data/annotations/samples/n200
+2025-07-18 03:30:23,263 [INFO] Paper to replace: METLTR
+2025-07-18 03:30:23,264 [INFO] Random seed: 42
+2025-07-18 03:30:23,586 [INFO] Loaded sample with 200 papers
+2025-07-18 03:30:23,586 [INFO] Loaded stratified dataset with 66337 papers
+2025-07-18 03:30:23,974 [INFO] Finding candidates from stratum: 80|Q1|Apartheid
+2025-07-18 03:30:23,980 [INFO] Found 0 available papers in stratum
+2025-07-18 03:30:23,980 [WARNING] No replacement candidates available in the same stratum
+2025-07-18 03:30:23,981 [ERROR] No replacement candidates found
+2025-07-18 03:31:18,453 [INFO] === PAPER REPLACEMENT ===
+2025-07-18 03:31:18,453 [INFO] Sample directory: data/annotations/samples/n200
+2025-07-18 03:31:18,454 [INFO] Paper to replace: NEEGRT-3
+2025-07-18 03:31:18,454 [INFO] Random seed: 42
+2025-07-18 03:31:18,776 [INFO] Loaded sample with 200 papers
+2025-07-18 03:31:18,776 [INFO] Loaded stratified dataset with 66337 papers
+2025-07-18 03:31:19,183 [INFO] Finding candidates from stratum: 8|Q3|The Explanatory Gap
+2025-07-18 03:31:19,190 [INFO] Found 0 available papers in stratum
+2025-07-18 03:31:19,191 [WARNING] No replacement candidates available in the same stratum
+2025-07-18 03:31:19,191 [ERROR] No replacement candidates found

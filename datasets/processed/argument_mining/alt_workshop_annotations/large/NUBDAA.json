@@ -1,0 +1,665 @@
+{
+  "arguments": {},
+  "statements": {
+    "Untitled 1": {
+      "type": "equivalence-class",
+      "title": "Untitled 1",
+      "relations": [],
+      "members": [
+        {
+          "type": "statement",
+          "role": "top-level-statement",
+          "isTopLevel": true,
+          "text": "Main Thesis: The fact/value distinction constitutes an epistemic error which arises from the misinterpretation of what a distinction/dichotomy is.",
+          "startLine": 1,
+          "startColumn": 1,
+          "endLine": 1,
+          "endColumn": 146,
+          "title": "Untitled 1"
+        }
+      ],
+      "isUsedAsTopLevelStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Central thesis 1": {
+      "type": "equivalence-class",
+      "title": "Central thesis 1",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 2",
+          "fromType": "equivalence-class",
+          "to": "Central thesis 1",
+          "toType": "equivalence-class"
+        },
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "From Nubiola quoting Brody",
+          "fromType": "equivalence-class",
+          "to": "Central thesis 1",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "top-level-statement",
+          "isTopLevel": true,
+          "title": "Central thesis 1",
+          "text": "Distinctions made purely for the purposes of cognitive expedience reflect a \"\"functional rather an ontological status\"\".",
+          "ranges": [
+            {
+              "type": "italic",
+              "start": 18,
+              "stop": 23
+            }
+          ],
+          "startLine": 3,
+          "startColumn": 1,
+          "endLine": 10,
+          "endColumn": 57
+        }
+      ],
+      "isUsedAsTopLevelStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Untitled 2": {
+      "type": "equivalence-class",
+      "title": "Untitled 2",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "From Stuhr",
+          "fromType": "equivalence-class",
+          "to": "Untitled 2",
+          "toType": "equivalence-class"
+        },
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 2",
+          "fromType": "equivalence-class",
+          "to": "Central thesis 1",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "text": "\"\"a 'dichotomy' is mainly a form of logical division, of classification; that dichotomies appear when and where there are human beings thinking, classifying, establishing classes, collections and categories\"\"",
+          "title": "Untitled 2",
+          "startLine": 4,
+          "startColumn": 7,
+          "endLine": 5,
+          "endColumn": 252
+        }
+      ],
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "From Stuhr": {
+      "type": "equivalence-class",
+      "title": "From Stuhr",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "From Stuhr",
+          "fromType": "equivalence-class",
+          "to": "Untitled 2",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "title": "From Stuhr",
+          "text": "Example dichotomies like \"\" subject/object, mind/matter, appearance/reality, theory/practice, facts/values, individual/community\"\" refer to distinctions made in thought rather to different kinds of being or levels of existence.",
+          "startLine": 5,
+          "startColumn": 11,
+          "endLine": 5,
+          "endColumn": 252
+        }
+      ],
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "From Nubiola quoting Brody": {
+      "type": "equivalence-class",
+      "title": "From Nubiola quoting Brody",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 3",
+          "fromType": "equivalence-class",
+          "to": "From Nubiola quoting Brody",
+          "toType": "equivalence-class"
+        },
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 4",
+          "fromType": "equivalence-class",
+          "to": "From Nubiola quoting Brody",
+          "toType": "equivalence-class"
+        },
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 5",
+          "fromType": "equivalence-class",
+          "to": "From Nubiola quoting Brody",
+          "toType": "equivalence-class"
+        },
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 6",
+          "fromType": "equivalence-class",
+          "to": "From Nubiola quoting Brody",
+          "toType": "equivalence-class"
+        },
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "From Nubiola quoting Brody",
+          "fromType": "equivalence-class",
+          "to": "Central thesis 1",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "title": "From Nubiola quoting Brody",
+          "text": "\"\"To assert a dichotomy is to cut something into two parts which are 'mutually exclusive and jointly exhaustive' (Brody 1967, p. 60).\"\"",
+          "startLine": 6,
+          "startColumn": 7,
+          "endLine": 10,
+          "endColumn": 57
+        }
+      ],
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Untitled 3": {
+      "type": "equivalence-class",
+      "title": "Untitled 3",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 3",
+          "fromType": "equivalence-class",
+          "to": "From Nubiola quoting Brody",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "text": "This cut inherent in a dichotomy is solely logical one.",
+          "startLine": 7,
+          "startColumn": 11,
+          "endLine": 7,
+          "endColumn": 66,
+          "title": "Untitled 3"
+        }
+      ],
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Untitled 4": {
+      "type": "equivalence-class",
+      "title": "Untitled 4",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 4",
+          "fromType": "equivalence-class",
+          "to": "From Nubiola quoting Brody",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "text": "If were nobody to do the logical cutting entailed by dichotomy formulation there would be no dichotomies.",
+          "startLine": 8,
+          "startColumn": 11,
+          "endLine": 8,
+          "endColumn": 116,
+          "title": "Untitled 4"
+        }
+      ],
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Untitled 5": {
+      "type": "equivalence-class",
+      "title": "Untitled 5",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 5",
+          "fromType": "equivalence-class",
+          "to": "From Nubiola quoting Brody",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "text": "In the \"\"real\"\" world there is only continuity and interaction. ",
+          "startLine": 9,
+          "startColumn": 11,
+          "endLine": 9,
+          "endColumn": 75,
+          "title": "Untitled 5"
+        }
+      ],
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Untitled 6": {
+      "type": "equivalence-class",
+      "title": "Untitled 6",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 6",
+          "fromType": "equivalence-class",
+          "to": "From Nubiola quoting Brody",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "text": "In the \"\"real\"\" world there are no dichotomies.",
+          "startLine": 10,
+          "startColumn": 11,
+          "endLine": 10,
+          "endColumn": 57,
+          "title": "Untitled 6"
+        }
+      ],
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Central Thesis 2": {
+      "type": "equivalence-class",
+      "title": "Central Thesis 2",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "From Putnam",
+          "fromType": "equivalence-class",
+          "to": "Central Thesis 2",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "top-level-statement",
+          "isTopLevel": true,
+          "title": "Central Thesis 2",
+          "text": "The fact/value distinction arises from a misinterpretation of ethical claims.",
+          "startLine": 12,
+          "startColumn": 1,
+          "endLine": 19,
+          "endColumn": 125
+        }
+      ],
+      "isUsedAsTopLevelStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "From Putnam": {
+      "type": "equivalence-class",
+      "title": "From Putnam",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "From Putnam",
+          "fromType": "equivalence-class",
+          "to": "From Putnam",
+          "toType": "equivalence-class"
+        },
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "From Putnam",
+          "fromType": "equivalence-class",
+          "to": "From Putnam",
+          "toType": "equivalence-class"
+        },
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Of Putnam",
+          "fromType": "equivalence-class",
+          "to": "From Putnam",
+          "toType": "equivalence-class"
+        },
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "From Putnam",
+          "fromType": "equivalence-class",
+          "to": "Central Thesis 2",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "title": "From Putnam",
+          "text": "\"\"the fact/value dichotomy is, at bottom, not a distinction but a thesis, namely the thesis that 'ethics' is not about 'matters of fact\"\"",
+          "startLine": 14,
+          "startColumn": 10,
+          "endLine": 14,
+          "endColumn": 162
+        },
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "title": "From Putnam",
+          "text": "The fact/value distinction is a particularly salient (due to it's implications for ethics) example of a distinction/dichotomy.",
+          "startLine": 13,
+          "startColumn": 7,
+          "endLine": 19,
+          "endColumn": 125
+        }
+      ],
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Of Putnam": {
+      "type": "equivalence-class",
+      "title": "Of Putnam",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Of Putnam",
+          "fromType": "equivalence-class",
+          "to": "From Putnam",
+          "toType": "equivalence-class"
+        },
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 7",
+          "fromType": "equivalence-class",
+          "to": "Of Putnam",
+          "toType": "equivalence-class"
+        },
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 8",
+          "fromType": "equivalence-class",
+          "to": "Of Putnam",
+          "toType": "equivalence-class"
+        },
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 9",
+          "fromType": "equivalence-class",
+          "to": "Of Putnam",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "title": "Of Putnam",
+          "text": "We are tempted to establish the fact/value dichotomy because this dichotomy is a way of cutting off not only rational argument about values, but even thought.",
+          "startLine": 15,
+          "startColumn": 10,
+          "endLine": 15,
+          "endColumn": 181
+        },
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "title": "Of Putnam",
+          "text": "\"\"the so-called thick ethical concepts are counterexamples to the claim that there is an absolute fact/value dichotomy\"\"",
+          "startLine": 16,
+          "startColumn": 10,
+          "endLine": 19,
+          "endColumn": 125
+        }
+      ],
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Untitled 7": {
+      "type": "equivalence-class",
+      "title": "Untitled 7",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 7",
+          "fromType": "equivalence-class",
+          "to": "Of Putnam",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "text": "The terms considered to have a function of ethical evaluation have also a descriptive explicative and predictive function",
+          "startLine": 17,
+          "startColumn": 15,
+          "endLine": 17,
+          "endColumn": 136,
+          "title": "Untitled 7"
+        }
+      ],
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Untitled 8": {
+      "type": "equivalence-class",
+      "title": "Untitled 8",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 8",
+          "fromType": "equivalence-class",
+          "to": "Of Putnam",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "text": "Various seemingly concrete concepts (i.e. a 'lamp') exhibit ambiguity / vagueness / subjectivity.",
+          "startLine": 18,
+          "startColumn": 15,
+          "endLine": 18,
+          "endColumn": 112,
+          "title": "Untitled 8"
+        }
+      ],
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Untitled 9": {
+      "type": "equivalence-class",
+      "title": "Untitled 9",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 9",
+          "fromType": "equivalence-class",
+          "to": "Of Putnam",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "text": "People generally are not disposed to have confusion about the \"\"fact/value\"\" status of issues related to lamps.",
+          "startLine": 19,
+          "startColumn": 15,
+          "endLine": 19,
+          "endColumn": 125,
+          "title": "Untitled 9"
+        }
+      ],
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    }
+  },
+  "relations": [
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "From Stuhr",
+      "fromType": "equivalence-class",
+      "to": "Untitled 2",
+      "toType": "equivalence-class"
+    },
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "Untitled 2",
+      "fromType": "equivalence-class",
+      "to": "Central thesis 1",
+      "toType": "equivalence-class"
+    },
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "Untitled 3",
+      "fromType": "equivalence-class",
+      "to": "From Nubiola quoting Brody",
+      "toType": "equivalence-class"
+    },
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "Untitled 4",
+      "fromType": "equivalence-class",
+      "to": "From Nubiola quoting Brody",
+      "toType": "equivalence-class"
+    },
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "Untitled 5",
+      "fromType": "equivalence-class",
+      "to": "From Nubiola quoting Brody",
+      "toType": "equivalence-class"
+    },
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "Untitled 6",
+      "fromType": "equivalence-class",
+      "to": "From Nubiola quoting Brody",
+      "toType": "equivalence-class"
+    },
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "From Nubiola quoting Brody",
+      "fromType": "equivalence-class",
+      "to": "Central thesis 1",
+      "toType": "equivalence-class"
+    },
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "From Putnam",
+      "fromType": "equivalence-class",
+      "to": "From Putnam",
+      "toType": "equivalence-class"
+    },
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "Of Putnam",
+      "fromType": "equivalence-class",
+      "to": "From Putnam",
+      "toType": "equivalence-class"
+    },
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "Untitled 7",
+      "fromType": "equivalence-class",
+      "to": "Of Putnam",
+      "toType": "equivalence-class"
+    },
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "Untitled 8",
+      "fromType": "equivalence-class",
+      "to": "Of Putnam",
+      "toType": "equivalence-class"
+    },
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "Untitled 9",
+      "fromType": "equivalence-class",
+      "to": "Of Putnam",
+      "toType": "equivalence-class"
+    },
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "From Putnam",
+      "fromType": "equivalence-class",
+      "to": "Central Thesis 2",
+      "toType": "equivalence-class"
+    }
+  ],
+  "sections": [],
+  "tags": {}
+}

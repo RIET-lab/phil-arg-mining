@@ -1,0 +1,360 @@
+[
+  {
+    "identifier": "VILWVI",
+    "system_prompt": "## GOAL\nArgument‑mine the following paper to extract its comprehensive argumentative structure.\n\n## DEFINITIONS\n1. **Argument**: A set of propositions, including some number of premises and a conclusion. The premises should logically entail the conclusion.\n2. **Claim**: A proposition that asserts something to be true or false, typically requiring justification or evidence.\n3. **Premise**: A proposition that provides evidence, justification, or logical support for a claim or conclusion.\n\n## CRITICAL REQUIREMENTS\n1. **VERBATIM EXTRACTION ONLY**: Each ADU text must be copied EXACTLY from the paper with no modifications, paraphrasing, or combining of separate sentences.\n2. **NO HALLUCINATION**: Do not create, modify, or invent text that does not appear exactly in the source.\n3. **EXACT MATCHING**: Every word, punctuation mark, and spacing must match the original precisely.\n\n## DIRECTIONS\n1. **Identify Argumentative Discourse Units (ADUs)**  \n   - ADU = any contiguous text span functioning as a claim or a premise in the reasoning structure.\n   - **BE HIGHLY SELECTIVE**: Only include ADUs that are crucial to the overarching argument structure.\n   - Focus on significant claims and premises that contribute meaningfully to the argumentative flow.\n   - **AVOID NOISE**: Skip ADUs that are merely descriptive, tangential, or do not substantially advance the argument.\n   - Prioritize quality over quantity - fewer accurate, important ADUs are better than many insignificant ones.\n   - **EXTRACT ONLY**: Copy text spans exactly as they appear, without any modifications.\n2. **Classify each ADU**  \n   - Label = either `\"claim\"` or `\"premise\"`.  \n3. **Detect directed relations**  \n   - Relation = `\"support\"` or `\"attack\"`, from one ADU (source) to another (target).\n   - Map how ADUs connect to form reasoning chains.\n   - Focus on relationships between the most significant ADUs.\n   - Include relationships between premises that strengthen or weaken each other.\n4. **Verbatim spans**  \n   - Each `\"text\"` value must be copied EXACTLY from the paper with zero modifications.\n   - Do not paraphrase, summarize, or combine separate sentences.\n   - Do not add, remove, or change any words, punctuation, or spacing.\n   - If unsure about exact wording, skip that ADU rather than guess.\n\n## WHAT TO CAPTURE\n**INCLUDE ONLY:**\n- Main argumentative threads that are central to the paper's contribution\n- Core claims that represent the paper's primary arguments or findings\n- Key premises that provide essential support for major claims\n- Critical counterarguments and their refutations\n- Reasoning chains that demonstrate how main conclusions are derived\n\n**EXCLUDE (AVOID NOISE):**\n- Minor details, examples, or descriptive content that don't advance the argument\n- Tangential points or side discussions\n- Pure background information or literature review content\n- Methodological details unless they constitute argumentative claims\n- Obvious statements or commonly accepted facts\n- Redundant or repetitive argumentative content\n\n**GUIDING PRINCIPLE**: If removing an ADU would not significantly impact understanding of the paper's argumentative structure, it should be excluded.\n\n## QUALITY CONTROL\n- Before finalizing each ADU, verify the text exists exactly in the source\n- Prefer fewer, accurate ADUs over many potentially modified ones\n- When in doubt about exact wording, omit the ADU\n\n## OUTPUT FORMAT\nReturn **only** a single valid JSON object matching this schema.  \nDo **not** output any extra text, markdown, or explanations.\nDo **not** add comments.\n**RESPOND WITH ONLY**:\n```json\n{\n  \"ADUs\": {\n    \"<ADU_ID>\": {\n      \"text\": \"<exact span from paper>\",\n      \"label\": \"claim\" | \"premise\"\n    }\n    ...\n  },\n  \"relations\": [\n    {\n      \"source\": \"<ADU_ID>\",\n      \"target\": \"<ADU_ID>\",\n      \"type\": \"support\" | \"attack\"\n    }\n  ]\n}\n```",
+    "user_content": "## Valtteri Viljanen*\n\n## Why Virtue Is not Quite Enough: Descartes on Attaining Happiness\n\nhttps:/ /doi.org/10.1515/agph-2017-0031\n\nAbstract: Descartes explicitly states that virtue is sufficient for attaining happiness. In this paper I argue that, within the framework he develops, this is not exactly true: more than virtuous action is needed to secure happiness. I begin by analyzing, in Section 2, the Cartesian notion of virtue in order to show the way in which it closely connects to what, for Descartes, forms the very essence of morality - the correct use of our free will. Section 3, in turn, discusses Descartes's view of happiness and its relation to the highest good. Thereby is laid the foundation for Section 4, which offers a reconstruction of the argument that virtue leads to happiness. Section 5 concludes the discussion by suggesting how and why Descartes leaves a crucial premise - an intellectual insight that consists of three main elements - unmentioned when he claims that virtue is sufficient for happiness.\n\n## 1 Introduction\n\nThe link between virtue and happiness is one of the most traditional topics in Western moral thought.¹ In line with his rather conspicuous Stoic tendencies,² in a letter from 1645 Descartes assures Princess Elizabeth of Bohemia that 'virtue is sufficient to make us content in this life' (CSMK, 258; AT IV, 266  f.).³ In this paper, I examine this claim and argue that, within the framework Descartes develops,\n\n1 The resurgence of virtue ethics has made the relationship between the two concepts a muchdebated  issue;  for  a  notable  recent  contribution  that  elaborates  on  a  general  eudaimonist account of virtue, see Annas 2011, Ch. 8-9.\n\n2 See, e.  g., Shapiro 2008. As is often noted, Descartes suggests to Princess Elizabeth that they use Seneca's On the Happy Life as  the  basis for their discussion on ethics (CSMK, 256; AT IV, 252  f.).  However,  he  rather  soon  finds  'it  not  sufficiently  rigorous  to  deserve  to  be  followed' (CSMK, 257; AT IV, 263).\n\n3 Perhaps his most striking Stoical statement reads: 'True philosophy, on the contrary, teaches that even amid the saddest disasters and most bitter pains we can always be content, provided that we know how to use our reason.' (CSMK, 272; AT IV, 315.)\n\n*Corresponding author: Valtteri Viljanen, School of History, Culture and Arts Studies, Arcanum 224, Arcanuminkuja 4, 20014 University of Turku, Turku, FI; valvil@utu.fi\n\n<!-- image -->\n\nthis is not exactly true: virtue is almost - but not quite - enough for attaining happiness. To be happy, we need to connect virtuous action to a specific intellectual insight into ourselves and the world at large.\n\nThe paper will unfold as follows. Section 2 analyzes the Cartesian notion of virtue by showing how it closely connects to what, for Descartes, forms the very essence of morality - the correct use of our free will. Section 3, in turn, discusses Descartes's view of happiness and its relation to the highest good. Thereby is laid the foundation for Section 4, which offers a reconstruction of the argument that virtue leads to happiness. Section 5 concludes the discussion by examining the crucial premise Descartes leaves unmentioned when he claims that virtue is sufficient for happiness - a premise that turns out to be integral to the Cartesian world view.\n\n## 2 Virtue and the Two-Component View of Moral Agency\n\nTo be able to discern the nature of Cartesian virtue, I begin by focusing on what Descartes says about the good use of our will, the very source of moral agency.⁴ The letter to Christina of 20 November 1647 - so important in summing up much of its author's moral philosophy as it had developed up to that point - contains a passage in which Descartes expresses his view in exceptionally plain terms:\n\nI do not see that it is possible to dispose it [our will] better than [1] by a firm and constant resolution to carry out to the letter all the things which one judges to be best, and [2] to employ all the powers of one's mind in finding out what these are. (CSMK, 325; AT V, 83, numbers in brackets added.)\n\nTo my knowledge, the first proper formulation of these two features appears in the letter to Elizabeth from 4 August 1645.⁵ It is in keeping with the Fourth Medi-\n\n4 Of course, Descartes's notion of free will is, as many scholars have acknowledged, quite firmly rooted in his ontology (see e.  g. Naaman-Zauderer 2010, 202). However, discussing that rootedness is not necessary for the purposes of this paper; it suffices to note that Descartes declares that free will renders 'us in a certain way like God by making us masters of ourselves' ( Passions , art. 152; CSM I, 384; AT XI, 445). It seems obvious that, for Descartes, free will is the locus of agency through which we are causally efficacious, or active, in the world.\n\n5 However, as Descartes himself points out, the rudiments of this formulation can already be found in Discourse on the Method part three; see especially maxims two and three (CSM I, 123  f.; AT VI, 24-7).\n\ntation maxim, 'the perception of the intellect should always precede the determination of the will' (CSM II, 41; AT VII, 60), and runs as follows:\n\nIt seems to me that each person can make himself content by himself without any external assistance, provided he respects three conditions[.] […] [1] The first is that he should always try to employ his mind as well as he can to discover what he should or should not do in all the circumstances of life. [2] The second is that he should have a firm and constant resolution to carry out whatever reason recommends without being diverted by his passions or appetites. […] [3] The third is that he should bear in mind that while he thus guides himself as far as he can, by reason, all the good things which he does not possess are one and all entirely outside his power. (CSMK, 257  f.; AT IV, 265, emphases and numbers in brackets added.)\n\nI will discuss the third condition and what Descartes thinks about contentment below; for the present purposes the major point is that, at least from 1645 onward, for Descartes moral agency is about the correct use of our will, which consists of both a cognitive and a conative component. Accordingly, in his last published work he states: 'What I call its [the will's] 'proper' weapons are [1] firm and determinate judgements bearing upon the knowledge of good and evil, [2] which the soul has resolved to follow in guiding its conduct.' ( Passions , art. 48; CSM I, 347; AT XI, 367 , numbers in brackets added.)\n\nThe  mature  Cartesian  view  of  moral  agency  thus  seems  to  consist  of  two features. First, we should do our utmost to judge the matter at hand correctly, which requires affirming those perceptions that represent what we, after having reflected the issue appropriately,⁶ regard as the good or right course of action. Secondly, we are then to exert our will to make happen what we have judged right.  Put  together,  the  view  amounts  to  what  I  would  call the  two-component theory of moral action.\n\nOne feature of this account can hardly be over-emphasized: it is very sensitive to our finitude. It demands that we, first, find out to the extent we can or as well as it is reasonably expectable of us what is the right thing to do; and then, second, that we strive to act according to our judgment, even though it is not always up to us whether or not this endeavor results in the desired action - and even when it does, whether or not the action has the kind of outcome we were aiming for.⁷ Descartes is quite explicit about our cognitive limits, for instance when he says\n\n6 It arguably requires a kind of meta-level judgment of its own to decide when we have reached the point at which we have considered the matter as carefully as can be reasonably required of us; see also Svensson 2011, 244 n10.\n\n7 See Descartes's renowned discussion concerning the choice between two different routes ( Passions , art. 146; CSM I, 380  f.; AT XI, 439  f.). For a helpful analysis of things that are partially within our power, see Marshall 1998, 97 .\n\nthat 'we had reason only to do the best that our intellect was able to recognize' ( Passions , art. 146; CSM I, 381; AT XI, 440)⁸ or that we should examine the issue at hand 'as well as we are morally able' (CSMK, 325; AT V, 83  f.). Moreover, the talk of resoluteness and resolve can be taken to refer to our conative restrictions and to indicate that the crux of the second component lies in striving to act in a certain way even though passions and other factors may eventually keep us from acting as we intend. In general, Descartes appears acutely conscious of the fact that he is offering an ethics to finite beings with their limitations - to beings of whom it would be simply inappropriate to demand more than doing the best they can in the circumstances in which they find themselves. It is unfortunate that practical matters do not involve the kind of clarity and distinctness that theoretical ones do,⁹ but despite this, we must try our hardest to find out what is right and to make it happen.\n\nDescartes  consistently  defines  virtue  by  referring  to  his  understanding  of moral action, but it is not quite clear whether he takes virtue to equal only one or both of the aforementioned components. In the letter to Elizabeth of 4 August 1645 he states that one should  have  a  firm  and  constant  resolution  to  carry  out  whatever  reason  recommends without being diverted by his passions or appetites. Virtue, I believe, consists precisely in sticking firmly to this resolution; though I do not know that anyone has ever so described it. (CSMK, 258; AT IV, 265.)¹⁰\n\nFurthermore, in the pivotal letter to Christina, he explains that 'virtue consists only in the resolution and vigour with which we are inclined to do the things we think good' (CSMK, 325; AT V, 83). In these passages he thus equates virtue with the conative component alone; as Svensson 2011, 245  f., points out, this is Descartes's restrictive sense of virtue. However, in the very same letter to Christina, Descartes also refers to a less restrictive sense:\n\nFor the goods of the body and of fortune do not depend absolutely upon us; and those of the soul can all be reduced to two heads, the one being to know, and the other to will, what is good. But knowledge is often beyond our powers; and so there remains only our will, which is absolutely within our disposal. And I do not see that it is possible to dispose it better than by a firm and constant resolution to carry out to the letter all the things which one judges to\n\n8 See also Passions , art. 170 (CSM I, 391; AT XI, 460).\n\n9 On this, see Shapiro 1999, 263-9.\n\n10 For some discussion on the historical context of this definition of virtue, see Marshall 1998, 71 n2.\n\nbe best, and to employ all the powers of one's mind in finding out what these are. This by itself constitutes all the virtues[.] (CSMK, 325; AT V, 83.)\n\nMoreover, Descartes's two-part treatment of generosity in the Passions (art. 153; CSM I, 384; AT XI, 445  f.) might be taken to suggest a wider sense of virtue.¹¹\n\nThe textual evidence is thus somewhat mixed. I would estimate that this stems from Descartes's tendency to treat free will and its correct use as one package;¹² in his ethical thought, he seems generally reluctant to separate free will, its use in forming judgments, and the exertion of will power to carry out what we judge to be best. However, it would make sense to emphasize the second component, because the  very  French  term  Descartes  uses, vertu , originates  from  the  Latin virtus , which means, among other things, strength and courage. As Rodis-Lewis 1957 , 71, asserts: '[V]ertu, ou force d'âme, selon l'étymologie.'¹³ Accordingly, the term has a particularly strong link to the conative component of Cartesian moral agency. Based on this, I would argue that, for Descartes, virtue is primarily about exerting ourselves according to our best judgment . Fortunately, I do not think that for our purposes anything of consequence hangs on whether we stress the more or less restrictive sense of virtue, for the way in which Descartes talks about virtue as strength assumes that the cognitive element is already in place: I am unaware of any passage that would even suggest that one could be virtuous without having first judged the best one was able to do, be that judging - strictly speaking - a part of virtuousness or not.\n\nWhat  is  particularly  important  for  our  purposes  is  that  ultimately, acting virtuously equals acting in accordance with the two-component theory . Descartes thus has a rather uncomplicated view of virtue, alive to our finitude: virtue is very much within our reach, for it only requires that we use our will appropriately. In fact, he explicitly denies that being virtuous would require or presuppose knowledge of specific moral truths; recall: '[K]nowledge is often beyond our powers; and so there  remains  only  our  will,  which  is  absolutely  within  our  disposal.' (CSMK, 325; AT V, 83.)¹⁴ One does not have to be a sage to qualify as a virtuous Cartesian agent.\n\n11 See Svensson 2011, 245 n14.\n\n12 Here I would agree with Marshall 1998, 72.\n\n13 Even today, the very first meaning Le nouveau petit Robert (Paris,  2002)  gives  for vertu is 'énergie morale; force d'âme.'\n\n14 Also the statement that 'we are responsible only for our thoughts, and it does not belong to human nature to be omniscient, or always to judge as well on the spur of the moment as when there is plenty of time to deliberate' (CSMK, 269; AT IV, 307) suggests that one can full well be virtuous despite being seriously misguided about what is truly good and wise.\n\n## 3 Happiness and the Highest Good\n\nTo clarify the nature of the Cartesian notion of happiness, it is singularly helpful to examine Descartes's tripartite distinction between happiness , the highest (or supreme) good , and the final end . In the all-important letter of August 18 of 1645, the passage - as convoluted as it is central - reads as follows:\n\nMy first observation is that there is a difference between [1] happiness , [2] the supreme good , and [3] the final end or goal towards which our actions ought to tend. For [1] happiness is not [2] the supreme good, but presupposes it, being the contentment or satisfaction of the mind which results from possessing it. The end of our actions [3], however, can be understood to be one or the other [1 or 2]; for the supreme good is undoubtedly the thing we ought to set ourselves as the goal of all our actions, and the resulting contentment of the mind is also rightly called our end, since it is the attraction which makes us seek the supreme good. (CSMK, 261; AT IV, 275, emphases and numbers in brackets added.)\n\nThe first thing to note is that here Descartes explicitly sets happiness apart from the  highest  good,¹⁵  thereby  separating  himself  from  the  traditionally  powerful eudaimonist  tradition.¹⁶  But  what  does  he  mean  by  the  two  notions?  To  take happiness  first,  the  passage  witnesses  Descartes's  consistent  view  of  human happiness ( béatitude ) as 'a perfect contentment of mind and inner satisfaction' (CSMK, 257; AT IV, 264). Evidently, 'natural happiness' (CSMK, 264; AT IV, 285) simply consists of 'the satisfaction of mind' (CSMK, 268; AT IV, 305).¹⁷\n\nThe Cartesian notion of the supreme or highest good is more complex, but, in the end, quite understandable. The above-quoted passage tells us little about it, but in the 1647 letter to Queen Christina, Descartes analyzes the notion as follows:¹⁸\n\n[I]t seems to me that [1] the supreme good of all men together is the total or aggregate of all the goods - those of the soul as well as those of the body and of fortune - which can belong to any human being; but that [2] the supreme good of each individual is  quite a different thing, and consists only in a firm will to do well and the contentment which this produces. My reason for saying this is that I  can discover no other good which seems so great or so\n\n15 See also CSMK, 268; AT IV, 305.\n\n16 For a discussion that argues for this in detail, see Svensson 2015.\n\n17 Thus, as Rutherford 2013 states, 'Descartes explains happiness ( la béatitude ) entirely in psychological terms.' To my mind, this position stands in an interesting contrast to ancient philosophy: many ancients tended to understand happiness as nothing less than becoming divine through contemplating eternal truths.\n\n18 To Christina, Descartes (CSMK, 324; AT V, 82) also says that 'God is the supreme good'; but I am setting that aside and focusing only on what Descartes calls goodness 'considered in relation to ourselves,' which must both belong to us and to be a perfection for us.\n\nentirely within each man's power . For the goods of the body and of fortune do not depend absolutely upon us; and those of the soul can all be reduced to two heads, the one being to know, and the other to will, what is good. But knowledge is often beyond our powers; and so there remains only our will, which is absolutely within our disposal. And I  do not see that it is possible to dispose it better than by a firm and constant resolution to carry out to the letter all the things which one judges to be best, and to employ all the powers of one's mind in finding out what these are . This by itself constitutes all the virtues; this alone really deserves praise and glory; this alone, finally, produces the greatest and most solid contentment in life. So I conclude that it is this which constitutes the supreme good . (CSMK, 324  f.; AT V, 82  f., emphases and numbers in brackets added.)\n\nI interpret the point as follows: we can talk about the highest good as the overall sum total of all the perfections a human being can have, but in a more salient sense, it refers to judging what is good and acting accordingly in virtue of our free will.¹⁹ The highest good thus amounts to acting morally, as what I have called two-component theory states .  It  is  this  Descartes  has  in  mind  in  an  important passage to Christina:\n\nNow free will is in itself the noblest thing we can have, since it makes us in a way equal to God and seems to exempt us from being his subjects; and so its correct use is the greatest of all the goods we possess; indeed there is nothing that is more our own or that matters more to us. (CSMK, 326; AT V, 85.)\n\nPutting together the different elements of this line of argument, the correct use of our free will is the highest good, because it is the only thing that is entirely up to us and as such what is most our own.²⁰\n\nTo summarize, for Descartes happiness is about having a contented mind, but it is not our highest good: being virtuous - using one's will as the two-component theory states - is. However, there is a connection between virtue and happiness; as we have seen, Descartes claims (CSMK, 261; AT IV, 275) that happiness can result or follow from virtue.²¹ The interpretative challenge is to find out how, exactly, this can come about.\n\n19 For an instructive discussion on the two senses of the highest good, see Svensson 2015, esp. 291-4.\n\n20 See, e.  g., CSMK, 283; AT IV, 355; Passions , arts. 17 (CSM I, 335; AT XI, 342), 145 (CSM I, 379; AT XI, 436), 152-3 (CSM I, 384; AT XI, 445  f.).\n\n21 It should be noted that also the second part of the Passions (art. 148; CSM I, 382; AT XI, 442) ends very much in the same vein.\n\n## 4 From Virtue to Happiness\n\nWe are now in a position to reconstruct and assess the way in which Descartes views the link between virtuousness (or moral action) and happiness. So what is his argument for the sufficiency of virtue for happiness? Detailed answers to this question are surprisingly hard to find.²² To my knowledge the letter to Elizabeth of 4 August 1645 provides Descartes's only elaborate account on the topic.²³ , ²⁴ I have already quoted it because it informs us of what I have dubbed the two-component theory of moral agency, but it should be kept in mind that the context is precisely that of reaching happiness:\n\nIt seems to me that each person can make himself content by himself without any external assistance, provided he respects three conditions [.] […] [1] The first is that he should always try to employ his mind as well as he can to discover what he should or should not do in all the circumstances of life. [2] The second is that he should have a firm and constant resolution to carry out whatever reason recommends without being diverted by his passions or appetites. […] [3] The third is that he should bear in mind that while he thus guides himself as far as he can, by reason, all the good things which he does not possess are one and all entirely outside his power . (CSMK, 257  f.; AT IV, 265, emphases and numbers in brackets added.)\n\nBuilding on this, Descartes ends up claiming that virtue is sufficient for happiness. This is surprising given that, as we have seen, he considers virtue to consist, at most , of what the first two items (instead of all three) of the quoted passage\n\n22 I have only been able to locate two more extensive discussions of the topic. John Marshall's (1998, Ch. 5) discussion does not aim to show how happiness follows from virtue but that the three conditions of the August 4, 1645 letter to Elizabeth are almost identical to the first three maxims of the Discourse .  Marshall's  account  nevertheless  contains  thoughtful  comments  on how virtue leads to happiness, which concern the same textual territory as the interpretation I will presently develop; see note 26 below. Svensson (2011, 240-7) presents the other discussion, which focuses on virtue as the only perfection (and hence joy-inducing thing) completely within our power. It should be noted that neither account finds the claim that virtue is sufficient for happiness problematic within the Cartesian framework.\n\n23 This account is, as Descartes puts it, 'related to the three rules of morality' of the Discourse (CSMK, 257; AT IV, 265); however, as my focus is on his correspondence and the Passions - after all, it is in them that Descartes elaborates his ethical thought -, I will not enter into a detailed comparison between the maxims of the Discourse and Descartes's later moral thought.\n\n24 In  a  later  letter  to  Christina,  without  any  argument  Descartes  notes  that  'we  cannot  ever practice any virtue […] without receiving satisfaction and pleasure from so doing' (CSMK, 263; AT IV, 284). However, even if being virtuous somehow directly gave us satisfaction, that would hardly be enough to fortify us against all different kinds of threats to happiness. Moreover, the fact that Descartes does not here offer any argument might be taken to signal that he is relying on the account he has already given in the letter from 4 August 1645.\n\nmention. So what is the role of the third condition? Why does Descartes invoke it even though it does not seem to be part of virtue?\n\nDescartes's argument can be reconstructed as follows. The third condition according to which we must understand that if we use our will correctly, all the good things we do not attain are outside our power - is based on something the importance of which Descartes is keen to emphasize, namely distinguishing 'adequately the things which depend wholly on us from those which do not depend on us at all' ( Passions , art. 144; CSM I, 379; AT XI, 436). Now as we have seen, the exercise of our free will is the only thing that is entirely up to us, and so Descartes holds that only things that depend on it are in our power.\n\nBut what does this have to do not only with things we consider good but have been unable to attain, but also - and ultimately - with happiness? The passage continues:  'In  this  way  he  will  become  accustomed  not  to  desire  them.  For nothing can impede our contentment except desire and regret or repentance [ le desir, &amp; le regret ou le repentir ][.]' (CSMK, 258; AT IV, 266, emphases added.)²⁵ So, the argument consists of two claims: (1) only desire, regret, and repentance can stand in the way of our happiness;²⁶ and (2) fulfilling the third condition protects us from them so that we will be happy should we also have fulfilled the first two conditions by acting virtuously.\n\nLet  us  begin  unpacking  these  claims  by  considering  what  the  letter  says about those things that are in our power:\n\n[I]f we always do whatever our reason tells us, even if events show us afterwards that we have gone wrong, we will never have any grounds for repentance, because it was not our own fault . […] [S]ince we have always followed the advice of our reason, we have left undone nothing that was in our power[.] […] It is also not necessary that our reason should be free from error; it is sufficient if our conscience testifies that we have never lacked resolution and virtue to carry out whatever we have judged the best course. (CSMK, 258; AT IV, 266, emphasis added.)\n\n25 Passions (art. 209; CSM I, 402; AT XI, 484  f.) defines regret as the sadness we feel when have lost a good thing without the hope of recovering it, whereas repentance is the sadness we feel when we believe that we have done something bad for which we are to blame (art. 191; CSM I, 396; AT XI, 472  f.). The letter under discussion seems consistent with these definitions.\n\n26 Marshall 1998, 82, sees the relationship between the three conditions and the three passions as follows: 'By following the first two rules we gain mastery over repentance and remorse, and by following the third we gain mastery over our desires.' This is an interesting suggestion, but as will be momentarily made clear, I prefer a different classificatory approach. See also Brown 2006, 181.\n\nThe point is thus put in terms of repentance : we have no reason to repent anything we do provided that we have judged the situation to the best of our abilities and genuinely tried to act accordingly. The reason for this is that in such a situation, even the outcomes of our actions we afterwards find unwelcome are 'not our fault.'²⁷ Thus, as far as things within our power are concerned, the focus is on accountability. Here the already-mentioned emphasis on our finitude makes its  presence felt: it is simply a corollary of our finite nature that nothing more than genuinely using our will to the best of our ability could ever be expected or demanded of us, and so it makes no sense to repent our actions if we have done so. In other words, our limitedness has an effect on what we are morally responsible for,²⁸ and so Descartes argues that no matter what the outcome, if we have done everything as well as we could in the situation in which we found ourselves, our conscience can be clear and thus free of repentance.²⁹ By the same token, it would be misguided to regret acting virtuously or desire to have acted otherwise. According to Descartes, as far as things that depend on us are concerned, realizing this guards us against the three potential threats to happiness provided that we have done everything within our power by acting virtuously.\n\nWhat about those things that do not depend on us? Even if we accept that we are not accountable for things outside our power in a way that would make it sensible to repent them, is it not quite understandable, and ordinary, to want or wish things to have gone otherwise? But desiring unrealized things we deem good or regretting that things took place the way they did would, in Descartes's own account, stand in the way of contentment. The letter does address this issue, albeit in a rather sketchy and convoluted manner: Descartes says that '[w]e do not desire to have, for example, more arms or more tongues than we have, and yet we do desire to have more health or more riches' because 'we imagine that the latter, unlike the former can be acquired by our exertions,' even when this is not the case; moreover, we should understand 'that sickness and misfortune are no less natural to man than prosperity and health' (CSMK, 258; AT IV, 266). Here, he introduces a line of argument that he presents much more clearly in the Passions . The passage - important enough to be quoted at length - reads as follows:\n\n27 In the 1647 letter to Christina, Descartes writes that what we do after having 'examined the matter as well as we are morally able […] may be bad, but none the less we can be sure of having done our duty' (CSMK, 325; AT V, 83  f.).\n\n28 I am grateful to an anonymous referee for helping me in formulating this point.\n\n29 To drive home precisely this point, a later letter states: 'There would be more ground for repentance if we had acted against our conscience, even though we realized afterwards that we had done better than we thought' (CSMK, 269; AT IV, 307).\n\n[W]e should reflect upon the fact that nothing can possibly happen other than as Providence has determined from all eternity. Providence is, so to speak, a fate or immutable necessity, which we must set against Fortune in order to expose the latter as a chimera which arises solely from an error of our intellect. For we can desire only what we consider in some way to be possible ; and things which do not depend on us can be considered possible only in so far as they are thought to depend on Fortune - that is to say, in so far as we judge that they may happen and that similar things have happened at other times. But this opinion is based solely on our not knowing all the causes which contribute to each effect. For when a thing we considered to depend on Fortune does not happen, this indicates that one of the causes necessary for its production was absent, and consequently that it was absolutely impossible and that no similar thing has ever happened, i.  e. nothing for the production of which a similar cause was also absent. Had we not been ignorant of this beforehand, we should never have considered it possible and consequently we should never have desired it. ( Passions , art. 145; CSM I, 380; AT XI, 438, emphases added.)\n\nThe ensuing article confirms that 'we must recognize that everything is guided by divine Providence, whose eternal decree is infallible and immutable to such an extent that, except for matters it has determined to be dependent on our free will, we must consider everything that affects us to occur of necessity and as it were by fate, so that it would be wrong for us to desire things to happen in any other way' ( Passions , art. 146; CSM I, 380; AT XI, 439).\n\nThese passages build on a distinction between fortune and providence. The former is merely the result of our cognitive shortcomings, whereas the latter captures the way the world really is and operates. The argument is that we should understand that all those things that do not depend on us have been 'determined from all eternity' by 'infallible and immutable' providence to be the way they are.³⁰ Once we realize this, we no longer desire things to be otherwise because 'we can desire only what we consider in some way to be possible' and what providence has not determined to be is 'absolutely impossible.'³¹ The claim is thus that it is a plain mistake to want anything not dependent on us to have been other-\n\n30 Here Descartes focuses on things that do not depend on us and explicitly sets aside matters providence 'has determined to be dependent on our free will' ( Passions , art. 146; CSM I, 380; AT XI, 439), which makes these passages especially relevant to the present interpretation. However, it should be noted that he sometimes says that also those things that do depend on the human will in fact depend on God (CSMK, 272, 282; AT IV, 314, 353); in line with this, the so-called letter on love formulates Cartesian providentialism in rather extreme terms (CSMK, 309  f.; AT IV, 608  f.). However, discussing the way in which Descartes's notion of the freedom of will squares with his theological cosmology would take us too far afield; for our purposes it suffices to note that, whether entitled to it or not, Descartes firmly believes that the freedom of our will is compatible with God's omnipotence (see e.  g., Principles I.41; CSM I, 206; AT VIIIA, 20).\n\n31 In Discourse part three, Descartes formulates the point as follows: '[O]ur will naturally tends to desire only what our intellect represents to it as somehow possible.' (CSM I, 124; AT VI 25  f.)\n\nwise - it is just as senseless as desiring 'to have, for example, more arms or more tongues than we have' (CSMK, 258; AT IV, 266) or 'bodies of a material as indestructible as diamond or wings to fly like birds' (CSM I, 26; AT VI, 26).³² Realizing this, Descartes argues, is enough to subdue our desires and regrets concerning things outside our control that could threaten our peace of mind or happiness.³³\n\nThe third condition thus stands for the point that we are to separate what depends on us from what does not, so that once we have acted virtuously by correctly using our free will - so that our conscience is clear - we can also be at peace with everything that does not depend on us simply because we are not to desire such impossibilities as things determined by providence to have been otherwise. Thus, for Descartes, fulfilling the third condition makes the virtuous agent immune to all potential threats to her happiness.\n\n## 5 Intellectual Insight\n\nAccording to the present interpretation, the Cartesian account of the path from virtue to happiness involves - in addition to acting virtuously - an intellectual insight consisting of three key components: (1) the distinction between what is and what is not up to us, (2) the idea that we are not to blame ourselves for anything we do as long as we have genuinely done our best to judge correctly and act accordingly, and (3) the view that things outside our power are determined by providence. The first and the last of these elements stem from an easily locatable source: they are, of course, part and parcel of the Stoic world view. Here is an apt, compact description of how providentialism affected the Stoic take on how to attain a happy life: 'Secure in their understanding of the providential structure of the world, which is identical with fate, which in turn is identical with the will of Zeus […], [Stoic] Sages order their lives in accordance with it, assimilating their will to the will of Zeus, living in accordance with nature, and so achieving the smooth flow of life[.]'³⁴ Descartes clearly found this idea congenial, even though there are, of course, many differences between him and the Stoics.³⁵\n\n32 Discourse also mentions not regretting that we do not possess 'the kingdom of China or of Mexico' (CSM I, 26; AT VI, 26).\n\n33 On useless desires, see Marshall 1998, 50-2, 110-12. Naaman-Zauderer 2010, 197 , notes the effect  reflection  on  providence  can  have  on  our  desires  but  ultimately  emphasizes  'the  virtue-habit of generosity' (202) as the culmination point of Cartesian ethics.\n\n34\n\nHankinson 2003, 59.\n\n35 Perhaps most notably, Descartes is not a corporealist, which in fact makes it easier for him\n\nIf all of this is on the right track, it raises the following question: why does Descartes consistently claim that virtue - acting according to the two-component theory - is sufficient for happiness even though it seems clear that, according to his own account, it is not? No answer to this question can avoid being conjectural, at least to some extent. To begin with, it might be suggested that Descartes is, after all, operating with a wider notion of virtue than one might think - a notion that sets strictures to judging well. In a letter to Elizabeth from 15 September 1645 he writes:\n\nIn order to be always disposed to judge well, only two things seem to me necessary. One is knowledge of the truth; the other is practice in remembering and assenting to this knowledge whenever the occasion demands. But because nobody except God knows everything perfectly, we have to content ourselves with knowing the truths most useful to us. (CSMK, 265; AT IV, 291.)\n\nThe very first truth useful for judging well states that 'there is a God on whom all things depend, whose perfections are infinite, whose power is immense and whose decrees are infallible,' which 'teaches us to accept calmly all the things which happen to us as expressly sent by God' (CSMK, 265; AT IV, 291). Now this smacks of providentialism, and Descartes connects it to the 'useful truth' concerning the nobility and immortality of the soul, which 'so detaches our affections from the things of this world that we look upon whatever is in the power of fortune with nothing but scorn' (CSMK, 266; AT IV, 292). These passages offer textual evidence for the suggestion that when judging what to do, these truths are to be taken into account so that they are in a way embedded in being virtuous. However, this interpretation would make Descartes's conception of virtue intellectualistic in a way that many key passages simply do not indicate. When he talks about employing 'all the powers of one's mind in finding out what' (CSMK, 325; AT V, 83) is the best course of action, or about judging 'as well as we are morally able' (CSMK, 325; AT V, 83  f.), he does not in any way even hint that this cognitive component of moral agency would have to contain specific truths about anything; instead, the message is simply that one should try one's best to judge as well as one can to find out the appropriate course of action in the situation in which one finds oneself.\n\nOne might also argue that, within the Cartesian framework, once one has acted virtuously, everything one needs to do to attain happiness is already done; one has only to realize that this is the case. That realization is, it might be continu  ed, in fact a meta-level observation and as such not on a par with something\n\nthan for the Stoics to give an account of what is 'up to us.' For a discussion of moral responsibility in the corporealist determinism of the Stoics, see Brennan 2003, 292-4; Frede 2003, 201-5.\n\nas demanding as judging the best we can and exerting ourselves, against irresolution and passions, to act accordingly. However, meta-level or not, the realization has concrete work to do on the path to happiness, which makes it problematic to overlook its importance in this way.\n\nI would suggest that Descartes downplays the intellectual insight his account involves because he thinks that all of its three main components are innocuous in their ubiquity. That we have control over some things and not others is - one might argue - a platitude nobody can fail to realize. That we are not to blame ourselves if we have done the best we could is, in turn, a piece of worldly wisdom sensitive to our finitude.³⁶ Finally, providentialism - by far the most substantial component - was in Descartes's time such a commanding view that virtually everyone endorsed at least some variant of it: it was plainly exceptional not to think that the world is ordered (by God) for the best, or at the very least rationally. In fact, Descartes seems to have changed his mind somewhat on how difficult these things are to realize. In the Discourse ,  he  writes  (about  providentialism) that 'it takes long practice and repeated meditation to become accustomed to seeing everything in this light' (CSM I, 124; AT VI, 26).³⁷ But in 1645, he writes to Elizabeth that 'there are few who cannot recognize it [the right path] well enough when somebody else clearly points it out to them' (CSMK, 259; AT IV, 272), only to state in the Passions that 'when we apply ourselves to distinguish Fatality from Fortune in this way, we easily acquire the habit of governing our desires' (art. 146; CSM I, 381; AT XI, 440). Thus, Descartes seems to have come to consider certain views, even the one concerning providence, evident to the extent that little reflection is needed to realize them - it is enough that someone points them out to us. Moreover, it is certainly far from implausible to think that, for Descartes, using one's will to judge the best one can at the very least increases the likelihood of grasping these crucial truths.³⁸ Still, even though this answer makes Descartes to a certain extent blind to the philosophical presuppositions of his time, I am inclined to think that it reveals the reason why he overlooks the weightiness of the third condition to the extent that he declares virtue to be sufficient for happiness. After all, none of us can avoid taking for granted at least some things that form the backdrop of our thought; often this results in leaving a premise implicit simply because one considers it so evident.\n\n36 It arguably largely corresponds to what is nowadays called the ' ought implies can ' principle; on it and Descartes, see Marshall 1998, 50.\n\n37 Naaman-Zauderer 2010, 182 n8, draws attention to this: '[W]e must become accustomed to considering all external goods as equally beyond our power.'\n\n38 This meshes well with his striking optimism concerning the mastery we can gain over our passions; see Passions , art. 50; CSM I, 348; AT XI, 370.\n\n## 6 Conclusion\n\nAccording to the interpretation I have defended in this paper, Descartes's moral thought  forms  perhaps  a  surprisingly  unified  whole.  The  highest  good  equals virtuous  action,  which  involves  two  components,  judging  well  and  striving  to act according to one's judgment. Happiness, in turn, is not the highest good but something that is supposed to follow from it. However, an analysis of Descartes's argument reveals that securing happiness requires that we have a rather multifaceted intellectual insight into virtuous action. Descartes's reasons for downplaying this requirement are unclear, but I would like to point out that I do not wish to accuse him of incoherence: I have argued instead that he leaves a key premise implicit because the insight on which happiness (partly) rests appears much more self-evident to him than to us; in this sense, our historical distance allows  us  to  see  a  philosophical  assumption  which  Descartes  feels  extremely comfortable operating on. Indeed, all of the three major features of the implicit premise make their presence acutely felt in his theory of the passions: the exercise of virtue, 'the supreme remedy against the passions' ( Passions , art. 148; CSM I, 381; AT XI, 441), and generosity, 'the general remedy for every disorder of the passions' ( Passions , art. 161; CSM I, 388; AT XI, 454), both involve not only the distinction between what is and what is not up to us, but also knowledge of the fact that we are to have a clear conscience if we only have correctly used our will. We should thus focus on and derive joy from what is up to us, acknowledging that providence takes care of the rest and that we are to 'take little account of all the things outside us that do not depend on our free will' (CSMK, 283; AT IV, 355). The Cartesian sage is certainly not far removed from her Stoic predecessor.³⁹\n\n- AT Adam, C./Tannery, P. (eds.) 1996. Œuvres de Descartes , 12 vols. Paris.\n- CSM Cottingham, J./Stoothoff, R./Murdoch, D. (eds.) 1985. The Philosophical Writings of Descartes , 2 vols. Cambridge.\n- CSMK Cottingham, J./Stoothoff, R./Murdoch, D./Kenny, A. (eds.) 1991. The Philosophical Writings of Descartes III. The Correspondence . Cambridge.\n\n39 I would especially like to thank Frans Svensson for many inspiring and insightful discussions on the topics of this paper. I am also grateful to Lilli Alanen, Karolina Hübner, Peter Myrdal, and Justin Steinberg for helpful comments on earlier drafts of this paper. Moreover, I would like to acknowledge that research for this article has been financially supported by the Academy of Finland (project number 275583) and the Emil Aaltonen Foundation.\n\nAnnas, J. 2011. Intelligent Virtue . Oxford.\n\nBrennan, T. 2003. 'Stoic Moral Psychology'. In The Cambridge Companion to the Stoics . Ed. B. Inwood. Cambridge, 257-294.\n\nBrown, D. J. 2006. Descartes and the Passionate Mind. Cambridge.\n\nFrede, D. 2003. 'Stoic Determinism'. In The Cambridge Companion to the Stoics . Ed. B. Inwood. Cambridge, 179-205.\n\nHankinson, R. J. 2003. 'Stoic Epistemology'. In The Cambridge Companion to the Stoics . Ed. B. Inwood. Cambridge, 59-84.\n\nMarshall, J. 1998. Descartes's Moral Theory . Ithaca.\n\nNaaman-Zauderer, N. 2010. Descartes' Deontological Turn: Reason, Will, and Virtue in the Later Writings . Cambridge.\n\nRodis-Lewis, G. 1957. La morale de Descartes . Paris.\n\nRutherford, D. 2013. 'Descartes' Ethics'. Stanford Encyclopedia of Philosophy ;\n\nhttp:/ /plato.stanford.edu/entries/descartes-ethics/ (accessed 24 March, 2017).\n\nShapiro, L. 1999. 'Cartesian Generosity'. In Norms and Modes of Thinking in Descartes . Ed. T. Aho/M. Yrjönsuuri. Helsinki, 249-75.\n\n-. 2008. 'Descartes's Ethics'. In A Companion to Descartes . Ed. J. Broughton/J. Carriero. Oxford, 445-63.\n\nSvensson, F. 2011. 'Happiness, Well-being, and Their Relation to Virtue in Descartes' Ethics'. Theoria 77, 238-60.\n\n- -. 2015. 'Non-Eudaimonism, the Sufficiency of Virtue for Happiness, and Two Senses of the Highest Good in Descartes's Ethics'. British Journal for the History of Philosophy 23, 277-96.",
+    "responses": [
+      {
+        "source": "gpt-4o-2024-11-20",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"ADU1\": {\n      \"text\": \"Descartes explicitly states that virtue is sufficient for attaining happiness.\",\n      \"label\": \"claim\"\n    },\n    \"ADU2\": {\n      \"text\": \"In this paper I argue that, within the framework he develops, this is not exactly true: more than virtuous action is needed to secure happiness.\",\n      \"label\": \"claim\"\n    },\n    \"ADU3\": {\n      \"text\": \"To be happy, we need to connect virtuous action to a specific intellectual insight into ourselves and the world at large.\",\n      \"label\": \"claim\"\n    },\n    \"ADU4\": {\n      \"text\": \"For Descartes, moral agency is about the correct use of our will, which consists of both a cognitive and a conative component.\",\n      \"label\": \"premise\"\n    },\n    \"ADU5\": {\n      \"text\": \"The highest good equals virtuous action, which involves two components, judging well and striving to act according to one's judgment.\",\n      \"label\": \"claim\"\n    },\n    \"ADU6\": {\n      \"text\": \"Happiness, in turn, is not the highest good but something that is supposed to follow from it.\",\n      \"label\": \"claim\"\n    },\n    \"ADU7\": {\n      \"text\": \"Securing happiness requires that we have a rather multifaceted intellectual insight into virtuous action.\",\n      \"label\": \"claim\"\n    },\n    \"ADU8\": {\n      \"text\": \"The third condition according to which we must understand that if we use our will correctly, all the good things we do not attain are outside our power.\",\n      \"label\": \"premise\"\n    },\n    \"ADU9\": {\n      \"text\": \"Nothing can impede our contentment except desire and regret or repentance.\",\n      \"label\": \"premise\"\n    },\n    \"ADU10\": {\n      \"text\": \"Fulfilling the third condition protects us from them so that we will be happy should we also have fulfilled the first two conditions by acting virtuously.\",\n      \"label\": \"claim\"\n    },\n    \"ADU11\": {\n      \"text\": \"We have no reason to repent anything we do provided that we have judged the situation to the best of our abilities and genuinely tried to act accordingly.\",\n      \"label\": \"premise\"\n    },\n    \"ADU12\": {\n      \"text\": \"Realizing this guards us against the three potential threats to happiness provided that we have done everything within our power by acting virtuously.\",\n      \"label\": \"claim\"\n    },\n    \"ADU13\": {\n      \"text\": \"It is a plain mistake to want anything not dependent on us to have been otherwise.\",\n      \"label\": \"premise\"\n    },\n    \"ADU14\": {\n      \"text\": \"Realizing this, Descartes argues, is enough to subdue our desires and regrets concerning things outside our control that could threaten our peace of mind or happiness.\",\n      \"label\": \"claim\"\n    },\n    \"ADU15\": {\n      \"text\": \"The Cartesian account of the path from virtue to happiness involves an intellectual insight consisting of three key components: (1) the distinction between what is and what is not up to us, (2) the idea that we are not to blame ourselves for anything we do as long as we have genuinely done our best to judge correctly and act accordingly, and (3) the view that things outside our power are determined by providence.\",\n      \"label\": \"claim\"\n    },\n    \"ADU16\": {\n      \"text\": \"Descartes downplays the intellectual insight his account involves because he thinks that all of its three main components are innocuous in their ubiquity.\",\n      \"label\": \"claim\"\n    },\n    \"ADU17\": {\n      \"text\": \"The highest good equals virtuous action, which involves two components, judging well and striving to act according to one's judgment.\",\n      \"label\": \"claim\"\n    },\n    \"ADU18\": {\n      \"text\": \"Happiness, in turn, is not the highest good but something that is supposed to follow from it.\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"ADU2\",\n      \"target\": \"ADU1\",\n      \"type\": \"attack\"\n    },\n    {\n      \"source\": \"ADU3\",\n      \"target\": \"ADU2\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU4\",\n      \"target\": \"ADU5\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU5\",\n      \"target\": \"ADU6\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU7\",\n      \"target\": \"ADU6\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU8\",\n      \"target\": \"ADU10\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU9\",\n      \"target\": \"ADU10\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU11\",\n      \"target\": \"ADU12\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU13\",\n      \"target\": \"ADU14\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU15\",\n      \"target\": \"ADU7\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU16\",\n      \"target\": \"ADU15\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU17\",\n      \"target\": \"ADU18\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "ADU1": {
+              "text": "Descartes explicitly states that virtue is sufficient for attaining happiness.",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "In this paper I argue that, within the framework he develops, this is not exactly true: more than virtuous action is needed to secure happiness.",
+              "label": "claim"
+            },
+            "ADU3": {
+              "text": "To be happy, we need to connect virtuous action to a specific intellectual insight into ourselves and the world at large.",
+              "label": "claim"
+            },
+            "ADU4": {
+              "text": "For Descartes, moral agency is about the correct use of our will, which consists of both a cognitive and a conative component.",
+              "label": "premise"
+            },
+            "ADU5": {
+              "text": "The highest good equals virtuous action, which involves two components, judging well and striving to act according to one's judgment.",
+              "label": "claim"
+            },
+            "ADU6": {
+              "text": "Happiness, in turn, is not the highest good but something that is supposed to follow from it.",
+              "label": "claim"
+            },
+            "ADU7": {
+              "text": "Securing happiness requires that we have a rather multifaceted intellectual insight into virtuous action.",
+              "label": "claim"
+            },
+            "ADU8": {
+              "text": "The third condition according to which we must understand that if we use our will correctly, all the good things we do not attain are outside our power.",
+              "label": "premise"
+            },
+            "ADU9": {
+              "text": "Nothing can impede our contentment except desire and regret or repentance.",
+              "label": "premise"
+            },
+            "ADU10": {
+              "text": "Fulfilling the third condition protects us from them so that we will be happy should we also have fulfilled the first two conditions by acting virtuously.",
+              "label": "claim"
+            },
+            "ADU11": {
+              "text": "We have no reason to repent anything we do provided that we have judged the situation to the best of our abilities and genuinely tried to act accordingly.",
+              "label": "premise"
+            },
+            "ADU12": {
+              "text": "Realizing this guards us against the three potential threats to happiness provided that we have done everything within our power by acting virtuously.",
+              "label": "claim"
+            },
+            "ADU13": {
+              "text": "It is a plain mistake to want anything not dependent on us to have been otherwise.",
+              "label": "premise"
+            },
+            "ADU14": {
+              "text": "Realizing this, Descartes argues, is enough to subdue our desires and regrets concerning things outside our control that could threaten our peace of mind or happiness.",
+              "label": "claim"
+            },
+            "ADU15": {
+              "text": "The Cartesian account of the path from virtue to happiness involves an intellectual insight consisting of three key components: (1) the distinction between what is and what is not up to us, (2) the idea that we are not to blame ourselves for anything we do as long as we have genuinely done our best to judge correctly and act accordingly, and (3) the view that things outside our power are determined by providence.",
+              "label": "claim"
+            },
+            "ADU16": {
+              "text": "Descartes downplays the intellectual insight his account involves because he thinks that all of its three main components are innocuous in their ubiquity.",
+              "label": "claim"
+            },
+            "ADU17": {
+              "text": "The highest good equals virtuous action, which involves two components, judging well and striving to act according to one's judgment.",
+              "label": "claim"
+            },
+            "ADU18": {
+              "text": "Happiness, in turn, is not the highest good but something that is supposed to follow from it.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU2",
+              "target": "ADU1",
+              "type": "attack"
+            },
+            {
+              "source": "ADU3",
+              "target": "ADU2",
+              "type": "support"
+            },
+            {
+              "source": "ADU4",
+              "target": "ADU5",
+              "type": "support"
+            },
+            {
+              "source": "ADU5",
+              "target": "ADU6",
+              "type": "support"
+            },
+            {
+              "source": "ADU7",
+              "target": "ADU6",
+              "type": "support"
+            },
+            {
+              "source": "ADU8",
+              "target": "ADU10",
+              "type": "support"
+            },
+            {
+              "source": "ADU9",
+              "target": "ADU10",
+              "type": "support"
+            },
+            {
+              "source": "ADU11",
+              "target": "ADU12",
+              "type": "support"
+            },
+            {
+              "source": "ADU13",
+              "target": "ADU14",
+              "type": "support"
+            },
+            {
+              "source": "ADU15",
+              "target": "ADU7",
+              "type": "support"
+            },
+            {
+              "source": "ADU16",
+              "target": "ADU15",
+              "type": "support"
+            },
+            {
+              "source": "ADU17",
+              "target": "ADU18",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "ADU1": {
+              "text": "Descartes explicitly states that virtue is sufficient for attaining happiness.",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "In this paper I argue that, within the framework he develops, this is not exactly true: more than virtuous action is needed to secure happiness.",
+              "label": "claim"
+            },
+            "ADU3": {
+              "text": "To be happy, we need to connect virtuous action to a specific intellectual insight into ourselves and the world at large.",
+              "label": "claim"
+            },
+            "ADU5": {
+              "text": "The highest good equals virtuous action, which involves two components, judging well and striving to act according to one's judgment.",
+              "label": "claim"
+            },
+            "ADU6": {
+              "text": "Happiness, in turn, is not the highest good but something that is supposed to follow from it.",
+              "label": "claim"
+            },
+            "ADU7": {
+              "text": "Securing happiness requires that we have a rather multifaceted intellectual insight into virtuous action.",
+              "label": "claim"
+            },
+            "ADU10": {
+              "text": "Fulfilling the third condition protects us from them so that we will be happy should we also have fulfilled the first two conditions by acting virtuously.",
+              "label": "claim"
+            },
+            "ADU11": {
+              "text": "We have no reason to repent anything we do provided that we have judged the situation to the best of our abilities and genuinely tried to act accordingly.",
+              "label": "premise"
+            },
+            "ADU12": {
+              "text": "Realizing this guards us against the three potential threats to happiness provided that we have done everything within our power by acting virtuously.",
+              "label": "claim"
+            },
+            "ADU14": {
+              "text": "Realizing this, Descartes argues, is enough to subdue our desires and regrets concerning things outside our control that could threaten our peace of mind or happiness.",
+              "label": "claim"
+            },
+            "ADU16": {
+              "text": "Descartes downplays the intellectual insight his account involves because he thinks that all of its three main components are innocuous in their ubiquity.",
+              "label": "claim"
+            },
+            "ADU17": {
+              "text": "The highest good equals virtuous action, which involves two components, judging well and striving to act according to one's judgment.",
+              "label": "claim"
+            },
+            "ADU18": {
+              "text": "Happiness, in turn, is not the highest good but something that is supposed to follow from it.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU2",
+              "target": "ADU1",
+              "type": "attack"
+            },
+            {
+              "source": "ADU3",
+              "target": "ADU2",
+              "type": "support"
+            },
+            {
+              "source": "ADU5",
+              "target": "ADU6",
+              "type": "support"
+            },
+            {
+              "source": "ADU7",
+              "target": "ADU6",
+              "type": "support"
+            },
+            {
+              "source": "ADU11",
+              "target": "ADU12",
+              "type": "support"
+            },
+            {
+              "source": "ADU17",
+              "target": "ADU18",
+              "type": "support"
+            }
+          ]
+        }
+      },
+      {
+        "source": "claude-3-5-sonnet-20241022",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"1\": {\n      \"text\": \"Descartes explicitly states that virtue is sufficient for attaining happiness.\",\n      \"label\": \"claim\"\n    },\n    \"2\": {\n      \"text\": \"within the framework he develops, this is not exactly true: more than virtuous action is needed to secure happiness.\",\n      \"label\": \"claim\"\n    },\n    \"3\": {\n      \"text\": \"virtue is almost - but not quite - enough for attaining happiness. To be happy, we need to connect virtuous action to a specific intellectual insight into ourselves and the world at large.\",\n      \"label\": \"claim\"\n    },\n    \"4\": {\n      \"text\": \"For Descartes, virtue is primarily about exerting ourselves according to our best judgment.\",\n      \"label\": \"claim\"\n    },\n    \"5\": {\n      \"text\": \"acting virtuously equals acting in accordance with the two-component theory.\",\n      \"label\": \"claim\"\n    },\n    \"6\": {\n      \"text\": \"for Descartes happiness is about having a contented mind, but it is not our highest good: being virtuous - using one's will as the two-component theory states - is.\",\n      \"label\": \"claim\"\n    },\n    \"7\": {\n      \"text\": \"the Cartesian account of the path from virtue to happiness involves - in addition to acting virtuously - an intellectual insight consisting of three key components: (1) the distinction between what is and what is not up to us, (2) the idea that we are not to blame ourselves for anything we do as long as we have genuinely done our best to judge correctly and act accordingly, and (3) the view that things outside our power are determined by providence.\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"2\",\n      \"target\": \"1\", \n      \"type\": \"attack\"\n    },\n    {\n      \"source\": \"3\",\n      \"target\": \"2\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"4\",\n      \"target\": \"5\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"7\",\n      \"target\": \"3\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "1": {
+              "text": "Descartes explicitly states that virtue is sufficient for attaining happiness.",
+              "label": "claim"
+            },
+            "2": {
+              "text": "within the framework he develops, this is not exactly true: more than virtuous action is needed to secure happiness.",
+              "label": "claim"
+            },
+            "3": {
+              "text": "virtue is almost - but not quite - enough for attaining happiness. To be happy, we need to connect virtuous action to a specific intellectual insight into ourselves and the world at large.",
+              "label": "claim"
+            },
+            "4": {
+              "text": "For Descartes, virtue is primarily about exerting ourselves according to our best judgment.",
+              "label": "claim"
+            },
+            "5": {
+              "text": "acting virtuously equals acting in accordance with the two-component theory.",
+              "label": "claim"
+            },
+            "6": {
+              "text": "for Descartes happiness is about having a contented mind, but it is not our highest good: being virtuous - using one's will as the two-component theory states - is.",
+              "label": "claim"
+            },
+            "7": {
+              "text": "the Cartesian account of the path from virtue to happiness involves - in addition to acting virtuously - an intellectual insight consisting of three key components: (1) the distinction between what is and what is not up to us, (2) the idea that we are not to blame ourselves for anything we do as long as we have genuinely done our best to judge correctly and act accordingly, and (3) the view that things outside our power are determined by providence.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "2",
+              "target": "1",
+              "type": "attack"
+            },
+            {
+              "source": "3",
+              "target": "2",
+              "type": "support"
+            },
+            {
+              "source": "4",
+              "target": "5",
+              "type": "support"
+            },
+            {
+              "source": "7",
+              "target": "3",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "1": {
+              "text": "Descartes explicitly states that virtue is sufficient for attaining happiness.",
+              "label": "claim"
+            },
+            "2": {
+              "text": "within the framework he develops, this is not exactly true: more than virtuous action is needed to secure happiness.",
+              "label": "claim"
+            },
+            "3": {
+              "text": "virtue is almost - but not quite - enough for attaining happiness. To be happy, we need to connect virtuous action to a specific intellectual insight into ourselves and the world at large.",
+              "label": "claim"
+            },
+            "4": {
+              "text": "For Descartes, virtue is primarily about exerting ourselves according to our best judgment.",
+              "label": "claim"
+            },
+            "5": {
+              "text": "acting virtuously equals acting in accordance with the two-component theory.",
+              "label": "claim"
+            },
+            "6": {
+              "text": "for Descartes happiness is about having a contented mind, but it is not our highest good: being virtuous - using one's will as the two-component theory states - is.",
+              "label": "claim"
+            },
+            "7": {
+              "text": "the Cartesian account of the path from virtue to happiness involves - in addition to acting virtuously - an intellectual insight consisting of three key components: (1) the distinction between what is and what is not up to us, (2) the idea that we are not to blame ourselves for anything we do as long as we have genuinely done our best to judge correctly and act accordingly, and (3) the view that things outside our power are determined by providence.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "2",
+              "target": "1",
+              "type": "attack"
+            },
+            {
+              "source": "3",
+              "target": "2",
+              "type": "support"
+            },
+            {
+              "source": "4",
+              "target": "5",
+              "type": "support"
+            },
+            {
+              "source": "7",
+              "target": "3",
+              "type": "support"
+            }
+          ]
+        }
+      }
+    ],
+    "timestamp": 1752753970.154649
+  }
+]

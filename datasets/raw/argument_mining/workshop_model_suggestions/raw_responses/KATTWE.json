@@ -1,0 +1,431 @@
+[
+  {
+    "identifier": "KATTWE",
+    "system_prompt": "## GOAL\nArgument‑mine the following paper to extract its comprehensive argumentative structure.\n\n## DEFINITIONS\n1. **Argument**: A set of propositions, including some number of premises and a conclusion. The premises should logically entail the conclusion.\n2. **Claim**: A proposition that asserts something to be true or false, typically requiring justification or evidence.\n3. **Premise**: A proposition that provides evidence, justification, or logical support for a claim or conclusion.\n\n## CRITICAL REQUIREMENTS\n1. **VERBATIM EXTRACTION ONLY**: Each ADU text must be copied EXACTLY from the paper with no modifications, paraphrasing, or combining of separate sentences.\n2. **NO HALLUCINATION**: Do not create, modify, or invent text that does not appear exactly in the source.\n3. **EXACT MATCHING**: Every word, punctuation mark, and spacing must match the original precisely.\n\n## DIRECTIONS\n1. **Identify Argumentative Discourse Units (ADUs)**  \n   - ADU = any contiguous text span functioning as a claim or a premise in the reasoning structure.\n   - **BE HIGHLY SELECTIVE**: Only include ADUs that are crucial to the overarching argument structure.\n   - Focus on significant claims and premises that contribute meaningfully to the argumentative flow.\n   - **AVOID NOISE**: Skip ADUs that are merely descriptive, tangential, or do not substantially advance the argument.\n   - Prioritize quality over quantity - fewer accurate, important ADUs are better than many insignificant ones.\n   - **EXTRACT ONLY**: Copy text spans exactly as they appear, without any modifications.\n2. **Classify each ADU**  \n   - Label = either `\"claim\"` or `\"premise\"`.  \n3. **Detect directed relations**  \n   - Relation = `\"support\"` or `\"attack\"`, from one ADU (source) to another (target).\n   - Map how ADUs connect to form reasoning chains.\n   - Focus on relationships between the most significant ADUs.\n   - Include relationships between premises that strengthen or weaken each other.\n4. **Verbatim spans**  \n   - Each `\"text\"` value must be copied EXACTLY from the paper with zero modifications.\n   - Do not paraphrase, summarize, or combine separate sentences.\n   - Do not add, remove, or change any words, punctuation, or spacing.\n   - If unsure about exact wording, skip that ADU rather than guess.\n\n## WHAT TO CAPTURE\n**INCLUDE ONLY:**\n- Main argumentative threads that are central to the paper's contribution\n- Core claims that represent the paper's primary arguments or findings\n- Key premises that provide essential support for major claims\n- Critical counterarguments and their refutations\n- Reasoning chains that demonstrate how main conclusions are derived\n\n**EXCLUDE (AVOID NOISE):**\n- Minor details, examples, or descriptive content that don't advance the argument\n- Tangential points or side discussions\n- Pure background information or literature review content\n- Methodological details unless they constitute argumentative claims\n- Obvious statements or commonly accepted facts\n- Redundant or repetitive argumentative content\n\n**GUIDING PRINCIPLE**: If removing an ADU would not significantly impact understanding of the paper's argumentative structure, it should be excluded.\n\n## QUALITY CONTROL\n- Before finalizing each ADU, verify the text exists exactly in the source\n- Prefer fewer, accurate ADUs over many potentially modified ones\n- When in doubt about exact wording, omit the ADU\n\n## OUTPUT FORMAT\nReturn **only** a single valid JSON object matching this schema.  \nDo **not** output any extra text, markdown, or explanations.\nDo **not** add comments.\n**RESPOND WITH ONLY**:\n```json\n{\n  \"ADUs\": {\n    \"<ADU_ID>\": {\n      \"text\": \"<exact span from paper>\",\n      \"label\": \"claim\" | \"premise\"\n    }\n    ...\n  },\n  \"relations\": [\n    {\n      \"source\": \"<ADU_ID>\",\n      \"target\": \"<ADU_ID>\",\n      \"type\": \"support\" | \"attack\"\n    }\n  ]\n}\n```",
+    "user_content": "## ORIGINAL ARTICLE\n\n## To what extent can institutional control explain the dominance of analytic philosophy?\n\n<!-- image -->\n\nReceived: 7 December 2022 / Accepted: 21 July 2023 © The Author(s) 2023\n\n## Abstract\n\nKatzav and Vaesen have argued that control by analytic philosophers of key journals, philosophy departments and at least one funding body plays a substantial role in  explaining the emergence of analytic philosophy into dominance in the Anglophone  world  and  the  corresponding  decline  of  speculative  philosophy.  They  also argued that this use of control suggests a characterisation of analytic philosophy as, at the institutional level, a sectarian form of critical philosophy. I test these hypotheses against data about philosophy job hires at key philosophy departments in the USA during the period 1930-1979 and against data about PhD completions during the  period  1956-1965.  I  argue,  further,  that  Katzav  and  Vaesen's  hypotheses  can fully explain the data and are more fully able to do so than some other key accounts of the emergence of analytic philosophy in the USA.\n\nKeywords History of analytic philosophy · Speculative philosophy · Analytic/nonanalytic divide\n\n## 1  Introduction\n\nKatzav and Vaesen have argued (Katzav 2018; Katzav &amp; Vaesen, 2022) that part of the explanation for the emergence of analytic philosophy into dominance in the Anglophone world during the second half of the twentieth century was the use of institutional  power  by  key  analytic  philosophers  to  marginalise  non-analytic,  and especially  speculative,  philosophy.  This  involved  taking  control  of  key  journals, excluding non-analytic philosophy from their pages and founding analytic only journals. According to Katzav and Vaesen, the process of marginalisation started in the UK with the takeover of Mind in about 1925 and the founding of the analytic philosophy only journal Analysis in  1933. In the USA, the process of marginalisation started with the takeover of The Philosophical Review ( PR ) in about 1948, involved\n\n*\n\nJoel Katzav j.katzav@uq.edu.au\n\n1 School of Historical and Philosophical Inquiry, University of Queensland, Saint Lucia, Australia\n\nVol.:(0123456789)\n\n<!-- image -->\n\n<!-- image -->\n\nthe takeover of The Journal of Philosophy towards the end of the 1950s and continued at least until the takeover of Philosophy and Phenomenological Research in the late 1970s. The pressure arising from control of journals appears to have peaked towards the end of the 1950s. In addition, the process of marginalisation was facilitated  by  control  by  logical  empiricists  of  at  least  one  source  of  research  funding, namely the National Science Foundation's History and Philosophy of Science funding  program,  and  may  have  been  facilitated  by  control  of  key  philosophy  departments, including, from the end of the 1940s, of the Sage School of Philosophy at Cornell and, from the 1950s, of the departments at Harvard and UCLA. The marginalisation of speculative philosophy continued while speculative philosophy was a substantial force, first in the UK in the 1920s and, later, in the USA in the 1950s. Furthermore,  the  marginalised  material  primarily  included  speculative  philosophy but also included some forms of critical philosophy, such as the critical wing of phenomenology. What was preferred was analytic philosophy, conceived of as a form of critical philosophy. Indeed, Katzav and Vaesen propose that, in view of this institutionalised  preference,  analytic  philosophy  during  the  period  1925-1969  can  be understood to be, at the institutional level, a sectarian form of critical philosophy.\n\nSpeculative  philosophy  (Katzav,  2018;  Katzav  &amp;  Vaesen,  2022)  tends  to  go beyond established opinion in order to make claims that are to some extent independent of it, often offering a vision of reality as a whole in doing so. Critical philosophy tends to  avoid  going  beyond  established  opinion,  at  least  with  respect  to some parts of established opinion. Schools that are taken to be speculative include, among others, absolute idealism, personalism, American naturalism (including, e.g., classical pragmatism and Woodwardian naturalism), process philosophy and some forms of phenomenology. Schools that are taken to be critical include, among others, new realism, early analytic philosophy, mid-twentieth century linguistic philosophy, Quinean naturalism and some forms of phenomenology.\n\nThe evidence Katzav and Vaesen collect, however, primarily comprises journals coming under the control of analytic editors and then quickly shifting solely to publishing analytic philosophy. The evidence does not include evidence specifically for the  thesis  that,  when  departments  came  to  be  dominated  by  analytic  philosophy, control was used to determine who got which jobs. And yet, if Katzav and Vaesen are correct, one would expect to see the pattern of sudden exclusion found in journals to be accompanied by a pattern of exclusion in hiring practices at influential philosophy departments in the USA. More specifically, if their theses about analytic philosophy are correct, one would expect the following theses to be correct:\n\n- (1) After about 1948, there would be a relatively sharp, sustained increase in the ratio of hires of analytic philosophers by influential philosophy departments in the USA to the number of total hires of philosophers in those departments.\n- (2) During the 1950s and 1960s, there would be a continued increase in the ratio of hires of analytic philosophers by influential philosophy departments in the USA to the number of total hires of philosophers in those departments.\n- (3) Key departments in the USA would abruptly start more or less exclusively to hire analytic philosophers in the 1950s and 1960s.\n\n- (4) Many students completing PhDs in the USA in the 1950s would still be writing on topics that were not associated with analytic philosophy at the time.\n\nThis paper aims to test predictions (1)-(4) against available data about job hires at influential philosophy departments in the USA during the twentieth century and against data about PhD topics in the USA during the period 1956-1965.\n\n## 2    Methods\n\nJonathan Strassfeld (2020) compiled a database of hires by eleven prestigious midtwentieth century philosophy departments, including those at Berkeley, Columbia, Chicago,  Cornell,  Harvard,  Michigan,  Pennsylvania,  Princeton,  Stanford,  UCLA and Yale.  The database includes hires from prior to 1930 but does not include the 1 years of hires for this period. The database does include hires by year and department for  the  period  1930-1979  (excluding  Yale  hires  for  the  period  1975-1979). Furthermore, the database includes a classification of hires according to four categories: analytic, non-analytic, analytic/non-analytic and historical. I took the data for the categories analytic and non-analytic during the period 1930-1979 and aggregated it into numbers of hires per 5-year period (see Table 1). The result was used to test hypotheses (1), (2) and (3).\n\nStrassfeld's  criterion  for  classifying  philosophers  was  the  extent  to  which  they engaged in the discourses of analytic and non-analytic philosophy (2020, p. 857). For this reason, Strassfeld also includes a mixed, analytic/non-analytic category for those  engaged  in  both  discourses.  By  contrast,  Katzav  and  Vaesen  claim  that  the criterion determining which work was marginalised during the period under consideration is whether the work was in the analytic tradition, conceived of as a form of critical philosophy. Thus, this is the criterion relevant to testing their claims about marginalisation.  Moreover,  while  a  classification  according  to  their  criterion  will include cases that are hard to classify, it will not include cases that count as analytic and  non-analytic.  Speculative  philosophers  generally  recognised  the  importance of  critical  philosophy  as  part  of  philosophy.  So,  according  to  Katzav  and  Vaesen, anyone engaged in speculative philosophy counts as speculative, even if they also engage in critical philosophy, including analytic philosophy's discourses.\n\nIn  order  to  determine  whether  it  is  nevertheless  appropriate  to  test  Katzav  and Vaesen's theses using Strassfeld's classification, I examined how his classification would be affected if revised in light of their criterion. I applied their criterion to the work of those on his list who were hired during the period 1930-1960. More specifically, I considered whether the body of work, including the explicit methodological commitments, of individual philosophers, would at the time be classified as the work of a speculative philosopher. This seems appropriate since my concern is with the causes of hires at the time. I then compared the trends in hires in the resulting\n\n1 The version of the database I used was emailed to me by Strassfeld on December 23, 2020.\n\n| 1975-1979                 | Non- analytic 0   | 0         | 1   | 0       | 0 0            | 0            | 0             | 0            |      | 2    | 3     |\n|---------------------------|-------------------|-----------|-----|---------|----------------|--------------|---------------|--------------|------|------|-------|\n|                           | Ana- lytic 3      | 6         | 2   | 0       | 4 4            | 5            | 4             | 6            |      | 5    | 39    |\n| 1970-1974 Non- ana-       | lytic 0           | 2         | 0   | 0       | 0 0            | 1            | 2             | 0            | 0    | 2    | 7     |\n| Ana- lytic                | 2                 | 4         | 4   | 6       | 3 2            | 4            | 6             | 5            | 9    | 9    | 54    |\n| 1965-1969 Non- ana- lytic | 2                 | 2 0       |     | 0       | 0 0            | 1            | 0             | 1            | 0    | 12   | 18    |\n| Ana- lytic                | 3                 | 8 5       |     | 5       | 4 5            | 6            | 7             | 6            | 8    | 11   | 68    |\n| 1960-1964 Non- ana- lytic | 2                 | 1         | 0   | 0       | 1 1            | 1            | 0             | 0            | 0    | 3    | 9     |\n| Ana- lytic                | 7                 | 9 3       |     | 8       | 3 7            | 5            | 7             | 8            | 7    | 4    | 68    |\n| 1955-1959 Non- ana- lytic | 1                 | 0         | 1   | 0       | 0 1            | 0            | 0             | 1            | 0    | 3    | 7     |\n| Ana- lytic                | 7                 | 3         | 2   | 4       | 2 1            | 0            | 2             | 0            | 2    | 4    | 27    |\n| Non- ana- lytic           | 1                 | 1         | 2   | 0       | 0 0            | 0            | 1             | 0            | 2    | 1    | 8     |\n| 1950-1954 Ana- lytic      | 2                 | 0 2       |     | 2       | 5 2            | 0            | 3             | 4            | 2    | 0    | 22    |\n| 1945-1949 Non- ana- lytic | 1                 | 4         | 3   | 1       | 1 0            | 3            | 3             | 2            | 1    | 8    | 27    |\n| Ana- lytic                | 1                 | 2 1       |     | 3       | 1 3            | 2            | 1             | 0            | 1    | 3    | 18    |\n| 1940-1944 Non- ana- lytic | 0                 | 0 2       |     | 0       | 1 0            | 2            | 1             | 2            | 1    | 0    | 9     |\n| Ana- lytic                | 0                 | 0 0       |     | 0       | 1 1            | 0            | 0             | 0            | 0    | 1    | 3     |\n| 1935-1939 Non- ana- lytic | 1                 | 1 1       |     | 1       | 0 0            | 0            | 1             | 3            | 2    | 0    | 10    |\n| Ana- lytic                | 0                 | 1 1       |     | 0       | 0 1            | 0            | 0             | 0            | 1    | 1    | 5     |\n| Non- ana- lytic           | 0                 | 1 0       |     | 2       | 1 0            | 0            | 2             | 0            | 2    | 1    | 9     |\n| 1930-1934 Ana- lytic      | 0                 | Chicago 1 | 0   | 0       | 0 1            | 0            | 0             | 0            | 0    | 0    | 2     |\n|                           | Berke- ley        | Colum-    | bia | Cornell | Harvard Michi- | gan Pennsyl- | vania Prince- | ton Stanford | UCLA | Yale | Total |\n\nclassification  with  the  trends  in  the  one  Strassfeld  provided.  My  revised  list  also included revised classifications of the hires from 1930 to 1960 that Strassfeld classified as analytic/non-analytic, thus allowing me to consider the effect of my exclusion of this category from the data I used to test (1), (2) and (3). The process of revising the pre-1960s data, and selective examination of the classification of later hires, also allowed me to evaluate whether there was a need for a reclassification of post-1960s hires. 2\n\nLet  me  offer  some  examples  of  reclassifications  in  order  to  better  explain  my reclassification procedure. Strassfeld classifies Andrew P. Ushenko as an analytic philosopher. This might seem plausible if we focus on which discourses he was involved in. Ushenko was a logician and a philosopher of physics, which are areas of research often  associated  with  analytic  philosophy,  and  he  sometimes  engaged  with  wellknown figures in the analytic tradition. However, the philosophy of science, including the philosophy of physics, was a key area of research within speculative philosophy from at least the start of the twentieth century. The speculative philosophy of science aimed, among other things, to develop visions of reality by learning from, while also criticising and going beyond, science. Ushenko's work aimed, and was recognised as aiming, at  realising  this  goal.  Moreover,  his  engagement  with  analytic  philosophy, e.g. with logical positivism, was critical and aimed to defend speculative philosophy (Reck, 1958; Katzav &amp; Vaesen, 2022). He is thus classified as a speculative philosopher by me. Morris R. Cohen, who is classified as analytic/non-analytic by Strassfeld, is also reclassified as speculative by me. Cohen was particularly influential in developing  and  spreading  speculative  philosophy  of  science  (Katzav  &amp;  Vaesen,  2022). Walter T. Stace, on the other hand, is classified as non-analytic by Strassfeld but as analytic  by  me.  While  many  of  the  views  and  authors  Stace  discusses  are  outside of the analytic tradition, he discusses them with the aim of establishing the boundaries of established opinion, e.g. whether mysticism should be part of it. He is also concerned with unpacking or analysing parts of established opinion rather than with going beyond them (Stace, 1960; Katzav &amp; Vaesen, 2017, p. 784).\n\nThe Review of Metaphysics ( RM ) published data about PhD completions in philosophy at key universities in the USA and Canada during the period 1956-1965. 3 The data includes information about the number of PhDs awarded by each department, the names of the students being awarded PhDs, the titles of their PhDs and the names of PhD supervisors.  The 4 RM data includes data about PhDs from all of the already mentioned key departments, except for Stanford. The RM data was used to provide a qualitative test of hypothesis (4) about non-analytic PhDs. Reading off the philosophical orientation of a thesis from a title is a risky matter. For example, in the 1950s, there were still a substantial number of pragmatists and speculative philosophers who were working in the philosophy of science (Katzav &amp; Vaesen, 2022), so\n\n2 My classifications are available from me on request.\n\n3 See RM vols. 10(2), 11(1), 12(1), 13(1), 14(1), 15(1), 16(1), 17(1), 18(1) and 19(1).\n\n4 The 1956 list includes the caveat that it may not be complete in two ways. Some departments which were approached did not respond to the request for lists of completions and some departments awarding PhDs may have been overlooked. Later lists do not include such a caveat.\n\nthat a title such as 'An examination of some aspects of natural science' could just as well be in the non-analytic tradition despite the common association of philosophy of science with analytic philosophy. Nevertheless, some titles are more likely to feature in non-analytic theses, and titles were combined with supervisor orientation to suggest thesis orientation.\n\n## 3    Results\n\nThe data from Strassfeld shows a sharp increase in the ratio of analytic to non-analytic hires at about 1950, one that comes after a period of relative stability of this ratio  and  reflects  a  very  substantial  change  in  hire  trends  (Fig.  1).  Prior  to  1950, hires of analytic philosophers fluctuate between about 30 and 40% of the total number of hires. Immediately after 1950, analytic hires comprise about 70% of all hires. The ratio continues to grow in the 1950s and, by the 1960s, analytic hires comprise between about  80  and  90%  of  all  hires.  This  post-1950  change  in  growth  is  also substantial.\n\nThere  are  some  discrepancies  between  my  classification,  based  on  Katzav  and Vaesen's  work,  and  Strassfeld's  classification.  In  particular,  the  jump  that  occurs immediately  after  1950  is  not  quite  as  steep,  on  my  classification.   Nevertheless, 5 the jump is still steep, and the differences between the classifications do not alter the  trends  in  a  way  that  is  relevant  to  the  qualitative  judgments  made  here  (compare  Fig.  1  and  Fig.  2).  Furthermore,  at  least  by  the  1940s,  the  number  of  cases in which reclassification occurred, including reclassification of mixed analytic/nonanalytic cases, was sufficiently low relative to the total number of hires so as to make\n\nFig. 1 Analytic to non-analytic hires (Strassfeld's classification)\n\n<!-- image -->\n\n5 The trend in hires between the first and second halves of the 1930s should not be taken to be significant since the total number of hires then was very low and thus highly sensitive to small fluctuations in whether hires were analytic or not.\n\nFig. 2 Analytic to non-analytic hires (this paper's reclassification of Strassfeld's data, 1930-1959)\n\n<!-- image -->\n\nno real difference to the overall trend of hires (compare the final rows of Table 1 and Table 2). The proportion requiring reclassification does not appear to increase in  later  years.  Finally,  the  cases  of  reclassification  are  roughly  evenly  distributed between cases being reclassified as non-analytic and cases being reclassified as analytic. It thus seems that alterations to Strassfeld's data after 1960 are not going to alter the present paper's conclusions.\n\nThe shift to hiring more or less only analytic philosophers is suggested by the data for all listed departments, with the exception of Yale and perhaps, to a limited extent, Berkeley (see Tables 1 and 2). In the case of Cornell, the shift appears to occur immediately after the hiring of the speculative philosopher Arthur E. Murphy in 1945. At Columbia, the shift appears to occur in about 1960. Similar shifts appear to be found at Harvard (from about 1950) and Chicago, UCLA and Princeton (all from about 1955). Pennsylvania only hires analytic philosophers from 1960 onwards but does not appear to have had any hires in the 1950s. Stanford ceases to hire nonanalytic philosophers from at least 1960. Michigan's focus is solely on analytic philosophy since about 1930. 6\n\nContrary to what one might expect, but in accord with Katzav and Vaesen, the RM data  on  PhD  completions  does  not  suggest  that  these  are  dominated  by  analytic topics and supervisors. This is very clear when looking at the totality of departments but is so even if we limit our attention to the prominent departments that also appear in Strassfeld's list. By far, the departments producing the most PhDs during the period 1956-1960 from among those on the list are Columbia and Yale. They produce 107 out of the 199 PhDs listed for this period (see Table 3). During these years,  many of the theses from both departments appear to be non-analytic when judged on the basis of title and supervisor (see Table 4 for illustrative examples).\n\n6 The 1930-1934 hire at Michigan that is recorded in the database is Ushenko. As already noted, Strassfeld classifies him as an analytic philosopher, while I classify him as a speculative philosopher. Still, my classification tells us that, from then on, Michigan has a purely analytic focus.\n\n## Table 2 Numbers of hires by department and year at influential USA philosophy departments. Classification based on this paper's application of Katzav and Vaesen's cri-\n\n| 1975-1979   | Non- analytic        | 0 0        |         | 1          | 0 0     | 0       |        | 0                  | 0           | 0        |      | 2    | 3     |\n|-------------|----------------------|------------|---------|------------|---------|---------|--------|--------------------|-------------|----------|------|------|-------|\n|             | Ana- lytic           | 3          | 6       | 2          | 0 4     | 4       | 5      |                    | 4           | 6        |      | 5    | 39    |\n| 1970-1974   | Non- ana- lytic      | 0          | 2       | 0          | 0       | 0       | 0      | 1                  | 2           | 0        | 0    | 2    | 7     |\n|             | Ana- lytic           | 2          | 4       | 4          | 6       | 3       | 2      | 4                  | 6           | 5        | 9    | 9    | 54    |\n| 1965-1969   | Ana- Non- ana- lytic | 2          | 2       | 0          | 0       | 0       | 0      | 1                  | 0           | 1        | 0    | 12   | 18    |\n|             | lytic                | 3          | 8       | 5          | 5       | 4       | 5      | 6                  | 7           | 6        | 8    | 11   | 68    |\n| 1960-1964   | Ana- Non- ana- lytic | 2          | 1       | 0          | 0       | 1       | 1      | 1                  | 0           | 0        | 0    | 3    | 9     |\n|             | lytic                | 7          | 9       | 3          | 8       | 3       | 7      | 5                  | 7           | 8        | 7    | 4    | 68    |\n| 1955-1959   | Non- ana- lytic      | 2          | 0       | 1          | 0       | 0       | 1      | 0                  | 0           | 1        | 0    | 3    | 8     |\n|             | Ana- lytic           | 7          | 3       | 2          | 4       | 3       | 1      | 0                  | 3           | 0        | 2    | 4    | 29    |\n| 1950-1954   | Non- ana- lytic      | 1          | 1       | 3          | 0       | 0       | 0      | 0                  | 2           | 0        | 2    | 3    | 12    |\n|             | Ana- lytic           | 2          | 0       | 3          | 2       | 5       | 2      | 0                  | 2           | 4        | 2    | 0    | 22    |\n| 1945-1949   | Non- ana- lytic      | 1          | 4       | 4          | 1       | 1       | 0      | 4                  | 3           | 2        | 1    | 8    | 29    |\n|             | Ana- lytic           | 1          | 2       | 0          | 3       | 2       | 3      | 3                  | 1           | 0        | 1    | 3    | 19    |\n| 1940-1944   | Non- ana- lytic      | 0          | 0       | 2          | 0       | 0       | 0      | 2                  | 1           | 2        | 1    | 1    | 9     |\n|             | Ana- lytic           | 0          | 0       | 0          | 0       | 2       | 1      | 0                  | 0           | 0        | 0    | 1    | 4     |\n| 1935-1939   | Non- ana- lytic      | 1          | 2       | 1          | 0       | 0       | 0      | 0                  | 0           | 3        | 2    | 0    | 9     |\n|             | Ana- lytic           | 0          | 1       | 1          | 1       | 0       | 1      | 0                  | 1           | 0        | 1    | 1    | 7     |\n| 1930-1934   | Non- ana- lytic 0    |            | 3       | 0          | 2       | 1       | 1      | 0                  | 2           | 0        | 1    | 1    | 11    |\n|             | Ana- lytic           | 0          | 0       | 0          | 0       | 0       | 0      | 0                  | 0           | 1        | 1    | 0    | 2     |\n|             |                      | Berke- ley | Chicago | Colum- bia | Cornell | Harvard | Michi- | gan Pennsyl- vania | Prince- ton | Stanford | UCLA | Yale | Total |\n\n<!-- image -->\n\n## Table 4 Illustrative PhD topics from Chicago, Columbia, Harvard and Yale\n\n<!-- image -->\n\n| Chicago                                                                                   | Chicago                                                          | A. Wick Chicago                                                                                                     | Wick Chicago Chicago                                                                        | Chicago                                                            | Chicago                        | Chicago                                                                                       | Chicago Brumbaugh Yale                                                                           | Yale                                        | Yale                                       | Yale                                        | Hendel Yale                                                                    | Yale                                            | Yale                                              | Yale                                                                                                                | Yale Columbia                                                                                                                 | Columbia                        | Columbia                                                                               |\n|-------------------------------------------------------------------------------------------|------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------|--------------------------------------------------------------------|--------------------------------|-----------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------|---------------------------------------------|--------------------------------------------|---------------------------------------------|--------------------------------------------------------------------------------|-------------------------------------------------|---------------------------------------------------|---------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------|---------------------------------|----------------------------------------------------------------------------------------|\n| Richard P. McKeon                                                                         | Charles Morris                                                   | Richard P. McKeon and and Warner                                                                                    | Charles Morris Richard P. McKeon                                                            | Warner A. Wick                                                     | Charner M. Perry               | Charner M. Perry                                                                              | Henry Mehlberg E. Goodenough and R.                                                              | J. E. Smith                                 | G. Schrader                                | H. Margenau B. Blanshard and C. W.          | J. E. Smith                                                                    | J. E. Smith                                     | P. Weiss                                          | E. Smith James Gutmann                                                                                              | J. Buchler                                                                                                                    |                                 | James Gutmann                                                                          |\n| Contemporary rhetoric: a possible contribution to problems of language and valuation 1958 | Some methodological problems in Dewey's theory of valuation 1958 | Communicability of aesthetic feeling: an application of Kant's critique of aesthetic judgment to the fine arts 1958 | The function of experiencing in symbolization 1958 Basic oppositions in logical theory 1958 | Nature, knowledge, and convention in the philosophy of Hobbes 1958 | Current impasse in ethics 1958 | Corporate reform and economic reality: a critical study of Elijah Jordan's social theory 1958 | An examination of some aspects of natural science 1958 Status of soul in Plato's philosophy 1958 | Dewey's metaphysics of experience 1958 1958 | The philosophy of process An essay on time | 1958 Spinoza's absolute presupposition 1958 | Hackstaff The status of the laws of thought and their function in systems 1958 | Evil and the Christian symbol of salvation 1958 | Plantinga Ethics and metaphysical naturalism 1958 | Dimensions of freedom: freedom and humility 1958 J. mysticism: a study of the interpretations of Rudolph Otto, 1960 | Approaches to Evelyn Underhill, Sri Aurobindo Santayana as dramatist and dialectician: a critical estimate made with the 1960 | help of unpublished manuscripts | Ernst Cassirer's logic of the humanities: a translation with a critical introduc- 1960 |\n| George Drury                                                                              | S. Morris Eames                                                  | James W. Wellington                                                                                                 | Eugene Gendlin Germain G. Grisez                                                            | Harold J. Johnson                                                  | Harry Prosch, Jr               | Darnell Rucker                                                                                | Howard Stein Reginald Edgar Allen                                                                | Richard Jacob Bernstein                     | Vere Claiborne Chappell                    | Milton Thomas Fisk Herbert Myron Garelick   | Lawrence Howard                                                                | Erazim Vaclav Kohak                             | Alvin Carl                                        | David Arthur Sipfle Eliot Deutsch                                                                                   | Morris Grossman                                                                                                               |                                 | Clarence S. Howe                                                                       |\n\nTable 4 (continued)\n\n<!-- image -->\n\nChicago too appeared to be producing a substantial number of non-analytic theses until 1960 (see Table 4). Indeed, the total number of PhDs written at departments which are on Strassfeld's list and appear to be predominantly producing, or only producing, analytically oriented theses in the 1950s is relatively small. These departments were Harvard, Michigan, Princeton, UCLA and Berkeley and appear to have graduated only 68 PhDs between them during the period 1956-1960, with 32 being from Harvard (Table 3).  Columbia, Yale and Chicago graduated 124 PhDs during 7 the same period.\n\n## 4    Discussion\n\nIn  accordance  with  (1),  the  data  examined  here  indicate  that  there  was  a  sharp increase in the ratio of hires of analytic philosophers to non-analytic philosophers by influential departments from about 1950. In accordance with (2), this ratio continued to increase during the 1950s and 1960s. (1) and (2), recall, are what we would expect if the takeover by analytic philosophers of the Sage School of Philosophy and of PR and subsequent takeovers of other journals and academic institutions in the 1950s play a substantial role in explaining the emergence into dominance of analytic philosophy.\n\nIn accordance with (3), the data suggest that influential departments start more or less exclusively to hire analytic philosophers in the 1950s and 1960s. While the hires at individual departments are low, the similarity of patterns across departments supports the existence of a move to a more or less exclusive preference. Again, this is  to  be  expected  if  institutional  control  is  a  key  driver  of  the  growth  of  analytic philosophy  during  these  decades.  Finally,  in  accordance  with  (4),  many  students completing PhDs in the 1950s were still working outside of what was then analytic philosophy.  There  is  thus  additional  evidence,  in  line  with  the  evidence  from  the contents of journals and books, that non-analytic philosophy was still a substantial force in American academia.\n\nIn  fact,  the  data  suggest  stronger  hypotheses  than  those  put  forward  by  Katzav and Vaesen. The takeover of Cornell by analytic philosophers gave analytic philosophy control over one of the key organs of American philosophy, namely PR (Katzav, 2018). But Cornell does not appear to have produced many PhD students in the 1950s, so it alone could not make possible a dominant analytic tradition. However, Harvard's commitment to analytic philosophy, which seems to be in place from at least 1950, gave the analytic tradition in America a substantial source of analytically inclined philosophers.  Plausibly, widespread knowledge of the shifts at Cornell and 8 Harvard encouraged further preference for analytic philosophy. By 1955-1959, Harvard's PhD producing capacity was supplemented by those of Chicago and Princeton,  which  are  then  only  hiring  analytic  philosophers.  At  this  stage,  non-analytic philosophy not only has limited venues for publication but also extremely limited\n\n7 Stanford is also on Strassfeld's list but, judging by the absence of analytic hires there prior to 1950, would not have impacted these numbers substantially.\n\n8 Harvard hires few philosophers in the 1930s and 1940s but includes non-analytic hires as late as 1948.\n\ninfluential destinations for those completing PhDs; the destinations are (throughout the 1950s and 1960s) Yale and (during the 1950s) Columbia and, to a limited extent, Berkeley. Moreover, Berkeley is predominantly analytic, while Yale and Columbia are open to analytic hires, thus further giving an advantage to analytic philosophy. It accordingly seems that control of journals, PhD production and hires meant that, by the middle of the 1950s, analytic philosophy was bound to come out on top, at least when it comes to the most influential American departments. When hire numbers really rocket in the 1960s, only analytic philosophers would have a chance at finding placements at all but one of the influential departments considered here.\n\nIt is important to emphasise that there may well be other, not necessarily incompatible with the one just given, explanations for the growth of analytic philosophy in America in the 1950s and later. Two of the available explanations for this emergence  are  relevant  here,  since  they  identify  events  shortly  before  and  during  the 1950s as causes of this growth. Some explain the 1950s growth by pointing to the arrival of the logical positivists in America, starting in the 1930s, to inherent affinities between analytic philosophy and American philosophy prior to 1950 and to the rapid expansion of Academia after 1950 (see, e.g., Soames, 2008). While there is plausibly something to this explanation, it does not explain the very rapid shift to an almost total preference for analytic philosophy. Indeed, this explanation exacerbates the  puzzle  about  the  success  of  analytic  philosophy.  The  logical  positivists  were small in number while there was an existing, larger community of philosophers of science in America. Moreover, the American group was predominantly speculative and thus had in-principle objections to positivism's anti-metaphysics stance (Katzav &amp; Vaesen, 2022). It is unclear why the American tradition would simply give way to a small group with which there was fundamental disagreement about philosophical approach. Furthermore, it is unclear why the expansion of academia in the 1950s and beyond would, by itself, strongly favour analytic philosophy. Indeed, non-analytic philosophy did benefit from the growth in academia immediately after the war (see Tables 1 and 2).\n\nJohn  McCumber  (2001)  argues  that  the  political  pressures  of  McCarthyism favoured analytic philosophy over more politically engaged rivals, such as pragmatism. Given that McCarthyism starts to bite in 1949, McCumber's hypothesis does lead us to expect a substantial increase in hires of analytic philosophy after this time. So, his explanation does explain some of the data provided here. That said, an explanation solely appealing to McCarthyism does not explain the data as well as one that appeals solely to institutional control. The changes at Cornell look like they precede 1949, something independently supported (Katzav &amp; Vaesen, 2017) by the fact that PR starts excluding non-analytic philosophy from its pages in 1948. The changes at Harvard coincide with McCarthyism, suggesting that the groundwork for what happened there, groundwork such as the hiring of individuals committed to hiring only analytic philosophers, precedes McCarthyism. Similarly, McCarthyism's influence was too short-lived to fully explain the continued preference for analytic philosophy in the second half of the 1950s and in the 1960s, so that, at a minimum, further factors  are  needed  to  explain  why  its  effects  persisted  then.  McCumber  need  not disagree about the limitations of appeals to McCarthyism; he does not claim it suffices to explain the dominance of analytic philosophy. Still, the data helps to indicate\n\nthe extent to which factors other than just McCarthyism are needed to explain this dominance.\n\nIn summary, Strassfeld's data and my revision of this data are fully explained by the hypothesis that analytic philosophy gained substantial ground from about 1950 and did so as a result of institutional control. The data also fit well with the proposal that,  at  the  institutional  level,  analytic  philosophy  was  a  sectarian  form  of  critical philosophy, at least during much of the twentieth century. To be sure, other explanations for the data cannot be excluded. An appeal to the affinity between parts of American philosophy with analytic philosophy can play some explanatory role here, but one substantially limited by the existence of disagreements about philosophical approach between analytic and speculative philosophers. McCarthyism too can play a substantial role in explaining the data, though they also suggest that such an explanation can only be partial.\n\nFunding Open Access funding enabled and organized by CAUL and its Member Institutions\n\nData availability The data analysed during the current study is available from the corresponding author on request.\n\n## Declarations\n\nConflict of interest The author declares no competing interests.\n\nOpen Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if changes were made. The images or other third party material in this article are included in the article's Creative Commons licence, unless indicated otherwise in a credit line to the material. If material is not included in the article's Creative Commons licence and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this licence, visit http://  creat  iveco  mmons.  org/  licen ses/  by/4.  0/.\n\n## References\n\nKatzav, J. (2018). Analytic philosophy, 1925-69: Emergence, management and nature. British Journal for the History of Philosophy, 26 (6), 1197-1221.\n\nKatzav, J., &amp; Vaesen, K. (2017). On the emergence of American analytic philosophy. British Journal for the History of Philosophy, 25 (4), 772-798.\n\nKatzav, J., &amp; Vaesen, K. (2022). The rise of logical empiricist philosophy of science and the fate of speculative philosophy of science. HOPOS, 12 (2), 327-358.\n\nMcCumber, J. T. (2001). in the ditch: American philosophy and the McCarthy era . Northwestern University Press. Reck, A. J. (1958). The philosophy of Andrew Ushenko: I. The Review of Metaphysics, 11 (3), 471-485. Stace, W. T. (1960). Mysticism and philosophy . J. B. Lippincott Company.\n\nSoames, S. (2008). Analytic philosophy in America. In C. Misak (Ed.), The Oxford handbook of American philosophy (pp. 449-81). Oxford University Press.\n\nStrassfeld, J. (2020). The making of 'continental' philosophy. Modern Intellectual History, 17 (3), 833-866.",
+    "responses": [
+      {
+        "source": "gpt-4o-2024-11-20",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"ADU1\": {\n      \"text\": \"Katzav and Vaesen have argued that control by analytic philosophers of key journals, philosophy departments and at least one funding body plays a substantial role in explaining the emergence of analytic philosophy into dominance in the Anglophone world and the corresponding decline of speculative philosophy.\",\n      \"label\": \"claim\"\n    },\n    \"ADU2\": {\n      \"text\": \"They also argued that this use of control suggests a characterisation of analytic philosophy as, at the institutional level, a sectarian form of critical philosophy.\",\n      \"label\": \"claim\"\n    },\n    \"ADU3\": {\n      \"text\": \"I argue, further, that Katzav and Vaesen's hypotheses can fully explain the data and are more fully able to do so than some other key accounts of the emergence of analytic philosophy in the USA.\",\n      \"label\": \"claim\"\n    },\n    \"ADU4\": {\n      \"text\": \"This involved taking control of key journals, excluding non-analytic philosophy from their pages and founding analytic only journals.\",\n      \"label\": \"premise\"\n    },\n    \"ADU5\": {\n      \"text\": \"According to Katzav and Vaesen, the process of marginalisation started in the UK with the takeover of Mind in about 1925 and the founding of the analytic philosophy only journal Analysis in 1933.\",\n      \"label\": \"premise\"\n    },\n    \"ADU6\": {\n      \"text\": \"In the USA, the process of marginalisation started with the takeover of The Philosophical Review (PR) in about 1948, involved the takeover of The Journal of Philosophy towards the end of the 1950s and continued at least until the takeover of Philosophy and Phenomenological Research in the late 1970s.\",\n      \"label\": \"premise\"\n    },\n    \"ADU7\": {\n      \"text\": \"The pressure arising from control of journals appears to have peaked towards the end of the 1950s.\",\n      \"label\": \"premise\"\n    },\n    \"ADU8\": {\n      \"text\": \"In addition, the process of marginalisation was facilitated by control by logical empiricists of at least one source of research funding, namely the National Science Foundation's History and Philosophy of Science funding program, and may have been facilitated by control of key philosophy departments, including, from the end of the 1940s, of the Sage School of Philosophy at Cornell and, from the 1950s, of the departments at Harvard and UCLA.\",\n      \"label\": \"premise\"\n    },\n    \"ADU9\": {\n      \"text\": \"What was preferred was analytic philosophy, conceived of as a form of critical philosophy.\",\n      \"label\": \"premise\"\n    },\n    \"ADU10\": {\n      \"text\": \"The evidence Katzav and Vaesen collect, however, primarily comprises journals coming under the control of analytic editors and then quickly shifting solely to publishing analytic philosophy.\",\n      \"label\": \"premise\"\n    },\n    \"ADU11\": {\n      \"text\": \"The data from Strassfeld shows a sharp increase in the ratio of analytic to non-analytic hires at about 1950, one that comes after a period of relative stability of this ratio and reflects a very substantial change in hire trends.\",\n      \"label\": \"premise\"\n    },\n    \"ADU12\": {\n      \"text\": \"Prior to 1950, hires of analytic philosophers fluctuate between about 30 and 40% of the total number of hires.\",\n      \"label\": \"premise\"\n    },\n    \"ADU13\": {\n      \"text\": \"Immediately after 1950, analytic hires comprise about 70% of all hires.\",\n      \"label\": \"premise\"\n    },\n    \"ADU14\": {\n      \"text\": \"The ratio continues to grow in the 1950s and, by the 1960s, analytic hires comprise between about 80 and 90% of all hires.\",\n      \"label\": \"premise\"\n    },\n    \"ADU15\": {\n      \"text\": \"Contrary to what one might expect, but in accord with Katzav and Vaesen, the RM data on PhD completions does not suggest that these are dominated by analytic topics and supervisors.\",\n      \"label\": \"premise\"\n    },\n    \"ADU16\": {\n      \"text\": \"In accordance with (1), the data examined here indicate that there was a sharp increase in the ratio of hires of analytic philosophers to non-analytic philosophers by influential departments from about 1950.\",\n      \"label\": \"claim\"\n    },\n    \"ADU17\": {\n      \"text\": \"In accordance with (2), this ratio continued to increase during the 1950s and 1960s.\",\n      \"label\": \"claim\"\n    },\n    \"ADU18\": {\n      \"text\": \"In accordance with (3), the data suggest that influential departments start more or less exclusively to hire analytic philosophers in the 1950s and 1960s.\",\n      \"label\": \"claim\"\n    },\n    \"ADU19\": {\n      \"text\": \"Finally, in accordance with (4), many students completing PhDs in the 1950s were still working outside of what was then analytic philosophy.\",\n      \"label\": \"claim\"\n    },\n    \"ADU20\": {\n      \"text\": \"In summary, Strassfeld's data and my revision of this data are fully explained by the hypothesis that analytic philosophy gained substantial ground from about 1950 and did so as a result of institutional control.\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"ADU4\",\n      \"target\": \"ADU1\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU5\",\n      \"target\": \"ADU1\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU6\",\n      \"target\": \"ADU1\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU7\",\n      \"target\": \"ADU1\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU8\",\n      \"target\": \"ADU1\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU9\",\n      \"target\": \"ADU2\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU10\",\n      \"target\": \"ADU1\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU11\",\n      \"target\": \"ADU16\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU12\",\n      \"target\": \"ADU16\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU13\",\n      \"target\": \"ADU16\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU14\",\n      \"target\": \"ADU17\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU15\",\n      \"target\": \"ADU19\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU16\",\n      \"target\": \"ADU20\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU17\",\n      \"target\": \"ADU20\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU18\",\n      \"target\": \"ADU20\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU19\",\n      \"target\": \"ADU20\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "ADU1": {
+              "text": "Katzav and Vaesen have argued that control by analytic philosophers of key journals, philosophy departments and at least one funding body plays a substantial role in explaining the emergence of analytic philosophy into dominance in the Anglophone world and the corresponding decline of speculative philosophy.",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "They also argued that this use of control suggests a characterisation of analytic philosophy as, at the institutional level, a sectarian form of critical philosophy.",
+              "label": "claim"
+            },
+            "ADU3": {
+              "text": "I argue, further, that Katzav and Vaesen's hypotheses can fully explain the data and are more fully able to do so than some other key accounts of the emergence of analytic philosophy in the USA.",
+              "label": "claim"
+            },
+            "ADU4": {
+              "text": "This involved taking control of key journals, excluding non-analytic philosophy from their pages and founding analytic only journals.",
+              "label": "premise"
+            },
+            "ADU5": {
+              "text": "According to Katzav and Vaesen, the process of marginalisation started in the UK with the takeover of Mind in about 1925 and the founding of the analytic philosophy only journal Analysis in 1933.",
+              "label": "premise"
+            },
+            "ADU6": {
+              "text": "In the USA, the process of marginalisation started with the takeover of The Philosophical Review (PR) in about 1948, involved the takeover of The Journal of Philosophy towards the end of the 1950s and continued at least until the takeover of Philosophy and Phenomenological Research in the late 1970s.",
+              "label": "premise"
+            },
+            "ADU7": {
+              "text": "The pressure arising from control of journals appears to have peaked towards the end of the 1950s.",
+              "label": "premise"
+            },
+            "ADU8": {
+              "text": "In addition, the process of marginalisation was facilitated by control by logical empiricists of at least one source of research funding, namely the National Science Foundation's History and Philosophy of Science funding program, and may have been facilitated by control of key philosophy departments, including, from the end of the 1940s, of the Sage School of Philosophy at Cornell and, from the 1950s, of the departments at Harvard and UCLA.",
+              "label": "premise"
+            },
+            "ADU9": {
+              "text": "What was preferred was analytic philosophy, conceived of as a form of critical philosophy.",
+              "label": "premise"
+            },
+            "ADU10": {
+              "text": "The evidence Katzav and Vaesen collect, however, primarily comprises journals coming under the control of analytic editors and then quickly shifting solely to publishing analytic philosophy.",
+              "label": "premise"
+            },
+            "ADU11": {
+              "text": "The data from Strassfeld shows a sharp increase in the ratio of analytic to non-analytic hires at about 1950, one that comes after a period of relative stability of this ratio and reflects a very substantial change in hire trends.",
+              "label": "premise"
+            },
+            "ADU12": {
+              "text": "Prior to 1950, hires of analytic philosophers fluctuate between about 30 and 40% of the total number of hires.",
+              "label": "premise"
+            },
+            "ADU13": {
+              "text": "Immediately after 1950, analytic hires comprise about 70% of all hires.",
+              "label": "premise"
+            },
+            "ADU14": {
+              "text": "The ratio continues to grow in the 1950s and, by the 1960s, analytic hires comprise between about 80 and 90% of all hires.",
+              "label": "premise"
+            },
+            "ADU15": {
+              "text": "Contrary to what one might expect, but in accord with Katzav and Vaesen, the RM data on PhD completions does not suggest that these are dominated by analytic topics and supervisors.",
+              "label": "premise"
+            },
+            "ADU16": {
+              "text": "In accordance with (1), the data examined here indicate that there was a sharp increase in the ratio of hires of analytic philosophers to non-analytic philosophers by influential departments from about 1950.",
+              "label": "claim"
+            },
+            "ADU17": {
+              "text": "In accordance with (2), this ratio continued to increase during the 1950s and 1960s.",
+              "label": "claim"
+            },
+            "ADU18": {
+              "text": "In accordance with (3), the data suggest that influential departments start more or less exclusively to hire analytic philosophers in the 1950s and 1960s.",
+              "label": "claim"
+            },
+            "ADU19": {
+              "text": "Finally, in accordance with (4), many students completing PhDs in the 1950s were still working outside of what was then analytic philosophy.",
+              "label": "claim"
+            },
+            "ADU20": {
+              "text": "In summary, Strassfeld's data and my revision of this data are fully explained by the hypothesis that analytic philosophy gained substantial ground from about 1950 and did so as a result of institutional control.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU4",
+              "target": "ADU1",
+              "type": "support"
+            },
+            {
+              "source": "ADU5",
+              "target": "ADU1",
+              "type": "support"
+            },
+            {
+              "source": "ADU6",
+              "target": "ADU1",
+              "type": "support"
+            },
+            {
+              "source": "ADU7",
+              "target": "ADU1",
+              "type": "support"
+            },
+            {
+              "source": "ADU8",
+              "target": "ADU1",
+              "type": "support"
+            },
+            {
+              "source": "ADU9",
+              "target": "ADU2",
+              "type": "support"
+            },
+            {
+              "source": "ADU10",
+              "target": "ADU1",
+              "type": "support"
+            },
+            {
+              "source": "ADU11",
+              "target": "ADU16",
+              "type": "support"
+            },
+            {
+              "source": "ADU12",
+              "target": "ADU16",
+              "type": "support"
+            },
+            {
+              "source": "ADU13",
+              "target": "ADU16",
+              "type": "support"
+            },
+            {
+              "source": "ADU14",
+              "target": "ADU17",
+              "type": "support"
+            },
+            {
+              "source": "ADU15",
+              "target": "ADU19",
+              "type": "support"
+            },
+            {
+              "source": "ADU16",
+              "target": "ADU20",
+              "type": "support"
+            },
+            {
+              "source": "ADU17",
+              "target": "ADU20",
+              "type": "support"
+            },
+            {
+              "source": "ADU18",
+              "target": "ADU20",
+              "type": "support"
+            },
+            {
+              "source": "ADU19",
+              "target": "ADU20",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "ADU1": {
+              "text": "Katzav and Vaesen have argued that control by analytic philosophers of key journals, philosophy departments and at least one funding body plays a substantial role in explaining the emergence of analytic philosophy into dominance in the Anglophone world and the corresponding decline of speculative philosophy.",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "They also argued that this use of control suggests a characterisation of analytic philosophy as, at the institutional level, a sectarian form of critical philosophy.",
+              "label": "claim"
+            },
+            "ADU3": {
+              "text": "I argue, further, that Katzav and Vaesen's hypotheses can fully explain the data and are more fully able to do so than some other key accounts of the emergence of analytic philosophy in the USA.",
+              "label": "claim"
+            },
+            "ADU4": {
+              "text": "This involved taking control of key journals, excluding non-analytic philosophy from their pages and founding analytic only journals.",
+              "label": "premise"
+            },
+            "ADU5": {
+              "text": "According to Katzav and Vaesen, the process of marginalisation started in the UK with the takeover of Mind in about 1925 and the founding of the analytic philosophy only journal Analysis in 1933.",
+              "label": "premise"
+            },
+            "ADU7": {
+              "text": "The pressure arising from control of journals appears to have peaked towards the end of the 1950s.",
+              "label": "premise"
+            },
+            "ADU8": {
+              "text": "In addition, the process of marginalisation was facilitated by control by logical empiricists of at least one source of research funding, namely the National Science Foundation's History and Philosophy of Science funding program, and may have been facilitated by control of key philosophy departments, including, from the end of the 1940s, of the Sage School of Philosophy at Cornell and, from the 1950s, of the departments at Harvard and UCLA.",
+              "label": "premise"
+            },
+            "ADU9": {
+              "text": "What was preferred was analytic philosophy, conceived of as a form of critical philosophy.",
+              "label": "premise"
+            },
+            "ADU10": {
+              "text": "The evidence Katzav and Vaesen collect, however, primarily comprises journals coming under the control of analytic editors and then quickly shifting solely to publishing analytic philosophy.",
+              "label": "premise"
+            },
+            "ADU12": {
+              "text": "Prior to 1950, hires of analytic philosophers fluctuate between about 30 and 40% of the total number of hires.",
+              "label": "premise"
+            },
+            "ADU13": {
+              "text": "Immediately after 1950, analytic hires comprise about 70% of all hires.",
+              "label": "premise"
+            },
+            "ADU14": {
+              "text": "The ratio continues to grow in the 1950s and, by the 1960s, analytic hires comprise between about 80 and 90% of all hires.",
+              "label": "premise"
+            },
+            "ADU15": {
+              "text": "Contrary to what one might expect, but in accord with Katzav and Vaesen, the RM data on PhD completions does not suggest that these are dominated by analytic topics and supervisors.",
+              "label": "premise"
+            },
+            "ADU16": {
+              "text": "In accordance with (1), the data examined here indicate that there was a sharp increase in the ratio of hires of analytic philosophers to non-analytic philosophers by influential departments from about 1950.",
+              "label": "claim"
+            },
+            "ADU17": {
+              "text": "In accordance with (2), this ratio continued to increase during the 1950s and 1960s.",
+              "label": "claim"
+            },
+            "ADU18": {
+              "text": "In accordance with (3), the data suggest that influential departments start more or less exclusively to hire analytic philosophers in the 1950s and 1960s.",
+              "label": "claim"
+            },
+            "ADU19": {
+              "text": "Finally, in accordance with (4), many students completing PhDs in the 1950s were still working outside of what was then analytic philosophy.",
+              "label": "claim"
+            },
+            "ADU20": {
+              "text": "In summary, Strassfeld's data and my revision of this data are fully explained by the hypothesis that analytic philosophy gained substantial ground from about 1950 and did so as a result of institutional control.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU4",
+              "target": "ADU1",
+              "type": "support"
+            },
+            {
+              "source": "ADU5",
+              "target": "ADU1",
+              "type": "support"
+            },
+            {
+              "source": "ADU7",
+              "target": "ADU1",
+              "type": "support"
+            },
+            {
+              "source": "ADU8",
+              "target": "ADU1",
+              "type": "support"
+            },
+            {
+              "source": "ADU9",
+              "target": "ADU2",
+              "type": "support"
+            },
+            {
+              "source": "ADU10",
+              "target": "ADU1",
+              "type": "support"
+            },
+            {
+              "source": "ADU12",
+              "target": "ADU16",
+              "type": "support"
+            },
+            {
+              "source": "ADU13",
+              "target": "ADU16",
+              "type": "support"
+            },
+            {
+              "source": "ADU14",
+              "target": "ADU17",
+              "type": "support"
+            },
+            {
+              "source": "ADU15",
+              "target": "ADU19",
+              "type": "support"
+            },
+            {
+              "source": "ADU16",
+              "target": "ADU20",
+              "type": "support"
+            },
+            {
+              "source": "ADU17",
+              "target": "ADU20",
+              "type": "support"
+            },
+            {
+              "source": "ADU18",
+              "target": "ADU20",
+              "type": "support"
+            },
+            {
+              "source": "ADU19",
+              "target": "ADU20",
+              "type": "support"
+            }
+          ]
+        }
+      },
+      {
+        "source": "claude-3-5-sonnet-20241022",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"1\": {\n      \"text\": \"Katzav and Vaesen have argued that part of the explanation for the emergence of analytic philosophy into dominance in the Anglophone world during the second half of the twentieth century was the use of institutional power by key analytic philosophers to marginalise non-analytic, and especially speculative, philosophy.\",\n      \"label\": \"claim\"\n    },\n    \"2\": {\n      \"text\": \"This involved taking control of key journals, excluding non-analytic philosophy from their pages and founding analytic only journals.\",\n      \"label\": \"premise\"\n    },\n    \"3\": {\n      \"text\": \"The data from Strassfeld shows a sharp increase in the ratio of analytic to non-analytic hires at about 1950, one that comes after a period of relative stability of this ratio and reflects a very substantial change in hire trends.\",\n      \"label\": \"premise\"\n    },\n    \"4\": {\n      \"text\": \"Prior to 1950, hires of analytic philosophers fluctuate between about 30 and 40% of the total number of hires. Immediately after 1950, analytic hires comprise about 70% of all hires. The ratio continues to grow in the 1950s and, by the 1960s, analytic hires comprise between about 80 and 90% of all hires.\",\n      \"label\": \"premise\"\n    },\n    \"5\": {\n      \"text\": \"The shift to hiring more or less only analytic philosophers is suggested by the data for all listed departments, with the exception of Yale and perhaps, to a limited extent, Berkeley.\",\n      \"label\": \"premise\"\n    },\n    \"6\": {\n      \"text\": \"By the middle of the 1950s, analytic philosophy was bound to come out on top, at least when it comes to the most influential American departments.\",\n      \"label\": \"claim\"\n    },\n    \"7\": {\n      \"text\": \"When hire numbers really rocket in the 1960s, only analytic philosophers would have a chance at finding placements at all but one of the influential departments considered here.\",\n      \"label\": \"premise\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"2\",\n      \"target\": \"1\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"3\",\n      \"target\": \"1\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"4\",\n      \"target\": \"3\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"5\",\n      \"target\": \"6\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"7\",\n      \"target\": \"6\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"6\",\n      \"target\": \"1\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "1": {
+              "text": "Katzav and Vaesen have argued that part of the explanation for the emergence of analytic philosophy into dominance in the Anglophone world during the second half of the twentieth century was the use of institutional power by key analytic philosophers to marginalise non-analytic, and especially speculative, philosophy.",
+              "label": "claim"
+            },
+            "2": {
+              "text": "This involved taking control of key journals, excluding non-analytic philosophy from their pages and founding analytic only journals.",
+              "label": "premise"
+            },
+            "3": {
+              "text": "The data from Strassfeld shows a sharp increase in the ratio of analytic to non-analytic hires at about 1950, one that comes after a period of relative stability of this ratio and reflects a very substantial change in hire trends.",
+              "label": "premise"
+            },
+            "4": {
+              "text": "Prior to 1950, hires of analytic philosophers fluctuate between about 30 and 40% of the total number of hires. Immediately after 1950, analytic hires comprise about 70% of all hires. The ratio continues to grow in the 1950s and, by the 1960s, analytic hires comprise between about 80 and 90% of all hires.",
+              "label": "premise"
+            },
+            "5": {
+              "text": "The shift to hiring more or less only analytic philosophers is suggested by the data for all listed departments, with the exception of Yale and perhaps, to a limited extent, Berkeley.",
+              "label": "premise"
+            },
+            "6": {
+              "text": "By the middle of the 1950s, analytic philosophy was bound to come out on top, at least when it comes to the most influential American departments.",
+              "label": "claim"
+            },
+            "7": {
+              "text": "When hire numbers really rocket in the 1960s, only analytic philosophers would have a chance at finding placements at all but one of the influential departments considered here.",
+              "label": "premise"
+            }
+          },
+          "relations": [
+            {
+              "source": "2",
+              "target": "1",
+              "type": "support"
+            },
+            {
+              "source": "3",
+              "target": "1",
+              "type": "support"
+            },
+            {
+              "source": "4",
+              "target": "3",
+              "type": "support"
+            },
+            {
+              "source": "5",
+              "target": "6",
+              "type": "support"
+            },
+            {
+              "source": "7",
+              "target": "6",
+              "type": "support"
+            },
+            {
+              "source": "6",
+              "target": "1",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "2": {
+              "text": "This involved taking control of key journals, excluding non-analytic philosophy from their pages and founding analytic only journals.",
+              "label": "premise"
+            },
+            "4": {
+              "text": "Prior to 1950, hires of analytic philosophers fluctuate between about 30 and 40% of the total number of hires. Immediately after 1950, analytic hires comprise about 70% of all hires. The ratio continues to grow in the 1950s and, by the 1960s, analytic hires comprise between about 80 and 90% of all hires.",
+              "label": "premise"
+            },
+            "6": {
+              "text": "By the middle of the 1950s, analytic philosophy was bound to come out on top, at least when it comes to the most influential American departments.",
+              "label": "claim"
+            },
+            "7": {
+              "text": "When hire numbers really rocket in the 1960s, only analytic philosophers would have a chance at finding placements at all but one of the influential departments considered here.",
+              "label": "premise"
+            }
+          },
+          "relations": [
+            {
+              "source": "7",
+              "target": "6",
+              "type": "support"
+            }
+          ]
+        }
+      }
+    ],
+    "timestamp": 1752757800.0443335
+  }
+]

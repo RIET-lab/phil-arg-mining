@@ -1,0 +1,353 @@
+[
+  {
+    "identifier": "CAPEVO-2",
+    "system_prompt": "## GOAL\nArgument‑mine the following paper to extract its comprehensive argumentative structure.\n\n## DEFINITIONS\n1. **Argument**: A set of propositions, including some number of premises and a conclusion. The premises should logically entail the conclusion.\n2. **Claim**: A proposition that asserts something to be true or false, typically requiring justification or evidence.\n3. **Premise**: A proposition that provides evidence, justification, or logical support for a claim or conclusion.\n\n## CRITICAL REQUIREMENTS\n1. **VERBATIM EXTRACTION ONLY**: Each ADU text must be copied EXACTLY from the paper with no modifications, paraphrasing, or combining of separate sentences.\n2. **NO HALLUCINATION**: Do not create, modify, or invent text that does not appear exactly in the source.\n3. **EXACT MATCHING**: Every word, punctuation mark, and spacing must match the original precisely.\n\n## DIRECTIONS\n1. **Identify Argumentative Discourse Units (ADUs)**  \n   - ADU = any contiguous text span functioning as a claim or a premise in the reasoning structure.\n   - **BE HIGHLY SELECTIVE**: Only include ADUs that are crucial to the overarching argument structure.\n   - Focus on significant claims and premises that contribute meaningfully to the argumentative flow.\n   - **AVOID NOISE**: Skip ADUs that are merely descriptive, tangential, or do not substantially advance the argument.\n   - Prioritize quality over quantity - fewer accurate, important ADUs are better than many insignificant ones.\n   - **EXTRACT ONLY**: Copy text spans exactly as they appear, without any modifications.\n2. **Classify each ADU**  \n   - Label = either `\"claim\"` or `\"premise\"`.  \n3. **Detect directed relations**  \n   - Relation = `\"support\"` or `\"attack\"`, from one ADU (source) to another (target).\n   - Map how ADUs connect to form reasoning chains.\n   - Focus on relationships between the most significant ADUs.\n   - Include relationships between premises that strengthen or weaken each other.\n4. **Verbatim spans**  \n   - Each `\"text\"` value must be copied EXACTLY from the paper with zero modifications.\n   - Do not paraphrase, summarize, or combine separate sentences.\n   - Do not add, remove, or change any words, punctuation, or spacing.\n   - If unsure about exact wording, skip that ADU rather than guess.\n\n## WHAT TO CAPTURE\n**INCLUDE ONLY:**\n- Main argumentative threads that are central to the paper's contribution\n- Core claims that represent the paper's primary arguments or findings\n- Key premises that provide essential support for major claims\n- Critical counterarguments and their refutations\n- Reasoning chains that demonstrate how main conclusions are derived\n\n**EXCLUDE (AVOID NOISE):**\n- Minor details, examples, or descriptive content that don't advance the argument\n- Tangential points or side discussions\n- Pure background information or literature review content\n- Methodological details unless they constitute argumentative claims\n- Obvious statements or commonly accepted facts\n- Redundant or repetitive argumentative content\n\n**GUIDING PRINCIPLE**: If removing an ADU would not significantly impact understanding of the paper's argumentative structure, it should be excluded.\n\n## QUALITY CONTROL\n- Before finalizing each ADU, verify the text exists exactly in the source\n- Prefer fewer, accurate ADUs over many potentially modified ones\n- When in doubt about exact wording, omit the ADU\n\n## OUTPUT FORMAT\nReturn **only** a single valid JSON object matching this schema.  \nDo **not** output any extra text, markdown, or explanations.\nDo **not** add comments.\n**RESPOND WITH ONLY**:\n```json\n{\n  \"ADUs\": {\n    \"<ADU_ID>\": {\n      \"text\": \"<exact span from paper>\",\n      \"label\": \"claim\" | \"premise\"\n    }\n    ...\n  },\n  \"relations\": [\n    {\n      \"source\": \"<ADU_ID>\",\n      \"target\": \"<ADU_ID>\",\n      \"type\": \"support\" | \"attack\"\n    }\n  ]\n}\n```",
+    "user_content": "## Epistemic vs Ontic Classification of quantum entangled states?\n\n## Michele Caponigro\n\nISHTAR Indeterminism in Sciences and Historico-philosophical Transdisciplinar Advanced Research Center, University of Bergamo ∗\n\n## Enrico Giannetto\n\nDepartment of Human Sciences, University of Bergamo †\n\nIn this brief paper, starting from recent works, we analyze from conceptual point of view this basic question: can be the nature of quantum entangled states interpreted ontologically or epistemologically? According some works, the degrees of freedom (and the tool of quantum partitions) of quantum systems permit us to establish a possible classification between factorizables and entangled states. We suggest, that the 'choice' of degree of freedom (or quantum partitions), even if mathematically justified introduces epistemic element, not only in the systems but also in their classification. We retain, instead, that there are not two classes of quantum states, entangled and factorizables, but only a single classes of states: the entangled states. In fact, the factorizable states become entangled for a different choice of their degrees of freedom (i.e. they are entangled with respect to other observables). In the same way, there are not partitions of quantum system which have an ontological superior status with respect to any other. For all these reasons, both mathematical tools utilized (i.e quantum partitions or degrees of freedom) are responsible of improper classification of quantum systems. Finally, we argue that we cannot speak about a classification of quantum systems: all the quantum states exhibit a unique objective nature, they are all entangled states.\n\nKeywords: Quantum entanglement, subsystems (partitions and factorizables states), epistemic vs ontic elements\n\n## I. SYSTEMS AND PARTITIONS\n\nIn spite of continuous progress, the current state of entanglement theory is still marked by a number of outstanding unresolved problems. These problems range from the complete classification of mixed-state bipartite entanglement to entanglement in systems with continuous degrees of freedom, and the classification and quantification of multipartite entanglement for arbitrary quantum states.\n\nthe way to subdivide it in subsystems is in general by no means unique. We will analyze his conclusion in the next sections.\n\nIn this paper, starting form two important works,\n\n1) Torre (Torre 2010) and 2) Zanardi (Zanardi 2001), we will analyze the possible relationship between this elements:\n\n1. the degrees of freedom of quantum system\n2. the partitions of quantum system\n3. the epistemic elements introduced from the procedures (1) and (2)\n\nAs we know, the relationship between quantum systems (QS) and their possible quantum entangled systems (QRS) is not a trivial question. There are many efforts to understand this dynamics. Zanardi (Zanardi, 2001) in his paper argues that the partitions of a possible system have not an ontological superior status with respect to any other: according Zanardi given a physical system S ,\n\n∗ Electronic address: michele.caponigro@unibg.it\n\n† Electronic address: enrico.giannetto@unibg.it\n\nAccording Zanardi the consequences of the non uniqueness of the decomposition of a given system S into subsystems imply (at the quantum level), a fundamental ambiguity about the very notion of entanglement that accordingly becomes a relative one. The concept of 'relative' for a quantum entangled system, has been developed by Viola and Barnun (Viola, Barnun 2006). They concentrate their efforts to this fundamental question: how can entanglement be understood in an arbitrary physical system, subject to arbitrary constraints on the possible operations we may perform for describing, manipulating, and observing its states? In their papers, the authors proposed that entanglement is an inherently relative concept , whose essential features may be captured in general in terms of the relationships between different observers (i.e. expectations of quantum observables in different, physically relevant sets). They stressed how the the role of the observer must be properly acknowledged in determining the distinction between entangled and unentangled states.\n\n## A. Quantum Entanglement: brief overview\n\nFrom a phenomenological point of view, the phenomenon of entanglement is quite simple. When two physical systems come to an interaction, some correlation of a quantum nature is generated between the two of them, which persists even when the interaction is\n\nswitched off and the two systems are spatially separated. Quantum entanglement describes a non-separable state of two or more quantum objects and has certain properties which contradict common physical sense. While the concept of entanglement between two quantum systems, which was introduced by E. Schr¨ odinger (Schr¨ odinger, 1936) is well understood, its generation and analysis still represent a substantial challenge. Moreover, there is a problem of quantification of entangled states, a long standing problem debated in quantum information theory. Today the bipartite entanglement ( two-level systems, i.e. qubits ) is well understood and has been prepared in many different physical systems. The math definition of entanglement varies depending on whether we consider only pure states or the general set of mixed states (see Giannetto 1995: where it is discussed the reason why entanglement generally requires density matrix formalism). Only for pure states, we say that a given state | ψ 〉 of n parties is entangled if it is not a tensor product of individual states for each one of the parties, that is,\n\n<!-- formula-not-decoded -->\n\nFor instance, in the case of 2 qubits A and B (sometimes called 'Alice' and 'Bob') the quantum state\n\n<!-- formula-not-decoded -->\n\nglyph[negationslash]\n\nis entangled since | ψ + 〉 = | v A 〉 A ⊗ | v B 〉 B . On the contrary, the state\n\n<!-- formula-not-decoded -->\n\nis not entangled, since\n\n<!-- formula-not-decoded -->\n\nA pure state like the one from Eq.2 is called a maximally entangled state of two qubits , or a Bell pair , whereas a pure state like the one from Eq.4 is called separable . In the general case of mixed states, we say that a given state ρ of n parties is entangled if it is not a probabilistic sum of tensor products of individual states for each one of the parties, that is, glyph[negationslash]\n\n<!-- formula-not-decoded -->\n\nwith { p k } being some probability distribution. Otherwise, the mixed state is called separable . The essence of the above definition of entanglement relies on the fact that entangled states of n parties cannot be prepared by acting locally on each one of the parties, together with classical communication among them. Entanglement is a genuine quantum-mechanical feature which does not exist in the classical world. It carries non-local correlations between the different parties in such a way that they cannot be described classically.\n\n## II. ARE QUANTUM STATES ALL ENTANGLED?\n\nAs already mentioned above, the recent work by Torre (Torre 2010) is a fundamental paper which gives us the possibility to speculate about the nature and the classification of quantum entangled states. The paper shows that a state is factorizable in the Hilbert space corresponding to some choice of degrees of freedom, and that this same state becomes entangled for a different choice of degrees of freedom. Therefore, entanglement is not a special case, but is ubiquitous in quantum systems. According the authors, one may erroneously think that there are two classes of states for the QS: 1) factorizable and 2) entangled, which correspond to qualitative difference in the behaviour of the system, close to classical in one case and with strong quantum correlations in the other. They argues that this is indeed wrong because factorizable states also exhibit entanglement with respect to other observables. In this sense, all states are entangled; entanglement is not an exceptional feature of some states but is ubiquitous in QM. .\n\nTo sum up this conceptual analysis operated by Torre and Zanardi, we think that there is an unclear relationship between these elements:\n\n1. factorizable states (Torre)\n2. entangled states\n3. the (choice) partitions of quantum system (Zanardi)\n4. the role of observer (in determining the distinction between entangled and unentangled states)\n\nWe think that all points (except the second point) introduce epistemic elements in the analysis and in the classification of quantum systems. We suggest that the second point is the key to understand the nature of underlying physical reality. We will see in the next sections, the conceptual analysis operated by Torre and Zanardi and what we intend with epistemic elements introduced in their papers.\n\n## A. Factorizability of a state as Epistemic property?\n\nAn important question is related at the property of factorizability of quantum state. Is the factorizability tool an objective property? In few words, is factorizability an objective property of the system or is it a feature of (our)\n\nFIG. 1: Torre's main thesis: factorizable states become entangled in a different degrees of freedom.\n\n<!-- image -->\n\nglyph[negationslash]\n\ndescription of system (i.e. an epistemic property). With reference to Torre's paper (op.cit), the authors show that factorizability and entanglement are not preserved in a change of the degrees of freedom used to describe the system, in details they demonstrate that the factorizability of a state is a property that is not invariant under a change of the degrees of freedom that we use in order to describe the system. From mathematical point of view[1], they consider a quantum system with two subsystems S = ( S A , S B ) that may correspond to two degrees of freedom A and B . The state of the system belongs then to the Hilbert space H = H A ⊗ H B and the two degrees of freedom are represented by operators A ⊗ I and I ⊗ B . Given a factorizable, non entangled, state Ψ = Ψ A ⊗ Ψ B with Ψ A and Ψ B arbitrary states (not necessarily eigenvectors of A and B ) in the spaces H A and H B . Then there exists a transformation of the degrees of freedom F = F ( A,B ) and G = G ( A,B ) that suggests a different factorization, H = H F ⊗H G , where the state is no longer factorizable: Ψ = Ψ F ⊗ Ψ G with Ψ F ∈ H F and Ψ G ∈ H G . The state becomes entangled in these new degrees of freedom; the factorizability of states is not invariant under a different factorization of the Hilbert space. To conclude, they have shown that for any system in a factorizable state, it is possible to find different degrees of freedom that suggest a different factorization of the Hilbert space where the same state becomes entangled; for this reason for every state, even for those factorizable, it is possible to find pairs of observables that will violate Bell's inequalities. The figure above (n.1 pag.3) summarize Torre's thesis.\n\nThe authors analyze also the inverse problem: the fact that the appearance of entanglement depends on the choice of degrees of freedom can find an interesting application in the 'disentanglement' of a state; one can, sometimes, transform an entangled state into a factorizable one by a judicious choice of the degrees of freedom. To conclude, we think that the epistemic element is the possibility to 'choice' the degrees of freedom of quantum system: this possibility affect the classification of quantum states in entangled or factorizables. In fact, it is simple to ask these epistemological questions: a)what are the degrees of freedom for a quantum system? b) Is it a complete set that describe all quantum properties? Can be a particle entangled in a context and the same particle factorizables in another context?\n\n## Quantum System\n\nFIG. 2: Epistemic Partitions and Ontic entanglement\n\n<!-- image -->\n\n## B. The partitions of quantum system as Epistemic property?\n\nAs we have seen, given a quantum system, the way to subdivide (to do partitions) it in subsystems in not unique . We call this first phase 'epistemic', in fact we are able to decide how to do partitions the quantum system. The conclusion of this operation is most important of its premise: in fact if we find (in the subsystems) an entangled state, this state has ontological nature but only if referred to that kind of partitions carried. A very 'entangled' situation: we have an objective entangled state for an epistemic partitions. For these reasons, the notions of entangled state becomes a relative concept and the relativity of this concept is linked, to us, at the choice of partitions or degrees of freedom. In the same time, the property of the entangled state is objective. The figure above (n.2 pag.3) represent our view of Zanardi's problem.\n\n## III. SOME CONSIDERATIONS AND CONCLUSIONS\n\nWe have seen that quantum systems admit a variety of tensor product structures depending on the complete system of commuting observables chosen for the analysis; as consequence we have different notions of entanglement associated with these different tensor product. We notice that, in the determination of whether a state is factorizable or entangled, the factorization of the Hilbert space is crucial and this factorization depends on the choice of the observables corresponding to the degrees of freedom. In the same way, as Zanardi stressed, given a quantum system, the way to subdivide (to do partitions) it in subsystems in not unique ; the partitions of a possible system have not an ontological superior status with respect to any other. Based on these arguments, we argued, that the criteria of partitions and factorizability (or partitions) contain an a-priori epistemic element, the\n\na)\n\nQuantum State\n\nOntic Entangled State\n\nFactorizable State\n\n(epistemic view)\n\nb)\n\nQuantum State\n\nOntic\n\nPartitions of quantum system (epistemic view)\n\nEntangled\n\nState\n\nFIG. 3: Our position\n\n- [1] A. C. de la Torre et al.: Entanglement for all quantum states Eur. J. Phys. 31 325-332, doi: 10.1088/01430807/31/2/010, 2010\n- [2] Zanardi P.: Virtual Quantum Subsystems,Phys.Rev.Lett.87:077901, 2001.\n- [3] Viola L., Barnun H.: Invited contribution to the Proceedings of the Boston Colloquium for Philosophy of Science on 'Foundations of Quantum Information and Entanglement', Boston, March 23-24, 2006 (arXiv:quant-\n\nfigure n.3 (pag.4)summarize our position. In conclusion, we suggest that all quantum system exhibit an objective nature that is entangled, at basic level the underlying physical reality is entangled. A quantum state could be non-entangled if and only if it would be factorizable for every possible partition or choice of degrees of freedom, but this can never be. The epistemic level emerge with the 'observer' (partitions or degree of freedom), the physicists and philosophers should consider these arguments in their debates.\n\nph/0701124v1).\n\n- [4] Schr¨ odinger, E.: 'Discussion of Probability Relations Between Separated Systems', Proceedings of the Cambridge Philosophical Society, 31: 555-563; 32 (1936): 446-451\n- [5] Giannetto E.: Some Remarks on Non-Separability, in The Foundations of Quantum Mechanics, C. Garola A. Rossi (eds.), Kluwer, Dordrecht 1995, 315-324",
+    "responses": [
+      {
+        "source": "gpt-4o-2024-11-20",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"ADU1\": {\n      \"text\": \"We suggest, that the 'choice' of degree of freedom (or quantum partitions), even if mathematically justified introduces epistemic element, not only in the systems but also in their classification.\",\n      \"label\": \"claim\"\n    },\n    \"ADU2\": {\n      \"text\": \"We retain, instead, that there are not two classes of quantum states, entangled and factorizables, but only a single classes of states: the entangled states.\",\n      \"label\": \"claim\"\n    },\n    \"ADU3\": {\n      \"text\": \"In fact, the factorizable states become entangled for a different choice of their degrees of freedom (i.e. they are entangled with respect to other observables).\",\n      \"label\": \"premise\"\n    },\n    \"ADU4\": {\n      \"text\": \"In the same way, there are not partitions of quantum system which have an ontological superior status with respect to any other.\",\n      \"label\": \"claim\"\n    },\n    \"ADU5\": {\n      \"text\": \"For all these reasons, both mathematical tools utilized (i.e quantum partitions or degrees of freedom) are responsible of improper classification of quantum systems.\",\n      \"label\": \"claim\"\n    },\n    \"ADU6\": {\n      \"text\": \"Finally, we argue that we cannot speak about a classification of quantum systems: all the quantum states exhibit a unique objective nature, they are all entangled states.\",\n      \"label\": \"claim\"\n    },\n    \"ADU7\": {\n      \"text\": \"According Zanardi the consequences of the non uniqueness of the decomposition of a given system S into subsystems imply (at the quantum level), a fundamental ambiguity about the very notion of entanglement that accordingly becomes a relative one.\",\n      \"label\": \"premise\"\n    },\n    \"ADU8\": {\n      \"text\": \"They stressed how the the role of the observer must be properly acknowledged in determining the distinction between entangled and unentangled states.\",\n      \"label\": \"premise\"\n    },\n    \"ADU9\": {\n      \"text\": \"The paper shows that a state is factorizable in the Hilbert space corresponding to some choice of degrees of freedom, and that this same state becomes entangled for a different choice of degrees of freedom.\",\n      \"label\": \"premise\"\n    },\n    \"ADU10\": {\n      \"text\": \"Therefore, entanglement is not a special case, but is ubiquitous in quantum systems.\",\n      \"label\": \"claim\"\n    },\n    \"ADU11\": {\n      \"text\": \"They argue that this is indeed wrong because factorizable states also exhibit entanglement with respect to other observables.\",\n      \"label\": \"premise\"\n    },\n    \"ADU12\": {\n      \"text\": \"In this sense, all states are entangled; entanglement is not an exceptional feature of some states but is ubiquitous in QM.\",\n      \"label\": \"claim\"\n    },\n    \"ADU13\": {\n      \"text\": \"To conclude, we think that the epistemic element is the possibility to 'choice' the degrees of freedom of quantum system: this possibility affect the classification of quantum states in entangled or factorizables.\",\n      \"label\": \"claim\"\n    },\n    \"ADU14\": {\n      \"text\": \"We have seen that quantum systems admit a variety of tensor product structures depending on the complete system of commuting observables chosen for the analysis; as consequence we have different notions of entanglement associated with these different tensor product.\",\n      \"label\": \"premise\"\n    },\n    \"ADU15\": {\n      \"text\": \"Based on these arguments, we argued, that the criteria of partitions and factorizability (or partitions) contain an a-priori epistemic element.\",\n      \"label\": \"claim\"\n    },\n    \"ADU16\": {\n      \"text\": \"In conclusion, we suggest that all quantum system exhibit an objective nature that is entangled, at basic level the underlying physical reality is entangled.\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"ADU1\",\n      \"target\": \"ADU5\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU2\",\n      \"target\": \"ADU6\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU3\",\n      \"target\": \"ADU2\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU4\",\n      \"target\": \"ADU5\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU7\",\n      \"target\": \"ADU13\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU8\",\n      \"target\": \"ADU13\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU9\",\n      \"target\": \"ADU10\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU11\",\n      \"target\": \"ADU12\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU14\",\n      \"target\": \"ADU15\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU15\",\n      \"target\": \"ADU16\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "ADU1": {
+              "text": "We suggest, that the 'choice' of degree of freedom (or quantum partitions), even if mathematically justified introduces epistemic element, not only in the systems but also in their classification.",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "We retain, instead, that there are not two classes of quantum states, entangled and factorizables, but only a single classes of states: the entangled states.",
+              "label": "claim"
+            },
+            "ADU3": {
+              "text": "In fact, the factorizable states become entangled for a different choice of their degrees of freedom (i.e. they are entangled with respect to other observables).",
+              "label": "premise"
+            },
+            "ADU4": {
+              "text": "In the same way, there are not partitions of quantum system which have an ontological superior status with respect to any other.",
+              "label": "claim"
+            },
+            "ADU5": {
+              "text": "For all these reasons, both mathematical tools utilized (i.e quantum partitions or degrees of freedom) are responsible of improper classification of quantum systems.",
+              "label": "claim"
+            },
+            "ADU6": {
+              "text": "Finally, we argue that we cannot speak about a classification of quantum systems: all the quantum states exhibit a unique objective nature, they are all entangled states.",
+              "label": "claim"
+            },
+            "ADU7": {
+              "text": "According Zanardi the consequences of the non uniqueness of the decomposition of a given system S into subsystems imply (at the quantum level), a fundamental ambiguity about the very notion of entanglement that accordingly becomes a relative one.",
+              "label": "premise"
+            },
+            "ADU8": {
+              "text": "They stressed how the the role of the observer must be properly acknowledged in determining the distinction between entangled and unentangled states.",
+              "label": "premise"
+            },
+            "ADU9": {
+              "text": "The paper shows that a state is factorizable in the Hilbert space corresponding to some choice of degrees of freedom, and that this same state becomes entangled for a different choice of degrees of freedom.",
+              "label": "premise"
+            },
+            "ADU10": {
+              "text": "Therefore, entanglement is not a special case, but is ubiquitous in quantum systems.",
+              "label": "claim"
+            },
+            "ADU11": {
+              "text": "They argue that this is indeed wrong because factorizable states also exhibit entanglement with respect to other observables.",
+              "label": "premise"
+            },
+            "ADU12": {
+              "text": "In this sense, all states are entangled; entanglement is not an exceptional feature of some states but is ubiquitous in QM.",
+              "label": "claim"
+            },
+            "ADU13": {
+              "text": "To conclude, we think that the epistemic element is the possibility to 'choice' the degrees of freedom of quantum system: this possibility affect the classification of quantum states in entangled or factorizables.",
+              "label": "claim"
+            },
+            "ADU14": {
+              "text": "We have seen that quantum systems admit a variety of tensor product structures depending on the complete system of commuting observables chosen for the analysis; as consequence we have different notions of entanglement associated with these different tensor product.",
+              "label": "premise"
+            },
+            "ADU15": {
+              "text": "Based on these arguments, we argued, that the criteria of partitions and factorizability (or partitions) contain an a-priori epistemic element.",
+              "label": "claim"
+            },
+            "ADU16": {
+              "text": "In conclusion, we suggest that all quantum system exhibit an objective nature that is entangled, at basic level the underlying physical reality is entangled.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU1",
+              "target": "ADU5",
+              "type": "support"
+            },
+            {
+              "source": "ADU2",
+              "target": "ADU6",
+              "type": "support"
+            },
+            {
+              "source": "ADU3",
+              "target": "ADU2",
+              "type": "support"
+            },
+            {
+              "source": "ADU4",
+              "target": "ADU5",
+              "type": "support"
+            },
+            {
+              "source": "ADU7",
+              "target": "ADU13",
+              "type": "support"
+            },
+            {
+              "source": "ADU8",
+              "target": "ADU13",
+              "type": "support"
+            },
+            {
+              "source": "ADU9",
+              "target": "ADU10",
+              "type": "support"
+            },
+            {
+              "source": "ADU11",
+              "target": "ADU12",
+              "type": "support"
+            },
+            {
+              "source": "ADU14",
+              "target": "ADU15",
+              "type": "support"
+            },
+            {
+              "source": "ADU15",
+              "target": "ADU16",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "ADU1": {
+              "text": "We suggest, that the 'choice' of degree of freedom (or quantum partitions), even if mathematically justified introduces epistemic element, not only in the systems but also in their classification.",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "We retain, instead, that there are not two classes of quantum states, entangled and factorizables, but only a single classes of states: the entangled states.",
+              "label": "claim"
+            },
+            "ADU3": {
+              "text": "In fact, the factorizable states become entangled for a different choice of their degrees of freedom (i.e. they are entangled with respect to other observables).",
+              "label": "premise"
+            },
+            "ADU4": {
+              "text": "In the same way, there are not partitions of quantum system which have an ontological superior status with respect to any other.",
+              "label": "claim"
+            },
+            "ADU5": {
+              "text": "For all these reasons, both mathematical tools utilized (i.e quantum partitions or degrees of freedom) are responsible of improper classification of quantum systems.",
+              "label": "claim"
+            },
+            "ADU6": {
+              "text": "Finally, we argue that we cannot speak about a classification of quantum systems: all the quantum states exhibit a unique objective nature, they are all entangled states.",
+              "label": "claim"
+            },
+            "ADU7": {
+              "text": "According Zanardi the consequences of the non uniqueness of the decomposition of a given system S into subsystems imply (at the quantum level), a fundamental ambiguity about the very notion of entanglement that accordingly becomes a relative one.",
+              "label": "premise"
+            },
+            "ADU8": {
+              "text": "They stressed how the the role of the observer must be properly acknowledged in determining the distinction between entangled and unentangled states.",
+              "label": "premise"
+            },
+            "ADU9": {
+              "text": "The paper shows that a state is factorizable in the Hilbert space corresponding to some choice of degrees of freedom, and that this same state becomes entangled for a different choice of degrees of freedom.",
+              "label": "premise"
+            },
+            "ADU10": {
+              "text": "Therefore, entanglement is not a special case, but is ubiquitous in quantum systems.",
+              "label": "claim"
+            },
+            "ADU12": {
+              "text": "In this sense, all states are entangled; entanglement is not an exceptional feature of some states but is ubiquitous in QM.",
+              "label": "claim"
+            },
+            "ADU13": {
+              "text": "To conclude, we think that the epistemic element is the possibility to 'choice' the degrees of freedom of quantum system: this possibility affect the classification of quantum states in entangled or factorizables.",
+              "label": "claim"
+            },
+            "ADU14": {
+              "text": "We have seen that quantum systems admit a variety of tensor product structures depending on the complete system of commuting observables chosen for the analysis; as consequence we have different notions of entanglement associated with these different tensor product.",
+              "label": "premise"
+            },
+            "ADU16": {
+              "text": "In conclusion, we suggest that all quantum system exhibit an objective nature that is entangled, at basic level the underlying physical reality is entangled.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU1",
+              "target": "ADU5",
+              "type": "support"
+            },
+            {
+              "source": "ADU2",
+              "target": "ADU6",
+              "type": "support"
+            },
+            {
+              "source": "ADU3",
+              "target": "ADU2",
+              "type": "support"
+            },
+            {
+              "source": "ADU4",
+              "target": "ADU5",
+              "type": "support"
+            },
+            {
+              "source": "ADU7",
+              "target": "ADU13",
+              "type": "support"
+            },
+            {
+              "source": "ADU8",
+              "target": "ADU13",
+              "type": "support"
+            },
+            {
+              "source": "ADU9",
+              "target": "ADU10",
+              "type": "support"
+            }
+          ]
+        }
+      },
+      {
+        "source": "claude-3-5-sonnet-20241022",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"A1\": {\n      \"text\": \"we cannot speak about a classification of quantum systems: all the quantum states exhibit a unique objective nature, they are all entangled states\",\n      \"label\": \"claim\"\n    },\n    \"A2\": {\n      \"text\": \"factorizable states also exhibit entanglement with respect to other observables. In this sense, all states are entangled; entanglement is not an exceptional feature of some states but is ubiquitous in QM\",\n      \"label\": \"premise\"\n    },\n    \"A3\": {\n      \"text\": \"factorizability and entanglement are not preserved in a change of the degrees of freedom used to describe the system\",\n      \"label\": \"premise\"\n    },\n    \"A4\": {\n      \"text\": \"for any system in a factorizable state, it is possible to find different degrees of freedom that suggest a different factorization of the Hilbert space where the same state becomes entangled\",\n      \"label\": \"premise\"\n    },\n    \"A5\": {\n      \"text\": \"given a quantum system, the way to subdivide (to do partitions) it in subsystems in not unique\",\n      \"label\": \"premise\"\n    },\n    \"A6\": {\n      \"text\": \"A quantum state could be non-entangled if and only if it would be factorizable for every possible partition or choice of degrees of freedom, but this can never be\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"A2\",\n      \"target\": \"A1\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A3\",\n      \"target\": \"A1\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A4\",\n      \"target\": \"A1\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A5\",\n      \"target\": \"A1\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A6\",\n      \"target\": \"A1\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "A1": {
+              "text": "we cannot speak about a classification of quantum systems: all the quantum states exhibit a unique objective nature, they are all entangled states",
+              "label": "claim"
+            },
+            "A2": {
+              "text": "factorizable states also exhibit entanglement with respect to other observables. In this sense, all states are entangled; entanglement is not an exceptional feature of some states but is ubiquitous in QM",
+              "label": "premise"
+            },
+            "A3": {
+              "text": "factorizability and entanglement are not preserved in a change of the degrees of freedom used to describe the system",
+              "label": "premise"
+            },
+            "A4": {
+              "text": "for any system in a factorizable state, it is possible to find different degrees of freedom that suggest a different factorization of the Hilbert space where the same state becomes entangled",
+              "label": "premise"
+            },
+            "A5": {
+              "text": "given a quantum system, the way to subdivide (to do partitions) it in subsystems in not unique",
+              "label": "premise"
+            },
+            "A6": {
+              "text": "A quantum state could be non-entangled if and only if it would be factorizable for every possible partition or choice of degrees of freedom, but this can never be",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "A2",
+              "target": "A1",
+              "type": "support"
+            },
+            {
+              "source": "A3",
+              "target": "A1",
+              "type": "support"
+            },
+            {
+              "source": "A4",
+              "target": "A1",
+              "type": "support"
+            },
+            {
+              "source": "A5",
+              "target": "A1",
+              "type": "support"
+            },
+            {
+              "source": "A6",
+              "target": "A1",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "A1": {
+              "text": "we cannot speak about a classification of quantum systems: all the quantum states exhibit a unique objective nature, they are all entangled states",
+              "label": "claim"
+            },
+            "A2": {
+              "text": "factorizable states also exhibit entanglement with respect to other observables. In this sense, all states are entangled; entanglement is not an exceptional feature of some states but is ubiquitous in QM",
+              "label": "premise"
+            },
+            "A3": {
+              "text": "factorizability and entanglement are not preserved in a change of the degrees of freedom used to describe the system",
+              "label": "premise"
+            },
+            "A4": {
+              "text": "for any system in a factorizable state, it is possible to find different degrees of freedom that suggest a different factorization of the Hilbert space where the same state becomes entangled",
+              "label": "premise"
+            },
+            "A5": {
+              "text": "given a quantum system, the way to subdivide (to do partitions) it in subsystems in not unique",
+              "label": "premise"
+            },
+            "A6": {
+              "text": "A quantum state could be non-entangled if and only if it would be factorizable for every possible partition or choice of degrees of freedom, but this can never be",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "A2",
+              "target": "A1",
+              "type": "support"
+            },
+            {
+              "source": "A3",
+              "target": "A1",
+              "type": "support"
+            },
+            {
+              "source": "A4",
+              "target": "A1",
+              "type": "support"
+            },
+            {
+              "source": "A5",
+              "target": "A1",
+              "type": "support"
+            },
+            {
+              "source": "A6",
+              "target": "A1",
+              "type": "support"
+            }
+          ]
+        }
+      }
+    ],
+    "timestamp": 1752755723.3424928
+  }
+]

@@ -1,0 +1,431 @@
+[
+  {
+    "identifier": "GONCAA",
+    "system_prompt": "## GOAL\nArgument‑mine the following paper to extract its comprehensive argumentative structure.\n\n## DEFINITIONS\n1. **Argument**: A set of propositions, including some number of premises and a conclusion. The premises should logically entail the conclusion.\n2. **Claim**: A proposition that asserts something to be true or false, typically requiring justification or evidence.\n3. **Premise**: A proposition that provides evidence, justification, or logical support for a claim or conclusion.\n\n## CRITICAL REQUIREMENTS\n1. **VERBATIM EXTRACTION ONLY**: Each ADU text must be copied EXACTLY from the paper with no modifications, paraphrasing, or combining of separate sentences.\n2. **NO HALLUCINATION**: Do not create, modify, or invent text that does not appear exactly in the source.\n3. **EXACT MATCHING**: Every word, punctuation mark, and spacing must match the original precisely.\n\n## DIRECTIONS\n1. **Identify Argumentative Discourse Units (ADUs)**  \n   - ADU = any contiguous text span functioning as a claim or a premise in the reasoning structure.\n   - **BE HIGHLY SELECTIVE**: Only include ADUs that are crucial to the overarching argument structure.\n   - Focus on significant claims and premises that contribute meaningfully to the argumentative flow.\n   - **AVOID NOISE**: Skip ADUs that are merely descriptive, tangential, or do not substantially advance the argument.\n   - Prioritize quality over quantity - fewer accurate, important ADUs are better than many insignificant ones.\n   - **EXTRACT ONLY**: Copy text spans exactly as they appear, without any modifications.\n2. **Classify each ADU**  \n   - Label = either `\"claim\"` or `\"premise\"`.  \n3. **Detect directed relations**  \n   - Relation = `\"support\"` or `\"attack\"`, from one ADU (source) to another (target).\n   - Map how ADUs connect to form reasoning chains.\n   - Focus on relationships between the most significant ADUs.\n   - Include relationships between premises that strengthen or weaken each other.\n4. **Verbatim spans**  \n   - Each `\"text\"` value must be copied EXACTLY from the paper with zero modifications.\n   - Do not paraphrase, summarize, or combine separate sentences.\n   - Do not add, remove, or change any words, punctuation, or spacing.\n   - If unsure about exact wording, skip that ADU rather than guess.\n\n## WHAT TO CAPTURE\n**INCLUDE ONLY:**\n- Main argumentative threads that are central to the paper's contribution\n- Core claims that represent the paper's primary arguments or findings\n- Key premises that provide essential support for major claims\n- Critical counterarguments and their refutations\n- Reasoning chains that demonstrate how main conclusions are derived\n\n**EXCLUDE (AVOID NOISE):**\n- Minor details, examples, or descriptive content that don't advance the argument\n- Tangential points or side discussions\n- Pure background information or literature review content\n- Methodological details unless they constitute argumentative claims\n- Obvious statements or commonly accepted facts\n- Redundant or repetitive argumentative content\n\n**GUIDING PRINCIPLE**: If removing an ADU would not significantly impact understanding of the paper's argumentative structure, it should be excluded.\n\n## QUALITY CONTROL\n- Before finalizing each ADU, verify the text exists exactly in the source\n- Prefer fewer, accurate ADUs over many potentially modified ones\n- When in doubt about exact wording, omit the ADU\n\n## OUTPUT FORMAT\nReturn **only** a single valid JSON object matching this schema.  \nDo **not** output any extra text, markdown, or explanations.\nDo **not** add comments.\n**RESPOND WITH ONLY**:\n```json\n{\n  \"ADUs\": {\n    \"<ADU_ID>\": {\n      \"text\": \"<exact span from paper>\",\n      \"label\": \"claim\" | \"premise\"\n    }\n    ...\n  },\n  \"relations\": [\n    {\n      \"source\": \"<ADU_ID>\",\n      \"target\": \"<ADU_ID>\",\n      \"type\": \"support\" | \"attack\"\n    }\n  ]\n}\n```",
+    "user_content": "## Consciousness and Agency: The Importance of SelfOrganized Action\n\nEunice Gonzalez 1 , Mariana Broens 2  and Pim Haselager 3\n\n- 1  gonzalez@marilia.unesp.br http://www.marilia.unesp.br/ensino/pos-grad/index.htm UNESP, Av. Hygino Muzzi Filho 737, Marília, SP, 17525-900, Brazil\n- 2  m.broens@marilia.unesp.br http://www.marilia.unesp.br/ensino/pos-grad/index.htm\n\nUNESP, Av. Hygino Muzzi Filho 737, Marília, SP, 17525-900, Brazil\n\n- 3  w.haselager@nici.kun.nl http://www.nici.kun.nl/~haselag\n\nCognitive Science NICI - Radboud University Nijmegen\n\nAbstract. Following the tracks of Ryle and based upon the theory of complex systems, we shall develop  a  characterization  of  action-based  consciousness  as  an  embodied,  embedded,  selforganized process in which action and dispositions occupy a special place. From this perspective, consciousness is not a unique prerogative of humans, but it is spread all around, throughout the evolution of life. We argue that artificial systems such as robots currently lack the genuine  embodied embeddedness that allows the type of self-organization that is relevant to consciousness.\n\nSommario. Seguendo  la  linea  tracciata  da  Ryle  e  basata  sulla  teorie  dei  sistemi  complessi, svilupperemo una caratterizzazione della coscienza basata sull'azione come un processo incarnato, situato e auto organizzante nel quale le azioni e le disposizioni occupano un ruolo decisivo. Da questo punto di vista, la coscienza non è una prerogativa esclusiva degli esseri umani, ma è diffusa nel mondo naturale grazie ai processi evolutivi. Noi sosteniamo che i sistemi artificiali  come  i  robot  attualmente  sono  carenti  del  tipo  di  relazione  con  la  corporeità  e  con l'ambiente che consente quel tipo di auto-organizzazione indispensabile per l'emergenza della coscienza.\n\n## 1 Introduction\n\nCognitive Science brought about a kind of Copernican revolution in the studies of the mind by investigating the hypothesis that intelligence is not the unique prerogative of living organisms (human or non-human), but could also be a characteristic of computational systems like artificial neural networks or traditional symbol systems. Artificial  systems  can  perform  complicate  tasks, and, as in the case of chess programs, they are sometimes more efficient than humans. Few, however, would be willing to argue that currently existing artificial systems are conscious. A question to be investigated here is: why is this the case?\n\nPart of the answer to the above question can be found in the Western intellectualistic  philosophical  tradition  (Plato,  Descartes,  Kant,  among  many  others),  consciousness has been viewed as an internal - and fundamental - property of the mind. In this tradition,  the  human  mind  has  an  inner  characteristic  and  conscious  human  beings, living in a particular and personal world, are the only ones to access, directly through\n\n## Consciousness and Agency\n\nprivate  introspection,  their  own  mental  states.  Consciousness,  especially  in  its  selfreflexive mode, was considered to be a unique prerogative of humans.\n\nThis  tradition,  which  Ryle  (1949)  calls  'the  official  doctrine',  gives  birth  to  the dogma of 'the Ghost in the Machine' according to which mental terms refer to events and  episodes  occurring  in  a  separate  realm  about  which  the  individual  knows  with certainty. As Ryle (1949, p. 14) says: 'In his consciousness, self-consciousness and introspection he is directly and authentically apprised of the present states and operations  of  his  mind.  He  may  have  great  or  small  uncertainties  about  concurrent  and adjacent episodes in the physical world, but he can have none about at least part of what is momentarily occupying his mind'.\n\nIn  contrast  to  the  official,  internalist,  doctrine  Ryle  proposes  an  approach  to  the mind (and consciousness) in terms of dispositions. In Ryle's view, the mind is characterized in terms of '…abilities, liabilities, and inclination to do and undergo certain sorts of things, and of the doing and undergoing of these things in the ordinary [external]  world' (199, p. 190). In this scenario, consciousness is part of a public, not private, history of actions and interactions that unfold in the dynamic ordinary world.\n\nFollowing the tracks of Ryle and based upon the theory of complex systems (Bertalanffy,  1968;  Weinberg,  1975;  Jensen,  1998;  Haken,  1999;  Gregersen,  2003),  we shall develop a characterization of consciousness understood as an embodied, embedded, self-organized process in which action and dispositions occupy a special place. From this perspective, consciousness is not a unique prerogative of humans, but it is spread all around, throughout the evolution of life. The question to be addressed in this  context  is:  can  this  action-based  consciousness  reach  the  domain  of  complex artefacts like robots?\n\nIn order to answer this question it is important to make it clear that our investigation about consciousness is situated essentially in the domain of action; we are concerned  with  active  embodied  systems  like  organisms  and  not  with  abstract  'ghost like' types of self-reflexive consciousness. Fundamental to this approach is the contrast between animate and inanimate properties of open systems.\n\nAs Bertalanffy stresses in his explanations of the dynamic organization of complex systems such as living organisms: '…even without external stimuli, the organism is not a passive but an intrinsically active system. (…) The stimulus (i.e., a change in external  conditions)  does  not cause a  process  in  an  otherwise  inert  system;  it  only modifies processes in an autonomously active system ' (1968, p. 208-209).\n\nIn  his General  System  Theory, Bertalanffy  criticises  the  model  of  the  mind  that characterises man as a passive computer responding mechanically to external stimuli. He suggests that, in evolution, purely reactive mechanisms were superimposed upon rhythmic-locomotor  activities,  responsible  for  the  behaviour  of  complex  open  systems. The problem with the mechanistic (robot-like) view is that it does not take into consideration the notion of autonomy , which he considers a fundamental characteristic  of  intelligent  behaviour.  Autonomous  activity,  as  Bertalanffy  stresses  it,  'is  the most primitive form of behaviour (…) it is found in brain function (Hebb, 1949) and in  psychological  processes  (…)  All  such  behaviour  is  performed  for  its  own  sake, deriving gratification (…) from the performance itself' (p.209)\n\nEven though 'autonomy' does not constitute the main topic of the present paper, it is  relevant  to  address  it  in  order  to  approach  the  question  (previously  formulated)\n\n## Eunice Gonzalez, Mariana Broens e Pim Haselager\n\nabout the (im)possibility of consciousness to reach the domain of complex artefacts like robots. In so far as these artefacts are passive instruments that react automatically to external stimuli, they seem to lack the systemic way of acting, proper of complex open living systems. In this sense, it is difficult to see how they could incorporate any degree  of  autonomy  in  their  behaviour.  Bertalanffy  does  not  address  this  question, given that his main interest is to explain the dynamic organization of living organisms.  However,  the  difference  between  systemic action -  which  unfolds  from  the dynamic  structure  of  the  organism  -  and  purely  localized reaction to  stimuli  -  as occurring with most of the artefacts - is of great relevance for the present study.\n\nIn what follows we are going to inquire into the distinction between action and localized reaction to stimuli in the domain of embodied embedded systems, in order to explain the connections between consciousness, autonomy and dispositions. To start with, we argue that it is trough rhythmic activities, and proper mechanisms of adjustment, that the emergence of a basic kind of consciousness occurs - as in a dance of the body and the environment. By using the metaphor of a dance, we want to stress that the temporal aspects of the active (not merely reactive) interaction between body and environment are of considerable importance to the emergence of consciousness. In complex self-organizing systems, the rhythm of the interaction between organisms and environment plays a crucial role in the formation of conscious phenomena.\n\nOne hypothesis to be further explained is that an important function of this type of basic  consciousness  is  the  maintenance  of  the  main  parameters  of  the  organisms  in order to enhance its autonomy and to preserve life. In this basic sense, consciousness directs goal related behaviour, creates dispositions and modifies habits mutually shaping the environment through bi-directional mechanisms of adjustments.\n\nFinally, we shall argue that consciousness, understood in this basic, action-related sense, is not an exclusive property of humans, but it is a common element of all organisms.  Reflexive  consciousness,  probably  limited  to  humans  and  relatively  few other  complex  organisms,  should  be  understood  as  posterior  to  autonomous  action and not as a pre-condition of it. Consciousness is not a pre-condition for action and thought,  but  rather  an  emergent  product  of  self-organized  action,  which  integrates sensory  experiences,  volition,  emotion  and  memory,  producing  a  unified  informational field.\n\n## 2 The Complex System approach to consciousness\n\nSo far we have introduced a preliminarily hypothesis on the nature of a basic, embodied, kind of consciousness understood as a self-organizing process in which action and disposition to grasp relevant information occupy a special place. In this section, we  are  going  to  develop  further  this  hypothesis,  explaining  in  which  sense  a  selforganized process could characterize a basic kind of consciousness and we are also going to explain the role occupied by dispositions in such a process.\n\nTo start with, a notion of self-organization was initially proposed by Ashby (1962), Foerster &amp; Zopf (1962), Bertalanffy (1968) and others as a part of a general system theory, developed more recently by Weinberg (1975), Debrun (1996), Jensen (1998), Haken  (1999),  Gonzalez  (2000),  Gregersen  (2003).  The  complex  system  theory ( CST )  presupposes  the  existence  of  an  order  in  the  empirical,  macroscopic,  world,\n\n## Consciousness and Agency\n\nexperienced in every day life, that can be described by information of a more general category (of a second order). In other words, out of a great number of complex interactions between components at a microscopic level a macroscopic order can emerge, that unifies an immense amount of information in a comprised form. Such a unifying order  cannot  be  reduced  to  the  summation  of  its  constitutive  parts,  but  involves global, new, characteristics emergent from the interaction between individual parts of complex systems. In this context, a system is considered complex in the sense that its evolution  involves  interactions  between  elements  existing  in  different  temporal  and spatial scales (Jensen, 1998, p.1). An intriguing characteristic of complex systems, as stressed by Jensen is that even though the micro-level behaviour of these systems is complex,  their  macro-level  behaviour  can  be  described,  in  many  cases,  in  simpler ways.\n\nOne  of  the  main  dreams  of  researchers  in  CST  (as  admitted,  for  example  by Weinberg,  1975)  is  to  find  a  unified  general  law  (of  third  order)  that  governs  the process of generation of laws (of second order). Despite of its naïve appearance, this dream does not reflect the ignorance concerning the immense complexity inherent in the conjunction of physical, biological and social worlds. On the contrary, complexity is  the  starting  point  of  the  systemic  analysis;  it  was  mainly  in  biology  that  the  systemic view developed its investigations of the intricate dynamic of life, and it was in biology that the CST found its natural place.\n\nIn biology, the CST developed out of the 'vitalism versus mechanism' dispute that took  central  place  among  early  attempts  to  explain  the  nature  of  living  organisms. Vitalism was blamed of introducing a mystical, unacceptable, hypothesis in the explanation of life, and the mechanistic approach, in turn, was criticized by neglecting what Bertalanffy called the 'organismic conception of life'. This organismic conception  emphasizes  considerations  about  the  organism  as  a  whole  or  as  an  integrated system, and looks for the principles of organization of life at its various levels (Bertalanffy, 1968, p. 12). The systemic theory emerged out of a scenario of oppositions, proposing a holistic alternative to both vitalism and mechanicism, in order to describe the intrinsic complexity inherent in the behavior of organisms. We feel that this approach constitutes  a  turning  point  for  our  scientific  and  philosophical  views  on  the nature of complex processes.\n\nThe concepts of emergence and self-organization play a particularly important role in the CST. Specifically, the concept of emergence is notoriously tricky (see for some useful taxonomies: El-Hani &amp; Emmeche, 2000; Stephan, 2000). For the present purpose, however, an emergent property can be described as a global, holistic, or systemic property of open systems that arises out of the dynamic interactions amongst the  system's  elements  and  that  shapes  or  modifies  their  possibilities  to  interact  (cf. Haselager &amp; Gonzalez, 2002). Such a characteristic does not exist in each of the isolated parts, but it can only be identified in the whole system. Emergent properties can be observed in a wide variety of self-organizing systems. Self-organization, in turn, can be defined as a spontaneous (i.e. not coordinated by a central controller or external, pre-established, rules) process of order generation. The order emerges out of the interactions amongst the elements of the system and its interaction with the environment (Debrun, Gonzalez &amp; al. 1996). Self-organization may lead to the development of dispositions.\n\nEunice Gonzalez, Mariana Broens e Pim Haselager\n\nDispositions can be understood as the inclination of a system to produce specific behaviour upon encountering adequate conditions. To say, for example, that a chunk of salt is soluble, or that it has the disposition to dissolve, is to say that if it would be immersed in a certain liquid, it would dissolve. Referring to dispositions, Ryle (1949, p. 43) remind us further that: 'to posses a dispositional property is not to be in a particular state or to be in a particular change; it is to be bound or liable to be in a particular  state,  or  to  undergo  a  particular  change,  when  a  particular  condition  is  realized'. In this sense, dispositions constitute causal propensities. Moreover, when these propensities are repetitively actualised, they give rise to habits, which shape the behaviour of embodied organisms.\n\nThus, it is from the perspective of the CST that we characterize consciousness as an embodied, embedded, self-organized process in which actions and dispositions to grasp  relevant  information  for  the  maintenance  of  the  organism  occupy  a  special place. Actions, in this context, should be distinguished from merely reactive behaviour. Actions incorporate an intricate web of dispositions that are susceptible of corrections  and  adjustments.  Under  proper  conditions,  these  dispositions  give  place  to habits responsible for the enhancement of the system's ability do deal with tensions and fluctuations of its own body and of the environment. As we are going to explain in a later section, it seems to be the spontaneous ability to 'dance' with the flow of internal  and  external  tensions  that  is  constitutive  of  the  action-related  type  of  consciousness,  which  distinguishes  intelligent  from  merely  mechanic  behaviour.  First, however, we will examine some recent views suggesting that the brain is not, as traditionally thought, the central controller of action, but is only one player among several, and participates in, rather than controls the process of self-organization.\n\n## 3 Consciousness and neurodynamics\n\nChiel &amp; Beer (1997) provide many examples indicating the importance of the body for cognition. They point out that this is logical given that the body and the nervous system co-evolved during the evolution of a species, and develop together during the lifetime of a specific organism. Moreover, it would be misleading to see the body as merely providing the receptors of information to be processed in the brain because the body is actively involved in sensory (pre)processing. As they indicate, crickets, frogs and other animals that must discriminate sounds whose wavelength is small relative to their body size, use whole body structures to provide additional phase and amplitude information (Chiel &amp; Beer, 1997, p.553). Similarly, the body does not merely execute brain commands, but actually transforms neuronal motor output. For example, muscles filter out high frequency components of neural output, and the tendons that connect muscle to bones are greatly affected by different degrees of stiffness of the tendon as well as by the level of activation of the muscle. Just like the brain constrains the potential behaviour of the body, so does the body constrain the activities of the nervous system. What the body cannot perceive cannot be processed by the brain, just like impossible movements are unlikely to be 'commanded'. Less obvious, perhaps, is the  role  of  the  body  in  the  simplification  of  neural  processing  problems.  A  wellknown example here is the spring-like nature of the human leg that greatly simplifies the problem of coordinating the movements of the legs involved in walking. Finally,\n\n## Consciousness and Agency\n\nthe continuous feedback that the body and environment provides an essential part of neuronal activity, and without this feedback the nervous system's activity may not be very effective in producing behaviour (Chiel &amp; Beer, 1997, p.555). The brain does not give orders to be executed but provides a contribution to the ongoing dance between the body, brain and environment.\n\nRecent research into the neurodynamics of consciousness indicates the importance of temporal synchronizations between brain processes related to the current state of the body and brain processes related to the current interaction with the environment. For example, Parvizi &amp; Damasio (2001) argue that core consciousness (the most basic form of consciousness) consists of the interaction between (a) neuronal activity patterns concerned with object interaction, (b) neuronal activity patterns concerned with the bodily state of the organism and (c) neuronal activity patterns that constitute the relationship between (a) and (b) (p.139). They stress that the neuronal patterns that map the physical state of the organism are aimed at ensuring the homeostatic balance of a living organism (p.135).\n\nLikewise, Edelman &amp; Tononi (2000) indicate that primary consciousness (comparable to Parvizi &amp; Damasio´s core consciousness) consists of the integration of information  about  the  present  interaction  with  the  world  (e.g.  perceptual  categorization, shaped by current actions) with value-laden information about previous interactions with the environment. Hence, they speak of primary consciousness as a 'remembered present' that detects features of the present environment in the light of past experiences to produce actions (or habits) that contribute to determine the future.\n\nThey specifically focus on a temporary subset of neuronal groups that constitute an integrated (i.e. being part of the same conscious process) yet differentiated (i.e. providing different contributions to the conscious scene) temporary unity (p.131). Such a subset of strongly interacting elements that is functionally demarcated from the rest of the system is called a functional cluster (p.120). Importantly, the functional clusters only have a temporary existence and are not repetitive but change continually over time.\n\nSimilarly, Bressler &amp; Kelso (2001) speak about cortical areas that arrange themselves quickly in changing but coordinated configurations of varying sizes. The resulting large-scale cortical networks achieve temporally strong coordination by means of relative phase relationships between the different brain areas (p.30).\n\nAll three approaches claim that it is not primarily the location of brain areas that is important in understanding consciousness, but rather the interaction between neuronal groups among different and changing regions. Our interpretation of these findings is that the brain is recruiting resources in order to engage in a rhythmic interaction with the world. That is, in an adaptive response to bodily interaction with the world, parts of the brain self-organize into a ´system´ that exists only temporally and functions to keep up with the interaction. In terms of the dance metaphor, then, the main function of consciousness is to adjust to the rhythm of the dance (i.e. the temporal patterns of the  bodily  interaction)  with  the  environment.  If  we  accept  this  hypothesis,  then  the following  question  presents  itself:  can  this  action-based  type  of  consciousness  be found in all living organisms and, maybe, in complex artifacts like robots?\n\nEunice Gonzalez, Mariana Broens e Pim Haselager\n\n## 4 Habits, dispositions and consciousness\n\nIn The concept of mind, Ryle distinguishes habits from efficient or intelligent capabilities. According to him, 'it is of the essence of merely habitual practices that one performance is a replica of its predecessors. It is of the essence of intelligent practices that  one  performance  is  modified  by  its  predecessors.  The  agent  is  still  learning' (Ryle,  1949,  p.  42).  As  an  illustration  of  this  distinction,  Ryle  presents  the  case  of walking.  Under  normal  conditions,  we  walk  on  pavements  on  the  base  of  habits, without  bringing  consciousness  to  what  we  are  doing;  there  is  no  need  for  care  or vigilance. This habit of automatic walking is contrasted with the ability of a mountaineer walking over ice. '… a mountaineer walking over ice-covered rocks in high wind in dark does not move his limbs by blind habit … he is ready for emergences, he economize in effort, he makes tests and experiments … If he makes a mistake, he is inclined not to repeat it, and if he finds a new trick effective he is inclined to continue to use it and to improve on it. He is concomitantly walking and teaching himself how to walk in conditions of this sort' (Ryle, 1949, p. 42).\n\nFor our present investigation, the distinction between blind habits and intelligent capabilities  help  us  to  characterize  consciousness  as  a  process  that  incorporates  not only blind habits, but also, and mainly, efficient capabilities. These capabilities, in the case of organisms, constitute one of the basic elements responsible for the survival of the individual organism (and of the species to which he belongs) in his interactions with a dynamic environment.\n\nAnother important difference between habits and efficient capabilities, emphasized by Ryle, is related to the notion of disposition, explained earlier. No doubt, a trained artificial neural network or robot could acquire dispositions to respond to stimuli from the environment in specific ways. However, it is a complex web of heterogeneous and unlimited variety of dispositions that distinguish actions from simple habits, such as the single-track dispositions created by a trained neural network.\n\nWe do not wish to claim that the more heterogeneous manifestations of dispositions, that Ryle (1949, p.44) thought to be distinctive of 'higher-grade' dispositions are beyond the capacities of neural networks and robots, as this is clearly an empirical issue and not something to be settled a priori. Rather we want to emphasize that in organisms, even in the case of very simple unicellular organisms, the web of dispositions  seems  to  be  an  emergent  property  of  their  interaction  with  the  environment throughout their evolutionary development. In the case of robots or neural networks, there  is  not  yet  such  a  genuinely  embodied  emergence,  and  neither  a  comparable evolutionary process (Haselager, 2003).\n\nRegarding the first point of embodied emergence, one may observe that the bodies of current robots are constructed from sets of, often pre-created, components that are put together by engineers. Robots are constructed from the 'outside in', by connecting prearranged parts (like a robot-arm or an optical censor) to a central unit. The development or evolution of organisms, however, follows what von Uexküll (1982, p.40) called, 'centrifugal' principles; they develop from the inside out . Moreover, the interaction  between  the  components  lacks  the  complexity  of  the  codependent,  systemic, functioning of the body parts of an organism. Even in the case of single-cell organisms  like  amoebas  there  is  already  an  autopoietic  quality  (cf  Maturana  &amp;  Varela,\n\n## Consciousness and Agency\n\n1987) that seems to be lacking in robots. Kheperas, LEGO-bots and other plastic and metal based robots lack any form of bodily self-organization, most likely because the type of matter out of which they are made does not provide the required interactive plasticity  to  support  this.  In  these  robots,  self-organization,  if  existing  at  all,  is  restricted to their control systems, i.e. artificial neural networks. This makes it difficult to see how a complex web of dispositions can emerge out of the self-organized interaction between body, brain and environment, as the bodies of robots miss the capacity for flexible interaction that self-organization and emergence require.\n\nSecondly, most robots currently are created by designers and lack a genuine evolutionary history. This reliance on human design implies a significant restriction on the autonomy of robots and may restrict the complexity of the dispositions within reach of  the  robot.  A  consideration  of  a  very  interesting  recent  research  in  evolutionary robotics (Nolfi, 1998; Nolfi &amp; Floreano, 2000) may illustrate what is at issue here. Nolfi (1998, p.167) defines evolutionary robotics as 'the attempt to develop robots and their sensorimotor control systems through an automatic design process involving artificial evolution.'\n\nOf specific interest to our present purposes is the co-evolution of robots. This involves the 'internal' co-evolution of the body and the control system (i.e. an artificial neural network) and the 'external' co-evolution of the robot with its environment and other  robots  (with  for  example  predator-prey  relations).  Although  this  work  shows that  the  evolved  artificial  systems  can  develop  a  repertoire  of  dispositions  of  unexpected complexity, it is fair to say that these systems are not embedded in any genuine sense of the words, because they are simulated, instead of real, robots. Moreover, the emergence that is observed lies in the interaction between the simulated robots and their  simulated  environments  (e.g.  Nolfi,  1998,  p.169),  but  not,  importantly,  in  the interaction between (parts of) the body and its brain and environment.\n\nIt is the embodied, embedded and evolved web of dispositions that, in the case of organisms, provides conditions for the enhancement of autonomy and survival. As in a chain, evolution seems to provide mechanisms for a continuous generation of dispositions, which - in the flow of real time - give place to habits modifiable according to the rhythms of the different interactions with the environment that organisms engage in.  In  this  chain  of  organisms  physically  interacting  with  their  environment,  consciousness, in its basic, action-related sense, emerges and evolves. In our view, so far robots lack a genuine embodied embeddedness, precluding the emergence of actionbased consciousness.\n\n## 5 Conclusions\n\nAnalyzing the self-organizing principles from which biological complexity emerges, Gregersen (2003, p.8) stresses autonomy as one of 'the most baffling property of biological complexity - the well known ability of living systems to quite literarily  take  on  a  life  of  their  own  and  behave  as  autonomous  agents  rather  than  as slaves of the laws of physics and chemistry. How does this come about? How does a physical system harness physics and chemistry to pursue an agenda? Somewhere on the  spectrum  from  a  large  molecule  through  bacteria  and  multicelled  organisms  to\n\nEunice Gonzalez, Mariana Broens e Pim Haselager human beings something like purposeful behavior and freedom of choice enters the picture'.\n\nWe believe that this 'something' referred to by Gregersen could be equated with the  basic  notion  of  consciousness  sketched  here.  In  our  terms,  purposeful  behavior can be described as incorporated action , through the history of evolution, of autonomous complex systems. Autonomy, in turn, according to the systemic view, is a selforganizing property of organisms in their attempt to preserve themselves. Differently from robots, organisms not only acquire the ability to deal with tension resulting from temporal changes in the environment, they also incorporate and benefit from tensions in their own bodies. The apparent dynamical equilibrium of the organisms is not the mere expression of a passive response to external stimuli, but rather of a very complex  dance  to  adjust  themselves,  at  different  macro  and  microscopic  levels,  to  the dynamics of action.\n\nIn short, organisms are essentially active systems, and great part of their activity seems to come from their attempt to deal with forces often hostile to their survival. This  indicates  that  living  organisms  maintain  a  fluctuating  but  stable  tendency  to equilibrium through which they increase their strength and degree of organization by dealing with 'noise' or disturbances. From the systemic perspective, organisms are not just machines, but as Bertalanffy suggests, they can become machines to a certain extent; particularly when their action comprises a great amount of habits used as instruments in battles to deal with tension. There are many circumstances in which it becomes difficult to distinguish conscious actions from blind mechanic habits. However, the evolutionary survival of currently existing organisms testifies of a capacity to dance with disturbances that current robots yet have to accomplish.\n\nIn this paper we sketched some hypotheses concerning a basic kind of consciousness understood as an embodied, embedded, self-organized process in which action and dispositions are incorporated in complex systems in order to alow them to deal with  tension  and  changes  in  the  enviroment.  We  tried  to  indicate,  first  of  all,  that consciousness is a systemic, self-organizing process that out of which a complex web of dispositions emerges. From its beginning, consciousness has been related to bodily action  in  the  world  aimed  at  furthering  survival  and  procreation.  Secondly,  the  dynamic interaction between body and world is a fundamental element of this emergent process. Third, in the case of human beings and other animals with nervous systems, the self-organization of neuronal groups into temporary functional clusters processes, enhances the capacity for adaptive bodily interaction with the environment. The importance of the brain lies in its potential to allow for more complex possibilities for action, and for memory shaped modification of dispositions. Fourth, we argued that robots currently lack a genuine embodied embeddedness that allows the type of selforganization  found  in  the  evolutionary  development  of  organisms.  Basic,  actionrelated  forms  of  consciousness  evolved  out of  the  continuous  dance  of  bodies  with their environments. In cognitive science we all still have much to learn about dancing.\n\nConsciousness and Agency\n\n## References\n\nAshby, W. R. (1962). 'Principles of the self-organizing system'. In H. von Foerster.\n\n- &amp; G. W. Zopf, Jr. (Eds.), Principles of self-organization\n\n. Oxford: Pergamon.\n\nBertalanffy, L. von (1969). General system theory . New York: Braziller.\n\nBressler,  S.B.  &amp;  Kelso,  J.A.S.  (2001).  'Cortical  coordination  dynamics  and  cognition'. Trends in Cognitive Sciences , 5(1), 26-36.\n\nChiel, H.J. &amp; Beer, R.D. (1997). 'The brain has a body: adaptive behavior emerges from interactions of nervous system, body and environment'. Trends In Neurociences , 20(12), 553- 557.\n\nDebrun, M.A. (1996). 'A idéia de auto-organização (The idea of self-organization)'. In  M.  Debrun,  M.  E.  Q.  Gonzalez  &amp;  O.  Pessoa  Jr.  (Eds.) Auto-organização: Estudos interdisciplinares(Self-organization: interdisciplinary studies) . Coleção CLE. v. 18. Campinas, SP, Brasil: Unicamp.\n\nDebrun, M., Gonzalez M.E.Q. &amp; Pessoa Jr., O. (1996). Auto-organização: Estudos interdisciplinares (Self-organization: interdisciplinary studies) . Coleção CLE. v. 18. Campinas, SP, Brasil: Unicamp.\n\nEdelman,  G.E.  &amp;  Tononi,  G.  (2000). A  universe  of  consciousness:  how  matter  becomes imagination . New York: Basic Books. Ch 7-9, 77-110.\n\nEl-Hani, C. &amp; Emmeche, C. (2000). 'On some theoretical grounds for an organismcentered  biology:  Property  emergence,  supervenience,  and  downward  causation'. Theory of Bioscience, 119 , 234-275.\n\nFoerster,  H.  von  &amp;  Zopf,  G.W.,  Eds.  (1962). Principles  of  Self-Organization. New York: Pergamon.\n\nGonzalez, M.E.Q. (2000). 'The self-organizing process of distributed information: a way out of the mind-body problem?' In Proc. 5 th Brazilian - International Conference on Neural Networks . Rio de Janeiro, Brasil.\n\nGregersen, N. H. (2003). From complexity to life: On the emergence of life and meaning. New York: Oxford University Press.\n\nHaken,  H.  (1999).  'Synergetics  and  some  applications  to  psychology'.  In  W. Tschacher &amp; P. P. Daualder (Eds.), Dynamics, synergetics, autonomous agents . London: World Scientific.\n\nHaselager,  W.F.G.  (2003).  'Form,  function  and  the  matter  of  experience'. SEED (3) ,3, p. 100-111.\n\nHaselager,  W.F.G.  &amp;  Gonzalez,  M.E.Q.  (2002).  'Causalidade  circular  e  causação mental: Uma saída para a oposição entre internalismo e externalismo? (Circular causality and mental causation: a way out of the opposition between internalism and externalism?)'. Manuscrito, XXV (1), 217-238.\n\nHebb, D.O. (1949). The organization of behaviour . New York: John Wiley and Sons.\n\nEunice Gonzalez, Mariana Broens e Pim Haselager\n\nJensen, H. J.(1998). Self-organized criticality: emergent complex behavior in physical and biological systems. Cambridge: Cambridge University Press.\n\nKosslyn,  S.  M.  (1994), Image  and  Brain:  The  Resolution  of  the  Imagery  Debate , Cambridge, Mass., MIT Press.\n\nMaturana, H.R. &amp; Varela, F.J. (1987). The tree of knowledge: The biological roots of human understanding. Boston: Shambhala.\n\n- Nolfi, S. (1998). 'Evolutionary robotics: Exploiting the full power of selforganization'. Connection Science , 10, 3&amp;4, 167-184.\n- Nolfi, S. &amp; Floreano, D. (2000). Evolutionary robotics: The biology, intelligence and technology of self-organizing machines . Cambridge, MA: MIT Press.\n\nParvizi, J., &amp; Damasio, A (2001), 'Consciousness and the brain stem'. (pp.135-59). Cognition , 79.\n\nUexkull, J. von. (1982), 'The Theory of Meaning'. Semiotica, 42 (1):25-82. .  New  York,  John\n\n- Weinberg, G. (1975). An introduction  to  general  system  thinking Wiley &amp; Sons.\n\nConsciousness and Agency",
+    "responses": [
+      {
+        "source": "gpt-4o-2024-11-20",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"ADU1\": {\n      \"text\": \"We argue that artificial systems such as robots currently lack the genuine embodied embeddedness that allows the type of self-organization that is relevant to consciousness.\",\n      \"label\": \"claim\"\n    },\n    \"ADU2\": {\n      \"text\": \"In this tradition, the human mind has an inner characteristic and conscious human beings, living in a particular and personal world, are the only ones to access, directly through private introspection, their own mental states.\",\n      \"label\": \"premise\"\n    },\n    \"ADU3\": {\n      \"text\": \"Consciousness, especially in its self-reflexive mode, was considered to be a unique prerogative of humans.\",\n      \"label\": \"premise\"\n    },\n    \"ADU4\": {\n      \"text\": \"In Ryle's view, the mind is characterized in terms of '…abilities, liabilities, and inclination to do and undergo certain sorts of things, and of the doing and undergoing of these things in the ordinary [external] world' (199, p. 190).\",\n      \"label\": \"premise\"\n    },\n    \"ADU5\": {\n      \"text\": \"From this perspective, consciousness is not a unique prerogative of humans, but it is spread all around, throughout the evolution of life.\",\n      \"label\": \"claim\"\n    },\n    \"ADU6\": {\n      \"text\": \"Fundamental to this approach is the contrast between animate and inanimate properties of open systems.\",\n      \"label\": \"premise\"\n    },\n    \"ADU7\": {\n      \"text\": \"The problem with the mechanistic (robot-like) view is that it does not take into consideration the notion of autonomy, which he considers a fundamental characteristic of intelligent behaviour.\",\n      \"label\": \"premise\"\n    },\n    \"ADU8\": {\n      \"text\": \"Autonomous activity, as Bertalanffy stresses it, 'is the most primitive form of behaviour (…) it is found in brain function (Hebb, 1949) and in psychological processes (…) All such behaviour is performed for its own sake, deriving gratification (…) from the performance itself' (p.209).\",\n      \"label\": \"premise\"\n    },\n    \"ADU9\": {\n      \"text\": \"In this sense, it is difficult to see how they could incorporate any degree of autonomy in their behaviour.\",\n      \"label\": \"claim\"\n    },\n    \"ADU10\": {\n      \"text\": \"By using the metaphor of a dance, we want to stress that the temporal aspects of the active (not merely reactive) interaction between body and environment are of considerable importance to the emergence of consciousness.\",\n      \"label\": \"claim\"\n    },\n    \"ADU11\": {\n      \"text\": \"One hypothesis to be further explained is that an important function of this type of basic consciousness is the maintenance of the main parameters of the organisms in order to enhance its autonomy and to preserve life.\",\n      \"label\": \"claim\"\n    },\n    \"ADU12\": {\n      \"text\": \"Finally, we shall argue that consciousness, understood in this basic, action-related sense, is not an exclusive property of humans, but it is a common element of all organisms.\",\n      \"label\": \"claim\"\n    },\n    \"ADU13\": {\n      \"text\": \"Consciousness is not a pre-condition for action and thought, but rather an emergent product of self-organized action, which integrates sensory experiences, volition, emotion and memory, producing a unified informational field.\",\n      \"label\": \"claim\"\n    },\n    \"ADU14\": {\n      \"text\": \"The complex system theory (CST) presupposes the existence of an order in the empirical, macroscopic, world, experienced in every day life, that can be described by information of a more general category (of a second order).\",\n      \"label\": \"premise\"\n    },\n    \"ADU15\": {\n      \"text\": \"Such a unifying order cannot be reduced to the summation of its constitutive parts, but involves global, new, characteristics emergent from the interaction between individual parts of complex systems.\",\n      \"label\": \"premise\"\n    },\n    \"ADU16\": {\n      \"text\": \"Emergent properties can be observed in a wide variety of self-organizing systems.\",\n      \"label\": \"premise\"\n    },\n    \"ADU17\": {\n      \"text\": \"Self-organization may lead to the development of dispositions.\",\n      \"label\": \"premise\"\n    },\n    \"ADU18\": {\n      \"text\": \"Dispositions can be understood as the inclination of a system to produce specific behaviour upon encountering adequate conditions.\",\n      \"label\": \"premise\"\n    },\n    \"ADU19\": {\n      \"text\": \"Actions incorporate an intricate web of dispositions that are susceptible of corrections and adjustments.\",\n      \"label\": \"premise\"\n    },\n    \"ADU20\": {\n      \"text\": \"It seems to be the spontaneous ability to 'dance' with the flow of internal and external tensions that is constitutive of the action-related type of consciousness, which distinguishes intelligent from merely mechanic behaviour.\",\n      \"label\": \"claim\"\n    },\n    \"ADU21\": {\n      \"text\": \"The brain does not give orders to be executed but provides a contribution to the ongoing dance between the body, brain and environment.\",\n      \"label\": \"claim\"\n    },\n    \"ADU22\": {\n      \"text\": \"In our view, so far robots lack a genuine embodied embeddedness, precluding the emergence of action-based consciousness.\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"ADU1\",\n      \"target\": \"ADU22\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU2\",\n      \"target\": \"ADU3\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU4\",\n      \"target\": \"ADU5\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU6\",\n      \"target\": \"ADU7\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU7\",\n      \"target\": \"ADU9\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU10\",\n      \"target\": \"ADU11\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU12\",\n      \"target\": \"ADU13\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU14\",\n      \"target\": \"ADU15\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU15\",\n      \"target\": \"ADU16\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU16\",\n      \"target\": \"ADU17\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU17\",\n      \"target\": \"ADU18\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU18\",\n      \"target\": \"ADU19\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU19\",\n      \"target\": \"ADU20\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU21\",\n      \"target\": \"ADU20\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU22\",\n      \"target\": \"ADU1\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "ADU1": {
+              "text": "We argue that artificial systems such as robots currently lack the genuine embodied embeddedness that allows the type of self-organization that is relevant to consciousness.",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "In this tradition, the human mind has an inner characteristic and conscious human beings, living in a particular and personal world, are the only ones to access, directly through private introspection, their own mental states.",
+              "label": "premise"
+            },
+            "ADU3": {
+              "text": "Consciousness, especially in its self-reflexive mode, was considered to be a unique prerogative of humans.",
+              "label": "premise"
+            },
+            "ADU4": {
+              "text": "In Ryle's view, the mind is characterized in terms of '…abilities, liabilities, and inclination to do and undergo certain sorts of things, and of the doing and undergoing of these things in the ordinary [external] world' (199, p. 190).",
+              "label": "premise"
+            },
+            "ADU5": {
+              "text": "From this perspective, consciousness is not a unique prerogative of humans, but it is spread all around, throughout the evolution of life.",
+              "label": "claim"
+            },
+            "ADU6": {
+              "text": "Fundamental to this approach is the contrast between animate and inanimate properties of open systems.",
+              "label": "premise"
+            },
+            "ADU7": {
+              "text": "The problem with the mechanistic (robot-like) view is that it does not take into consideration the notion of autonomy, which he considers a fundamental characteristic of intelligent behaviour.",
+              "label": "premise"
+            },
+            "ADU8": {
+              "text": "Autonomous activity, as Bertalanffy stresses it, 'is the most primitive form of behaviour (…) it is found in brain function (Hebb, 1949) and in psychological processes (…) All such behaviour is performed for its own sake, deriving gratification (…) from the performance itself' (p.209).",
+              "label": "premise"
+            },
+            "ADU9": {
+              "text": "In this sense, it is difficult to see how they could incorporate any degree of autonomy in their behaviour.",
+              "label": "claim"
+            },
+            "ADU10": {
+              "text": "By using the metaphor of a dance, we want to stress that the temporal aspects of the active (not merely reactive) interaction between body and environment are of considerable importance to the emergence of consciousness.",
+              "label": "claim"
+            },
+            "ADU11": {
+              "text": "One hypothesis to be further explained is that an important function of this type of basic consciousness is the maintenance of the main parameters of the organisms in order to enhance its autonomy and to preserve life.",
+              "label": "claim"
+            },
+            "ADU12": {
+              "text": "Finally, we shall argue that consciousness, understood in this basic, action-related sense, is not an exclusive property of humans, but it is a common element of all organisms.",
+              "label": "claim"
+            },
+            "ADU13": {
+              "text": "Consciousness is not a pre-condition for action and thought, but rather an emergent product of self-organized action, which integrates sensory experiences, volition, emotion and memory, producing a unified informational field.",
+              "label": "claim"
+            },
+            "ADU14": {
+              "text": "The complex system theory (CST) presupposes the existence of an order in the empirical, macroscopic, world, experienced in every day life, that can be described by information of a more general category (of a second order).",
+              "label": "premise"
+            },
+            "ADU15": {
+              "text": "Such a unifying order cannot be reduced to the summation of its constitutive parts, but involves global, new, characteristics emergent from the interaction between individual parts of complex systems.",
+              "label": "premise"
+            },
+            "ADU16": {
+              "text": "Emergent properties can be observed in a wide variety of self-organizing systems.",
+              "label": "premise"
+            },
+            "ADU17": {
+              "text": "Self-organization may lead to the development of dispositions.",
+              "label": "premise"
+            },
+            "ADU18": {
+              "text": "Dispositions can be understood as the inclination of a system to produce specific behaviour upon encountering adequate conditions.",
+              "label": "premise"
+            },
+            "ADU19": {
+              "text": "Actions incorporate an intricate web of dispositions that are susceptible of corrections and adjustments.",
+              "label": "premise"
+            },
+            "ADU20": {
+              "text": "It seems to be the spontaneous ability to 'dance' with the flow of internal and external tensions that is constitutive of the action-related type of consciousness, which distinguishes intelligent from merely mechanic behaviour.",
+              "label": "claim"
+            },
+            "ADU21": {
+              "text": "The brain does not give orders to be executed but provides a contribution to the ongoing dance between the body, brain and environment.",
+              "label": "claim"
+            },
+            "ADU22": {
+              "text": "In our view, so far robots lack a genuine embodied embeddedness, precluding the emergence of action-based consciousness.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU1",
+              "target": "ADU22",
+              "type": "support"
+            },
+            {
+              "source": "ADU2",
+              "target": "ADU3",
+              "type": "support"
+            },
+            {
+              "source": "ADU4",
+              "target": "ADU5",
+              "type": "support"
+            },
+            {
+              "source": "ADU6",
+              "target": "ADU7",
+              "type": "support"
+            },
+            {
+              "source": "ADU7",
+              "target": "ADU9",
+              "type": "support"
+            },
+            {
+              "source": "ADU10",
+              "target": "ADU11",
+              "type": "support"
+            },
+            {
+              "source": "ADU12",
+              "target": "ADU13",
+              "type": "support"
+            },
+            {
+              "source": "ADU14",
+              "target": "ADU15",
+              "type": "support"
+            },
+            {
+              "source": "ADU15",
+              "target": "ADU16",
+              "type": "support"
+            },
+            {
+              "source": "ADU16",
+              "target": "ADU17",
+              "type": "support"
+            },
+            {
+              "source": "ADU17",
+              "target": "ADU18",
+              "type": "support"
+            },
+            {
+              "source": "ADU18",
+              "target": "ADU19",
+              "type": "support"
+            },
+            {
+              "source": "ADU19",
+              "target": "ADU20",
+              "type": "support"
+            },
+            {
+              "source": "ADU21",
+              "target": "ADU20",
+              "type": "support"
+            },
+            {
+              "source": "ADU22",
+              "target": "ADU1",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "ADU1": {
+              "text": "We argue that artificial systems such as robots currently lack the genuine embodied embeddedness that allows the type of self-organization that is relevant to consciousness.",
+              "label": "claim"
+            },
+            "ADU4": {
+              "text": "In Ryle's view, the mind is characterized in terms of '…abilities, liabilities, and inclination to do and undergo certain sorts of things, and of the doing and undergoing of these things in the ordinary [external] world' (199, p. 190).",
+              "label": "premise"
+            },
+            "ADU5": {
+              "text": "From this perspective, consciousness is not a unique prerogative of humans, but it is spread all around, throughout the evolution of life.",
+              "label": "claim"
+            },
+            "ADU6": {
+              "text": "Fundamental to this approach is the contrast between animate and inanimate properties of open systems.",
+              "label": "premise"
+            },
+            "ADU7": {
+              "text": "The problem with the mechanistic (robot-like) view is that it does not take into consideration the notion of autonomy, which he considers a fundamental characteristic of intelligent behaviour.",
+              "label": "premise"
+            },
+            "ADU9": {
+              "text": "In this sense, it is difficult to see how they could incorporate any degree of autonomy in their behaviour.",
+              "label": "claim"
+            },
+            "ADU10": {
+              "text": "By using the metaphor of a dance, we want to stress that the temporal aspects of the active (not merely reactive) interaction between body and environment are of considerable importance to the emergence of consciousness.",
+              "label": "claim"
+            },
+            "ADU11": {
+              "text": "One hypothesis to be further explained is that an important function of this type of basic consciousness is the maintenance of the main parameters of the organisms in order to enhance its autonomy and to preserve life.",
+              "label": "claim"
+            },
+            "ADU12": {
+              "text": "Finally, we shall argue that consciousness, understood in this basic, action-related sense, is not an exclusive property of humans, but it is a common element of all organisms.",
+              "label": "claim"
+            },
+            "ADU13": {
+              "text": "Consciousness is not a pre-condition for action and thought, but rather an emergent product of self-organized action, which integrates sensory experiences, volition, emotion and memory, producing a unified informational field.",
+              "label": "claim"
+            },
+            "ADU15": {
+              "text": "Such a unifying order cannot be reduced to the summation of its constitutive parts, but involves global, new, characteristics emergent from the interaction between individual parts of complex systems.",
+              "label": "premise"
+            },
+            "ADU16": {
+              "text": "Emergent properties can be observed in a wide variety of self-organizing systems.",
+              "label": "premise"
+            },
+            "ADU17": {
+              "text": "Self-organization may lead to the development of dispositions.",
+              "label": "premise"
+            },
+            "ADU18": {
+              "text": "Dispositions can be understood as the inclination of a system to produce specific behaviour upon encountering adequate conditions.",
+              "label": "premise"
+            },
+            "ADU19": {
+              "text": "Actions incorporate an intricate web of dispositions that are susceptible of corrections and adjustments.",
+              "label": "premise"
+            },
+            "ADU20": {
+              "text": "It seems to be the spontaneous ability to 'dance' with the flow of internal and external tensions that is constitutive of the action-related type of consciousness, which distinguishes intelligent from merely mechanic behaviour.",
+              "label": "claim"
+            },
+            "ADU21": {
+              "text": "The brain does not give orders to be executed but provides a contribution to the ongoing dance between the body, brain and environment.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU4",
+              "target": "ADU5",
+              "type": "support"
+            },
+            {
+              "source": "ADU6",
+              "target": "ADU7",
+              "type": "support"
+            },
+            {
+              "source": "ADU7",
+              "target": "ADU9",
+              "type": "support"
+            },
+            {
+              "source": "ADU10",
+              "target": "ADU11",
+              "type": "support"
+            },
+            {
+              "source": "ADU12",
+              "target": "ADU13",
+              "type": "support"
+            },
+            {
+              "source": "ADU15",
+              "target": "ADU16",
+              "type": "support"
+            },
+            {
+              "source": "ADU16",
+              "target": "ADU17",
+              "type": "support"
+            },
+            {
+              "source": "ADU17",
+              "target": "ADU18",
+              "type": "support"
+            },
+            {
+              "source": "ADU18",
+              "target": "ADU19",
+              "type": "support"
+            },
+            {
+              "source": "ADU19",
+              "target": "ADU20",
+              "type": "support"
+            },
+            {
+              "source": "ADU21",
+              "target": "ADU20",
+              "type": "support"
+            }
+          ]
+        }
+      },
+      {
+        "source": "claude-3-5-sonnet-20241022",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"1\": {\n      \"text\": \"Following the tracks of Ryle and based upon the theory of complex systems, we shall develop a characterization of action-based consciousness as an embodied, embedded, self-organized process in which action and dispositions occupy a special place.\",\n      \"label\": \"claim\"\n    },\n    \"2\": {\n      \"text\": \"From this perspective, consciousness is not a unique prerogative of humans, but it is spread all around, throughout the evolution of life.\",\n      \"label\": \"claim\"\n    },\n    \"3\": {\n      \"text\": \"We argue that artificial systems such as robots currently lack the genuine embodied embeddedness that allows the type of self-organization that is relevant to consciousness.\",\n      \"label\": \"claim\"\n    },\n    \"4\": {\n      \"text\": \"One hypothesis to be further explained is that an important function of this type of basic consciousness is the maintenance of the main parameters of the organisms in order to enhance its autonomy and to preserve life.\",\n      \"label\": \"claim\"\n    },\n    \"5\": {\n      \"text\": \"Consciousness is not a pre-condition for action and thought, but rather an emergent product of self-organized action, which integrates sensory experiences, volition, emotion and memory, producing a unified informational field.\",\n      \"label\": \"claim\"\n    },\n    \"6\": {\n      \"text\": \"The brain does not give orders to be executed but provides a contribution to the ongoing dance between the body, brain and environment.\",\n      \"label\": \"claim\"\n    },\n    \"7\": {\n      \"text\": \"In organisms, even in the case of very simple unicellular organisms, the web of dispositions seems to be an emergent property of their interaction with the environment throughout their evolutionary development.\",\n      \"label\": \"premise\"\n    },\n    \"8\": {\n      \"text\": \"In the case of robots or neural networks, there is not yet such a genuinely embodied emergence, and neither a comparable evolutionary process\",\n      \"label\": \"premise\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"7\",\n      \"target\": \"2\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"8\",\n      \"target\": \"3\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"6\",\n      \"target\": \"1\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"4\",\n      \"target\": \"1\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"5\",\n      \"target\": \"1\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "1": {
+              "text": "Following the tracks of Ryle and based upon the theory of complex systems, we shall develop a characterization of action-based consciousness as an embodied, embedded, self-organized process in which action and dispositions occupy a special place.",
+              "label": "claim"
+            },
+            "2": {
+              "text": "From this perspective, consciousness is not a unique prerogative of humans, but it is spread all around, throughout the evolution of life.",
+              "label": "claim"
+            },
+            "3": {
+              "text": "We argue that artificial systems such as robots currently lack the genuine embodied embeddedness that allows the type of self-organization that is relevant to consciousness.",
+              "label": "claim"
+            },
+            "4": {
+              "text": "One hypothesis to be further explained is that an important function of this type of basic consciousness is the maintenance of the main parameters of the organisms in order to enhance its autonomy and to preserve life.",
+              "label": "claim"
+            },
+            "5": {
+              "text": "Consciousness is not a pre-condition for action and thought, but rather an emergent product of self-organized action, which integrates sensory experiences, volition, emotion and memory, producing a unified informational field.",
+              "label": "claim"
+            },
+            "6": {
+              "text": "The brain does not give orders to be executed but provides a contribution to the ongoing dance between the body, brain and environment.",
+              "label": "claim"
+            },
+            "7": {
+              "text": "In organisms, even in the case of very simple unicellular organisms, the web of dispositions seems to be an emergent property of their interaction with the environment throughout their evolutionary development.",
+              "label": "premise"
+            },
+            "8": {
+              "text": "In the case of robots or neural networks, there is not yet such a genuinely embodied emergence, and neither a comparable evolutionary process",
+              "label": "premise"
+            }
+          },
+          "relations": [
+            {
+              "source": "7",
+              "target": "2",
+              "type": "support"
+            },
+            {
+              "source": "8",
+              "target": "3",
+              "type": "support"
+            },
+            {
+              "source": "6",
+              "target": "1",
+              "type": "support"
+            },
+            {
+              "source": "4",
+              "target": "1",
+              "type": "support"
+            },
+            {
+              "source": "5",
+              "target": "1",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "2": {
+              "text": "From this perspective, consciousness is not a unique prerogative of humans, but it is spread all around, throughout the evolution of life.",
+              "label": "claim"
+            },
+            "3": {
+              "text": "We argue that artificial systems such as robots currently lack the genuine embodied embeddedness that allows the type of self-organization that is relevant to consciousness.",
+              "label": "claim"
+            },
+            "4": {
+              "text": "One hypothesis to be further explained is that an important function of this type of basic consciousness is the maintenance of the main parameters of the organisms in order to enhance its autonomy and to preserve life.",
+              "label": "claim"
+            },
+            "5": {
+              "text": "Consciousness is not a pre-condition for action and thought, but rather an emergent product of self-organized action, which integrates sensory experiences, volition, emotion and memory, producing a unified informational field.",
+              "label": "claim"
+            },
+            "6": {
+              "text": "The brain does not give orders to be executed but provides a contribution to the ongoing dance between the body, brain and environment.",
+              "label": "claim"
+            },
+            "7": {
+              "text": "In organisms, even in the case of very simple unicellular organisms, the web of dispositions seems to be an emergent property of their interaction with the environment throughout their evolutionary development.",
+              "label": "premise"
+            },
+            "8": {
+              "text": "In the case of robots or neural networks, there is not yet such a genuinely embodied emergence, and neither a comparable evolutionary process",
+              "label": "premise"
+            }
+          },
+          "relations": [
+            {
+              "source": "7",
+              "target": "2",
+              "type": "support"
+            },
+            {
+              "source": "8",
+              "target": "3",
+              "type": "support"
+            }
+          ]
+        }
+      }
+    ],
+    "timestamp": 1752754994.4370677
+  }
+]

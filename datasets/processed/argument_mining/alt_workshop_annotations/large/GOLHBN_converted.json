@@ -1,0 +1,92 @@
+{
+  "ADUs": {
+    "Untitled 1": {
+      "type": "Major Claim",
+      "text": "By asserting that Jews can be active in life and politics while simultaneously lacking the supposedly necessary unique relation to Being, Heidegger demonstrates that ontology cannot be a true transcendental condition, including of politics."
+    },
+    "Untitled 2": {
+      "type": "Claim",
+      "text": "The political space in Heidegger's texts is characterized as a threat to philosophy and to ontology, and to the unique relationship to Being which philosophy sustains."
+    },
+    "Untitled 3": {
+      "type": "Claim",
+      "text": "Heidegger suppresses or occludes the political as well as the ethical by the ontological, in contrast to other philosophers such as Immanuel Kant."
+    },
+    "Untitled 4": {
+      "type": "Claim",
+      "text": "Heidegger is reluctant to even engage with political categories and questions (e.g. economics and power)."
+    },
+    "Untitled 5": {
+      "type": "Claim",
+      "text": "Individual political concepts become removed from their original context and reinterpreted to fit Heideggerian ontological framework."
+    },
+    "Untitled 6": {
+      "type": "Claim",
+      "text": "The dynamics and rhythms of the political sphere are inherently at odds with those of philosophy."
+    },
+    "Untitled 7": {
+      "type": "Claim",
+      "text": "Philosophy's fundamental task is to sustain, articulate and empower a distinctive relationship to Being."
+    },
+    "Untitled 8": {
+      "type": "Claim",
+      "text": "Politics constitutes an inauthentic mode of being."
+    },
+    "Untitled 9": {
+      "type": "Claim",
+      "text": "Heidegger argues that Jews have an inauthentic relation to being",
+      "isImplicit": true
+    },
+    "Untitled 10": {
+      "type": "Claim",
+      "text": "Jews are active in life and politics"
+    }
+  },
+  "relations": [
+    {
+      "src": "Untitled 4",
+      "tgt": "Untitled 3",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 5",
+      "tgt": "Untitled 3",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 3",
+      "tgt": "Untitled 2",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 7",
+      "tgt": "Untitled 6",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 8",
+      "tgt": "Untitled 6",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 6",
+      "tgt": "Untitled 2",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 2",
+      "tgt": "Untitled 1",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 10",
+      "tgt": "Untitled 9",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 9",
+      "tgt": "Untitled 1",
+      "type": "support"
+    }
+  ]
+}

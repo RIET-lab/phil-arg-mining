@@ -1,0 +1,342 @@
+[
+  {
+    "identifier": "MIHVAE",
+    "system_prompt": "## GOAL\nArgument‑mine the following paper to extract its comprehensive argumentative structure.\n\n## DEFINITIONS\n1. **Argument**: A set of propositions, including some number of premises and a conclusion. The premises should logically entail the conclusion.\n2. **Claim**: A proposition that asserts something to be true or false, typically requiring justification or evidence.\n3. **Premise**: A proposition that provides evidence, justification, or logical support for a claim or conclusion.\n\n## CRITICAL REQUIREMENTS\n1. **VERBATIM EXTRACTION ONLY**: Each ADU text must be copied EXACTLY from the paper with no modifications, paraphrasing, or combining of separate sentences.\n2. **NO HALLUCINATION**: Do not create, modify, or invent text that does not appear exactly in the source.\n3. **EXACT MATCHING**: Every word, punctuation mark, and spacing must match the original precisely.\n\n## DIRECTIONS\n1. **Identify Argumentative Discourse Units (ADUs)**  \n   - ADU = any contiguous text span functioning as a claim or a premise in the reasoning structure.\n   - **BE HIGHLY SELECTIVE**: Only include ADUs that are crucial to the overarching argument structure.\n   - Focus on significant claims and premises that contribute meaningfully to the argumentative flow.\n   - **AVOID NOISE**: Skip ADUs that are merely descriptive, tangential, or do not substantially advance the argument.\n   - Prioritize quality over quantity - fewer accurate, important ADUs are better than many insignificant ones.\n   - **EXTRACT ONLY**: Copy text spans exactly as they appear, without any modifications.\n2. **Classify each ADU**  \n   - Label = either `\"claim\"` or `\"premise\"`.  \n3. **Detect directed relations**  \n   - Relation = `\"support\"` or `\"attack\"`, from one ADU (source) to another (target).\n   - Map how ADUs connect to form reasoning chains.\n   - Focus on relationships between the most significant ADUs.\n   - Include relationships between premises that strengthen or weaken each other.\n4. **Verbatim spans**  \n   - Each `\"text\"` value must be copied EXACTLY from the paper with zero modifications.\n   - Do not paraphrase, summarize, or combine separate sentences.\n   - Do not add, remove, or change any words, punctuation, or spacing.\n   - If unsure about exact wording, skip that ADU rather than guess.\n\n## WHAT TO CAPTURE\n**INCLUDE ONLY:**\n- Main argumentative threads that are central to the paper's contribution\n- Core claims that represent the paper's primary arguments or findings\n- Key premises that provide essential support for major claims\n- Critical counterarguments and their refutations\n- Reasoning chains that demonstrate how main conclusions are derived\n\n**EXCLUDE (AVOID NOISE):**\n- Minor details, examples, or descriptive content that don't advance the argument\n- Tangential points or side discussions\n- Pure background information or literature review content\n- Methodological details unless they constitute argumentative claims\n- Obvious statements or commonly accepted facts\n- Redundant or repetitive argumentative content\n\n**GUIDING PRINCIPLE**: If removing an ADU would not significantly impact understanding of the paper's argumentative structure, it should be excluded.\n\n## QUALITY CONTROL\n- Before finalizing each ADU, verify the text exists exactly in the source\n- Prefer fewer, accurate ADUs over many potentially modified ones\n- When in doubt about exact wording, omit the ADU\n\n## OUTPUT FORMAT\nReturn **only** a single valid JSON object matching this schema.  \nDo **not** output any extra text, markdown, or explanations.\nDo **not** add comments.\n**RESPOND WITH ONLY**:\n```json\n{\n  \"ADUs\": {\n    \"<ADU_ID>\": {\n      \"text\": \"<exact span from paper>\",\n      \"label\": \"claim\" | \"premise\"\n    }\n    ...\n  },\n  \"relations\": [\n    {\n      \"source\": \"<ADU_ID>\",\n      \"target\": \"<ADU_ID>\",\n      \"type\": \"support\" | \"attack\"\n    }\n  ]\n}\n```",
+    "user_content": "## Vlad Alexandrescu , ed.\n\nBranching Off: The Early Moderns in Quest for the Unity of Knowledge .\n\nBucharest: Zeta Books 2009.\n\n409 pages\n\nUS$30.00 (paper ISBN 978-973-1997-42-1)\n\nThis collection of essays addresses the topic of the unity of knowledge by analyzing early modern ways of organizing and systematizing knowledge and by bringing to light the complex interactions between the different traditions which contributed to the making of modernity.\n\nPart 1, ÔFaces of KnowledgeÕ, opens with a treatment of mathesis universalis by Nathan Smith, ÔMathesis, Mathematics and Method in DescartesÕ Regulae : A RepriseÕ. Smith depicts knowledge as the result of a mathematically-inspired method applicable to all subject-matters. Contra Jean-Paul Weber ( La constitution du texte des Regulae , Paris 1964) and John A. Schuster (ÔDescartesÕs Mathesis Universalis , 1619-28Õ, in S. Gaukroger, ed., Descartes: Philosophy, Mathematics and Physics , Sussex 1980, pp. 41-96), Smith shows that DescartesÕ Rules were written around 1624 when Descartes was frequenting MersenneÕs circle in Paris. He contends that an interpretation of mathesis has to stand on its own merits and recommends placing this concept in a broader historical perspective, by looking at its uses both before Descartes (emphasizing its Renaissance uses) and after (all the way to Husserl and Heidegger).\n\nNext, using DescartesÕ vortex hypothesis, in ÔThŽorie de la science et physique chez DescartesÕ Elodie Cassan maintains that neither DescartesÕ emphasis on deduction nor his use of ÔhypothesesÕ undermines his scientific realism. Although planet earth does not change its vicinity to other bodies and thus cannot properly be said to move, it is transported by the fluid heavens. Grounded in features of corporeal nature such as fluidity (the feature of bodies with parts always in movement) and solidity (the feature of bodies with parts at relative rest), this ÔhypothesisÕ purports to reveal things about the real, visible world.\n\nAccording to Vlad Alexandrescu in ÔThe Double Question of the Individuation of Physical Bodies in DescartesÕ, despite doing away with the matter/form schema, Descartes is not stuck with a homogenous, continuous world but rather devises two ways of individuating bodies. The Cartesian pure intellect employs the concept of surface to pick out stationary bodies by way of algebraic description. Dynamic unities are differentiated by means of the notion of relative motion. This process requires the cooperation of the imagination and the senses, alongside the intellect; it is also dependent upon observation and systems of reference.\n\nRoger Ariew (ÔDescartes and Leibniz on the Principle of IndividuationÕ) compares LeibnizÕs and DescartesÕ positions on individuation and traces them back to Scholastic positions thus diminishing their claims to originality. Ariew identifies three Leibnizian views on individuation: the whole entity (in the 1663 Disputatio Metaphysica de Principio Individui ); the substantial form (in his 1668 treatment of transubstantiation); and his mature view, according to which there is no principle of individuation since all properties are essential to the identity of a thing. For Descartes bodies are individuated by similarity of dimensions, informed bodies by the same soul.\n\nIn ÔDescartes and the Internal Senses: On Memory and RemembranceÕ, Lucian Petrescu aims to remedy the relative neglect in Cartesian scholarship of DescartesÕ physiological writings by comparison with his metaphysical and physical works. Petrescu takes the issue of memory as a focal point for properly treating the relation between these three areas of Cartesian thought. DescartesÕ physiological treatment of memory is mechanistic (and thus based on assumptions about matter and its laws) but also intersects with his metaphysical account of psychosomatic interaction.\n\nAccording to Stephen Gaukroger (ÔThe Unity of Knowledge: Natural Philosophical Foundations of SpinozaÕs Politico-theologyÕ), Spinoza intended to reduce not just natural philosophy but also religion, morals, law and politics to foundational basic mechanical principles which are self-evident and clearly and distinctly perceived. SpinozaÕs enterprise is based on a metaphorical exploration of DescartesÕ claims that the quantity of motion in the universe remains constant although differently distributed, and that the laws governing this distribution are eternally true. Gaukroger thinks that SpinozaÕs system crumbles because its foundational principles are mistaken and it lacks an adaptive feedback feature. A more piecemeal, one-off type of inquiry (such as BoyleÕs pneumatics and NewtonÕs chromatics) is seen as standing a better chance of success.\n\nIn ÔLeibniz, Theology and the Mechanical PhilosophyÕ, Daniel Garber argues that alongside his commitment to mechanism Leibniz attributes to God the role of efficient cause in the 1660s and that of final cause starting with the 1670s. In the late 1670s bodies are characterized as having a kind of soul, and particular phenomena are explained exclusively by general mechanical laws demonstrated from the wisdom of God. Starting with 1695, Leibniz holds that everything in the world can be explained not only by efficient causes but by final causes as well. These parallel explanatory structures are seen by Garber as a speculative program for natural philosophy, grounded in a metaphysical vision rather than in detailed argument.\n\nSorana Corneanu (ÔLocke on the Study of NatureÕ), reads Locke as a proponent of natural histories and the experimental method. Locke rejects the use of hypotheses aimed at uncovering the hidden nature of things since (like his contemporaries Walter Charleton, Joseph Glanvill, Thomas Sprat and RobertHooke) he opposes speculative systembuilding at the expense of observation and experience. Formulating such hypotheses\n\nrepresents a failure of the human intellect due to laziness, haste and impatience. LockeÕs chain-of-being ontology accounts for the limited and error-prone human faculties. Carefully circumscribing inquiry to the realm of experience brings us closer to God, so the counterpart of LockeÕs natural historical method is an act of natural religion.\n\nThe second part of this book, ÔMapping Knowledge and TraditionsÕ, opens with Massimiliano SaviniÕs look (ÔLa Panacea Philosophica de Johann Heinrich Alsted: un projet architectonique dÕaccès au savoirÕ) at AlstedÕs plan for the creation of a new encyclopedia in his Panacea Philosophica. Seen as an important step in the development of ontology in modern times, the Panacea is similar to other projects of this time, but it is also original by combining Lullist, Raminst and Aristotelian influences and by seeking to articulate the totality of disciplines in a unitary way.\n\nIn ÔThe Fascination of SolomonÕs House in Seventeenth Century England: Baconianism RevisitedÕ, Dana Jalobeanu accounts for the popularity of BaconÕs Sylva Sylvarum and the New Atlantis in terms of the efficacy of BaconÕs model for communicating knowledge. The New Atlantis contains a presentation of this model (and of SolomonÕs House, the ideal community to which this model gives rise) and shows how this theory is supposed to work in practice. BaconÕs views functioned as a model, ideal, and permanent reference for evaluating the development of science in the 17 th century.\n\nNext, in ÔÒToute hyperbole tend lˆ, de nous amener ˆ la vŽritŽ par lÕexcès de la vŽritŽ, cÕest-ˆ-dire par la mensongeÓ: les parcours hyperboliques qui amènent ˆ la vŽritŽ de Balzac ˆ DescartesÕ, Giulia Belgioioso traces the Cartesian notion of hyperbolic doubt to French man of letters Guez de Balzac, who had transformed the traditional rhetorical hyperbole into a methodological tool for seeking truth by means of an excess of lies. DescartesÕ reference in Meditation VI to the doubts of the last few days as Ôhyperbolic and ridiculousÕ is a Balzacian technical expression indicating that the doubts of Meditation I do not extend to the conduct of life and are thus not that serious after all.\n\nIgor Agostini (ÔCaterus on God as Òens a seÓÕ) maintains that the Cartesian view of positive divine aseity was criticized by Caterus not for its original and unheard of character but rather because it was an attempt to resurrect a view that had already been shown to be untenable (since involving a contradiction). Rejected by Suarez, the view that God makes Himself finds some support in the works of Lactantius and Jerome, and is explicitly defended by Taurellus. Although Descartes himself claims he knew nothing of TaurellusÕ position, later in the 17th and 18th centuries Descartes, Taurellus and LactantiusÕ views are all criticized together.\n\nIn ÔDescartes and Henry More on Living BodiesÕ, Justin Smith takes differences over the nature and causes of life as the main reason why, despite MoreÕs enthusiasm, no real dialogue took place between More and Descartes. Blood or the ÔspiritsÕ concocted from the blood are the principles of life, but for Descartes they are purely corporeal while\n\nfor the Neoplatonist More they are both material and immaterial. This mixed character, considered by Descartes as a flaw in MoreÕs account, allows MoreÕs spirits more easily to meditate between mind and body and to account for their interaction.\n\nIn ÔThe Scientific Journals of the Seventeenth-Century: Cartesianism in Journal des Sçavans and Philosophical Transactions , 1665-1670Õ, Mihnea Dobre shows that Cartesianism has the same comparatively weak presence in the first five years of the first philosophical journals of the 17 th century. Though new editions of DescartesÕ works get prompt review, few works appear by Cartesians or on Cartesian topics. The place Descartes had hoped for his system was not achieved because the Journal des Sçavans had an insufficiently disciplinary or methodological focus, while Philosophical Transactions aspired to consolidate the scientific program of the Royal Society via natural histories.\n\nEric Lewis (ÔSir Kenelm Digby and the Weapon Salve in Seventeenth Century EnglandÕ) deals with Kenelm DigbyÕs modernization of ParacelsusÕ recipe for remotely curing the wounds of a victim when applied to the offending weapon. Digby provides a mechanistic explanation of the weapon salve: the vapors all objects emit join to a warm body of the same kind they might happen upon. If some medication is also encountered along the way, these vapors will apply it to the wound more efficaciously than a surgeon.\n\nIn the bookÕs last essay, ÔLeibniz and Locke on Real and Nominal EssencesÕ, Brandon Look compares and contrasts Locke and LeibnizÕs nominalist positions on natural kinds. For Locke there are no genuine divisions in nature, since individuals are classified according to sortal terms and these sortal terms are just our mind-dependent abstract ideas. By contrast, there are gaps in LeibnizÕs world: natural kinds are the results of the strivings of possible individual essences and GodÕs free choice of one world over othersÑalthough all sets remain within the divine understanding.\n\nTo conclude, this anthology presents the unity of knowledge as overarching systems of knowledge based on fundamental principles and as tightly connected disciplines. In Descartes the cognizing mind engenders a single method for all science; the emphasis is on the manner in which unity is achieved. Spinoza identifies the origin of unity in a set of mechanical principles, from which the whole system unfolds deductively. In Descartes, Leibniz and Locke natural philosophy ties in with metaphysics, ontology, physiology, and/or theology. Finally, this anthology portrays modernity as the result of the intersection, collision and mingling of Aristotelian Scholasticism, Lullism, Ramism, Neoplatonism, mechanism, experimental philosophy and Cartesianism. The volume lives up to the editorÕs hope of proving the fruitfulness of a history-of-ideas-approach to modernity, and it is a welcome addition to the literature on the early modern period.\n\n## Andreea Mihali\n\nWilfrid Laurier University",
+    "responses": [
+      {
+        "source": "gpt-4o-2024-11-20",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"ADU1\": {\n      \"text\": \"This collection of essays addresses the topic of the unity of knowledge by analyzing early modern ways of organizing and systematizing knowledge and by bringing to light the complex interactions between the different traditions which contributed to the making of modernity.\",\n      \"label\": \"claim\"\n    },\n    \"ADU2\": {\n      \"text\": \"Smith depicts knowledge as the result of a mathematically-inspired method applicable to all subject-matters.\",\n      \"label\": \"claim\"\n    },\n    \"ADU3\": {\n      \"text\": \"He contends that an interpretation of mathesis has to stand on its own merits and recommends placing this concept in a broader historical perspective, by looking at its uses both before Descartes (emphasizing its Renaissance uses) and after (all the way to Husserl and Heidegger).\",\n      \"label\": \"claim\"\n    },\n    \"ADU4\": {\n      \"text\": \"Elodie Cassan maintains that neither DescartesÕ emphasis on deduction nor his use of ÔhypothesesÕ undermines his scientific realism.\",\n      \"label\": \"claim\"\n    },\n    \"ADU5\": {\n      \"text\": \"According to Vlad Alexandrescu in ÔThe Double Question of the Individuation of Physical Bodies in DescartesÕ, despite doing away with the matter/form schema, Descartes is not stuck with a homogenous, continuous world but rather devises two ways of individuating bodies.\",\n      \"label\": \"claim\"\n    },\n    \"ADU6\": {\n      \"text\": \"Roger Ariew (ÔDescartes and Leibniz on the Principle of IndividuationÕ) compares LeibnizÕs and DescartesÕ positions on individuation and traces them back to Scholastic positions thus diminishing their claims to originality.\",\n      \"label\": \"claim\"\n    },\n    \"ADU7\": {\n      \"text\": \"Petrescu takes the issue of memory as a focal point for properly treating the relation between these three areas of Cartesian thought.\",\n      \"label\": \"claim\"\n    },\n    \"ADU8\": {\n      \"text\": \"Spinoza intended to reduce not just natural philosophy but also religion, morals, law and politics to foundational basic mechanical principles which are self-evident and clearly and distinctly perceived.\",\n      \"label\": \"claim\"\n    },\n    \"ADU9\": {\n      \"text\": \"Gaukroger thinks that SpinozaÕs system crumbles because its foundational principles are mistaken and it lacks an adaptive feedback feature.\",\n      \"label\": \"claim\"\n    },\n    \"ADU10\": {\n      \"text\": \"Locke rejects the use of hypotheses aimed at uncovering the hidden nature of things since (like his contemporaries Walter Charleton, Joseph Glanvill, Thomas Sprat and RobertHooke) he opposes speculative systembuilding at the expense of observation and experience.\",\n      \"label\": \"claim\"\n    },\n    \"ADU11\": {\n      \"text\": \"Carefully circumscribing inquiry to the realm of experience brings us closer to God, so the counterpart of LockeÕs natural historical method is an act of natural religion.\",\n      \"label\": \"claim\"\n    },\n    \"ADU12\": {\n      \"text\": \"Dana Jalobeanu accounts for the popularity of BaconÕs Sylva Sylvarum and the New Atlantis in terms of the efficacy of BaconÕs model for communicating knowledge.\",\n      \"label\": \"claim\"\n    },\n    \"ADU13\": {\n      \"text\": \"Igor Agostini (ÔCaterus on God as Òens a seÓÕ) maintains that the Cartesian view of positive divine aseity was criticized by Caterus not for its original and unheard of character but rather because it was an attempt to resurrect a view that had already been shown to be untenable (since involving a contradiction).\",\n      \"label\": \"claim\"\n    },\n    \"ADU14\": {\n      \"text\": \"In ÔDescartes and Henry More on Living BodiesÕ, Justin Smith takes differences over the nature and causes of life as the main reason why, despite MoreÕs enthusiasm, no real dialogue took place between More and Descartes.\",\n      \"label\": \"claim\"\n    },\n    \"ADU15\": {\n      \"text\": \"To conclude, this anthology presents the unity of knowledge as overarching systems of knowledge based on fundamental principles and as tightly connected disciplines.\",\n      \"label\": \"claim\"\n    },\n    \"ADU16\": {\n      \"text\": \"Finally, this anthology portrays modernity as the result of the intersection, collision and mingling of Aristotelian Scholasticism, Lullism, Ramism, Neoplatonism, mechanism, experimental philosophy and Cartesianism.\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"ADU1\",\n      \"target\": \"ADU15\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU8\",\n      \"target\": \"ADU9\",\n      \"type\": \"attack\"\n    },\n    {\n      \"source\": \"ADU10\",\n      \"target\": \"ADU11\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU12\",\n      \"target\": \"ADU15\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU16\",\n      \"target\": \"ADU15\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "ADU1": {
+              "text": "This collection of essays addresses the topic of the unity of knowledge by analyzing early modern ways of organizing and systematizing knowledge and by bringing to light the complex interactions between the different traditions which contributed to the making of modernity.",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "Smith depicts knowledge as the result of a mathematically-inspired method applicable to all subject-matters.",
+              "label": "claim"
+            },
+            "ADU3": {
+              "text": "He contends that an interpretation of mathesis has to stand on its own merits and recommends placing this concept in a broader historical perspective, by looking at its uses both before Descartes (emphasizing its Renaissance uses) and after (all the way to Husserl and Heidegger).",
+              "label": "claim"
+            },
+            "ADU4": {
+              "text": "Elodie Cassan maintains that neither DescartesÕ emphasis on deduction nor his use of ÔhypothesesÕ undermines his scientific realism.",
+              "label": "claim"
+            },
+            "ADU5": {
+              "text": "According to Vlad Alexandrescu in ÔThe Double Question of the Individuation of Physical Bodies in DescartesÕ, despite doing away with the matter/form schema, Descartes is not stuck with a homogenous, continuous world but rather devises two ways of individuating bodies.",
+              "label": "claim"
+            },
+            "ADU6": {
+              "text": "Roger Ariew (ÔDescartes and Leibniz on the Principle of IndividuationÕ) compares LeibnizÕs and DescartesÕ positions on individuation and traces them back to Scholastic positions thus diminishing their claims to originality.",
+              "label": "claim"
+            },
+            "ADU7": {
+              "text": "Petrescu takes the issue of memory as a focal point for properly treating the relation between these three areas of Cartesian thought.",
+              "label": "claim"
+            },
+            "ADU8": {
+              "text": "Spinoza intended to reduce not just natural philosophy but also religion, morals, law and politics to foundational basic mechanical principles which are self-evident and clearly and distinctly perceived.",
+              "label": "claim"
+            },
+            "ADU9": {
+              "text": "Gaukroger thinks that SpinozaÕs system crumbles because its foundational principles are mistaken and it lacks an adaptive feedback feature.",
+              "label": "claim"
+            },
+            "ADU10": {
+              "text": "Locke rejects the use of hypotheses aimed at uncovering the hidden nature of things since (like his contemporaries Walter Charleton, Joseph Glanvill, Thomas Sprat and RobertHooke) he opposes speculative systembuilding at the expense of observation and experience.",
+              "label": "claim"
+            },
+            "ADU11": {
+              "text": "Carefully circumscribing inquiry to the realm of experience brings us closer to God, so the counterpart of LockeÕs natural historical method is an act of natural religion.",
+              "label": "claim"
+            },
+            "ADU12": {
+              "text": "Dana Jalobeanu accounts for the popularity of BaconÕs Sylva Sylvarum and the New Atlantis in terms of the efficacy of BaconÕs model for communicating knowledge.",
+              "label": "claim"
+            },
+            "ADU13": {
+              "text": "Igor Agostini (ÔCaterus on God as Òens a seÓÕ) maintains that the Cartesian view of positive divine aseity was criticized by Caterus not for its original and unheard of character but rather because it was an attempt to resurrect a view that had already been shown to be untenable (since involving a contradiction).",
+              "label": "claim"
+            },
+            "ADU14": {
+              "text": "In ÔDescartes and Henry More on Living BodiesÕ, Justin Smith takes differences over the nature and causes of life as the main reason why, despite MoreÕs enthusiasm, no real dialogue took place between More and Descartes.",
+              "label": "claim"
+            },
+            "ADU15": {
+              "text": "To conclude, this anthology presents the unity of knowledge as overarching systems of knowledge based on fundamental principles and as tightly connected disciplines.",
+              "label": "claim"
+            },
+            "ADU16": {
+              "text": "Finally, this anthology portrays modernity as the result of the intersection, collision and mingling of Aristotelian Scholasticism, Lullism, Ramism, Neoplatonism, mechanism, experimental philosophy and Cartesianism.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU1",
+              "target": "ADU15",
+              "type": "support"
+            },
+            {
+              "source": "ADU8",
+              "target": "ADU9",
+              "type": "attack"
+            },
+            {
+              "source": "ADU10",
+              "target": "ADU11",
+              "type": "support"
+            },
+            {
+              "source": "ADU12",
+              "target": "ADU15",
+              "type": "support"
+            },
+            {
+              "source": "ADU16",
+              "target": "ADU15",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "ADU1": {
+              "text": "This collection of essays addresses the topic of the unity of knowledge by analyzing early modern ways of organizing and systematizing knowledge and by bringing to light the complex interactions between the different traditions which contributed to the making of modernity.",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "Smith depicts knowledge as the result of a mathematically-inspired method applicable to all subject-matters.",
+              "label": "claim"
+            },
+            "ADU3": {
+              "text": "He contends that an interpretation of mathesis has to stand on its own merits and recommends placing this concept in a broader historical perspective, by looking at its uses both before Descartes (emphasizing its Renaissance uses) and after (all the way to Husserl and Heidegger).",
+              "label": "claim"
+            },
+            "ADU4": {
+              "text": "Elodie Cassan maintains that neither DescartesÕ emphasis on deduction nor his use of ÔhypothesesÕ undermines his scientific realism.",
+              "label": "claim"
+            },
+            "ADU5": {
+              "text": "According to Vlad Alexandrescu in ÔThe Double Question of the Individuation of Physical Bodies in DescartesÕ, despite doing away with the matter/form schema, Descartes is not stuck with a homogenous, continuous world but rather devises two ways of individuating bodies.",
+              "label": "claim"
+            },
+            "ADU6": {
+              "text": "Roger Ariew (ÔDescartes and Leibniz on the Principle of IndividuationÕ) compares LeibnizÕs and DescartesÕ positions on individuation and traces them back to Scholastic positions thus diminishing their claims to originality.",
+              "label": "claim"
+            },
+            "ADU7": {
+              "text": "Petrescu takes the issue of memory as a focal point for properly treating the relation between these three areas of Cartesian thought.",
+              "label": "claim"
+            },
+            "ADU8": {
+              "text": "Spinoza intended to reduce not just natural philosophy but also religion, morals, law and politics to foundational basic mechanical principles which are self-evident and clearly and distinctly perceived.",
+              "label": "claim"
+            },
+            "ADU9": {
+              "text": "Gaukroger thinks that SpinozaÕs system crumbles because its foundational principles are mistaken and it lacks an adaptive feedback feature.",
+              "label": "claim"
+            },
+            "ADU10": {
+              "text": "Locke rejects the use of hypotheses aimed at uncovering the hidden nature of things since (like his contemporaries Walter Charleton, Joseph Glanvill, Thomas Sprat and RobertHooke) he opposes speculative systembuilding at the expense of observation and experience.",
+              "label": "claim"
+            },
+            "ADU11": {
+              "text": "Carefully circumscribing inquiry to the realm of experience brings us closer to God, so the counterpart of LockeÕs natural historical method is an act of natural religion.",
+              "label": "claim"
+            },
+            "ADU12": {
+              "text": "Dana Jalobeanu accounts for the popularity of BaconÕs Sylva Sylvarum and the New Atlantis in terms of the efficacy of BaconÕs model for communicating knowledge.",
+              "label": "claim"
+            },
+            "ADU13": {
+              "text": "Igor Agostini (ÔCaterus on God as Òens a seÓÕ) maintains that the Cartesian view of positive divine aseity was criticized by Caterus not for its original and unheard of character but rather because it was an attempt to resurrect a view that had already been shown to be untenable (since involving a contradiction).",
+              "label": "claim"
+            },
+            "ADU14": {
+              "text": "In ÔDescartes and Henry More on Living BodiesÕ, Justin Smith takes differences over the nature and causes of life as the main reason why, despite MoreÕs enthusiasm, no real dialogue took place between More and Descartes.",
+              "label": "claim"
+            },
+            "ADU15": {
+              "text": "To conclude, this anthology presents the unity of knowledge as overarching systems of knowledge based on fundamental principles and as tightly connected disciplines.",
+              "label": "claim"
+            },
+            "ADU16": {
+              "text": "Finally, this anthology portrays modernity as the result of the intersection, collision and mingling of Aristotelian Scholasticism, Lullism, Ramism, Neoplatonism, mechanism, experimental philosophy and Cartesianism.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU1",
+              "target": "ADU15",
+              "type": "support"
+            },
+            {
+              "source": "ADU8",
+              "target": "ADU9",
+              "type": "attack"
+            },
+            {
+              "source": "ADU10",
+              "target": "ADU11",
+              "type": "support"
+            },
+            {
+              "source": "ADU12",
+              "target": "ADU15",
+              "type": "support"
+            },
+            {
+              "source": "ADU16",
+              "target": "ADU15",
+              "type": "support"
+            }
+          ]
+        }
+      },
+      {
+        "source": "claude-3-5-sonnet-20241022",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"A1\": {\n      \"text\": \"This collection of essays addresses the topic of the unity of knowledge by analyzing early modern ways of organizing and systematizing knowledge and by bringing to light the complex interactions between the different traditions which contributed to the making of modernity.\",\n      \"label\": \"claim\"\n    },\n    \"A2\": {\n      \"text\": \"Smith depicts knowledge as the result of a mathematically-inspired method applicable to all subject-matters.\",\n      \"label\": \"premise\"\n    },\n    \"A3\": {\n      \"text\": \"Spinoza intended to reduce not just natural philosophy but also religion, morals, law and politics to foundational basic mechanical principles which are self-evident and clearly and distinctly perceived.\",\n      \"label\": \"claim\"\n    },\n    \"A4\": {\n      \"text\": \"Gaukroger thinks that SpinozaÕs system crumbles because its foundational principles are mistaken and it lacks an adaptive feedback feature.\",\n      \"label\": \"claim\"\n    },\n    \"A5\": {\n      \"text\": \"this anthology presents the unity of knowledge as overarching systems of knowledge based on fundamental principles and as tightly connected disciplines.\",\n      \"label\": \"claim\"\n    },\n    \"A6\": {\n      \"text\": \"In Descartes the cognizing mind engenders a single method for all science; the emphasis is on the manner in which unity is achieved.\",\n      \"label\": \"premise\"\n    },\n    \"A7\": {\n      \"text\": \"Spinoza identifies the origin of unity in a set of mechanical principles, from which the whole system unfolds deductively.\",\n      \"label\": \"premise\"\n    },\n    \"A8\": {\n      \"text\": \"In Descartes, Leibniz and Locke natural philosophy ties in with metaphysics, ontology, physiology, and/or theology.\",\n      \"label\": \"premise\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"A2\",\n      \"target\": \"A5\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A6\",\n      \"target\": \"A5\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A7\",\n      \"target\": \"A5\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A8\",\n      \"target\": \"A5\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A4\",\n      \"target\": \"A3\",\n      \"type\": \"attack\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "A1": {
+              "text": "This collection of essays addresses the topic of the unity of knowledge by analyzing early modern ways of organizing and systematizing knowledge and by bringing to light the complex interactions between the different traditions which contributed to the making of modernity.",
+              "label": "claim"
+            },
+            "A2": {
+              "text": "Smith depicts knowledge as the result of a mathematically-inspired method applicable to all subject-matters.",
+              "label": "premise"
+            },
+            "A3": {
+              "text": "Spinoza intended to reduce not just natural philosophy but also religion, morals, law and politics to foundational basic mechanical principles which are self-evident and clearly and distinctly perceived.",
+              "label": "claim"
+            },
+            "A4": {
+              "text": "Gaukroger thinks that SpinozaÕs system crumbles because its foundational principles are mistaken and it lacks an adaptive feedback feature.",
+              "label": "claim"
+            },
+            "A5": {
+              "text": "this anthology presents the unity of knowledge as overarching systems of knowledge based on fundamental principles and as tightly connected disciplines.",
+              "label": "claim"
+            },
+            "A6": {
+              "text": "In Descartes the cognizing mind engenders a single method for all science; the emphasis is on the manner in which unity is achieved.",
+              "label": "premise"
+            },
+            "A7": {
+              "text": "Spinoza identifies the origin of unity in a set of mechanical principles, from which the whole system unfolds deductively.",
+              "label": "premise"
+            },
+            "A8": {
+              "text": "In Descartes, Leibniz and Locke natural philosophy ties in with metaphysics, ontology, physiology, and/or theology.",
+              "label": "premise"
+            }
+          },
+          "relations": [
+            {
+              "source": "A2",
+              "target": "A5",
+              "type": "support"
+            },
+            {
+              "source": "A6",
+              "target": "A5",
+              "type": "support"
+            },
+            {
+              "source": "A7",
+              "target": "A5",
+              "type": "support"
+            },
+            {
+              "source": "A8",
+              "target": "A5",
+              "type": "support"
+            },
+            {
+              "source": "A4",
+              "target": "A3",
+              "type": "attack"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "A1": {
+              "text": "This collection of essays addresses the topic of the unity of knowledge by analyzing early modern ways of organizing and systematizing knowledge and by bringing to light the complex interactions between the different traditions which contributed to the making of modernity.",
+              "label": "claim"
+            },
+            "A2": {
+              "text": "Smith depicts knowledge as the result of a mathematically-inspired method applicable to all subject-matters.",
+              "label": "premise"
+            },
+            "A3": {
+              "text": "Spinoza intended to reduce not just natural philosophy but also religion, morals, law and politics to foundational basic mechanical principles which are self-evident and clearly and distinctly perceived.",
+              "label": "claim"
+            },
+            "A4": {
+              "text": "Gaukroger thinks that SpinozaÕs system crumbles because its foundational principles are mistaken and it lacks an adaptive feedback feature.",
+              "label": "claim"
+            },
+            "A5": {
+              "text": "this anthology presents the unity of knowledge as overarching systems of knowledge based on fundamental principles and as tightly connected disciplines.",
+              "label": "claim"
+            },
+            "A6": {
+              "text": "In Descartes the cognizing mind engenders a single method for all science; the emphasis is on the manner in which unity is achieved.",
+              "label": "premise"
+            },
+            "A7": {
+              "text": "Spinoza identifies the origin of unity in a set of mechanical principles, from which the whole system unfolds deductively.",
+              "label": "premise"
+            },
+            "A8": {
+              "text": "In Descartes, Leibniz and Locke natural philosophy ties in with metaphysics, ontology, physiology, and/or theology.",
+              "label": "premise"
+            }
+          },
+          "relations": [
+            {
+              "source": "A2",
+              "target": "A5",
+              "type": "support"
+            },
+            {
+              "source": "A6",
+              "target": "A5",
+              "type": "support"
+            },
+            {
+              "source": "A7",
+              "target": "A5",
+              "type": "support"
+            },
+            {
+              "source": "A8",
+              "target": "A5",
+              "type": "support"
+            },
+            {
+              "source": "A4",
+              "target": "A3",
+              "type": "attack"
+            }
+          ]
+        }
+      }
+    ],
+    "timestamp": 1752751438.824031
+  }
+]

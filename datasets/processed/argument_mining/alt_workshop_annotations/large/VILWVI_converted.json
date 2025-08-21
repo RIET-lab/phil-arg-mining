@@ -1,0 +1,64 @@
+{
+  "ADUs": {
+    "Untitled 1": {
+      "type": "Major Claim",
+      "text": "Descartes explicitly states that virtue is sufficient for attaining happiness."
+    },
+    "Untitled 2": {
+      "type": "Claim",
+      "text": "In this paper I argue that, within the framework he develops, this is not exactly true: more than virtuous action is needed to secure happiness."
+    },
+    "Untitled 3": {
+      "type": "Claim",
+      "text": "To be happy, we need to connect virtuous action to a specific intellectual insight into ourselves and the world at large."
+    },
+    "Untitled 4": {
+      "type": "Claim",
+      "text": "The highest good equals virtuous action, which involves two components, judging well and striving to act according to one's judgment."
+    },
+    "Untitled 5": {
+      "type": "Claim",
+      "text": "Happiness, in turn, is not the highest good but something that is supposed to follow from it."
+    },
+    "Untitled 6": {
+      "type": "Claim",
+      "text": "Securing happiness requires that we have a rather multifaceted intellectual insight into virtuous action."
+    },
+    "Untitled 7": {
+      "type": "Claim",
+      "text": "The Cartesian account of the path from virtue to happiness involves - in addition to acting virtuously - an intellectual insight consisting of three key components: (1) the distinction between what is and what is not up to us, (2) the idea that we are not to blame ourselves for anything we do as long as we have genuinely done our best to judge correctly and act accordingly, and (3) the view that things outside our power are determined by providence.\""
+    }
+  },
+  "relations": [
+    {
+      "src": "Untitled 2",
+      "tgt": "Untitled 1",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 3",
+      "tgt": "Untitled 1",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 4",
+      "tgt": "Untitled 1",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 5",
+      "tgt": "Untitled 1",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 6",
+      "tgt": "Untitled 1",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 7",
+      "tgt": "Untitled 1",
+      "type": "support"
+    }
+  ]
+}

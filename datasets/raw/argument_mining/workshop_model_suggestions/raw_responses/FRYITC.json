@@ -1,0 +1,384 @@
+[
+  {
+    "identifier": "FRYITC",
+    "system_prompt": "## GOAL\nArgument‑mine the following paper to extract its comprehensive argumentative structure.\n\n## DEFINITIONS\n1. **Argument**: A set of propositions, including some number of premises and a conclusion. The premises should logically entail the conclusion.\n2. **Claim**: A proposition that asserts something to be true or false, typically requiring justification or evidence.\n3. **Premise**: A proposition that provides evidence, justification, or logical support for a claim or conclusion.\n\n## CRITICAL REQUIREMENTS\n1. **VERBATIM EXTRACTION ONLY**: Each ADU text must be copied EXACTLY from the paper with no modifications, paraphrasing, or combining of separate sentences.\n2. **NO HALLUCINATION**: Do not create, modify, or invent text that does not appear exactly in the source.\n3. **EXACT MATCHING**: Every word, punctuation mark, and spacing must match the original precisely.\n\n## DIRECTIONS\n1. **Identify Argumentative Discourse Units (ADUs)**  \n   - ADU = any contiguous text span functioning as a claim or a premise in the reasoning structure.\n   - **BE HIGHLY SELECTIVE**: Only include ADUs that are crucial to the overarching argument structure.\n   - Focus on significant claims and premises that contribute meaningfully to the argumentative flow.\n   - **AVOID NOISE**: Skip ADUs that are merely descriptive, tangential, or do not substantially advance the argument.\n   - Prioritize quality over quantity - fewer accurate, important ADUs are better than many insignificant ones.\n   - **EXTRACT ONLY**: Copy text spans exactly as they appear, without any modifications.\n2. **Classify each ADU**  \n   - Label = either `\"claim\"` or `\"premise\"`.  \n3. **Detect directed relations**  \n   - Relation = `\"support\"` or `\"attack\"`, from one ADU (source) to another (target).\n   - Map how ADUs connect to form reasoning chains.\n   - Focus on relationships between the most significant ADUs.\n   - Include relationships between premises that strengthen or weaken each other.\n4. **Verbatim spans**  \n   - Each `\"text\"` value must be copied EXACTLY from the paper with zero modifications.\n   - Do not paraphrase, summarize, or combine separate sentences.\n   - Do not add, remove, or change any words, punctuation, or spacing.\n   - If unsure about exact wording, skip that ADU rather than guess.\n\n## WHAT TO CAPTURE\n**INCLUDE ONLY:**\n- Main argumentative threads that are central to the paper's contribution\n- Core claims that represent the paper's primary arguments or findings\n- Key premises that provide essential support for major claims\n- Critical counterarguments and their refutations\n- Reasoning chains that demonstrate how main conclusions are derived\n\n**EXCLUDE (AVOID NOISE):**\n- Minor details, examples, or descriptive content that don't advance the argument\n- Tangential points or side discussions\n- Pure background information or literature review content\n- Methodological details unless they constitute argumentative claims\n- Obvious statements or commonly accepted facts\n- Redundant or repetitive argumentative content\n\n**GUIDING PRINCIPLE**: If removing an ADU would not significantly impact understanding of the paper's argumentative structure, it should be excluded.\n\n## QUALITY CONTROL\n- Before finalizing each ADU, verify the text exists exactly in the source\n- Prefer fewer, accurate ADUs over many potentially modified ones\n- When in doubt about exact wording, omit the ADU\n\n## OUTPUT FORMAT\nReturn **only** a single valid JSON object matching this schema.  \nDo **not** output any extra text, markdown, or explanations.\nDo **not** add comments.\n**RESPOND WITH ONLY**:\n```json\n{\n  \"ADUs\": {\n    \"<ADU_ID>\": {\n      \"text\": \"<exact span from paper>\",\n      \"label\": \"claim\" | \"premise\"\n    }\n    ...\n  },\n  \"relations\": [\n    {\n      \"source\": \"<ADU_ID>\",\n      \"target\": \"<ADU_ID>\",\n      \"type\": \"support\" | \"attack\"\n    }\n  ]\n}\n```",
+    "user_content": "<!-- image -->\n\n<!-- image -->\n\n## Is the city a cultural landscape? An attempt to analyze the city from the perspective of landscape aesthetics\n\n## Beata FRYDRYCZAK *\n\n## ABSTRACT\n\nThis paper sets out to interpret the phrase 'the city landscape'. Beginning with landscape aesthetics based on two categories - the picturesque and the sublime - the author attempts to demonstrate that a city can be interpreted in terms of a cultural landscape. This necessitates a re  -interpretation of the category of the sublime, whereby, through references to Edmund Burke, Theodor W. Adorno and Arnold Berleant, the sublime assumes the nature of a category which determines the existential situation of a person in the world. Here, the sublime provides people with an impulse to undertake efforts to fashion their surroundings and forge the essence of the living world. As such, the sublime also becomes a category that promotes social activities aimed at improving the quality of life in a city, such as the activities of 'urban gardeners'.\n\nthe picturesque; the sublime; nature; the city landscape; experience; engagement; the surroundings; landscape park\n\n* Ph.D. (habil.), associate professor of Adam Mickiewicz University at the Institute of European Culture, the chair of Department of Theory and Interdisciplinary Research, Poznań, Poland. E  -mail: beataf@zg.home.pl.\n\nWe have become accustomed to speaking of the city as a landscape, and this phrase is neither surprising, nor questionable. However, considering the condition of city as a landscape raises a number of questions that should be answered, if this phrase is to be treated literally. Firstly, we have to decide whether, when approaching city as a landscape, we are capable of defining the idea of landscape and secondly - whether we actually rely on any theory of landscape. Nevertheless, speaking of the city as a landscape we usually refer to this tradition of aesthetics which brought forth the notion of pictorial manifestation of the outside world. It is also aesthetics that defines conditions allowing one to perceive and experience the outside world as a picture or an image. We could obviously replace the term 'landscape' with 'picture' or 'image', and it seems that the meaning of the phrase would not be altered.\n\n## THE CITY AS A LANDSCAPE?\n\nRecognizing that city constitutes landscape means that we put the emphasis on the picturesque or image  -like appearance of the world. Although the city appears to us as a picture or an image, first and foremost it means a living space, a place of human life and activity, of daily routines, wanderings and businesses as well as an urban space filled with historical signs and contemporary symbols, a space with its routes and directions, where nature and architecture, gardens and buildings, trees and streets play their part in creating the environment of a city dweller. From this perspective, the city landscape should be considered as a special variant of cultural landscape, if we regard cultural landscape as nature and space assimilated and re  -worked by man. Here, human efforts and processes of nature combine, creating an urban public space where it is architecture that plays the dominant role, while nature is no more than an addition. Regardless of whether the city is envisioned as a picture/ an image or as a cultural landscape, the key element of landscape - namely nature - disappears.\n\nIf we adopt the understanding of culture as the human world, the landscape will be an expression of escape from the immediacy of nature. However, given the problematic status of nature, it becomes clear that in a relationship between culture and nature the landscape should be shifted towards culture. The views of scholars revising manmade notions of nature exert an influence on this state of affairs: nature becomes a cultural artefact - it is not only subjected to human activities, but its concept is shaped historically as well. Thus the city appears to be in opposition to nature, and in this particular sense it stands on the side of culture against nature.\n\nThe cultural dimension of landscape is the result of linking it to the human as a subject who experiences and creates. After all, all spaces such as parks and\n\ngardens are processed by humans to the same extent as the views of fields and architecture. The first and timeless definition of cultural landscape was articulated by Carl Sauer in The morphology of landscape , where the author observes as follows:\n\nThe cultural landscape is fashioned from a natural landscape by a culture group. Culture is the agent, the natural area is the medium, the cultural landscape the result. […] The shaping force, however, lies in the culture itself (Sauer, 1963: 343).\n\nThe  human  has  an  impact  on  the  environment  -  through  his/her work - thus shaping the cultural landscape. Arnold Berleant confirms this by  stating  that  landscapes  bear  the  marks  left  by  their  inhabitants,  so  the cultural landscape is the result of practical activities: 'Landscapes we inhabit are cultural landscapes, their shapes, vegetation, and processes are influenced by characteristic living patterns of the people who dwell in them' (Berleant, 1997: 60). These patterns have changed in the course of history, influenced by new cultural trends, and - let us not forget - new technologies. Thus the landscape is seen as the cultural space of human activity, not a pictorial part of the reality.\n\nFrom this perspective, the relation between the city as an inhabited space and nature as a domain re  -worked by humans - not between the city and a picture/an image - seems to be one of the crucial aspects for the understanding of the concept of city as a landscape. Another important aspect is the  relation  between  the  city  and  nature.  Both  are  closely  bound  together, because according to the idea of cultural landscape the city is nothing else but nature re  -worked. This is confirmed by Gernot Böhme, who states that 'The city is and remains nature, although it is nature absorbed and shaped by man' (Böhme, 2002: 62).\n\nHistorical development of the city shows that the city has assigned a strictly decorative role to nature (Frydryczak, 2013a). It treats nature as its integral part, but devoid of natural features. It is hard to imagine the city without the elements of nature, without parks and gardens, trees, colourful flower beds, green squares with benches etc . However, such presence of nature in the city has a much shorter history than the history of urban planning. After all, the essence  of  urbanism  lies  in  'eradicating'  nature  and  granting  distinctiveness to the city as socially and culturally constructed space. Originally, nature had been a sphere of production and agricultural activity displaced beyond the city walls. Eventually, it returned to the city, losing its utilitarian and functional nature, while gaining completely useless decorative and ornamental qualities. Indeed, the moment when nature began to be included in the projects of planners and visionaries of new architectural and urban concepts can be seen as a turning point in the perception of urban space and its functional areas.\n\n## BETWEEN THE PICTURESQUE AND THE SUBLIME\n\nIt  remains  an  open  question  what  kind  of  nature  is  currently  to  be  found within the city, because its status, although seemingly obvious, is not distinctive, since nature alone is 'a fiction: even in its wildest places, nature is always culture' and the natural scenery has been 'transfigured into town and cities' (Berleant, 1997: 61). The same doubt concerns the idea of landscape aesthetics and the question whether the city is an appropriate space to introduce its categories and notions. Nevertheless, I would like to verify the capacities and the potential of landscape aesthetics, which is based on two distinct categories: the picturesque and the sublime, which demarcate the difference between the aesthetic landscape and the cultural one. Both categories became perfectly interwoven  with  the  landscape  thus  justifying  our  admiration  for  the  views we enclose in the imaginary frames as images of picturesque sceneries or wild nature. In either case, they apply to spaces worth preserving, often marked by the past, with ruins in the background or, according to the romantic tradition, allow us to appreciate the uncontrollable, awe  -inspiring and fearsome wildness of nature and its elements.\n\nIn the history of the city, nature is implicitly subordinated to the category of the picturesque, which in my opinion is in fact responsible for the pictorial perception of the world, because it is simply constructed in accordance with the principles of painting and aligned with visual habits. The source of a perception of the city is derived from the category of the picturesque and the way the picturesque manifests itself and teaches to perceive the world as a picture: the picturesque taught us to see the outside world in frames and in fragments, and to perceive it through - or as - images. In this sense the city appeals to us through images which create its scenery as well as its genius . In this realm, nature is by no means distinguished as an independent entity governed by its own rules: being a part of these images it merely plays a purely decorative and recreational role. In fact, the same observation applies to the city and its picturesque views one can admire on postcards or photos. When thinking about different cities or towns we utilise standardized imagery, easily  -reconizable picturesque views of e.g. the Eiffel T ower in Paris.\n\nThe picturesque is the category which allows the city to act as the best gardener, who lays out designated green spaces and controls the spontaneity of nature in much the same fashion as in landscape gardens and parks, where the category first developed and reached the fullness of its meaning. On the one hand, it may be seen to reflect the age  -old dichotomy between nature and culture. On the other, it may be attributed an attempt at eliminating the eternal human fear of the elements, compensated by 'city greenery' which remains dependent on the human. Forms of nature such as city parks and public gardens have become important, integral parts of the city. All of them exert an\n\ninfluence on the habits and routine of urban life and contribute to the amelioration of the quality of life in the city by providing space for walks, leisure and recreation (Sennett, 1996). Nowadays, the nineteenth  -century drive to improve the quality of city life, which spurred the development of green areas in urban surroundings, becomes the criterion of the city attractiveness. Therefore nature is present in the city as planned greenery: avenues of trees, backyard gardens, flowerbeds in the squares, vast urban parks. In this context, Böhme formulated an assessment, suggesting that while nature is taken into account in the city design, it is done without in  -depth knowledge of the subject, thus reducing it to being envisaged simply as 'a greenery' (Böhme, 2002).\n\nHowever, in the theories of the modern city, the attitude towards nature, as noted by Böhme, is superficial in its character: it is taken into account, it is planned, but as a space, as a 'geographical formation' or as a design of the city. This manner of thinking about nature has its origins in the nineteenth-century landscape gardens and in the mode in which they were designed and introduced in cities all over the world. Landscape gardens are excellent examples of preferred landscape models where nature is shaped and subjugated to aesthetic requirements. They are also an excellent example of using the picturesque in practice. There is only one difference: landscape gardens used nature as the material to fill the space and architecture as its design. The modern city uses architecture as the material of space and nature as its design. We cannot say that nature and architecture merge into one entity.\n\nThe  picturesque  is  a  historical  category  whose  background  and  history I have discussed elsewhere (Frydryczak, 2013b), although one question should be emphasized here: it is difficult to approach it employing a clear  -cut definition. However, any attempt to approach the picturesque may be reduced to a  few  key  issues  that  help  us  to  understand  the  close  relation  between  the picturesque and the modern city: it is a category which is intended to bring 'pleasure to the eye' of the viewer, who perceives the outer world in fragments, or rather in images in accordance with the manner characteristic of painting. It is also a category that elicits painterly effects from views. Hidden behind it, there is a longing for Eden and an ideal landscape with clearly distinguished rules (Gilpin, 1792). In one word: the picturesque is a call for an ideal landscape, whose material can be found in nature, as well as in the city but it is the human who creates it.\n\nSuch an ideal landscape harbours Platonic heritage and for this reason it seems detached from the actual one. It does not distinguish between the real and the artificial, and between the fixed and the variable, because it is directed towards  the  idea  of  the  imagined  image.  That  is  why  all  pictures  of  cities (postcards in particular) are always nicer and more beautiful than the original. The Eiffel Tower on a sunny day always looks more scenic than on cloudy, rainy day. A model of the ideal landscape remains beyond the reach of everyday\n\nexperience;  it  remains  purely  aesthetic.  The  timelessness  of  aesthetic  landscape is associated with the distant aesthetic experience and the contemplative thoughts which express themselves in perspectival gaze and determine the pictorial character of the landscape. The picturesque has established the canons of taste, which effectively override the notions of natural harmony in a controlled space. It also mistakes spontaneity of nature for spontaneity of imagination. One could say that the aesthetic sense of the landscape was exhausted once it had been integrated into the processes of aestheticization of the world, causing the landscape and its experience to lose touch with its real prototype.\n\nWith regard to the picturesque today, we entertain a suspicion that it is still alive and it is responsible for the processes of aestheticization of the world, which prefer that which is artificial, but subordinated to the human, to the spontaneous and impulsive. Artificiality of nature is nothing rare in the history of human relationship with nature: artificial flowers, artificial trees adorning the banks, shopping malls, swimming pools and many other public places do not differ too much from the artificial landscapes in landscape parks, in places which have been renaturalized or revitalized. In this context, observations such as those found in Anthony Giddens' writings come as no surprise. According to the author, people in the modern world are not only isolated from nature, but their existence has been also questioned, because the modern world is an artificial one, and the city deepens this process. In an artificial environment, nature becomes similarly artificial and it is 'natural' just because it exists thanks to purely organic processes (Giddens, 2007: 227).\n\nSublimity as an aesthetic category has a long and complicated history, yet it remains firmly established in philosophical thought and today's interpretations of contemporary culture. We can assume that - similarly to the picturesque - the sublime may be responsible for the experience and descriptions of the idea of landscape, city landscape in particular. According to the classical approach proposed by Edmund Burke (Burke, 1968) and Immanuel Kant (Kant, 1986) the sublime embraces the natural phenomena (and only the natural) characterized by greatness, magnitude, infinity and power, phenomena which transcend rational thinking but arouse our imagination, which are not fully recognized, difficult to control and inspire fear or even terror. T o illustrate  the  sublime,  Kant  invoked  the  magnitude  of  mountains,  a  stormy ocean or a thunderstorm: 'threatening rocks, thunderclouds piling up in the sky and moving about accompanied by lightning and thunderclaps, volcanoes with  their  destructive  power,  hurricanes  with  all  the  devastation  they  leave behind, the boundless ocean heaved up, the high waterfall of a mighty river' (Kant, 1987: 120). He referred to phenomena which express themselves in the form of elements and which manifest the immensity, infinity, mystery, power, and so on. But in fact, these phenomena themselves do not constitute the sublime; it is a kind of feeling one has when facing them. Nevertheless, in this\n\nsense, the sublime refers to the third form of nature manifesting in the city. The wild nature and its elements have the power to strip the human of its only weapon i.e. rational thinking, thus condemning them to fully emotional and sensual perception of the world. While the picturesque means contemplation and disinterested experience of the landscape perceived as a picture, the sublime expresses itself in an experience of fear or even terror, along with an opportunity to conquer it: according to Burke and Kant we find pleasure in being able to overcome our fears:\n\nour ability to resist becomes an insignificant trifle. Yet the sight of them becomes all the more attractive the more fearful it is, provided we are in a safe place. And we like to call these objects sublime because they raise the soul's fortitude above its usual middle range and allow us to discover in ourselves an ability to resist which is of a quite different kind, and which gives us the courage [to believe] that we could be a match for nature's seeming omnipotence (Kant, 1987: 120).\n\nHere Kant articulates his belief that 'a safe place' gives us an opportunity to exchange our fears for aesthetic experience. However, what does 'a safe place' mean? It is a distant place or a safe shelter?\n\nThe re  -interpretation of the sublime not only allows us to answer the question, but also offers new perspectives in the relation between the human and nature as well as between the city and nature, if we consider the category not as a feeling, but a power to resist the magnitude of nature. The sublime has opened up new possibilities: the experience of the majesty of nature helped the human to become one with nature, as in the Romantic paradigm it assumed the form of worshipping wild nature, or its idealization and sanctification. However, the attitude to nature must be changed: on the one hand, it needs to be soulful, on the other hand - 'materialized' - as only the twofold process gives an access to the world available to the senses, and allows one to perceive the real landscape where life goes on, introducing the landscape into historical processes.\n\nAlso, one should take into account the suggestion advanced by Theodor W. Adorno, who stated that the sublime is a kind of existential situation. If we combine it with Berleant's idea of the engagement, we may understand the sublime as an experience which expresses an effort to adapt the living environment. In fact, the sublime appears in its two meanings: as a call for what is absent and as a daily effort of overcoming nature. The latter meaning is viable if we draw upon Edmund Burke yet again and realize that for the eighteenth-century philosopher the sublime means lack of that which should be overcome. He specified the areas in question: lack of people means solitude, lack of light means darkness and the lack of sounds means silence. Edmund Burke describes the sublime as the path that 'it comes upon us in the gloomy forest, and in the howling wilderness' (Burke, 2013: 66). Such situations mean danger\n\nwhich we are able to overcome since the sublime stimulates the instinct of self-preservation. The sublime appears at the moment of danger, activating the entire body and alerting its sensitivity. This is the moment when perception wakes up as a rudimentary principle of 'commitment' in the relationship with nature perceived as a primary aesthetic scene, aisthesis .\n\nAt this point, one should consider the sublime not in terms of metaphysical  ideas  but  a  possibility  of  introducing  the  category  in  practice.  Adorno's sublime designates the exact place the human being occupies in the world of nature, which reminds them not only of their natural roots but also of their mortality. This way it indicates the limits of human domination over nature: the sublime is the aesthetic category which anticipates a moment when the human begins to become immersed in its own belonging to nature. Adorno noticed something that escaped Kant's attention: 'that aspect in which human domination has its limits and that calls to mind the powerlessness of human bustle' (Adorno, 2002: 70). From this perspective, an attempt at re  -defining the sublime can be considered as the search for foundations that build or reconstruct  human  experience.  Berleant,  continuing  Adorno's  re  -definition  of the sublime, argues that the sublime is able to restore a sense of oneness with the natural world: it is possible on the basis of the experience which takes a form of engagement as a kind of relationship with the surrounding world. Although Kant's feeling of the sublime is born out of fear - induced by the power of nature, and pain - expressed in the inability to cross the boundaries of  imagination  to  what  is  unrepresentable,  in  Berleant's  view  the  sublimity reveals its power to the human and allows for a fully sensual 'feeling' of its spontaneity: we cannot remain uninvolved in the face of natural phenomena (Berleant, 1993). The elements, but also situations milder in character, such as an ordinary walk, demonstrate - as Berleant says - that the uninterested aesthetic experience must be exceeded to break the distance and thereby elicit commitment as a participatory attitude. The thought of Berleant arises from the American tradition that recognises the sublime as the effort of the human struggling with hostile nature. Importantly enough, this is where, the pride of the landscape and the desire of managing the land evince themselves. John Dewey attached greater value to the action directed toward practical life than to speculative thinking and the belief that the world is not given to us, but co  -created in the process of man and the world becoming mutual and shared (Wilkoszewska, 1992: 42). The American sublime - as Harold Bloom called it - is related to the existential situation of the human, who tries to settle in the world and inhabit it. This is not the sublime of melancholy but action. The sublime of action means that we do not relate to nature and the magnitude of its phenomena, but to nature with which we struggle and cooperate at the same time in order to create our own 'safe shelter', our own place, our surroundings as the domain of our being in the world.\n\n## THE SUBLIME IN THE URBAN SPACE\n\nThe  research  on  the  landscape  associated  with  such  important  concepts  as place and surroundings, or environment, at a closer inspection reveals not only a significant shift of the notion landscape towards the cultural and the social, but also an increasing narrowing of the concept of cultural landscape, reduced to the senses and meanings inscribed in the idea of place and settlement as a space inhabited. Urban space is a special kind of surroundings. A quarter, a street, a backyard, a place can be regarded as a kind of our own environment and we are the ones that attribute importance to places. However, the urban space and the urban surroundings, lose their pictorial features, gaining spatial and social nature instead. One can assume that just this simple divergence is responsible for the gap within the meaning of the landscape in the context of both aesthetics: the picturesque and the sublime. From this perspective, creating the surroundings would be recourse to the sublime.\n\nThe difference between the view and the surroundings shows that the landscape losing its connotations with the image takes on the spatial feature: now it is related to the space. This permits envisaging the transition of the viewer from 'being against the landscape' to the participant 'being in the landscape', in order to situate him/her in the centre, the core of the landscape. The scene of the interior of the landscape means that we have to start thinking about the landscape in a different way: it is no any longer in front of us as a scenery, but becomes a kind of place we occupy and a place which surrounds us. Here, the potential dilemma of entering into the landscape changes its 'location': the landscape is not there, it remains here as a procesual entity, just like the space constituted through action and perception and the surroundings created and constructed socially and culturally. The view is a backdrop to human activities; here, the human appears as a figure; the surroundings are a space and an area of  different  activities,  which  become  symbolic  and  gain  cultural  dimension: the surroundings are constructed by being, not thinking, by action and activity as opposed to contemplation. The surroundings are a space of life with all its aspects, the landscape is a space of experience. Let us consider a tree as an example: in the landscape, it becomes its part and ornament, in the surroundings it influences a practice of life, like the tree in Bruegel's painting The harvesters , of which Tim Ingold wrote that 'by its presence it constitutes a particular place' (Ingold, 2000: 204). We do not inhabit the landscape, we take a place in it and activate all the senses - we dwell in the surroundings and create an environment of life.\n\nThese can be the Heideggerian surroundings - 'the place of the epiphany of being'. The surroundings are linked to the way in which a human being exists in the world. The most important is to assimilate what is foreign and to make it closer and familiar in order to constitute a relationship of intimacy\n\nbetween the human and its surroundings. That is a mode of creating a space and adapting it in order to inhabit it. Our being  -in  -the  -world connotes dwelling in the world and creating relations with it. The relations are nothing else but a process of familiarization of the surroundings. As Arto Haapala says:\n\nWhile we are living in the lifeworld, doing and making things, acting in different ways in different situations, we create ties to our surroundings, and in this way familiarize ourselves with it. We make the environment 'our own', we create relations which are significant for us and serve our purposes and interests (Haapala, 2014: 35).\n\nThe surroundings understood in this way do not only comprise the environment itself, but also the space 're  -worked' by the human in such a way that it expresses all meanings: emotional, cultural, historical, social and landscape-related as well. The Heideggerian surroundings are filled with topography, and contents, the meanings and ideas which make it complete. The surroundings are a landscape being experienced.\n\nThe idea of the surroundings seems to be crucial and decisive in the emerging  dilemmas:  dwelling  as  the  creation  of  the  surroundings  is  nothing  but a practice making the landscape present and the sublime in practice. Is it possible on these grounds to speak of the city as a cultural landscape?\n\nThe surroundings are an element of vital significance in approaching the city as a cultural landscape and in understanding the difference between the city analyzed from the perspective of picturesque aesthetics and the city perceived from the perspective of the sublime, between the receptive and active attitude, between a picture and an activity. The picturesque and the sublime translate into two different attitudes: the passive and the active one, between observation and participation, where either a viewer/spectator or a participant is present. In the urban space, these figures transform into an observer who recognizes urban images, which is best embodied by the Benjaminian flâneur , and the one who participates in its essentials and becomes a co  -creator of their surroundings.\n\nIt  is  the  surroundings  where  the  space  is  constructed  and  reconstructed in practice, 'mapped out' by work performed as a daily practical and symbolic activity, which gives it its inner rhythm and clearly defined trajectories. This space is created by its inhabitants in terms of cultural, social as well as topographical meanings. The surroundings are a space of life and work, in which the human leaves their footprints as signs and symbols of their activity, desires and dreams, visible in the landscape. In this sense, the surroundings have their own history, preserved both in its geomorphological configuration, its flora and fauna, as well as in cultural human activity. It is the history of man's settlement in the surroundings. As Haapala says, it is the process of making the place one's own:\n\nEach of us has very different interest in the surroundings in which we live. These interests have been formed in the course of our life, our profession, hobbies, habits, friends, colleagues, enemies, etc . […] Place is something which we have made significant and meaningful for ourselves. […] We are very much engaged in the milieu in which we have made our home (Haapala, 2014: 39).\n\nThis statement expresses both what is individual and what is social, the subjective sensations and collective action of the community. As David Lowenthal observes, 'only dwelling allows us to understand what surrounds us' (Lowenthal, 2007: 36). The important things is that it becomes an 'all  -encompassing context': social, cultural and natural. It encompasses the surroundings or the multiplicity of their areas. The space is does not exclusively subsume the physical  or  natural  environment,  as  it  comprises  the  equally  important  cultural, emotional and sensual dimensions.\n\nSuch an approach allows to fuse the landscape with the dynamic element and reject its previous static model. It has an impact on the role of the individual, the viewer and user, who now - in the city understood as the cultural landscape - should become 'critical' participants. One may add here that the attitude of engagement postulated by Berleant is a characteristic of the active attitude. And the kind of experience is a practical response to the outer world; what is more, it has a potential to shape the living, inhabited world. In fact, being in the landscape means that the contemplative aesthetic experience must be replaced by a kind of an engagement: it needs a sensual awareness, topographical orientation and social activity. This is possible in the city landscape.\n\nThe contribution to the shaping of reality is made in three areas: perception, activity and awareness. If we assume that creating and re  -working the surroundings  includes  not  only  building  an  urban  space,  but  a  concern  for nature in the city as well, it means that here the aesthetics meets the social dimension, and nature becomes a subject of social nurturing and attention. It is not only a walk through the city park, but e.g. civic responses to an attempt on the part of municipal services to cut down an old tree, spontaneous feeding of birds and cats, or interventions and actions of 'city gardeners'. Here the sublime becomes an impulse to 'domesticate' the city space. Critical participation means co  -creation and activity, and making nature in the city 'our' or 'social'. The best example is the idea of social gardens and city gardeners, the pieces of city which become a public concern and the object of social action. In this context, the sublime is a kind of participating in the city: these are not only the natural elements, the wild nature, but an activity which may 'reconstruct' nature within the city. Such a change is described by Moirika Reker, who refers to the concepts of urban orchards and urban gardening, which not only engage and activate the urban community, but help to take care of nature in the city\n\nas well: 'This engagement is further enhanced by participation and joint action' (Reker, 2015: 7).\n\nEach city may transform into such surroundings if we approach it from the perspective of the sublime, understood as the power to change the space and our relation with nature in the name of self  -preservation. In the city, self-preservation means to create such an environment of sustainable life where the interests of both city and nature become reciprocal, changing the very idea of the city. This is the reason why the relationship with nature within the space of the city seems so important. The activities of city gardeners, guerrilla gardeners or the idea of bio  -cites are not a utopia. When David Lowenthal says that the landscape is where we make our homes, where we work, live and dream, it seems that he had precisely such surroundings in mind.\n\n## BIBLIOGRAPHY\n\nAdorno,  Th.  W.  (2002). Aesthetic  theory .  (R.  Hullot  -Kentor,  Trans.).  London-New  York: Continuum.\n\nBerleant, A. (1993). The aesthetics of art and nature. In: S. Kemal &amp; I. Gaskell (Eds.). Land­ scape, natural beauty and the arts (pp. 228-243). Cambridge: Cambridge University Press.\n\nBerleant, A. (1997). Living in the landscape: Toward an aesthetics of environment .  Lawrence: University Press of Kansans.\n\nBerleant, A. (2011). Wzniosłość i zmysły. Estetyczna przemiana świata człowieka . (S. Stankiewicz, Trans.). Kraków: Universitas.\n\nBloom, H. (Ed.). (2006). Emerson's essays . New York: Infobase Publishing.\n\nBöhme, G. (2002). Filozofia i estetyka przyrody w dobie kryzysu środowiska naturalnego (J. Merecki, Trans.). Warszawa: Oficyna Naukowa.\n\nBuczyńska  -Garewicz, H. (2006). Miejsca, strony, okolice . Przyczynek do fenomenologii przestrzeni . Kraków: Universitas.\n\nBurke, E. (2013). A philosophical enquiry into the origins of the sublime and beautiful. Hollywood: Simon &amp; Brown. [Polish trans.: Burke, E. (1968). Dociekania filozoficzne o pochodze­ niu naszych idei wzniosłości i piękna (P . Graff, Trans.). Warszawa: Państwowe Wydawnictwo Naukowe].\n\nCosgrove, D. (2003). Landscape and the european sense of sight - eyeing nature . In: K. Anderson, M. Domosh, S. Pile &amp; N. Thrift (Eds.). (2003). Handbook of cultural geography (pp. 249-268). London: Sage Publications.\n\nFrydryczak, B. (2013a). Krajobraz. Od estetyki the picturesque do doświadczenia topograficznego . Poznań: Wydawnictwo Poznańskiego Towarzystwa Przyjaciół Nauk.\n\nFydryczak, B. (2013b). The cityspace: From garden city to park city. Studia Europaea Gniesne­ nsia , 7 , 327-342.\n\nGiddens, A. (2007). Nowoczesność i tożsamość. 'Ja' i społeczeństwo w epoce późnej nowoczesności . (A Szulżycka, Trans.). Warszawa: Wydawnictwo Naukowe PWN.\n\nGilpin W. (1792). Three essays:  On  picturesque  beauty,  on  picturesque  travel  and  on  sketching landscape . London: Printed for R. Blamire.\n\nHaapala A. (2014). On the aesthetics of everyday (manuscript). In polish translation: O estetyce codzienności (B. Frydryczak, Trans.). In: B. Frydryczak &amp; M. Ciesielski (Eds.). Krajobraz kulturowy (pp. 27-43). Poznań: Wydawnictwo Poznańskiego Towarzystwa Przyjaciół Nauk.\n\nIngold,  T.  (2000). The perception  of  the  environment : Essays  on  livelihood,  dwelling  and  skill . London: Routledge.\n\nKant,  I. (1986). Krytyka  władzy  sądzenia .  (J.  Gałecki,  Trans.).  Warszawa:  Państwowe Wydawnictwo Naukowe.\n\nLowenthal, D. (2007). Living with and looking at landscape. Landscape Research , 5, 637-659. Reker, M. (2015). Orchards as sustainable art projects: Urban orchards and the idea of aesthetic  experience  of  the  city.  (Paper  presented  at  the  XII  IIAA  International  Summer Conference on Environmental Aesthetics, Lahti 2015).\n\nSauer, C. (1963). The morphology of landscape. In: C. Sauer. Land and line: A selection from the writings of Carl Ortwin Sauer , Berkeley-Los Angeles: University of California Press.\n\nSennett, R. (1996), Ciało i kamień. Człowiek i miasto w cywilizacji Zachodu . (M. Konikowska, Trans.). Gdańsk: Wydawnictwo Marabut.\n\nWilkoszewska K. (1992). Sztuka jako rytm życia. Rekonstrukcja filozofii sztuki Johna Deweya . Kraków: Wydawnictwo Uniwersytetu Jagiellońskiego.",
+    "responses": [
+      {
+        "source": "gpt-4o-2024-11-20",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"ADU1\": {\n      \"text\": \"This paper sets out to interpret the phrase 'the city landscape'.\",\n      \"label\": \"claim\"\n    },\n    \"ADU2\": {\n      \"text\": \"The author attempts to demonstrate that a city can be interpreted in terms of a cultural landscape.\",\n      \"label\": \"claim\"\n    },\n    \"ADU3\": {\n      \"text\": \"Recognizing that city constitutes landscape means that we put the emphasis on the picturesque or image-like appearance of the world.\",\n      \"label\": \"premise\"\n    },\n    \"ADU4\": {\n      \"text\": \"From this perspective, the city landscape should be considered as a special variant of cultural landscape, if we regard cultural landscape as nature and space assimilated and re-worked by man.\",\n      \"label\": \"claim\"\n    },\n    \"ADU5\": {\n      \"text\": \"The cultural dimension of landscape is the result of linking it to the human as a subject who experiences and creates.\",\n      \"label\": \"premise\"\n    },\n    \"ADU6\": {\n      \"text\": \"The cultural landscape is fashioned from a natural landscape by a culture group. Culture is the agent, the natural area is the medium, the cultural landscape the result.\",\n      \"label\": \"premise\"\n    },\n    \"ADU7\": {\n      \"text\": \"The shaping force, however, lies in the culture itself.\",\n      \"label\": \"premise\"\n    },\n    \"ADU8\": {\n      \"text\": \"From this perspective, the relation between the city as an inhabited space and nature as a domain re-worked by humans—not between the city and a picture/an image—seems to be one of the crucial aspects for the understanding of the concept of city as a landscape.\",\n      \"label\": \"claim\"\n    },\n    \"ADU9\": {\n      \"text\": \"The city is and remains nature, although it is nature absorbed and shaped by man.\",\n      \"label\": \"premise\"\n    },\n    \"ADU10\": {\n      \"text\": \"Historical development of the city shows that the city has assigned a strictly decorative role to nature.\",\n      \"label\": \"premise\"\n    },\n    \"ADU11\": {\n      \"text\": \"The picturesque is the category which allows the city to act as the best gardener, who lays out designated green spaces and controls the spontaneity of nature in much the same fashion as in landscape gardens and parks, where the category first developed and reached the fullness of its meaning.\",\n      \"label\": \"premise\"\n    },\n    \"ADU12\": {\n      \"text\": \"The sublime has opened up new possibilities: the experience of the majesty of nature helped the human to become one with nature, as in the Romantic paradigm it assumed the form of worshipping wild nature, or its idealization and sanctification.\",\n      \"label\": \"premise\"\n    },\n    \"ADU13\": {\n      \"text\": \"The sublime appears at the moment of danger, activating the entire body and alerting its sensitivity.\",\n      \"label\": \"premise\"\n    },\n    \"ADU14\": {\n      \"text\": \"Adorno's sublime designates the exact place the human being occupies in the world of nature, which reminds them not only of their natural roots but also of their mortality.\",\n      \"label\": \"premise\"\n    },\n    \"ADU15\": {\n      \"text\": \"The surroundings are a space of life and work, in which the human leaves their footprints as signs and symbols of their activity, desires and dreams, visible in the landscape.\",\n      \"label\": \"premise\"\n    },\n    \"ADU16\": {\n      \"text\": \"Critical participation means co-creation and activity, and making nature in the city 'our' or 'social'.\",\n      \"label\": \"claim\"\n    },\n    \"ADU17\": {\n      \"text\": \"Each city may transform into such surroundings if we approach it from the perspective of the sublime, understood as the power to change the space and our relation with nature in the name of self-preservation.\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"ADU1\",\n      \"target\": \"ADU2\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU3\",\n      \"target\": \"ADU4\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU5\",\n      \"target\": \"ADU4\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU6\",\n      \"target\": \"ADU5\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU7\",\n      \"target\": \"ADU6\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU9\",\n      \"target\": \"ADU8\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU10\",\n      \"target\": \"ADU8\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU11\",\n      \"target\": \"ADU8\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU12\",\n      \"target\": \"ADU13\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU14\",\n      \"target\": \"ADU13\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU15\",\n      \"target\": \"ADU16\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU16\",\n      \"target\": \"ADU17\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "ADU1": {
+              "text": "This paper sets out to interpret the phrase 'the city landscape'.",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "The author attempts to demonstrate that a city can be interpreted in terms of a cultural landscape.",
+              "label": "claim"
+            },
+            "ADU3": {
+              "text": "Recognizing that city constitutes landscape means that we put the emphasis on the picturesque or image-like appearance of the world.",
+              "label": "premise"
+            },
+            "ADU4": {
+              "text": "From this perspective, the city landscape should be considered as a special variant of cultural landscape, if we regard cultural landscape as nature and space assimilated and re-worked by man.",
+              "label": "claim"
+            },
+            "ADU5": {
+              "text": "The cultural dimension of landscape is the result of linking it to the human as a subject who experiences and creates.",
+              "label": "premise"
+            },
+            "ADU6": {
+              "text": "The cultural landscape is fashioned from a natural landscape by a culture group. Culture is the agent, the natural area is the medium, the cultural landscape the result.",
+              "label": "premise"
+            },
+            "ADU7": {
+              "text": "The shaping force, however, lies in the culture itself.",
+              "label": "premise"
+            },
+            "ADU8": {
+              "text": "From this perspective, the relation between the city as an inhabited space and nature as a domain re-worked by humans—not between the city and a picture/an image—seems to be one of the crucial aspects for the understanding of the concept of city as a landscape.",
+              "label": "claim"
+            },
+            "ADU9": {
+              "text": "The city is and remains nature, although it is nature absorbed and shaped by man.",
+              "label": "premise"
+            },
+            "ADU10": {
+              "text": "Historical development of the city shows that the city has assigned a strictly decorative role to nature.",
+              "label": "premise"
+            },
+            "ADU11": {
+              "text": "The picturesque is the category which allows the city to act as the best gardener, who lays out designated green spaces and controls the spontaneity of nature in much the same fashion as in landscape gardens and parks, where the category first developed and reached the fullness of its meaning.",
+              "label": "premise"
+            },
+            "ADU12": {
+              "text": "The sublime has opened up new possibilities: the experience of the majesty of nature helped the human to become one with nature, as in the Romantic paradigm it assumed the form of worshipping wild nature, or its idealization and sanctification.",
+              "label": "premise"
+            },
+            "ADU13": {
+              "text": "The sublime appears at the moment of danger, activating the entire body and alerting its sensitivity.",
+              "label": "premise"
+            },
+            "ADU14": {
+              "text": "Adorno's sublime designates the exact place the human being occupies in the world of nature, which reminds them not only of their natural roots but also of their mortality.",
+              "label": "premise"
+            },
+            "ADU15": {
+              "text": "The surroundings are a space of life and work, in which the human leaves their footprints as signs and symbols of their activity, desires and dreams, visible in the landscape.",
+              "label": "premise"
+            },
+            "ADU16": {
+              "text": "Critical participation means co-creation and activity, and making nature in the city 'our' or 'social'.",
+              "label": "claim"
+            },
+            "ADU17": {
+              "text": "Each city may transform into such surroundings if we approach it from the perspective of the sublime, understood as the power to change the space and our relation with nature in the name of self-preservation.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU1",
+              "target": "ADU2",
+              "type": "support"
+            },
+            {
+              "source": "ADU3",
+              "target": "ADU4",
+              "type": "support"
+            },
+            {
+              "source": "ADU5",
+              "target": "ADU4",
+              "type": "support"
+            },
+            {
+              "source": "ADU6",
+              "target": "ADU5",
+              "type": "support"
+            },
+            {
+              "source": "ADU7",
+              "target": "ADU6",
+              "type": "support"
+            },
+            {
+              "source": "ADU9",
+              "target": "ADU8",
+              "type": "support"
+            },
+            {
+              "source": "ADU10",
+              "target": "ADU8",
+              "type": "support"
+            },
+            {
+              "source": "ADU11",
+              "target": "ADU8",
+              "type": "support"
+            },
+            {
+              "source": "ADU12",
+              "target": "ADU13",
+              "type": "support"
+            },
+            {
+              "source": "ADU14",
+              "target": "ADU13",
+              "type": "support"
+            },
+            {
+              "source": "ADU15",
+              "target": "ADU16",
+              "type": "support"
+            },
+            {
+              "source": "ADU16",
+              "target": "ADU17",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "ADU1": {
+              "text": "This paper sets out to interpret the phrase 'the city landscape'.",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "The author attempts to demonstrate that a city can be interpreted in terms of a cultural landscape.",
+              "label": "claim"
+            },
+            "ADU3": {
+              "text": "Recognizing that city constitutes landscape means that we put the emphasis on the picturesque or image-like appearance of the world.",
+              "label": "premise"
+            },
+            "ADU4": {
+              "text": "From this perspective, the city landscape should be considered as a special variant of cultural landscape, if we regard cultural landscape as nature and space assimilated and re-worked by man.",
+              "label": "claim"
+            },
+            "ADU5": {
+              "text": "The cultural dimension of landscape is the result of linking it to the human as a subject who experiences and creates.",
+              "label": "premise"
+            },
+            "ADU6": {
+              "text": "The cultural landscape is fashioned from a natural landscape by a culture group. Culture is the agent, the natural area is the medium, the cultural landscape the result.",
+              "label": "premise"
+            },
+            "ADU11": {
+              "text": "The picturesque is the category which allows the city to act as the best gardener, who lays out designated green spaces and controls the spontaneity of nature in much the same fashion as in landscape gardens and parks, where the category first developed and reached the fullness of its meaning.",
+              "label": "premise"
+            },
+            "ADU12": {
+              "text": "The sublime has opened up new possibilities: the experience of the majesty of nature helped the human to become one with nature, as in the Romantic paradigm it assumed the form of worshipping wild nature, or its idealization and sanctification.",
+              "label": "premise"
+            },
+            "ADU13": {
+              "text": "The sublime appears at the moment of danger, activating the entire body and alerting its sensitivity.",
+              "label": "premise"
+            },
+            "ADU14": {
+              "text": "Adorno's sublime designates the exact place the human being occupies in the world of nature, which reminds them not only of their natural roots but also of their mortality.",
+              "label": "premise"
+            },
+            "ADU15": {
+              "text": "The surroundings are a space of life and work, in which the human leaves their footprints as signs and symbols of their activity, desires and dreams, visible in the landscape.",
+              "label": "premise"
+            },
+            "ADU16": {
+              "text": "Critical participation means co-creation and activity, and making nature in the city 'our' or 'social'.",
+              "label": "claim"
+            },
+            "ADU17": {
+              "text": "Each city may transform into such surroundings if we approach it from the perspective of the sublime, understood as the power to change the space and our relation with nature in the name of self-preservation.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU1",
+              "target": "ADU2",
+              "type": "support"
+            },
+            {
+              "source": "ADU3",
+              "target": "ADU4",
+              "type": "support"
+            },
+            {
+              "source": "ADU5",
+              "target": "ADU4",
+              "type": "support"
+            },
+            {
+              "source": "ADU6",
+              "target": "ADU5",
+              "type": "support"
+            },
+            {
+              "source": "ADU12",
+              "target": "ADU13",
+              "type": "support"
+            },
+            {
+              "source": "ADU14",
+              "target": "ADU13",
+              "type": "support"
+            },
+            {
+              "source": "ADU15",
+              "target": "ADU16",
+              "type": "support"
+            },
+            {
+              "source": "ADU16",
+              "target": "ADU17",
+              "type": "support"
+            }
+          ]
+        }
+      },
+      {
+        "source": "claude-3-5-sonnet-20241022",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"1\": {\n      \"text\": \"We have become accustomed to speaking of the city as a landscape, and this phrase is neither surprising, nor questionable.\",\n      \"label\": \"premise\"\n    },\n    \"2\": {\n      \"text\": \"From this perspective, the city landscape should be considered as a special variant of cultural landscape, if we regard cultural landscape as nature and space assimilated and re-worked by man.\",\n      \"label\": \"claim\"\n    },\n    \"3\": {\n      \"text\": \"The cultural landscape is fashioned from a natural landscape by a culture group. Culture is the agent, the natural area is the medium, the cultural landscape the result.\",\n      \"label\": \"premise\"\n    },\n    \"4\": {\n      \"text\": \"The city is and remains nature, although it is nature absorbed and shaped by man\",\n      \"label\": \"claim\"\n    },\n    \"5\": {\n      \"text\": \"Historical development of the city shows that the city has assigned a strictly decorative role to nature\",\n      \"label\": \"claim\"\n    },\n    \"6\": {\n      \"text\": \"The picturesque is a call for an ideal landscape, whose material can be found in nature, as well as in the city but it is the human who creates it.\",\n      \"label\": \"claim\"\n    },\n    \"7\": {\n      \"text\": \"The sublime appears at the moment of danger, activating the entire body and alerting its sensitivity.\",\n      \"label\": \"claim\"\n    },\n    \"8\": {\n      \"text\": \"The sublime is able to restore a sense of oneness with the natural world: it is possible on the basis of the experience which takes a form of engagement as a kind of relationship with the surrounding world.\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"1\",\n      \"target\": \"2\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"3\",\n      \"target\": \"2\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"4\",\n      \"target\": \"2\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"5\",\n      \"target\": \"6\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"7\",\n      \"target\": \"8\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "1": {
+              "text": "We have become accustomed to speaking of the city as a landscape, and this phrase is neither surprising, nor questionable.",
+              "label": "premise"
+            },
+            "2": {
+              "text": "From this perspective, the city landscape should be considered as a special variant of cultural landscape, if we regard cultural landscape as nature and space assimilated and re-worked by man.",
+              "label": "claim"
+            },
+            "3": {
+              "text": "The cultural landscape is fashioned from a natural landscape by a culture group. Culture is the agent, the natural area is the medium, the cultural landscape the result.",
+              "label": "premise"
+            },
+            "4": {
+              "text": "The city is and remains nature, although it is nature absorbed and shaped by man",
+              "label": "claim"
+            },
+            "5": {
+              "text": "Historical development of the city shows that the city has assigned a strictly decorative role to nature",
+              "label": "claim"
+            },
+            "6": {
+              "text": "The picturesque is a call for an ideal landscape, whose material can be found in nature, as well as in the city but it is the human who creates it.",
+              "label": "claim"
+            },
+            "7": {
+              "text": "The sublime appears at the moment of danger, activating the entire body and alerting its sensitivity.",
+              "label": "claim"
+            },
+            "8": {
+              "text": "The sublime is able to restore a sense of oneness with the natural world: it is possible on the basis of the experience which takes a form of engagement as a kind of relationship with the surrounding world.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "1",
+              "target": "2",
+              "type": "support"
+            },
+            {
+              "source": "3",
+              "target": "2",
+              "type": "support"
+            },
+            {
+              "source": "4",
+              "target": "2",
+              "type": "support"
+            },
+            {
+              "source": "5",
+              "target": "6",
+              "type": "support"
+            },
+            {
+              "source": "7",
+              "target": "8",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "1": {
+              "text": "We have become accustomed to speaking of the city as a landscape, and this phrase is neither surprising, nor questionable.",
+              "label": "premise"
+            },
+            "2": {
+              "text": "From this perspective, the city landscape should be considered as a special variant of cultural landscape, if we regard cultural landscape as nature and space assimilated and re-worked by man.",
+              "label": "claim"
+            },
+            "3": {
+              "text": "The cultural landscape is fashioned from a natural landscape by a culture group. Culture is the agent, the natural area is the medium, the cultural landscape the result.",
+              "label": "premise"
+            },
+            "4": {
+              "text": "The city is and remains nature, although it is nature absorbed and shaped by man",
+              "label": "claim"
+            },
+            "5": {
+              "text": "Historical development of the city shows that the city has assigned a strictly decorative role to nature",
+              "label": "claim"
+            },
+            "6": {
+              "text": "The picturesque is a call for an ideal landscape, whose material can be found in nature, as well as in the city but it is the human who creates it.",
+              "label": "claim"
+            },
+            "7": {
+              "text": "The sublime appears at the moment of danger, activating the entire body and alerting its sensitivity.",
+              "label": "claim"
+            },
+            "8": {
+              "text": "The sublime is able to restore a sense of oneness with the natural world: it is possible on the basis of the experience which takes a form of engagement as a kind of relationship with the surrounding world.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "1",
+              "target": "2",
+              "type": "support"
+            },
+            {
+              "source": "3",
+              "target": "2",
+              "type": "support"
+            },
+            {
+              "source": "4",
+              "target": "2",
+              "type": "support"
+            },
+            {
+              "source": "5",
+              "target": "6",
+              "type": "support"
+            },
+            {
+              "source": "7",
+              "target": "8",
+              "type": "support"
+            }
+          ]
+        }
+      }
+    ],
+    "timestamp": 1752755539.7004523
+  }
+]

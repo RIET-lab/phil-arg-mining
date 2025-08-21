@@ -1,0 +1,278 @@
+[
+  {
+    "identifier": "RYSAON",
+    "system_prompt": "## GOAL\nArgument‑mine the following paper to extract its comprehensive argumentative structure.\n\n## DEFINITIONS\n1. **Argument**: A set of propositions, including some number of premises and a conclusion. The premises should logically entail the conclusion.\n2. **Claim**: A proposition that asserts something to be true or false, typically requiring justification or evidence.\n3. **Premise**: A proposition that provides evidence, justification, or logical support for a claim or conclusion.\n\n## CRITICAL REQUIREMENTS\n1. **VERBATIM EXTRACTION ONLY**: Each ADU text must be copied EXACTLY from the paper with no modifications, paraphrasing, or combining of separate sentences.\n2. **NO HALLUCINATION**: Do not create, modify, or invent text that does not appear exactly in the source.\n3. **EXACT MATCHING**: Every word, punctuation mark, and spacing must match the original precisely.\n\n## DIRECTIONS\n1. **Identify Argumentative Discourse Units (ADUs)**  \n   - ADU = any contiguous text span functioning as a claim or a premise in the reasoning structure.\n   - **BE HIGHLY SELECTIVE**: Only include ADUs that are crucial to the overarching argument structure.\n   - Focus on significant claims and premises that contribute meaningfully to the argumentative flow.\n   - **AVOID NOISE**: Skip ADUs that are merely descriptive, tangential, or do not substantially advance the argument.\n   - Prioritize quality over quantity - fewer accurate, important ADUs are better than many insignificant ones.\n   - **EXTRACT ONLY**: Copy text spans exactly as they appear, without any modifications.\n2. **Classify each ADU**  \n   - Label = either `\"claim\"` or `\"premise\"`.  \n3. **Detect directed relations**  \n   - Relation = `\"support\"` or `\"attack\"`, from one ADU (source) to another (target).\n   - Map how ADUs connect to form reasoning chains.\n   - Focus on relationships between the most significant ADUs.\n   - Include relationships between premises that strengthen or weaken each other.\n4. **Verbatim spans**  \n   - Each `\"text\"` value must be copied EXACTLY from the paper with zero modifications.\n   - Do not paraphrase, summarize, or combine separate sentences.\n   - Do not add, remove, or change any words, punctuation, or spacing.\n   - If unsure about exact wording, skip that ADU rather than guess.\n\n## WHAT TO CAPTURE\n**INCLUDE ONLY:**\n- Main argumentative threads that are central to the paper's contribution\n- Core claims that represent the paper's primary arguments or findings\n- Key premises that provide essential support for major claims\n- Critical counterarguments and their refutations\n- Reasoning chains that demonstrate how main conclusions are derived\n\n**EXCLUDE (AVOID NOISE):**\n- Minor details, examples, or descriptive content that don't advance the argument\n- Tangential points or side discussions\n- Pure background information or literature review content\n- Methodological details unless they constitute argumentative claims\n- Obvious statements or commonly accepted facts\n- Redundant or repetitive argumentative content\n\n**GUIDING PRINCIPLE**: If removing an ADU would not significantly impact understanding of the paper's argumentative structure, it should be excluded.\n\n## QUALITY CONTROL\n- Before finalizing each ADU, verify the text exists exactly in the source\n- Prefer fewer, accurate ADUs over many potentially modified ones\n- When in doubt about exact wording, omit the ADU\n\n## OUTPUT FORMAT\nReturn **only** a single valid JSON object matching this schema.  \nDo **not** output any extra text, markdown, or explanations.\n\nRESPOND WITH ONLY:\n```json\n{\n  \"ADUs\": {\n    \"<ADU_ID>\": {\n      \"text\": \"<exact span from paper>\",\n      \"label\": \"claim\" | \"premise\"\n    }\n    ...\n  },\n  \"relations\": [\n    {\n      \"source\": \"<ADU_ID>\",\n      \"target\": \"<ADU_ID>\",\n      \"type\": \"support\" | \"attack\"\n    }\n  ]\n}\n```",
+    "user_content": "## Application of natural deduction in Renaissance geometry\n\n## ryszard mirek*\n\n## ABStrACt\n\nmy goal here is to provide a detailed analysis of the methods of inference that are employed in De prospectiva pingendi . For this purpose, a method of natural deduction is proposed. the treatise by Piero della Francesca is a manifestation of a union between the fine arts and the mathematical sciences of arithmetic and geometry. He defines painting as a part of perspective and, speaking precisely, as a branch of geometry, which is why we find advanced geometrical exercises here.\n\n## keYWOrDS\n\nphilosophy of art; perspective in painting; geometry in art perception; reasoning and aesthetic perception\n\n* Ph.D., associate professor of Pedagogical university of Cracow, Department of Philosophy and Sociology, head of the Chair of Logic and methodology of Science, Poland. e  -mail: mirek.r@poczta.fm.\n\n<!-- image -->\n\n## PrOPOSitiOn 1.13\n\nPiero della F rancesca (1415-1492) refers directly or indirectly to  euclidean geometry. the proof of Proposition 1.13 1 refers to the similarity of the triangles. Piero does not mention a number of euclidean proposition but he uses it in his proof. in euclid's Elements (c. 300 BC), these issues are discussed in the Book Vi, Proposition 4 to 8 (see euclid). At this point it is worth recalling Proposition 1.12.  it shows how to draw in perspective a surface of undefined shape, which is located in profile as a straight line. it means that a horizontal line BC can be foreshortened into a vertical line EB . the line AD represents a hypothetical observer and the point A is the position of the eye in relation to the line EB . the vertical line BF represents the picture plane (Fig. 1).\n\n<!-- image -->\n\nAccording to Proposition 1.13 we add a square BCGF that represents the object to be drawn in reality in a horizontal plane (Field, 2005: app. 8). then, we draw from the point A visual rays to the corners of the square (Fig. 2).\n\n<!-- image -->\n\nthen we construct the parallel half-line from the point A to the line segment BC with no end point, and divide the line segment BC into two equal parts in I . From this point we construct the line perpendicular to the point A' , and then draw the line from the point E to the point K , again parallel to BC (Fig. 3).\n\n<!-- image -->\n\nFinally, we draw the line A'B and A'C . the goal of design is to show that from the point of view of A the perspective image of the side BC of the square BCGF is EB , of the side FG is FH , while the farthest side of the CG is EH . What may amaze is Piero's assertion that the line segment D'E' is  also  the perspective image of the side of CG , so EH = D'E' (1). Let us recall an approach proposed by Field, following today's convections of reasoning (Field, 2005:145). At the outset it should be noted, that the triangles A'D'E' and A'BC are similar, because the sides of D'E' and BC are  parallel,  and the triangles CEE' and CAA' are similar, because EE' and AA' are parallel 2 . On this basis, we obtain the equivalence:\n\n<!-- formula-not-decoded -->\n\nthe triangles AEH and ACG are similar, because the sides HE and GC are parallel:\n\n<!-- formula-not-decoded -->\n\n2 Following Field's letters instead of He should be ' HE is parallel to GC '.\n\nthe right side of the equation (2) is the reverse of the left side of the equation (3). Both equations give so as a result of:\n\n<!-- formula-not-decoded -->\n\nAs already noted, triangles A'D'E' and A'BC are similar, so we have:\n\n<!-- formula-not-decoded -->\n\nthe left side of  (4) is equal to the right side of (5), so we have:\n\n<!-- formula-not-decoded -->\n\nBC = CG because BCGF is a square, and therefore (6) is reduced to (1):\n\nEH=D'E' , what was required to be proved.\n\nAs has been shown  the proposition may be used in the interpretation of the painting of Piero della Francesca The flagellation of Christ . the final figure looks as follows:\n\nFig. 4\n\n<!-- image -->\n\nHowever,  what  interests  us  is  a  logical  system  based  on  geometry.  Such a system has been discussed in a separate text (mirek, 2014). in a formal system EF one can use a natural  deduction in the form proposed by Frederic. Fitch and Ludwik Borkowski, but for the first time was introduced, as the method of subordinate proofs, independently by Stanisław Jaśkowski and gerhard gentzen. the advantage of natural deduction is that it seems to present in a precise and  visually readable way the Francesca's geometrical system. Let us start from the first part of proof:\n\n<!-- formula-not-decoded -->\n\nevery proof within a natural deduction system begins with a hypothesis (premise), above marked as P 1 and P 2 . the second premise is introduced within a subproof of the proof by means of repetition (reiteration). generally, every subsequent step in the proof (subproof ) is introduced by a hypothesis or it is a formula that is derived from previous steps using one of the rules of the system. Proofs and subproofs are marked out by vertical lines. then we use the introduction rule for conjunction ( ∧ +).  For the rule implication an introduction ( ⇒ +) is required a subproof from which we come back to the scope of the first vertical line. ' ∆ ' means a triangle and ' ~ ' means a similarity. As a novelty is introduced  the use of diagrams in a proof. this is consistent with the methods of inference that are employed in the Elements and particularly in De prospectiva pingendi . in the second example, we have one premise, and therefore we are within a subproof:\n\n<!-- formula-not-decoded -->\n\n<!-- formula-not-decoded -->\n\n<!-- formula-not-decoded -->\n\nin the third example, there are two premises, and in the fourth one:\n\nP1\n\nA'C   =  AC\n\nA\n\n'E'    AE\n\n<!-- formula-not-decoded -->\n\n<!-- formula-not-decoded -->\n\n<!-- formula-not-decoded -->\n\nWhile the latter two are as follows:\n\n| P 1 A   | A'E' = EH 'C CG                                        |             |\n|---------|--------------------------------------------------------|-------------|\n| P 2     | D'E' = A'E' BC A'C                                     |             |\n| 3 A     | A'E' = EH 'C CG                                        | r:P 1 )     |\n| 4 A     | A'E' = EH ∧ D'E' = A'E' 'C CG BC A'C                   | ∧ +:3,P 2 ) |\n| 5       | D'E' = EH BC CG                                        |             |\n| 6 A     | A'E' = EH ∧ D'E' = A'E' ⇒ D'E' = EH 'C CG BC A'C BC CG | ⇒ +:P 2 -5) |\n\n<!-- image -->\n\n| P 1    | = EH CG                    |             |\n|--------|----------------------------|-------------|\n| P 2    | BC = CG                    |             |\n| 3 D'E' | = EH BC CG                 | r:P 1 )     |\n| 4      | D'E' = EH ∧ BC = CG BC CG  | ∧ +:3,P 2 ) |\n| 5 EH   | = D'E'                     |             |\n| 6      | = EH ∧ BC = CG ⇒ EH = D'E' | ⇒ +:P 2 -5) |\n\n## PrOPOSitiOn 1.11\n\nin turn, in the case of Proposition 1.11 we are referred to the problem that objects of the same size will appear in various proportions in the picture, depending on the distance of the eye. Once again let's use diagrams supplied by Field  (2005:  101-103).  Francesca  proposes  to  draw  four  parallel  lines,  each 1 braccio long and they are one braccio apart. From the first line which is the picture line to the eye (A) is four bracci (Fig. 5).\n\n<!-- image -->\n\nAccording to Piero the proportion between the second one and the first is 5 to 4, the third and the second is 6 to 5, the fourth and the third is 7 to 6. these proportions are derived from pairs of similar triangles. As has been said, in Elements the issues can be found in Book Vi, Proposition 4 to 8 (euclid). in the case of the first and second line one can form the triangles by drawing an additional two lines that come to a point A (Fig. 6).\n\n<!-- image -->\n\nthe triangles ACM i ANL are similar and what we want is the ratio of NL to BL . Piero presents the proportion among those four lines is as of the four numbers, namely 105 , 84 , 70 , 60 . these ratios also depends on the distance of the first line to a point A. if we increase the distance to 6 bracci, the proportions will be like the four numbers 84 , 72 , 63 , 56 . While changing the height of the eye makes no difference to a ratio. in support of this thesis Field proposes the following figure:\n\n<!-- image -->\n\nit is worth noting that both the part of Figure 7 above and below the line segment AQR have the same form as Figure 5. Both triangles ACM , ANP and ACR , ANQ are similar. the aim is to find the ratio of NP to BL . Starting from triangles of ACM and ANP , we obtain the equivalence:\n\n<!-- formula-not-decoded -->\n\nLikewise with triangles ACR i ANQ we have the equivalence:\n\n<!-- formula-not-decoded -->\n\nBy combining the left side of (7) with the right side of (8) and remembering that CM = BL , we have:\n\n<!-- formula-not-decoded -->\n\nAgain, let's use the method of natural deduction:\n\n<!-- formula-not-decoded -->\n\n<!-- formula-not-decoded -->\n\n<!-- formula-not-decoded -->\n\n<!-- formula-not-decoded -->\n\n- P1 NP   =  AN CM    AC\n\nP2\n\nAN\n\n3\n\n4\n\n5\n\n6\n\nNP\n\nNP\n\nNP\n\n=  AQ\n\nAC    AR\n\n<!-- formula-not-decoded -->\n\n<!-- formula-not-decoded -->\n\n=  AQ\n\n(Fig.\n\n7)\n\nCM    AR\n\nNP   =  AN\n\nAN  =  AQ\n\nNP   =  AQ\n\nCM    AC     AC    AR      CM    AR\n\n∧\n\n⇒\n\n(\n\n⇒\n\n+:P\n\n-5)\n\n2\n\nAs has been demonstrated, Proposition 1.11 can be used in the masterpieces painted by Piero, namely in his The baptism of Christ and The resurrection . in the former one can find the proportions between the trees, as well as between Christ and people on further plans (Fig. 8).\n\nFig. 8\n\n<!-- image -->\n\n## 3.  PrOPOSitiOn 1.8\n\nin turn, Proposition 1.8 is known as 'Piero's theorem'. Piero shows that the perspective images of orthogonals converge to a centric point (Fig. 9).\n\n<!-- image -->\n\nWhat we want to prove is that if BH , DK , EL , FM , GN , CI can all be extended to meet at A , then the pattern of ratios defined by the points HKLMNI on the second transversal, HI , is the same as that defined by BDEFGC on the first  one, BC .  According to Francesca the triangles ABD i AHK are  similar, the triangles ADE i AKL are similar and AEF i ALM are similar etc. What is more, the angles of the triangle ABD are similar to the angles of the triangle AHK ,  what follows from euclid's theorem from  the Book Vi, Proposition 21. therefore, BD to DE is in the same ratio as HK to KL , EF to FG is the same ratio as LM to MN ,  and FG to GC , as MN to NI . translation into the language of natural deduction takes the form:\n\nKL\n\n<!-- image -->\n\n| ∆ ABD ~ ∆ AHK     | ∆ ABD ~ ∆ AHK                                                               | ∆ ABD ~ ∆ AHK     |\n|-------------------|-----------------------------------------------------------------------------|-------------------|\n| < ) ABD ~ < ) AHK | < ) ABD ~ < ) AHK                                                           | < ) ABD ~ < ) AHK |\n| P 3               | AGC ~ ∆ ANI                                                                 |                   |\n| P 4               | ) AGC ~ < ) ANI                                                             |                   |\n| 5                 | ABD ~ ∆ AHK (                                                               | r:P 1 )           |\n| 6                 | ) ABD ~ < ) AHK                                                             | r:P 2 )           |\n| 7                 | ABD ~ ∆ AHK ∧ ∆ AGC ~ ∆ ANI                                                 | ∧ +:5,P 3 )       |\n| 8                 | ) ABD ~ < ) AHK ∧ < ) AGC ~ < ) ANI                                         | ∧ +:6,P 4 )       |\n| 9                 | ∆ ABD ~ ∆ AHK ∧ ∆ AGC ~ ∆ ANI)                                              |                   |\n|                   | ) ABD ~ < ) AHK ∧ < ) AGC ~ < ) ANI ) (                                     | ∧ +:7,8)          |\n| 10                | FG = HK GC KL                                                               |                   |\n| 11                | ADE ~ ∆ AKL ∧ ∆ ABD ~ ∆ AHK ) ADE ~ < ) AKL ∧ < ) ABD ~ < ) AHK ) ⇒ BD = HK |                   |\n\nDE\n\n' &lt; ) ' means that all angles of both triangles  are similar. in the rest part the proof  proceeds by analogy.\n\nMN\n\nNI\n\nFG\n\n| ∆ AEF ~ ∆ ALM                                                                                      | ∆ AEF ~ ∆ ALM                                                                                      |\n|----------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------|\n| < ) AEF ~ < ) ALM                                                                                  | < ) AEF ~ < ) ALM                                                                                  |\n|                                                                                                    | ~ ∆ AMN                                                                                            |\n|                                                                                                    | ) AFG ~ < ) AMN                                                                                    |\n|                                                                                                    | ALM (                                                                                              |\n|                                                                                                    | ) AEF ~ < ) ALM (                                                                                  |\n|                                                                                                    | ALM ∧ ∆ AFG ~ ∆ AMN (                                                                              |\n|                                                                                                    | ) AEF ~ < ) ALM ∧ < ) AFG ~ < ) AMN (                                                              |\n|                                                                                                    | ∆ AEF ~ ∆ ALM ∧ ∆ AFG ~ ∆ AMN)                                                                     |\n|                                                                                                    | ) AEF ~ < ) ALM ∧ < ) AFG ~ < ) AMN )                                                              |\n|                                                                                                    | = LM (Fig. 9) GC MN                                                                                |\n| ( ∆ AEF ~ ∆ ALM ∧ ∆ AFG ~ ∆ AMN ) < ) AEF ~ < ) ALM ∧ < ) AFG ~ < ) AMN ) ⇒ FG = LM ( ⇒ +:P 3 -10) | ( ∆ AEF ~ ∆ ALM ∧ ∆ AFG ~ ∆ AMN ) < ) AEF ~ < ) ALM ∧ < ) AFG ~ < ) AMN ) ⇒ FG = LM ( ⇒ +:P 3 -10) |\n| ∆ AFG ~ ∆ AMN                                                                                      | ∆ AFG ~ ∆ AMN                                                                                      |\n|                                                                                                    | ~ ∆ AMN                                                                                            |\n|                                                                                                    | ) AFG ~ < ) AMN                                                                                    |\n|                                                                                                    | ALM (                                                                                              |\n|                                                                                                    | ) AEF ~ < ) ALM (                                                                                  |\n|                                                                                                    | ALM ∧ ∆ AFG ~ ∆ AMN (                                                                              |\n|                                                                                                    | ) AEF ~ < ) ALM ∧ < ) AFG ~ < ) AMN (                                                              |\n|                                                                                                    | ∆ AEF ~ ∆ ALM ∧ ∆ AFG ~ ∆ AMN)                                                                     |\n|                                                                                                    | ) AEF ~ < ) ALM ∧ < ) AFG ~ < ) AMN )                                                              |\n|                                                                                                    | = MN (Fig. 9) FG NI                                                                                |\n| ( ∆ AEF ~ ∆ ALM ∧ ∆ AFG ~ ∆ AMN )                                                                  | ( ∆ AEF ~ ∆ ALM ∧ ∆ AFG ~ ∆ AMN )                                                                  |\n| < ) AEF ~ < ) ALM ∧ < ) AFG ~ < ) AMN ) ⇒ EF = MN                                                  | < ) AEF ~ < ) ALM ∧ < ) AFG ~ < ) AMN ) ⇒ EF = MN                                                  |\n\n## 4.  COnCLuSiOn\n\nAs has been noted, the advantage of natural deduction is that it seems to present in a precise and visually readable way a geometrical system. in Francesca's De prospectiva pingendi one can find 48 propositions along with the diagrams. the use of diagrams in a Piero's geometry as in a euclidean one is governed by a discernible logic. An attempt to include it in a logical system with the use of diagrams it seems so obvious and indicated.\n\n## BiBLiOgrAPHY\n\neuclid. Elements .  retrieved  from  the  professional  website  of  David  e.  Joyce,  Professor  of mathematics  and  Computer  Science,  Clark  university,  Worcester,  uSA  ©1996,  1997,\n\n1998. retrived from: http://aleph0.clarku.edu/~djoyce/elements/toc.html (02.12.2014). Field, J. V. (2005). Piero della Francesca. A mathematician's art . (Appendix 8) new Haven London: Yale university Press. mirek, r. (2014). System logiczny oparty na geometrii Piera della Francesca. Studia Philosophica Wratislaviensia, 9 (4), 37-51.",
+    "responses": [
+      {
+        "source": "gpt-4o-2024-11-20",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"ADU1\": {\n      \"text\": \"My goal here is to provide a detailed analysis of the methods of inference that are employed in De prospectiva pingendi.\",\n      \"label\": \"claim\"\n    },\n    \"ADU2\": {\n      \"text\": \"For this purpose, a method of natural deduction is proposed.\",\n      \"label\": \"claim\"\n    },\n    \"ADU3\": {\n      \"text\": \"The treatise by Piero della Francesca is a manifestation of a union between the fine arts and the mathematical sciences of arithmetic and geometry.\",\n      \"label\": \"premise\"\n    },\n    \"ADU4\": {\n      \"text\": \"He defines painting as a part of perspective and, speaking precisely, as a branch of geometry, which is why we find advanced geometrical exercises here.\",\n      \"label\": \"premise\"\n    },\n    \"ADU5\": {\n      \"text\": \"According to Proposition 1.13 we add a square BCGF that represents the object to be drawn in reality in a horizontal plane.\",\n      \"label\": \"premise\"\n    },\n    \"ADU6\": {\n      \"text\": \"The goal of design is to show that from the point of view of A the perspective image of the side BC of the square BCGF is EB, of the side FG is FH, while the farthest side of the CG is EH.\",\n      \"label\": \"claim\"\n    },\n    \"ADU7\": {\n      \"text\": \"As has been shown the proposition may be used in the interpretation of the painting of Piero della Francesca The flagellation of Christ.\",\n      \"label\": \"claim\"\n    },\n    \"ADU8\": {\n      \"text\": \"The advantage of natural deduction is that it seems to present in a precise and visually readable way the Francesca's geometrical system.\",\n      \"label\": \"claim\"\n    },\n    \"ADU9\": {\n      \"text\": \"In turn, in the case of Proposition 1.11 we are referred to the problem that objects of the same size will appear in various proportions in the picture, depending on the distance of the eye.\",\n      \"label\": \"premise\"\n    },\n    \"ADU10\": {\n      \"text\": \"As has been demonstrated, Proposition 1.11 can be used in the masterpieces painted by Piero, namely in his The baptism of Christ and The resurrection.\",\n      \"label\": \"claim\"\n    },\n    \"ADU11\": {\n      \"text\": \"In turn, Proposition 1.8 is known as 'Piero's theorem'.\",\n      \"label\": \"premise\"\n    },\n    \"ADU12\": {\n      \"text\": \"Piero shows that the perspective images of orthogonals converge to a centric point.\",\n      \"label\": \"claim\"\n    },\n    \"ADU13\": {\n      \"text\": \"As has been noted, the advantage of natural deduction is that it seems to present in a precise and visually readable way a geometrical system.\",\n      \"label\": \"claim\"\n    },\n    \"ADU14\": {\n      \"text\": \"In Francesca's De prospectiva pingendi one can find 48 propositions along with the diagrams.\",\n      \"label\": \"premise\"\n    },\n    \"ADU15\": {\n      \"text\": \"The use of diagrams in a Piero's geometry as in a euclidean one is governed by a discernible logic.\",\n      \"label\": \"premise\"\n    },\n    \"ADU16\": {\n      \"text\": \"An attempt to include it in a logical system with the use of diagrams it seems so obvious and indicated.\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"ADU1\",\n      \"target\": \"ADU2\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU3\",\n      \"target\": \"ADU1\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU4\",\n      \"target\": \"ADU1\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU5\",\n      \"target\": \"ADU6\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU6\",\n      \"target\": \"ADU7\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU8\",\n      \"target\": \"ADU2\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU9\",\n      \"target\": \"ADU10\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU11\",\n      \"target\": \"ADU12\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU13\",\n      \"target\": \"ADU16\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU14\",\n      \"target\": \"ADU16\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU15\",\n      \"target\": \"ADU16\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "ADU1": {
+              "text": "My goal here is to provide a detailed analysis of the methods of inference that are employed in De prospectiva pingendi.",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "For this purpose, a method of natural deduction is proposed.",
+              "label": "claim"
+            },
+            "ADU3": {
+              "text": "The treatise by Piero della Francesca is a manifestation of a union between the fine arts and the mathematical sciences of arithmetic and geometry.",
+              "label": "premise"
+            },
+            "ADU4": {
+              "text": "He defines painting as a part of perspective and, speaking precisely, as a branch of geometry, which is why we find advanced geometrical exercises here.",
+              "label": "premise"
+            },
+            "ADU5": {
+              "text": "According to Proposition 1.13 we add a square BCGF that represents the object to be drawn in reality in a horizontal plane.",
+              "label": "premise"
+            },
+            "ADU6": {
+              "text": "The goal of design is to show that from the point of view of A the perspective image of the side BC of the square BCGF is EB, of the side FG is FH, while the farthest side of the CG is EH.",
+              "label": "claim"
+            },
+            "ADU7": {
+              "text": "As has been shown the proposition may be used in the interpretation of the painting of Piero della Francesca The flagellation of Christ.",
+              "label": "claim"
+            },
+            "ADU8": {
+              "text": "The advantage of natural deduction is that it seems to present in a precise and visually readable way the Francesca's geometrical system.",
+              "label": "claim"
+            },
+            "ADU9": {
+              "text": "In turn, in the case of Proposition 1.11 we are referred to the problem that objects of the same size will appear in various proportions in the picture, depending on the distance of the eye.",
+              "label": "premise"
+            },
+            "ADU10": {
+              "text": "As has been demonstrated, Proposition 1.11 can be used in the masterpieces painted by Piero, namely in his The baptism of Christ and The resurrection.",
+              "label": "claim"
+            },
+            "ADU11": {
+              "text": "In turn, Proposition 1.8 is known as 'Piero's theorem'.",
+              "label": "premise"
+            },
+            "ADU12": {
+              "text": "Piero shows that the perspective images of orthogonals converge to a centric point.",
+              "label": "claim"
+            },
+            "ADU13": {
+              "text": "As has been noted, the advantage of natural deduction is that it seems to present in a precise and visually readable way a geometrical system.",
+              "label": "claim"
+            },
+            "ADU14": {
+              "text": "In Francesca's De prospectiva pingendi one can find 48 propositions along with the diagrams.",
+              "label": "premise"
+            },
+            "ADU15": {
+              "text": "The use of diagrams in a Piero's geometry as in a euclidean one is governed by a discernible logic.",
+              "label": "premise"
+            },
+            "ADU16": {
+              "text": "An attempt to include it in a logical system with the use of diagrams it seems so obvious and indicated.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU1",
+              "target": "ADU2",
+              "type": "support"
+            },
+            {
+              "source": "ADU3",
+              "target": "ADU1",
+              "type": "support"
+            },
+            {
+              "source": "ADU4",
+              "target": "ADU1",
+              "type": "support"
+            },
+            {
+              "source": "ADU5",
+              "target": "ADU6",
+              "type": "support"
+            },
+            {
+              "source": "ADU6",
+              "target": "ADU7",
+              "type": "support"
+            },
+            {
+              "source": "ADU8",
+              "target": "ADU2",
+              "type": "support"
+            },
+            {
+              "source": "ADU9",
+              "target": "ADU10",
+              "type": "support"
+            },
+            {
+              "source": "ADU11",
+              "target": "ADU12",
+              "type": "support"
+            },
+            {
+              "source": "ADU13",
+              "target": "ADU16",
+              "type": "support"
+            },
+            {
+              "source": "ADU14",
+              "target": "ADU16",
+              "type": "support"
+            },
+            {
+              "source": "ADU15",
+              "target": "ADU16",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "ADU2": {
+              "text": "For this purpose, a method of natural deduction is proposed.",
+              "label": "claim"
+            },
+            "ADU4": {
+              "text": "He defines painting as a part of perspective and, speaking precisely, as a branch of geometry, which is why we find advanced geometrical exercises here.",
+              "label": "premise"
+            },
+            "ADU13": {
+              "text": "As has been noted, the advantage of natural deduction is that it seems to present in a precise and visually readable way a geometrical system.",
+              "label": "claim"
+            },
+            "ADU16": {
+              "text": "An attempt to include it in a logical system with the use of diagrams it seems so obvious and indicated.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU13",
+              "target": "ADU16",
+              "type": "support"
+            }
+          ]
+        }
+      },
+      {
+        "source": "claude-3-5-sonnet-20241022",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"A1\": {\n      \"text\": \"the treatise by Piero della Francesca is a manifestation of a union between the fine arts and the mathematical sciences of arithmetic and geometry\",\n      \"label\": \"claim\"\n    },\n    \"A2\": {\n      \"text\": \"He defines painting as a part of perspective and, speaking precisely, as a branch of geometry, which is why we find advanced geometrical exercises here\",\n      \"label\": \"claim\"\n    },\n    \"A3\": {\n      \"text\": \"Piero della F rancesca (1415-1492) refers directly or indirectly to euclidean geometry\",\n      \"label\": \"premise\"\n    },\n    \"A4\": {\n      \"text\": \"the advantage of natural deduction is that it seems to present in a precise and visually readable way the Francesca's geometrical system\",\n      \"label\": \"claim\"\n    },\n    \"A5\": {\n      \"text\": \"the use of diagrams in a Piero's geometry as in a euclidean one is governed by a discernible logic\",\n      \"label\": \"claim\"\n    },\n    \"A6\": {\n      \"text\": \"An attempt to include it in a logical system with the use of diagrams it seems so obvious and indicated\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"A3\",\n      \"target\": \"A1\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A2\",\n      \"target\": \"A1\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A4\",\n      \"target\": \"A5\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A5\",\n      \"target\": \"A6\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "A1": {
+              "text": "the treatise by Piero della Francesca is a manifestation of a union between the fine arts and the mathematical sciences of arithmetic and geometry",
+              "label": "claim"
+            },
+            "A2": {
+              "text": "He defines painting as a part of perspective and, speaking precisely, as a branch of geometry, which is why we find advanced geometrical exercises here",
+              "label": "claim"
+            },
+            "A3": {
+              "text": "Piero della F rancesca (1415-1492) refers directly or indirectly to euclidean geometry",
+              "label": "premise"
+            },
+            "A4": {
+              "text": "the advantage of natural deduction is that it seems to present in a precise and visually readable way the Francesca's geometrical system",
+              "label": "claim"
+            },
+            "A5": {
+              "text": "the use of diagrams in a Piero's geometry as in a euclidean one is governed by a discernible logic",
+              "label": "claim"
+            },
+            "A6": {
+              "text": "An attempt to include it in a logical system with the use of diagrams it seems so obvious and indicated",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "A3",
+              "target": "A1",
+              "type": "support"
+            },
+            {
+              "source": "A2",
+              "target": "A1",
+              "type": "support"
+            },
+            {
+              "source": "A4",
+              "target": "A5",
+              "type": "support"
+            },
+            {
+              "source": "A5",
+              "target": "A6",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "A1": {
+              "text": "the treatise by Piero della Francesca is a manifestation of a union between the fine arts and the mathematical sciences of arithmetic and geometry",
+              "label": "claim"
+            },
+            "A2": {
+              "text": "He defines painting as a part of perspective and, speaking precisely, as a branch of geometry, which is why we find advanced geometrical exercises here",
+              "label": "claim"
+            },
+            "A3": {
+              "text": "Piero della F rancesca (1415-1492) refers directly or indirectly to euclidean geometry",
+              "label": "premise"
+            },
+            "A4": {
+              "text": "the advantage of natural deduction is that it seems to present in a precise and visually readable way the Francesca's geometrical system",
+              "label": "claim"
+            },
+            "A5": {
+              "text": "the use of diagrams in a Piero's geometry as in a euclidean one is governed by a discernible logic",
+              "label": "claim"
+            },
+            "A6": {
+              "text": "An attempt to include it in a logical system with the use of diagrams it seems so obvious and indicated",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "A3",
+              "target": "A1",
+              "type": "support"
+            },
+            {
+              "source": "A2",
+              "target": "A1",
+              "type": "support"
+            },
+            {
+              "source": "A4",
+              "target": "A5",
+              "type": "support"
+            },
+            {
+              "source": "A5",
+              "target": "A6",
+              "type": "support"
+            }
+          ]
+        }
+      }
+    ],
+    "timestamp": 1752750404.1802359
+  }
+]

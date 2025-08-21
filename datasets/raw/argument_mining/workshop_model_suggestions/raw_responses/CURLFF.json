@@ -1,0 +1,717 @@
+[
+  {
+    "identifier": "CURLFF",
+    "system_prompt": "## GOAL\nArgument‑mine the following paper to extract its comprehensive argumentative structure.\n\n## DEFINITIONS\n1. **Argument**: A set of propositions, including some number of premises and a conclusion. The premises should logically entail the conclusion.\n2. **Claim**: A proposition that asserts something to be true or false, typically requiring justification or evidence.\n3. **Premise**: A proposition that provides evidence, justification, or logical support for a claim or conclusion.\n\n## CRITICAL REQUIREMENTS\n1. **VERBATIM EXTRACTION ONLY**: Each ADU text must be copied EXACTLY from the paper with no modifications, paraphrasing, or combining of separate sentences.\n2. **NO HALLUCINATION**: Do not create, modify, or invent text that does not appear exactly in the source.\n3. **EXACT MATCHING**: Every word, punctuation mark, and spacing must match the original precisely.\n\n## DIRECTIONS\n1. **Identify Argumentative Discourse Units (ADUs)**  \n   - ADU = any contiguous text span functioning as a claim or a premise in the reasoning structure.\n   - **BE HIGHLY SELECTIVE**: Only include ADUs that are crucial to the overarching argument structure.\n   - Focus on significant claims and premises that contribute meaningfully to the argumentative flow.\n   - **AVOID NOISE**: Skip ADUs that are merely descriptive, tangential, or do not substantially advance the argument.\n   - Prioritize quality over quantity - fewer accurate, important ADUs are better than many insignificant ones.\n   - **EXTRACT ONLY**: Copy text spans exactly as they appear, without any modifications.\n2. **Classify each ADU**  \n   - Label = either `\"claim\"` or `\"premise\"`.  \n3. **Detect directed relations**  \n   - Relation = `\"support\"` or `\"attack\"`, from one ADU (source) to another (target).\n   - Map how ADUs connect to form reasoning chains.\n   - Focus on relationships between the most significant ADUs.\n   - Include relationships between premises that strengthen or weaken each other.\n4. **Verbatim spans**  \n   - Each `\"text\"` value must be copied EXACTLY from the paper with zero modifications.\n   - Do not paraphrase, summarize, or combine separate sentences.\n   - Do not add, remove, or change any words, punctuation, or spacing.\n   - If unsure about exact wording, skip that ADU rather than guess.\n\n## WHAT TO CAPTURE\n**INCLUDE ONLY:**\n- Main argumentative threads that are central to the paper's contribution\n- Core claims that represent the paper's primary arguments or findings\n- Key premises that provide essential support for major claims\n- Critical counterarguments and their refutations\n- Reasoning chains that demonstrate how main conclusions are derived\n\n**EXCLUDE (AVOID NOISE):**\n- Minor details, examples, or descriptive content that don't advance the argument\n- Tangential points or side discussions\n- Pure background information or literature review content\n- Methodological details unless they constitute argumentative claims\n- Obvious statements or commonly accepted facts\n- Redundant or repetitive argumentative content\n\n**GUIDING PRINCIPLE**: If removing an ADU would not significantly impact understanding of the paper's argumentative structure, it should be excluded.\n\n## QUALITY CONTROL\n- Before finalizing each ADU, verify the text exists exactly in the source\n- Prefer fewer, accurate ADUs over many potentially modified ones\n- When in doubt about exact wording, omit the ADU\n\n## OUTPUT FORMAT\nReturn **only** a single valid JSON object matching this schema.  \nDo **not** output any extra text, markdown, or explanations.\nDo **not** add comments.\n**RESPOND WITH ONLY**:\n```json\n{\n  \"ADUs\": {\n    \"<ADU_ID>\": {\n      \"text\": \"<exact span from paper>\",\n      \"label\": \"claim\" | \"premise\"\n    }\n    ...\n  },\n  \"relations\": [\n    {\n      \"source\": \"<ADU_ID>\",\n      \"target\": \"<ADU_ID>\",\n      \"type\": \"support\" | \"attack\"\n    }\n  ]\n}\n```",
+    "user_content": "## Learning from Fiction 1\n\nGregory Currie, Heather Ferguson, Jacopo Frascaroli, Stacie Friend, Kayleigh Green, and Lena Wimmer\n\nN.B.:  This  is  a  preprint.  Cite  as:  Currie,  G.,  Ferguson,  H.,  Frascaroli,  J.,  Friend,  S., Green, K.,  &amp;  Wimmer, L. (2024). Learning from Fiction. In A. James,  A. Kubo, &amp; F. Lavocat (Eds.). The Routledge Handbook of Fiction and Belief (pp. 126-138). New York &amp; Abingdon: Routledge.\n\nThe idea that fictions may educate us is an old one, as old perhaps as the view according to which they  distort  the  truth  and  mislead  us. 2 While  there  is  a  long  tradition  of  passionate assertion  from  both  sides  of  this  debate,  systematic  arguments  are  a  relatively  recent development, and the idea of  empirically testing these ideas is particularly novel. 3 Ideally, the debate will be a cross-disciplinary  one. Interpretive studies of literature, drama, film, and other media of fictional  presentation  give  us a  sense  of  the  depth  and  significance  of  particular works,  as  well  as  providing  reflection  on  more  general  questions  about  genre,  style,  and reception.  Psychologists  have  recently  begun  to  study  the cognitive  and  other  effects  of exposure to fiction. Philosophers have a role to play in clarifying concepts, distinguishing in a fine-grained way between hypotheses, and constructing and assessing  arguments. These three activities don't correspond neatly to discipline boundaries. Philosophers have offered interpretations of particular works, often in the cause of arguing for the cognitive richness  of the work in question. In a few cases, we find collaboration across the disciplines (Wimmer et al.,  2021a, 2021b, 2022).\n\nOur aim in this chapter is to provide some clarity about what is at stake in this debate, what the  options are, and how empirical work does or might bear on its resolution.\n\n## What Is in Dispute?\n\nThose who think we learn from fictions do not claim that we learn from all fictions, and will probably agree that fictions are sometimes a potent source of error and ignorance. For those who think that fictions do influence people's opinions, the problem is to identify situations where that influence  counts  as  learning  and  to  describe  the  factors  that  make  that  a  more  or  less  likely outcome. 4 It  will  be  evident from this that anyone skeptical of the power of fiction to enable learning  cannot  simply  point  to  the many  examples  of  fictions  which  manifestly  lack  this capacity; that will be agreed to by all parties.  Nor is wholesale skepticism about learning from fiction-that no one ever learned anything from any fictional work-plausible; at the very least we learn about what characters and events the author has  chosen to describe. 5 What is likely to be questioned is a kind of easy-going optimism which takes it  as obvious that exposure to the right kind of fiction (whatever that is taken to be) will give us valuable knowledge of the world and the people in it. It is not unreasonable to ask for evidence and argument  to support such a claim, and to point out  that establishing that someone learned something from a particular fictional source may be rather difficult. [ p. 126 ]\n\nWhile  some,  notably  Dr.  Johnson,  have  suggested  that  learning  from  fiction  requires  the\n\nfiction  in  question  to  exemplify  morally  correct  principles,  recent  commentators  do  not identify potential for  learning with advocacy of any particular moral stance; a common view now is that cognitively rich  and insightful fiction is unlikely to be overtly didactic. 6 The case for learning  from  fiction  has  largely  drawn  on  traditionally  canonical  authors  and  genres:  tragic drama, the realist novels of the nineteenth century, and their modernist successors. In line with contemporary revisionism about the canon, those concerned with this issue now seek examples in a culturally wider class of works. 7 The debate has  also taken in other media, notably through a  focus  on  film  as  a  medium  of  fictional  presentation. 8 Here philosophers  have  been  active  in debating whether film has a distinctive capacity for philosophical instruction. We will not have space to focus here on this specialized aspect of the more general debate.\n\n## Knowledge, Reliability, and Fiction\n\nThis  is  a  contribution  to  a  volume  concerned  with  fiction  and  belief.  Certainly,  much learning involves change of belief, but this is by no means all the learning there is, or so many assume. Learning may also involve the acquisition of skills, the refinement of our capacities, the  gathering  of  new experiences.  These  things  are  rarely  insulated  from  belief  change  but  it would  be  controversial  to  say  that  they  are  nothing  more  than  alterations  to  belief.  And  in discussions of fiction, these other forms  of learning are prominent; it is said that fictions refine our empathic abilities, make us more attuned to other perspectives, and allow us to glimpse experiences distant from our own. 9  We will at some  points touch on these matters. It will also be necessary to ask whether some apparent changes in belief might actually be something else.\n\nPeople believe many kinds of things: that God exists, that the coat you are wearing is red, that  2 + 2 = 4 and that kindness is valuable. Beliefs differ greatly in their significance and in the extent  to  which  they  can  be  tested.  But  for  any  belief  we  can  ask:  Is  that  true?  And  we  can relatedly  ask:  Would  it  be  better  if  you  changed  your  belief?  Not  every  change  of  belief  is learning; you have not learned anything by coming to believe that the earth is flat. What more is required? One answer is: your new belief must be knowledge, and that means it must  be true; you can't know that  the  earth  is  flat  when  it isn't. But philosophers have convinced themselves that true belief does not generally amount to knowledge; something you read in your horoscope can be right but the horoscope did not give you knowledge though it gave you true belief. Why not?  It  was  once  thought  sufficient  to  say  that  the  horoscope  did  not  give  you  any  rational grounds (any 'justification') for your belief. Most philosophers now think that this is not right. 10 On  one  formulation  of  the  worry,  one  may  have  a  true,  justified  belief  but  still  be  right  'by accident' in a way which denies you the status of knowing what you believe. Subsequent work has often emphasized the idea that knowledge depends on the reliability of the process by which you came to believe; a reliable process does not always yield the correct result, but when it does that is no accident. 11 We turn to the issue of reliability in fiction directly.\n\nTo  speak  of  fictions  as  reliable  sources  of  true  beliefs  may  seem  paradoxical,  since fictions  are  most  often  thought  of  as  trading  in  stories  that  are  not  true  and  telling  us  of characters that  do  not  exist.  In  fact,  many  of  us  treat  fictions  as  reliable  on  some  topics; indeed,  there  are  cases  where a work of fiction is among the best, most reliable source one could have. The best way to learn what is said in a novel may be to read it yourself, and the best way to learn about the qualities of an author's style may be to read their works. Those skeptical about learning from fiction have not denied this; their skepticism focuses instead on claims that fiction helps us to learn things about the world beyond and independent of the work itself. However, cases of learning about the fictional work (or its maker) from the work itself  are  of  some  interest  for  us  because  they  are  often  cases  where  the  reliability  of  the source-the  fiction-can  be  independent  of  the  reliability  of  the  author.  The  author  may\n\nhave  quite  unreliable  views  about  their  own  style;  views  that  a  careful [ p. 127 ] reading of the  works  themselves  would  undermine.  When  we  consider  the  prospects  for  gaining knowledge  of  the  world  beyond  the  fiction,  the  question  of  the  author's  reliability  is important, as we shall now see.\n\nHilary  Mantel's  three  novels  focusing  on  the  life  of  Thomas  Cromwell  have  probably shaped the  views of many on the events and personalities of the Tudor court. People who did not know before  reading Bring Up the Bodies that Anne Boleyn was tried and executed for, among  other  things,  treason,  may  well  come  to  believe  it  after.  This  does  not  seem  an unreasonable way to acquire this  particular belief; the work belongs to the genre of historical fiction, a standard feature of which is fidelity to the known major events of the period. But while  Mantel's  writings  might  be  relied  on  to, as  she  puts  it,  'closely  track  the  historical record,' 12 a  reader  who  came  to  believe  that  Boleyn  was  as  malign  a  person  as  Mantel represents her would be in a much less secure position. On questions of  motive and character the  historical  record  is  equivocal  in  this  case  (as  in  many  others)  and  anyway Mantel,  like other historical novelists, asserts the right to speculate on matters of motive. It might turn out that the novel's representation of Boleyn's character is correct, but a reader who accepted it  as truth would arguably not have acquired a reliably true belief. 13\n\n## Reliance on the Author\n\nLearning  from  others  is  most  often  discussed  in  epistemology  under  the  heading  of 'testimonial knowledge,' a topic which has seen a great deal of philosophical attention in the last two decades. 14   Testimony, where one is simply told something, contrasts with argument, which provides you with a reason, though not always a conclusive one. Of course, in many cases, the provision of reasons is  itself partly a matter of testimony; I may cite the fact that I have seen footprints in  support  of  the proposition that there is a lion outside but you have only my word that I have seen them; it is a rare argument that is completely independent of testimony.  While  philosophers  differ  over  the  fundamentals  of  testimony,  there  is  general agreement that in many situations it is reasonable to depend on it for one's knowledge. Is this what is happening in the case of Mantel and the last days of Anne Boleyn? Perhaps not. She was probably not seeking to tell these facts to her readers; she may have assumed  that they would know this already, or not cared one way or the other. Learning about Boleyn's execution from Bring Up the Bodies illustrates one way to learn that depends on someone's reliability but  does not amount to testimonial learning. This happens in other kinds of cases, as when I judge that it's  raining  outside  because  I  see  you  take  an  umbrella  when  leaving  the house.  You were  not telling me anything, but my believing there is rain makes sense only so long as I think you are reliable on  that topic.\n\nIn fiction we do sometimes find a practice of outright assertion, or something close to it. Many  things said by Victor Hugo in Notre Dame de Paris were intended to inform readers about the  history  and  present  state  of  the  Cathedral,  and  were  influential  in  shaping  subsequent restorations. There are also cases where there is, we may suspect, an intention to communicate an opinion but only by rather indirect means. Jerrold Levinson notes that 'Ibsen would not have written [ An Enemy of the People ]  as he did if he had not meant to advocate a certain position about the perils of majority thinking and the herd instinct.' 15  While there are statements put in the mouths of characters in that play that  conform to this position, there are also statements from characters that contradict it. Overall though,  the play seems designed to make following the  dictates  of  individual  conscience  the  more  attractive option.  If  something  like  what Levinson suggests was not his aim, we may think, Ibsen would have  written a different sort of play. To have grounds for thinking that an author is advocating a position  you don't have to\n\nfind  outright  assertions  of  that  position  from  them;  it  is  enough  to  think  that  an  intent  to advocate in this way explains, at least in part, the shape of the work itself. [ p. 128]\n\n## Fictions as Reasons\n\nYou may recognize,  or  think  you  recognize,  an  intent  in  Ibsen's  play  to  communicate  the value of  individual conscience. What might persuade you that what is communicated is true, or at  least  worth serious  consideration?  If  this  is  straightforward  testimony  you  may  resist persuasion. While testimony on factual matters can seem a reasonable source of knowledge, it is often thought much less  acceptable in such moral matters as the value of conscience. 16  In morals  it  can  seem,  at  the  least, unacceptably  passive  simply  to  follow  another's  opinion. Anyway,  thinking  of  a  fiction  like  Ibsen's play  as  a  case  of  testimony  misses  an  important feature of the play itself. The play is not merely a means by which Ibsen communicates his opinion; it provides, or seeks to provide, a reason of sorts  for believing what is communicated, or  at  least  for  giving  it  greater  weight  than  one  otherwise  would.  How might a fiction such as Ibsen's play provide reasons? In at least two ways. One is by providing an argument for some favored  position,  expressed  by  one  or  other  character.  Another  way  opens up  when  the  play transforms an abstract moral view into a concrete scenario that purports to show why this is the right position, or at least why it is a position worth taking seriously. 17  On this view, Ibsen shows us  a  way  in  which  people  acting  from  a  self-regarding  or  short-sighted  perspective  are  apt  to arrive at positions with manifestly unacceptable consequences. Importantly, the aim may not be to persuade us  of  the  truth  of  the  moral  position  but  to  help  us  guard  against  its  violation.  It  is sometimes  noted that, when asked for the 'message' of some fiction we often can do no better than a platitude:  we end up saying that The Third Man tells us not to support our friends when they  do  evil  things- perhaps  the  headline  message  of  Ibsen's  play  is  comparably  hard  to disagree with. 18 But learning can  be a matter of being reminded, in a vivid way, of something we knew but might be tempted to ignore.\n\nFictions that remind us of these things can be epistemically valuable not because they change belief  but because they help to connect belief more effectively to action. 19\n\nWe see now a variety of functions that a fictional work can fulfil in the learning process. One is  simply to serve as the vehicle of expression for an idea. Another is to provide reasons in favor of that idea, ones that are stated or implied by its characters. A third is to add persuasive power to  the  idea  by  rendering it  concrete,  showing  how ideas and attitudes  have practical consequences.\n\nThis final  claim faces  an  obvious  objection.  Surely,  all  Ibsen  does is  provide us  with  a story concerning imaginary people in imaginary situations; their behavior can no more persuade us of the rightness of a view than imaginary observations can persuade us of the correctness of  a  scientific  theory.  In  both  kinds  of  cases  only  real  instances  will  do.  On  reflection however,  it  is  not  obvious  that  only  real  events  can  tell  us  anything  informative.  For example, we often want to know what might go wrong with some plan; waiting to find out what does go wrong gives us no way to avoid a potential disaster. Instead, we try to construct an imaginative  scenario-one  that  hasn't  happened-  which  conforms  to  the  plan  but  in  which things do go wrong; that way we can revise the plan before it is too late. Fictions sometimes does  this.  The  film Fail  Safe (1964)  purports  to  show  how,  given the  control  measures  in place at US bomber Command, an accidental nuclear attack on the Soviet Union could still occur. If the film's narrative fairly represented these controls and their vulnerabilities, one might then have grounds for believing nuclear war more likely than one previously did. As a matter  of  fact,  it  is  widely  accepted  that  the  pathway  to  the  attack  portrayed  in  this  film\n\ndepends on mischaracterizing the actual procedures in place. 20  Still, the general point holds: a  fiction  might,  through  imaginative  yet  realistic  scenario  construction,  tell  us  something interesting.\n\nFail  Safe investigates  a  well-defined  and  specific  mechanism  which  depends  in  part  on automatic  systems  and  partly  on  human  decision.  It  is  not  difficult  to  see  whether  it  truly represents a way for  the plan in place to fail. But fictions are more commonly appreciated for their  exploration  of  processes  much  less  clearly  delineated.  Martha  Nussbaum  highlights  the way in which Henry James' The Golden Bowl traces  the  steps  on  the  way  to  an  understanding between  Maggie  Verver  and  her  father  [p.  129]  Adam,  finding  a  crucial  moment  in  Adam's image  of  her  as  a  'sea  creature.'  James  is  among  the  most  admired  novelists  for  his psychological insight, with this late novel regarded by some as a high point. But whatever the novel's literary merits, we do not seem to have a way to check that James' scenario conforms to a  plausible  model  of  human  behavior.  Might  the  detailed  interactions  James  describes so carefully be unrealistic? The work's literary qualities may make it hard to judge; James' late style makes for  difficult  reading,  absorbing  cognitive  resources  that  might  otherwise  be  focused  on assessing  the  psychological  plausibility  of  the  events  he  describes. 21   We  may  wonder, similarly,  whether what  Ibsen  is  doing  in An  Enemy  of  the  People is  creating  a  rhetorical environment likely to promote agreement with his moral outlook, without providing us with any good  reasons  for  doing  so.  We  are  familiar  with  the  tactic  of  making  a  certain  outlook  or perspective attractive by having it represented  by characters who are attractive or likeable, but where  their  attractiveness  or  likability  gives  no  real support  to  the  outlook  in  question. 22 Fictions,  with  their  occasions  for  heightened  emotions,  plot  twists,  and  vividly  drawn characters are, arguably, inherently unreliable environments for evaluative learning because we are not well able to segregate our responses to what is incidental and rhetorical  from what is germane to the issue.\n\nHowever,  we  should  not  overestimate  the  rationality  of  other,  nonfictional,  modes  of communication when it comes to evaluative matters: are not our ordinary attempts to change people's  moral outlooks  similarly  rich  in  rhetorical  trappings?  Where,  in  any  case,  is  this supposed divide between  rhetoric and moral argument? Only stern rationalists in morals see no place  for  the  activation  of  sentiments  in  moral  persuasion;  what  has  come  to  be  called  the 'Humean  theory  of  motivation'  insists  that  belief  alone  never  motivates  and  that  desire  is essential (Smith, 1994). Fictions may sometimes go to excess in this direction but we can find fictions where this is avoided. And fiction has the advantage that it allows for disengagement and reflection (especially so in the novel) that may help us avoid being carried along by the authoritative tone of a present speaker.\n\nSo far we have spoken of learning from fiction as if it were a special kind of learning, distinct from  that  provided  by  more  conventionally  authoritative  means  such  as  textbooks  and lectures. But some have sought to find a  closer connection between fiction and the systematic inquiry we find in science and philosophy. The idea is that fictions sometimes provide thought experiments ,  a  practice  well  established  in  science  and  philosophy  for  advancing  research  and which  involves  imagining  a  scenario  rather  than  actually  observing  it.  Occasionally,  these thought experiments have a somewhat literary  feel to them, as with the story of Schrödinger's cat which (on one interpretation of quantum mechanics) is simultaneously alive and dead until observation resolves the contradiction. In philosophy, thought experiments are often invented in order to support or undermine claims in moral philosophy, metaphysics, and elsewhere. For example, the now famous 'trolley experiment' first suggested by  Philippa Foot prompts us to explore the  acceptability,  in  varying  circumstances,  of  sacrificing  one life  in  order  to  save many. 23\n\nThere  has  been  some  enthusiasm  for  the  view  that  novels,  dramas,  and  films  may  provide\n\nreliable  pathways  to  belief  by  shaping  sometimes  rather  elaborate  thought  experiments. 24 The claim here need not be that thought experiments in fiction prove anything-this will be admitted concerning thought experiments in other areas. The claim need only be that they are capable of adding to the reasons, if not  always  for  believing  a  proposition,  then  at  least  for  taking  it seriously.\n\nNotably,  however,  there  is  growing  opposition  to  thought  experiments  at  least  as  they occur in  philosophy; these are the ones most similar to those we might identify in novels, dramas, and films since they often involve human characters in morally charged situations. On this  view,  philosophical  thought experiments are apt to be highly misleading because of the strain they put on our cognitive  resources. For example, they ask us to extend our judgement from ordinary to extraordinary cases,  something it is said we cannot reliably do. 25 [ p. 130 ]\n\nOthers, however, don't dispute the usefulness of at least some thought experiments in science and philosophy, but insist that the complex works of literature so often appealed to by those who say we  learn from fiction are not comparably reliable. Thought experiments in science and philosophy  succeed  best  when  they  focus  exclusively  on  a  single  precisely  characterized problem, avoid rhetorical  elaboration, subplots, and nonessential details, and allow a sustained (often brief) act of imaginative  engagement with the events described. The novels and dramas so often  valued  for  their  capacity  to  instruct  us  are  often  bewilderingly  complex  in construction,  with  a  plethora  of  surprising  events  and vivid  characters  designed  to  evoke emotions  from  mild  amusement  to  hatred;  the  best-regarded  novels  sustain  these  sorts  of complexities  over  days  and  even  weeks  of  attentive  reading.  All  this  greatly  increases  the concern we may have that our cognitive resources are, in the context of a thought experiment, pushed beyond the bounds of reliability. 26\n\n## Knowledge, Reasonable Belief, and Understanding\n\nWe have focused so far on whether and how we can get knowledge from fiction. In at least two ways  this  may  be  too  narrow  a  formulation.  First  of  all,  the  process  of  learning,  where  it focuses on belief,  should surely have as its target the idea of belief improvement, and not every improvement in belief  results in knowledge. If I used to believe the earth is flat and am told it is  spherical  that  seems  like dramatic  improvement  even  though  the  earth  is  not,  strictly speaking,  spherical. We  must  be  careful not to set standards for learning from fiction that we would not apply in other areas; fictions able to  improve belief would surely add to the case for learning from fiction. But the problem with a focus on knowledge is not only that it may be too demanding; in some circumstances knowledge will not be  enough. The thought here is that one may  have  knowledge  but  lack  what  we  might  call  'understanding,'  something  likely  to  be emphasized by those who say that the value of fiction lies in its capacity to make us wiser. On this view one may know a certain proposition-know that it is true-but lack  understanding of it. 27 In  some  respects,  the  desired  understanding  may  consist  simply  in  more  knowledge: knowledge, for example, of what explains it or caused it to be so, knowledge of its actual or likely consequences. But an emphasis on understanding also moves us into an area flagged earlier for  investigation:  skills  and  abilities.  Understanding  an  event  is  said  sometimes  to  involve being able to  judge how things would be if that event had occurred in a slightly different way, or what would have  to have happened for the event not to have occurred at all. It is far from clear that  having  this  ability resolves  neatly  into  knowing  facts  of  various  kinds,  though  it  will involve such knowledge.\n\nEncouraged by this thought we may see a close connection between fiction and skills, abilities and habits of various kinds. Thus, Elaine Scarry (2012) speaks of 'the capacity of literature to exercise  and reinforce our recognition that there are other points of view in the world, and to\n\nmake this  recognition  a  powerful  mental  habit.' As  well  as  helping  us  to  recognize  other perspectives, fiction is  sometimes said to acquaint us with the experiences of the people who have them (see e.g., Putnam,  1978, 83-96; Walsh, 1969). We are said, for example, to gain from literary and filmic representations some knowledge, limited no doubt, of what it is like to be caught  up  in  tragic  events,  to  be  exposed to  extremes  of  deprivation,  to  be  socially marginalized-all experiences we may well want not to undergo but which we think it would be good to know more about. It is far from clear that this kind  of knowledge consists merely in coming to have certain true beliefs.\n\nTo this it may be objected that while we may feel, as the result of reading a novel, that we have a sense of what some experience would be like, we have no idea whether we are rightonly actually  having that experience would let us know that. Believing that we know something is no guarantee that we do. True, you may one day have that experience, and conclude that you were right in thinking that fiction had given you some prior acquaintance with it. There are two important  questions  to  ask  about  that.  One  is  philosophical  and  highlighted  in  our  earlier discussion: why would this be anything other [ p. 131 ] than a lucky accident? What reason do we have for thinking that we can mimic human responses to a complex situation purely on the basis of description of that situation? The second draws on the  psychology of memory: can we be confident that  we  are  recalling  the  imagined  experience  in  such a way that it could (reliably)  by  compared  with  the  actual  current  experience? This  is,  of  course,  an empirical question  and  one  not  easy  to  answer  given  that  there  is  disagreement  among  psychologists of memory about the nature and extent of its proneness  to error. 28   Our  next  section  takes  up  the issue of  the  relevance  of  empirical  studies  to  the  question  of  what  and  how  we  learn  from fiction.\n\n## Empirical Perspectives\n\nThe contributions of philosophers, critics, and literary theorists to the debate about learning from fiction have so far been notable for their lack of engagement with systematic empirical inquiry. The underlying assumption seems often to be that our own experience with fiction provides support for the  view being advocated; friends of learning from fiction are often happy to testify to its effects on their own cognitive development. Such testimony is not worthless, but we can no more rest content with it than we could with assurances from school pupils that they learned French very well. In schools we  have exams, and in the area of more practical skills we have equally  objective  measures;  we  are  able  to tell with reasonable accuracy whether a plumbing apprentice can mend pipes effectively. Do we have anything comparable to support claims about learning from fiction?\n\nThere is some evidence. But the search is at an early stage and there are difficulties in the way of getting  the data  we  would most  like  to  have.  Much  current research  exposes  people  to brief  passages of  fiction  followed  immediately  by  a  battery  of  tests,  whereas  the  claims traditionally made on behalf of fiction concern the cumulative benefits of extensive and varied reading. Studies that addressed such claims directly would be costly in participants' time and commitment  and  would  take  decades to  complete.  Another  difficult  question  concerns  causal direction:  are  people  more  empathic  because  they  read  extensively  in  fictions  that  calls  on empathic skills, or do they gravitate to fictions of this  kind because of their prior capacity and enthusiasm for empathy?\n\nIn recent years, there has been quite a lot of small-scale research into the effects of fiction, much of it focused on aspects of social cognition: our ability to understand and respond fluently to the  thoughts,  desires,  and  feelings  of  others.  There  are  established  psychological  tests  used  to measure people's empathic capacities, as well as their ability to comprehend the mental states of\n\nothers (a major component in so-called 'theory of mind' or 'ToM'), and these tests are typically applied immediately after reading. Results have been mixed and in some cases only very small effects  have  been  found. 29 Replication of  some  apparently  positive results  has been  hard to achieve, and where improvements on empathy and ToM-related tasks have been found it is often unclear how long the results last. 30 Indeed, large and lasting effects on skills and abilities from one episode of reading would be surprising, so the current absence of strong evidence for a fictioneffect should not discourage researchers from conducting more fine-grained or more long-term studies. In relation to change over time, we may distinguish between the inculcation of skills and attitudes,  such  as  one's  capacity  for  empathy  and  hospitality  toward  immigrants,  where significant change tends to be slow and incremental, and straightforward cases of change in factual belief which are sometimes instantaneous; I start believing it is raining as soon as I see the rain.\n\nWhen it  comes  to  acquiring  factual  beliefs  from  fiction  the  experimental  data  is  somewhat mixed.  One  study  suggests  that  fictions  in  various  media  can  be  successful  in  promoting factual  belief,  though  retention  is  fragile  (Brodie  et  al.,  2001);  there  is  also  evidence  that fictions  may produce false beliefs quite easily (Appel and Richter, 2007; Marsh and Fazio, 2006). Concerning evaluative attitudes, evidence has been found for the effect of fiction on attitudes to out-groups, medical treatment, and negative stereotypes. 31 The effects described in these studies would be seen by most people [ p. 132 ] as positive, since they involve transitions to less prejudiced and more inclusive attitudes. But Kris Goffin and Stacie Friend (2022) suggest a number of reasons why fictions may also increase bias. 32\n\nStudies of fiction's effects on beliefs and attitudes are one aspect of a larger field of study: the  persuasiveness  of  messages.  Until  fairly  recently,  work  in  this  area  was  dominated  by studies  of  advertising  and  other  areas  where the  message is said to be 'overt,' contrasting with the implicit or covert messaging of fictional stories. Gerrig's articulation of the idea of 'narrative transportation',  the process by which a reader is 'taken to' the world of the story, eventually returning to the real world in some way cognitively changed, provided a framework for thinking about the effects of such messages (1993). The idea was taken up in an influential study  (Green  and  Brock,  2000)  which  suggested  that  degree  of  transportation  is  a  strong determinant of the cognitive effects of narrative, but  that whether the narrative in question is read as fiction or as nonfiction makes  very  little difference.  Why should degree of transportation make a difference, while thinking the work is fiction rather than nonfiction seems not to? It is said that readers who are more transported are less likely to be 'vigilant' in their reading: less prone to consider the material critically and more likely to believe what they might otherwise reject. But a study by Prentice and Gerrig (1999) suggests that fictionality (the quality  of  being-or  being  regarded  by  the  reader  as-fiction)  may  actually  reduce  vigilance; participants told that the story they were reading was fiction were more likely to accept on its basis  such  false  claims  as  'mental  illness  is  contagious'  than  were  those  who  read  it  as nonfiction. 33   It  remains an open question whether, at least in some circumstances, recognition that a work is fiction does dampen the effect of reading on belief.\n\nWe may also ask: did subjects in Green and Brock's experiment really change their belief? Note that reader's opinions were tested immediately after reading. People's greater willingness to endorse the idea that the world is dangerous might simply be an effect of the extent to which they were emotionally moved by the story (emotional involvement being a significant feature of transportation). We are familiar, after all, with the way emotions color the way the world seems, sometimes for quite brief periods. A related query asks whether we are here failing to distinguish between belief in the ordinary straightforward sense and what we have called 'attitude' or an evaluatively tinged way of seeing the world, something often responsive to emotion but not identical  to  it.  To  say  that  the  world  is  a dangerous  place  might  in  some  contexts-an\n\nacademic seminar on risk-be a purely factual judgement, but in ordinary communication it is more likely to be an expression of pessimism rather than  a factual assessment. Still, neither possibility nullifies the interest of Green and Brock's experiment. The result indicates an effect of storytelling on our way of seeing the world, if only a temporary one.  And whatever the effect of fiction-reading in this case is, it appears not to be less than the effect of  taking the story to be fact.\n\n## Limitations and Summary\n\nWe have simplified in various ways. For example, we have considered the effect of fiction on belief in  terms of an encounter between an individual learner and a single work. As theorists of cultural evolution emphasize, learning in humans is often the product of multiple sources; if fictions change our  beliefs they do so as contradicted or reinforced by other sources, against a background  of  approval or  disapproval  from  authorities  and  peers,  as  mediated  by  our  own biases  and  assumptions.  A  proper  study  of  the role  of fiction  in  shaping  belief  will  have  to accommodate these factors.\n\nAnother simplification is that  we  have focused here  on the  effects on  belief  of broadly realist fictions:  narratives  with  plausible  human  characteristics  in  naturalistic  settings.  This ignores a range of important cases: many operas, fantasy literature of certain kinds, absurdist drama,  experimental novels,  and  short  fictions.  Questions  raised  above,  such  as  whether readers are able to determine the [ p. 133 ] psychological plausibility of plot developments, can seem irrelevant  to  such  works,  yet  one  would hesitate to  say  that they  have  no  interesting capacity to restructure our beliefs.\n\nWhat we have done is to focus on a range of arguments, many of them underdeveloped in the  existing  literature,  which  suggest  how  more  conventional fictions  might  change  belief, attending especially to the positive changes we call learning. We also outlined the more obvious objections that might be brought against these proposals. Finally, we reviewed the highlights of a growing literature intended to find experimental evidence for (or against) fiction's capacity to change belief and other  cognitive processes.\n\n## Notes\n\n- 1 The authors acknowledge the generous support of the Leverhulme Trust, under grant RPG2017-365: Learning from fiction: A philosophical and psychological investigation.\n- 2 Plato's view of the moral and cognitive value of fiction was pessimistic (see Republic books II,  III,  X);  Aristotle  was  more  positive  ( Poetics, 1448b  13-19,  1451a  38-1451b  12, Rhetoric, 1371b 4-10). Later commentators with broadly positive views, often focusing on Shakespearean drama, include Dr. Johnson (see below note 4).\n- 3 Early in the contemporary debate was Walsh (1969); see also Goodman (1976), Novitz (1987),  Carroll  (2002),  Young  (2003);  Gibson  (2007).  Particularly  influential  has  been Nussbaum 1990; for criticism  of  her  position see,  e.g.,  Kalin (1992).  For negative  views about learning from fiction, see Stolnitz (1992), Diffey  (1995). Lamarque and Olsen (1994), while not disputing the possibility of learning from fiction, argue that to value a work of art as a work of art is not to value it for its truth or the knowledge it imparts. Currie (2020) combines  philosophical  and  empirical  arguments  to  mount  a  case  that  is  largely  (but  not wholly) skeptical of claims about the educative effects of fiction. Dubourg and Baumard, in this  volume,  are  especially  skeptical.  Useful  introductions  to  the  debate  are  Gaut  (2003), Gibson (2008). An early experimental investigation of the impact of fictional information on real-world beliefs was Gerrig and Prentice (1991). Other important studies prior to the last decade are Prentice, Gerrig and Bailis (1997); Marsh, Meade, and Roediger (2003); Appel and Richter (2007).\n\n- 4 Note  that  readers  are  often  unaware,  or  reluctant  to  admit,  that  they  are  susceptible  to persuasion by fictional media (Dill, 2009; Golan and Day, 2008), though they may judge others more susceptible than themselves.  (Douglas, Sutton, and Stathi, 2010; Golan and Day, 2008). Hans and Dee note the contribution of police and crime fiction to the general pool of lay legal knowledge (1991, also Glasser, 1988; Haney and Manzolatti,  1980). Bloom says as  much  about  our  understanding  of  hospital  procedures,  submarines,  and  crime  (2010, 167).  Children  seem  particularly  susceptible  to  this  phenomenon:  reading  anthropomorphic literature, for instance, appears to increase their attribution of human-like properties to such entities as stones, whales, birds, and trains (Hopkins and Weisberg, 2016, 62, 63).\n- 5 But see Dubourg and Baumard, in this volume: 'for the moment, it is more reasonable to conclude that fic  tions don't impact beliefs'.\n- 6 For Johnson, see contributions to his twice-weekly periodical The Rambler ,  anthologized in Johnson  (1977),  ed.  Bate.  A  theme  of  Johnson's  was  that  (then)  contemporary  realistic fiction, unlike the fantastical tales of  earlier times, was apt to invade the opinions, and the morals, of readers and so writers must guard against making immorality seem attractive (see Johnson, 1977: 11-12).\n- 7 For a useful anthology of writing from the seventeen-century writers influential in canon construction to contemporary works of criticism and revision see Morrison (2005).\n- 8 On film,  see  essays  by  Livingston  (2006),  Wartenberg  (2006),  and  Smith  (2006).  See  also Smith  (2017).  For  an  interesting  empirical  study  of  the  effects  of  film  on  attitudes,  see Butler et al. (1995).\n- 9 See, e.g., Nussbaum (1990, 280): 'the reader of Proust's novel comes to know his or her own  love  through  a very  complex  process,  one  that  involves  empathic  involvement  with Marcel's suffering.' Psychologist Keith Oatley and colleagues claim that 'engaging in the simulative experiences of fiction literature can facilitate the understanding of others who are different from ourselves and can augment our capacity for empathy and  social inference' (Mar and Oatley, 2008, 173). John  Gibson (2008) emphasizes the importance of fiction for providing us with opportunities to experience the lives of others.\n- 10 Edmund  Gettier's  (1963)  very  brief  paper,  and  one  of  the  most  cited  in  philosophy, crystallized these doubts, though they are visible in earlier work by Bertrand Russell and others.\n- 11 Alvin Goldman's (1967) is an early statement of the view. [ p. 134 ]\n- 12 Reith Lecture 1, June 13, 2017. https://www.bbc.co.uk/sounds/play/b08tcbrp.\n- 13 At  least  for  the  case  of  film  viewing,  there  are  institutions  that  seek  to  track  fictional deviations from reality;  see e.g., https://www.historyvshollywood.com/. We are grateful here to Françoise Lavocat.\n- 14 Coady (1992) has been influential in reviving interest in the epistemology of testimony. For slightly earlier  work, see Fricker and Cooper (1987). Lackey and Sosa (eds.) (2006) is a  collection  of  essays  on  the  topic.  For  the  place  of  testimony  and  testimony-like exchanges in fiction, see Friend (2014); Stock (2017); Ichino  and Currie (2017).\n- 15 Levinson (1996, 225).\n- 16 See Hills (2009). For a more positive view of moral testimony, see Jones (1999). See also Hopkins (2007).\n- 17 See  Nussbaum  (1990,  139-40)  for  the  claim  that  a  fiction  (in  this  case  Henry  James' The  Golden  Bowl )  may  provide  a  'persuasive  argument'  for  something  'for  which  a philosophical text would have a hard time  mounting direct argument.' On whether narratives, fictional or otherwise, can provide arguments see Olmos (2017); Schultz (1979); Hunt (2009). On whether  narratives  can  constitute  explanations,  Velleman  (2003)  is  critical  of  the  idea while Carr (2008) defends it.\n- 18 See again Stolnitz (1992); also Carroll (1998).\n- 19 Noël Carroll (2000, 368-69) says that 'what art teaches us generally is not new maxims and concepts, but  rather how to apply them to concrete cases.' This way of thinking about\n\nlearning in the moral sphere is strongly influenced by Aristotle's emphasis on phronêsis or  practical  wisdom  in  the  Nicomachean  Ethics. Related  ideas  are  taken  up  in  section 'Knowledge, Reasonable Belief, and Understanding' below.\n\n- 20 It  might  be  argued  that  the  film's  cognitive  value  survives  this  observation  about inaccuracy, depending instead on its vivid portrayal of the thought that 'If the system does fail, these are the terrible consequences,'  combined with the surely plausible thought that some failure  is  a  realistic  possibility.  Perhaps Dr. Strangelove ,  with  its  satire  sometimes bordering on absurdity, makes this point more effectively because it allows us to turn aside from interrogating the detailed realism that Fail Safe aims for.\n- 21 The idea that more demanding fictions leave us less capacity to scrutinize their implicit empirical claims is controversial.  Some  research  suggests that  stylistic  ease  or  difficulty  in fiction has no statistically significant effect on credulity and degree of belief change (Marsh and Fazio, 2006, 1145).\n- 22 Psychologists refer to the 'halo effect.' For example, a person judged physically attractive is disproportionately likely to be rated as intelligent. The first empirical study was due to Edward Thorndike (1920).\n- 23 See  Foot  (1967). Another  noted  thought  experiments  in  philosophy  is  Hilary  Putnam's (1975) 'Twin earth  scenario' which suggests that the contents of our thoughts depend on the external  environment.  Among  many  in  the  physical  sciences  are  Newton's  'bucket experiment' intended to show the absoluteness of rotational motion, and Einstein's 'lift' experiment, used to show that light rays are bent in gravitational fields.\n- 24  See e.g., Elgin (2007), Green (2017).\n- 25 See e.g., Machery (2017). Tamar Gendler (2004) argues that thought experiments do have a distinctive, though fallible, capacity to provide justifications for our beliefs.\n- 26 See Egan (2016), Currie (2020), Section 8.4.\n- 27 See  Hills  (2016).  Against  this  Paula  Sliwa  (2015)  argues  that  understanding  is  not  a different category from knowing.\n- 28 For  a  recent  review  of  findings  and  opinions,  with  some  rather  positive  conclusions  about memory's reliability see Brewin et al. (2020).\n- 29 See the meta-analysis by Dodell-Feder and Tamir (2018).\n- 30 See Kidd and Castano (2013) for an empirical study claiming evidence for the effects of fiction on empathy. For a failure to replicate their study,  see Panero et al. (2016). For a response see Kidd and Castano (2017, 2018). See also Samur, Tops, and Koole (2018).\n- 31 On evaluative attitudes, see Vezzali et al. (2015); on medical treatment, Green (2006); on negative stereotypes, Kaufman and Libby (2012).\n- 32 See also Kris Goffin and Agnes Moors' contribution to the present volume.\n- 33 For discussion and references see Friend (2014).\n\n## Works Cited\n\nAppel, Markus, and Tobias Richter. 2007. 'Persuasive Effects of Fictional Narratives Increase Over Time.' Media Psychology 10, no. 1: 113-34.\n\nBloom, Paul. 2010. How Pleasure Works: The New Science of Why We Like What We Like. London: Bodley  Head. [ p. 135 ]\n\nBrewin, Chris R., B. Bernice Andrews, and Laura Mickes, L. 2020. Regaining Consensus on the Reliability of Memory. Current Directions in Psychological Science 29: 121-25. https://doi.org/10.1177/0963721419898122.\n\nBrodie, Mollyann, Ursula Foehr, Vicky Rideout, Neal Baer, Carolyn Miller, Rebecca Flournoy, and Drew Altman. 2001. 'Communicating Health Information through the Entertainment Media.' Health Affairs 20, no. 1: 192-99.\n\nhttps://doi.org/10.1377/hlthaff.20.1.192.\n\nCarr, David. 2008. 'Narrative Explanation and Its Malcontents.' History and Theory 47, no. 1:\n\n| 19-30.                                                                                                                                                                                                                                                                                                    |\n|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|\n| Carroll, Noël. 1998. 'Art, Narrative and Moral Understanding.' In Aesthetics and Ethics: Essays at the Intersection , edited by Jerrold Levinson, 126-61. Cambridge: Cambridge University Press.                                                                                                          |\n| Carroll, Noël. 2000. 'Art and Ethical Criticism: An Overview of Recent Directions of Research.' Ethics 110, no. 2: 350-87. https://doi.org/10.1086/233273.                                                                                                                                                |\n| Carroll, Noël. 2002. 'The Wheel of Virtue: Art, Literature, and Moral Knowledge.' The Journal of Aestheticsand Art Criticism 60, no. 1: 3-26.                                                                                                                                                             |\n| Coady, C.A.J. 1992. Testimony: A Philosophical Study. Oxford: The Clarendon Press. Currie, Gregory. 2020. Imagining and Knowing: The Shape of Fiction . Oxford: Oxford University Press. Davison, W. Phillips. 1983. 'The Third-Person Effect in Communication.' Public Opinion Quarterly 47, no. 1:1-15. |\n| Diffey, T. J. 1995. 'What Can We Learn from Art?' Australasian Journal of Philosophy 73, no. 2: 204-211. Dill, Karen. E. 2009. How Fantasy Becomes Reality: Seeing Through Media Influence . New York: Oxford University Press.                                                                           |\n| Dodell-Feder, David, and Diana Tamir. 2018. 'Fiction Reading has a Small Positive Impact on Social Cognition: A Meta-Analysis.' Journal of Experimental Psychology: General 147, no. 11: 1713-27. https://doi. org/10.1037/xge0000395.                                                                    |\n| Douglas, Karen M., Robbie M. Sutton, and Sofia Stathi. 2010. 'Why I am Less Persuaded Than You: People's Intuitive Understanding of the Psychology of Persuasion.' Social Influence 5, no. 2: 133-48.                                                                                                     |\n| Eco, Umberto. 1979. The Role of the Reader: Explorations in the Semiotics of Texts . Bloomington: Indiana University Press.                                                                                                                                                                               |\n| Egan, David. 2016. 'Literature and Thought Experiments.' Journal of Aesthetics and Art Criticism 74, no. 2:139-50.                                                                                                                                                                                        |\n| Elgin, Catherine. 2007. 'The Laboratory of the Mind.' In A Sense of the World: Essays on Literature, Narrative, and Knowledge , edited by John Gibson, Wolfgang Huemer and Luca Pocci, 43-54. London: Routledge.                                                                                          |\n| Fazio, Lisa K., Sarah J. Barber, Suparna Rajaram, Peter A. Ornstein, and Elizabeth J. Marsh. 2013. 'CreatingIllusions of Knowledge: Learning Errors That Contradict Prior Knowledge.' Journal of Experimental Psychology: General 142, no. 1: 1-5. https://doi.org/10.1037/a0028649.                      |\n| Foot, Philippa. 1978. 'The Problem of Abortion and the Doctrine of the Double Effect.' In Virtues and Vices , 18-32. Oxford: Blackwell. Originally appeared in the Oxford Review , no. 5 (1967).                                                                                                          |\n| Fricker, Elizabeth, and David E. Cooper. 1987. 'The Epistemology of Testimony. Proceedings of the Aristotelian Society , supplementary volumes 61, no. 1: 57-106.                                                                                                                                         |\n| Friend, Stacie. 2014. 'Believing in Stories.' In Aesthetics and the Sciences of Mind , edited by Gregory Currie,Matthew Kieran, Aaron Meskin and Jon Robson, 227-248. Oxford: Oxford University Press.                                                                                                    |\n| Gendler, Tamar Szabó. 2004. 'Thought Experiments Rethought-and Reperceived.' Philosophy of Science 71, no. 5: 1152-63.                                                                                                                                                                                    |\n| Gerrig, Richard J., and Prentice, Deborah A. 1991. 'The Representation of Fictional Information.' Psychological Science 2, no. 5: 336-40.                                                                                                                                                                 |\n| Gettier, Edmund L. 1963. 'Is Justified True Belief Knowledge?' Analysis 23, no. 6 (June): 121-23. Gibson, John. 2007. Fiction and the Weave of Life . Oxford: Oxford University Press. Gibson, John. 2008. 'Cognitivism and the Arts.' Philosophy Compass 3, no. 4: 573-89.                               |\n| Glasser, Ira. 1988. 'Television and the Construction of Reality.' Applied Social Psychology Annual 8: 44-51. Goffin, Kris, and Stacie Friend. 2022. 'Learning Implicit Biases from Fiction.' Journal of Aesthetics and Art Criticism 80, no. 2: 129-39. https://doi.org/10.1093/jaac/kpab078.             |\n\n| Golan, Guy J., and Anita G. Day. 2008. 'The First-Person Effect and its Behavioral Consequences: A New Trend in the Twenty-Five Year History of Third-Person Effect Research.' Mass Communication and Society 11,no. 4: 539-56.                                                                                   |\n|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|\n| Goldman, Alvin I. 1967. 'A Causal Theory of Knowing.' Journal of Philosophy 64, no. 12: 357-72. Goodman, Nelson. 1976. Languages of Art: An Approach to a Theory of Symbols . Indianapolis, IN: Hackett.                                                                                                          |\n| Green, Mitchell. 2017. 'Narrative Fiction as a Source of Knowledge.' In Narration as Argument edited by Paula Olmos, 47-61. Cham: Springer. [ p. 136 ]                                                                                                                                                            |\n| Green, Mitchell, and Timothy C. Brock. 2000. 'The Role of Transportation in the Persuasiveness of Public Narratives.' Journal of Personality and Social Psychology 79, no. 5: 701-21.                                                                                                                             |\n| Haney, Craig, and John Manzolatti. 1980. 'Television Criminology: Network Illusions of Criminal Justice Realities.' In Readings on the Social Animal , edited by Elliot Aronson, 125-36. San Francisco, CA: Freeman.                                                                                              |\n| Hans, Valerie P., and Juliet Dee. 1991. 'Media Coverage of Law-its Impact on Juries and the Public.' American Behavioral Scientist 35, no. 2: 136-49. Hills, Alison. 2009. 'Moral Testimony and Moral Epistemology.' Ethics 120, no. 1: 94-127. Hills, Alison. 2016. 'Understanding Why.' Nous 50, no. 4: 661-88. |\n| Hopkins, Emily J., and Weisberg Deena Skolnick. 2016. 'The Youngest Readers' Dilemma: A Review of Children's Learning from Fictional Sources.' Developmental Review 43: 48- 70.                                                                                                                                   |\n| Hopkins, Robert. 2007. 'What Is Wrong with Moral Testimony?' Philosophy and                                                                                                                                                                                                                                       |\n| Phenomenological Research 74: 611-34. Hunt, Lester. H. 2009. 'Literature as Fable, Fable as Argument.' Philosophy and Literature 33,                                                                                                                                                                              |\n| no. 2: 369-85. Ichino, Anna, and Currie Gregory. 2017. 'Truth and Trust in Fiction.' In Art and Belief , edited by Sullivan-Bissett, Bradley, and Noordhoff, 53-83. Oxford: Oxford University Press.                                                                                                              |\n| Johnson, Samuel. 1977. Selected Essays from the 'Rambler,' 'Adventurer' and 'Idler.' Edited by W. Jackson Bate. New Haven, CT: Yale University Press.                                                                                                                                                             |\n| Jones, Karen. 1999. 'Second-Hand Moral Knowledge.' Journal of Philosophy 96: 55-78. Kahneman, Daniel. (2003) 2011. Thinking Fast and Slow . London: Penguin. 103,                                                                                                                                                 |\n| no. 1: 135-51. Geoff F., and Lisa Libby. 2012. 'Changing Beliefs and Behavior through Experience-                                                                                                                                                                                                                 |\n| Taking.' Journal of Personality and Social Psychology 103, no. 1 (July): 1-19. https://doi.org/10.1037/a0027525. David Comer, and Emanuele Castano. 2013. 'Reading Literary Fiction Improves                                                                                                                      |\n| Theory of Mind.' Science 342, no. 6156 (October): 377-80. https://doi.org/10.1126/science.1239918.                                                                                                                                                                                                                |\n| Robert, Angela Duckworth, Joseph W. Kable, and Justus Myers. 2013. 'An Opportunity Cost Model of Subjective Effort and Task Performance.' Behavioral and Brain Sciences 36, no. 6: 661-726. and-brain-sciences/article/an-opportunity-cost- model-of-subjective-effort-and-task-                                  |\n| Lackey, Jennifer, and Sosa Ernest. eds. 2006. The Epistemology of Testimony . Oxford: Oxford University Press. Lamarque, Peter, and Stein Haugom Olsen. 1994. Truth, Fiction, and Literature: A Philosophical Perspective . Oxford: Clarendon Press.                                                              |\n| Levinson, Jerrold. 1996. 'Messages in Art.' In The Pleasures of Aesthetics , 224-41. Ithaca,                                                                                                                                                                                                                      |\n| performance/8EB5B3A090D390C92891C703EC420A51                                                                                                                                                                                                                                                                      |\n| Kaufman Kidd,                                                                                                                                                                                                                                                                                                     |\n| Kalin, Jesse. 1992. 'Knowing Novels. Nussbaum on Fiction and Moral Theory.' Ethics                                                                                                                                                                                                                                |\n| David Comer, and Emanuele Castano. 2017. 'Panero et al. (2016): Failure to                                                                                                                                                                                                                                        |\n| Methods Causedthe Failure to Replicate Results.' Journal of Personality and Social                                                                                                                                                                                                                                |\n| Psychology 112, no. 3 (March): e1-e4.                                                                                                                                                                                                                                                                             |\n| Kidd, Kurzban,                                                                                                                                                                                                                                                                                                    |\n| https://www.cambridge.org/core/journals/behavioral-                                                                                                                                                                                                                                                               |\n| Replicate                                                                                                                                                                                                                                                                                                         |\n\n| NY: Cornell University Press.                                                                                                                                                                                                                                                                                             |\n|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|\n| Levy, Neil. 2011. 'Resisting 'Weakness of the Will.'' Philosophy and Phenomenological Research , 82, no. 1:134-55.                                                                                                                                                                                                        |\n| Livingston, Paisley. 2006. 'Theses on Cinema as Philosophy.' Journal of Aesthetics and Art Criticism 64: 11-18.                                                                                                                                                                                                           |\n| Machery, Edouard. 2017. Philosophy Within Its Proper Bounds . Oxford: Oxford University Press.                                                                                                                                                                                                                            |\n| Mar, Raymond A., Keith Oatley, Jacob Hirsh, Jennifer dela Paz, and Jordan B. Peterson. 2006. 'Bookworms Versus Nerds: Exposure to Fiction Versus Non-Fiction, Divergent Associations with Social Ability, and theSimulation of Fictional Social Worlds.' Journal                                                          |\n| Mar, Raymond A., and Keith Oatley. 2008. 'The Function of Fiction Is the Abstraction and Simulation of Social Experience.' Perspectives on Psychological Science 3, no. 3 (May): 173-92. https://doi. org/10.1111/j.1745-6924.2008.00073.x.                                                                               |\n| Marsh, Elizabeth, and Lisa K. Fazio. 2006. 'Learning Errors from Fiction: Difficulties in Reducing Reliance on Fictional Stories.' Memory & Cognition 34, no. 5: 1140-49.                                                                                                                                                 |\n| Marsh, Elizabeth J., Michelle L. Meade, and Henry L. Roediger III. 2003. 'Learning Facts from Fiction.' Journal of Memory and Language 49, no. 4 (November): 519-36. https://doi.org/10.1016/S0749-596X(03)00092-5.                                                                                                       |\n| Morrissey, Lee. 2005. Debating the Canon: A Reader from Addison to Nafisii . New York: Palgrave Macmillan. Novitz, David. 1987. Knowledge, Fiction and Imagination . Philadelphia, PA: Temple University Press.                                                                                                           |\n| Olmos, Paula, ed. 2017. Narration as Argument. Cham: Springer. Panero, Maria E., Deena Skolnick Weisberg, Jessica Black, Thalia R. Goldstein,                                                                                                                                                                             |\n| Jennifer L. Barnes, Hiram Brownell, and Ellen Winner. 2016. 'Does Reading a Single Passage of Literary Fiction Really Improve Theory of Mind? An Attempt at Replication.' Journal of Personality and Social Psychology 111, no. 5 (November): e46-e54.                                                                    |\n| https://doi.org/10.1037/pspa0000064. [ p. 137 ]                                                                                                                                                                                                                                                                           |\n| Prentice, Deborah A., Richard J. Gerrig, and Daniel S. Bailis. 1997. 'What Readers Bring to the Processing of Fictional Texts.' Psychonomic Bulletin &Review 4, no. 3 (September): 416-20. https://doi.org/10.3758/BF03210803. Prentice, Deborah A., and Richard J. Gerrig. 1999. 'Exploring the Boundary Between Fiction |\n| and Reality.' In Dual Process Theories in Social Psychology , edited by Shelly Chailen and Yaacov Trope, 529-46. New York: Guilford Press. Hilary. 1975. 'The meaning of 'meaning.'' Minnesota Studies in the Philosophy of                                                                                               |\n| Science 7: 131-93. Putnam, Hilary. 1978. 'Literature, Science and Reflection.' In Meaning and the Moral Sciences , 83-96. London: Routledge &Kegan Paul. Samur, Dalya, Mattie Tops, and Sander L. Koole. 2018. 'Does a Single Session of Literary Fiction Prime Enhanced Mentalising Performance? Four Replication        |\n| Reading Experiments of Kidd and Castano (2013).' Cognition and Emotion 32, no. 1: 130-44. https://doi.org/10.1080/02699931.2017.1279591. Scarry, Elaine. 2012. 'The Literacy Revolution: Poetry, Injury and the Ethics of Reading.'                                                                                       |\n| Schultz, Robert A. 1979. 'Analogues of Argument in Fictional Narrative.' Poetics 8, no.                                                                                                                                                                                                                                   |\n| 231-44. Smith, Michael. 1994. The Moral Problem. Oxford: Blackwell.                                                                                                                                                                                                                                                       |\n| Paulina. 2015. 'Understanding and Knowing.' Proceedings of the Aristotelian Society 115, no. 1: 57-74. Smith, Murray. 2006. 'Film Art, Argument, and Ambiguity.' Journal Aesthetics and Art Criticism 64, no. 3: 33-42.                                                                                                   |\n| Stock, Kathleen. 2017. 'Fiction, Testimony, Belief, and History.' In Art and Belief, edited Sullivan-Bissett,Bradley and Nordhoff, 19-41. Oxford: Oxford University Press.                                                                                                                                                |\n| by                                                                                                                                                                                                                                                                                                                        |\n| Smith, Murray. 2017. Film, Art, and the Third Culture . Oxford: Oxford University Press.                                                                                                                                                                                                                                  |\n| Sliwa,                                                                                                                                                                                                                                                                                                                    |\n| Putnam,                                                                                                                                                                                                                                                                                                                   |\n| Boston Review 37:66-70.                                                                                                                                                                                                                                                                                                   |\n| 1-2:                                                                                                                                                                                                                                                                                                                      |\n| of                                                                                                                                                                                                                                                                                                                        |\n\n| Stolnitz, Jerome. 1992. 'On the Cognitive Triviality of Art.' The British Journal of Aesthetics 32, no. 3: 191-200, https://doi.org/10.1093/bjaesthetics/32.3.191                                                                                                                                                             |\n|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|\n| Sullivan-Bissett, Ema, Helen Bradley, and Paul Noordhoff, eds. 2017. Art and Belief . Oxford: Oxford University Press.                                                                                                                                                                                                        |\n| Thorndike, Edward L. 1920. 'A Constant Error in Psychological Ratings.' Journal of Applied Psychology 4, no. 1: 25-29.                                                                                                                                                                                                        |\n| Velleman, J. David. 2003. 'Narrative Explanation.' The Philosophical Review 112, no. 1: 1-25.                                                                                                                                                                                                                                 |\n| Vezzali, Loris, Sophia Stathi, Dino Giovannini, Dora Capozza, and Elena Trifiletti. 2015. 'The Greatest Magic of Harry Potter : Reducing Prejudice.' Journal of Applied Social Psychology , 45, no. 2: 105-21. https://doi.org/10.1111/jasp.12279                                                                             |\n| Walsh, Dorothy. 1969. Literature and Knowledge . Middletown, CT: Wesleyan University Press. Wartenberg, Thomas E. 2006. 'Beyond Mere Illustration: How Films Can Be Philosophy.' The Journal of Aesthetics and Art Criticism 64: 19-32. https://doi.org/10.1111/j.0021-                                                       |\n| 8529.2006.00226.x Wimmer, Lena, Friend Stacie, Currie Gregory, and Heather Ferguson. 2021a. 'Reading                                                                                                                                                                                                                          |\n| Fictional Narratives toImprove Social and Moral Cognition: The Influence of Narrative Perspective, Transportation, and Identification.' Frontiers in Communication. Language Sciences 5. https://doi.org/10.3389/fcomm.2020.611935.                                                                                           |\n| Wimmer, Lena, Heather Ferguson, Gregory Currie, and Stacie Friend 2021b. 'Testing Correlates of LifetimeExposure to Print Fiction Following a Multi-method Approach: Evidence from Young and Older Readers.' Imagination, Cognition and Personality 41, no. 1: 54-86.                                                         |\n| Wimmer, Lena, Stacie Friend, Gregory Currie, and Heather Ferguson. 2022. 'The Effects of Reading NarrativeFiction on Social and Moral Cognition: Two Experiments Following a Multi-method Approach.' ScientificStudy of Literature 11, no. 2: 223-65. Young, James O. 2003. Art and Knowledge . London: Routledge. [ p. 138 ] |",
+    "responses": [
+      {
+        "source": "gpt-4o-2024-11-20",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"ADU1\": {\n      \"text\": \"The idea that fictions may educate us is an old one, as old perhaps as the view according to which they distort the truth and mislead us.\",\n      \"label\": \"claim\"\n    },\n    \"ADU2\": {\n      \"text\": \"Our aim in this chapter is to provide some clarity about what is at stake in this debate, what the options are, and how empirical work does or might bear on its resolution.\",\n      \"label\": \"claim\"\n    },\n    \"ADU3\": {\n      \"text\": \"Those who think we learn from fictions do not claim that we learn from all fictions, and will probably agree that fictions are sometimes a potent source of error and ignorance.\",\n      \"label\": \"premise\"\n    },\n    \"ADU4\": {\n      \"text\": \"Nor is wholesale skepticism about learning from fiction-that no one ever learned anything from any fictional work-plausible; at the very least we learn about what characters and events the author has chosen to describe.\",\n      \"label\": \"premise\"\n    },\n    \"ADU5\": {\n      \"text\": \"What is likely to be questioned is a kind of easy-going optimism which takes it as obvious that exposure to the right kind of fiction (whatever that is taken to be) will give us valuable knowledge of the world and the people in it.\",\n      \"label\": \"claim\"\n    },\n    \"ADU6\": {\n      \"text\": \"It is not unreasonable to ask for evidence and argument to support such a claim, and to point out that establishing that someone learned something from a particular fictional source may be rather difficult.\",\n      \"label\": \"premise\"\n    },\n    \"ADU7\": {\n      \"text\": \"Learning may also involve the acquisition of skills, the refinement of our capacities, the gathering of new experiences.\",\n      \"label\": \"claim\"\n    },\n    \"ADU8\": {\n      \"text\": \"These things are rarely insulated from belief change but it would be controversial to say that they are nothing more than alterations to belief.\",\n      \"label\": \"premise\"\n    },\n    \"ADU9\": {\n      \"text\": \"It is said that fictions refine our empathic abilities, make us more attuned to other perspectives, and allow us to glimpse experiences distant from our own.\",\n      \"label\": \"claim\"\n    },\n    \"ADU10\": {\n      \"text\": \"To speak of fictions as reliable sources of true beliefs may seem paradoxical, since fictions are most often thought of as trading in stories that are not true and telling us of characters that do not exist.\",\n      \"label\": \"claim\"\n    },\n    \"ADU11\": {\n      \"text\": \"However, cases of learning about the fictional work (or its maker) from the work itself are of some interest for us because they are often cases where the reliability of the source-the fiction-can be independent of the reliability of the author.\",\n      \"label\": \"premise\"\n    },\n    \"ADU12\": {\n      \"text\": \"When we consider the prospects for gaining knowledge of the world beyond the fiction, the question of the author's reliability is important, as we shall now see.\",\n      \"label\": \"claim\"\n    },\n    \"ADU13\": {\n      \"text\": \"Hilary Mantel's three novels focusing on the life of Thomas Cromwell have probably shaped the views of many on the events and personalities of the Tudor court.\",\n      \"label\": \"premise\"\n    },\n    \"ADU14\": {\n      \"text\": \"Learning from others is most often discussed in epistemology under the heading of 'testimonial knowledge,' a topic which has seen a great deal of philosophical attention in the last two decades.\",\n      \"label\": \"claim\"\n    },\n    \"ADU15\": {\n      \"text\": \"In fiction we do sometimes find a practice of outright assertion, or something close to it.\",\n      \"label\": \"claim\"\n    },\n    \"ADU16\": {\n      \"text\": \"How might a fiction such as Ibsen's play provide reasons? In at least two ways.\",\n      \"label\": \"claim\"\n    },\n    \"ADU17\": {\n      \"text\": \"One is by providing an argument for some favored position, expressed by one or other character.\",\n      \"label\": \"premise\"\n    },\n    \"ADU18\": {\n      \"text\": \"Another way opens up when the play transforms an abstract moral view into a concrete scenario that purports to show why this is the right position, or at least why it is a position worth taking seriously.\",\n      \"label\": \"premise\"\n    },\n    \"ADU19\": {\n      \"text\": \"Fictions that remind us of these things can be epistemically valuable not because they change belief but because they help to connect belief more effectively to action.\",\n      \"label\": \"claim\"\n    },\n    \"ADU20\": {\n      \"text\": \"We see now a variety of functions that a fictional work can fulfil in the learning process.\",\n      \"label\": \"claim\"\n    },\n    \"ADU21\": {\n      \"text\": \"One is simply to serve as the vehicle of expression for an idea.\",\n      \"label\": \"premise\"\n    },\n    \"ADU22\": {\n      \"text\": \"Another is to provide reasons in favor of that idea, ones that are stated or implied by its characters.\",\n      \"label\": \"premise\"\n    },\n    \"ADU23\": {\n      \"text\": \"A third is to add persuasive power to the idea by rendering it concrete, showing how ideas and attitudes have practical consequences.\",\n      \"label\": \"premise\"\n    },\n    \"ADU24\": {\n      \"text\": \"On reflection however, it is not obvious that only real events can tell us anything informative.\",\n      \"label\": \"claim\"\n    },\n    \"ADU25\": {\n      \"text\": \"For example, we often want to know what might go wrong with some plan; waiting to find out what does go wrong gives us no way to avoid a potential disaster.\",\n      \"label\": \"premise\"\n    },\n    \"ADU26\": {\n      \"text\": \"Instead, we try to construct an imaginative scenario-one that hasn't happened-which conforms to the plan but in which things do go wrong; that way we can revise the plan before it is too late.\",\n      \"label\": \"premise\"\n    },\n    \"ADU27\": {\n      \"text\": \"Fictions sometimes does this.\",\n      \"label\": \"claim\"\n    },\n    \"ADU28\": {\n      \"text\": \"We have focused so far on whether and how we can get knowledge from fiction.\",\n      \"label\": \"claim\"\n    },\n    \"ADU29\": {\n      \"text\": \"In at least two ways this may be too narrow a formulation.\",\n      \"label\": \"premise\"\n    },\n    \"ADU30\": {\n      \"text\": \"First of all, the process of learning, where it focuses on belief, should surely have as its target the idea of belief improvement, and not every improvement in belief results in knowledge.\",\n      \"label\": \"premise\"\n    },\n    \"ADU31\": {\n      \"text\": \"Encouraged by this thought we may see a close connection between fiction and skills, abilities and habits of various kinds.\",\n      \"label\": \"claim\"\n    },\n    \"ADU32\": {\n      \"text\": \"The contributions of philosophers, critics, and literary theorists to the debate about learning from fiction have so far been notable for their lack of engagement with systematic empirical inquiry.\",\n      \"label\": \"claim\"\n    },\n    \"ADU33\": {\n      \"text\": \"There is some evidence.\",\n      \"label\": \"claim\"\n    },\n    \"ADU34\": {\n      \"text\": \"But the search is at an early stage and there are difficulties in the way of getting the data we would most like to have.\",\n      \"label\": \"premise\"\n    },\n    \"ADU35\": {\n      \"text\": \"Much current research exposes people to brief passages of fiction followed immediately by a battery of tests, whereas the claims traditionally made on behalf of fiction concern the cumulative benefits of extensive and varied reading.\",\n      \"label\": \"premise\"\n    },\n    \"ADU36\": {\n      \"text\": \"Studies that addressed such claims directly would be costly in participants' time and commitment and would take decades to complete.\",\n      \"label\": \"premise\"\n    },\n    \"ADU37\": {\n      \"text\": \"In recent years, there has been quite a lot of small-scale research into the effects of fiction, much of it focused on aspects of social cognition: our ability to understand and respond fluently to the thoughts, desires, and feelings of others.\",\n      \"label\": \"claim\"\n    },\n    \"ADU38\": {\n      \"text\": \"Results have been mixed and in some cases only very small effects have been found.\",\n      \"label\": \"premise\"\n    },\n    \"ADU39\": {\n      \"text\": \"Replication of some apparently positive results has been hard to achieve, and where improvements on empathy and ToM-related tasks have been found it is often unclear how long the results last.\",\n      \"label\": \"premise\"\n    },\n    \"ADU40\": {\n      \"text\": \"Indeed, large and lasting effects on skills and abilities from one episode of reading would be surprising, so the current absence of strong evidence for a fiction-effect should not discourage researchers from conducting more fine-grained or more long-term studies.\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"ADU1\",\n      \"target\": \"ADU2\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU3\",\n      \"target\": \"ADU4\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU5\",\n      \"target\": \"ADU6\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU7\",\n      \"target\": \"ADU8\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU9\",\n      \"target\": \"ADU10\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU11\",\n      \"target\": \"ADU12\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU13\",\n      \"target\": \"ADU14\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU16\",\n      \"target\": \"ADU17\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU16\",\n      \"target\": \"ADU18\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU19\",\n      \"target\": \"ADU20\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU20\",\n      \"target\": \"ADU21\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU20\",\n      \"target\": \"ADU22\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU20\",\n      \"target\": \"ADU23\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU24\",\n      \"target\": \"ADU25\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU24\",\n      \"target\": \"ADU26\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU27\",\n      \"target\": \"ADU28\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU28\",\n      \"target\": \"ADU29\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU29\",\n      \"target\": \"ADU30\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU31\",\n      \"target\": \"ADU32\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU33\",\n      \"target\": \"ADU34\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU33\",\n      \"target\": \"ADU35\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU33\",\n      \"target\": \"ADU36\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU37\",\n      \"target\": \"ADU38\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU37\",\n      \"target\": \"ADU39\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU40\",\n      \"target\": \"ADU37\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "ADU1": {
+              "text": "The idea that fictions may educate us is an old one, as old perhaps as the view according to which they distort the truth and mislead us.",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "Our aim in this chapter is to provide some clarity about what is at stake in this debate, what the options are, and how empirical work does or might bear on its resolution.",
+              "label": "claim"
+            },
+            "ADU3": {
+              "text": "Those who think we learn from fictions do not claim that we learn from all fictions, and will probably agree that fictions are sometimes a potent source of error and ignorance.",
+              "label": "premise"
+            },
+            "ADU4": {
+              "text": "Nor is wholesale skepticism about learning from fiction-that no one ever learned anything from any fictional work-plausible; at the very least we learn about what characters and events the author has chosen to describe.",
+              "label": "premise"
+            },
+            "ADU5": {
+              "text": "What is likely to be questioned is a kind of easy-going optimism which takes it as obvious that exposure to the right kind of fiction (whatever that is taken to be) will give us valuable knowledge of the world and the people in it.",
+              "label": "claim"
+            },
+            "ADU6": {
+              "text": "It is not unreasonable to ask for evidence and argument to support such a claim, and to point out that establishing that someone learned something from a particular fictional source may be rather difficult.",
+              "label": "premise"
+            },
+            "ADU7": {
+              "text": "Learning may also involve the acquisition of skills, the refinement of our capacities, the gathering of new experiences.",
+              "label": "claim"
+            },
+            "ADU8": {
+              "text": "These things are rarely insulated from belief change but it would be controversial to say that they are nothing more than alterations to belief.",
+              "label": "premise"
+            },
+            "ADU9": {
+              "text": "It is said that fictions refine our empathic abilities, make us more attuned to other perspectives, and allow us to glimpse experiences distant from our own.",
+              "label": "claim"
+            },
+            "ADU10": {
+              "text": "To speak of fictions as reliable sources of true beliefs may seem paradoxical, since fictions are most often thought of as trading in stories that are not true and telling us of characters that do not exist.",
+              "label": "claim"
+            },
+            "ADU11": {
+              "text": "However, cases of learning about the fictional work (or its maker) from the work itself are of some interest for us because they are often cases where the reliability of the source-the fiction-can be independent of the reliability of the author.",
+              "label": "premise"
+            },
+            "ADU12": {
+              "text": "When we consider the prospects for gaining knowledge of the world beyond the fiction, the question of the author's reliability is important, as we shall now see.",
+              "label": "claim"
+            },
+            "ADU13": {
+              "text": "Hilary Mantel's three novels focusing on the life of Thomas Cromwell have probably shaped the views of many on the events and personalities of the Tudor court.",
+              "label": "premise"
+            },
+            "ADU14": {
+              "text": "Learning from others is most often discussed in epistemology under the heading of 'testimonial knowledge,' a topic which has seen a great deal of philosophical attention in the last two decades.",
+              "label": "claim"
+            },
+            "ADU15": {
+              "text": "In fiction we do sometimes find a practice of outright assertion, or something close to it.",
+              "label": "claim"
+            },
+            "ADU16": {
+              "text": "How might a fiction such as Ibsen's play provide reasons? In at least two ways.",
+              "label": "claim"
+            },
+            "ADU17": {
+              "text": "One is by providing an argument for some favored position, expressed by one or other character.",
+              "label": "premise"
+            },
+            "ADU18": {
+              "text": "Another way opens up when the play transforms an abstract moral view into a concrete scenario that purports to show why this is the right position, or at least why it is a position worth taking seriously.",
+              "label": "premise"
+            },
+            "ADU19": {
+              "text": "Fictions that remind us of these things can be epistemically valuable not because they change belief but because they help to connect belief more effectively to action.",
+              "label": "claim"
+            },
+            "ADU20": {
+              "text": "We see now a variety of functions that a fictional work can fulfil in the learning process.",
+              "label": "claim"
+            },
+            "ADU21": {
+              "text": "One is simply to serve as the vehicle of expression for an idea.",
+              "label": "premise"
+            },
+            "ADU22": {
+              "text": "Another is to provide reasons in favor of that idea, ones that are stated or implied by its characters.",
+              "label": "premise"
+            },
+            "ADU23": {
+              "text": "A third is to add persuasive power to the idea by rendering it concrete, showing how ideas and attitudes have practical consequences.",
+              "label": "premise"
+            },
+            "ADU24": {
+              "text": "On reflection however, it is not obvious that only real events can tell us anything informative.",
+              "label": "claim"
+            },
+            "ADU25": {
+              "text": "For example, we often want to know what might go wrong with some plan; waiting to find out what does go wrong gives us no way to avoid a potential disaster.",
+              "label": "premise"
+            },
+            "ADU26": {
+              "text": "Instead, we try to construct an imaginative scenario-one that hasn't happened-which conforms to the plan but in which things do go wrong; that way we can revise the plan before it is too late.",
+              "label": "premise"
+            },
+            "ADU27": {
+              "text": "Fictions sometimes does this.",
+              "label": "claim"
+            },
+            "ADU28": {
+              "text": "We have focused so far on whether and how we can get knowledge from fiction.",
+              "label": "claim"
+            },
+            "ADU29": {
+              "text": "In at least two ways this may be too narrow a formulation.",
+              "label": "premise"
+            },
+            "ADU30": {
+              "text": "First of all, the process of learning, where it focuses on belief, should surely have as its target the idea of belief improvement, and not every improvement in belief results in knowledge.",
+              "label": "premise"
+            },
+            "ADU31": {
+              "text": "Encouraged by this thought we may see a close connection between fiction and skills, abilities and habits of various kinds.",
+              "label": "claim"
+            },
+            "ADU32": {
+              "text": "The contributions of philosophers, critics, and literary theorists to the debate about learning from fiction have so far been notable for their lack of engagement with systematic empirical inquiry.",
+              "label": "claim"
+            },
+            "ADU33": {
+              "text": "There is some evidence.",
+              "label": "claim"
+            },
+            "ADU34": {
+              "text": "But the search is at an early stage and there are difficulties in the way of getting the data we would most like to have.",
+              "label": "premise"
+            },
+            "ADU35": {
+              "text": "Much current research exposes people to brief passages of fiction followed immediately by a battery of tests, whereas the claims traditionally made on behalf of fiction concern the cumulative benefits of extensive and varied reading.",
+              "label": "premise"
+            },
+            "ADU36": {
+              "text": "Studies that addressed such claims directly would be costly in participants' time and commitment and would take decades to complete.",
+              "label": "premise"
+            },
+            "ADU37": {
+              "text": "In recent years, there has been quite a lot of small-scale research into the effects of fiction, much of it focused on aspects of social cognition: our ability to understand and respond fluently to the thoughts, desires, and feelings of others.",
+              "label": "claim"
+            },
+            "ADU38": {
+              "text": "Results have been mixed and in some cases only very small effects have been found.",
+              "label": "premise"
+            },
+            "ADU39": {
+              "text": "Replication of some apparently positive results has been hard to achieve, and where improvements on empathy and ToM-related tasks have been found it is often unclear how long the results last.",
+              "label": "premise"
+            },
+            "ADU40": {
+              "text": "Indeed, large and lasting effects on skills and abilities from one episode of reading would be surprising, so the current absence of strong evidence for a fiction-effect should not discourage researchers from conducting more fine-grained or more long-term studies.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU1",
+              "target": "ADU2",
+              "type": "support"
+            },
+            {
+              "source": "ADU3",
+              "target": "ADU4",
+              "type": "support"
+            },
+            {
+              "source": "ADU5",
+              "target": "ADU6",
+              "type": "support"
+            },
+            {
+              "source": "ADU7",
+              "target": "ADU8",
+              "type": "support"
+            },
+            {
+              "source": "ADU9",
+              "target": "ADU10",
+              "type": "support"
+            },
+            {
+              "source": "ADU11",
+              "target": "ADU12",
+              "type": "support"
+            },
+            {
+              "source": "ADU13",
+              "target": "ADU14",
+              "type": "support"
+            },
+            {
+              "source": "ADU16",
+              "target": "ADU17",
+              "type": "support"
+            },
+            {
+              "source": "ADU16",
+              "target": "ADU18",
+              "type": "support"
+            },
+            {
+              "source": "ADU19",
+              "target": "ADU20",
+              "type": "support"
+            },
+            {
+              "source": "ADU20",
+              "target": "ADU21",
+              "type": "support"
+            },
+            {
+              "source": "ADU20",
+              "target": "ADU22",
+              "type": "support"
+            },
+            {
+              "source": "ADU20",
+              "target": "ADU23",
+              "type": "support"
+            },
+            {
+              "source": "ADU24",
+              "target": "ADU25",
+              "type": "support"
+            },
+            {
+              "source": "ADU24",
+              "target": "ADU26",
+              "type": "support"
+            },
+            {
+              "source": "ADU27",
+              "target": "ADU28",
+              "type": "support"
+            },
+            {
+              "source": "ADU28",
+              "target": "ADU29",
+              "type": "support"
+            },
+            {
+              "source": "ADU29",
+              "target": "ADU30",
+              "type": "support"
+            },
+            {
+              "source": "ADU31",
+              "target": "ADU32",
+              "type": "support"
+            },
+            {
+              "source": "ADU33",
+              "target": "ADU34",
+              "type": "support"
+            },
+            {
+              "source": "ADU33",
+              "target": "ADU35",
+              "type": "support"
+            },
+            {
+              "source": "ADU33",
+              "target": "ADU36",
+              "type": "support"
+            },
+            {
+              "source": "ADU37",
+              "target": "ADU38",
+              "type": "support"
+            },
+            {
+              "source": "ADU37",
+              "target": "ADU39",
+              "type": "support"
+            },
+            {
+              "source": "ADU40",
+              "target": "ADU37",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "ADU1": {
+              "text": "The idea that fictions may educate us is an old one, as old perhaps as the view according to which they distort the truth and mislead us.",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "Our aim in this chapter is to provide some clarity about what is at stake in this debate, what the options are, and how empirical work does or might bear on its resolution.",
+              "label": "claim"
+            },
+            "ADU3": {
+              "text": "Those who think we learn from fictions do not claim that we learn from all fictions, and will probably agree that fictions are sometimes a potent source of error and ignorance.",
+              "label": "premise"
+            },
+            "ADU4": {
+              "text": "Nor is wholesale skepticism about learning from fiction-that no one ever learned anything from any fictional work-plausible; at the very least we learn about what characters and events the author has chosen to describe.",
+              "label": "premise"
+            },
+            "ADU5": {
+              "text": "What is likely to be questioned is a kind of easy-going optimism which takes it as obvious that exposure to the right kind of fiction (whatever that is taken to be) will give us valuable knowledge of the world and the people in it.",
+              "label": "claim"
+            },
+            "ADU6": {
+              "text": "It is not unreasonable to ask for evidence and argument to support such a claim, and to point out that establishing that someone learned something from a particular fictional source may be rather difficult.",
+              "label": "premise"
+            },
+            "ADU7": {
+              "text": "Learning may also involve the acquisition of skills, the refinement of our capacities, the gathering of new experiences.",
+              "label": "claim"
+            },
+            "ADU8": {
+              "text": "These things are rarely insulated from belief change but it would be controversial to say that they are nothing more than alterations to belief.",
+              "label": "premise"
+            },
+            "ADU9": {
+              "text": "It is said that fictions refine our empathic abilities, make us more attuned to other perspectives, and allow us to glimpse experiences distant from our own.",
+              "label": "claim"
+            },
+            "ADU10": {
+              "text": "To speak of fictions as reliable sources of true beliefs may seem paradoxical, since fictions are most often thought of as trading in stories that are not true and telling us of characters that do not exist.",
+              "label": "claim"
+            },
+            "ADU11": {
+              "text": "However, cases of learning about the fictional work (or its maker) from the work itself are of some interest for us because they are often cases where the reliability of the source-the fiction-can be independent of the reliability of the author.",
+              "label": "premise"
+            },
+            "ADU12": {
+              "text": "When we consider the prospects for gaining knowledge of the world beyond the fiction, the question of the author's reliability is important, as we shall now see.",
+              "label": "claim"
+            },
+            "ADU13": {
+              "text": "Hilary Mantel's three novels focusing on the life of Thomas Cromwell have probably shaped the views of many on the events and personalities of the Tudor court.",
+              "label": "premise"
+            },
+            "ADU14": {
+              "text": "Learning from others is most often discussed in epistemology under the heading of 'testimonial knowledge,' a topic which has seen a great deal of philosophical attention in the last two decades.",
+              "label": "claim"
+            },
+            "ADU15": {
+              "text": "In fiction we do sometimes find a practice of outright assertion, or something close to it.",
+              "label": "claim"
+            },
+            "ADU16": {
+              "text": "How might a fiction such as Ibsen's play provide reasons? In at least two ways.",
+              "label": "claim"
+            },
+            "ADU17": {
+              "text": "One is by providing an argument for some favored position, expressed by one or other character.",
+              "label": "premise"
+            },
+            "ADU18": {
+              "text": "Another way opens up when the play transforms an abstract moral view into a concrete scenario that purports to show why this is the right position, or at least why it is a position worth taking seriously.",
+              "label": "premise"
+            },
+            "ADU19": {
+              "text": "Fictions that remind us of these things can be epistemically valuable not because they change belief but because they help to connect belief more effectively to action.",
+              "label": "claim"
+            },
+            "ADU20": {
+              "text": "We see now a variety of functions that a fictional work can fulfil in the learning process.",
+              "label": "claim"
+            },
+            "ADU21": {
+              "text": "One is simply to serve as the vehicle of expression for an idea.",
+              "label": "premise"
+            },
+            "ADU22": {
+              "text": "Another is to provide reasons in favor of that idea, ones that are stated or implied by its characters.",
+              "label": "premise"
+            },
+            "ADU23": {
+              "text": "A third is to add persuasive power to the idea by rendering it concrete, showing how ideas and attitudes have practical consequences.",
+              "label": "premise"
+            },
+            "ADU24": {
+              "text": "On reflection however, it is not obvious that only real events can tell us anything informative.",
+              "label": "claim"
+            },
+            "ADU25": {
+              "text": "For example, we often want to know what might go wrong with some plan; waiting to find out what does go wrong gives us no way to avoid a potential disaster.",
+              "label": "premise"
+            },
+            "ADU26": {
+              "text": "Instead, we try to construct an imaginative scenario-one that hasn't happened-which conforms to the plan but in which things do go wrong; that way we can revise the plan before it is too late.",
+              "label": "premise"
+            },
+            "ADU27": {
+              "text": "Fictions sometimes does this.",
+              "label": "claim"
+            },
+            "ADU28": {
+              "text": "We have focused so far on whether and how we can get knowledge from fiction.",
+              "label": "claim"
+            },
+            "ADU29": {
+              "text": "In at least two ways this may be too narrow a formulation.",
+              "label": "premise"
+            },
+            "ADU30": {
+              "text": "First of all, the process of learning, where it focuses on belief, should surely have as its target the idea of belief improvement, and not every improvement in belief results in knowledge.",
+              "label": "premise"
+            },
+            "ADU31": {
+              "text": "Encouraged by this thought we may see a close connection between fiction and skills, abilities and habits of various kinds.",
+              "label": "claim"
+            },
+            "ADU32": {
+              "text": "The contributions of philosophers, critics, and literary theorists to the debate about learning from fiction have so far been notable for their lack of engagement with systematic empirical inquiry.",
+              "label": "claim"
+            },
+            "ADU33": {
+              "text": "There is some evidence.",
+              "label": "claim"
+            },
+            "ADU34": {
+              "text": "But the search is at an early stage and there are difficulties in the way of getting the data we would most like to have.",
+              "label": "premise"
+            },
+            "ADU35": {
+              "text": "Much current research exposes people to brief passages of fiction followed immediately by a battery of tests, whereas the claims traditionally made on behalf of fiction concern the cumulative benefits of extensive and varied reading.",
+              "label": "premise"
+            },
+            "ADU36": {
+              "text": "Studies that addressed such claims directly would be costly in participants' time and commitment and would take decades to complete.",
+              "label": "premise"
+            },
+            "ADU37": {
+              "text": "In recent years, there has been quite a lot of small-scale research into the effects of fiction, much of it focused on aspects of social cognition: our ability to understand and respond fluently to the thoughts, desires, and feelings of others.",
+              "label": "claim"
+            },
+            "ADU38": {
+              "text": "Results have been mixed and in some cases only very small effects have been found.",
+              "label": "premise"
+            },
+            "ADU39": {
+              "text": "Replication of some apparently positive results has been hard to achieve, and where improvements on empathy and ToM-related tasks have been found it is often unclear how long the results last.",
+              "label": "premise"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU1",
+              "target": "ADU2",
+              "type": "support"
+            },
+            {
+              "source": "ADU3",
+              "target": "ADU4",
+              "type": "support"
+            },
+            {
+              "source": "ADU5",
+              "target": "ADU6",
+              "type": "support"
+            },
+            {
+              "source": "ADU7",
+              "target": "ADU8",
+              "type": "support"
+            },
+            {
+              "source": "ADU9",
+              "target": "ADU10",
+              "type": "support"
+            },
+            {
+              "source": "ADU11",
+              "target": "ADU12",
+              "type": "support"
+            },
+            {
+              "source": "ADU13",
+              "target": "ADU14",
+              "type": "support"
+            },
+            {
+              "source": "ADU16",
+              "target": "ADU17",
+              "type": "support"
+            },
+            {
+              "source": "ADU16",
+              "target": "ADU18",
+              "type": "support"
+            },
+            {
+              "source": "ADU19",
+              "target": "ADU20",
+              "type": "support"
+            },
+            {
+              "source": "ADU20",
+              "target": "ADU21",
+              "type": "support"
+            },
+            {
+              "source": "ADU20",
+              "target": "ADU22",
+              "type": "support"
+            },
+            {
+              "source": "ADU20",
+              "target": "ADU23",
+              "type": "support"
+            },
+            {
+              "source": "ADU24",
+              "target": "ADU25",
+              "type": "support"
+            },
+            {
+              "source": "ADU24",
+              "target": "ADU26",
+              "type": "support"
+            },
+            {
+              "source": "ADU27",
+              "target": "ADU28",
+              "type": "support"
+            },
+            {
+              "source": "ADU28",
+              "target": "ADU29",
+              "type": "support"
+            },
+            {
+              "source": "ADU29",
+              "target": "ADU30",
+              "type": "support"
+            },
+            {
+              "source": "ADU31",
+              "target": "ADU32",
+              "type": "support"
+            },
+            {
+              "source": "ADU33",
+              "target": "ADU34",
+              "type": "support"
+            },
+            {
+              "source": "ADU33",
+              "target": "ADU35",
+              "type": "support"
+            },
+            {
+              "source": "ADU33",
+              "target": "ADU36",
+              "type": "support"
+            },
+            {
+              "source": "ADU37",
+              "target": "ADU38",
+              "type": "support"
+            },
+            {
+              "source": "ADU37",
+              "target": "ADU39",
+              "type": "support"
+            }
+          ]
+        }
+      },
+      {
+        "source": "claude-3-5-sonnet-20241022",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"A1\": {\n      \"text\": \"The idea that fictions may educate us is an old one, as old perhaps as the view according to which they distort the truth and mislead us.\",\n      \"label\": \"claim\"\n    },\n    \"A2\": {\n      \"text\": \"Those who think we learn from fictions do not claim that we learn from all fictions, and will probably agree that fictions are sometimes a potent source of error and ignorance.\",\n      \"label\": \"premise\"\n    },\n    \"A3\": {\n      \"text\": \"Nor is wholesale skepticism about learning from fiction-that no one ever learned anything from any fictional work-plausible; at the very least we learn about what characters and events the author has chosen to describe.\",\n      \"label\": \"claim\"\n    },\n    \"A4\": {\n      \"text\": \"What is likely to be questioned is a kind of easy-going optimism which takes it as obvious that exposure to the right kind of fiction (whatever that is taken to be) will give us valuable knowledge of the world and the people in it.\",\n      \"label\": \"claim\"\n    },\n    \"A5\": {\n      \"text\": \"Not every change of belief is learning; you have not learned anything by coming to believe that the earth is flat.\",\n      \"label\": \"premise\"\n    },\n    \"A6\": {\n      \"text\": \"To speak of fictions as reliable sources of true beliefs may seem paradoxical, since fictions are most often thought of as trading in stories that are not true and telling us of characters that do not exist.\",\n      \"label\": \"premise\"\n    },\n    \"A7\": {\n      \"text\": \"Fictions that remind us of these things can be epistemically valuable not because they change belief but because they help to connect belief more effectively to action.\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"A2\",\n      \"target\": \"A4\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A5\",\n      \"target\": \"A4\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A6\",\n      \"target\": \"A4\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A3\",\n      \"target\": \"A4\",\n      \"type\": \"attack\"\n    },\n    {\n      \"source\": \"A7\",\n      \"target\": \"A1\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "A1": {
+              "text": "The idea that fictions may educate us is an old one, as old perhaps as the view according to which they distort the truth and mislead us.",
+              "label": "claim"
+            },
+            "A2": {
+              "text": "Those who think we learn from fictions do not claim that we learn from all fictions, and will probably agree that fictions are sometimes a potent source of error and ignorance.",
+              "label": "premise"
+            },
+            "A3": {
+              "text": "Nor is wholesale skepticism about learning from fiction-that no one ever learned anything from any fictional work-plausible; at the very least we learn about what characters and events the author has chosen to describe.",
+              "label": "claim"
+            },
+            "A4": {
+              "text": "What is likely to be questioned is a kind of easy-going optimism which takes it as obvious that exposure to the right kind of fiction (whatever that is taken to be) will give us valuable knowledge of the world and the people in it.",
+              "label": "claim"
+            },
+            "A5": {
+              "text": "Not every change of belief is learning; you have not learned anything by coming to believe that the earth is flat.",
+              "label": "premise"
+            },
+            "A6": {
+              "text": "To speak of fictions as reliable sources of true beliefs may seem paradoxical, since fictions are most often thought of as trading in stories that are not true and telling us of characters that do not exist.",
+              "label": "premise"
+            },
+            "A7": {
+              "text": "Fictions that remind us of these things can be epistemically valuable not because they change belief but because they help to connect belief more effectively to action.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "A2",
+              "target": "A4",
+              "type": "support"
+            },
+            {
+              "source": "A5",
+              "target": "A4",
+              "type": "support"
+            },
+            {
+              "source": "A6",
+              "target": "A4",
+              "type": "support"
+            },
+            {
+              "source": "A3",
+              "target": "A4",
+              "type": "attack"
+            },
+            {
+              "source": "A7",
+              "target": "A1",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "A1": {
+              "text": "The idea that fictions may educate us is an old one, as old perhaps as the view according to which they distort the truth and mislead us.",
+              "label": "claim"
+            },
+            "A2": {
+              "text": "Those who think we learn from fictions do not claim that we learn from all fictions, and will probably agree that fictions are sometimes a potent source of error and ignorance.",
+              "label": "premise"
+            },
+            "A3": {
+              "text": "Nor is wholesale skepticism about learning from fiction-that no one ever learned anything from any fictional work-plausible; at the very least we learn about what characters and events the author has chosen to describe.",
+              "label": "claim"
+            },
+            "A4": {
+              "text": "What is likely to be questioned is a kind of easy-going optimism which takes it as obvious that exposure to the right kind of fiction (whatever that is taken to be) will give us valuable knowledge of the world and the people in it.",
+              "label": "claim"
+            },
+            "A5": {
+              "text": "Not every change of belief is learning; you have not learned anything by coming to believe that the earth is flat.",
+              "label": "premise"
+            },
+            "A6": {
+              "text": "To speak of fictions as reliable sources of true beliefs may seem paradoxical, since fictions are most often thought of as trading in stories that are not true and telling us of characters that do not exist.",
+              "label": "premise"
+            },
+            "A7": {
+              "text": "Fictions that remind us of these things can be epistemically valuable not because they change belief but because they help to connect belief more effectively to action.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "A2",
+              "target": "A4",
+              "type": "support"
+            },
+            {
+              "source": "A5",
+              "target": "A4",
+              "type": "support"
+            },
+            {
+              "source": "A6",
+              "target": "A4",
+              "type": "support"
+            },
+            {
+              "source": "A3",
+              "target": "A4",
+              "type": "attack"
+            },
+            {
+              "source": "A7",
+              "target": "A1",
+              "type": "support"
+            }
+          ]
+        }
+      }
+    ],
+    "timestamp": 1752754949.608384
+  }
+]

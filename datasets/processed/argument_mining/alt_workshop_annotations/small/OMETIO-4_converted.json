@@ -1,0 +1,29 @@
+{
+  "ADUs": {
+    "Main Thesis OMETIO-4": {
+      "type": "Major Claim",
+      "text": "The dead-donor rule should not be rejected."
+    },
+    "Claim 1 OMETIO-4": {
+      "type": "Claim",
+      "text": "If we rejected the dead donor rule, then we would also have to reject the egalitarian principle that each individual human life has a right against being killed."
+    },
+    "Claim 2 OMETIO-4": {
+      "type": "Claim",
+      "text": "The egalitarian principle is correct",
+      "isImplicit": true
+    }
+  },
+  "relations": [
+    {
+      "src": "Claim 1 OMETIO-4",
+      "tgt": "Main Thesis OMETIO-4",
+      "type": "support"
+    },
+    {
+      "src": "Claim 2 OMETIO-4",
+      "tgt": "Main Thesis OMETIO-4",
+      "type": "support"
+    }
+  ]
+}

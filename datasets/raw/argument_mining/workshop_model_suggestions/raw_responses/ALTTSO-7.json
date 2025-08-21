@@ -1,0 +1,442 @@
+[
+  {
+    "identifier": "ALTTSO-7",
+    "system_prompt": "## GOAL\nArgument‑mine the following paper to extract its comprehensive argumentative structure.\n\n## DEFINITIONS\n1. **Argument**: A set of propositions, including some number of premises and a conclusion. The premises should logically entail the conclusion.\n2. **Claim**: A proposition that asserts something to be true or false, typically requiring justification or evidence.\n3. **Premise**: A proposition that provides evidence, justification, or logical support for a claim or conclusion.\n\n## CRITICAL REQUIREMENTS\n1. **VERBATIM EXTRACTION ONLY**: Each ADU text must be copied EXACTLY from the paper with no modifications, paraphrasing, or combining of separate sentences.\n2. **NO HALLUCINATION**: Do not create, modify, or invent text that does not appear exactly in the source.\n3. **EXACT MATCHING**: Every word, punctuation mark, and spacing must match the original precisely.\n\n## DIRECTIONS\n1. **Identify Argumentative Discourse Units (ADUs)**  \n   - ADU = any contiguous text span functioning as a claim or a premise in the reasoning structure.\n   - **BE HIGHLY SELECTIVE**: Only include ADUs that are crucial to the overarching argument structure.\n   - Focus on significant claims and premises that contribute meaningfully to the argumentative flow.\n   - **AVOID NOISE**: Skip ADUs that are merely descriptive, tangential, or do not substantially advance the argument.\n   - Prioritize quality over quantity - fewer accurate, important ADUs are better than many insignificant ones.\n   - **EXTRACT ONLY**: Copy text spans exactly as they appear, without any modifications.\n2. **Classify each ADU**  \n   - Label = either `\"claim\"` or `\"premise\"`.  \n3. **Detect directed relations**  \n   - Relation = `\"support\"` or `\"attack\"`, from one ADU (source) to another (target).\n   - Map how ADUs connect to form reasoning chains.\n   - Focus on relationships between the most significant ADUs.\n   - Include relationships between premises that strengthen or weaken each other.\n4. **Verbatim spans**  \n   - Each `\"text\"` value must be copied EXACTLY from the paper with zero modifications.\n   - Do not paraphrase, summarize, or combine separate sentences.\n   - Do not add, remove, or change any words, punctuation, or spacing.\n   - If unsure about exact wording, skip that ADU rather than guess.\n\n## WHAT TO CAPTURE\n**INCLUDE ONLY:**\n- Main argumentative threads that are central to the paper's contribution\n- Core claims that represent the paper's primary arguments or findings\n- Key premises that provide essential support for major claims\n- Critical counterarguments and their refutations\n- Reasoning chains that demonstrate how main conclusions are derived\n\n**EXCLUDE (AVOID NOISE):**\n- Minor details, examples, or descriptive content that don't advance the argument\n- Tangential points or side discussions\n- Pure background information or literature review content\n- Methodological details unless they constitute argumentative claims\n- Obvious statements or commonly accepted facts\n- Redundant or repetitive argumentative content\n\n**GUIDING PRINCIPLE**: If removing an ADU would not significantly impact understanding of the paper's argumentative structure, it should be excluded.\n\n## QUALITY CONTROL\n- Before finalizing each ADU, verify the text exists exactly in the source\n- Prefer fewer, accurate ADUs over many potentially modified ones\n- When in doubt about exact wording, omit the ADU\n\n## OUTPUT FORMAT\nReturn **only** a single valid JSON object matching this schema.  \nDo **not** output any extra text, markdown, or explanations.\nDo **not** add comments.\n**RESPOND WITH ONLY**:\n```json\n{\n  \"ADUs\": {\n    \"<ADU_ID>\": {\n      \"text\": \"<exact span from paper>\",\n      \"label\": \"claim\" | \"premise\"\n    }\n    ...\n  },\n  \"relations\": [\n    {\n      \"source\": \"<ADU_ID>\",\n      \"target\": \"<ADU_ID>\",\n      \"type\": \"support\" | \"attack\"\n    }\n  ]\n}\n```",
+    "user_content": "## The Significance of Future Generations\n\n## Roman Altshuler\n\n[Pre-publication draft. Please cite from the published version in M. Cholbi and T. Timmerman (Eds.), Exploring the Philosophy of Death and Dying: Classic and Contemporary Perspectives , Routledge (2020)]\n\nAbstract: We find meaning and value in our lives by engaging in everyday projects. But, according to a recent argument by Samuel Scheffler, this value doesn't depend merely on what the projects are about. In many cases, it depends also on the future generations that will replace us. By imagining the imminent extinction of humanity soon after our own deaths, we can recognize both that much of our current valuing depends on a background confidence in the ongoing survival of humanity and that the survival and flourishing of those  future  generations  matters  to  us.  After  presenting  Scheffler's  argument,  I  will explore two twentieth century precursors-Hans Morgenthau and Simone de Beauvoir-before returning to Scheffler to see that his argument can not only show us why  future  generations  matter,  but  it  can  also  give  us  hope  for  immortality  and  a blueprint for embracing a changing future.\n\nKeywords: death, afterlife, meaning of life, Scheffler, Beauvoir\n\n## The Significance of Future Generations\n\n## Roman Altshuler\n\n'Why should I care about future generations,' asks an old joke, 'what have they ever done for me?' Quite a lot, according to a series of arguments. If nothing else, future generations give our lives value and meaning. Most of us value a great number of things, relationships, and  activities,  and  sometimes  we  find  engaging  with  them  meaningful.  In  our  darkest moments we might doubt that there is any meaning to life and suppose our limited life spans mean that nothing we do matters. But most of us do not spend our days in permanent gloom, because even if we don't know what the meaning of life might be and even doubt that such a thing is coherent, we manage to find meaning in life anyway. 1  We do so, by and large, by engaging in what philosophers often call projects: we involve ourselves with art or business, aim at higher degrees that will allow us to research environmental preservation or deadly illnesses, and cultivate relationships with our friends and family. When we engage in these projects, we treat them as something valuable, and we think engaging in them matters. But the value of these projects and their mattering to us doesn't depend merely on what the projects are about. In many cases, it depends also on the future generations that will replace us, or so the argument goes.\n\n## 1. Doomsday\n\nRecently, the argument has been developed in detail by Samuel Scheffler in his 2013 Death and the Afterlife . After presenting the key argument, I will dash back in time to look at some important twentieth century precursors-Hans Morgenthau and Simone de Beauvoir-to see how the core ideas of Scheffler's argument have been developed in parallel ways. I will\n\nthen return to Scheffler to look at some implications of his view and what avenues it, together with these precursors, can lead us toward.\n\nScheffler begins by asking us to imagine two, hopefully fictional, scenarios:\n\nThe Doomsday Scenario : You discover that you will live out the rest of your natural life, but thirty days after your death, the Earth will be destroyed by a collision with a giant asteroid, killing all life. 2\n\nIn asking us to imagine this gloomy scenario, Scheffler urges us to reflect on why it is gloomy. How does the thought that humanity will disappear shortly after our deaths affect us? Our first thoughts might turn to people we love and the concern that, although they may outlive us,  it  will  not  be  for  long.  But  Scheffler  asks  us  to  overlook  this  feature  of  the  thought experiment, and proposes that we may consider another in its place:\n\nThe Infertility Scenario : Human beings have become infertile. While you, along with everyone you know, have a chance to live out a normal life, there will be no future generations of human beings. 3\n\nIt does not matter for the purposes of this discussion whether we focus on the first scenario, provided we don't focus our attention on the people we care about, or on the second, which is inspired by P. D. James's novel The Children of Men , and the 2006 movie directed by Alfonso Cuarón based on it. Here, I will focus on the Doomsday Scenario.\n\nScheffler uses the term 'the afterlife' to refer to the existence of future generations, rather than the traditional meaning of that term as personal survival after death. And in fact, he explicitly aims his remarks at people who do not believe in the afterlife in the traditional\n\nsense. He is asking us to imagine both that we will die-permanently-and that after our own deaths, there will be no future generations of humans. How would we react to such scenarios?\n\nFor  the  most  part,  he  believes  we  would  react  with  dismay.  This  in  itself  is  interesting, because it shows that we do care what happens after our deaths. But Scheffler thinks we are likely  to  discover  something  more  significant,  which  he  summarizes  in  what he  calls  the 'Afterlife Conjecture': 'people would lose confidence in the value of many sorts of activities, would cease to see reason to engage in many familiar sorts of pursuits, and would become emotionally  detached  from  many  of  those  activities  and  pursuits'  (Scheffler  2013,  44). According to this thesis many of the projects that we currently value would become less significant  to  us,  or  lose  their  significance  altogether,  in  the  Doomsday  scenario.  In  fact, Scheffler wants to go even further: not only would the projects lose their significance to us , but they would lose it objectively. This might seem improbable at first: just how many of the projects people commonly engage with would be affected in this way and why?\n\nConsider  Scheffler's  most  prominent  example:  cancer  research.  Cancer  research  has  two features that would make it especially susceptible to a loss of value under the conditions of the Doomsday Scenario: it is likely to benefit large numbers of people upon its completion, but that completion is unlikely to occur in the lifetimes of those now working on it. A cancer researcher, then, would have little reason to continue engaging in such research if she knew there would be no future generations of human beings, since there would be no one to benefit from the research. This is a strong example, since it's clear that insofar as the value of cancer research rests on its outcome, that value would be annulled altogether if the outcome were\n\nnever to occur. However, this example may also seem like an outlier, since most of us are not engaged in cancer research. 4\n\nThe same sort of reasoning, however, translates widely to other projects. A good deal of medical and scientific research in general has a similar structure. That's true of research on other  diseases,  reliable  methods  of  predicting  earthquakes,  and  effective  methods  of teaching math, among many other examples. Outside of science, something similar holds for engagement in politics and social justice, from the international to the community level. Why bother with large scale efforts to fight racial discrimination, for example, if no one will be around to enjoy their benefits? Of course many such projects aim at incremental change, so people now living might benefit from them. But insofar as the most significant benefits of these efforts are assumed to occur long after our deaths, the value of participating in such projects would shrink dramatically.\n\nA different kind of example concerns the various activities we engage in when we aim at preserving and promoting various traditions such as rabbinical study, collecting stamps, or Cajun cooking. We may pursue some of these alone and some in groups, but the aim is to ensure that the things we care about continue to be valued after we are gone. 5 Just as most people care about the well-being of their children after their deaths, so Scheffler thinks we care about the continuation of the things we value, because to value something is typically to  care  about  its  continuing  existence.  We  can  easily  imagine  someone  delving  into  beer brewing for the sheer joy of experimentation and deliciousness, but it is harder to picture someone growing passionate about the craft without any desire that future beer brewers continue to practice and enjoy it; there is a reason hobbyists of all stripes tend to join groups\n\nonline and in person, not only to learn from others but also to educate them, and to preserve ongoing  interest  in  younger  members.  Thus,  even  if  we  join  in  traditions  or  begin  new hobbies simply to keep ourselves occupied, if we stick with them for any length of time we tend to find ourselves caring about their continuation, not merely in our lives but among future others. As the initial joy we took in these activities as initiates grows into a deeper commitment,  it  thus  also  becomes  more  vulnerable  to  devaluation  at  the  thought  of humanity's demise.\n\nWe also join such groups in order to gain a sense of comfort. There is something depressing in the thought that the world will simply continue without us one day, and engaging with traditions, religious groups, or national cultures allows us the sense that so long as these enterprises continue to exist, we will somehow belong to them, even long after our deaths. This kind of participation \"personalizes one's relation to [the] future. Rather than looming simply as a blank eternity of nonexistence, the future can be conceptualized with reference to an ongoing social world in which one retains a social identity\" (Scheffler 2013, 29). To contemplate a world in which all of this has been destroyed is to imagine an especially bleak future.\n\nMany  of  our  activities  have  other  features  that  concern  future  generations.  Many,  for example,  aim  not  only  to  preserve  a  sense  of  belonging  for  ourselves,  but  also  a  set  of resources, cultural or practical, for future generations. This need perhaps better explains our interest in perfecting recipes or brewing techniques to share with others. Sometimes the very same projects display yet another feature: our concern with activities instrumental in 'helping us to make sense of our social world and its future possibilities\" (Scheffler 2018,\n\n51). This might include interest in history or art, and may partly explain not only why we devote ourselves to producing such things, but also why we consume them. Listening to a song can fill us with a sense of potential for the future, and appreciation of art often derives much of its value from that feeling. Even participating in such ordinary cultural activities as athletics or student journalism gains value from confidence in the afterlife via some of these channels. However miniscule our contributions in these areas might be, those contributions have value not simply because we devote our efforts to them, but because they belong to ongoing human endeavors with a past and a future, and simply participating in them allows people to feel like they are 'part of something larger than themselves' (Scheffler 2018, 50). Even playing baseball on weekends or volunteering to help at the local library matters to us, at least partly, against the background of our confidence that these practices will continue beyond us, and we can play some small role in ongoing human endeavors.\n\nSome of  our  projects  seem  safe  from  the  threat  posed  by  Doomsday.  Producing  art,  for example, is typically an intrinsically fulfilling activity, and would be worthwhile even in the absence  of  future  human  beings.  Friendship,  too,  would  seem  to  fall  into  this  category. (Frankfurt 2013) Our interpersonal relationships might become more important, not less, in the Doomsday Scenario. (Wolf 2013) This may be true to some extent, of course, but as we've already  seen,  activities  such  as  artistic  production  do  have  some  reference  to  future generations, all the more so because when we engage in working out the perfect drum solo, or a critique of yet another book about human mortality, even if we never plan to share the results with others, we tend to have an audience in mind. The collapse of confidence in the possibility  of  any  future  audience  might  make  even  such  intrinsically  fulfilling  activities somewhat less motivating. 6  As for our relationships, Scheffler suggests that our valuation of\n\nthem often rests on a sense of how they fit into a good life, and he notes that our sense of a good life may be altered dramatically were our confidence in the afterlife to vanish. He even suggests that there may be something to P. D. James's portrayal, in Children of Men , of a future in which people seem to become far more indifferent even to the pursuit of personal pleasure as extinction approaches. In any case, though, Scheffler grants that plenty of our projects might  retain  their  value  even  against  the  backdrop  of  imminent  human  extinction;  the disagreement with his critics is often primarily about how many of our projects might retain that value and how much of it they might keep.\n\nThe core of Scheffler's argument, then, is the thought that our confidence in the afterlife is the background of much of our valuing. It's easy to make slight tweaks to this thesis, holding that confidence in the afterlife doesn't so much prop up our valuing, as it does our sense of meaning in life,  by  making  the  meaning  of  our  projects  largely  depend  on  their  place  in ongoing human enterprises; confidence in the afterlife also helps to overcome fear of our own deaths,  through  the  reassurance  that  the  things  we  value  will  continue  without  us (Blumenthal-Barby  2016).  All  of  these  elements,  in  fact,  seem  to  be  at  work  to  various degrees in many of our projects, and it is clear that they reinforce each other.\n\nScheffler  draws  several  conclusions  from  this  point.  First,  he  notes  that  the  sort  of demoralization that occurs when we consider the Doomsday Scenario is far more extreme than anything that happens when we contemplate our own deaths, and thus he concludes that the survival of future strangers matters more to us than our own survival. (Scheffler 2013, 45) Second, he argues that what reflection on the Doomsday Scenario shows is that the  survival  and  flourishing  of  future  generations  matters  more  to  us  than  we  might\n\notherwise think. When inquiring into why we should care about future generations, moral philosophers often propose that we have a duty of benevolence to care about the well-being of future humans, just as we have a duty to care about the well-being of people now living. Scheffler, however, thinks he can show that we have other reasons to care. Because we need the  afterlife  to  preserve  the  things  we  now  value,  we  have  reason  to  ensure  future generations can do so. (Scheffler 2018, 70) Because we depend on the afterlife for much of what is valuable in our lives, we have reason to contribute something of value to theirs, both out  of  reciprocity  and  in  order  to  maintain  the  value  they  grant  us  (Scheffler  2018,  77). Finally, the very fact that so many of our projects are, in one way or another aimed at leaving something for future generations demonstrates that we have a love of humanity. (Scheffler 2018, 62) Before examining some implications of these conclusions, I want to turn to two older arguments for perspective.\n\n## 2. Lessons from the Past\n\nIn  considering the importance of the afterlife to our lives, Scheffler-despite drawing on fictional scenarios-has in mind the threat climate change poses to human survival. But in the 1960s, a different threat loomed: that of nuclear war. In 1962 the Cold War came to a head  with  the  Cuban  Missile  Crisis,  which  threatened  to  make  the  doctrine  of  Mutually Assured Destruction a reality. In the run-up, American attitudes toward nuclear war were surprisingly  blasé.  A  report  on  American  attitudes  commissioned  by  the  Eisenhower administration suggested that nuclear war could provide a chance for Americans to display heroism,  and  in  1961  magazines Life and Time ran  stories  optimistically  imagining Americans emerging from their nuclear bunkers days after an attack to rebuild (McQueen\n\n2018, 160-61). Worried that such attitudes toward nuclear war might actually hasten it, the political thinker Hans J. Morgenthau, who had emigrated to the U.S. from Germany in 1937, hoped to counter nuclear optimism with his 1961 editorial, 'Death in the Nuclear Age.'\n\nMorgenthau argues that the possibility of nuclear war transforms the meaning of death, and thus of life. Within our finite life-spans, human beings seek to overcome the limitation of death  in  a  number  of  ways.  Traditionally  the  desire  for  immortality  is  satisfied  through religious impulses, but as society grows more secular we seek to replace 'the belief in the immortality of the human person with the attempt to assure the immortality of the world he leaves behind' (Morgenthau 1961). Collective immortality thus provides a replacement for personal immortality, and we strive to transcend our deaths by leaving behind something for others to remember. 'All of us, from the peasant and handicraft man to the founders of churches, the architects of empires, the builders of cities, the tamers of the forces of nature, seek to leave behind the works of our wills… At best, he as a person will live on in his works; at  worst,  he  has  the  satisfaction  of  living  on  anonymously  in  what  he  has  created' (Morgenthau 1961). In his vivid description of how we give meaning to our life by seeking to overcome death in these  ways,  Morgenthau  draws  on  language  that  brings  him  close  to Scheffler's thinking:\n\n[T]he  man  endowed  with  a  creative  mind  knows  himself  to  be  a  member  in  an unbroken chain emerging from the past and reaching into the future, which is made of the same stuff his mind is made of and, hence, is capable of participating in, and perpetuating, his mind's creation. He may be mortal, but humanity is not, and so he will be immortal in his works. (Morgenthau 1961)\n\nNuclear war would break this 'unbroken chain'. Insofar as '[o]ur life… receives one of its meanings from the meaning we give to death', nuclear war 'destroys the meaning of life by throwing life back upon itself' (Morgenthau 1961). It would not only kill the individuals who make up societies, but also destroy all their works along with any civilization within which those works would normally be embedded. But since we give meaning to our lives partially through our efforts to attain immortality within the chain of human history, nuclear war makes that meaning impossible; it reduces our lives to their biological limits and blocks our efforts to transcend those limits. Even heroism would be impossible under such conditions. On one hand, the meaning of individual acts of heroism is lost amid death at such a scale. On the  other  hand,  '[t]he  very  concept  of  fame  would  disappear,  and  the  historians,  the professional  immortalizers,  would  have  nothing  to  report'  (Morgenthau  1961).  No individual projects can survive such destruction, and therefore our individuality vanishes in it  forever. For Morgenthau, as for Scheffler, generational continuity provides meaning for our lives; without continuity, little of that meaning remains.\n\nWhile Morgenthau focuses on the idea of seeking immortality through a collective afterlife, we  find  another  sort  of  argument  in  the  early  work  of  Simone  de  Beauvoir,  French existentialist  philosopher  and  author  of  the  feminist  classic The Second Sex .  Beauvoir,  in seeking to find a foundation for ethics while writing under the Nazi occupation, begins with the following problem: why should we bother acting, given that every action must come to an end? On one hand, action is unavoidable. It is simply a fact about human beings that we necessarily commit ourselves to something, and sitting still is as much a project as scaling Mount Everest. But on the other hand, every action seems pointless. As long as we act, our projects are important to us; but as soon as they are completed, we have to begin anew.\n\nIn Beauvoir's existentialism, the world can only provide a context within which we make decisions,  but  it  cannot force decisions  on  us.  We  have  to  decide  how  to  act  within  that context, and we do so necessarily by going beyond, or transcending, what the world gives us. We are essentially free. Our past, including past actions, is a part of the context in which we act. The fact that I'm used to brushing my teeth every morning does not determine that I will brush my teeth tomorrow; I must choose that. My transcendence thus implies both that I necessarily  must  commit  myself  to  projects  and  that  those  projects,  as  soon  as  they  are completed, must be transcended. What, then, was the point of my earlier projects? Beauvoir is asking whether any particular kind of commitment can make our projects meaningful. The alternative would be to accept that, although none of my projects are worth carrying out, I am nevertheless condemned to them, making life absurd.\n\nBeauvoir rejects that alternative. It might seem like solving the problem requires finding some goal capable of justifying any project whatsoever. But after considering a number of such goals, Beauvoir denies that any of them will work. Some people think serving God is the goal proper to human beings. But different people will interpret the will of God in different ways, so in the end it is always our own interpretations that determine what we do. A grand project like serving humanity fares no better, because humanity is a collection of people with different  goals,  some  starkly  opposed  to  each  other,  so  that  '[o]ne  will  always  work  for certain men against others' (Beauvoir 2004, 108). But if no aim can justify all of our projects, perhaps what can justify them is other people.\n\nEvery end that we aim at in our projects, Beauvoir argues, is only a 'point of departure': it is something in the world that human beings can build on or ignore. I write articles hoping that\n\nothers  will  be  stimulated  enough  by  them  to  develop  my  ideas.  Engineers  build  bridges hoping that others will use them. Rabbis study and teach the Talmud hoping that others will continue to do so. Beauvoir's point isn't just that we want others to take up our projects, but that taking on projects in anticipation of others taking them up is built into the decision to engage in them in the first place. 'The movement of my transcendence appears futile to me as  soon  as  I  have  transcended  it,  but  if,  through  other  men,  my  transcendence  is  always prolonged further than the project I am now forming, I could never surpass it' (Beauvoir 2004, 135). The upshot of the view is this: to act is necessarily to commit oneself to a project, and  to  do  so  is  to  commit  oneself  to  that  project's  being  meaningful.  For  it  to  remain meaningful, however, it must be possible for others to take it up. Our freedom is such that it \"is only by prolonging itself through the freedom of others that it manages to surpass death itself and to realize itself as an indefinite unity\" (Beauvoir 1948, 32). Beauvoir denies that this need is an egoistic one. It isn't that it is in my self-interest for others to take up my project-in fact, it is only my projects that determine what matters to me and thus what is in my self-interest-but that engagement with projects itself seeks other freedoms to take it up.\n\nOthers cannot freely take up my projects and allow them to escape my transcendence unless those others are free, and unless they have their basic needs met so that they can devote themselves  to  other  things.  My  projects  thus  involve  a  commitment  to  the  freedom  and flourishing of others, especially the future others who can allow my project to 'surpass death itself'. However, this picture invites the sort of objection raised by Thomas Nagel (1979): if my projects aren't meaningful simply by virtue of my taking them up, why would others' taking them up make them meaningful? This problem seems especially pressing given that\n\nBeauvoir insists that the possibility of failure is built into meaning: because human beings are free, some will refuse to take up my projects, while others will take them up in ways inimical to my own understanding of those projects. But such criticism would miss the force of Beauvoir's argument. Her claim is not that my projects become meaningful only if others take them up; it is that my projects are meaningful only by virtue of being potential points of departure for others. It is in the nature of commitment to seek to be taken up by free and flourishing others.\n\n## 3. Back to the Future\n\nIf we follow Morgenthau, the appeal of future generations is a direct appeal to our interest in personal immortality. It isn't the afterlife we care about as such, on this view, but our own survival. If we take the idea metaphorically, as Morgenthau does, this would mean that we would live on, in a sense, as long as our individuality is remembered through our works or somehow felt in other ways. But we can also take the idea of immortality through the afterlife literally.  According  to  an  important  argument  articulated  by  Derek  Parfit  (1984),  what matters to us in continuing to exist through time is that there be continuous connections among some of our mental states. Typically, this means that we care that we in the future will still remember some of our current experiences, or still want to carry out our current plans. Thus, for example, if my body is destroyed but a robotic body is built that somehow is given many of my old memories, that's good enough to count as my having survived. But we can tweak this picture: if I die but others remember some of the things I once thought, this creates  enough  continuity  that  I  literally  continue  to  exist,  though  in  a  reduced  form (Altshuler 2017). I don't even need future generations to remember me; it's enough if they\n\nmerely care about some of the things I care about. Merely participating in widely shared projects allows for immortality. 7\n\nScheffler would reject the implication that we care about future generations only because we care about personal immortality. And he would be right to reject it. In his view, we care about our contributions to future generations because we care about those future generations. One could thus argue that we care about immortality precisely because we care about future generations: the desire to overcome our mortality is in part a desire to exist among future people enough to be one of them, much in the same way that a commitment to a project, taken seriously, is a commitment to that project's surpassing of our freedom through other people. What Scheffler's argument is meant to show is that we care about future generations, not that we don't care about our own survival, and he grants that the two concerns are deeply intertwined.  Whether  we  care more about  future  generations  than  our  own  survival  or, rather, care about both via such intertwined concerns is a less significant question.\n\nAll three thinkers, however, point to another problem for Scheffler's claim about our love for humanity. All of Scheffler's examples involve future generations that are continuous with us. We care that they value some of the things we do, make use of our innovations, and preserve a 'social identity' for us, personalizing our relationship with the future. We know, of course, that in the distant future, should humanity survive long enough, our descendants may be fundamentally different from us. Still, we can find comfort in the knowledge that continuity will be preserved: our social world will transition gradually into another one, in ways that allow most of our concerns to be preserved. However, were our culture to die out altogether, to be replaced by another, this would look very much like the Doomsday Scenario. Notice,\n\nfor example, that Morgenthau reasonably does not consider how much better it would be if, following a nuclear apocalypse, the U.S. were eventually fully resettled. While Scheffler does not address this issue, in a response Mark Johnston (2014) asks whether people would be willing to sacrifice their 'tribe' in exchange for the guarantee that humanity will survive for a few more generations. The answer is not obvious, but it seems to me that humanity as such, disconnected  from  continuity  with our culture,  would  not  be  able  to  personalize  our relationship with the future, would not contribute meaning to anything we now do, would not  be  able  to  impart  immortality  on  us,  and-if  it  had  no  interest  in  or  need  for  our projects-would render our lives meaningless. This, of course, is precisely the concern many nationalists raise around the world today, when they worry not about climate change, but about  being  'swamped'  by  immigrants.  Do  we  have  the  resources  to  respond  to  such worries?\n\nI  think we do. No wave of immigration is likely to replace us. More likely is a continuous process in which cultures merge. But such a process is exactly one in which our lives can continue  to  be  meaningfully  lived.  If  we  make  our  lives  meaningful,  in  part,  through contributions to future generations, then we have every opportunity to contribute to the lives of those who come to join us. We can gain immortality by creating things that they can use. And we can engage in meaningful projects by providing points of departure for them. Scheffler's  work,  then,  can  tie  meaning  and  value  in  our  lives  to  the  existence  of  future generations. It can show us why those generations matter. But it can also give us hope for immortality and a blueprint for embracing a changing future.\n\n## References\n\nAltshuler, Roman. 2017. 'Bootstrapping the Afterlife.' Journal of Moral Philosophy 14  (2): 201-16.\n\n---. 2004. 'Pyrrhus and Cineas.' In Simone de Beauvoir: Philosophical Writings , edited by Margaret  A.  Simons,  Mary  Beth  Mader,  and  Marybeth  Timmermann,  89-149. Champaign, Il: University of Illinois Press.\n\nBeauvoir, Simone de. 1948. The Ethics of Ambiguity . New York: Philosophical Library.\n\nBlumenthal-Barby, J.S. 2016. 'What Sort of Collective Afterlife Matters and How.' Philosophia 44 (1): 87-100.\n\nJohnston, Mark.  2014.  'Is Life  a  Ponzi  Scheme?' Boston  Review , January  2,  2014. http://bostonreview.net/books-ideas/mark-johnston-samuel-scheffler-deathafterlife-humanity-ponzi-scheme.\n\nFrankfurt, Harry G. 2013. 'How the Afterlife Matters.' In Death and the Afterlife , by Samuel Scheffler, edited by Niko Kolodny, 131-42. Oxford: Oxford University Press.\n\nMcQueen,  Alison.  2018. Political  Realism  in  Apocalyptic  Times .  Cambridge:  Cambridge University Press.\n\nParfit, Derek. 1984. Reasons and Persons . Oxford: Oxford University Press. .  Edited  by  Niko  Kolodny.  Oxford:  Oxford\n\nMorgenthau, Hans J. 1961. 'Death in the Nuclear Age.' Commentary , September 1961. Nagel,  Thomas.  1979.  'The  Absurd.'  In Mortal  Questions ,  11-23.  Cambridge:  Cambridge University Press.\n\nScheffler,  Samuel.  2013. Death  and  the  Afterlife University Press.\n\nWhy Worry About Future Generations?\n\nTimmerman, Travis. 2018. 'Doomsday Needn't Be So Bad.' Dialectica 72 (2): 275-96.\n\n---. 2018.\n\nOxford: Oxford University Press.\n\nWolf, Susan. 2012. Meaning in Life and Why It Matters . Princeton, NJ: Princeton University Press.\n\n---. 2013. 'The Significance of Doomsday.' In Death and the Afterlife , by Samuel Scheffler, edited by Niko Kolodny, 113-29. Oxford: Oxford University Press.\n\n1 On some views, of course, what we find isn't meaning, but only something that we think is meaning. This is a more complex issue than I can address here, but most contemporary views have abandoned the idea that there is some one-size-fits-all meaning of life like serving God or benefiting humanity. Rather than searching for the meaning of life, most recent approaches are more invested in finding conditions for meaning in life, which is to be located-perhaps with some restrictions-in our commitments and projects. For one such prominent view, see Susan Wolf (2012).\n\n2 This is a paraphrase of the scenario described by Scheffler (2013, 18).\n\n3 This is a paraphrase of the scenario described by Scheffler (2013, 38).\n\n4 This point is made in Timmerman (2018, 291-92); Scheffler responds in his (2018, 58-59) by noting that people who have the means to engage in these sorts of activities often do seem to do so.\n\n5 Someone might object that we only care about these things insofar as we think they will continue to benefit future generations. I'm not at all certain that people are any more likely to preserve a practice or tradition in the hope that it will benefit future others than in the hope that the practice itself will continue, but in any case it's important that for Scheffler these motivations are mutually reinforcing. That we care about preserving beneficial\n\npractices for future generations shows that we already care about those future generations, and we care about them, on the other hand, in part because we hope they will continue to preserve the things we value. Thanks to Travis Timmerman for raising this objection.\n\n6 Of course some may object that the loss of such motivation might be less likely than Scheffler thinks and even if it occurred it would be misguided (Timmerman 2018, 282). On the latter issue, I disagree for reasons I provide later in this chapter: the loss of future audiences removes even the possibility of immortality. Of course someone could object that all sorts of artistic activities are valuable in themselves, and thus do not require any audience. I see no good reason to believe that artistic creation without an audience has any value, but that is a far wider issue. On the former issue, it is perhaps true that many people would still find artistic expression intrinsically rewarding. But an important point here is that artistic expression isn't a matter of a magic flash of inspiration followed by the appearance of a complete work of art. It is, rather, a matter of lengthy and effortful work, which requires a good deal of motivation to sustain it. It is this motivation-not the sense of fulfillment-that I think would be undermined. (Altshuler 2017, 203, fn. 3)\n\n7 Of course it is possible that at some future point all life will cease, so that this immortality will not be true immortality, but only longevity. That may well be the case. But, first of all, we cannot know that this is the case; only that the current state of our physics necessitates it. Second, although we may believe that all life will eventually end, this abstract belief tends to pale in comparison with our typical confidence in the afterlife. Finally, even if we expect that human life will eventually-perhaps very soon-come to an end, these considerations give us reason to want to prevent such an outcome.",
+    "responses": [
+      {
+        "source": "gpt-4o-2024-11-20",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"ADU1\": {\n      \"text\": \"If nothing else, future generations give our lives value and meaning.\",\n      \"label\": \"claim\"\n    },\n    \"ADU2\": {\n      \"text\": \"But the value of these projects and their mattering to us doesn't depend merely on what the projects are about.\",\n      \"label\": \"claim\"\n    },\n    \"ADU3\": {\n      \"text\": \"In many cases, it depends also on the future generations that will replace us, or so the argument goes.\",\n      \"label\": \"claim\"\n    },\n    \"ADU4\": {\n      \"text\": \"Scheffler uses the term 'the afterlife' to refer to the existence of future generations, rather than the traditional meaning of that term as personal survival after death.\",\n      \"label\": \"premise\"\n    },\n    \"ADU5\": {\n      \"text\": \"According to this thesis many of the projects that we currently value would become less significant to us, or lose their significance altogether, in the Doomsday scenario.\",\n      \"label\": \"claim\"\n    },\n    \"ADU6\": {\n      \"text\": \"A cancer researcher, then, would have little reason to continue engaging in such research if she knew there would be no future generations of human beings, since there would be no one to benefit from the research.\",\n      \"label\": \"premise\"\n    },\n    \"ADU7\": {\n      \"text\": \"Just as most people care about the well-being of their children after their deaths, so Scheffler thinks we care about the continuation of the things we value, because to value something is typically to care about its continuing existence.\",\n      \"label\": \"claim\"\n    },\n    \"ADU8\": {\n      \"text\": \"Scheffler draws several conclusions from this point.\",\n      \"label\": \"premise\"\n    },\n    \"ADU9\": {\n      \"text\": \"First, he notes that the sort of demoralization that occurs when we consider the Doomsday Scenario is far more extreme than anything that happens when we contemplate our own deaths, and thus he concludes that the survival of future strangers matters more to us than our own survival.\",\n      \"label\": \"claim\"\n    },\n    \"ADU10\": {\n      \"text\": \"Second, he argues that what reflection on the Doomsday Scenario shows is that the survival and flourishing of future generations matters more to us than we might otherwise think.\",\n      \"label\": \"claim\"\n    },\n    \"ADU11\": {\n      \"text\": \"Because we need the afterlife to preserve the things we now value, we have reason to ensure future generations can do so.\",\n      \"label\": \"claim\"\n    },\n    \"ADU12\": {\n      \"text\": \"Because we depend on the afterlife for much of what is valuable in our lives, we have reason to contribute something of value to theirs, both out of reciprocity and in order to maintain the value they grant us.\",\n      \"label\": \"claim\"\n    },\n    \"ADU13\": {\n      \"text\": \"Finally, the very fact that so many of our projects are, in one way or another aimed at leaving something for future generations demonstrates that we have a love of humanity.\",\n      \"label\": \"claim\"\n    },\n    \"ADU14\": {\n      \"text\": \"Morgenthau argues that the possibility of nuclear war transforms the meaning of death, and thus of life.\",\n      \"label\": \"claim\"\n    },\n    \"ADU15\": {\n      \"text\": \"Collective immortality thus provides a replacement for personal immortality, and we strive to transcend our deaths by leaving behind something for others to remember.\",\n      \"label\": \"claim\"\n    },\n    \"ADU16\": {\n      \"text\": \"Nuclear war would break this 'unbroken chain'.\",\n      \"label\": \"claim\"\n    },\n    \"ADU17\": {\n      \"text\": \"For Morgenthau, as for Scheffler, generational continuity provides meaning for our lives; without continuity, little of that meaning remains.\",\n      \"label\": \"claim\"\n    },\n    \"ADU18\": {\n      \"text\": \"Beauvoir's point isn't just that we want others to take up our projects, but that taking on projects in anticipation of others taking them up is built into the decision to engage in them in the first place.\",\n      \"label\": \"claim\"\n    },\n    \"ADU19\": {\n      \"text\": \"Her claim is not that my projects become meaningful only if others take them up; it is that my projects are meaningful only by virtue of being potential points of departure for others.\",\n      \"label\": \"claim\"\n    },\n    \"ADU20\": {\n      \"text\": \"Scheffler's work, then, can tie meaning and value in our lives to the existence of future generations.\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"ADU2\",\n      \"target\": \"ADU3\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU4\",\n      \"target\": \"ADU5\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU6\",\n      \"target\": \"ADU5\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU7\",\n      \"target\": \"ADU11\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU8\",\n      \"target\": \"ADU9\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU8\",\n      \"target\": \"ADU10\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU11\",\n      \"target\": \"ADU12\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU12\",\n      \"target\": \"ADU13\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU14\",\n      \"target\": \"ADU15\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU15\",\n      \"target\": \"ADU16\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU16\",\n      \"target\": \"ADU17\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU18\",\n      \"target\": \"ADU19\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU20\",\n      \"target\": \"ADU13\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "ADU1": {
+              "text": "If nothing else, future generations give our lives value and meaning.",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "But the value of these projects and their mattering to us doesn't depend merely on what the projects are about.",
+              "label": "claim"
+            },
+            "ADU3": {
+              "text": "In many cases, it depends also on the future generations that will replace us, or so the argument goes.",
+              "label": "claim"
+            },
+            "ADU4": {
+              "text": "Scheffler uses the term 'the afterlife' to refer to the existence of future generations, rather than the traditional meaning of that term as personal survival after death.",
+              "label": "premise"
+            },
+            "ADU5": {
+              "text": "According to this thesis many of the projects that we currently value would become less significant to us, or lose their significance altogether, in the Doomsday scenario.",
+              "label": "claim"
+            },
+            "ADU6": {
+              "text": "A cancer researcher, then, would have little reason to continue engaging in such research if she knew there would be no future generations of human beings, since there would be no one to benefit from the research.",
+              "label": "premise"
+            },
+            "ADU7": {
+              "text": "Just as most people care about the well-being of their children after their deaths, so Scheffler thinks we care about the continuation of the things we value, because to value something is typically to care about its continuing existence.",
+              "label": "claim"
+            },
+            "ADU8": {
+              "text": "Scheffler draws several conclusions from this point.",
+              "label": "premise"
+            },
+            "ADU9": {
+              "text": "First, he notes that the sort of demoralization that occurs when we consider the Doomsday Scenario is far more extreme than anything that happens when we contemplate our own deaths, and thus he concludes that the survival of future strangers matters more to us than our own survival.",
+              "label": "claim"
+            },
+            "ADU10": {
+              "text": "Second, he argues that what reflection on the Doomsday Scenario shows is that the survival and flourishing of future generations matters more to us than we might otherwise think.",
+              "label": "claim"
+            },
+            "ADU11": {
+              "text": "Because we need the afterlife to preserve the things we now value, we have reason to ensure future generations can do so.",
+              "label": "claim"
+            },
+            "ADU12": {
+              "text": "Because we depend on the afterlife for much of what is valuable in our lives, we have reason to contribute something of value to theirs, both out of reciprocity and in order to maintain the value they grant us.",
+              "label": "claim"
+            },
+            "ADU13": {
+              "text": "Finally, the very fact that so many of our projects are, in one way or another aimed at leaving something for future generations demonstrates that we have a love of humanity.",
+              "label": "claim"
+            },
+            "ADU14": {
+              "text": "Morgenthau argues that the possibility of nuclear war transforms the meaning of death, and thus of life.",
+              "label": "claim"
+            },
+            "ADU15": {
+              "text": "Collective immortality thus provides a replacement for personal immortality, and we strive to transcend our deaths by leaving behind something for others to remember.",
+              "label": "claim"
+            },
+            "ADU16": {
+              "text": "Nuclear war would break this 'unbroken chain'.",
+              "label": "claim"
+            },
+            "ADU17": {
+              "text": "For Morgenthau, as for Scheffler, generational continuity provides meaning for our lives; without continuity, little of that meaning remains.",
+              "label": "claim"
+            },
+            "ADU18": {
+              "text": "Beauvoir's point isn't just that we want others to take up our projects, but that taking on projects in anticipation of others taking them up is built into the decision to engage in them in the first place.",
+              "label": "claim"
+            },
+            "ADU19": {
+              "text": "Her claim is not that my projects become meaningful only if others take them up; it is that my projects are meaningful only by virtue of being potential points of departure for others.",
+              "label": "claim"
+            },
+            "ADU20": {
+              "text": "Scheffler's work, then, can tie meaning and value in our lives to the existence of future generations.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU2",
+              "target": "ADU3",
+              "type": "support"
+            },
+            {
+              "source": "ADU4",
+              "target": "ADU5",
+              "type": "support"
+            },
+            {
+              "source": "ADU6",
+              "target": "ADU5",
+              "type": "support"
+            },
+            {
+              "source": "ADU7",
+              "target": "ADU11",
+              "type": "support"
+            },
+            {
+              "source": "ADU8",
+              "target": "ADU9",
+              "type": "support"
+            },
+            {
+              "source": "ADU8",
+              "target": "ADU10",
+              "type": "support"
+            },
+            {
+              "source": "ADU11",
+              "target": "ADU12",
+              "type": "support"
+            },
+            {
+              "source": "ADU12",
+              "target": "ADU13",
+              "type": "support"
+            },
+            {
+              "source": "ADU14",
+              "target": "ADU15",
+              "type": "support"
+            },
+            {
+              "source": "ADU15",
+              "target": "ADU16",
+              "type": "support"
+            },
+            {
+              "source": "ADU16",
+              "target": "ADU17",
+              "type": "support"
+            },
+            {
+              "source": "ADU18",
+              "target": "ADU19",
+              "type": "support"
+            },
+            {
+              "source": "ADU20",
+              "target": "ADU13",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "ADU1": {
+              "text": "If nothing else, future generations give our lives value and meaning.",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "But the value of these projects and their mattering to us doesn't depend merely on what the projects are about.",
+              "label": "claim"
+            },
+            "ADU3": {
+              "text": "In many cases, it depends also on the future generations that will replace us, or so the argument goes.",
+              "label": "claim"
+            },
+            "ADU4": {
+              "text": "Scheffler uses the term 'the afterlife' to refer to the existence of future generations, rather than the traditional meaning of that term as personal survival after death.",
+              "label": "premise"
+            },
+            "ADU5": {
+              "text": "According to this thesis many of the projects that we currently value would become less significant to us, or lose their significance altogether, in the Doomsday scenario.",
+              "label": "claim"
+            },
+            "ADU6": {
+              "text": "A cancer researcher, then, would have little reason to continue engaging in such research if she knew there would be no future generations of human beings, since there would be no one to benefit from the research.",
+              "label": "premise"
+            },
+            "ADU7": {
+              "text": "Just as most people care about the well-being of their children after their deaths, so Scheffler thinks we care about the continuation of the things we value, because to value something is typically to care about its continuing existence.",
+              "label": "claim"
+            },
+            "ADU8": {
+              "text": "Scheffler draws several conclusions from this point.",
+              "label": "premise"
+            },
+            "ADU9": {
+              "text": "First, he notes that the sort of demoralization that occurs when we consider the Doomsday Scenario is far more extreme than anything that happens when we contemplate our own deaths, and thus he concludes that the survival of future strangers matters more to us than our own survival.",
+              "label": "claim"
+            },
+            "ADU10": {
+              "text": "Second, he argues that what reflection on the Doomsday Scenario shows is that the survival and flourishing of future generations matters more to us than we might otherwise think.",
+              "label": "claim"
+            },
+            "ADU11": {
+              "text": "Because we need the afterlife to preserve the things we now value, we have reason to ensure future generations can do so.",
+              "label": "claim"
+            },
+            "ADU13": {
+              "text": "Finally, the very fact that so many of our projects are, in one way or another aimed at leaving something for future generations demonstrates that we have a love of humanity.",
+              "label": "claim"
+            },
+            "ADU14": {
+              "text": "Morgenthau argues that the possibility of nuclear war transforms the meaning of death, and thus of life.",
+              "label": "claim"
+            },
+            "ADU15": {
+              "text": "Collective immortality thus provides a replacement for personal immortality, and we strive to transcend our deaths by leaving behind something for others to remember.",
+              "label": "claim"
+            },
+            "ADU16": {
+              "text": "Nuclear war would break this 'unbroken chain'.",
+              "label": "claim"
+            },
+            "ADU17": {
+              "text": "For Morgenthau, as for Scheffler, generational continuity provides meaning for our lives; without continuity, little of that meaning remains.",
+              "label": "claim"
+            },
+            "ADU18": {
+              "text": "Beauvoir's point isn't just that we want others to take up our projects, but that taking on projects in anticipation of others taking them up is built into the decision to engage in them in the first place.",
+              "label": "claim"
+            },
+            "ADU19": {
+              "text": "Her claim is not that my projects become meaningful only if others take them up; it is that my projects are meaningful only by virtue of being potential points of departure for others.",
+              "label": "claim"
+            },
+            "ADU20": {
+              "text": "Scheffler's work, then, can tie meaning and value in our lives to the existence of future generations.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU2",
+              "target": "ADU3",
+              "type": "support"
+            },
+            {
+              "source": "ADU4",
+              "target": "ADU5",
+              "type": "support"
+            },
+            {
+              "source": "ADU6",
+              "target": "ADU5",
+              "type": "support"
+            },
+            {
+              "source": "ADU7",
+              "target": "ADU11",
+              "type": "support"
+            },
+            {
+              "source": "ADU8",
+              "target": "ADU9",
+              "type": "support"
+            },
+            {
+              "source": "ADU8",
+              "target": "ADU10",
+              "type": "support"
+            },
+            {
+              "source": "ADU14",
+              "target": "ADU15",
+              "type": "support"
+            },
+            {
+              "source": "ADU15",
+              "target": "ADU16",
+              "type": "support"
+            },
+            {
+              "source": "ADU16",
+              "target": "ADU17",
+              "type": "support"
+            },
+            {
+              "source": "ADU18",
+              "target": "ADU19",
+              "type": "support"
+            },
+            {
+              "source": "ADU20",
+              "target": "ADU13",
+              "type": "support"
+            }
+          ]
+        }
+      },
+      {
+        "source": "claude-3-5-sonnet-20241022",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"1\": {\n      \"text\": \"Most of us value a great number of things, relationships, and activities, and sometimes we find engaging with them meaningful.\",\n      \"label\": \"premise\"\n    },\n    \"2\": {\n      \"text\": \"We do so, by and large, by engaging in what philosophers often call projects: we involve ourselves with art or business, aim at higher degrees that will allow us to research environmental preservation or deadly illnesses, and cultivate relationships with our friends and family.\",\n      \"label\": \"premise\"\n    },\n    \"3\": {\n      \"text\": \"But the value of these projects and their mattering to us doesn't depend merely on what the projects are about. In many cases, it depends also on the future generations that will replace us\",\n      \"label\": \"claim\"\n    },\n    \"4\": {\n      \"text\": \"people would lose confidence in the value of many sorts of activities, would cease to see reason to engage in many familiar sorts of pursuits, and would become emotionally detached from many of those activities and pursuits\",\n      \"label\": \"claim\"\n    },\n    \"5\": {\n      \"text\": \"Because we need the afterlife to preserve the things we now value, we have reason to ensure future generations can do so.\",\n      \"label\": \"claim\"\n    },\n    \"6\": {\n      \"text\": \"Because we depend on the afterlife for much of what is valuable in our lives, we have reason to contribute something of value to theirs, both out of reciprocity and in order to maintain the value they grant us\",\n      \"label\": \"claim\"\n    },\n    \"7\": {\n      \"text\": \"the very fact that so many of our projects are, in one way or another aimed at leaving something for future generations demonstrates that we have a love of humanity.\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"1\",\n      \"target\": \"3\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"2\", \n      \"target\": \"3\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"4\",\n      \"target\": \"3\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"3\",\n      \"target\": \"5\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"3\",\n      \"target\": \"6\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"3\",\n      \"target\": \"7\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "1": {
+              "text": "Most of us value a great number of things, relationships, and activities, and sometimes we find engaging with them meaningful.",
+              "label": "premise"
+            },
+            "2": {
+              "text": "We do so, by and large, by engaging in what philosophers often call projects: we involve ourselves with art or business, aim at higher degrees that will allow us to research environmental preservation or deadly illnesses, and cultivate relationships with our friends and family.",
+              "label": "premise"
+            },
+            "3": {
+              "text": "But the value of these projects and their mattering to us doesn't depend merely on what the projects are about. In many cases, it depends also on the future generations that will replace us",
+              "label": "claim"
+            },
+            "4": {
+              "text": "people would lose confidence in the value of many sorts of activities, would cease to see reason to engage in many familiar sorts of pursuits, and would become emotionally detached from many of those activities and pursuits",
+              "label": "claim"
+            },
+            "5": {
+              "text": "Because we need the afterlife to preserve the things we now value, we have reason to ensure future generations can do so.",
+              "label": "claim"
+            },
+            "6": {
+              "text": "Because we depend on the afterlife for much of what is valuable in our lives, we have reason to contribute something of value to theirs, both out of reciprocity and in order to maintain the value they grant us",
+              "label": "claim"
+            },
+            "7": {
+              "text": "the very fact that so many of our projects are, in one way or another aimed at leaving something for future generations demonstrates that we have a love of humanity.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "1",
+              "target": "3",
+              "type": "support"
+            },
+            {
+              "source": "2",
+              "target": "3",
+              "type": "support"
+            },
+            {
+              "source": "4",
+              "target": "3",
+              "type": "support"
+            },
+            {
+              "source": "3",
+              "target": "5",
+              "type": "support"
+            },
+            {
+              "source": "3",
+              "target": "6",
+              "type": "support"
+            },
+            {
+              "source": "3",
+              "target": "7",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "1": {
+              "text": "Most of us value a great number of things, relationships, and activities, and sometimes we find engaging with them meaningful.",
+              "label": "premise"
+            },
+            "2": {
+              "text": "We do so, by and large, by engaging in what philosophers often call projects: we involve ourselves with art or business, aim at higher degrees that will allow us to research environmental preservation or deadly illnesses, and cultivate relationships with our friends and family.",
+              "label": "premise"
+            },
+            "3": {
+              "text": "But the value of these projects and their mattering to us doesn't depend merely on what the projects are about. In many cases, it depends also on the future generations that will replace us",
+              "label": "claim"
+            },
+            "4": {
+              "text": "people would lose confidence in the value of many sorts of activities, would cease to see reason to engage in many familiar sorts of pursuits, and would become emotionally detached from many of those activities and pursuits",
+              "label": "claim"
+            },
+            "5": {
+              "text": "Because we need the afterlife to preserve the things we now value, we have reason to ensure future generations can do so.",
+              "label": "claim"
+            },
+            "6": {
+              "text": "Because we depend on the afterlife for much of what is valuable in our lives, we have reason to contribute something of value to theirs, both out of reciprocity and in order to maintain the value they grant us",
+              "label": "claim"
+            },
+            "7": {
+              "text": "the very fact that so many of our projects are, in one way or another aimed at leaving something for future generations demonstrates that we have a love of humanity.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "1",
+              "target": "3",
+              "type": "support"
+            },
+            {
+              "source": "2",
+              "target": "3",
+              "type": "support"
+            },
+            {
+              "source": "4",
+              "target": "3",
+              "type": "support"
+            },
+            {
+              "source": "3",
+              "target": "5",
+              "type": "support"
+            },
+            {
+              "source": "3",
+              "target": "6",
+              "type": "support"
+            },
+            {
+              "source": "3",
+              "target": "7",
+              "type": "support"
+            }
+          ]
+        }
+      }
+    ],
+    "timestamp": 1752757753.4597778
+  }
+]

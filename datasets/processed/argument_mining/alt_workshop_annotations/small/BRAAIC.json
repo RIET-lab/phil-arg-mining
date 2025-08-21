@@ -1,0 +1,202 @@
+{
+  "arguments": {},
+  "statements": {
+    "Main Thesis BRAAIC": {
+      "type": "equivalence-class",
+      "title": "Main Thesis BRAAIC",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Importance of creativity to connection",
+          "fromType": "equivalence-class",
+          "to": "Main Thesis BRAAIC",
+          "toType": "equivalence-class"
+        },
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "AIs reduce creative work",
+          "fromType": "equivalence-class",
+          "to": "Main Thesis BRAAIC",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "top-level-statement",
+          "isTopLevel": true,
+          "title": "Main Thesis BRAAIC",
+          "text": "The widespread availability of generative artificial intelligence (AI) models poses a threat to human connection.",
+          "startLine": 3,
+          "startColumn": 1,
+          "endLine": 3,
+          "endColumn": 135,
+          "section": "s1"
+        },
+        {
+          "type": "statement",
+          "role": "top-level-statement",
+          "isTopLevel": true,
+          "title": "Main Thesis BRAAIC",
+          "isReference": true,
+          "text": " ",
+          "startLine": 5,
+          "startColumn": 1,
+          "endLine": 8,
+          "endColumn": 176,
+          "section": "s1"
+        }
+      ],
+      "section": "s1",
+      "isUsedAsTopLevelStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Importance of creativity to connection": {
+      "type": "equivalence-class",
+      "title": "Importance of creativity to connection",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Creativity involves self-disclosure",
+          "fromType": "equivalence-class",
+          "to": "Importance of creativity to connection",
+          "toType": "equivalence-class"
+        },
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Importance of creativity to connection",
+          "fromType": "equivalence-class",
+          "to": "Main Thesis BRAAIC",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "title": "Importance of creativity to connection",
+          "text": "Human creativity is especially capable of helping us connect to others in a valuable way",
+          "startLine": 6,
+          "startColumn": 5,
+          "endLine": 7,
+          "endColumn": 138,
+          "section": "s1"
+        }
+      ],
+      "section": "s1",
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Creativity involves self-disclosure": {
+      "type": "equivalence-class",
+      "title": "Creativity involves self-disclosure",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Creativity involves self-disclosure",
+          "fromType": "equivalence-class",
+          "to": "Importance of creativity to connection",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "title": "Creativity involves self-disclosure",
+          "text": "Self-disclosure occurs when we are creative, making it possible for others to understand us.",
+          "startLine": 7,
+          "startColumn": 7,
+          "endLine": 7,
+          "endColumn": 138,
+          "section": "s1"
+        }
+      ],
+      "section": "s1",
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "AIs reduce creative work": {
+      "type": "equivalence-class",
+      "title": "AIs reduce creative work",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "AIs reduce creative work",
+          "fromType": "equivalence-class",
+          "to": "Main Thesis BRAAIC",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "title": "AIs reduce creative work",
+          "text": "The widespread availability of generative AI models reduces our incentives to engage in various sorts of creative work in the arts and sciences.",
+          "startLine": 8,
+          "startColumn": 5,
+          "endLine": 8,
+          "endColumn": 176,
+          "section": "s1"
+        }
+      ],
+      "section": "s1",
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    }
+  },
+  "relations": [
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "Creativity involves self-disclosure",
+      "fromType": "equivalence-class",
+      "to": "Importance of creativity to connection",
+      "toType": "equivalence-class"
+    },
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "Importance of creativity to connection",
+      "fromType": "equivalence-class",
+      "to": "Main Thesis BRAAIC",
+      "toType": "equivalence-class"
+    },
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "AIs reduce creative work",
+      "fromType": "equivalence-class",
+      "to": "Main Thesis BRAAIC",
+      "toType": "equivalence-class"
+    }
+  ],
+  "sections": [
+    {
+      "type": "section",
+      "id": "s1",
+      "level": 1,
+      "title": "BRAAIC",
+      "children": [],
+      "ranges": [],
+      "startLine": 1,
+      "startColumn": 1,
+      "endLine": 8,
+      "endColumn": 176,
+      "fontColor": "#000000",
+      "color": "#DADADA"
+    }
+  ],
+  "tags": {}
+}

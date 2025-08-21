@@ -1,0 +1,445 @@
+[
+  {
+    "identifier": "EZEDAU",
+    "system_prompt": "## GOAL\nArgument‑mine the following paper to extract its comprehensive argumentative structure.\n\n## DEFINITIONS\n1. **Argument**: A set of propositions, including some number of premises and a conclusion. The premises should logically entail the conclusion.\n2. **Claim**: A proposition that asserts something to be true or false, typically requiring justification or evidence.\n3. **Premise**: A proposition that provides evidence, justification, or logical support for a claim or conclusion.\n\n## CRITICAL REQUIREMENTS\n1. **VERBATIM EXTRACTION ONLY**: Each ADU text must be copied EXACTLY from the paper with no modifications, paraphrasing, or combining of separate sentences.\n2. **NO HALLUCINATION**: Do not create, modify, or invent text that does not appear exactly in the source.\n3. **EXACT MATCHING**: Every word, punctuation mark, and spacing must match the original precisely.\n\n## DIRECTIONS\n1. **Identify Argumentative Discourse Units (ADUs)**  \n   - ADU = any contiguous text span functioning as a claim or a premise in the reasoning structure.\n   - **BE HIGHLY SELECTIVE**: Only include ADUs that are crucial to the overarching argument structure.\n   - Focus on significant claims and premises that contribute meaningfully to the argumentative flow.\n   - **AVOID NOISE**: Skip ADUs that are merely descriptive, tangential, or do not substantially advance the argument.\n   - Prioritize quality over quantity - fewer accurate, important ADUs are better than many insignificant ones.\n   - **EXTRACT ONLY**: Copy text spans exactly as they appear, without any modifications.\n2. **Classify each ADU**  \n   - Label = either `\"claim\"` or `\"premise\"`.  \n3. **Detect directed relations**  \n   - Relation = `\"support\"` or `\"attack\"`, from one ADU (source) to another (target).\n   - Map how ADUs connect to form reasoning chains.\n   - Focus on relationships between the most significant ADUs.\n   - Include relationships between premises that strengthen or weaken each other.\n4. **Verbatim spans**  \n   - Each `\"text\"` value must be copied EXACTLY from the paper with zero modifications.\n   - Do not paraphrase, summarize, or combine separate sentences.\n   - Do not add, remove, or change any words, punctuation, or spacing.\n   - If unsure about exact wording, skip that ADU rather than guess.\n\n## WHAT TO CAPTURE\n**INCLUDE ONLY:**\n- Main argumentative threads that are central to the paper's contribution\n- Core claims that represent the paper's primary arguments or findings\n- Key premises that provide essential support for major claims\n- Critical counterarguments and their refutations\n- Reasoning chains that demonstrate how main conclusions are derived\n\n**EXCLUDE (AVOID NOISE):**\n- Minor details, examples, or descriptive content that don't advance the argument\n- Tangential points or side discussions\n- Pure background information or literature review content\n- Methodological details unless they constitute argumentative claims\n- Obvious statements or commonly accepted facts\n- Redundant or repetitive argumentative content\n\n**GUIDING PRINCIPLE**: If removing an ADU would not significantly impact understanding of the paper's argumentative structure, it should be excluded.\n\n## QUALITY CONTROL\n- Before finalizing each ADU, verify the text exists exactly in the source\n- Prefer fewer, accurate ADUs over many potentially modified ones\n- When in doubt about exact wording, omit the ADU\n\n## OUTPUT FORMAT\nReturn **only** a single valid JSON object matching this schema.  \nDo **not** output any extra text, markdown, or explanations.\nDo **not** add comments.\n**RESPOND WITH ONLY**:\n```json\n{\n  \"ADUs\": {\n    \"<ADU_ID>\": {\n      \"text\": \"<exact span from paper>\",\n      \"label\": \"claim\" | \"premise\"\n    }\n    ...\n  },\n  \"relations\": [\n    {\n      \"source\": \"<ADU_ID>\",\n      \"target\": \"<ADU_ID>\",\n      \"type\": \"support\" | \"attack\"\n    }\n  ]\n}\n```",
+    "user_content": "Open Journal of Philosophy 2013. Vol.3, No.1A, 213-217 Published Online February 2013 in SciRes (http://www.scirp.org/journal/ojpp)                                          http://dx.doi.org/10.4236/ojpp.2013.31A035\n\n<!-- image -->\n\n## Dukor's African Unfreedom and Moral Responsibility\n\n## John Ezenwankwor\n\nDepartment of General Studies, Imo State Polytechnic Umuagwo, Owerri, Nigeria Email: johnsmart400@yahoo.com\n\nReceived September 11 th , 2012; revised October 13 th , 2012; accepted October 27 th , 2012\n\nIt is axiomatic for most African scholars that the colonizers are responsible for the present problems facing the African continent. This is given much credence by Maduabuchi Dukor citing a barrage of issues which in summary pointed to the fact that the legacy of the colonizers to the African continent was ill willed to create chaos and therefore to make the African perpetually dependent on the colonizers. This paper accepts this fact but insists that the African as a human being with free will and responsibility cannot continue to blame the colonizers when he has choice either to reject the colonial predetermined events or to accept them taking responsibility for his actions.\n\nKeywords : Africa; Freedom; Unfreedom; Moral Responsibility\n\n## Introduction\n\nThe society generally demands that people take responsibility  for  their  actions  and  in  doing  this,  some  particular  actions are  considered  blameworthy  or praiseworthy,  morally  right  or wrong. The imputation of blame or praise makes a moral sense only when the agents are free to choose from available options following  the  principle  of  alternative  possibilities  (PAP).  According  to  this  principle,  one  is  morally  responsible  for  his actions only when there are alternative choices available to him. The principle is stated thus:\n\nAn agent X is morally responsible for performing an action A only if X did something B (which might or might not be identical to A) such that 1) X could have refrained from doing B and 2) it is at least in part in virtue of X's having been able to refrain from doing B that X is morally responsible for performing B (Hunt, 2006: p. 126).\n\nFollowing this principle, two theories are often considered in discussions about moral responsibility and freedom. The first is libertarianism  and  the  second  which  is  very  common  among ethical  philosophers  is  compatibilism.  With  a  preference  for compatibilism,  this  paper  will  show  that  the  African,  though rendered  unfree  as  declared  by  Dukor,  is  not  totally  bereft  of free will and therefore to that extent should be morally responsible for his actions that continue to dehumanize him.\n\nFor  a  very  long  time,  freedom  or  liberty  has  been  in  wide usage  even  by  people  in  opposing  views  in  different  epochs. Sometimes  freedom  is  demanded  by  the  oppressed  minority from  their  oppressors,  sometimes  by  churches  repressed  by atheistic regimes, by  sects facing a traditional  monolithic church, nations repressed by colonial masters, workers resenting the monotony in an assembly line in an industrial plant, by children from parents etc. In most of these times, the freedom sought is a kind of specific freedom and in some other times, freedom  is  sought  as  such,  equating  freedom  with  life  itself: give me freedom or give me death (Roshwald, 2000: p. 1)! In our present discussion, we will limit the understanding of freedom to the autonomy not of individual persons but to individual states and governments in Africa. Freedom is not often linked to morality in most typical academic discussions but we intend to  show  in  the  proceeding  pages  that  freedom  cannot  be  divorced from morals especially when we need to impute some level of responsibility to an agent. In our discussions of African freedom, we will consider to what extent the African is morally responsible for his woes as well as the culpability of the African colonizers to the African present problems.\n\n## African Freedom and Unfreedom\n\nFreedom in simple terms is defined as the right and power to act  or  behave  as  one  chooses.  It  is  the  absence  of  internal  restraints and external constraints. African freedom as presented in  Dukor's  work,  The  African  Freedom,  the  Freedom  of  Philosophy,  is  considered  to  consist  in  greater  detail  from  the negative  sense  of  liberty  as  the  freedom  from  external  constraints in making desired choices. African unfreedom is therefore her 'lack of the capacity to choose, act and decide for herself  what  or  what  not  to  do  (freedom  to)  and  the  capacity  for cultural,  political,  economic  and  psychological  independence (freedom  from)'  (Dukor,  2012:  p.  50).  The  African  incapacitating constraints include a barrage of issues emanating outside the African continent which make it difficult for her to organise, rule, and fashion out her life and future according to her desired choices. Among these external issues are the ones implanted by the colonial masters who like politicians of Lord Macaulay in 1827, laid it down as a self evident truth that 'no people (in this case the African) ought to be free till they are fit to  use  their freedom' (Thierstein &amp; Kamalipour, 2000: p. xxi). Africans are considered by the colonizers unfit to be free or to be at liberty in making desired choices. To succeed in making Africans perpetually unfree they came in like a big brother and made sure that  whatever  value  considered  African  is  totally  considered primitive, antiquated and unfit for humans. In replacement for the 'primitive and antiquated' African values, they left for the African, crises of values and negation of values as an enduring legacy  in  the  form  of  European  education  and  religion  which were all presented and are still being presented in the European language, conception and mentality (Dukor, 2012: p. 68). They came with a deceptive intent to civilize and modernise Africa\n\nbut  Pennycook  (1998:  p.  24)  points  out  that  their  colonizing mission 'was to destroy African and Australian society and halt its natural progress by excluding the native people from any say in making the decisions that controlled their lives.' The deceptive  colonizing mission  of  Europe  severely impaired  the  African values to the extent that she found herself confused on the ways to advance economically, politically and morally.\n\nWhile agreeing with Dukor that the freedom denied the African is responsible for most of her present woes, this paper is intended to show that the African is as well culpable and therefore morally responsible for most of her problems. The African should not be exonerated from most of her woes, even though true  to  Dukor's  stand,  the  greater  responsibility should  go  the colonizers.  The  colonizers  are  technically  responsible  for  Africa's present woes while the African is morally responsible for them.\n\n## Moral Responsibility and African Freedom\n\nMark Bernstein in his work, Can We Ever Be Really, Truly, Ultimately,  Free?  (2006),  narrates  the  tale  of  a  woman-Dora, charged  with  stealing  of  clothing  from  a  departmental  store. She was found guilty by a jury and sentenced to prison. However  after  a  short  while,  her  defence  attorney  discovered  that she was injected with a serum that fixed her will. This affected her neurophysiology in such a way as to deterministically cause her to desperately want to steal. On bringing this information to the jury the defence attorney urged that 'since her client did not steal 'on her own free will, 'she ought to be exonerated.' This did the magic, and the judge rescinded his earlier decision of a jail sentence (Bernstein, 2006: p. 1). To be morally responsible for one's actions is to have the power to be the ultimate creator of one's intentional acts or behaviour. Any lack in the power to be one's intentional creator of his own actions, ultimately implies that the actor is not free and therefore not morally responsible. Our concern here is to ascertain the level of freedom of the  African  in  determining  her  affairs  and  consequently  the level of responsibility that can be imputed to him in his actions. Like  Dora,  there  are  a  number  of  indices  but  for  which,  the African  would  have  acted  differently.  These  include  among other  things,  the  colonial  legacy  enumerated  by  Dukor  which has  like  the  serum  injected  into  Dora,  been  injected  into  the African to deterministically force her towards some set choices. He further states that:\n\nThe state of things in Africa is never an accident of history. It is a historically designed legacy of turmoil left behind  by  the  conquerors.  The  pendulum  of  dictatorship, military rule and militarism swaying across the continent of  Black  race  is  a  necessary  fallout  from  the  selfish  and long term capitalist policies of the colonial rule. There is of course no altruistic motive in the self-imposed civilizing mission of the white man (Dukor, 2012: p. 69).\n\nDukor's  presentation  of  the  African  subjection  under  the colonizers' legacies of education and religion within the framework of  European civilization  is  deceptively  convincing and therefore could grant the African the leisure of blaming the colonizers for all her past and present problems. We will grant the African this leisure only if she agrees to be an 'everlasting child' and therefore eternally 'unfit to be free'. The underlying question about African freedom, is whether the African has the free  will  to  make  other  choice  beyond  her  present  state?  An affirmative answer which I think is more reasonable will render him culpable for most of her present problems while a negative one will render the colonizers eternally responsible for the African misfortune.\n\nThe  initial  consideration  of  Mark  Bernstein's  'Dora'  mentioned above as one acting under the influence of serum, made the judge rescind the jail sentence. In the same way, the initial consideration of the colonial legacies as noted by Dukor could be enough to grant the African the leisure of imputing the guilt of  all  her  past  and  present  misfortunes  to  the  colonizers  all things being equal. However, things are not always equal, further considerations of the story of 'Dora' will put us in better perspective to appreciate better the complexities in an immediate  imputation  of  guilt.  A  week  after  Dora's  exoneration  and acquittal,  the  prosecuting  attorney  on  further  discovery  that though Dora was injected with the serum, volitionally allowed its  use just to experience the state of being a thief hoping that she will be able to deal with the stealing force of the serum and avoid  stealing.  With  this  further  discovery,  the  prosecuting attorney  petitioned  the  judge  who  now  reversed  the  acquittal and reinstated Dora's one year sentence in jail (Bernstein, 2006: p. 1). The judge in the first instance was very hasty in acquitting  Dora  and  therefore  lost  sight  of  the  fact  that  though  the serum was the main driving force of Dora's stealing, Dora also has  the  stupid  and  unwholesome  desire  of  experiencing  the feeling of a thief even though she never intended to indulge in the act of stealing. We will neither be hasty in imputing blame to the African nor in exonerating her.\n\n## Colonizers' Culpability\n\nDukor  rightly  considered  the  whole  gamut  of  the  colonial legacies  in  Africa  as  a  doom  and  a  problem  that  needs  to  be solved. It is a misnomer coming from a 'parent'-the colonizers  to  her  children-the  Africans.  He  describes the  colonizers legacies succinctly in the following words:\n\nA parent gives her child the legacy of good training, good manner,  religious  values,  and  perhaps  assets  which  may be educational or material establishment. A teacher gives his or her student education and requisite skill. A society grooms an individual with the mores, norms and values of co-existence.  A  state  or  nation  now  enhances  these  elements for proper development of the individual for his or her relevance to the nation and humanity. But the colonial legacies  in  Africa  are  a  problem  in  the  sense  they  are legacies  of  crises  of  values  and  negation  of  values.  The 'crises  of  values'  is  an  index  and  measure  of  Africans' unfreedom from within and the cause of her underdevelopment from without (Dukor, 2012: pp. 67-68).\n\nThe colonizers came to Africa with some positive values but these were distorted because of their selfish intent. The African was made to throw away his nature, his real self and then wear the  European  cloak.  None  of  her  cultural,  religious,  political and social values were considered equal to the 'gifts' coming from the colonizers. The traditional African cultures were maliciously considered inhuman and their religion, otiose. The political organizations of the pre-colonial African were not given better treatment. They were regarded as primitive and un-progressive. In fact, the African in the eyes of the colonizers and their  commentators  were  encumbered  with  self  serving  myths and as a  people  without  a  history,  culture  and  religion  except\n\nfor  the  European  intervention  (Nkrumah,  1964:  p.  62).  In  a popular  work  written  in  1965  by  the  historian  Trevor-Roper, Africa was presented as having no history and it has nothing to offer  than  'the  unrewarding  gyrations  of  barbarous  tribes  in picturesque  but  irrelevant  quarters  of  the  globe'(Wesseling, 1996: p. 25). This view was further expressed with much more emphasis a year after by the Hungarian Marxist Endre Sik thus:\n\nPrior  to  their  encounter  with  Europeans  the  majority  of African people still lived a primitive, barbaric life, many of them even on the lowest of barbarism … therefore it is unrealistic  to  speak  of  their  'history'-in  the  scientific sense of the word before the appearance of the European invaders (Wesseling, 1996: p. 25).\n\nFollowing  this  ugly  picture  created  by  the  colonizers  and most  Europeans,  the  African  is  required  to  free  himself  from everything  considered  traditionally  African  and  get  himself emancipated  into  the  religious,  cultural,  political  and  social orientation of the colonizers in order to be considered human. Various kinds of resistance put forward by the native Africans to  freely choose the direction of their future were rebuffed by the  colonizers  with  fiercer  and  stiffer  resistance  that  'reduced populations,  dispossessed  people  of  their  land,  culture,  language  and  history,  (and)  shifted  vast  number  of  people  from one place to another' (Pennycook, 1998: p. 18).\n\nIf the traditional African is considered 'a baby' at the onset of colonization, will he remain so on gaining independence and after  independence?  The  affirmative  answer,  true  to  Dukor's position,  is  rightfully  the  intention  of  the  colonizers  for  their 'baby'-the African. The efforts of the African nationalists to assimilate  the  European  values  and  the  African  culture  into  a distinct  value  that  can  be  called  African  has  not  been  fruitful because  the  colonizers  never  intended  to  give  the  African  the level of autonomy to decide what to choose and what to keep. In order to make sure the African never stands on his own, he continues his interference in the African affairs through what is termed by the African Peoples Conference in Cairo (1961) as 'neo-colonialism'. The conference viewed the situation of the African  after  independence  which  they  designated  as  'neocolonialism' as 'indirect political and; economic manipulation designed to perpetuate external control in Africa in more subtle ways' (Mazrui, 1998: p. 528). After independence, the Africans were  basking  under  the  euphoric  state  of  freedom  and  independence  until  the  colonizers  came  again  to  substitute  the euphoria with what Christof Lehmann (1) referred to as choking massacres and conflict. He describes the indirect return of the colonial masters back to Africa thus:\n\nThe  old  colonial  rulers  had  returned  with  a  vengeance. Over fifty years later, most African nations are, in spite of the  richness  of  their  resources  and  productivity  of  their population, still catastrophically under developed, impoverished, indebted, plagued by conflict, unrest and instability  due  to  the  return  of  the  colonial  powers  influence. Those African nations who failed to comply with their returning  rulers  were  and  are  mercilessly  attacked.  Libya and  the  Ivory  Coast  are  examples  for  the  new  colonization's  subversive  influence  and  a  warning  for  African leaders to face the lion in solidarity or be devoured one by one (Lehmann, 2011).\n\nFollowing this kind of manipulation, the situation of the Af- rican on the exit of the colonizers rather than changing to the status of freedom, changed to the status of 'neo-freedom'. The African though free in general terms to choose the course of his future, is subtly dependent on the colonizers who now dictates what he is to choose by indirect political, economic and social manipulations.  In  recent  times,  precisely  in  November  2011, Nigeria and Ghana experienced neo-colonial threats from Britain, Germany and some other western countries for their insistence that homosexuality is an evil which is considered a taboo in  both  countries.  The  two  countries  stand  the  risk  of  losing economic  benefits  if  they  continue  to  legalize  against  homosexuals.  The  Nigerian  country  men  and  legislators  rightly  insisted  that  the  act  is  profoundly  immoral  and  consequently  a taboo and therefore  refused to extinguish  from her  law  books the  sections  that  criminalize  homosexuality.  Obviously  aware of the implications of saying no to the wish of the colonizers', the  response  of  the  Nigerian  senate  president,  David  Mark  to the German ambassador to Nigeria about homosexuality laws is considered great bravely. According to him:\n\nAny  aid  (foreign  aid  to  Nigeria)  tied  to  endorsement  of same sex marriage is not welcome. It is unfair o tie whatever assistance or aid to Nigeria to laws we make in the overall interest of our citizens. Otherwise we are tempted to believe that such assistance comes with ulterior motives. If  assistance  is  aimed  at  mortgaging  our  future,  values, custom  and  ways  of  life,  then  they  should  as  well  keep their assistance (Folasade-Koyi, 2011).\n\nIndeed,  most  of  the  supposed  economic,  political  religious aids to Africa are as Dukor (2012: p. 69) rightly noted, not altruistic. They are geared towards total African unfreedom under the  bondage  of  the  colonizers  and  their  social,  political,  economic  and  religious  whims  and  caprices.  Under  this  kind  of manipulative  bondage,  the  African  may  not  be  totally  held morally responsible for all her problems. This does not however mean  that  he  is  totally  exonerated,  he  has  a  moral  burden  to bear for such problems and to that we now turn.\n\n## African Culpability\n\nIn  Africa,  the  concept  colonialism  and  its  related  termsneo-colonialism and imperialism are often the central themes in most  academic  discussions.  Usually  in  such  discussions,  the blame is not commonly laid on the Africans but on the colonizers  who  are  constantly  projected  as  having  exploited  and  are still exploiting the African continent. When Dukor (2012: p. 69) states that 'the state of things in Africa is never an accident of history.  It  is  a  historically  designed  legacy  of  turmoil  left  behind by the conquerors', he is not imposing a new view on his fellow  Africans.  Indeed,  this  view  is  general  among  African scholars who see the modern day curse to Africa as having its clear  roots  in  the  colonial  era.  For  example,  the  colonial  state was fundamentally authoritarian and therefore the independent states  of  Africa  have  remained  essentially  authoritarian.  The colonial leadership in Africa was entirely despotic; the current leadership  in  African  countries  has  remained  essentially  despotic  in  democratic  garb.  The  colonial  administrators  were corrupt;  the  present  administrators  in  Africa  have  remained essentially  corrupt.  This  has  remained  the  most  common  way Africa has viewed colonialism, neo-colonialism and the African problems. Another uncommon way to see the African problems is to beam the searchlight not on the colonizers but on the Afri-\n\ncans themselves.\n\nFollowing  our  simple  description  of  moral  responsibility where imputation of blame or praise is made on the agent according  to  his  choice,  an  agent  bereft  of  the  ability  to  make choice is not imputed any form of moral guilt or responsibility. Imputation of moral responsibility is made to the agent who is the ultimate creator of his intentional acts.\n\nThe description of the African under colonialism and ne-colonialism, on its first value just like the case of 'Dora' depicts a state  of  unfreedom,  a  helpless  state  where  only  the  bidden  of the colonizers are the available choices. In the case of 'Dora' the serum injected into her was enough for the judge to relieve her of the moral responsibility for her act of stealing. On further consideration  that  she  intentionally  wanted  to  have  a  feel  of what it means to steal, the acquittal was withdrawn for a well deserved  one  year  in  prison.  Are  there  further  considerations based on the actions of the Africans that could make her culpable  for  her  problems  other  than  the  influence  of  the  colonial masters? In  other  words,  was  the  African  bereft  of  choices  in her actions such that the actions that brought her doom are the only options before her?\n\nThe most fatal reason for the African problems is not the activity of the colonizers but the activity of her government and leaders. They have a number of options in which they were to lead  Africa  to  a  glorious  future  but  ignored  these  options  to pursue  selfish  interests  such  that  they  'emerged  as  worst nightmares to the advancement of the African person' (Chihuri, 2012).  We  can  no  longer  continue  to  cry  woe  for  the  corrupt leadership of the colonizers. In fact African nationalists fought to gain freedom from such corruption. How do we explain the present  situation  where  those  who  sought  freedom  under  corrupt  leadership  have  themselves  become  more  corrupt?  The essence  of  our  humanity  is  our  rationality  and  therefore  we cannot continue to say that the colonizers led us through corrupt means and therefore we are replicating what they taught us. We were  not  happy  with  their  actions  and  we  criticised  them  because  we  felt  that  there  were  better  choices  before  them  than what they did. In the same way, we are also aware that there are other options rather than corruption but we chose corrupt leadership. We must therefore be morally responsible for whatever pains  our  corrupt  practices  inflict  on  our  collective  values  as Africans.\n\nAfrican  problems  today  have  little  to  do  with  the  colonial legacies.  Her  problems  lie  in  the  defective  political  and  economic  systems  established  by  the  African  leaders  after  independence. George Ayittey (1998: p. 322) states that despite the diversity of cultures and ideological differences among African leaders, 'the systems instituted across the continent were strikingly  similar.  They  were  all  characterized  by  a  great  deal  of concentration of power in the hands of the state and ultimately one individual.' Even though the African leaders resented the authoritarian  colonial  masters,  the  political  state  after  independence was not different, the black administrators especially the  military  rather  strengthened  the  unitary  and  authoritarian system since it favoured them as individual leaders to the detriment of their  subjects.  Practically  most  of  the  actions  of  the leaders  were  self  serving.  Their  actions  after  independence were aptly summarized by Ayittey (1998: p. 323) thus:\n\nThey misused their parliamentary majority to subvert the constitution, declare their countries 'one-party states' and themselves  'presidents-for-life.'  Opposition  parties  were outlawed. 'Dissidents' were arrested and, in some cases, 'liquidated.' The rationale for this burgeoning repressive system was 'unity.' Multi-ethnicity precluded multi-party democracy,  it  was  argued  back  then.  Zaire,  for  example has  about  200  ethnic  groups  and  multi-party  democracy would easily degenerate into 'tribal politics.' … Further, some African leaders such as Mobutu Sese Seko of Zaire argued, rather deviously that, the 'one-party state system was derived from African tradition.\n\nAll these were in a bid to satisfy the selfish desire to remain in  the  seat  of  power  notwithstanding  the  wishes  of  the  populace.\n\nAfricans did not only go wrong by the selfish and corrupt actions  of  their  leaders;  they  also  went  wrong  in  choosing  an economic  policy  for  the  young  independent  states  of  Africa. The African nationalists were in a hurry to develop Africa and so  failed  to  plan  properly  in  order  to  choose  a  suitable  economic system for the post-colonial African states.  Because  of the  general  distaste  for  the  colonial  masters,  the  nationalists were quick to reject everything associated with them. Capitalism being the economic system for the colonialists was for this reason rejected as evil.  In its  stead,  socialism  was  a  preferred economic option for Africa. States came to assume ownership of  major  enterprises  which  were  hitherto  managed  well  by capitalists. They managed these firms haphazardly and most of the firms went comatose while the ministers were busy sharing the loots and stocking them in foreign accounts. George Ayittey (1998: p. 324) reports that the socialist economic system never worked in Africa. In fact, 'country after country, from Guinea, Mali, Ghana to Tanzania-the socialist economy turned out to be a miserable fiasco.' In few countries such as Nigeria, Kenya, Malawi  and  Ivory-Coast  where  socialism  was  eschewed,  the economy  was  still  badly  managed  and  the  government  were still involved in managing most of the firms.\n\n## Final Comments\n\nThe position which we subscribed to at the beginning of this paper-compatibilism  remains  our  litmus  test  in  determining whether  the  African  is  to  blame  for  some  of  his  problems  or whether he is to be entirely exonerated. Compatibilists accept determinism  with  a  slight  modification  in  order  to  allow  accountability for human actions. It upholds the view that humans are either free or they are not. If they have free will they must use  it  otherwise  whatever  they  call  free  will  can  only  be  regarded as only the appearance of free will. That there are constraints do not matter but what matters is that one can still make a choice. Compatibilism allows for a free marriage of the ideas of determinism and free will and hold that it is possible to believe  both  without  being  logically  inconsistent.  It  is  therefore 'possible  to  embrace  compatibilism  without  denying  that  the past is fixed in a robust sense or that the natural laws are fixed in a robust sense (Fischer, 2001: p. 48). In the same way it is possible  to  assert  that  the  colonial  powers  have  deterministically fixed the events within the African present and future and at the same time assert that the African has a free will to alter the  cause  of  her  past  determined  events.  The  repercussions  of altering  these  deterministically  scheduled  events  should  not bother us at the moment but what is important is that the African as human a being has a free will. Her decision to continue in the colonial set agenda is her choice and she should therefore\n\nbe morally responsible for whatever comes out of it.\n\nCrying  woes  about  the  misdeeds  of  the  colonizers  is  no longer necessary, she needs to stand up and be responsible for her  affairs.  It  is  not  expected  that  the  greedy  colonizers  will rescind their neo-colonialistic attitude in the African continent because  doing  that  will  amount  to  a  great  economic  loss  on their part. The African should, like China rise up and be a man for all her affairs!\n\n## REFERENCES\n\nAyittey,  G.  (1998).  Obstacles  to  African  development.  In  G.  A.  Agbango  (Ed.), Issues  and  trends  in  contemporary  African  politics: Suitability,  development,  and  democratization (pp.  321-336).  New York: Peter Lang.\n\nBernstein, M. (2006). Can we ever be really, truly, ultimately, free? In P. French, H. Wettstein, &amp; J. M. Fischer (Eds.), Midwest studies in philosophy volume xxix free will and moral responsibility (pp. 1-13) . Boston: Wiley.\n\n- Chihuri,  S.  (2012).  The  problem  with  Africa.  URL  (last  checked  9 September 2012).\n- http://www.newzimbabwe.com/pages/opinion94.13175.html\n- Dukor,  M.  (2012). The  African  freedom,  the  freedom  of  philosophy . Sarbrucken: Lambert Academic Publishing.\n- Fischer, M. J. (2001). A new compatibilism. In W. L. Ekstrom (Ed.), Agency and responsibility: Essays on the metaphysics of freedom (pp.\n- 38-53). Boulder: Westview Press.\n- Folasade-Koyi, A. (2012). Same sex marriage ban irrevocable-Mark. URL (last checked 14 January 2012).\n- http://www.sunnewsonline.com/webpages/news/national/2011/dec/0 2/national-02-12-2011-010html.\n- Hunt,  D.  (2006).  Moral  responsibility  and  buffered  alternatives.  In  P. French,  H.  Wettstein,  &amp;  J.  M.  Fischer  (Eds.), Midwest  studies  in philosophy  volume  XXIX  free  will  and  moral  responsibility (pp. 126-145) . Boston: Wiley.\n- Lehmann, C. (2012). Neo-colonialism, subversion in Africa and global conflict. URL (last checked 8 September 2012).\n- http://nsnbc.wordpress.com/2011/10/16/neo-colonialism-subversion-\n- in-africa-and-global-conflict/.\n- Mazrui, A. A. (1998). Neo-dependency and Africa's fragmentation. In P. H. Coetzee, &amp; A. P. J. Roux (Eds.), The African philosophy reader (pp. 528-546). London: Routledge.\n- Nkrumah,  K.  (1964). Consciencism philosophy and ideology for de-colonization. New York: Monthly Review Press.\n- Pennycook,  A.  (1998). English  and  the  discourses  of  colonialism . London: Routledge.\n- Roshwald, M. (2000). Liberty, its meaning and scope. Westport: Greenwood Press.\n- Thierstein,  J.,  &amp;  Kalipour,  Y.  (2000). Religion,  law  and  freedom:  A global perspective . Westport: Praeger.\n- Wesseling,  H.  L.  (1996). Divide  and  rule,  the  partition  of  Africa, 1880-1914 . Westport: Praeger.",
+    "responses": [
+      {
+        "source": "gpt-4o-2024-11-20",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"ADU1\": {\n      \"text\": \"It is axiomatic for most African scholars that the colonizers are responsible for the present problems facing the African continent.\",\n      \"label\": \"claim\"\n    },\n    \"ADU2\": {\n      \"text\": \"This paper accepts this fact but insists that the African as a human being with free will and responsibility cannot continue to blame the colonizers when he has choice either to reject the colonial predetermined events or to accept them taking responsibility for his actions.\",\n      \"label\": \"claim\"\n    },\n    \"ADU3\": {\n      \"text\": \"According to this principle, one is morally responsible for his actions only when there are alternative choices available to him.\",\n      \"label\": \"premise\"\n    },\n    \"ADU4\": {\n      \"text\": \"Following this principle, two theories are often considered in discussions about moral responsibility and freedom.\",\n      \"label\": \"premise\"\n    },\n    \"ADU5\": {\n      \"text\": \"The first is libertarianism and the second which is very common among ethical philosophers is compatibilism.\",\n      \"label\": \"premise\"\n    },\n    \"ADU6\": {\n      \"text\": \"With a preference for compatibilism, this paper will show that the African, though rendered unfree as declared by Dukor, is not totally bereft of free will and therefore to that extent should be morally responsible for his actions that continue to dehumanize him.\",\n      \"label\": \"claim\"\n    },\n    \"ADU7\": {\n      \"text\": \"African unfreedom is therefore her 'lack of the capacity to choose, act and decide for herself what or what not to do (freedom to) and the capacity for cultural, political, economic and psychological independence (freedom from)' (Dukor, 2012: p. 50).\",\n      \"label\": \"premise\"\n    },\n    \"ADU8\": {\n      \"text\": \"The African incapacitating constraints include a barrage of issues emanating outside the African continent which make it difficult for her to organise, rule, and fashion out her life and future according to her desired choices.\",\n      \"label\": \"premise\"\n    },\n    \"ADU9\": {\n      \"text\": \"While agreeing with Dukor that the freedom denied the African is responsible for most of her present woes, this paper is intended to show that the African is as well culpable and therefore morally responsible for most of her problems.\",\n      \"label\": \"claim\"\n    },\n    \"ADU10\": {\n      \"text\": \"The African should not be exonerated from most of her woes, even though true to Dukor's stand, the greater responsibility should go the colonizers.\",\n      \"label\": \"claim\"\n    },\n    \"ADU11\": {\n      \"text\": \"To be morally responsible for one's actions is to have the power to be the ultimate creator of one's intentional acts or behaviour.\",\n      \"label\": \"premise\"\n    },\n    \"ADU12\": {\n      \"text\": \"The state of things in Africa is never an accident of history. It is a historically designed legacy of turmoil left behind by the conquerors.\",\n      \"label\": \"premise\"\n    },\n    \"ADU13\": {\n      \"text\": \"The colonizers came to Africa with some positive values but these were distorted because of their selfish intent.\",\n      \"label\": \"premise\"\n    },\n    \"ADU14\": {\n      \"text\": \"The African was made to throw away his nature, his real self and then wear the European cloak.\",\n      \"label\": \"premise\"\n    },\n    \"ADU15\": {\n      \"text\": \"None of her cultural, religious, political and social values were considered equal to the 'gifts' coming from the colonizers.\",\n      \"label\": \"premise\"\n    },\n    \"ADU16\": {\n      \"text\": \"Following this kind of manipulation, the situation of the African on the exit of the colonizers rather than changing to the status of freedom, changed to the status of 'neo-freedom'.\",\n      \"label\": \"claim\"\n    },\n    \"ADU17\": {\n      \"text\": \"The African though free in general terms to choose the course of his future, is subtly dependent on the colonizers who now dictates what he is to choose by indirect political, economic and social manipulations.\",\n      \"label\": \"claim\"\n    },\n    \"ADU18\": {\n      \"text\": \"The most fatal reason for the African problems is not the activity of the colonizers but the activity of her government and leaders.\",\n      \"label\": \"claim\"\n    },\n    \"ADU19\": {\n      \"text\": \"They have a number of options in which they were to lead Africa to a glorious future but ignored these options to pursue selfish interests such that they 'emerged as worst nightmares to the advancement of the African person' (Chihuri, 2012).\",\n      \"label\": \"premise\"\n    },\n    \"ADU20\": {\n      \"text\": \"African problems today have little to do with the colonial legacies.\",\n      \"label\": \"claim\"\n    },\n    \"ADU21\": {\n      \"text\": \"Her problems lie in the defective political and economic systems established by the African leaders after independence.\",\n      \"label\": \"claim\"\n    },\n    \"ADU22\": {\n      \"text\": \"Compatibilism allows for a free marriage of the ideas of determinism and free will and hold that it is possible to believe both without being logically inconsistent.\",\n      \"label\": \"premise\"\n    },\n    \"ADU23\": {\n      \"text\": \"The African as human a being has a free will. Her decision to continue in the colonial set agenda is her choice and she should therefore be morally responsible for whatever comes out of it.\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"ADU1\",\n      \"target\": \"ADU2\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU3\",\n      \"target\": \"ADU6\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU4\",\n      \"target\": \"ADU6\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU5\",\n      \"target\": \"ADU6\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU7\",\n      \"target\": \"ADU9\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU8\",\n      \"target\": \"ADU9\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU9\",\n      \"target\": \"ADU10\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU11\",\n      \"target\": \"ADU23\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU12\",\n      \"target\": \"ADU13\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU13\",\n      \"target\": \"ADU14\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU14\",\n      \"target\": \"ADU15\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU16\",\n      \"target\": \"ADU17\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU18\",\n      \"target\": \"ADU19\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU20\",\n      \"target\": \"ADU21\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU22\",\n      \"target\": \"ADU23\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "ADU1": {
+              "text": "It is axiomatic for most African scholars that the colonizers are responsible for the present problems facing the African continent.",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "This paper accepts this fact but insists that the African as a human being with free will and responsibility cannot continue to blame the colonizers when he has choice either to reject the colonial predetermined events or to accept them taking responsibility for his actions.",
+              "label": "claim"
+            },
+            "ADU3": {
+              "text": "According to this principle, one is morally responsible for his actions only when there are alternative choices available to him.",
+              "label": "premise"
+            },
+            "ADU4": {
+              "text": "Following this principle, two theories are often considered in discussions about moral responsibility and freedom.",
+              "label": "premise"
+            },
+            "ADU5": {
+              "text": "The first is libertarianism and the second which is very common among ethical philosophers is compatibilism.",
+              "label": "premise"
+            },
+            "ADU6": {
+              "text": "With a preference for compatibilism, this paper will show that the African, though rendered unfree as declared by Dukor, is not totally bereft of free will and therefore to that extent should be morally responsible for his actions that continue to dehumanize him.",
+              "label": "claim"
+            },
+            "ADU7": {
+              "text": "African unfreedom is therefore her 'lack of the capacity to choose, act and decide for herself what or what not to do (freedom to) and the capacity for cultural, political, economic and psychological independence (freedom from)' (Dukor, 2012: p. 50).",
+              "label": "premise"
+            },
+            "ADU8": {
+              "text": "The African incapacitating constraints include a barrage of issues emanating outside the African continent which make it difficult for her to organise, rule, and fashion out her life and future according to her desired choices.",
+              "label": "premise"
+            },
+            "ADU9": {
+              "text": "While agreeing with Dukor that the freedom denied the African is responsible for most of her present woes, this paper is intended to show that the African is as well culpable and therefore morally responsible for most of her problems.",
+              "label": "claim"
+            },
+            "ADU10": {
+              "text": "The African should not be exonerated from most of her woes, even though true to Dukor's stand, the greater responsibility should go the colonizers.",
+              "label": "claim"
+            },
+            "ADU11": {
+              "text": "To be morally responsible for one's actions is to have the power to be the ultimate creator of one's intentional acts or behaviour.",
+              "label": "premise"
+            },
+            "ADU12": {
+              "text": "The state of things in Africa is never an accident of history. It is a historically designed legacy of turmoil left behind by the conquerors.",
+              "label": "premise"
+            },
+            "ADU13": {
+              "text": "The colonizers came to Africa with some positive values but these were distorted because of their selfish intent.",
+              "label": "premise"
+            },
+            "ADU14": {
+              "text": "The African was made to throw away his nature, his real self and then wear the European cloak.",
+              "label": "premise"
+            },
+            "ADU15": {
+              "text": "None of her cultural, religious, political and social values were considered equal to the 'gifts' coming from the colonizers.",
+              "label": "premise"
+            },
+            "ADU16": {
+              "text": "Following this kind of manipulation, the situation of the African on the exit of the colonizers rather than changing to the status of freedom, changed to the status of 'neo-freedom'.",
+              "label": "claim"
+            },
+            "ADU17": {
+              "text": "The African though free in general terms to choose the course of his future, is subtly dependent on the colonizers who now dictates what he is to choose by indirect political, economic and social manipulations.",
+              "label": "claim"
+            },
+            "ADU18": {
+              "text": "The most fatal reason for the African problems is not the activity of the colonizers but the activity of her government and leaders.",
+              "label": "claim"
+            },
+            "ADU19": {
+              "text": "They have a number of options in which they were to lead Africa to a glorious future but ignored these options to pursue selfish interests such that they 'emerged as worst nightmares to the advancement of the African person' (Chihuri, 2012).",
+              "label": "premise"
+            },
+            "ADU20": {
+              "text": "African problems today have little to do with the colonial legacies.",
+              "label": "claim"
+            },
+            "ADU21": {
+              "text": "Her problems lie in the defective political and economic systems established by the African leaders after independence.",
+              "label": "claim"
+            },
+            "ADU22": {
+              "text": "Compatibilism allows for a free marriage of the ideas of determinism and free will and hold that it is possible to believe both without being logically inconsistent.",
+              "label": "premise"
+            },
+            "ADU23": {
+              "text": "The African as human a being has a free will. Her decision to continue in the colonial set agenda is her choice and she should therefore be morally responsible for whatever comes out of it.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU1",
+              "target": "ADU2",
+              "type": "support"
+            },
+            {
+              "source": "ADU3",
+              "target": "ADU6",
+              "type": "support"
+            },
+            {
+              "source": "ADU4",
+              "target": "ADU6",
+              "type": "support"
+            },
+            {
+              "source": "ADU5",
+              "target": "ADU6",
+              "type": "support"
+            },
+            {
+              "source": "ADU7",
+              "target": "ADU9",
+              "type": "support"
+            },
+            {
+              "source": "ADU8",
+              "target": "ADU9",
+              "type": "support"
+            },
+            {
+              "source": "ADU9",
+              "target": "ADU10",
+              "type": "support"
+            },
+            {
+              "source": "ADU11",
+              "target": "ADU23",
+              "type": "support"
+            },
+            {
+              "source": "ADU12",
+              "target": "ADU13",
+              "type": "support"
+            },
+            {
+              "source": "ADU13",
+              "target": "ADU14",
+              "type": "support"
+            },
+            {
+              "source": "ADU14",
+              "target": "ADU15",
+              "type": "support"
+            },
+            {
+              "source": "ADU16",
+              "target": "ADU17",
+              "type": "support"
+            },
+            {
+              "source": "ADU18",
+              "target": "ADU19",
+              "type": "support"
+            },
+            {
+              "source": "ADU20",
+              "target": "ADU21",
+              "type": "support"
+            },
+            {
+              "source": "ADU22",
+              "target": "ADU23",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "ADU1": {
+              "text": "It is axiomatic for most African scholars that the colonizers are responsible for the present problems facing the African continent.",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "This paper accepts this fact but insists that the African as a human being with free will and responsibility cannot continue to blame the colonizers when he has choice either to reject the colonial predetermined events or to accept them taking responsibility for his actions.",
+              "label": "claim"
+            },
+            "ADU3": {
+              "text": "According to this principle, one is morally responsible for his actions only when there are alternative choices available to him.",
+              "label": "premise"
+            },
+            "ADU4": {
+              "text": "Following this principle, two theories are often considered in discussions about moral responsibility and freedom.",
+              "label": "premise"
+            },
+            "ADU5": {
+              "text": "The first is libertarianism and the second which is very common among ethical philosophers is compatibilism.",
+              "label": "premise"
+            },
+            "ADU6": {
+              "text": "With a preference for compatibilism, this paper will show that the African, though rendered unfree as declared by Dukor, is not totally bereft of free will and therefore to that extent should be morally responsible for his actions that continue to dehumanize him.",
+              "label": "claim"
+            },
+            "ADU7": {
+              "text": "African unfreedom is therefore her 'lack of the capacity to choose, act and decide for herself what or what not to do (freedom to) and the capacity for cultural, political, economic and psychological independence (freedom from)' (Dukor, 2012: p. 50).",
+              "label": "premise"
+            },
+            "ADU8": {
+              "text": "The African incapacitating constraints include a barrage of issues emanating outside the African continent which make it difficult for her to organise, rule, and fashion out her life and future according to her desired choices.",
+              "label": "premise"
+            },
+            "ADU9": {
+              "text": "While agreeing with Dukor that the freedom denied the African is responsible for most of her present woes, this paper is intended to show that the African is as well culpable and therefore morally responsible for most of her problems.",
+              "label": "claim"
+            },
+            "ADU10": {
+              "text": "The African should not be exonerated from most of her woes, even though true to Dukor's stand, the greater responsibility should go the colonizers.",
+              "label": "claim"
+            },
+            "ADU11": {
+              "text": "To be morally responsible for one's actions is to have the power to be the ultimate creator of one's intentional acts or behaviour.",
+              "label": "premise"
+            },
+            "ADU12": {
+              "text": "The state of things in Africa is never an accident of history. It is a historically designed legacy of turmoil left behind by the conquerors.",
+              "label": "premise"
+            },
+            "ADU13": {
+              "text": "The colonizers came to Africa with some positive values but these were distorted because of their selfish intent.",
+              "label": "premise"
+            },
+            "ADU14": {
+              "text": "The African was made to throw away his nature, his real self and then wear the European cloak.",
+              "label": "premise"
+            },
+            "ADU15": {
+              "text": "None of her cultural, religious, political and social values were considered equal to the 'gifts' coming from the colonizers.",
+              "label": "premise"
+            },
+            "ADU17": {
+              "text": "The African though free in general terms to choose the course of his future, is subtly dependent on the colonizers who now dictates what he is to choose by indirect political, economic and social manipulations.",
+              "label": "claim"
+            },
+            "ADU18": {
+              "text": "The most fatal reason for the African problems is not the activity of the colonizers but the activity of her government and leaders.",
+              "label": "claim"
+            },
+            "ADU19": {
+              "text": "They have a number of options in which they were to lead Africa to a glorious future but ignored these options to pursue selfish interests such that they 'emerged as worst nightmares to the advancement of the African person' (Chihuri, 2012).",
+              "label": "premise"
+            },
+            "ADU20": {
+              "text": "African problems today have little to do with the colonial legacies.",
+              "label": "claim"
+            },
+            "ADU21": {
+              "text": "Her problems lie in the defective political and economic systems established by the African leaders after independence.",
+              "label": "claim"
+            },
+            "ADU22": {
+              "text": "Compatibilism allows for a free marriage of the ideas of determinism and free will and hold that it is possible to believe both without being logically inconsistent.",
+              "label": "premise"
+            },
+            "ADU23": {
+              "text": "The African as human a being has a free will. Her decision to continue in the colonial set agenda is her choice and she should therefore be morally responsible for whatever comes out of it.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU1",
+              "target": "ADU2",
+              "type": "support"
+            },
+            {
+              "source": "ADU3",
+              "target": "ADU6",
+              "type": "support"
+            },
+            {
+              "source": "ADU4",
+              "target": "ADU6",
+              "type": "support"
+            },
+            {
+              "source": "ADU5",
+              "target": "ADU6",
+              "type": "support"
+            },
+            {
+              "source": "ADU7",
+              "target": "ADU9",
+              "type": "support"
+            },
+            {
+              "source": "ADU8",
+              "target": "ADU9",
+              "type": "support"
+            },
+            {
+              "source": "ADU9",
+              "target": "ADU10",
+              "type": "support"
+            },
+            {
+              "source": "ADU11",
+              "target": "ADU23",
+              "type": "support"
+            },
+            {
+              "source": "ADU12",
+              "target": "ADU13",
+              "type": "support"
+            },
+            {
+              "source": "ADU13",
+              "target": "ADU14",
+              "type": "support"
+            },
+            {
+              "source": "ADU14",
+              "target": "ADU15",
+              "type": "support"
+            },
+            {
+              "source": "ADU18",
+              "target": "ADU19",
+              "type": "support"
+            },
+            {
+              "source": "ADU20",
+              "target": "ADU21",
+              "type": "support"
+            },
+            {
+              "source": "ADU22",
+              "target": "ADU23",
+              "type": "support"
+            }
+          ]
+        }
+      },
+      {
+        "source": "claude-3-5-sonnet-20241022",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"1\": {\n      \"text\": \"It is axiomatic for most African scholars that the colonizers are responsible for the present problems facing the African continent.\",\n      \"label\": \"claim\"\n    },\n    \"2\": {\n      \"text\": \"The state of things in Africa is never an accident of history. It is a historically designed legacy of turmoil left behind by the conquerors.\",\n      \"label\": \"premise\"\n    },\n    \"3\": {\n      \"text\": \"The most fatal reason for the African problems is not the activity of the colonizers but the activity of her government and leaders. They have a number of options in which they were to lead Africa to a glorious future but ignored these options to pursue selfish interests such that they 'emerged as worst nightmares to the advancement of the African person'\",\n      \"label\": \"claim\"\n    },\n    \"4\": {\n      \"text\": \"The African as a human being with free will and responsibility cannot continue to blame the colonizers when he has choice either to reject the colonial predetermined events or to accept them taking responsibility for his actions.\",\n      \"label\": \"claim\"\n    },\n    \"5\": {\n      \"text\": \"The African though free in general terms to choose the course of his future, is subtly dependent on the colonizers who now dictates what he is to choose by indirect political, economic and social manipulations.\",\n      \"label\": \"premise\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"2\",\n      \"target\": \"1\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"3\",\n      \"target\": \"1\", \n      \"type\": \"attack\"\n    },\n    {\n      \"source\": \"5\",\n      \"target\": \"4\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "1": {
+              "text": "It is axiomatic for most African scholars that the colonizers are responsible for the present problems facing the African continent.",
+              "label": "claim"
+            },
+            "2": {
+              "text": "The state of things in Africa is never an accident of history. It is a historically designed legacy of turmoil left behind by the conquerors.",
+              "label": "premise"
+            },
+            "3": {
+              "text": "The most fatal reason for the African problems is not the activity of the colonizers but the activity of her government and leaders. They have a number of options in which they were to lead Africa to a glorious future but ignored these options to pursue selfish interests such that they 'emerged as worst nightmares to the advancement of the African person'",
+              "label": "claim"
+            },
+            "4": {
+              "text": "The African as a human being with free will and responsibility cannot continue to blame the colonizers when he has choice either to reject the colonial predetermined events or to accept them taking responsibility for his actions.",
+              "label": "claim"
+            },
+            "5": {
+              "text": "The African though free in general terms to choose the course of his future, is subtly dependent on the colonizers who now dictates what he is to choose by indirect political, economic and social manipulations.",
+              "label": "premise"
+            }
+          },
+          "relations": [
+            {
+              "source": "2",
+              "target": "1",
+              "type": "support"
+            },
+            {
+              "source": "3",
+              "target": "1",
+              "type": "attack"
+            },
+            {
+              "source": "5",
+              "target": "4",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "1": {
+              "text": "It is axiomatic for most African scholars that the colonizers are responsible for the present problems facing the African continent.",
+              "label": "claim"
+            },
+            "2": {
+              "text": "The state of things in Africa is never an accident of history. It is a historically designed legacy of turmoil left behind by the conquerors.",
+              "label": "premise"
+            },
+            "3": {
+              "text": "The most fatal reason for the African problems is not the activity of the colonizers but the activity of her government and leaders. They have a number of options in which they were to lead Africa to a glorious future but ignored these options to pursue selfish interests such that they 'emerged as worst nightmares to the advancement of the African person'",
+              "label": "claim"
+            },
+            "4": {
+              "text": "The African as a human being with free will and responsibility cannot continue to blame the colonizers when he has choice either to reject the colonial predetermined events or to accept them taking responsibility for his actions.",
+              "label": "claim"
+            },
+            "5": {
+              "text": "The African though free in general terms to choose the course of his future, is subtly dependent on the colonizers who now dictates what he is to choose by indirect political, economic and social manipulations.",
+              "label": "premise"
+            }
+          },
+          "relations": [
+            {
+              "source": "2",
+              "target": "1",
+              "type": "support"
+            },
+            {
+              "source": "3",
+              "target": "1",
+              "type": "attack"
+            },
+            {
+              "source": "5",
+              "target": "4",
+              "type": "support"
+            }
+          ]
+        }
+      }
+    ],
+    "timestamp": 1752756065.9349923
+  }
+]

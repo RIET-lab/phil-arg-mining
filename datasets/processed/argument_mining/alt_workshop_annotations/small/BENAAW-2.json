@@ -1,0 +1,121 @@
+{
+  "arguments": {},
+  "statements": {
+    "Main Thesis BENAAW-2": {
+      "type": "equivalence-class",
+      "title": "Main Thesis BENAAW-2",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Claim 1 BENAAW-2",
+          "fromType": "equivalence-class",
+          "to": "Main Thesis BENAAW-2",
+          "toType": "equivalence-class"
+        },
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Claim 2 BENAAW-2",
+          "fromType": "equivalence-class",
+          "to": "Main Thesis BENAAW-2",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "top-level-statement",
+          "isTopLevel": true,
+          "title": "Main Thesis BENAAW-2",
+          "text": "Some of the most prominent arguments against affirmative action are not sufficient to reject affirmative action. ",
+          "startLine": 1,
+          "startColumn": 1,
+          "endLine": 3,
+          "endColumn": 144
+        }
+      ],
+      "isUsedAsTopLevelStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Claim 1 BENAAW-2": {
+      "type": "equivalence-class",
+      "title": "Claim 1 BENAAW-2",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Claim 1 BENAAW-2",
+          "fromType": "equivalence-class",
+          "to": "Main Thesis BENAAW-2",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "title": "Claim 1 BENAAW-2",
+          "text": "Alternative action comes in competitive and non-competitive forms. ",
+          "startLine": 2,
+          "startColumn": 4,
+          "endLine": 2,
+          "endColumn": 92
+        }
+      ],
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Claim 2 BENAAW-2": {
+      "type": "equivalence-class",
+      "title": "Claim 2 BENAAW-2",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Claim 2 BENAAW-2",
+          "fromType": "equivalence-class",
+          "to": "Main Thesis BENAAW-2",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "title": "Claim 2 BENAAW-2",
+          "text": "Some of the most prominent objections to affirmative action apply less effectively to non-competitive affirmative action.",
+          "startLine": 3,
+          "startColumn": 4,
+          "endLine": 3,
+          "endColumn": 144
+        }
+      ],
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    }
+  },
+  "relations": [
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "Claim 1 BENAAW-2",
+      "fromType": "equivalence-class",
+      "to": "Main Thesis BENAAW-2",
+      "toType": "equivalence-class"
+    },
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "Claim 2 BENAAW-2",
+      "fromType": "equivalence-class",
+      "to": "Main Thesis BENAAW-2",
+      "toType": "equivalence-class"
+    }
+  ],
+  "sections": [],
+  "tags": {}
+}

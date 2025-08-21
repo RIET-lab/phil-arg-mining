@@ -1,0 +1,279 @@
+[
+  {
+    "identifier": "STEDDA",
+    "system_prompt": "## GOAL\nArgument‑mine the following paper to extract its comprehensive argumentative structure.\n\n## DEFINITIONS\n1. **Argument**: A set of propositions, including some number of premises and a conclusion. The premises should logically entail the conclusion.\n2. **Claim**: A proposition that asserts something to be true or false, typically requiring justification or evidence.\n3. **Premise**: A proposition that provides evidence, justification, or logical support for a claim or conclusion.\n\n## CRITICAL REQUIREMENTS\n1. **VERBATIM EXTRACTION ONLY**: Each ADU text must be copied EXACTLY from the paper with no modifications, paraphrasing, or combining of separate sentences.\n2. **NO HALLUCINATION**: Do not create, modify, or invent text that does not appear exactly in the source.\n3. **EXACT MATCHING**: Every word, punctuation mark, and spacing must match the original precisely.\n\n## DIRECTIONS\n1. **Identify Argumentative Discourse Units (ADUs)**  \n   - ADU = any contiguous text span functioning as a claim or a premise in the reasoning structure.\n   - **BE HIGHLY SELECTIVE**: Only include ADUs that are crucial to the overarching argument structure.\n   - Focus on significant claims and premises that contribute meaningfully to the argumentative flow.\n   - **AVOID NOISE**: Skip ADUs that are merely descriptive, tangential, or do not substantially advance the argument.\n   - Prioritize quality over quantity - fewer accurate, important ADUs are better than many insignificant ones.\n   - **EXTRACT ONLY**: Copy text spans exactly as they appear, without any modifications.\n2. **Classify each ADU**  \n   - Label = either `\"claim\"` or `\"premise\"`.  \n3. **Detect directed relations**  \n   - Relation = `\"support\"` or `\"attack\"`, from one ADU (source) to another (target).\n   - Map how ADUs connect to form reasoning chains.\n   - Focus on relationships between the most significant ADUs.\n   - Include relationships between premises that strengthen or weaken each other.\n4. **Verbatim spans**  \n   - Each `\"text\"` value must be copied EXACTLY from the paper with zero modifications.\n   - Do not paraphrase, summarize, or combine separate sentences.\n   - Do not add, remove, or change any words, punctuation, or spacing.\n   - If unsure about exact wording, skip that ADU rather than guess.\n\n## WHAT TO CAPTURE\n**INCLUDE ONLY:**\n- Main argumentative threads that are central to the paper's contribution\n- Core claims that represent the paper's primary arguments or findings\n- Key premises that provide essential support for major claims\n- Critical counterarguments and their refutations\n- Reasoning chains that demonstrate how main conclusions are derived\n\n**EXCLUDE (AVOID NOISE):**\n- Minor details, examples, or descriptive content that don't advance the argument\n- Tangential points or side discussions\n- Pure background information or literature review content\n- Methodological details unless they constitute argumentative claims\n- Obvious statements or commonly accepted facts\n- Redundant or repetitive argumentative content\n\n**GUIDING PRINCIPLE**: If removing an ADU would not significantly impact understanding of the paper's argumentative structure, it should be excluded.\n\n## QUALITY CONTROL\n- Before finalizing each ADU, verify the text exists exactly in the source\n- Prefer fewer, accurate ADUs over many potentially modified ones\n- When in doubt about exact wording, omit the ADU\n\n## OUTPUT FORMAT\nReturn **only** a single valid JSON object matching this schema.  \nDo **not** output any extra text, markdown, or explanations.\nDo **not** add comments.\n**RESPOND WITH ONLY**:\n```json\n{\n  \"ADUs\": {\n    \"<ADU_ID>\": {\n      \"text\": \"<exact span from paper>\",\n      \"label\": \"claim\" | \"premise\"\n    }\n    ...\n  },\n  \"relations\": [\n    {\n      \"source\": \"<ADU_ID>\",\n      \"target\": \"<ADU_ID>\",\n      \"type\": \"support\" | \"attack\"\n    }\n  ]\n}\n```",
+    "user_content": "## Dual Review\n\n## David Davies, Art as Performance\n\n<!-- image -->\n\nArt as Performance begins with a critique of 'aesthetic  empiricism,'  the  view  that  artworks are the kind of entity that are to be appreciated in a  direct  experiential  encounter  in  which  their aesthetic properties are revealed with little or no knowledge of context of origin or artist's intention. Davies is perfectly aware that he is not the\n\nWhat is the cumulative case for the performance  view  and  against  the  contextualist?  It  is primarily a sequence of three arguments, which I will call the arguments from intentions (Chapter 4), from modality (Chapter 5), and from the disappearing  contextualist  object  (Chapter  8). I will consider each in turn and argue that none succeeds  in  establishing  the  superiority  of  the performance theory over contextualism.\n\nUNCORRECTED PROOF REVIEWS BY ROBERT STECKER AND JOHN DILWORTH DAVIES,  DAVID. Art  as  Performance .  Oxford: Blackwell,  2004,  xii+278  pp.,  $64.95  cloth, $29.95 paper. Art as Performance is  an  important  new  work focusing primarily on the ontology and appreciation  of  artworks.  Especially  important  is  the way it combines these topics by arguing that a correct account of what artworks are requires a sensitive understanding of the ways we appreciate  them,  and  that  fully  appreciating  works  of art requires understanding what they are. The central  thesis  of  the  book  is  the  ontological one that artworks are not physical objects on  walls  and  filling  spaces  in  museums,  not sound structures indicated by composers and performed in concert halls, not linguistic structures 'uttered'  by  writers,  but  the  actual  'performances' of artists that create such objects. The correlative  thesis  concerning  appreciation  is  that  it requires that we relate the objects just mentioned (which are called the 'work-focus') with the performances  that  specify  them.  (Given  the  ontological thesis, this could be restated as saying that appreciation  requires  that  we  relate  the  'workfocus'  to  the  actual  work.)  Both  theses  need much clarification, and the first especially needs much defense.  Before  turning  to  these  matters, here is an overview of the book as a whole. first to offer such a critique, but his point is to set up  a  debate  with  the  real  critical  target  of  the book:  the  contextualist  views  that  have  largely superceded  aesthetic  empiricism.  According  to these views, works of art are context-dependent physical objects or abstract structures, the appreciation of which require knowledge of context of origin. Throughout this book, running parallel to the defense of the performance view is a critique of contextualism both as an ontology and as an account of artwork appreciation. This is essential to  Davies's project since contextualism appears to capture our commonsense intuitions about artworks far better than his own view. Having set up this debate (Chapters 1-3), Davies begins his 'cumulative argument' for the performance view and against contextualism and other alternatives (Chapters 4-6).  Chapter  7  is  devoted  to  setting out the performance view in some detail, Chapter 8  to  answering  a  central  objection  to  it  (and attempting  to  turn  it  against  the  contextualist), and Chapter 9 to displaying the virtues of the performance theory by showing how it illuminates hard-to-appreciate  conceptual  and  performance works. The final chapter provides a brief sketch of  the  way  art  might  be  defined  and  its  value specified in light of the performance model.\n\nUNCORRECTED PROOF It  is  not  easy  to  state  the  argument  from intentions because, on Davies's formulation, it is  tied  to  a  controversial  theory  of  artwork meaning.  Fortunately,  the  crucial  idea  can  be stated independently of that theory. The premise Davies  wants  to  establish  is  that  there  can  be intentions (or, for that matter, other aspects of the context of creation) that fail to play a role in determining meaning properties of a work but are still relevant to the appreciation of the work. (This premise can be granted even by moderate actual  intentions  about  work  meaning.)  Something like this would happen if an artist intends to create a work that means m (or achieves a ), but actually creates one that means n (or fails to achieve a ).  In  assessing  the  artist's  achievement,  these  intentions  are  obviously  relevant, even though they are not meaning determining. Further, they are not merely assessments of the artist,  but  of  the  work.  Davies  thinks  that  the most plausible way to account for this fact is to give up the idea that artworks are the products of  the  artist's  creative  activity  and  accept  that they  are  instead  the  activity  that  brings  about the  product.  There  is,  however,  no  entailment from  Davies's  premises  to  this  conclusion  (as he  realizes),  and  in  fact  those  premises  hardly warrant such a radical revision in our conception  of  artworks.  There  is  a  straightforward explanation of the relevance of such intentions, viz. that in assessing the  product,  and  the achievement  it  embodies,  we  need  to  understand  the  project  of  which  it  is  the  end  result. There  is  no  such  thing  as  the  assessment  of achievement in the abstract. This fact applies to all  sorts  of  artifacts.  One  would  not  assess  a sports  car  and  a  family  car  in  the  same  way because they are made with two different bundles  of  aims.  (They  are  the  result  of  different projects.) But we are assessing the cars and not just the making of them for their success relative to those aims. Similarly, one cannot assess the Les Demoiselles  d'Avignon without  an understanding of Picasso's aims or project, but we are still assessing the product of his artistic activity,  the  object  that  is  universally  recognized as the painting. The  argument  from  modality  is  concerned with those properties of an artwork that constitute it as the artwork it is and, in virtue of this constitutive role, are essential properties of the work-one  it  has  in  all  possible  worlds.  The first premise of the argument is that whether a property is constitutive of work is work relative. That is, properties like being made at time t , or in context c ,  or  by artist a may be constitutive for  some  works  but  not  others.  For  example, Picasso's Les Demoiselles d'Avignon is  plausibly  essentially  tied  to  the  artworld  context  in which  it  was  created,  but  a  'naïve'  painting made for a local tourist art market may be far less  specifically  tied  it  its  context  of  creation. The second premise is that whether a property is constitutive of a work depends on what is to be appreciated in a work. The final premise is that we have to reconstruct the 'performance' that created  the  work  to  understand  what  is  to  be appreciated in it. The conclusion is that only an ontology  that  identifies  works  with  said  performance will capture these constitutive properties  correctly.  Broadly  speaking,  there  are  two problems with this argument. First, it is invalid because, as Davies recognizes, the fact that an originating performance is relevant to individuating works does not show to what ontological category works belong. To fill the gap, Davies has to show that no other ontology could do justice to the fact and, in particular, a contextualist ontology  cannot.  Davies  attempts  this  but,  as with  the  argument  from  intentions,  he  fails  to convince.  Let  us  assume  with  Davies  that  in order  to  identify  the  contextual  properties  that are constitutive, we should apply something like the  following  principle:  identify  the  properties of  the  artist's  'performance'  in  bringing  the 'work-focus' into existence that are essential to appreciating  the  work.  Even  if  this  principle were correct, there is no reason why the contextualist  cannot  acknowledge  that.  For  example, if what  is  to  be  appreciated  is  that  the  work brilliantly  solves  a  problem  provided  by  the artworld concerns at the time of creation, a contextualist can acknowledge that only a physical object/structure  made  or  indicated  in  such  a context would be that work. The second problem with the argument from modality is that it is not  clear  that  its  premises  are  true.  I  believe none  of  them  are  obvious,  but  the  third  is particularly controversial. Whatever Davies means  by  reconstructing  the  artist's  performance, something that is plausibly less than this would do as well or better for grasping what is to  be  appreciated  in  a  work.  This  is  grasping what I  called  above  the  artist's  project.  Given\n\nan understanding of this project, along with the work (object), we should be able to figure out the achievement, and hence what is to be appreciated. The artist's project is certainly a feature the contextualist can appeal to for individuating works.\n\nart appreciation. On each issue it raises, it will make every reader think through it afresh.\n\nROBERT STECKER\n\nDepartment of Philosophy Central Michigan University\n\nLet  me  explain.  Davies  wishes  to  hold  that artistic actions or performances, such as an artist  executing  a  certain  brushstroke  at  time  t, 'might have transpired otherwise' (p. 116), in that his modal intuition is, for example, that the very same painting might have been painted at a somewhat different time from its actual time of execution. The only way to accommodate such a view in an action ontology is to hold that certain  painting-related  actions themselves could have occurred at a different time, or in a different place, and so on. However, though we may readily  admit  that  Picasso  might  have  painted the  very  same  painting Guernica a  week  later than  he  actually  did,  so  that  in  that  sense  his painting actions might have occurred later, it is quite  another  thing  to  claim  that  the  concrete\n\nUNCORRECTED PROOF The  disappearing  contextualist  object  argument claims that such objects collapse into pure (decontextualized)  abstract  structures/physical objects when their ontology is properly understood. Hence, either we must give up the idea that context plays a role in the ontology of art or we must accept the performance model. How do we get this conclusion? Consider a hand-made one-of-a-kind sculpture. Suppose it is a physical object.  We  individuate  it  as  a  sculpture  by  its shape  and  by  various  features  concerning  its origin. But  if it is a physical  object,  it is claimed,  these  features  are  not  relevant  to  its ontological category. The claim begs an important question. If we inquire about the identity of the  physical  object  that  is  the  sculpture,  some would say that there is just one physical object where  the  sculpture  is,  and  it  is  such  that  it would still exist if it  lost  its  shape.  But  others would say there is not just one physical object where the sculpture is, and the very identity of the  one  that  is  the  sculpture  is  fixed  by  shape and context. As with physical objects, so with abstract  structures.  'Where  we  have  two  indicatings of the same musical structure-type, there is a single …type that is correctly describable as a  work by Brahms and a work by Beethoven' (p. 185). That is perhaps a possibility, but by no means  the  only  one.  If  we  take  seriously  the idea  that  there  are  two  works,  it  is  not  even  a possibility.  Suppose  work  A=type  T.  If  work B=type T, then A=B. But that is impossible if there  are two works.  In  coming  to  his  conclusion,  Davies  just  ignores  the  controversy  or takes a side without argument. That leaves the conclusion unproved. In  his  absorbing  book Art  as  Performance , David  Davies  argues  that  artworks  should  be identified,  not  with  artistic products such  as paintings or novels, but instead with the artistic actions or processes that  produced such items. Such  a  view  had  an  earlier incarnation in Currie's widely criticized 'action type hypothesis' (Currie, An Ontology of Art , 1989), but Davies argues that it is instead action tokens rather than types with which artworks should be identified. This rich and complex work repays the closest study  in  spite  of  some  basic  objections  to  be raised  concerning  Davies's  central  concept  of an action token. First,  a  serious  problem  for  Davies  will  be discussed, one that arises during his often insightful discussion of what he calls 'the workrelativity of modality' (pp. 105-113), according to which view the counterfactual possibilities of artwork  identity  depend  on  factors  specific  to the  work  in  question.  Davies  needs  to  explain how  a  given  artistic  action  or  performance could  itself  be  evaluated  modally.  He  does  so by postulating modally flexible actions or ' doings '-which he claims to be action tokens-as part of the ontological furniture of the universe.\n\nDavies's arguments fail to raise serious problems  for  the  contextualist  or  convince  us  to accept the performance view. Nevertheless, this is  a  work  that  everyone  interested  in  these issues should read and grapple with. Everyone can learn from Davies's discussions of the bearing of the artist's performance on the appreciation of artworks. The book will require contextualists  to  revise  standing  proposals  on the ontology of art and to rethink the nature of\n\naction tokens making up Picasso's actual painting activities could have occurred later. For on standard analyses of actions or events, the time at  which  they  occur  is  one  of  their  essential characteristics.\n\nUNCORRECTED PROOF Thus the normal sense in which it is true that Picasso  could  have  painted  a  certain  brushstroke  later  is  the  sense  in  which  the  relevant brushstroke action A, occurring at time t 1 , might not have existed or occurred at all, but instead some  other brushstroke  action  B,  of  the  same type as A, occurring at a later time t 2 and having the same effect, might have existed. But in this account there is no single action token such that it might  have  happened  either  at  time  t 1 or  at time  t 2 and  hence  no  room  for  modally  rich actions as such. Clearly, such normal action rigidity cases are a serious threat to Davies's view, so he is driven to  postulate  special  actions,  which  he  calls 'doings'  or  'happenings'  (pp.  116,  167-178), whose time of occurrence is contingent and that are  also  intensional  or  description  relative,  in that, for instance, even if Picasso made a certain brush movement both to paint a brushstroke and to  relieve  a  cramp  in  his  hand,  it  is  only qua intentional  brushstroke  action,  rather  than qua cramp-relieving action, that the relevant doing counts  as  part  of  the  identity  of  the  artwork Guernica . However,  Davies's  problem  is  now  that,  to the extent that this modal flexibility-introducing and description-relativizing strategy is successful,  he  has  also,  at  least  as  judged  by  conventional standards and assumptions, succeeded in undercutting  his  own  claim  that  it  is  action tokens ,  rather  than  action types ,  with  which works of art should be identified. For the only fully clear and noncontroversial sense in which the  same  brushstroke  action  could  occur  at different times, or be description relative, is the sense  in  which  the  same  action type could be instantiated  or  tokened  at  different  times, and  instantiated  by  tokens  whose  instantiation of  other  types,  such  as  that  of  hand-cramprelieving actions, is irrelevant to their tokening of the brushstroking-action type. To be sure, Davies does offer a clear possibleworlds model of his postulated 'doings,' which would make them analogous to ordinary objects in having a contingent spatiotemporal location. If such 'doings' were metaphysically viable, the problems discussed above might be resolvable along the lines he suggests. However, I would argue that it is no accident that standard analyses of  actions  and  events  deny  them  a  contingent spatiotemporal location. To explain very briefly, arguably the reason ordinary  objects,  unlike  events,  are  able  to persist through change and be modally flexible in  their  spatiotemporal  positions  is  because they are capable of being contingently changed by, and reidentified relative to, those very same events themselves,  which  in  general  provide the basis for the most basic scientific descriptions  of  the  universe.  Thus  the  concept  of empirical contingency for objects presupposes a  two-tier  structure,  in  which  object  contingency or modal flexibility is explained in terms of their reidentifiability relative to distinct clusters of modally inflexible events. But clearly a similar framework cannot be applied to events themselves, without embarking on an unacceptable  explanatory  regress  that  would  have  to postulate  proto-events  to  explain  the  contingency of ordinary events, and so on. So, to say the least, Davies's invocation of modally flexible  events  such  as  'doings'  or  'happenings' seems metaphysically unpromising as an empirical hypothesis.\n\naccount of modal or counterfactual properties of artworks at all-an unfortunate result, because some of  his  most  effective  criticisms  of  alternate views, such as of Levinson's contextualist view of artwork modality, are precisely to the effect that they fail because of a similar modal inflexibility.\n\nNevertheless,  Davies  goes  on  to  argue  in Chapter 6 that actiontype theories of art, such as that of Currie, are themselves fatally flawed. But then as a result, Davies is left, by conventional standards at least,  with  no  adequate\n\nA related but more general ontological concern about Davies's theory is as follows. As approached  via  Danto's  theory  of  art.  Danto realized that 'mere real things,' as he describes them,  such  as  painted  canvases,  could  not themselves  be  artworks  because  as  physical objects their relational properties are all contingent,  whereas  artworks,  as  such,  have  their artistically relevant relational properties essentially. As a result, Danto argues for an 'object plus'  ontology,  namely,  that  an  artwork  is  an object  plus  an  interpretation,  or  an  object  as\n\nessentially described in appropriate contextual terms.\n\nBut to all appearances, Davies's own underlying ontology is structurally exactly like that of Danto.  His  artworks  are  not  simply  performances considered as concrete action tokens, that is, as 'mere real events,' in Danto's terms, but instead  they  are  those  tokens plus whatever essential relational properties are needed to link them  to  a  proper  grasp  of  their  'focuses  of appreciation,' and so on. For example, as before, it is Picasso's physical action as essentially described as a brushstroke, rather than as essentially described as a cramp-relieving action,  that  partly  constitutes  the  artwork  on Davies's view.\n\na  generative  performance,'  and  so  forth.  Thus Davies  has  already  stacked  the  deck  against  a purely  physicalistic  kind  of  aesthetic  empiricism  that  admits  only  configurational  rather than recognitional properties, to use Wollheim's useful distinction.\n\nUNCORRECTED PROOF Hence Davies's pursuit of the true ontological  nature  of  his  'doings,'  as  somehow  being both concrete event tokens and yet also modally flexible in work-specific ways, is arguably confused, just as Danto would regard a pursuit of special concrete art objects as being confused. In  both  cases,  we  must  distinguish  the  purely physical  event  or  object  from  the  essential descriptions  or  interpretations  that  enable  the resultant complex entity to be an artwork, on a Dantoesque approach. Nevertheless,  Davies's  own  prime  example of a an empiricist view is one that views a painting  as  merely  a pattern  of  colors (pp.  28-29), which  presumably  is  itself  a  purely  configurational or physicalistic view  that does not require the object to be 'the outcome or product of  a  generative  performance,'  hence  revealing an unclarity in his concept of a focus of appreciation.  But  at  the  same  time,  his  concept  of  a 'focus  of  appreciation'  is  also  inclusive  or vague enough so as to leave it unclear whether or not some relevant physical artifact must play a role in appreciation of an artwork.  For example,  the  specific  configurational  structure of  the  physical  manuscript  for  a  poem,  as  a series  of  shaped  mounds  of  ink  on  a  page,  is arguably  irrelevant  to  any  proper  appreciation of  the  relevant  artwork,  and  so  it  would  not count as part  of  the  relevant  focus  of  appreciation for the poem. Now Davies defines aesthetic empiricism as 'the thesis that the artistic properties of an artwork  are  given  to  a  receiver  in  an  immediate perceptual  encounter  with  the  work'  (p.  28). But a problem for Davies in the poem case is that it is the propositional contents , rather than their  physical  vehicle,  that  are  immediately 'given  to  a  receiver'  when  she  perceives  the poem. For after all, readers of poems rarely, if ever, perceptually attend to the physical configuration of the typeface, or to the texture of the paper on which the poem is printed, when they read  a  poem.  Hence,  given  his  current  definitions of 'focus of appreciation' and 'aesthetic empiricism,'  even  a  purely  proposition-based view of literary artworks would turn out to be an aesthetic empiricist view.\n\nThis  point  is  also  important  for  Davies's concept of a 'focus of appreciation,' which he defines as 'the product of the generative act in so  far  as  that  product  enters  into  the  proper appreciation of the work,' adding that it 'as the outcome or product of a generative performance …is relevant to the appreciation of the artwork brought  into  existence  through  that  performance' (p. 26). However, note that strictly speaking, no purely physical object as such-whether a painting, physical inscriptions on a manuscript page,  and  so  on-could  count  as  a  'focus  of appreciation' under these characterizations, since both of them require the relevant 'focus' to  have  certain essential relational  properties, namely,  those  of  'enter[ing]  into  the  proper appreciation  of  the  work'  and  being  'the outcome or product of a generative performance,' along  with  being  'relevant  to  the  appreciation of  the  artwork  brought  into  existence  through that  performance.' Of course, physical objects can have nonessential relational properties, but their empirically contingent status with respect to their causes means that they cannot necessarily or essentially be 'the outcome or product of\n\nTo be sure, it is clear that Davies would not want  this  implication,  since  he  claims  that  an extension  of  aesthetic  empiricism  to  literature is implausible just because its appreciation involves understanding of words, or direct perceiving  of  their  meanings  (p.  29  and  n.  3). But  again,  my  point  is  that  his  definitions  are unclear enough, or at least commodious enough, to allow this unwanted possibility, and\n\nthat the root cause is an underlying ontological unclarity  concerning  the  relations  of  physical events  or  objects  to  the  essential  descriptions that artistically characterize them.\n\ning  artwork  is  embodied  in  the  execution  of those distinct action plans.\n\nOne  other  potential  line  of  criticism  should be mentioned. An artist might consider several distinct  ways  of  constructing  a  given  artwork, only  one  of  which  she  actualizes.  Intuitively speaking,  the  resultant  artwork  would  be  the same whichever distinct action plan she chooses, but since Davies identifies an artwork with  the  concrete  action  tokens  that  produce it-which would be both token and type distinct from the instantiation of any alternative action plan for the work-it seems he would be unable to explain the sense in which the same underly-\n\nTo sum up, there are many valuable aspects of Davies's book, consideration of which could not be attempted in this brief review. In spite of the basic concerns raised above about his underlying ontology, the book can be strongly recommended  for  its  many  stimulating  and thought-provoking discussions of a wide range of topics in the philosophy of art.\n\n<!-- image -->\n\nUNCORRECTED PROOF JOHN DILWORTH Department of Philosophy Western Michigan University",
+    "responses": [
+      {
+        "source": "gpt-4o-2024-11-20",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"ADU1\": {\n      \"text\": \"The central thesis of the book is the ontological one that artworks are not physical objects on walls and filling spaces in museums, not sound structures indicated by composers and performed in concert halls, not linguistic structures 'uttered' by writers, but the actual 'performances' of artists that create such objects.\",\n      \"label\": \"claim\"\n    },\n    \"ADU2\": {\n      \"text\": \"The correlative thesis concerning appreciation is that it requires that we relate the objects just mentioned (which are called the 'work-focus') with the performances that specify them.\",\n      \"label\": \"claim\"\n    },\n    \"ADU3\": {\n      \"text\": \"Davies begins his 'cumulative argument' for the performance view and against contextualism and other alternatives (Chapters 4-6).\",\n      \"label\": \"premise\"\n    },\n    \"ADU4\": {\n      \"text\": \"The premise Davies wants to establish is that there can be intentions (or, for that matter, other aspects of the context of creation) that fail to play a role in determining meaning properties of a work but are still relevant to the appreciation of the work.\",\n      \"label\": \"premise\"\n    },\n    \"ADU5\": {\n      \"text\": \"Davies thinks that the most plausible way to account for this fact is to give up the idea that artworks are the products of the artist's creative activity and accept that they are instead the activity that brings about the product.\",\n      \"label\": \"claim\"\n    },\n    \"ADU6\": {\n      \"text\": \"The argument from modality is concerned with those properties of an artwork that constitute it as the artwork it is and, in virtue of this constitutive role, are essential properties of the work-one it has in all possible worlds.\",\n      \"label\": \"premise\"\n    },\n    \"ADU7\": {\n      \"text\": \"The conclusion is that only an ontology that identifies works with said performance will capture these constitutive properties correctly.\",\n      \"label\": \"claim\"\n    },\n    \"ADU8\": {\n      \"text\": \"Davies's arguments fail to raise serious problems for the contextualist or convince us to accept the performance view.\",\n      \"label\": \"claim\"\n    },\n    \"ADU9\": {\n      \"text\": \"Davies argues that artworks should be identified, not with artistic products such as paintings or novels, but instead with the artistic actions or processes that produced such items.\",\n      \"label\": \"claim\"\n    },\n    \"ADU10\": {\n      \"text\": \"Davies's invocation of modally flexible events such as 'doings' or 'happenings' seems metaphysically unpromising as an empirical hypothesis.\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"ADU1\",\n      \"target\": \"ADU2\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU3\",\n      \"target\": \"ADU1\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU4\",\n      \"target\": \"ADU5\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU6\",\n      \"target\": \"ADU7\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU8\",\n      \"target\": \"ADU7\",\n      \"type\": \"attack\"\n    },\n    {\n      \"source\": \"ADU9\",\n      \"target\": \"ADU1\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU10\",\n      \"target\": \"ADU7\",\n      \"type\": \"attack\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "ADU1": {
+              "text": "The central thesis of the book is the ontological one that artworks are not physical objects on walls and filling spaces in museums, not sound structures indicated by composers and performed in concert halls, not linguistic structures 'uttered' by writers, but the actual 'performances' of artists that create such objects.",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "The correlative thesis concerning appreciation is that it requires that we relate the objects just mentioned (which are called the 'work-focus') with the performances that specify them.",
+              "label": "claim"
+            },
+            "ADU3": {
+              "text": "Davies begins his 'cumulative argument' for the performance view and against contextualism and other alternatives (Chapters 4-6).",
+              "label": "premise"
+            },
+            "ADU4": {
+              "text": "The premise Davies wants to establish is that there can be intentions (or, for that matter, other aspects of the context of creation) that fail to play a role in determining meaning properties of a work but are still relevant to the appreciation of the work.",
+              "label": "premise"
+            },
+            "ADU5": {
+              "text": "Davies thinks that the most plausible way to account for this fact is to give up the idea that artworks are the products of the artist's creative activity and accept that they are instead the activity that brings about the product.",
+              "label": "claim"
+            },
+            "ADU6": {
+              "text": "The argument from modality is concerned with those properties of an artwork that constitute it as the artwork it is and, in virtue of this constitutive role, are essential properties of the work-one it has in all possible worlds.",
+              "label": "premise"
+            },
+            "ADU7": {
+              "text": "The conclusion is that only an ontology that identifies works with said performance will capture these constitutive properties correctly.",
+              "label": "claim"
+            },
+            "ADU8": {
+              "text": "Davies's arguments fail to raise serious problems for the contextualist or convince us to accept the performance view.",
+              "label": "claim"
+            },
+            "ADU9": {
+              "text": "Davies argues that artworks should be identified, not with artistic products such as paintings or novels, but instead with the artistic actions or processes that produced such items.",
+              "label": "claim"
+            },
+            "ADU10": {
+              "text": "Davies's invocation of modally flexible events such as 'doings' or 'happenings' seems metaphysically unpromising as an empirical hypothesis.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU1",
+              "target": "ADU2",
+              "type": "support"
+            },
+            {
+              "source": "ADU3",
+              "target": "ADU1",
+              "type": "support"
+            },
+            {
+              "source": "ADU4",
+              "target": "ADU5",
+              "type": "support"
+            },
+            {
+              "source": "ADU6",
+              "target": "ADU7",
+              "type": "support"
+            },
+            {
+              "source": "ADU8",
+              "target": "ADU7",
+              "type": "attack"
+            },
+            {
+              "source": "ADU9",
+              "target": "ADU1",
+              "type": "support"
+            },
+            {
+              "source": "ADU10",
+              "target": "ADU7",
+              "type": "attack"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "ADU1": {
+              "text": "The central thesis of the book is the ontological one that artworks are not physical objects on walls and filling spaces in museums, not sound structures indicated by composers and performed in concert halls, not linguistic structures 'uttered' by writers, but the actual 'performances' of artists that create such objects.",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "The correlative thesis concerning appreciation is that it requires that we relate the objects just mentioned (which are called the 'work-focus') with the performances that specify them.",
+              "label": "claim"
+            },
+            "ADU3": {
+              "text": "Davies begins his 'cumulative argument' for the performance view and against contextualism and other alternatives (Chapters 4-6).",
+              "label": "premise"
+            },
+            "ADU4": {
+              "text": "The premise Davies wants to establish is that there can be intentions (or, for that matter, other aspects of the context of creation) that fail to play a role in determining meaning properties of a work but are still relevant to the appreciation of the work.",
+              "label": "premise"
+            },
+            "ADU5": {
+              "text": "Davies thinks that the most plausible way to account for this fact is to give up the idea that artworks are the products of the artist's creative activity and accept that they are instead the activity that brings about the product.",
+              "label": "claim"
+            },
+            "ADU6": {
+              "text": "The argument from modality is concerned with those properties of an artwork that constitute it as the artwork it is and, in virtue of this constitutive role, are essential properties of the work-one it has in all possible worlds.",
+              "label": "premise"
+            },
+            "ADU7": {
+              "text": "The conclusion is that only an ontology that identifies works with said performance will capture these constitutive properties correctly.",
+              "label": "claim"
+            },
+            "ADU8": {
+              "text": "Davies's arguments fail to raise serious problems for the contextualist or convince us to accept the performance view.",
+              "label": "claim"
+            },
+            "ADU9": {
+              "text": "Davies argues that artworks should be identified, not with artistic products such as paintings or novels, but instead with the artistic actions or processes that produced such items.",
+              "label": "claim"
+            },
+            "ADU10": {
+              "text": "Davies's invocation of modally flexible events such as 'doings' or 'happenings' seems metaphysically unpromising as an empirical hypothesis.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU1",
+              "target": "ADU2",
+              "type": "support"
+            },
+            {
+              "source": "ADU3",
+              "target": "ADU1",
+              "type": "support"
+            },
+            {
+              "source": "ADU4",
+              "target": "ADU5",
+              "type": "support"
+            },
+            {
+              "source": "ADU6",
+              "target": "ADU7",
+              "type": "support"
+            },
+            {
+              "source": "ADU8",
+              "target": "ADU7",
+              "type": "attack"
+            },
+            {
+              "source": "ADU9",
+              "target": "ADU1",
+              "type": "support"
+            },
+            {
+              "source": "ADU10",
+              "target": "ADU7",
+              "type": "attack"
+            }
+          ]
+        }
+      },
+      {
+        "source": "claude-3-5-sonnet-20241022",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"A1\": {\n      \"text\": \"The central thesis of the book is the ontological one that artworks are not physical objects on walls and filling spaces in museums, not sound structures indicated by composers and performed in concert halls, not linguistic structures 'uttered' by writers, but the actual 'performances' of artists that create such objects.\",\n      \"label\": \"claim\"\n    },\n    \"A2\": {\n      \"text\": \"The correlative thesis concerning appreciation is that it requires that we relate the objects just mentioned (which are called the 'work-focus') with the performances that specify them.\",\n      \"label\": \"claim\"\n    },\n    \"A3\": {\n      \"text\": \"Davies wishes to hold that artistic actions or performances, such as an artist executing a certain brushstroke at time t, 'might have transpired otherwise', in that his modal intuition is, for example, that the very same painting might have been painted at a somewhat different time from its actual time of execution.\",\n      \"label\": \"premise\"\n    },\n    \"A4\": {\n      \"text\": \"For on standard analyses of actions or events, the time at which they occur is one of their essential characteristics.\",\n      \"label\": \"premise\"\n    },\n    \"A5\": {\n      \"text\": \"Thus the normal sense in which it is true that Picasso could have painted a certain brushstroke later is the sense in which the relevant brushstroke action A, occurring at time t1, might not have existed or occurred at all, but instead some other brushstroke action B, of the same type as A, occurring at a later time t2 and having the same effect, might have existed.\",\n      \"label\": \"claim\"\n    },\n    \"A6\": {\n      \"text\": \"But in this account there is no single action token such that it might have happened either at time t1 or at time t2 and hence no room for modally rich actions as such.\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"A3\",\n      \"target\": \"A1\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A4\",\n      \"target\": \"A5\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A5\",\n      \"target\": \"A6\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A6\",\n      \"target\": \"A1\",\n      \"type\": \"attack\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "A1": {
+              "text": "The central thesis of the book is the ontological one that artworks are not physical objects on walls and filling spaces in museums, not sound structures indicated by composers and performed in concert halls, not linguistic structures 'uttered' by writers, but the actual 'performances' of artists that create such objects.",
+              "label": "claim"
+            },
+            "A2": {
+              "text": "The correlative thesis concerning appreciation is that it requires that we relate the objects just mentioned (which are called the 'work-focus') with the performances that specify them.",
+              "label": "claim"
+            },
+            "A3": {
+              "text": "Davies wishes to hold that artistic actions or performances, such as an artist executing a certain brushstroke at time t, 'might have transpired otherwise', in that his modal intuition is, for example, that the very same painting might have been painted at a somewhat different time from its actual time of execution.",
+              "label": "premise"
+            },
+            "A4": {
+              "text": "For on standard analyses of actions or events, the time at which they occur is one of their essential characteristics.",
+              "label": "premise"
+            },
+            "A5": {
+              "text": "Thus the normal sense in which it is true that Picasso could have painted a certain brushstroke later is the sense in which the relevant brushstroke action A, occurring at time t1, might not have existed or occurred at all, but instead some other brushstroke action B, of the same type as A, occurring at a later time t2 and having the same effect, might have existed.",
+              "label": "claim"
+            },
+            "A6": {
+              "text": "But in this account there is no single action token such that it might have happened either at time t1 or at time t2 and hence no room for modally rich actions as such.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "A3",
+              "target": "A1",
+              "type": "support"
+            },
+            {
+              "source": "A4",
+              "target": "A5",
+              "type": "support"
+            },
+            {
+              "source": "A5",
+              "target": "A6",
+              "type": "support"
+            },
+            {
+              "source": "A6",
+              "target": "A1",
+              "type": "attack"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "A1": {
+              "text": "The central thesis of the book is the ontological one that artworks are not physical objects on walls and filling spaces in museums, not sound structures indicated by composers and performed in concert halls, not linguistic structures 'uttered' by writers, but the actual 'performances' of artists that create such objects.",
+              "label": "claim"
+            },
+            "A2": {
+              "text": "The correlative thesis concerning appreciation is that it requires that we relate the objects just mentioned (which are called the 'work-focus') with the performances that specify them.",
+              "label": "claim"
+            },
+            "A4": {
+              "text": "For on standard analyses of actions or events, the time at which they occur is one of their essential characteristics.",
+              "label": "premise"
+            },
+            "A5": {
+              "text": "Thus the normal sense in which it is true that Picasso could have painted a certain brushstroke later is the sense in which the relevant brushstroke action A, occurring at time t1, might not have existed or occurred at all, but instead some other brushstroke action B, of the same type as A, occurring at a later time t2 and having the same effect, might have existed.",
+              "label": "claim"
+            },
+            "A6": {
+              "text": "But in this account there is no single action token such that it might have happened either at time t1 or at time t2 and hence no room for modally rich actions as such.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "A4",
+              "target": "A5",
+              "type": "support"
+            },
+            {
+              "source": "A5",
+              "target": "A6",
+              "type": "support"
+            },
+            {
+              "source": "A6",
+              "target": "A1",
+              "type": "attack"
+            }
+          ]
+        }
+      }
+    ],
+    "timestamp": 1752755986.5909626
+  }
+]

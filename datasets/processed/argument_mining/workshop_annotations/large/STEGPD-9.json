@@ -1,0 +1,715 @@
+{
+  "arguments": {},
+  "statements": {
+    "Untitled 1": {
+      "type": "equivalence-class",
+      "title": "Untitled 1",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 2",
+          "fromType": "equivalence-class",
+          "to": "Untitled 1",
+          "toType": "equivalence-class"
+        },
+        {
+          "type": "relation",
+          "relationType": "attack",
+          "from": "Untitled 4",
+          "fromType": "equivalence-class",
+          "to": "Untitled 1",
+          "toType": "equivalence-class"
+        },
+        {
+          "type": "relation",
+          "relationType": "attack",
+          "from": "Untitled 9",
+          "fromType": "equivalence-class",
+          "to": "Untitled 1",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "top-level-statement",
+          "isTopLevel": true,
+          "text": "Man has the chance to become everything.",
+          "title": "Untitled 1",
+          "startLine": 3,
+          "startColumn": 1,
+          "endLine": 14,
+          "endColumn": 97,
+          "section": "s1"
+        }
+      ],
+      "section": "s1",
+      "isUsedAsTopLevelStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Untitled 2": {
+      "type": "equivalence-class",
+      "title": "Untitled 2",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 3",
+          "fromType": "equivalence-class",
+          "to": "Untitled 2",
+          "toType": "equivalence-class"
+        },
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 2",
+          "fromType": "equivalence-class",
+          "to": "Untitled 1",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "text": "All things share a portion of God within them, in their own way.",
+          "title": "Untitled 2",
+          "startLine": 4,
+          "startColumn": 7,
+          "endLine": 5,
+          "endColumn": 113,
+          "section": "s1"
+        }
+      ],
+      "section": "s1",
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Untitled 3": {
+      "type": "equivalence-class",
+      "title": "Untitled 3",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 3",
+          "fromType": "equivalence-class",
+          "to": "Untitled 2",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "text": "Man contains all things in himself as their center, just like God contains all things as their origin.",
+          "startLine": 5,
+          "startColumn": 11,
+          "endLine": 5,
+          "endColumn": 113,
+          "title": "Untitled 3",
+          "section": "s1"
+        }
+      ],
+      "section": "s1",
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Untitled 4": {
+      "type": "equivalence-class",
+      "title": "Untitled 4",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 5",
+          "fromType": "equivalence-class",
+          "to": "Untitled 4",
+          "toType": "equivalence-class"
+        },
+        {
+          "type": "relation",
+          "relationType": "attack",
+          "from": "Untitled 6",
+          "fromType": "equivalence-class",
+          "to": "Untitled 4",
+          "toType": "equivalence-class"
+        },
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 7",
+          "fromType": "equivalence-class",
+          "to": "Untitled 4",
+          "toType": "equivalence-class"
+        },
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 8",
+          "fromType": "equivalence-class",
+          "to": "Untitled 4",
+          "toType": "equivalence-class"
+        },
+        {
+          "type": "relation",
+          "relationType": "attack",
+          "from": "Untitled 4",
+          "fromType": "equivalence-class",
+          "to": "Untitled 1",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "text": "Anaxagoras' philosophy can be used in support of principles or theories consistent with the Neoplatonic concept that all things exist in all things in their own mode.",
+          "title": "Untitled 4",
+          "startLine": 6,
+          "startColumn": 7,
+          "endLine": 11,
+          "endColumn": 183,
+          "section": "s1"
+        }
+      ],
+      "section": "s1",
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Untitled 5": {
+      "type": "equivalence-class",
+      "title": "Untitled 5",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 5",
+          "fromType": "equivalence-class",
+          "to": "Untitled 4",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "text": "Anaxagoras' philosophy is a precursor to the Neoplatonic concept all things exist in all things in their own mode.",
+          "startLine": 7,
+          "startColumn": 11,
+          "endLine": 7,
+          "endColumn": 125,
+          "title": "Untitled 5",
+          "section": "s1"
+        }
+      ],
+      "section": "s1",
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Untitled 6": {
+      "type": "equivalence-class",
+      "title": "Untitled 6",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "attack",
+          "from": "Untitled 6",
+          "fromType": "equivalence-class",
+          "to": "Untitled 4",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "text": "Anaxagoras's metaphysical principle is a subset of Anaxagoras' overarching philosophy.",
+          "startLine": 8,
+          "startColumn": 11,
+          "endLine": 9,
+          "endColumn": 36,
+          "title": "Untitled 6",
+          "section": "s1"
+        }
+      ],
+      "section": "s1",
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Untitled 7": {
+      "type": "equivalence-class",
+      "title": "Untitled 7",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 7",
+          "fromType": "equivalence-class",
+          "to": "Untitled 4",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "text": "Anaxagoras's metaphysical principle is supportive of allegorical interpretation.",
+          "startLine": 10,
+          "startColumn": 11,
+          "endLine": 10,
+          "endColumn": 91,
+          "title": "Untitled 7",
+          "section": "s1"
+        }
+      ],
+      "section": "s1",
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Untitled 8": {
+      "type": "equivalence-class",
+      "title": "Untitled 8",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 8",
+          "fromType": "equivalence-class",
+          "to": "Untitled 4",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "text": "Allegorical interpretation is indispensable for the specific form of syncretism at play here and related attempts to reveal hidden truths in every text or level of reality.",
+          "startLine": 11,
+          "startColumn": 11,
+          "endLine": 11,
+          "endColumn": 183,
+          "title": "Untitled 8",
+          "section": "s1"
+        }
+      ],
+      "section": "s1",
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Untitled 9": {
+      "type": "equivalence-class",
+      "title": "Untitled 9",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "attack",
+          "from": "However this contradicts some aspect of the consequences of Anaxagoras's philosophies presented here?",
+          "fromType": "equivalence-class",
+          "to": "Untitled 9",
+          "toType": "equivalence-class"
+        },
+        {
+          "type": "relation",
+          "relationType": "attack",
+          "from": "Thus it cannot be the case that man has a fixed position in the ontological hierarchy",
+          "fromType": "equivalence-class",
+          "to": "Untitled 9",
+          "toType": "equivalence-class"
+        },
+        {
+          "type": "relation",
+          "relationType": "attack",
+          "from": "Untitled 9",
+          "fromType": "equivalence-class",
+          "to": "Untitled 1",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "text": "Conventional/contemporary thought holds that man has a fixed position in the ontological hierarchy. ",
+          "title": "Untitled 9",
+          "startLine": 12,
+          "startColumn": 7,
+          "endLine": 14,
+          "endColumn": 97,
+          "section": "s1"
+        }
+      ],
+      "section": "s1",
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "However this contradicts some aspect of the consequences of Anaxagoras's philosophies presented here?": {
+      "type": "equivalence-class",
+      "title": "However this contradicts some aspect of the consequences of Anaxagoras's philosophies presented here?",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "attack",
+          "from": "However this contradicts some aspect of the consequences of Anaxagoras's philosophies presented here?",
+          "fromType": "equivalence-class",
+          "to": "Untitled 9",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "title": "However this contradicts some aspect of the consequences of Anaxagoras's philosophies presented here?",
+          "isReference": true,
+          "startLine": 13,
+          "startColumn": 11,
+          "endLine": 13,
+          "endColumn": 114,
+          "section": "s1"
+        }
+      ],
+      "isUsedAsRelationStatement": true,
+      "section": "s1",
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Thus it cannot be the case that man has a fixed position in the ontological hierarchy": {
+      "type": "equivalence-class",
+      "title": "Thus it cannot be the case that man has a fixed position in the ontological hierarchy",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "attack",
+          "from": "Thus it cannot be the case that man has a fixed position in the ontological hierarchy",
+          "fromType": "equivalence-class",
+          "to": "Untitled 9",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "title": "Thus it cannot be the case that man has a fixed position in the ontological hierarchy",
+          "isReference": true,
+          "startLine": 14,
+          "startColumn": 11,
+          "endLine": 14,
+          "endColumn": 97,
+          "section": "s1"
+        }
+      ],
+      "isUsedAsRelationStatement": true,
+      "section": "s1",
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    }
+  },
+  "relations": [
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "Untitled 3",
+      "fromType": "equivalence-class",
+      "to": "Untitled 2",
+      "toType": "equivalence-class"
+    },
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "Untitled 2",
+      "fromType": "equivalence-class",
+      "to": "Untitled 1",
+      "toType": "equivalence-class"
+    },
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "Untitled 5",
+      "fromType": "equivalence-class",
+      "to": "Untitled 4",
+      "toType": "equivalence-class"
+    },
+    {
+      "type": "relation",
+      "relationType": "attack",
+      "from": "Untitled 6",
+      "fromType": "equivalence-class",
+      "to": "Untitled 4",
+      "toType": "equivalence-class"
+    },
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "Untitled 7",
+      "fromType": "equivalence-class",
+      "to": "Untitled 4",
+      "toType": "equivalence-class"
+    },
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "Untitled 8",
+      "fromType": "equivalence-class",
+      "to": "Untitled 4",
+      "toType": "equivalence-class"
+    },
+    {
+      "type": "relation",
+      "relationType": "attack",
+      "from": "Untitled 4",
+      "fromType": "equivalence-class",
+      "to": "Untitled 1",
+      "toType": "equivalence-class"
+    },
+    {
+      "type": "relation",
+      "relationType": "attack",
+      "from": "However this contradicts some aspect of the consequences of Anaxagoras's philosophies presented here?",
+      "fromType": "equivalence-class",
+      "to": "Untitled 9",
+      "toType": "equivalence-class"
+    },
+    {
+      "type": "relation",
+      "relationType": "attack",
+      "from": "Thus it cannot be the case that man has a fixed position in the ontological hierarchy",
+      "fromType": "equivalence-class",
+      "to": "Untitled 9",
+      "toType": "equivalence-class"
+    },
+    {
+      "type": "relation",
+      "relationType": "attack",
+      "from": "Untitled 9",
+      "fromType": "equivalence-class",
+      "to": "Untitled 1",
+      "toType": "equivalence-class"
+    }
+  ],
+  "map": {
+    "nodes": [
+      {
+        "id": "s1",
+        "title": "STEGPD-9",
+        "type": "group-map-node",
+        "color": "#DADADA",
+        "fontColor": "#000000",
+        "level": 1,
+        "labelTitle": "STEGPD-9",
+        "children": [
+          {
+            "id": "n0",
+            "title": "Untitled 1",
+            "type": "statement-map-node",
+            "labelText": "Man has the chance to become everything.",
+            "color": "#1b9e77",
+            "fontColor": "#000000"
+          },
+          {
+            "id": "n1",
+            "title": "Untitled 2",
+            "type": "statement-map-node",
+            "labelText": "All things share a portion of God within them, in their own way.",
+            "color": "#1b9e77",
+            "fontColor": "#000000"
+          },
+          {
+            "id": "n2",
+            "title": "Untitled 3",
+            "type": "statement-map-node",
+            "labelText": "Man contains all things in himself as their center, just like God contains all things as their origin.",
+            "color": "#1b9e77",
+            "fontColor": "#000000"
+          },
+          {
+            "id": "n3",
+            "title": "Untitled 4",
+            "type": "statement-map-node",
+            "labelText": "Anaxagoras' philosophy can be used in support of principles or theories consistent with the Neoplatonic concept that all things exist in all things in their own mode.",
+            "color": "#1b9e77",
+            "fontColor": "#000000"
+          },
+          {
+            "id": "n4",
+            "title": "Untitled 5",
+            "type": "statement-map-node",
+            "labelText": "Anaxagoras' philosophy is a precursor to the Neoplatonic concept all things exist in all things in their own mode.",
+            "color": "#1b9e77",
+            "fontColor": "#000000"
+          },
+          {
+            "id": "n5",
+            "title": "Untitled 6",
+            "type": "statement-map-node",
+            "labelText": "Anaxagoras's metaphysical principle is a subset of Anaxagoras' overarching philosophy.",
+            "color": "#1b9e77",
+            "fontColor": "#000000"
+          },
+          {
+            "id": "n6",
+            "title": "Untitled 7",
+            "type": "statement-map-node",
+            "labelText": "Anaxagoras's metaphysical principle is supportive of allegorical interpretation.",
+            "color": "#1b9e77",
+            "fontColor": "#000000"
+          },
+          {
+            "id": "n7",
+            "title": "Untitled 8",
+            "type": "statement-map-node",
+            "labelText": "Allegorical interpretation is indispensable for the specific form of syncretism at play here and related attempts to reveal hidden truths in every text or level of reality.",
+            "color": "#1b9e77",
+            "fontColor": "#000000"
+          },
+          {
+            "id": "n8",
+            "title": "Untitled 9",
+            "type": "statement-map-node",
+            "labelText": "Conventional/contemporary thought holds that man has a fixed position in the ontological hierarchy. ",
+            "color": "#1b9e77",
+            "fontColor": "#000000"
+          },
+          {
+            "id": "n9",
+            "title": "However this contradicts some aspect of the consequences of Anaxagoras's philosophies presented here?",
+            "type": "statement-map-node",
+            "labelTitle": "However this contradicts some aspect of the consequences of Anaxagoras's philosophies presented here?",
+            "color": "#1b9e77",
+            "fontColor": "#000000"
+          },
+          {
+            "id": "n10",
+            "title": "Thus it cannot be the case that man has a fixed position in the ontological hierarchy",
+            "type": "statement-map-node",
+            "labelTitle": "Thus it cannot be the case that man has a fixed position in the ontological hierarchy",
+            "color": "#1b9e77",
+            "fontColor": "#000000"
+          }
+        ]
+      }
+    ],
+    "edges": [
+      {
+        "id": "e1",
+        "type": "map-edge",
+        "relationType": "support",
+        "from": "n2",
+        "to": "n1",
+        "fromEquivalenceClass": "Untitled 3",
+        "toEquivalenceClass": "Untitled 2"
+      },
+      {
+        "id": "e2",
+        "type": "map-edge",
+        "relationType": "support",
+        "from": "n1",
+        "to": "n0",
+        "fromEquivalenceClass": "Untitled 2",
+        "toEquivalenceClass": "Untitled 1"
+      },
+      {
+        "id": "e3",
+        "type": "map-edge",
+        "relationType": "support",
+        "from": "n4",
+        "to": "n3",
+        "fromEquivalenceClass": "Untitled 5",
+        "toEquivalenceClass": "Untitled 4"
+      },
+      {
+        "id": "e4",
+        "type": "map-edge",
+        "relationType": "attack",
+        "from": "n5",
+        "to": "n3",
+        "fromEquivalenceClass": "Untitled 6",
+        "toEquivalenceClass": "Untitled 4"
+      },
+      {
+        "id": "e5",
+        "type": "map-edge",
+        "relationType": "support",
+        "from": "n6",
+        "to": "n3",
+        "fromEquivalenceClass": "Untitled 7",
+        "toEquivalenceClass": "Untitled 4"
+      },
+      {
+        "id": "e6",
+        "type": "map-edge",
+        "relationType": "support",
+        "from": "n7",
+        "to": "n3",
+        "fromEquivalenceClass": "Untitled 8",
+        "toEquivalenceClass": "Untitled 4"
+      },
+      {
+        "id": "e7",
+        "type": "map-edge",
+        "relationType": "attack",
+        "from": "n3",
+        "to": "n0",
+        "fromEquivalenceClass": "Untitled 4",
+        "toEquivalenceClass": "Untitled 1"
+      },
+      {
+        "id": "e8",
+        "type": "map-edge",
+        "relationType": "attack",
+        "from": "n9",
+        "to": "n8",
+        "fromEquivalenceClass": "However this contradicts some aspect of the consequences of Anaxagoras's philosophies presented here?",
+        "toEquivalenceClass": "Untitled 9"
+      },
+      {
+        "id": "e9",
+        "type": "map-edge",
+        "relationType": "attack",
+        "from": "n10",
+        "to": "n8",
+        "fromEquivalenceClass": "Thus it cannot be the case that man has a fixed position in the ontological hierarchy",
+        "toEquivalenceClass": "Untitled 9"
+      },
+      {
+        "id": "e10",
+        "type": "map-edge",
+        "relationType": "attack",
+        "from": "n8",
+        "to": "n0",
+        "fromEquivalenceClass": "Untitled 9",
+        "toEquivalenceClass": "Untitled 1"
+      }
+    ]
+  },
+  "sections": [
+    {
+      "type": "section",
+      "id": "s1",
+      "level": 1,
+      "title": "STEGPD-9",
+      "children": [],
+      "ranges": [],
+      "startLine": 1,
+      "startColumn": 1,
+      "endLine": 14,
+      "endColumn": 97,
+      "isGroup": true,
+      "fontColor": "#000000",
+      "color": "#DADADA"
+    }
+  ],
+  "tags": {}
+}
+

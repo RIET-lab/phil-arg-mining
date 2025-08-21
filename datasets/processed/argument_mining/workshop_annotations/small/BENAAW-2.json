@@ -1,0 +1,203 @@
+{
+  "arguments": {},
+  "statements": {
+    "Untitled 1": {
+      "type": "equivalence-class",
+      "title": "Untitled 1",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 2",
+          "fromType": "equivalence-class",
+          "to": "Untitled 1",
+          "toType": "equivalence-class"
+        },
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 3",
+          "fromType": "equivalence-class",
+          "to": "Untitled 1",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "top-level-statement",
+          "isTopLevel": true,
+          "text": "Some of the most prominent arguments against affirmative action are not sufficient to reject affirmative action. ",
+          "title": "Untitled 1",
+          "startLine": 3,
+          "startColumn": 1,
+          "endLine": 5,
+          "endColumn": 124,
+          "section": "s1"
+        }
+      ],
+      "section": "s1",
+      "isUsedAsTopLevelStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Untitled 2": {
+      "type": "equivalence-class",
+      "title": "Untitled 2",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 2",
+          "fromType": "equivalence-class",
+          "to": "Untitled 1",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "text": "Alternative action comes in competitive and non-competitive forms. ",
+          "startLine": 4,
+          "startColumn": 4,
+          "endLine": 4,
+          "endColumn": 72,
+          "title": "Untitled 2",
+          "section": "s1"
+        }
+      ],
+      "section": "s1",
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Untitled 3": {
+      "type": "equivalence-class",
+      "title": "Untitled 3",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 3",
+          "fromType": "equivalence-class",
+          "to": "Untitled 1",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "text": "Some of the most prominent objections to affirmative action apply less effectively to non-competitive affirmative action.",
+          "startLine": 5,
+          "startColumn": 4,
+          "endLine": 5,
+          "endColumn": 124,
+          "title": "Untitled 3",
+          "section": "s1"
+        }
+      ],
+      "section": "s1",
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    }
+  },
+  "relations": [
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "Untitled 2",
+      "fromType": "equivalence-class",
+      "to": "Untitled 1",
+      "toType": "equivalence-class"
+    },
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "Untitled 3",
+      "fromType": "equivalence-class",
+      "to": "Untitled 1",
+      "toType": "equivalence-class"
+    }
+  ],
+  "map": {
+    "nodes": [
+      {
+        "id": "s1",
+        "title": "BENAAW-2",
+        "type": "group-map-node",
+        "color": "#DADADA",
+        "fontColor": "#000000",
+        "level": 1,
+        "labelTitle": "BENAAW-2",
+        "children": [
+          {
+            "id": "n0",
+            "title": "Untitled 1",
+            "type": "statement-map-node",
+            "labelText": "Some of the most prominent arguments against affirmative action are not sufficient to reject affirmative action. ",
+            "color": "#1b9e77",
+            "fontColor": "#000000"
+          },
+          {
+            "id": "n1",
+            "title": "Untitled 2",
+            "type": "statement-map-node",
+            "labelText": "Alternative action comes in competitive and non-competitive forms. ",
+            "color": "#1b9e77",
+            "fontColor": "#000000"
+          },
+          {
+            "id": "n2",
+            "title": "Untitled 3",
+            "type": "statement-map-node",
+            "labelText": "Some of the most prominent objections to affirmative action apply less effectively to non-competitive affirmative action.",
+            "color": "#1b9e77",
+            "fontColor": "#000000"
+          }
+        ]
+      }
+    ],
+    "edges": [
+      {
+        "id": "e1",
+        "type": "map-edge",
+        "relationType": "support",
+        "from": "n1",
+        "to": "n0",
+        "fromEquivalenceClass": "Untitled 2",
+        "toEquivalenceClass": "Untitled 1"
+      },
+      {
+        "id": "e2",
+        "type": "map-edge",
+        "relationType": "support",
+        "from": "n2",
+        "to": "n0",
+        "fromEquivalenceClass": "Untitled 3",
+        "toEquivalenceClass": "Untitled 1"
+      }
+    ]
+  },
+  "sections": [
+    {
+      "type": "section",
+      "id": "s1",
+      "level": 1,
+      "title": "BENAAW-2",
+      "children": [],
+      "ranges": [],
+      "startLine": 1,
+      "startColumn": 1,
+      "endLine": 5,
+      "endColumn": 124,
+      "isGroup": true,
+      "fontColor": "#000000",
+      "color": "#DADADA"
+    }
+  ],
+  "tags": {}
+}
+

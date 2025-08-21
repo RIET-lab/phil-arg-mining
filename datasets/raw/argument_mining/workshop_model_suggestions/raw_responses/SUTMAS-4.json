@@ -1,0 +1,854 @@
+[
+  {
+    "identifier": "SUTMAS-4",
+    "system_prompt": "## GOAL\nArgument‑mine the following paper to extract its comprehensive argumentative structure.\n\n## DEFINITIONS\n1. **Argument**: A set of propositions, including some number of premises and a conclusion. The premises should logically entail the conclusion.\n2. **Claim**: A proposition that asserts something to be true or false, typically requiring justification or evidence.\n3. **Premise**: A proposition that provides evidence, justification, or logical support for a claim or conclusion.\n\n## CRITICAL REQUIREMENTS\n1. **VERBATIM EXTRACTION ONLY**: Each ADU text must be copied EXACTLY from the paper with no modifications, paraphrasing, or combining of separate sentences.\n2. **NO HALLUCINATION**: Do not create, modify, or invent text that does not appear exactly in the source.\n3. **EXACT MATCHING**: Every word, punctuation mark, and spacing must match the original precisely.\n\n## DIRECTIONS\n1. **Identify Argumentative Discourse Units (ADUs)**  \n   - ADU = any contiguous text span functioning as a claim or a premise in the reasoning structure.\n   - **BE HIGHLY SELECTIVE**: Only include ADUs that are crucial to the overarching argument structure.\n   - Focus on significant claims and premises that contribute meaningfully to the argumentative flow.\n   - **AVOID NOISE**: Skip ADUs that are merely descriptive, tangential, or do not substantially advance the argument.\n   - Prioritize quality over quantity - fewer accurate, important ADUs are better than many insignificant ones.\n   - **EXTRACT ONLY**: Copy text spans exactly as they appear, without any modifications.\n2. **Classify each ADU**  \n   - Label = either `\"claim\"` or `\"premise\"`.  \n3. **Detect directed relations**  \n   - Relation = `\"support\"` or `\"attack\"`, from one ADU (source) to another (target).\n   - Map how ADUs connect to form reasoning chains.\n   - Focus on relationships between the most significant ADUs.\n   - Include relationships between premises that strengthen or weaken each other.\n4. **Verbatim spans**  \n   - Each `\"text\"` value must be copied EXACTLY from the paper with zero modifications.\n   - Do not paraphrase, summarize, or combine separate sentences.\n   - Do not add, remove, or change any words, punctuation, or spacing.\n   - If unsure about exact wording, skip that ADU rather than guess.\n\n## WHAT TO CAPTURE\n**INCLUDE ONLY:**\n- Main argumentative threads that are central to the paper's contribution\n- Core claims that represent the paper's primary arguments or findings\n- Key premises that provide essential support for major claims\n- Critical counterarguments and their refutations\n- Reasoning chains that demonstrate how main conclusions are derived\n\n**EXCLUDE (AVOID NOISE):**\n- Minor details, examples, or descriptive content that don't advance the argument\n- Tangential points or side discussions\n- Pure background information or literature review content\n- Methodological details unless they constitute argumentative claims\n- Obvious statements or commonly accepted facts\n- Redundant or repetitive argumentative content\n\n**GUIDING PRINCIPLE**: If removing an ADU would not significantly impact understanding of the paper's argumentative structure, it should be excluded.\n\n## QUALITY CONTROL\n- Before finalizing each ADU, verify the text exists exactly in the source\n- Prefer fewer, accurate ADUs over many potentially modified ones\n- When in doubt about exact wording, omit the ADU\n\n## OUTPUT FORMAT\nReturn **only** a single valid JSON object matching this schema.  \nDo **not** output any extra text, markdown, or explanations.\nDo **not** add comments.\n**RESPOND WITH ONLY**:\n```json\n{\n  \"ADUs\": {\n    \"<ADU_ID>\": {\n      \"text\": \"<exact span from paper>\",\n      \"label\": \"claim\" | \"premise\"\n    }\n    ...\n  },\n  \"relations\": [\n    {\n      \"source\": \"<ADU_ID>\",\n      \"target\": \"<ADU_ID>\",\n      \"type\": \"support\" | \"attack\"\n    }\n  ]\n}\n```",
+    "user_content": "**Making a Start on Hegel**\n\n**A Teaching Paper**\n\nOf all the great philosophers, Hegel is one of the most difficult to understand, and, at least by some philosophers, one of the most despised. Russell and Schopenhauer thought that his philosophy was devoid of any useful meaning, and Popper blamed him for the rise of totalitarianism.\n\nBorn in 1770, he led a wholly academic life, mainly as a professor at the University of Berlin. From that position he bestrode German philosophy for the first part of the nineteenth century, until his death in 1831. In his time was respected and even revered by his fellow academics and students. What is his position today? Is he still worth reading? Are his contributions to thought useful on the twenty first century? Or is he, as many maintain, out of date, and wrong anyway?\n\nThe first problem with Hegel is the repetitive and elliptical way in which he wrote, making any study of him time consuming and for much of the time unrewarding. There is much bath water, and the problem is really one of whether there is a baby somewhere floating in it which is in danger of being ignored or poured away.\n\nThis article attempts to explain the main principles of his philosophical system and assess where he sits on relation to modern life and thought. It proceeds with a series of questions from an imaginary and somewhat sceptical newcomer to  Hegel and answers from me.\n\nWhat are the main ideas behind Hegel's thinking?\n\nHegel's was interested not so much in understanding a given state of affairs, as in understanding a process of change.\n\nChange in what?\n\nIn what Hegel called the Geist - or, in English, the mind or spirit.\n\nWhy does the mind change?\n\nIt is in a state of discontent, which Hegel called alienation.\n\nHow does it change?\n\nVia what Hegel called the dialectic.\n\nAnd does that change have an end or goal?\n\nDepending on what context you are considering, it's goal is Absolute Knowledge, Absolute Freedom, or an Organic Society.\n\nI begin to see why Hegel is considered both difficult and even devoid of any useful meaning! Can we unpack this a bit? What is Geist?\n\nHegel raised this in his first book, the Phenomenology of Mind. That is the title it is usually sold under in the English translation, but sometimes translators have preferred to call it the Phenomenology of Spirit. It's German title is  Phänomenologie das Geistes, published in 1807. It is a long book, and develops as follows:\n\nPhilosophers prior to Hegel, such as Descartes, Berkeley, Hume and Kant, had been much concerned with how we acquire knowledge of the world. There was general agreement that the starting point of all knowledge for the individual agent or person is sense data of some sort. Philosophers varied as to what use we make of this data, how we can be sure of what it is telling us, and how real it is anyway. But all are agreed that sense data is the starting point. Hegel thought that in order to make anything of sense data that is useful for further thinking or action, we have to suppose other concepts for it's interpretation. Hegel calls this interpretation process \"mediation\", and insisted that without these supporting, mediating concepts, sense data are blind. Consciousness therefore must have a content which allows the interpretation of sense data. Also, this content of consciousness, this mediating mechanism, must be common ground with all other humans, otherwise we would not share the same interpretations of sense data. An individual's private appreciation of sense data can be compared with others, and is correctable in the light of exchange of information with others. Eventually, by way of this communal effort, we arrive at what in Hegel's view is \"perception\". So taking the original sense datum as an indicator of certainty is inadvisable, as it is eventually open to interpretation into a perception mediated by our own idiosyncrasies and those of others with whom we exchange information. This could mean that there is no such thing as certain information, a view in philosophy generally known as scepticism.\n\nBut, according to Hegel, all is not lost to scepticism. New criteria emerge as the process goes forward and \"understanding\" emerges. With work and study, this in turn becomes \"scientific cognition\", all of which has developed from the original sense data.\n\nSo far so obvious, and commonsensical. But does he have anything new to say? When does Geist come in?\n\nIn the next chapter, Hegel makes a transition from \"consciousness\" to \"self-consciousness\". He considers the intersubjective conditions necessary for consciousness. He believes that consciousness    of an external object needs an awareness of oneself as a distinct subject, or self consciousness. Furthermore, we recognise others' self-consciousness. We think in terms of a network or pattern of mutual recognition between subjects or agents i.e ourselves and other people. We share a common system of perceptions and understandings, and this forms a total complex system, or spirit. We are all of a mind, in that sense. Hence the difficulty in translating the German word Geist. In Hegel's view, it is a complex system of mutually interlinked agents, forming a virtual organism. Hegel believes he has moved from the subjective mind of the agent to the objective spirit of the system of agents. He thereby invokes distinct patterns of social interaction and of reciprocal recognition. You've heard of Zeitgeist, the spirit of the time. As a rough parallel, Hegel seems to be saying we don't have an individual view of the world, but have a view which depends on our fellow beings. So the Geist changes. The zeitgeist of today develops into another zeitgeist tomorrow, and our understanding of the world changes.\n\nAnd this, you say, is because of alienation? Didn't Marx refer a lot to alienation?\n\nHe did. But he got the original idea from Hegel. Kierkegaard and Heidegger also introduced a similar idea when they he referred to authenticity. What they meant is thinking and doing what you believe to be the right thing, without regard to others (the They, as Heidegger calls them) and what They do or appear to want you to do. To be authentic is difficult, because it will make you feel alienated. To explain alienation it is not a bad idea to work backwards from Kierkegaard and Heidegger. Marx saw it as a deprivation by capitalists of the goods which workers produced, in return for wages. Workers have to satisfy their product fetishism by earning wages while at the same time being deprived of the products of their own labours. More than this, he saw being a slave to capitalists and their machines as stopping a worker from becoming a fuller individual, depriving him of his opportunities for development and even from the society of his fellow workers. This, according to Marx, is a lethal cocktail which will lead to discontent and finally revolution. Hegel's version is more metaphysical. He refers to something which is part of yourself, of your Geist, yet foreign, alien or hostile. This something makes us confront ourselves, question what we are doing. Eventually we reach a solution. A process of self-division, self-alienation and finally overcoming ensues. At the very least, we reach a way of living with ourselves and in society. History sees to this process. According to Hegel, our Geist becomes part of the larger Geist or spirit, and we move towards absolute knowledge, freedom and reality. The Marxian equivalent would be to move, from alienation to a communist nirvana.\n\nSo wanting, and seeking unity with a larger Geist or spirit makes for change and movement towards the ultimate state of the spirit, whatever that is?\n\nWhatever that is, indeed. At least with Marx, you know it is identified concretely as what he thought would be a better society. Marx saw the process as historically inevitable. You see the connection with Hegel. In Kierkegaard and Heidegger's case, they thought more is terms of the individual being, or what Heidegger called Dasein. Dasein's aim is to achieve authenticity, but the price is alienation.\n\nThere's a disconnect here, surely. Hegel and Marx say we naturally move towards a reconciliation of alienation, and society helps us. Kierkegaard and Heidegger say we should go against society. Who is right?\n\nThere is indeed a disconnect. For existentialists, a desire for authenticity brings on more alienation. Others play a major role, but Hegel wants us to join others in a common spirit, and Marx wants communism. The natural process of history appears to favour Hegel, since we do seek relevance to one another, co-operate together and more and more share knowledge and thinking. To be authentic requires effort. But there's more to it. By their recognition of the importance of being-in-the-world, existentialists do recognise the world and society as where consciousness and a sense of place develop. Perhaps the direct equation of alienation in Hegel's sense with the authentic-inauthentic dilemma is inaccurate in the sense that we do seek togetherness, relevance and social support, but in doing so, the existentialists tell us, we must beware of inauthenticity.\n\nSo the prospect of alienation drives change, but how does it work? You mentioned something called the dialectic.\n\nHaving dealt with alienation, we are now in a position to see what Hegel meant by the dialectic, which, as you infer, he saw as the process by which mankind would move forward to achieve the goal of being at one with the world and society. A process of self-division, self-alienation and finally overcoming ensues, you remember. When we feel alienation, we confront it, solve the problem and move on. Then the process repeats. The common description of the dialectic in both Hegel and Marx is one of an iterative process of thesis, anti-thesis and resolution. Commentators have objected to that form of words partly on the grounds that Hegel himself did not describe it in that way, but also that it is inaccurate. Certainly we have to understand that he spent a long time developing the idea, and that it comes up in different forms again and again throughout his work. For that reason it is hard to summarise what exactly the dialectic is.\n\nWhere do we start, then? Certainly, you have already summarised what little I know of it. And apparently even that is inaccurate. Where does it first arise in his philosophy?\n\nHegel came directly after Kant in German philosophy. Kant's transcendental idealism was uppermost in Hegel's mind when he started out. Kant was of the view that while we receive sense data from objects in the world, what we make of it is mediated by our minds, and particularly by certain a priori concepts which we all accept as humans - concepts such as time, space, number and causality. We cannot know any more than what out minds allow us to know, and this makes Kant an idealist, or a philosopher who thinks what we know is all is the mind. What make it transcendental is the a priori bit - our inbuilt ability to use sense data to interpret what we receive into perceptions of what is going on in the world. Kant gives us humans credit for that ability, unlike Berkeley, also an idealist, who thought that it was God who enabled us to put together the data of our senses into perceptions. It follows from Kant's approach that the only things we can know are what we can sense and process. That leaves quite a few things in the world that we cannot know - for example, the existence or otherwise of a supreme being, or God, of whether or not there is life after death, whether the world is limited in space and time, and whether there is such a things as the concept of the self. Kant placed such things into what he called the noumenal, or unknown world; those things that can be known through the senses, with the assistance of the a priori principles inbuilt into the mind, he called part of the phenomenal world. Hegel disagreed. He saw the noumenal world as work in progress. We would get there eventually. But it would take time.\n\nHow would we get there?\n\nIn short, via the dialectic. Humans want to make working assumptions, because they want solutions to avoid alienation. They don't always get their assumptions right, so along comes another thinker, or even another generation of people, who disbelieve, or negate, the first assumption, but eventually in so doing resolve the problem. While this sounds like the triadic thesis-antithesis-resolution sequence, some of Hegel's triads are more vaguely defined and general.\n\nBut is this a new idea? We all know thinks develop by trial and error. Is Hegel saying any more than that?\n\nYou are right that the dialectic is not a new idea, even in philosophy. The basis of philosophy, after all, is to put up a concept about something which we think exists, and then to question how we know, and to modify it or even abandon it in the light of our enquiries. That's what philosophy does; it examines basic concepts. Plato's arguments put into the mouth of Socrates are of this type. Kant investigated antinomies, or arguments where there are two views about something each with a respectable argument behind it. Some of these are of course irreconcilable, such as \"is or there not a God\". The difference with Hegel is that he takes this general task of philosophy and elevates it to a position where it is a long term process covering the whole of history.\n\nHas he got followers? Has anybody else taken this long term view?\n\nHis most famous and immediate follower was Marx. He was not so much interested in the dissolving of the Kantian noumenon, or in reconciling currently opposing arguments. His interests were essentially in society, and the material business of the world of work and man's place in the practical world of the everyday. Marx saw the feudal system turning to the much more successful capitalist system, which he thought would eventually turn into something else, which he called communism. He was a student of Hegel, took Hegel's historical view of the dialectic, but related it to material society, not to general philosophy. Hence the Marxist term dialectic materialism.\n\nYou said the dialectic comes up all the time in Hegel's work. How many guises has it got? Can you give some idea of the ubiquity of the idea?\n\nIn his first book, The Phenomenology of Spirit, it is presented as historical development in society. A dogmatic thought is gradually replaced by a system in which claims are open to to correction, because the dogmatic thought cannot be justified and therefore stand up to scrutiny. Why does reason prevail? Because we naturally seek society, and become acculturated. People who are not attached to one another seek attachment, emotional or intellectual. There is a coming together. The whole assimilates the parts. Human society creates cultural products (stories, dramas etc.) which reflect patterns of life and common perceptions and cognitions. Shared beliefs develop, and hence the spirit. In this way, the dialectical process overcomes the classic enlightenment problems of scepticism, the problems of other minds, and Kant's noumenon. Our knowledge of the world at any point is just part of a teleological dialectical process aimed at a version of ultimate, true knowledge.\n\nDoes it apply to all knowledge? Even religious knowledge?\n\nHegel thought so. He says the dialectic can apply to everything, be it physical, organic, living, psychological, social, political, theological, or philosophical. For Hegel, it was a matter of religious faith as well as logic. Everything will be revealed. Nothing is taboo, for it can be negated and taken forward. Things can only get better. God is working his purpose out. Hegel was a pantheist to that extent. God is the world, and everything is a part of God. Knowing the world is knowing God, much like Newton saying that his work was to know the mind of God.\n\nSo Hegel was a theist. He believed in a God. Is all this a way of promoting a religious view?\n\nHegel would have seen that as one of his purposes, though not the whole purpose. But there are non-religious interpretations of his work. Geist, the collective mind, does not have to be seen as the mind of God. Rather it can be taken as our common ability to reason using common structures in the way we think, helping us, over time, to form more complete opinions. Hegel sees no limit to human knowledge over time; Kant sees a definite limit. That, I suppose, is the big difference. To expand on that, Hegel argues against the priority of the individual agent. He sees our social relations as willed into existence by individual agents who would not otherwise be attached to one another. Shared beliefs come about because of continual assertions and affirmations by individuals, often implicitly and unreflectively. Individual actions are not possible without resulting in further interactions with others, nor are they taken without the previous influence of a collective view of the world.\n\nSo far your examples of the dialectic in action have referred to society and historical development. Is there another dimension?\n\nThe dialectic also runs through Hegel's second book, The Science of Logic. Here 'being' is opposed to 'nothing' from which he posits 'becoming'. A thought passes from nothingness to being via becoming, and it can be negated again, and the cycle continues. Waves of negation and materialisation exist throughout all perturbed process. Any body subjected to a perturbation will oscillate, depending on its elasticity. This process is sometimes referred to as the \"negation of the negation\". It is built in to Marxist-Leninism, and it is well described in this guise by H B Acton (see below). Hegel himself tried to unify dualisms such as mind/body, freedom/determination, idealism/materialism, universal/particular, state/individual, and even God/man via the dialectic. All because he had the view that they are only in opposition because of the undeveloped and incomplete perspective we have of them.\n\nYou're starting to lose my sympathetic ear. Isn't he trying to do too much?\n\nIt is all very controversial. And you are not alone in losing your sympathy for his arguments. He is trying to combine essence and appearance. He tries to do it because he thinks that what is ultimately real is mental, making him another kind of idealist. The collective mind, or the mind of God, all the same thing to a pantheist, will eventually draw all entities together in complete reason. The oscillations will not continue for ever, but be dampened.\n\nI can see why you started to explain the dialectic by reference to history and society. Is there anything left to say?\n\nFunnily enough, history and society is where Hegel also finishes. In his last book, the Philosophy of Right, he looks at his current society. He looks at the reconciliation of owners with non-owners as an accommodation. Trading becomes a matter of comparative advantage where both sides gain - fairly different from the way Marx uses the dialectic. In ethical life, wrong is the negation of right, punishment is the negation of wrong. He looks at groups of professionals, families, traders, the role of the state, even intervention by the state in business. These are all examined using a logic of position, opposition and reconciliation - but not revolution to a new communist system. Interestingly, his general sympathies were more with Adam Smith, who was really the founder of market capitalism. He did not agree with Smith about the \"trickle down\" concept, where the wealth of individuals benefits those with less wealth. He saw a need for the state to intervene, and also for the state to provide welfare as well.\n\nThere must be critics. Who are they?\n\nThere certainly are.  Many subsequent philosophers took some of Hegel as their starting point, if only to disagree with him and build something new of their own. We have already mentioned Marx. Kierkergaard also took a lead from Hegel, as did Heidegger. Schopenhauer held him up to criticise him. But all of these looked to get something from Hegel that they could not necessarily have got elsewhere. As it would take too long to review all the post-Hegelians, many of whom are modern, active philosophers, we'll briefly look at perhaps his two sternest critics: Karl Popper and Bertrand Russell.\n\nLet's take Popper first. I assume his criticism was largely political?\n\nIndeed it was. Popper objected to Hegel's treatment of the state and the individual, which he considered inseparable. For a collective logician like Hegel, the state was the ultimate collective for society. He saw the realisation of the individual wholly in the state. He appears to say that freedom comes only via the state. He was always keen to link the institutions of modernity, whereas modern thinkers see them as disconnected, autonomous interests. According to Popper, Hegel exalts the state to such an extent that he denies that choices made against the collective laws of the state can be irrational. Popper thinks this is a justification for totalitarianism. In so far as Marx saw communism as the road to a political manifestation of spirit, and in practice this has given rise to totalitarianism in most states where it has been tried, there may be some sense in Popper's argument. Other commentators maintain that Popper's criticism is unduly harsh, as indeed they do for his similar criticisms of Marx and communism. The problems, they say, arise from the implementation not the principle.\n\nAnd Bertrand Russell?\n\nHe also critiqued the role of the state proposed by Hegel, who, he says, takes the view that wherever there is law there is freedom, which is manifestly untrue. According to Russell, Hegel advocates wars. Peace is ossification.\n\nBut his main line of criticism is much more devastating. It goes like this: Russell can see no justification for assuming that history repeats the transformations of the dialectic, and even if it did, there is no justification for thinking that there would be a continual improvement in understanding by the human race. \"Just as as a comparative anatomist  from a single bone, sees what kind of animal the whole must have been, so the metaphysician, according to Hegel, sees from any one piece of reality, what the whole of reality must be\". This goes on until the whole universe is reconstructed. Finally, \"if we saw the universe whole, as we may suppose God sees it, space and time and matter and evil and all striving and struggling would disappear, and we should see instead an eternal perfect unchanging spiritual unity\". So nothing can exist on its own, only as a part of the whole, which until the end of the process is unknown to us. Everything is a fragment connected to the whole. This argument turns on the understanding of the nature of a thing, which to Hegel means \"all the truths about the thing\". It is true that in one sense everything depends on its existence on everything else. But is that true of knowledge of a thing? Can't we describe and appreciate the thing as it is without relating it to everything else and always telling ourselves that there is some incompleteness on our concept? Just because we do not know everything about a thing does not mean we don't know enough to define it for a practical purposes. In order to make progress at all, we must make that assumption, if indeed it is an assumption. Many of the things we could know about a thing may be totally irrelevant to its major function and our concept of it. \"Thus the fact that a thing has relations does not prove that it's relations are logically necessary;\" and \"...from the mere fact that it is the thing it is we cannot deduce that it must have the various relations which in fact it has\".\n\nIn this way Russell considers he has brought down the whole edifice of the dialectic, at least as a necessary method of seeing the world.\n\nSurely that's the end of it! Is there any reason to read Hegel these days?\n\nWell, yes. I think there is. For a start, as I said earlier, many philosophers have built on Hegel's foundations, without necessarily accepting the whole package. Also, there are interesting things we can salvage. Horstmann gives a useful list:\n\n​social factors are concerned in the acquisition of knowledge\n\n​\n\n​the juridical process in most countries use a dialectic-like approach\n\n​\n\n​theories of the development of politics, art and religion have used a dialectic-like approach ​\n\n​so has the development of history of philosophy [I would add science and ​​​​technology].\n\nI would also add that his concept of alienation is robust, and influential in a useful way in understanding human behaviour, Marxism, and existentialism.\n\nSo is Hegel still relevant?\n\nYes, as the basis for understanding other philosophers, notably Marx and indeed Marxist-Leninism. The same goes for many late Continental philosophers, who owe something to him. Indeed, when reading philosophy he is often referred to, and it is therefore worth knowing what he said. Also, much of his work could be seen as a blind alley not to be pursued further, and useful in that negative way. He was an important figure, and his influence is still felt today. I have not done justice to him in the short discussion. His way of thinking and reasoning is difficult for the twenty first century mind to grasp, and to appreciate him takes much time.\n\nFURTHER READING\n\nAs has been said, and not just by me, Hegel is one of the most difficult of the great philosophers to read.  For those who want to try to read the original, all of Hegel's works cited in this article are available in translation.\n\nStudents will find useful, relatively simple, explanatory commentaries are to be found at:\n\nBrian Magee's The Great Philosophers, based on his 1970s TV series. The conversation on Hegel and Marx is with Peter Singer\n\nOxford Dictionary of Philosophy - entry also by Peter Singer\n\nRoutledge Dictionary of Philosophy - entry by Rolf-Peter Horstmann\n\nThe Cambridge Dictionary of Philosophy - entry by Robert Pippin\n\nThe online Stanford Encylopedia of Philosophy - entry by Paul Redding\n\nCritical, but also explanatory, passages can also be found in:\n\nKarl Popper: The Open Society and It's Enemies\n\nBertrand Russell: Problems of Philosophy\n\nH B Acton: Illusion of the Epoch. (This is actually a critique of Marxist-Leninism, but it contains some interesting explanations and comments on Hegel, as a forerunner of Marx. In particular, it covers in summary some aspects of Hegel, such as Negation of the a Negation, and the Law of Quantity and Quality, which I have either omitted or covered only in passing).\n\nFinally, this paper was tried out on the Philosophy Now Forum. I am grateful in particular to  \"David Handeye\" for his comments, and to \"The Voice of Time\" for pointing out this useful series of lectures on The Phenomenology of Spirit:\n\nhttps://m.youtube.com/playlist?list=PL4gvlOxpKKIgR4OyOt31isknkVH2Kweq2",
+    "responses": [
+      {
+        "source": "gpt-4o-2024-11-20",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"ADU1\": {\n      \"text\": \"Of all the great philosophers, Hegel is one of the most difficult to understand, and, at least by some philosophers, one of the most despised.\",\n      \"label\": \"claim\"\n    },\n    \"ADU2\": {\n      \"text\": \"Russell and Schopenhauer thought that his philosophy was devoid of any useful meaning, and Popper blamed him for the rise of totalitarianism.\",\n      \"label\": \"premise\"\n    },\n    \"ADU3\": {\n      \"text\": \"What is his position today? Is he still worth reading? Are his contributions to thought useful on the twenty first century? Or is he, as many maintain, out of date, and wrong anyway?\",\n      \"label\": \"claim\"\n    },\n    \"ADU4\": {\n      \"text\": \"Hegel's was interested not so much in understanding a given state of affairs, as in understanding a process of change.\",\n      \"label\": \"claim\"\n    },\n    \"ADU5\": {\n      \"text\": \"Depending on what context you are considering, it's goal is Absolute Knowledge, Absolute Freedom, or an Organic Society.\",\n      \"label\": \"premise\"\n    },\n    \"ADU6\": {\n      \"text\": \"Hegel thought that in order to make anything of sense data that is useful for further thinking or action, we have to suppose other concepts for it's interpretation.\",\n      \"label\": \"claim\"\n    },\n    \"ADU7\": {\n      \"text\": \"Hegel calls this interpretation process \\\"mediation\\\", and insisted that without these supporting, mediating concepts, sense data are blind.\",\n      \"label\": \"premise\"\n    },\n    \"ADU8\": {\n      \"text\": \"Consciousness therefore must have a content which allows the interpretation of sense data.\",\n      \"label\": \"premise\"\n    },\n    \"ADU9\": {\n      \"text\": \"Eventually, by way of this communal effort, we arrive at what in Hegel's view is \\\"perception\\\".\",\n      \"label\": \"claim\"\n    },\n    \"ADU10\": {\n      \"text\": \"New criteria emerge as the process goes forward and \\\"understanding\\\" emerges.\",\n      \"label\": \"claim\"\n    },\n    \"ADU11\": {\n      \"text\": \"With work and study, this in turn becomes \\\"scientific cognition\\\", all of which has developed from the original sense data.\",\n      \"label\": \"premise\"\n    },\n    \"ADU12\": {\n      \"text\": \"He considers the intersubjective conditions necessary for consciousness.\",\n      \"label\": \"claim\"\n    },\n    \"ADU13\": {\n      \"text\": \"He believes that consciousness of an external object needs an awareness of oneself as a distinct subject, or self consciousness.\",\n      \"label\": \"premise\"\n    },\n    \"ADU14\": {\n      \"text\": \"Furthermore, we recognise others' self-consciousness.\",\n      \"label\": \"premise\"\n    },\n    \"ADU15\": {\n      \"text\": \"We think in terms of a network or pattern of mutual recognition between subjects or agents i.e ourselves and other people.\",\n      \"label\": \"claim\"\n    },\n    \"ADU16\": {\n      \"text\": \"We share a common system of perceptions and understandings, and this forms a total complex system, or spirit.\",\n      \"label\": \"premise\"\n    },\n    \"ADU17\": {\n      \"text\": \"Hegel believes he has moved from the subjective mind of the agent to the objective spirit of the system of agents.\",\n      \"label\": \"claim\"\n    },\n    \"ADU18\": {\n      \"text\": \"He thereby invokes distinct patterns of social interaction and of reciprocal recognition.\",\n      \"label\": \"premise\"\n    },\n    \"ADU19\": {\n      \"text\": \"Hegel's version is more metaphysical.\",\n      \"label\": \"claim\"\n    },\n    \"ADU20\": {\n      \"text\": \"He refers to something which is part of yourself, of your Geist, yet foreign, alien or hostile.\",\n      \"label\": \"premise\"\n    },\n    \"ADU21\": {\n      \"text\": \"This something makes us confront ourselves, question what we are doing.\",\n      \"label\": \"premise\"\n    },\n    \"ADU22\": {\n      \"text\": \"Eventually we reach a solution.\",\n      \"label\": \"claim\"\n    },\n    \"ADU23\": {\n      \"text\": \"A process of self-division, self-alienation and finally overcoming ensues.\",\n      \"label\": \"premise\"\n    },\n    \"ADU24\": {\n      \"text\": \"At the very least, we reach a way of living with ourselves and in society.\",\n      \"label\": \"claim\"\n    },\n    \"ADU25\": {\n      \"text\": \"According to Hegel, our Geist becomes part of the larger Geist or spirit, and we move towards absolute knowledge, freedom and reality.\",\n      \"label\": \"claim\"\n    },\n    \"ADU26\": {\n      \"text\": \"Having dealt with alienation, we are now in a position to see what Hegel meant by the dialectic, which, as you infer, he saw as the process by which mankind would move forward to achieve the goal of being at one with the world and society.\",\n      \"label\": \"claim\"\n    },\n    \"ADU27\": {\n      \"text\": \"A process of self-division, self-alienation and finally overcoming ensues, you remember.\",\n      \"label\": \"premise\"\n    },\n    \"ADU28\": {\n      \"text\": \"When we feel alienation, we confront it, solve the problem and move on.\",\n      \"label\": \"premise\"\n    },\n    \"ADU29\": {\n      \"text\": \"Then the process repeats.\",\n      \"label\": \"premise\"\n    },\n    \"ADU30\": {\n      \"text\": \"The common description of the dialectic in both Hegel and Marx is one of an iterative process of thesis, anti-thesis and resolution.\",\n      \"label\": \"claim\"\n    },\n    \"ADU31\": {\n      \"text\": \"Hegel came directly after Kant in German philosophy.\",\n      \"label\": \"premise\"\n    },\n    \"ADU32\": {\n      \"text\": \"Kant's transcendental idealism was uppermost in Hegel's mind when he started out.\",\n      \"label\": \"premise\"\n    },\n    \"ADU33\": {\n      \"text\": \"Hegel disagreed.\",\n      \"label\": \"claim\"\n    },\n    \"ADU34\": {\n      \"text\": \"He saw the noumenal world as work in progress.\",\n      \"label\": \"premise\"\n    },\n    \"ADU35\": {\n      \"text\": \"We would get there eventually.\",\n      \"label\": \"claim\"\n    },\n    \"ADU36\": {\n      \"text\": \"But it would take time.\",\n      \"label\": \"premise\"\n    },\n    \"ADU37\": {\n      \"text\": \"In short, via the dialectic.\",\n      \"label\": \"claim\"\n    },\n    \"ADU38\": {\n      \"text\": \"Humans want to make working assumptions, because they want solutions to avoid alienation.\",\n      \"label\": \"premise\"\n    },\n    \"ADU39\": {\n      \"text\": \"They don't always get their assumptions right, so along comes another thinker, or even another generation of people, who disbelieve, or negate, the first assumption, but eventually in so doing resolve the problem.\",\n      \"label\": \"premise\"\n    },\n    \"ADU40\": {\n      \"text\": \"While this sounds like the triadic thesis-antithesis-resolution sequence, some of Hegel's triads are more vaguely defined and general.\",\n      \"label\": \"claim\"\n    },\n    \"ADU41\": {\n      \"text\": \"The difference with Hegel is that he takes this general task of philosophy and elevates it to a position where it is a long term process covering the whole of history.\",\n      \"label\": \"claim\"\n    },\n    \"ADU42\": {\n      \"text\": \"His most famous and immediate follower was Marx.\",\n      \"label\": \"premise\"\n    },\n    \"ADU43\": {\n      \"text\": \"He was not so much interested in the dissolving of the Kantian noumenon, or in reconciling currently opposing arguments.\",\n      \"label\": \"premise\"\n    },\n    \"ADU44\": {\n      \"text\": \"His interests were essentially in society, and the material business of the world of work and man's place in the practical world of the everyday.\",\n      \"label\": \"premise\"\n    },\n    \"ADU45\": {\n      \"text\": \"Marx saw the feudal system turning to the much more successful capitalist system, which he thought would eventually turn into something else, which he called communism.\",\n      \"label\": \"claim\"\n    },\n    \"ADU46\": {\n      \"text\": \"He was a student of Hegel, took Hegel's historical view of the dialectic, but related it to material society, not to general philosophy.\",\n      \"label\": \"premise\"\n    },\n    \"ADU47\": {\n      \"text\": \"Hence the Marxist term dialectic materialism.\",\n      \"label\": \"claim\"\n    },\n    \"ADU48\": {\n      \"text\": \"In his first book, The Phenomenology of Spirit, it is presented as historical development in society.\",\n      \"label\": \"claim\"\n    },\n    \"ADU49\": {\n      \"text\": \"A dogmatic thought is gradually replaced by a system in which claims are open to to correction, because the dogmatic thought cannot be justified and therefore stand up to scrutiny.\",\n      \"label\": \"premise\"\n    },\n    \"ADU50\": {\n      \"text\": \"Why does reason prevail? Because we naturally seek society, and become acculturated.\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"ADU1\",\n      \"target\": \"ADU2\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU4\",\n      \"target\": \"ADU5\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU6\",\n      \"target\": \"ADU7\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU6\",\n      \"target\": \"ADU8\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU9\",\n      \"target\": \"ADU10\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU10\",\n      \"target\": \"ADU11\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU12\",\n      \"target\": \"ADU13\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU12\",\n      \"target\": \"ADU14\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU15\",\n      \"target\": \"ADU16\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU17\",\n      \"target\": \"ADU18\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU19\",\n      \"target\": \"ADU20\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU19\",\n      \"target\": \"ADU21\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU22\",\n      \"target\": \"ADU23\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU25\",\n      \"target\": \"ADU24\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU26\",\n      \"target\": \"ADU27\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU26\",\n      \"target\": \"ADU28\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU26\",\n      \"target\": \"ADU29\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU30\",\n      \"target\": \"ADU31\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU33\",\n      \"target\": \"ADU34\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU33\",\n      \"target\": \"ADU35\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU35\",\n      \"target\": \"ADU36\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU37\",\n      \"target\": \"ADU38\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU37\",\n      \"target\": \"ADU39\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU41\",\n      \"target\": \"ADU42\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU41\",\n      \"target\": \"ADU43\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU41\",\n      \"target\": \"ADU44\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU45\",\n      \"target\": \"ADU46\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU47\",\n      \"target\": \"ADU46\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU48\",\n      \"target\": \"ADU49\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU50\",\n      \"target\": \"ADU49\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "ADU1": {
+              "text": "Of all the great philosophers, Hegel is one of the most difficult to understand, and, at least by some philosophers, one of the most despised.",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "Russell and Schopenhauer thought that his philosophy was devoid of any useful meaning, and Popper blamed him for the rise of totalitarianism.",
+              "label": "premise"
+            },
+            "ADU3": {
+              "text": "What is his position today? Is he still worth reading? Are his contributions to thought useful on the twenty first century? Or is he, as many maintain, out of date, and wrong anyway?",
+              "label": "claim"
+            },
+            "ADU4": {
+              "text": "Hegel's was interested not so much in understanding a given state of affairs, as in understanding a process of change.",
+              "label": "claim"
+            },
+            "ADU5": {
+              "text": "Depending on what context you are considering, it's goal is Absolute Knowledge, Absolute Freedom, or an Organic Society.",
+              "label": "premise"
+            },
+            "ADU6": {
+              "text": "Hegel thought that in order to make anything of sense data that is useful for further thinking or action, we have to suppose other concepts for it's interpretation.",
+              "label": "claim"
+            },
+            "ADU7": {
+              "text": "Hegel calls this interpretation process \"mediation\", and insisted that without these supporting, mediating concepts, sense data are blind.",
+              "label": "premise"
+            },
+            "ADU8": {
+              "text": "Consciousness therefore must have a content which allows the interpretation of sense data.",
+              "label": "premise"
+            },
+            "ADU9": {
+              "text": "Eventually, by way of this communal effort, we arrive at what in Hegel's view is \"perception\".",
+              "label": "claim"
+            },
+            "ADU10": {
+              "text": "New criteria emerge as the process goes forward and \"understanding\" emerges.",
+              "label": "claim"
+            },
+            "ADU11": {
+              "text": "With work and study, this in turn becomes \"scientific cognition\", all of which has developed from the original sense data.",
+              "label": "premise"
+            },
+            "ADU12": {
+              "text": "He considers the intersubjective conditions necessary for consciousness.",
+              "label": "claim"
+            },
+            "ADU13": {
+              "text": "He believes that consciousness of an external object needs an awareness of oneself as a distinct subject, or self consciousness.",
+              "label": "premise"
+            },
+            "ADU14": {
+              "text": "Furthermore, we recognise others' self-consciousness.",
+              "label": "premise"
+            },
+            "ADU15": {
+              "text": "We think in terms of a network or pattern of mutual recognition between subjects or agents i.e ourselves and other people.",
+              "label": "claim"
+            },
+            "ADU16": {
+              "text": "We share a common system of perceptions and understandings, and this forms a total complex system, or spirit.",
+              "label": "premise"
+            },
+            "ADU17": {
+              "text": "Hegel believes he has moved from the subjective mind of the agent to the objective spirit of the system of agents.",
+              "label": "claim"
+            },
+            "ADU18": {
+              "text": "He thereby invokes distinct patterns of social interaction and of reciprocal recognition.",
+              "label": "premise"
+            },
+            "ADU19": {
+              "text": "Hegel's version is more metaphysical.",
+              "label": "claim"
+            },
+            "ADU20": {
+              "text": "He refers to something which is part of yourself, of your Geist, yet foreign, alien or hostile.",
+              "label": "premise"
+            },
+            "ADU21": {
+              "text": "This something makes us confront ourselves, question what we are doing.",
+              "label": "premise"
+            },
+            "ADU22": {
+              "text": "Eventually we reach a solution.",
+              "label": "claim"
+            },
+            "ADU23": {
+              "text": "A process of self-division, self-alienation and finally overcoming ensues.",
+              "label": "premise"
+            },
+            "ADU24": {
+              "text": "At the very least, we reach a way of living with ourselves and in society.",
+              "label": "claim"
+            },
+            "ADU25": {
+              "text": "According to Hegel, our Geist becomes part of the larger Geist or spirit, and we move towards absolute knowledge, freedom and reality.",
+              "label": "claim"
+            },
+            "ADU26": {
+              "text": "Having dealt with alienation, we are now in a position to see what Hegel meant by the dialectic, which, as you infer, he saw as the process by which mankind would move forward to achieve the goal of being at one with the world and society.",
+              "label": "claim"
+            },
+            "ADU27": {
+              "text": "A process of self-division, self-alienation and finally overcoming ensues, you remember.",
+              "label": "premise"
+            },
+            "ADU28": {
+              "text": "When we feel alienation, we confront it, solve the problem and move on.",
+              "label": "premise"
+            },
+            "ADU29": {
+              "text": "Then the process repeats.",
+              "label": "premise"
+            },
+            "ADU30": {
+              "text": "The common description of the dialectic in both Hegel and Marx is one of an iterative process of thesis, anti-thesis and resolution.",
+              "label": "claim"
+            },
+            "ADU31": {
+              "text": "Hegel came directly after Kant in German philosophy.",
+              "label": "premise"
+            },
+            "ADU32": {
+              "text": "Kant's transcendental idealism was uppermost in Hegel's mind when he started out.",
+              "label": "premise"
+            },
+            "ADU33": {
+              "text": "Hegel disagreed.",
+              "label": "claim"
+            },
+            "ADU34": {
+              "text": "He saw the noumenal world as work in progress.",
+              "label": "premise"
+            },
+            "ADU35": {
+              "text": "We would get there eventually.",
+              "label": "claim"
+            },
+            "ADU36": {
+              "text": "But it would take time.",
+              "label": "premise"
+            },
+            "ADU37": {
+              "text": "In short, via the dialectic.",
+              "label": "claim"
+            },
+            "ADU38": {
+              "text": "Humans want to make working assumptions, because they want solutions to avoid alienation.",
+              "label": "premise"
+            },
+            "ADU39": {
+              "text": "They don't always get their assumptions right, so along comes another thinker, or even another generation of people, who disbelieve, or negate, the first assumption, but eventually in so doing resolve the problem.",
+              "label": "premise"
+            },
+            "ADU40": {
+              "text": "While this sounds like the triadic thesis-antithesis-resolution sequence, some of Hegel's triads are more vaguely defined and general.",
+              "label": "claim"
+            },
+            "ADU41": {
+              "text": "The difference with Hegel is that he takes this general task of philosophy and elevates it to a position where it is a long term process covering the whole of history.",
+              "label": "claim"
+            },
+            "ADU42": {
+              "text": "His most famous and immediate follower was Marx.",
+              "label": "premise"
+            },
+            "ADU43": {
+              "text": "He was not so much interested in the dissolving of the Kantian noumenon, or in reconciling currently opposing arguments.",
+              "label": "premise"
+            },
+            "ADU44": {
+              "text": "His interests were essentially in society, and the material business of the world of work and man's place in the practical world of the everyday.",
+              "label": "premise"
+            },
+            "ADU45": {
+              "text": "Marx saw the feudal system turning to the much more successful capitalist system, which he thought would eventually turn into something else, which he called communism.",
+              "label": "claim"
+            },
+            "ADU46": {
+              "text": "He was a student of Hegel, took Hegel's historical view of the dialectic, but related it to material society, not to general philosophy.",
+              "label": "premise"
+            },
+            "ADU47": {
+              "text": "Hence the Marxist term dialectic materialism.",
+              "label": "claim"
+            },
+            "ADU48": {
+              "text": "In his first book, The Phenomenology of Spirit, it is presented as historical development in society.",
+              "label": "claim"
+            },
+            "ADU49": {
+              "text": "A dogmatic thought is gradually replaced by a system in which claims are open to to correction, because the dogmatic thought cannot be justified and therefore stand up to scrutiny.",
+              "label": "premise"
+            },
+            "ADU50": {
+              "text": "Why does reason prevail? Because we naturally seek society, and become acculturated.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU1",
+              "target": "ADU2",
+              "type": "support"
+            },
+            {
+              "source": "ADU4",
+              "target": "ADU5",
+              "type": "support"
+            },
+            {
+              "source": "ADU6",
+              "target": "ADU7",
+              "type": "support"
+            },
+            {
+              "source": "ADU6",
+              "target": "ADU8",
+              "type": "support"
+            },
+            {
+              "source": "ADU9",
+              "target": "ADU10",
+              "type": "support"
+            },
+            {
+              "source": "ADU10",
+              "target": "ADU11",
+              "type": "support"
+            },
+            {
+              "source": "ADU12",
+              "target": "ADU13",
+              "type": "support"
+            },
+            {
+              "source": "ADU12",
+              "target": "ADU14",
+              "type": "support"
+            },
+            {
+              "source": "ADU15",
+              "target": "ADU16",
+              "type": "support"
+            },
+            {
+              "source": "ADU17",
+              "target": "ADU18",
+              "type": "support"
+            },
+            {
+              "source": "ADU19",
+              "target": "ADU20",
+              "type": "support"
+            },
+            {
+              "source": "ADU19",
+              "target": "ADU21",
+              "type": "support"
+            },
+            {
+              "source": "ADU22",
+              "target": "ADU23",
+              "type": "support"
+            },
+            {
+              "source": "ADU25",
+              "target": "ADU24",
+              "type": "support"
+            },
+            {
+              "source": "ADU26",
+              "target": "ADU27",
+              "type": "support"
+            },
+            {
+              "source": "ADU26",
+              "target": "ADU28",
+              "type": "support"
+            },
+            {
+              "source": "ADU26",
+              "target": "ADU29",
+              "type": "support"
+            },
+            {
+              "source": "ADU30",
+              "target": "ADU31",
+              "type": "support"
+            },
+            {
+              "source": "ADU33",
+              "target": "ADU34",
+              "type": "support"
+            },
+            {
+              "source": "ADU33",
+              "target": "ADU35",
+              "type": "support"
+            },
+            {
+              "source": "ADU35",
+              "target": "ADU36",
+              "type": "support"
+            },
+            {
+              "source": "ADU37",
+              "target": "ADU38",
+              "type": "support"
+            },
+            {
+              "source": "ADU37",
+              "target": "ADU39",
+              "type": "support"
+            },
+            {
+              "source": "ADU41",
+              "target": "ADU42",
+              "type": "support"
+            },
+            {
+              "source": "ADU41",
+              "target": "ADU43",
+              "type": "support"
+            },
+            {
+              "source": "ADU41",
+              "target": "ADU44",
+              "type": "support"
+            },
+            {
+              "source": "ADU45",
+              "target": "ADU46",
+              "type": "support"
+            },
+            {
+              "source": "ADU47",
+              "target": "ADU46",
+              "type": "support"
+            },
+            {
+              "source": "ADU48",
+              "target": "ADU49",
+              "type": "support"
+            },
+            {
+              "source": "ADU50",
+              "target": "ADU49",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "ADU1": {
+              "text": "Of all the great philosophers, Hegel is one of the most difficult to understand, and, at least by some philosophers, one of the most despised.",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "Russell and Schopenhauer thought that his philosophy was devoid of any useful meaning, and Popper blamed him for the rise of totalitarianism.",
+              "label": "premise"
+            },
+            "ADU3": {
+              "text": "What is his position today? Is he still worth reading? Are his contributions to thought useful on the twenty first century? Or is he, as many maintain, out of date, and wrong anyway?",
+              "label": "claim"
+            },
+            "ADU4": {
+              "text": "Hegel's was interested not so much in understanding a given state of affairs, as in understanding a process of change.",
+              "label": "claim"
+            },
+            "ADU5": {
+              "text": "Depending on what context you are considering, it's goal is Absolute Knowledge, Absolute Freedom, or an Organic Society.",
+              "label": "premise"
+            },
+            "ADU6": {
+              "text": "Hegel thought that in order to make anything of sense data that is useful for further thinking or action, we have to suppose other concepts for it's interpretation.",
+              "label": "claim"
+            },
+            "ADU7": {
+              "text": "Hegel calls this interpretation process \"mediation\", and insisted that without these supporting, mediating concepts, sense data are blind.",
+              "label": "premise"
+            },
+            "ADU8": {
+              "text": "Consciousness therefore must have a content which allows the interpretation of sense data.",
+              "label": "premise"
+            },
+            "ADU9": {
+              "text": "Eventually, by way of this communal effort, we arrive at what in Hegel's view is \"perception\".",
+              "label": "claim"
+            },
+            "ADU10": {
+              "text": "New criteria emerge as the process goes forward and \"understanding\" emerges.",
+              "label": "claim"
+            },
+            "ADU11": {
+              "text": "With work and study, this in turn becomes \"scientific cognition\", all of which has developed from the original sense data.",
+              "label": "premise"
+            },
+            "ADU12": {
+              "text": "He considers the intersubjective conditions necessary for consciousness.",
+              "label": "claim"
+            },
+            "ADU13": {
+              "text": "He believes that consciousness of an external object needs an awareness of oneself as a distinct subject, or self consciousness.",
+              "label": "premise"
+            },
+            "ADU14": {
+              "text": "Furthermore, we recognise others' self-consciousness.",
+              "label": "premise"
+            },
+            "ADU15": {
+              "text": "We think in terms of a network or pattern of mutual recognition between subjects or agents i.e ourselves and other people.",
+              "label": "claim"
+            },
+            "ADU16": {
+              "text": "We share a common system of perceptions and understandings, and this forms a total complex system, or spirit.",
+              "label": "premise"
+            },
+            "ADU17": {
+              "text": "Hegel believes he has moved from the subjective mind of the agent to the objective spirit of the system of agents.",
+              "label": "claim"
+            },
+            "ADU18": {
+              "text": "He thereby invokes distinct patterns of social interaction and of reciprocal recognition.",
+              "label": "premise"
+            },
+            "ADU19": {
+              "text": "Hegel's version is more metaphysical.",
+              "label": "claim"
+            },
+            "ADU20": {
+              "text": "He refers to something which is part of yourself, of your Geist, yet foreign, alien or hostile.",
+              "label": "premise"
+            },
+            "ADU21": {
+              "text": "This something makes us confront ourselves, question what we are doing.",
+              "label": "premise"
+            },
+            "ADU22": {
+              "text": "Eventually we reach a solution.",
+              "label": "claim"
+            },
+            "ADU23": {
+              "text": "A process of self-division, self-alienation and finally overcoming ensues.",
+              "label": "premise"
+            },
+            "ADU24": {
+              "text": "At the very least, we reach a way of living with ourselves and in society.",
+              "label": "claim"
+            },
+            "ADU25": {
+              "text": "According to Hegel, our Geist becomes part of the larger Geist or spirit, and we move towards absolute knowledge, freedom and reality.",
+              "label": "claim"
+            },
+            "ADU26": {
+              "text": "Having dealt with alienation, we are now in a position to see what Hegel meant by the dialectic, which, as you infer, he saw as the process by which mankind would move forward to achieve the goal of being at one with the world and society.",
+              "label": "claim"
+            },
+            "ADU27": {
+              "text": "A process of self-division, self-alienation and finally overcoming ensues, you remember.",
+              "label": "premise"
+            },
+            "ADU28": {
+              "text": "When we feel alienation, we confront it, solve the problem and move on.",
+              "label": "premise"
+            },
+            "ADU29": {
+              "text": "Then the process repeats.",
+              "label": "premise"
+            },
+            "ADU30": {
+              "text": "The common description of the dialectic in both Hegel and Marx is one of an iterative process of thesis, anti-thesis and resolution.",
+              "label": "claim"
+            },
+            "ADU31": {
+              "text": "Hegel came directly after Kant in German philosophy.",
+              "label": "premise"
+            },
+            "ADU32": {
+              "text": "Kant's transcendental idealism was uppermost in Hegel's mind when he started out.",
+              "label": "premise"
+            },
+            "ADU33": {
+              "text": "Hegel disagreed.",
+              "label": "claim"
+            },
+            "ADU34": {
+              "text": "He saw the noumenal world as work in progress.",
+              "label": "premise"
+            },
+            "ADU35": {
+              "text": "We would get there eventually.",
+              "label": "claim"
+            },
+            "ADU36": {
+              "text": "But it would take time.",
+              "label": "premise"
+            },
+            "ADU37": {
+              "text": "In short, via the dialectic.",
+              "label": "claim"
+            },
+            "ADU38": {
+              "text": "Humans want to make working assumptions, because they want solutions to avoid alienation.",
+              "label": "premise"
+            },
+            "ADU39": {
+              "text": "They don't always get their assumptions right, so along comes another thinker, or even another generation of people, who disbelieve, or negate, the first assumption, but eventually in so doing resolve the problem.",
+              "label": "premise"
+            },
+            "ADU40": {
+              "text": "While this sounds like the triadic thesis-antithesis-resolution sequence, some of Hegel's triads are more vaguely defined and general.",
+              "label": "claim"
+            },
+            "ADU41": {
+              "text": "The difference with Hegel is that he takes this general task of philosophy and elevates it to a position where it is a long term process covering the whole of history.",
+              "label": "claim"
+            },
+            "ADU42": {
+              "text": "His most famous and immediate follower was Marx.",
+              "label": "premise"
+            },
+            "ADU43": {
+              "text": "He was not so much interested in the dissolving of the Kantian noumenon, or in reconciling currently opposing arguments.",
+              "label": "premise"
+            },
+            "ADU44": {
+              "text": "His interests were essentially in society, and the material business of the world of work and man's place in the practical world of the everyday.",
+              "label": "premise"
+            },
+            "ADU45": {
+              "text": "Marx saw the feudal system turning to the much more successful capitalist system, which he thought would eventually turn into something else, which he called communism.",
+              "label": "claim"
+            },
+            "ADU46": {
+              "text": "He was a student of Hegel, took Hegel's historical view of the dialectic, but related it to material society, not to general philosophy.",
+              "label": "premise"
+            },
+            "ADU47": {
+              "text": "Hence the Marxist term dialectic materialism.",
+              "label": "claim"
+            },
+            "ADU48": {
+              "text": "In his first book, The Phenomenology of Spirit, it is presented as historical development in society.",
+              "label": "claim"
+            },
+            "ADU49": {
+              "text": "A dogmatic thought is gradually replaced by a system in which claims are open to to correction, because the dogmatic thought cannot be justified and therefore stand up to scrutiny.",
+              "label": "premise"
+            },
+            "ADU50": {
+              "text": "Why does reason prevail? Because we naturally seek society, and become acculturated.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU1",
+              "target": "ADU2",
+              "type": "support"
+            },
+            {
+              "source": "ADU4",
+              "target": "ADU5",
+              "type": "support"
+            },
+            {
+              "source": "ADU6",
+              "target": "ADU7",
+              "type": "support"
+            },
+            {
+              "source": "ADU6",
+              "target": "ADU8",
+              "type": "support"
+            },
+            {
+              "source": "ADU9",
+              "target": "ADU10",
+              "type": "support"
+            },
+            {
+              "source": "ADU10",
+              "target": "ADU11",
+              "type": "support"
+            },
+            {
+              "source": "ADU12",
+              "target": "ADU13",
+              "type": "support"
+            },
+            {
+              "source": "ADU12",
+              "target": "ADU14",
+              "type": "support"
+            },
+            {
+              "source": "ADU15",
+              "target": "ADU16",
+              "type": "support"
+            },
+            {
+              "source": "ADU17",
+              "target": "ADU18",
+              "type": "support"
+            },
+            {
+              "source": "ADU19",
+              "target": "ADU20",
+              "type": "support"
+            },
+            {
+              "source": "ADU19",
+              "target": "ADU21",
+              "type": "support"
+            },
+            {
+              "source": "ADU22",
+              "target": "ADU23",
+              "type": "support"
+            },
+            {
+              "source": "ADU25",
+              "target": "ADU24",
+              "type": "support"
+            },
+            {
+              "source": "ADU26",
+              "target": "ADU27",
+              "type": "support"
+            },
+            {
+              "source": "ADU26",
+              "target": "ADU28",
+              "type": "support"
+            },
+            {
+              "source": "ADU26",
+              "target": "ADU29",
+              "type": "support"
+            },
+            {
+              "source": "ADU30",
+              "target": "ADU31",
+              "type": "support"
+            },
+            {
+              "source": "ADU33",
+              "target": "ADU34",
+              "type": "support"
+            },
+            {
+              "source": "ADU33",
+              "target": "ADU35",
+              "type": "support"
+            },
+            {
+              "source": "ADU35",
+              "target": "ADU36",
+              "type": "support"
+            },
+            {
+              "source": "ADU37",
+              "target": "ADU38",
+              "type": "support"
+            },
+            {
+              "source": "ADU37",
+              "target": "ADU39",
+              "type": "support"
+            },
+            {
+              "source": "ADU41",
+              "target": "ADU42",
+              "type": "support"
+            },
+            {
+              "source": "ADU41",
+              "target": "ADU43",
+              "type": "support"
+            },
+            {
+              "source": "ADU41",
+              "target": "ADU44",
+              "type": "support"
+            },
+            {
+              "source": "ADU45",
+              "target": "ADU46",
+              "type": "support"
+            },
+            {
+              "source": "ADU47",
+              "target": "ADU46",
+              "type": "support"
+            },
+            {
+              "source": "ADU48",
+              "target": "ADU49",
+              "type": "support"
+            },
+            {
+              "source": "ADU50",
+              "target": "ADU49",
+              "type": "support"
+            }
+          ]
+        }
+      },
+      {
+        "source": "claude-3-5-sonnet-20241022",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"A1\": {\n      \"text\": \"Of all the great philosophers, Hegel is one of the most difficult to understand, and, at least by some philosophers, one of the most despised\",\n      \"label\": \"claim\"\n    },\n    \"A2\": {\n      \"text\": \"Russell and Schopenhauer thought that his philosophy was devoid of any useful meaning, and Popper blamed him for the rise of totalitarianism\",\n      \"label\": \"premise\"\n    },\n    \"A3\": {\n      \"text\": \"Hegel's was interested not so much in understanding a given state of affairs, as in understanding a process of change\",\n      \"label\": \"claim\"\n    },\n    \"A4\": {\n      \"text\": \"Hegel thought that in order to make anything of sense data that is useful for further thinking or action, we have to suppose other concepts for it's interpretation\",\n      \"label\": \"claim\"\n    },\n    \"A5\": {\n      \"text\": \"Hegel believes he has moved from the subjective mind of the agent to the objective spirit of the system of agents\",\n      \"label\": \"claim\"\n    },\n    \"A6\": {\n      \"text\": \"Hegel seems to be saying we don't have an individual view of the world, but have a view which depends on our fellow beings\",\n      \"label\": \"claim\"\n    },\n    \"A7\": {\n      \"text\": \"For Hegel, it was a matter of religious faith as well as logic. Everything will be revealed. Nothing is taboo, for it can be negated and taken forward\",\n      \"label\": \"claim\"\n    },\n    \"A8\": {\n      \"text\": \"Russell can see no justification for assuming that history repeats the transformations of the dialectic, and even if it did, there is no justification for thinking that there would be a continual improvement in understanding by the human race\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"A2\",\n      \"target\": \"A1\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A4\",\n      \"target\": \"A6\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A5\",\n      \"target\": \"A6\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A8\",\n      \"target\": \"A7\",\n      \"type\": \"attack\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "A1": {
+              "text": "Of all the great philosophers, Hegel is one of the most difficult to understand, and, at least by some philosophers, one of the most despised",
+              "label": "claim"
+            },
+            "A2": {
+              "text": "Russell and Schopenhauer thought that his philosophy was devoid of any useful meaning, and Popper blamed him for the rise of totalitarianism",
+              "label": "premise"
+            },
+            "A3": {
+              "text": "Hegel's was interested not so much in understanding a given state of affairs, as in understanding a process of change",
+              "label": "claim"
+            },
+            "A4": {
+              "text": "Hegel thought that in order to make anything of sense data that is useful for further thinking or action, we have to suppose other concepts for it's interpretation",
+              "label": "claim"
+            },
+            "A5": {
+              "text": "Hegel believes he has moved from the subjective mind of the agent to the objective spirit of the system of agents",
+              "label": "claim"
+            },
+            "A6": {
+              "text": "Hegel seems to be saying we don't have an individual view of the world, but have a view which depends on our fellow beings",
+              "label": "claim"
+            },
+            "A7": {
+              "text": "For Hegel, it was a matter of religious faith as well as logic. Everything will be revealed. Nothing is taboo, for it can be negated and taken forward",
+              "label": "claim"
+            },
+            "A8": {
+              "text": "Russell can see no justification for assuming that history repeats the transformations of the dialectic, and even if it did, there is no justification for thinking that there would be a continual improvement in understanding by the human race",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "A2",
+              "target": "A1",
+              "type": "support"
+            },
+            {
+              "source": "A4",
+              "target": "A6",
+              "type": "support"
+            },
+            {
+              "source": "A5",
+              "target": "A6",
+              "type": "support"
+            },
+            {
+              "source": "A8",
+              "target": "A7",
+              "type": "attack"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "A1": {
+              "text": "Of all the great philosophers, Hegel is one of the most difficult to understand, and, at least by some philosophers, one of the most despised",
+              "label": "claim"
+            },
+            "A2": {
+              "text": "Russell and Schopenhauer thought that his philosophy was devoid of any useful meaning, and Popper blamed him for the rise of totalitarianism",
+              "label": "premise"
+            },
+            "A3": {
+              "text": "Hegel's was interested not so much in understanding a given state of affairs, as in understanding a process of change",
+              "label": "claim"
+            },
+            "A4": {
+              "text": "Hegel thought that in order to make anything of sense data that is useful for further thinking or action, we have to suppose other concepts for it's interpretation",
+              "label": "claim"
+            },
+            "A5": {
+              "text": "Hegel believes he has moved from the subjective mind of the agent to the objective spirit of the system of agents",
+              "label": "claim"
+            },
+            "A6": {
+              "text": "Hegel seems to be saying we don't have an individual view of the world, but have a view which depends on our fellow beings",
+              "label": "claim"
+            },
+            "A7": {
+              "text": "For Hegel, it was a matter of religious faith as well as logic. Everything will be revealed. Nothing is taboo, for it can be negated and taken forward",
+              "label": "claim"
+            },
+            "A8": {
+              "text": "Russell can see no justification for assuming that history repeats the transformations of the dialectic, and even if it did, there is no justification for thinking that there would be a continual improvement in understanding by the human race",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "A2",
+              "target": "A1",
+              "type": "support"
+            },
+            {
+              "source": "A4",
+              "target": "A6",
+              "type": "support"
+            },
+            {
+              "source": "A5",
+              "target": "A6",
+              "type": "support"
+            },
+            {
+              "source": "A8",
+              "target": "A7",
+              "type": "attack"
+            }
+          ]
+        }
+      }
+    ],
+    "timestamp": 1752757063.5669494
+  }
+]

@@ -1,0 +1,221 @@
+[
+  {
+    "identifier": "GIRDHO",
+    "system_prompt": "## GOAL\nArgument‑mine the following paper to extract its comprehensive argumentative structure.\n\n## DEFINITIONS\n1. **Argument**: A set of propositions, including some number of premises and a conclusion. The premises should logically entail the conclusion.\n2. **Claim**: A proposition that asserts something to be true or false, typically requiring justification or evidence.\n3. **Premise**: A proposition that provides evidence, justification, or logical support for a claim or conclusion.\n\n## CRITICAL REQUIREMENTS\n1. **VERBATIM EXTRACTION ONLY**: Each ADU text must be copied EXACTLY from the paper with no modifications, paraphrasing, or combining of separate sentences.\n2. **NO HALLUCINATION**: Do not create, modify, or invent text that does not appear exactly in the source.\n3. **EXACT MATCHING**: Every word, punctuation mark, and spacing must match the original precisely.\n\n## DIRECTIONS\n1. **Identify Argumentative Discourse Units (ADUs)**  \n   - ADU = any contiguous text span functioning as a claim or a premise in the reasoning structure.\n   - **BE HIGHLY SELECTIVE**: Only include ADUs that are crucial to the overarching argument structure.\n   - Focus on significant claims and premises that contribute meaningfully to the argumentative flow.\n   - **AVOID NOISE**: Skip ADUs that are merely descriptive, tangential, or do not substantially advance the argument.\n   - Prioritize quality over quantity - fewer accurate, important ADUs are better than many insignificant ones.\n   - **EXTRACT ONLY**: Copy text spans exactly as they appear, without any modifications.\n2. **Classify each ADU**  \n   - Label = either `\"claim\"` or `\"premise\"`.  \n3. **Detect directed relations**  \n   - Relation = `\"support\"` or `\"attack\"`, from one ADU (source) to another (target).\n   - Map how ADUs connect to form reasoning chains.\n   - Focus on relationships between the most significant ADUs.\n   - Include relationships between premises that strengthen or weaken each other.\n4. **Verbatim spans**  \n   - Each `\"text\"` value must be copied EXACTLY from the paper with zero modifications.\n   - Do not paraphrase, summarize, or combine separate sentences.\n   - Do not add, remove, or change any words, punctuation, or spacing.\n   - If unsure about exact wording, skip that ADU rather than guess.\n\n## WHAT TO CAPTURE\n**INCLUDE ONLY:**\n- Main argumentative threads that are central to the paper's contribution\n- Core claims that represent the paper's primary arguments or findings\n- Key premises that provide essential support for major claims\n- Critical counterarguments and their refutations\n- Reasoning chains that demonstrate how main conclusions are derived\n\n**EXCLUDE (AVOID NOISE):**\n- Minor details, examples, or descriptive content that don't advance the argument\n- Tangential points or side discussions\n- Pure background information or literature review content\n- Methodological details unless they constitute argumentative claims\n- Obvious statements or commonly accepted facts\n- Redundant or repetitive argumentative content\n\n**GUIDING PRINCIPLE**: If removing an ADU would not significantly impact understanding of the paper's argumentative structure, it should be excluded.\n\n## QUALITY CONTROL\n- Before finalizing each ADU, verify the text exists exactly in the source\n- Prefer fewer, accurate ADUs over many potentially modified ones\n- When in doubt about exact wording, omit the ADU\n\n## OUTPUT FORMAT\nReturn **only** a single valid JSON object matching this schema.  \nDo **not** output any extra text, markdown, or explanations.\n\nRESPOND WITH ONLY:\n```json\n{\n  \"ADUs\": {\n    \"<ADU_ID>\": {\n      \"text\": \"<exact span from paper>\",\n      \"label\": \"claim\" | \"premise\"\n    }\n    ...\n  },\n  \"relations\": [\n    {\n      \"source\": \"<ADU_ID>\",\n      \"target\": \"<ADU_ID>\",\n      \"type\": \"support\" | \"attack\"\n    }\n  ]\n}\n```",
+    "user_content": "<!-- image -->\n\n## EUROPEAN JOURNAL OF PRAGMATISM AND AMERICAN PHILOSOPHY\n\nCOPYRIGHT © 2009 ASSOCIAZIONE PRAGMA\n\nMathias Girel*\n\nDarwinized Hegelianism or Hegelianized Darwinism?\n\nIt has been said that Peirce was literally talking 'with the rifle rather than with the shot gun or water hose' (Perry (1935: vol. 2, 109). Readers of his review of James's Principles can easily understand why. In some respects, the same might be true of the series of four books Joseph Margolis has been devoting to pragmatism since 2000. One of the first targets of Margolis's rereading was the very idea of a 'revival' of pragmatism (a 'revival' of something that  never  was,  in  some  ways), and,  with it,  the  idea  that  the  long  quarrel  between Rorty and Putnam was really a quarrel over pragmatism (that is was a pragmatist revival, in some ways). The uncanny thing is that, the more one read the savory chapters of the four books, the more one feels that the hunting season is open, but that the game is not of the usual kind and looks more like zombies, so to speak. Not the kind of zombies that tramp the corridors  of  philosophy  of  mind  textbooks,  but philosophical  zombies ,  positions  whose lifespan has been over for long but that still resurface, or, if the reader is of more inclined towards the Classics, some philosophical equivalents of the ghosts that Ulysses has to face in Book XI of the Odyssey and that lead whatever kind of half-life they have by sucking the blood of the living. Starting at least with Emerson in America and Nietzsche in Europe, the idea that the best promises of philosophy could be doomed by the tradition, and in particular by giving too much weight to what was mislead in the tradition, that one could be deprived of one's own standing by too many tales about the 'mighty dead', has been a matter of concern. Hence the twofold task of Margolis's books: what is at stake is not only the imperative of saying what would be philosophically the best option, here and now , it is also to show that even philosophies that do not mention the tradition in an ostensible way can still endorse options that have been dead for a long time -unbeknownst to their proponentsand err indefinitely as a result. One-sided eliminative naturalism, analytic scientism  were such options. These last days, the focus has been on Brandom's pragmatism, as participants to the 2012 Rome Conference could attest. But this critical task should in no way hide the fact that the general purpose is of a constructive kind, which might seem close at times to the  perfectionist  stance  but  under  strong  constraints ,  and  this  last  book  makes  this  point 1 tellingly.\n\nMargolis has a tantalizing formula to make this constructive dimension explicit, which comes from Peirce, who used it in one of his reviews for The Nation 2 .  Since the formula captures one of the central insights of Margolis's last book, it might be worth looking into it more closely.\n\n* Ecole Normale Supérieure, Department of Philosophy, USR3308 CIRPHLES. [mathias.girel@ens.fr]\n\n1'Philosophy has no point (for me) if it has no convictions about the right orientation of human life; but it has no resources of its own by which to validate any such change directly -except by subtraction. So it plays its part under extraordinary constraints.' Preface, p. x.. The 'subtractive' part is integral part of the constructive part.\n\n2 Review of David G. Ritchie, Darwin and Hegel, with Other Philosophical Studies, London, Swan Sonnenschein &amp; Co.; New York: Macmillan &amp; Co. 1893. The review is contemporary of Peirce's Monist series, which includes Evolutionary Love and The Law of Mind . Retrieved in Peirce, Ketner et al. (1975: vol. 1, 199-202).\n\n\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\n\nISSN: 2036-4091\n\nPeirce's  motto,  as  quoted  by  Margolis  in  his  introduction  is:  'Darwinizing  Hegel  and Hegelianizing Darwin'.  This means, at the very least and to give only the most general de3 scription, that one should not have to choose between biological naturalism and the postkantian emphasis on history and culture, and that, in order to account for the modes of existence of human selves in particular, any one-sided approach is sure to fail. The 'and' is decisive in the motto and in the gloss that follows since it will preclude any comfortable choice between extreme biological naturalization and a kind of cultural anthropology that would be oblivious of biological evolution. This captures thus nicely what Margolis deems to be the best and most perspicuous direction for a reconstruction of philosophy, where 'the analysis of biology and culture must be seen to be very differently conceived but inseparably  joined'(p.5).  Margolis  sees  in  Peirce's  motto  a  commitment  that  is  at  the  core  of  the prophecy that he is himself spelling out in the book and that might be pragmatism's best promise: the commitment to \"the radical thesis that the self is a hybrid artifact of biological and cultural evolution that makes possible the entire run of the uniquely enlanguaged forms of  human  intelligence,  thought,  understanding,  reason,  feeling,  experience,  activity,  conduct, creation, and knowledge that marks our race for what it is\". (p. 5-6) The revival of Pragmatism will not be the repetition of something that already took place, it will borrow its vitality to the 'interval spanning Kant and Hegel' and to the kind of naturalism that developed after Darwin's Origin , a major inspiration for the whole first wave of pragmatism, and it will take the best from these two strands, at the junction of Eurocentric philosophy and American Pragmatism. These insights  are  beautifully  and  convincingly  developed  in the book.\n\nIt  is  all  the  more  interesting  to  look  at  Peirce's  original  review,  not  to  find  faults  in Margolis's reading, but to compare his project and Peirce's. If some significant differences obtain in the process, they might give us some clues as to the actuality, and also the novelty, of Margolis's own stance.\n\nPeirce's review was about the now forgotten Scottish philosopher Ritchie who, in his book,  tried  to  provide  a  Hegelian  account  of  the  principles  of  evolution,  or,  in  Peirce's words, to 'determine how far the conceptions of Hegel can advantageously be applied in Darwinian speculation'.  Peirce was not convinced by the result and he claimed clearly that 4 this  dialectical  reconstruction  of  Evolution,  playing  as  it  does  with  the  empty  notions  of Identity and Difference and their 'interaction', would not do:\n\nOne of the worst faults of the Hegelian philosophy is that its conceptions are wanting in this definiteness, and that its consequences are not unmistakable. When Mr. Ritchie undertakes to 'Hegelianize natural selection' by the remark that 'Heredity and Variation are just particular forms of the categories of Identity and Difference, whose union and interaction produce the actually  existing  kinds  of  living  beings,'  he  makes  us  think  that  Hegelianism  needs  to  be Darwinized much more than Darwinism needs to be Hegelianized. (Peirce, CN1, 201)\n\nAs we can see clearly, in Peirce, or, to be a bit more cautious, in that particular review , 5 'Darwinized Hegelianism' and 'Hegelianized Darwinism' are in no way on the same foot-\n\n3 This was also prominent in a Lecture entitled A Pragmatist Trajectory , delivered at the Ecole normale supérieure (Paris), on March, 6th, 2012, and Margolis used the motto also in 'A Word of Thanks for Peter Hare's Patience', Transactions of the Charles S. Peirce Society, 46, 1, 2010, pp. 3-8.\n\n4 Peirce, Ketner et al. (1975: vol. 1, 199).\n\n5 I have not found any clear equivalent of the motto in other texts by Peirce, even though one could embark into a close reading of the Monist series, and see in which measure they agree with the motto, but this is a task for a book more than for the present contribution.\n\n\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\n\ning. The 'and' that seems central in Margolis's prophecy is not on Peirce's agenda in this text, since Peirce clearly opts in favor of the first option: reading Hegel -or is just Hegelian  dialectics?-  through  Darwinian  lenses,  more  than  the  reverse.  So  far,  so  good:  one could say that what is already a form of Hegelianized Kantianism in Peirce (if one allows most  of  the  argument  of  Chapter  II  on  Peirce's  fallibilism)  is  submitted  to  another  new transformation, and that, as a consequence, the two dimensions -Hegelianism and Darwinism- will be fused in the final result, so that the rest is mere quibble. Still, would Margolis be  content  with  only  one  part  of  the  motto  and  say  that  'Darwinized  Hegelianism'  is enough? That would be my first question.\n\nBut what does Peirce mean by 'Darwinizing' here? I am not totally sure that this fits perfectly in the picture Margolis gives and that it refers primarily to biological evolution and to what we usually associate with naturalism. Peirce does not say that we should renounce Hegel's insights (and that might confirm in some way the reading of Peirce's fallibilism that Margolis gives in his Chapter II), but he does not say, neither, that one should have a reading of Hegel based on biological evolution, or that one should endorse a kind of naturalized hegelianism where 'naturalized' would refer to the living. Of course, one could read the text in such a way that it addresses the way chance plays a part of the stable forms of human life. Peirce has some fine lines on Darwin's tack on the notion of 'purpose': he notes that  Darwin's challenge is to assess  'how teleological or purposed action can be a secondary effect of non-teleological action', but he does not take sides here on this issue. The faults Peirce finds in Hegel are not related to a choice in favor of History and Culture against  Biology.  It  is  that  Hegel's  conceptions  are  not  'definite'  enough,  that  one  cannot draw experiential consequences from them. 'To Darwinize' is not equivalent, here, to 'include into a biological narrative', it is used in an idiosyncratic way - and all the question is to assess whether it is only a local phenomenon or something that has more far-reaching implications - where this means rather, if one can stand a bit of anachronism: 'Popperianize'.  Since it is not likely that Margolis would accept 'Popperianize Hegel and Hegelian6 ize Popper' as a motto for his own book, let's see if that reading, if daring, is credible.\n\nThe main merit of Darwin, in Peirce's account, lies not so much in the idea of evolution than in the scientific method he used to give an account of the origin of species. That's the 'lesson of logic' mentioned in the Illustrations .  As we know, Evolution was in the air before Darwin's epoch-making book and Darwin does not use the word in a technical sense in 1859, even though he gives the first scientific account of evolution. From that standpoint, Peirce often opposes Darwin and Spencer. They might seem to have the same theory, as regards content, but the method is drastically different:\n\n(The Spencerians) cannot understand that it is not the sublimity of Darwin's theories which makes him admired by men of science, but that it is rather his minute, systematic, extensive, strict, scientific researches which have given his theories a more favorable reception -- theories which in themselves would barely command scientific respect. (CP: 1.33)\n\nIf one just sticks to the idea of biological evolution, 'Spencerianize Hegel' or 'Hegelianize Spencer' would basically do the same job as the motto, but would of course be less appealing (or are they?). Peirce says more about what he has in mind a few lines later: 'Hegelianizing' Darwin would be in fact prefixing an empirical inquiry with a particular meta-\n\n6 Chauvire (1981), Haack (1977), and some others have stressed the resemblances and differences between these philosophers. We could of course say simply 'Peircianize', but it would obscure the particular point, which relates to the way theories are put to the test.\n\n\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\n\nphysics,  and  'whatever  could  conceivably  be  settled  by  experiment,  metaphysics  should abstain from settling in advance' (Peirce, Ketner et al. (1975: vol.1, 202). Peirce has Comte in mind but I think it is not totally inappropriate, today, to say that the faults he finds in Hegel involve the use of Unverifiable hypotheses and that he dismisses them in a way that has already a Popperian twist: they are 'unverifiable in the sense of leading to no unmistakable consequences capable of being put to the test of comparison with observation' ( Ibid .). The problem with  'Hegelianizing' is  that  it  leaves  finally  no  room  to  'scientifically  observed facts' and to 'he test of comparison with observation':\n\nHence the moment a philosopher, upon a-priori or epistemological grounds, enunciates any proposition  whatever  as  true,  we  are  warned  to  be  upon  our  guard  against  some  jugglery. Where we have no scientifically observed facts to go upon, the prudent thing is to confess our downright  ignorance.  Even  where  we  have  such  facts,  we  are  subject  to  a  probable  error. From this pregnant fact, if one only takes it to heart, can be developed a whole Darwinianized Hegelism, having fruitful suggestions and indications for the prosecution of science and for the conduct of life. (Peirce, CN1, 202)\n\nThis brings me to my second question. Would Margolis say that Peirce's actual motto is a kind of slip of the pen and that  what he really meant was something closer to his own motto in the Preface ? Or would he concede that this motto, as offered in his book, has a radical novelty of its own, that it is 'Margolisian' first and foremost, even though it might be rooted deeply in the authors he mentions in Pragmatism Ascendent ?\n\nOr, does it reveal something that would make Peirce less 'enrollable' in the prophecy and thus in the reconstruction of what is still alive in Classical Pragmatism he is offering, maybe because the stress, here, is more on the scientific method than on the kind of naturalism we commonly attribute to Darwin? Is the Darwin in question in Peirce's review the one that Margolis wants to use in his prophecy?\n\nOr, again, if what has just been said about what Peirce meant by 'Darwinizing' belongs in the end to the fallibilist stance described in Chapter II of Pragmatism Ascendent , are we getting anywhere out of Hegel?\n\n## References\n\nChauviré C. (1981), 'Peirce, Popper et l'abduction', Revue Philosophique de la France et de l'Etranger , 171, 441-459.\n\nHaack S. (1977), 'Two Fallibilists in Search of the Truth', Aristotelian Society, Supplementary volume 51.\n\nPeirce, C. S., Ketner, K. and al. (1975), Contributions to \"The Nation\" ,  Lubbock, Texas, Texas Tech University.\n\nPerry, R. B. (1935), The Thought and Character of William James : As Revealed in Unpublished Correspondence and Notes, Together with His Published Writings ,  Boston, Little, Brown and Company, 2 vols.\n\n\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_",
+    "responses": [
+      {
+        "source": "gpt-4o-2024-11-20",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"ADU1\": {\n      \"text\": \"Peirce's motto, as quoted by Margolis in his introduction is: 'Darwinizing Hegel and Hegelianizing Darwin'.\",\n      \"label\": \"claim\"\n    },\n    \"ADU2\": {\n      \"text\": \"This means, at the very least and to give only the most general description, that one should not have to choose between biological naturalism and the postkantian emphasis on history and culture, and that, in order to account for the modes of existence of human selves in particular, any one-sided approach is sure to fail.\",\n      \"label\": \"premise\"\n    },\n    \"ADU3\": {\n      \"text\": \"The 'and' is decisive in the motto and in the gloss that follows since it will preclude any comfortable choice between extreme biological naturalization and a kind of cultural anthropology that would be oblivious of biological evolution.\",\n      \"label\": \"premise\"\n    },\n    \"ADU4\": {\n      \"text\": \"Margolis sees in Peirce's motto a commitment that is at the core of the prophecy that he is himself spelling out in the book and that might be pragmatism's best promise: the commitment to 'the radical thesis that the self is a hybrid artifact of biological and cultural evolution that makes possible the entire run of the uniquely enlanguaged forms of human intelligence, thought, understanding, reason, feeling, experience, activity, conduct, creation, and knowledge that marks our race for what it is'.\",\n      \"label\": \"claim\"\n    },\n    \"ADU5\": {\n      \"text\": \"The revival of Pragmatism will not be the repetition of something that already took place, it will borrow its vitality to the 'interval spanning Kant and Hegel' and to the kind of naturalism that developed after Darwin's Origin, a major inspiration for the whole first wave of pragmatism, and it will take the best from these two strands, at the junction of Eurocentric philosophy and American Pragmatism.\",\n      \"label\": \"claim\"\n    },\n    \"ADU6\": {\n      \"text\": \"Peirce was not convinced by the result and he claimed clearly that this dialectical reconstruction of Evolution, playing as it does with the empty notions of Identity and Difference and their 'interaction', would not do: 'One of the worst faults of the Hegelian philosophy is that its conceptions are wanting in this definiteness, and that its consequences are not unmistakable.'\",\n      \"label\": \"claim\"\n    },\n    \"ADU7\": {\n      \"text\": \"The problem with 'Hegelianizing' is that it leaves finally no room to 'scientifically observed facts' and to 'the test of comparison with observation'.\",\n      \"label\": \"claim\"\n    },\n    \"ADU8\": {\n      \"text\": \"The main merit of Darwin, in Peirce's account, lies not so much in the idea of evolution than in the scientific method he used to give an account of the origin of species.\",\n      \"label\": \"claim\"\n    },\n    \"ADU9\": {\n      \"text\": \"Peirce says more about what he has in mind a few lines later: 'Hegelianizing' Darwin would be in fact prefixing an empirical inquiry with a particular metaphysics, and 'whatever could conceivably be settled by experiment, metaphysics should abstain from settling in advance'.\",\n      \"label\": \"premise\"\n    },\n    \"ADU10\": {\n      \"text\": \"The faults Peirce finds in Hegel involve the use of Unverifiable hypotheses and that he dismisses them in a way that has already a Popperian twist: they are 'unverifiable in the sense of leading to no unmistakable consequences capable of being put to the test of comparison with observation'.\",\n      \"label\": \"premise\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"ADU1\",\n      \"target\": \"ADU2\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU1\",\n      \"target\": \"ADU3\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU1\",\n      \"target\": \"ADU4\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU4\",\n      \"target\": \"ADU5\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU6\",\n      \"target\": \"ADU7\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU8\",\n      \"target\": \"ADU9\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU9\",\n      \"target\": \"ADU10\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "ADU1": {
+              "text": "Peirce's motto, as quoted by Margolis in his introduction is: 'Darwinizing Hegel and Hegelianizing Darwin'.",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "This means, at the very least and to give only the most general description, that one should not have to choose between biological naturalism and the postkantian emphasis on history and culture, and that, in order to account for the modes of existence of human selves in particular, any one-sided approach is sure to fail.",
+              "label": "premise"
+            },
+            "ADU3": {
+              "text": "The 'and' is decisive in the motto and in the gloss that follows since it will preclude any comfortable choice between extreme biological naturalization and a kind of cultural anthropology that would be oblivious of biological evolution.",
+              "label": "premise"
+            },
+            "ADU4": {
+              "text": "Margolis sees in Peirce's motto a commitment that is at the core of the prophecy that he is himself spelling out in the book and that might be pragmatism's best promise: the commitment to 'the radical thesis that the self is a hybrid artifact of biological and cultural evolution that makes possible the entire run of the uniquely enlanguaged forms of human intelligence, thought, understanding, reason, feeling, experience, activity, conduct, creation, and knowledge that marks our race for what it is'.",
+              "label": "claim"
+            },
+            "ADU5": {
+              "text": "The revival of Pragmatism will not be the repetition of something that already took place, it will borrow its vitality to the 'interval spanning Kant and Hegel' and to the kind of naturalism that developed after Darwin's Origin, a major inspiration for the whole first wave of pragmatism, and it will take the best from these two strands, at the junction of Eurocentric philosophy and American Pragmatism.",
+              "label": "claim"
+            },
+            "ADU6": {
+              "text": "Peirce was not convinced by the result and he claimed clearly that this dialectical reconstruction of Evolution, playing as it does with the empty notions of Identity and Difference and their 'interaction', would not do: 'One of the worst faults of the Hegelian philosophy is that its conceptions are wanting in this definiteness, and that its consequences are not unmistakable.'",
+              "label": "claim"
+            },
+            "ADU7": {
+              "text": "The problem with 'Hegelianizing' is that it leaves finally no room to 'scientifically observed facts' and to 'the test of comparison with observation'.",
+              "label": "claim"
+            },
+            "ADU8": {
+              "text": "The main merit of Darwin, in Peirce's account, lies not so much in the idea of evolution than in the scientific method he used to give an account of the origin of species.",
+              "label": "claim"
+            },
+            "ADU9": {
+              "text": "Peirce says more about what he has in mind a few lines later: 'Hegelianizing' Darwin would be in fact prefixing an empirical inquiry with a particular metaphysics, and 'whatever could conceivably be settled by experiment, metaphysics should abstain from settling in advance'.",
+              "label": "premise"
+            },
+            "ADU10": {
+              "text": "The faults Peirce finds in Hegel involve the use of Unverifiable hypotheses and that he dismisses them in a way that has already a Popperian twist: they are 'unverifiable in the sense of leading to no unmistakable consequences capable of being put to the test of comparison with observation'.",
+              "label": "premise"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU1",
+              "target": "ADU2",
+              "type": "support"
+            },
+            {
+              "source": "ADU1",
+              "target": "ADU3",
+              "type": "support"
+            },
+            {
+              "source": "ADU1",
+              "target": "ADU4",
+              "type": "support"
+            },
+            {
+              "source": "ADU4",
+              "target": "ADU5",
+              "type": "support"
+            },
+            {
+              "source": "ADU6",
+              "target": "ADU7",
+              "type": "support"
+            },
+            {
+              "source": "ADU8",
+              "target": "ADU9",
+              "type": "support"
+            },
+            {
+              "source": "ADU9",
+              "target": "ADU10",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "ADU1": {
+              "text": "Peirce's motto, as quoted by Margolis in his introduction is: 'Darwinizing Hegel and Hegelianizing Darwin'.",
+              "label": "claim"
+            },
+            "ADU3": {
+              "text": "The 'and' is decisive in the motto and in the gloss that follows since it will preclude any comfortable choice between extreme biological naturalization and a kind of cultural anthropology that would be oblivious of biological evolution.",
+              "label": "premise"
+            },
+            "ADU8": {
+              "text": "The main merit of Darwin, in Peirce's account, lies not so much in the idea of evolution than in the scientific method he used to give an account of the origin of species.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU1",
+              "target": "ADU3",
+              "type": "support"
+            }
+          ]
+        }
+      },
+      {
+        "source": "claude-3-5-sonnet-20241022",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"A1\": {\n      \"text\": \"Peirce's motto, as quoted by Margolis in his introduction is: 'Darwinizing Hegel and Hegelianizing Darwin'\",\n      \"label\": \"claim\"\n    },\n    \"A2\": {\n      \"text\": \"one should not have to choose between biological naturalism and the postkantian emphasis on history and culture, and that, in order to account for the modes of existence of human selves in particular, any one-sided approach is sure to fail\",\n      \"label\": \"claim\"\n    },\n    \"A3\": {\n      \"text\": \"in Peirce, or, to be a bit more cautious, in that particular review, 'Darwinized Hegelianism' and 'Hegelianized Darwinism' are in no way on the same footing\",\n      \"label\": \"claim\"\n    },\n    \"A4\": {\n      \"text\": \"Peirce clearly opts in favor of the first option: reading Hegel -or is just Hegelian dialectics?- through Darwinian lenses, more than the reverse\",\n      \"label\": \"claim\"\n    },\n    \"A5\": {\n      \"text\": \"One of the worst faults of the Hegelian philosophy is that its conceptions are wanting in this definiteness, and that its consequences are not unmistakable\",\n      \"label\": \"claim\"\n    },\n    \"A6\": {\n      \"text\": \"The faults Peirce finds in Hegel are not related to a choice in favor of History and Culture against Biology. It is that Hegel's conceptions are not 'definite' enough, that one cannot draw experiential consequences from them\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"A3\",\n      \"target\": \"A1\",\n      \"type\": \"attack\"\n    },\n    {\n      \"source\": \"A4\",\n      \"target\": \"A1\",\n      \"type\": \"attack\"\n    },\n    {\n      \"source\": \"A5\",\n      \"target\": \"A4\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A6\",\n      \"target\": \"A4\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "A1": {
+              "text": "Peirce's motto, as quoted by Margolis in his introduction is: 'Darwinizing Hegel and Hegelianizing Darwin'",
+              "label": "claim"
+            },
+            "A2": {
+              "text": "one should not have to choose between biological naturalism and the postkantian emphasis on history and culture, and that, in order to account for the modes of existence of human selves in particular, any one-sided approach is sure to fail",
+              "label": "claim"
+            },
+            "A3": {
+              "text": "in Peirce, or, to be a bit more cautious, in that particular review, 'Darwinized Hegelianism' and 'Hegelianized Darwinism' are in no way on the same footing",
+              "label": "claim"
+            },
+            "A4": {
+              "text": "Peirce clearly opts in favor of the first option: reading Hegel -or is just Hegelian dialectics?- through Darwinian lenses, more than the reverse",
+              "label": "claim"
+            },
+            "A5": {
+              "text": "One of the worst faults of the Hegelian philosophy is that its conceptions are wanting in this definiteness, and that its consequences are not unmistakable",
+              "label": "claim"
+            },
+            "A6": {
+              "text": "The faults Peirce finds in Hegel are not related to a choice in favor of History and Culture against Biology. It is that Hegel's conceptions are not 'definite' enough, that one cannot draw experiential consequences from them",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "A3",
+              "target": "A1",
+              "type": "attack"
+            },
+            {
+              "source": "A4",
+              "target": "A1",
+              "type": "attack"
+            },
+            {
+              "source": "A5",
+              "target": "A4",
+              "type": "support"
+            },
+            {
+              "source": "A6",
+              "target": "A4",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "A1": {
+              "text": "Peirce's motto, as quoted by Margolis in his introduction is: 'Darwinizing Hegel and Hegelianizing Darwin'",
+              "label": "claim"
+            },
+            "A2": {
+              "text": "one should not have to choose between biological naturalism and the postkantian emphasis on history and culture, and that, in order to account for the modes of existence of human selves in particular, any one-sided approach is sure to fail",
+              "label": "claim"
+            },
+            "A4": {
+              "text": "Peirce clearly opts in favor of the first option: reading Hegel -or is just Hegelian dialectics?- through Darwinian lenses, more than the reverse",
+              "label": "claim"
+            },
+            "A5": {
+              "text": "One of the worst faults of the Hegelian philosophy is that its conceptions are wanting in this definiteness, and that its consequences are not unmistakable",
+              "label": "claim"
+            },
+            "A6": {
+              "text": "The faults Peirce finds in Hegel are not related to a choice in favor of History and Culture against Biology. It is that Hegel's conceptions are not 'definite' enough, that one cannot draw experiential consequences from them",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "A4",
+              "target": "A1",
+              "type": "attack"
+            },
+            {
+              "source": "A5",
+              "target": "A4",
+              "type": "support"
+            },
+            {
+              "source": "A6",
+              "target": "A4",
+              "type": "support"
+            }
+          ]
+        }
+      }
+    ],
+    "timestamp": 1752747924.0895169
+  }
+]

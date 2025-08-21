@@ -1,0 +1,311 @@
+[
+  {
+    "identifier": "BOELAW",
+    "system_prompt": "## GOAL\nArgument‑mine the following paper to extract its comprehensive argumentative structure.\n\n## DEFINITIONS\n1. **Argument**: A set of propositions, including some number of premises and a conclusion. The premises should logically entail the conclusion.\n2. **Claim**: A proposition that asserts something to be true or false, typically requiring justification or evidence.\n3. **Premise**: A proposition that provides evidence, justification, or logical support for a claim or conclusion.\n\n## CRITICAL REQUIREMENTS\n1. **VERBATIM EXTRACTION ONLY**: Each ADU text must be copied EXACTLY from the paper with no modifications, paraphrasing, or combining of separate sentences.\n2. **NO HALLUCINATION**: Do not create, modify, or invent text that does not appear exactly in the source.\n3. **EXACT MATCHING**: Every word, punctuation mark, and spacing must match the original precisely.\n\n## DIRECTIONS\n1. **Identify Argumentative Discourse Units (ADUs)**  \n   - ADU = any contiguous text span functioning as a claim or a premise in the reasoning structure.\n   - **BE HIGHLY SELECTIVE**: Only include ADUs that are crucial to the overarching argument structure.\n   - Focus on significant claims and premises that contribute meaningfully to the argumentative flow.\n   - **AVOID NOISE**: Skip ADUs that are merely descriptive, tangential, or do not substantially advance the argument.\n   - Prioritize quality over quantity - fewer accurate, important ADUs are better than many insignificant ones.\n   - **EXTRACT ONLY**: Copy text spans exactly as they appear, without any modifications.\n2. **Classify each ADU**  \n   - Label = either `\"claim\"` or `\"premise\"`.  \n3. **Detect directed relations**  \n   - Relation = `\"support\"` or `\"attack\"`, from one ADU (source) to another (target).\n   - Map how ADUs connect to form reasoning chains.\n   - Focus on relationships between the most significant ADUs.\n   - Include relationships between premises that strengthen or weaken each other.\n4. **Verbatim spans**  \n   - Each `\"text\"` value must be copied EXACTLY from the paper with zero modifications.\n   - Do not paraphrase, summarize, or combine separate sentences.\n   - Do not add, remove, or change any words, punctuation, or spacing.\n   - If unsure about exact wording, skip that ADU rather than guess.\n\n## WHAT TO CAPTURE\n**INCLUDE ONLY:**\n- Main argumentative threads that are central to the paper's contribution\n- Core claims that represent the paper's primary arguments or findings\n- Key premises that provide essential support for major claims\n- Critical counterarguments and their refutations\n- Reasoning chains that demonstrate how main conclusions are derived\n\n**EXCLUDE (AVOID NOISE):**\n- Minor details, examples, or descriptive content that don't advance the argument\n- Tangential points or side discussions\n- Pure background information or literature review content\n- Methodological details unless they constitute argumentative claims\n- Obvious statements or commonly accepted facts\n- Redundant or repetitive argumentative content\n\n**GUIDING PRINCIPLE**: If removing an ADU would not significantly impact understanding of the paper's argumentative structure, it should be excluded.\n\n## QUALITY CONTROL\n- Before finalizing each ADU, verify the text exists exactly in the source\n- Prefer fewer, accurate ADUs over many potentially modified ones\n- When in doubt about exact wording, omit the ADU\n\n## OUTPUT FORMAT\nReturn **only** a single valid JSON object matching this schema.  \nDo **not** output any extra text, markdown, or explanations.\n\nRESPOND WITH ONLY:\n```json\n{\n  \"ADUs\": {\n    \"<ADU_ID>\": {\n      \"text\": \"<exact span from paper>\",\n      \"label\": \"claim\" | \"premise\"\n    }\n    ...\n  },\n  \"relations\": [\n    {\n      \"source\": \"<ADU_ID>\",\n      \"target\": \"<ADU_ID>\",\n      \"type\": \"support\" | \"attack\"\n    }\n  ]\n}\n```",
+    "user_content": "## Locke and William Molyneux\n\nRuth Boeker (University College Dublin)\n\nruth.boeker@ucd.ie\n\nForthcoming in Jessica Gordon-Roth and Shelley Weinberg (Eds.), The Lockean Mind , Routledge.\n\nAbstract : William Molyneux (1656-1698) was an Irish experimental philosopher and  politician,  who  played  a  major  role  in  the  intellectual  life  in  seventeenthcentury Dublin. He became Locke's friend and correspondent in 1692 and was probably Locke's philosophically most significant correspondent. Locke approached Molyneux  for advice for revising his Essay concerning  Human Understanding as he was preparing the second and subsequent editions. Locke made several  changes  in  response  to  Molyneux's  suggestions;  they  include  major revisions of the chapter 'Of Power' (2.21), the addition of the chapter 'Of Identity and Diversity' (2.27), and the addition of the so-called Molyneux Problem (2.9.8). Molyneux  repeatedly  requested  that  Locke  develops  his  views  on  morality. Additionally, their correspondence turned to questions concerning education and Molyneux's  keen  interest  in  the  topic  likely  prompted  Locke  to  publish Some Thoughts  Concerning  Education in  1693.  Moreover,  Molyneux  drew  on  Locke's anonymously published Two Treatises of Government in his The Case of Ireland's Being Bound by Acts of Parliament in England, Stated , which was first published in the spring of 1698. Molyneux revealed Locke's authorship of Two Treatises against  Locke's will,  yet  their  friendship  continued  until  Molyneux's untimely death in October 1698.\n\n## 1. William Molyneux's Life and Significance\n\nWilliam Molyneux (1656-1698) was born into a wealthy family of Irish Protestants. 1 His greatgrandfather immigrated to Ireland from an English colony in France. His father Samuel Molyneux was a lawyer and landowner. William was educated at a grammar school in Dublin, before entering Trinity  College  Dublin  in  1671.  He  disliked  the  scholastic  style  of  teaching  and  as  an autobiographical note reveals:\n\n'I have always had a strong bent and inclination to the philosophical and mathematical studies, even when I was in the University, wherein I could never approve of that verbose philosophy there professed and taught, but still procured the books of the Royal Society. The Philosophical Transactions, Des-Cartes's Writings, Dr. Bacon's Works, Gassendus, Digby, &amp;c. In these sorts of Authors I chiefly delighted, even in my first academic studies' (Molyneux, 1820, 60)\n\nIn  1675  Molyneux  moved  to  London  to  study  law.  Although  he  acknowledged  the usefulness of training in law, he did not aim to excel in the profession. Parallel to his studies in law he continued to pursue his own interests and other studies (Molyneux, 1820, 55).\n\nAfter his return to Dublin in 1678 he married Lucy, née Domville (d. 1691), the youngest daughter  of  Sir  William  Domville,  the  attorney  general  for  Ireland.  Later  the  same  year  Lucy suffered a severe illness that led to the incurable loss of her eyesight and ill-health. Molyneux found consolation in the study of mathematics and science, and developed a special interest in optics. In 1680 he published the first translation of Descartes's Meditations into English.\n\nMolyneux played a major role in advancing modern science and philosophy in Ireland. In 1683 he took the lead in forming and promoting the Dublin Philosophical Society, which was designed after the Royal Society in London. As the first secretary and treasurer of the newly formed society  Molyneux's  task  was  to  correspond  and  exchange  minutes  with  the  Royal  Society  in London and a sister society in Oxford. Molyneux was an active member in the Society and regularly presented his research in optics, astronomy, and natural science. Several of his papers delivered to the Dublin Philosophical Society were subsequently published in the Royal Society's Philosophical Transactions .  Molyneux's  work  during  this  period  and  his  interaction  with  leading  experts  in England and on the European continent built the foundation for his book Dioptrica Nova: A Treatise on Dioptricks, in Two Parts , first published in 1692.\n\nFrom 1692 onwards Molyneux became increasingly involved with political, administrative, and legal work. He was elected to the Irish parliament as a representative for Trinity College Dublin in 1692, and re-elected in 1695. One issue that occupied the Irish parliament during these years were trade restrictions imposed on Ireland by the English parliament, which especially affected woollen manufacturers in Ireland. Molyneux regarded the lack of Irish legislative independence as unreasonable, which ultimately prompted him to publish The Case of Ireland's being Bound by Acts of Parliament in England, Stated in early 1698. This book draws on work by his father-in-law, William Domville, and Locke's Two Treatises . 2\n\n## 2. Locke's and Molyneux's Correspondence and Friendship\n\nIn 1692 Locke received a copy of Molyneux's Dioptrica Nova from his bookseller. Locke initially assumed he had received the book by mistake, but after reading the flattering praise of his Essay in the Dedication of Dioptrica Nova he correctly guessed that Molyneux had sent him the book ( Correspondence , 1976-, IV: 1515). This was the beginning of their correspondence and friendship. Molyneux  had  broad  intellectual  interests  and  followed  Locke's  publications  with  genuine curiosity. Locke in turn was deeply grateful to have found a friend who shared his 'love of truth' (V: 1817) and Molyneux was one of the first to receive copies of the new editions of the Essay , a copy of an abridged version of the Essay , prepared by John Wynne of Oxford University for the instruction of students, and copies of Locke's Letter and Replies to Stillingfleet . Additionally, Locke sent  Molyneux  copies  of  several  editions  of Some  Thoughts  concerning  Education .  In  1695  Locke decided to send Molyneux copies of Some considerations of the Consequences of Lowering Interest, and Raising the Value of Money , first published anonymously 1692, without admitting his authorship to Molyneux,  probably  hoping  that  Molyneux's  opinion  would  be  valuable  for  preparing  a  new edition. The second edition was published in 1696 with Locke's name on the title page.\n\nIt  had  come  to  Molyneux's  attention  that  Locke  was  the  author  of  the  anonymously published Reasonableness of Christianity ( Correspondence , V: 2100). Without admitting his authorship, Locke used the opportunity to ask Molyneux about the reception of the Reasonableness in Ireland (V: 2115). According to Molyneux, 'tis very wel approved off here amongst Candid unprejudiced Men that dare speak their thoughts' (V: 2131). In 1697 Locke sent Molyneux a copy of the Second Vindication of the Reasonableness , again without revealing his authorship (VI: 2262).\n\nFurthermore,  Molyneux  was  aware  that  Locke  was  the  author  of  the  anonymously published Two Treatises . 3 In a letter dated 15 March 1698, he mentioned that Ireland suffered under the legislation of the English Parliament and wrote that he 'leave[s] the Author of the Two Treatises of Government to Consider' '[h]ow justly [England] can bind [Ireland] without [Irish] Consent and Representatives ' (VI: 2407). Molyneux hinted that Locke will hear more from him on this matter. In response, Locke wrote that he would be glad to talk more about the issues in person, but the topic was not suitable for letters. He explicitly requested that Molyneux does not mention his name to anyone on this subject (VI: 2414). This letter reached Molyneux the morning of 19 April 1698 and the same day he wrote to Locke informing him that he has just published a small book, entitled The Case of Ireland , in which he developed his thoughts on Two Treatises . He wrote that a copy was on its way to Locke (VI: 2422). Indeed, the book mentioned Locke by name as the author of Two Treatises and  included  arguments  from Two  Treatises ,  often  verbatim.  However,  Molyneux's arguments  were  more  radical  than  Locke  would  have  been  willing  to  endorse. 4 Neither Two Treatises nor The Case of Ireland are mentioned again in the subsequent surviving letters. And their friendship continued.\n\nIn the following sections I will consider more  closely  Locke's  and  Molyneux's philosophical correspondence concerning the Essay , morality, and education.\n\n## 2.1 Essay\n\nLocke regarded Molyneux as an excellent critical and careful reader of his Essay . In a letter from 20 September 1692 he asked Molyneux for 'advice and assistance about a second edition' hoping that Molyneux would help him identify 'the mistakes and defects of it.' (IV: 1538) On the basis of their subsequent correspondence Locke significantly revised the chapter 'Of Power' (2.21). Molyneux worried that Locke had neglected weakness of will and regarded Locke's account as too intellectual.  According  to  Molyneux,  Locke's  first-edition  view  that  the  greater  good  alone determines the will entailed that sinful actions arise solely due to lack of understanding. (IV: 1579). Locke replaced this view in the second edition with the claim that uneasiness determines the will. 5\n\nAdditionally, Molyneux proposed that Locke prepare a textbook of logic and metaphysics that could be used for the instruction of students (IV: 1579). However, Locke declined, partly due to lack of time, but more importantly because he preferred the method of his Essay 'better than that of the schools' (IV: 1592). Nevertheless, he was open to adding further topics from logic or metaphysics to the second edition of the Essay and asked Molyneux for suggestions. In response, Molyneux proposed that Locke could expand the discussion of eternal truths and the Principium Individuationis  (IV:  1609).  As  regards  the  former,  Locke  wrote  that  no  additions  are  needed, because all general truths are eternal truths (IV: 1655). In response to the latter proposal, Locke composed the chapter 'Of Identity and Diversity' (2.27) and sent Molyneux a draft together with his letter, dated 23 August 1693 (IV: 1655). Molyneux was delighted to receive the new chapter and praised Locke's 'Clear Reasoning' (IV: 1661), but upon second thoughts raised worries about\n\nLocke's  views  concerning  personal  identity  in  cases  of  drunkenness  (IV:  1685).  According  to Locke, personal identity consists in same consciousness. Given his view, it is possible that a drunk man and a sober man are not the same person, even if they have the same body. This means if a person is unable to remember a crime done while drunk, it may be unjust to punish him or her for it. Molyneux questions Locke's view, because he claims that 'Drunkenes is it self a Crime, and therefore no one shall allege it in excuse of an other Crime.' (IV: 1685). However, Locke did not change his position, presumably because for Locke it is important that a person from the inside can understand the justice of reward and punishment. 6 In any case, Molyneux deserves credit for prompting  Locke  to  develop  his  discussion  of  identity,  persons,  and  personal  identity,  which remains one of the most discussed and debated aspects of Locke's Essay .\n\nWhen Locke prepared the second edition of the Essay , he inserted a question in the chapter 'Of Perception' (2.9) that was first posed to him by Molyneux (IV: 1609). Molyneux invites us to consider someone who is born blind and who has learned to distinguish between a cube and a sphere by touch. He further imagines that the person has become able to see, and asks whether they would be able to distinguish a cube and a sphere placed before them by sight alone without touching them. Molyneux's answer is 'no', because the previously blind person lacks experience how certain tactile sensations affect sight. Locke agrees with him. Their correspondence returns to the problem in 1695-96, after Molyneux forwarded Locke a critical paper by Edward Synge (V: 1984),  but  Locke  dismisses  Snyge's  alternative,  because  Snyge  fails  to  free  himself  'from  the anticipations of sense.' (V: 2059). Molyneux has become famous for this problem, which is often called the 'Molyneux Problem' and which still raises interesting questions concerning sensory experience and the acquisition of concepts.\n\nTheir correspondence touches a number of other philosophical topics discussed in the Essay such as Locke's views on species or the question whether Locke's thinking matter hypothesis (4.3.6) is consistent with his view that God is immaterial (4.10; Correspondence , IV: 1579, 1592, 1609). Moreover, Locke shared plans for additions  to  the Essay with  Molyneux,  including  a  planned chapter  on  Malebranche, 7 sections  or  a  chapter  on  enthusiasm, 8 additions  'concerning  the 'connexion of ideas'' (V: 1887), 9 and a chapter 'Of the Conduct of the Understanding.' 10 Locke clearly trusted Molyneux's intellectual judgment and Molyneux's advice played a significant role in the final shape and content of the Essay .\n\nMoreover Molyneux played an important role in promoting Locke's Essay in Ireland. He introduced his friend George Ashe, then Provost of Trinity College Dublin to it. As Molyneux reported, Ashe 'was so wonderfully pleased and satisfyd, that he Orderd [the Essay ] to be read by the  Batchelors  in  the  Colledge  [sic],  and  strictly  examines  their  Progress  therein.'  (IV:  1579) Thanks to Molyneux and Ashe George Berkeley was introduced to Locke's philosophy while he was an undergraduate student at Trinity College Dublin between 1700-1704. In a letter dated 15 January  1695,  Molyneux  proposes  that  a  translation  of  the Essay would  help  spread  Locke's philosophy in non-English speaking countries. Assuming that Locke would have little time to translate the work himself, he offered his help and financial assistance (V: 1838). Although it took longer than anticipated to find a suitable translator and to complete the project, a Latin translation of the Essay was eventually published in 1701.\n\nMolyneux and Locke both followed the reception of the Essay closely. As the number of Locke's  antagonists  started  to  grow  around  1697,  Locke  and  Molyneux  frequently  exchanged remarks on new papers and works by Locke's critics, including Stillingfleet, 11 Sherlock, 12 Toland, 13 Leibniz, 14 Browne, 15 Sergeant, 16 Norris, 17 Hodges, 18 and King. 19 Locke wrote that he was very open\n\nto revising his views in light of well-justified criticism, but he seemed displeased with the growing number of antagonists who did not have a proper grasp of his work. As he put it to Molyneux, 'I am never afraid of any thing writ against me, unless it be the wasting of my time, when it was not writ closely in pursuit of truth, and truth only.' (VI: 2254)\n\n## 2.2 Morality\n\nIn the Essay Locke emphasizes that ' Morality is the proper Science, and Business of Mankind in general ' (4.12.11), and maintains that morality is capable of demonstration similarly as mathematics (1.3.1, 3.11.16, 4.3.17, 4.3.20, 4.4.7-9, 4.12.8). Yet he never offers a demonstration of morality. Already in his first letter to Locke, Molyneux hopes that Locke would develop his views on morality and write 'a Treatise of Morals ' (IV: 1530). He repeatedly reminds Locke of this request (IV: 1661, V: 1744,  1838,  2038).  Yet  Locke  does  not  directly  respond  until  April  1696.  Although  Locke acknowledges that he has considered the request, he explains to Molyneux:\n\n'I am in doubt whether it would be prudent, in one of my age and health, not to mention other disabilities in me, to set about it. Did the world want a rule, I confess there could be no work necessary, nor so commendable. But the Gospel contains so perfect a body of Ethicks, that reason may be excused from that enquiry, since she may find man's duty clearer and easier in revelation than in herself.' (V: 2059)\n\nAlthough Locke does not explicitly give up his view that morality can be demonstrated, his comments in response to Molyneux intimate that he may have realized that the task is harder than  initially  anticipated.  Yet  Locke  is  not  troubled  by  the  difficulties  of  developing  a demonstrative science of morality, because the ethical principles revealed in Bible are sufficient for practical purposes. Nevertheless, Molyneux's repeated requests may have decreased Locke's initial optimism concerning a demonstrative science of morality (Mattern, 1980). 20\n\n## 2.3 Education\n\nMolyneux's interest in education was first and foremost practical. After the death of his wife Lucy in 1691, he had sole responsibility for the education of his son Samuel (1689-1728). Molyneux heard from his brother Thomas, who had met Locke while they were both in the Netherlands in the 1680s, that Locke did work on education and enquired about it in a letter dated 2 March 1693, hoping that he could put it to good use in the upbringing of his son (IV: 1609). Locke's Some Thoughts were more or less ready for publication in the spring of 1690, but Locke was not rushed to publish the work then. Indeed, Molyneux's eagerness to read the work and put it into practice may have prompted Locke not to delay the publication any longer (IV: 1620). 21 After Molyneux received a copy of Some Thoughts in August 1693, he praised the book as 'very reasonable, and very Practicable, except in One Particular, which seems to beat hard on the Tender Spirits of Children, and the Natural Affections of Parents.' (IV: 1652) Molyneux agreed with Locke that it is important to satisfy natural desires such as hunger, thirst, or want of sleep or rest, but worried that Locke's views concerning ' Wants of Fancy and Affection … seem to strict and severe.' (IV: 1652) Although it can be important to restrict 'Hurtful desires', Molyneux argued that it is both impracticable and unnecessary for parents or guardians to intervene in 'matters indifferent and Innocent that tend\n\nonly to Divert and please their Busy Spirits.' (IV: 1652) For instance, Molyneux believed that it is important to leave children the choice to follow their own desires while they're playing or engaged in recreational activities (IV:1652). In response, Locke assured Molyneux that his view is not meant to have these implications. He wrote: 'I think recreation as necessary to them as their food, and nothing  can  be  recreation  that  does  not  delight.'  (IV:  1655)  Molyneux  seemed  satisfied  with Locke's  clarification  (IV:  1661).  Locke  revised  and  expanded  the  relevant  passages  in Some Thoughts . 22 Locke was eager to collect data on how children, who were raised by his method of education, develop and Molyneux regularly sent Locke updates about the progress of his son (V: 1921, 1936, 1965, 2100, 2131).\n\n## 2.4 Meeting in England and Molyneux's last days\n\nLocke repeatedly expressed his desire to meet Molyneux in person, but it was not until August 1698 that Molyneux was finally able to travel to England to meet Locke. Little is known about the five weeks that the two friends spent together. Molyneux returned to Dublin on 15 September 1698 and recalled the visit as 'the Happiest Scene of my whole Life.' (VI: 2490) Sadly Molyneux died within less than a month after his return on 11 October 1698 at the age of 42. In a letter to Molyneux's brother Thomas, Locke remembered William Molyneux 'not only [as] an ingenious and learned acquaintance, that all the world esteem'd; but an intimate and sincere friend, whom I truly lov'd, and by whom I was truly lov'd' (VI: 2500). He was buried in St Audoen's church, Dublin. Although the original monument marking his grave no longer exists, a memorial engraving in the remains of the church commemorates him as 'WILLIAM MOLYNEUX whom Locke was proud to call his friend'.\n\n## References\n\nKelly, P. 1979. Locke and Molyneux: the anatomy of a friendship. Hermathena, 126 , 38-54.\n\n- Locke, J. 1823. The Works of John Locke, London, Thomas Tegg.\n- Locke, J. 1975 [1690]. An Essay concerning Human Understanding, Oxford, Clarendon Press.\n- Locke, J. 1976-1989. The Correspondence of John Locke, Oxford, Clarendon Press.\n- Locke, J. 1989 [1693]. Some thoughts concerning education, Oxford, Clarendon Press.\n- Mattern, R. 1980. Moral science and the concept of persons in Locke. Philosophical Review, 89 , 2445.\n- Molyneux, C. 1820. An account of the family and descendants of Sir Thomas Molyneux, Kt, Chancellor of the Exchequer in Ireland. [With a memorial of the life of W. Molyneux; an autobiography.], Evesham.\n- O'Hara, J. G. 2004. Molyneux, William (1656-1698). Oxford Dictionary of National Biography. online, January 2008 ed. Oxford: Oxford University Press.\n- Simms, J. G. 1982. William Molyneux of Dublin, Dublin, Irish Academic Press.\n\n1 This section builds on accounts of Molyneux's life by (Molyneux, 1820), (O'Hara, 2004), and (Simms, 1982).\n\n2 For further discussion see (Kelly, 1979) and (Simms, 1982).\n\n3 See Correspondence (IV: 1530).\n\n4 For further discussion see (Simms, 1982).\n\n- 5 The revisions of the chapter 'Of Power' are discussed in Correspondence (IV: 1579, 1592, 1643, 1652, 1655, 1661, V: 1763).\n- 6 Subsequent discussion of the topic can be found in Correspondence (IV:1693, V: 1712, 1744).\n- 7 See Correspondence (IV: 1620, 1622, V: 1857, 1867, 1887). As the Correspondence shows Locke eventually steps back from his plan to add a chapter on Malebranche to the Essay , but his study on Malebranche has been published posthumously in Works (1823, IX: 211-255).\n- 8 See Correspondence (V: 1857, 1867, 1887, 1896). Locke added a new chapter 'Of Enthusiasm' (4.19) to the fourth edition of the Essay .\n- 9 See also Correspondence (V: 1896). Locke added a chapter 'Of the Association of Ideas' (2.33) to the fourth edition of the Essay .\n- 10 See Correspondence (VI: 2243, 2262). Locke did not complete the piece, but it was printed posthumously in Works (1823, III: 203-289).\n- 11 See Correspondence (V: 2189, VI: 2221, 2240, 2254, 2262, 2288, 2310, 2324, 2339, 2376, 2407).\n- 12 See Correspondence (VI: 2202, 2221).\n- 13 See Correspondence (VI: 2221, 2240, 2254, 2269, 2277, 2288, 2311).\n- 14 See Correspondence (VI: 2202, 2221, 2243, 2254, 2262, 2269).\n- 15 See Correspondence (VI: 2288).\n- 16 See Correspondence (VI: 2310, 2311, 2324, 2376).\n- 17 See Correspondence (VI: 2310, 2324).\n- 18 See Correspondence (VI: 2339, 2376).\n- 19 See Correspondence (VI: 2339, 2376).\n- 20 According to Mattern (1980, 36), Locke comes to realize that the adequacy of moral concepts is not itself sufficient for developing a demonstrative science of ethics.\n- 21 For further discussion see (Simms, 1982, 81-82).\n- 22 See Some Thoughts (1989, §§ 106-107). The 1989 edition is based on the third edition.\n- Molyneux's criticism focuses on §§101-102 in the first edition. The revised versions of these paragraphs are §§106-107 in the third edition.",
+    "responses": [
+      {
+        "source": "gpt-4o-2024-11-20",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"ADU1\": {\n      \"text\": \"William Molyneux (1656-1698) was an Irish experimental philosopher and politician, who played a major role in the intellectual life in seventeenth-century Dublin.\",\n      \"label\": \"claim\"\n    },\n    \"ADU2\": {\n      \"text\": \"He became Locke's friend and correspondent in 1692 and was probably Locke's philosophically most significant correspondent.\",\n      \"label\": \"claim\"\n    },\n    \"ADU3\": {\n      \"text\": \"Locke approached Molyneux for advice for revising his Essay concerning Human Understanding as he was preparing the second and subsequent editions.\",\n      \"label\": \"claim\"\n    },\n    \"ADU4\": {\n      \"text\": \"Locke made several changes in response to Molyneux's suggestions; they include major revisions of the chapter 'Of Power' (2.21), the addition of the chapter 'Of Identity and Diversity' (2.27), and the addition of the so-called Molyneux Problem (2.9.8).\",\n      \"label\": \"premise\"\n    },\n    \"ADU5\": {\n      \"text\": \"Molyneux repeatedly requested that Locke develops his views on morality.\",\n      \"label\": \"claim\"\n    },\n    \"ADU6\": {\n      \"text\": \"Additionally, their correspondence turned to questions concerning education and Molyneux's keen interest in the topic likely prompted Locke to publish Some Thoughts Concerning Education in 1693.\",\n      \"label\": \"claim\"\n    },\n    \"ADU7\": {\n      \"text\": \"Molyneux regarded the lack of Irish legislative independence as unreasonable, which ultimately prompted him to publish The Case of Ireland's being Bound by Acts of Parliament in England, Stated in early 1698.\",\n      \"label\": \"claim\"\n    },\n    \"ADU8\": {\n      \"text\": \"Locke regarded Molyneux as an excellent critical and careful reader of his Essay.\",\n      \"label\": \"claim\"\n    },\n    \"ADU9\": {\n      \"text\": \"On the basis of their subsequent correspondence Locke significantly revised the chapter 'Of Power' (2.21).\",\n      \"label\": \"premise\"\n    },\n    \"ADU10\": {\n      \"text\": \"Molyneux deserves credit for prompting Locke to develop his discussion of identity, persons, and personal identity, which remains one of the most discussed and debated aspects of Locke's Essay.\",\n      \"label\": \"claim\"\n    },\n    \"ADU11\": {\n      \"text\": \"Molyneux has become famous for this problem, which is often called the 'Molyneux Problem' and which still raises interesting questions concerning sensory experience and the acquisition of concepts.\",\n      \"label\": \"claim\"\n    },\n    \"ADU12\": {\n      \"text\": \"In the Essay Locke emphasizes that 'Morality is the proper Science, and Business of Mankind in general' (4.12.11), and maintains that morality is capable of demonstration similarly as mathematics (1.3.1, 3.11.16, 4.3.17, 4.3.20, 4.4.7-9, 4.12.8).\",\n      \"label\": \"claim\"\n    },\n    \"ADU13\": {\n      \"text\": \"Yet he never offers a demonstration of morality.\",\n      \"label\": \"premise\"\n    },\n    \"ADU14\": {\n      \"text\": \"Although Locke does not explicitly give up his view that morality can be demonstrated, his comments in response to Molyneux intimate that he may have realized that the task is harder than initially anticipated.\",\n      \"label\": \"claim\"\n    },\n    \"ADU15\": {\n      \"text\": \"Molyneux's interest in education was first and foremost practical.\",\n      \"label\": \"claim\"\n    },\n    \"ADU16\": {\n      \"text\": \"Molyneux's eagerness to read the work and put it into practice may have prompted Locke not to delay the publication any longer.\",\n      \"label\": \"claim\"\n    },\n    \"ADU17\": {\n      \"text\": \"Locke revised and expanded the relevant passages in Some Thoughts.\",\n      \"label\": \"premise\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"ADU3\",\n      \"target\": \"ADU4\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU5\",\n      \"target\": \"ADU14\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU8\",\n      \"target\": \"ADU9\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU10\",\n      \"target\": \"ADU9\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU12\",\n      \"target\": \"ADU13\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU15\",\n      \"target\": \"ADU16\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU16\",\n      \"target\": \"ADU17\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "ADU1": {
+              "text": "William Molyneux (1656-1698) was an Irish experimental philosopher and politician, who played a major role in the intellectual life in seventeenth-century Dublin.",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "He became Locke's friend and correspondent in 1692 and was probably Locke's philosophically most significant correspondent.",
+              "label": "claim"
+            },
+            "ADU3": {
+              "text": "Locke approached Molyneux for advice for revising his Essay concerning Human Understanding as he was preparing the second and subsequent editions.",
+              "label": "claim"
+            },
+            "ADU4": {
+              "text": "Locke made several changes in response to Molyneux's suggestions; they include major revisions of the chapter 'Of Power' (2.21), the addition of the chapter 'Of Identity and Diversity' (2.27), and the addition of the so-called Molyneux Problem (2.9.8).",
+              "label": "premise"
+            },
+            "ADU5": {
+              "text": "Molyneux repeatedly requested that Locke develops his views on morality.",
+              "label": "claim"
+            },
+            "ADU6": {
+              "text": "Additionally, their correspondence turned to questions concerning education and Molyneux's keen interest in the topic likely prompted Locke to publish Some Thoughts Concerning Education in 1693.",
+              "label": "claim"
+            },
+            "ADU7": {
+              "text": "Molyneux regarded the lack of Irish legislative independence as unreasonable, which ultimately prompted him to publish The Case of Ireland's being Bound by Acts of Parliament in England, Stated in early 1698.",
+              "label": "claim"
+            },
+            "ADU8": {
+              "text": "Locke regarded Molyneux as an excellent critical and careful reader of his Essay.",
+              "label": "claim"
+            },
+            "ADU9": {
+              "text": "On the basis of their subsequent correspondence Locke significantly revised the chapter 'Of Power' (2.21).",
+              "label": "premise"
+            },
+            "ADU10": {
+              "text": "Molyneux deserves credit for prompting Locke to develop his discussion of identity, persons, and personal identity, which remains one of the most discussed and debated aspects of Locke's Essay.",
+              "label": "claim"
+            },
+            "ADU11": {
+              "text": "Molyneux has become famous for this problem, which is often called the 'Molyneux Problem' and which still raises interesting questions concerning sensory experience and the acquisition of concepts.",
+              "label": "claim"
+            },
+            "ADU12": {
+              "text": "In the Essay Locke emphasizes that 'Morality is the proper Science, and Business of Mankind in general' (4.12.11), and maintains that morality is capable of demonstration similarly as mathematics (1.3.1, 3.11.16, 4.3.17, 4.3.20, 4.4.7-9, 4.12.8).",
+              "label": "claim"
+            },
+            "ADU13": {
+              "text": "Yet he never offers a demonstration of morality.",
+              "label": "premise"
+            },
+            "ADU14": {
+              "text": "Although Locke does not explicitly give up his view that morality can be demonstrated, his comments in response to Molyneux intimate that he may have realized that the task is harder than initially anticipated.",
+              "label": "claim"
+            },
+            "ADU15": {
+              "text": "Molyneux's interest in education was first and foremost practical.",
+              "label": "claim"
+            },
+            "ADU16": {
+              "text": "Molyneux's eagerness to read the work and put it into practice may have prompted Locke not to delay the publication any longer.",
+              "label": "claim"
+            },
+            "ADU17": {
+              "text": "Locke revised and expanded the relevant passages in Some Thoughts.",
+              "label": "premise"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU3",
+              "target": "ADU4",
+              "type": "support"
+            },
+            {
+              "source": "ADU5",
+              "target": "ADU14",
+              "type": "support"
+            },
+            {
+              "source": "ADU8",
+              "target": "ADU9",
+              "type": "support"
+            },
+            {
+              "source": "ADU10",
+              "target": "ADU9",
+              "type": "support"
+            },
+            {
+              "source": "ADU12",
+              "target": "ADU13",
+              "type": "support"
+            },
+            {
+              "source": "ADU15",
+              "target": "ADU16",
+              "type": "support"
+            },
+            {
+              "source": "ADU16",
+              "target": "ADU17",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "ADU2": {
+              "text": "He became Locke's friend and correspondent in 1692 and was probably Locke's philosophically most significant correspondent.",
+              "label": "claim"
+            },
+            "ADU3": {
+              "text": "Locke approached Molyneux for advice for revising his Essay concerning Human Understanding as he was preparing the second and subsequent editions.",
+              "label": "claim"
+            },
+            "ADU4": {
+              "text": "Locke made several changes in response to Molyneux's suggestions; they include major revisions of the chapter 'Of Power' (2.21), the addition of the chapter 'Of Identity and Diversity' (2.27), and the addition of the so-called Molyneux Problem (2.9.8).",
+              "label": "premise"
+            },
+            "ADU5": {
+              "text": "Molyneux repeatedly requested that Locke develops his views on morality.",
+              "label": "claim"
+            },
+            "ADU6": {
+              "text": "Additionally, their correspondence turned to questions concerning education and Molyneux's keen interest in the topic likely prompted Locke to publish Some Thoughts Concerning Education in 1693.",
+              "label": "claim"
+            },
+            "ADU7": {
+              "text": "Molyneux regarded the lack of Irish legislative independence as unreasonable, which ultimately prompted him to publish The Case of Ireland's being Bound by Acts of Parliament in England, Stated in early 1698.",
+              "label": "claim"
+            },
+            "ADU9": {
+              "text": "On the basis of their subsequent correspondence Locke significantly revised the chapter 'Of Power' (2.21).",
+              "label": "premise"
+            },
+            "ADU11": {
+              "text": "Molyneux has become famous for this problem, which is often called the 'Molyneux Problem' and which still raises interesting questions concerning sensory experience and the acquisition of concepts.",
+              "label": "claim"
+            },
+            "ADU13": {
+              "text": "Yet he never offers a demonstration of morality.",
+              "label": "premise"
+            },
+            "ADU14": {
+              "text": "Although Locke does not explicitly give up his view that morality can be demonstrated, his comments in response to Molyneux intimate that he may have realized that the task is harder than initially anticipated.",
+              "label": "claim"
+            },
+            "ADU15": {
+              "text": "Molyneux's interest in education was first and foremost practical.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU3",
+              "target": "ADU4",
+              "type": "support"
+            },
+            {
+              "source": "ADU5",
+              "target": "ADU14",
+              "type": "support"
+            }
+          ]
+        }
+      },
+      {
+        "source": "claude-3-5-sonnet-20241022",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"1\": {\n      \"text\": \"Locke regarded Molyneux as an excellent critical and careful reader of his Essay\",\n      \"label\": \"claim\"\n    },\n    \"2\": {\n      \"text\": \"Molyneux worried that Locke had neglected weakness of will and regarded Locke's account as too intellectual\",\n      \"label\": \"premise\"\n    },\n    \"3\": {\n      \"text\": \"According to Molyneux, Locke's first-edition view that the greater good alone determines the will entailed that sinful actions arise solely due to lack of understanding\",\n      \"label\": \"premise\"\n    },\n    \"4\": {\n      \"text\": \"Locke replaced this view in the second edition with the claim that uneasiness determines the will\",\n      \"label\": \"claim\"\n    },\n    \"5\": {\n      \"text\": \"Molyneux deserves credit for prompting Locke to develop his discussion of identity, persons, and personal identity, which remains one of the most discussed and debated aspects of Locke's Essay\",\n      \"label\": \"claim\"\n    },\n    \"6\": {\n      \"text\": \"Locke clearly trusted Molyneux's intellectual judgment and Molyneux's advice played a significant role in the final shape and content of the Essay\",\n      \"label\": \"claim\"\n    },\n    \"7\": {\n      \"text\": \"Although Locke acknowledges that he has considered the request, he explains to Molyneux: 'I am in doubt whether it would be prudent, in one of my age and health, not to mention other disabilities in me, to set about it. Did the world want a rule, I confess there could be no work necessary, nor so commendable. But the Gospel contains so perfect a body of Ethicks, that reason may be excused from that enquiry, since she may find man's duty clearer and easier in revelation than in herself.'\",\n      \"label\": \"claim\"\n    },\n    \"8\": {\n      \"text\": \"Molyneux's repeated requests may have decreased Locke's initial optimism concerning a demonstrative science of morality\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"2\",\n      \"target\": \"4\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"3\",\n      \"target\": \"4\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"7\",\n      \"target\": \"8\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"1\",\n      \"target\": \"6\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "1": {
+              "text": "Locke regarded Molyneux as an excellent critical and careful reader of his Essay",
+              "label": "claim"
+            },
+            "2": {
+              "text": "Molyneux worried that Locke had neglected weakness of will and regarded Locke's account as too intellectual",
+              "label": "premise"
+            },
+            "3": {
+              "text": "According to Molyneux, Locke's first-edition view that the greater good alone determines the will entailed that sinful actions arise solely due to lack of understanding",
+              "label": "premise"
+            },
+            "4": {
+              "text": "Locke replaced this view in the second edition with the claim that uneasiness determines the will",
+              "label": "claim"
+            },
+            "5": {
+              "text": "Molyneux deserves credit for prompting Locke to develop his discussion of identity, persons, and personal identity, which remains one of the most discussed and debated aspects of Locke's Essay",
+              "label": "claim"
+            },
+            "6": {
+              "text": "Locke clearly trusted Molyneux's intellectual judgment and Molyneux's advice played a significant role in the final shape and content of the Essay",
+              "label": "claim"
+            },
+            "7": {
+              "text": "Although Locke acknowledges that he has considered the request, he explains to Molyneux: 'I am in doubt whether it would be prudent, in one of my age and health, not to mention other disabilities in me, to set about it. Did the world want a rule, I confess there could be no work necessary, nor so commendable. But the Gospel contains so perfect a body of Ethicks, that reason may be excused from that enquiry, since she may find man's duty clearer and easier in revelation than in herself.'",
+              "label": "claim"
+            },
+            "8": {
+              "text": "Molyneux's repeated requests may have decreased Locke's initial optimism concerning a demonstrative science of morality",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "2",
+              "target": "4",
+              "type": "support"
+            },
+            {
+              "source": "3",
+              "target": "4",
+              "type": "support"
+            },
+            {
+              "source": "7",
+              "target": "8",
+              "type": "support"
+            },
+            {
+              "source": "1",
+              "target": "6",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "1": {
+              "text": "Locke regarded Molyneux as an excellent critical and careful reader of his Essay",
+              "label": "claim"
+            },
+            "2": {
+              "text": "Molyneux worried that Locke had neglected weakness of will and regarded Locke's account as too intellectual",
+              "label": "premise"
+            },
+            "3": {
+              "text": "According to Molyneux, Locke's first-edition view that the greater good alone determines the will entailed that sinful actions arise solely due to lack of understanding",
+              "label": "premise"
+            },
+            "4": {
+              "text": "Locke replaced this view in the second edition with the claim that uneasiness determines the will",
+              "label": "claim"
+            },
+            "5": {
+              "text": "Molyneux deserves credit for prompting Locke to develop his discussion of identity, persons, and personal identity, which remains one of the most discussed and debated aspects of Locke's Essay",
+              "label": "claim"
+            },
+            "6": {
+              "text": "Locke clearly trusted Molyneux's intellectual judgment and Molyneux's advice played a significant role in the final shape and content of the Essay",
+              "label": "claim"
+            },
+            "7": {
+              "text": "Although Locke acknowledges that he has considered the request, he explains to Molyneux: 'I am in doubt whether it would be prudent, in one of my age and health, not to mention other disabilities in me, to set about it. Did the world want a rule, I confess there could be no work necessary, nor so commendable. But the Gospel contains so perfect a body of Ethicks, that reason may be excused from that enquiry, since she may find man's duty clearer and easier in revelation than in herself.'",
+              "label": "claim"
+            },
+            "8": {
+              "text": "Molyneux's repeated requests may have decreased Locke's initial optimism concerning a demonstrative science of morality",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "2",
+              "target": "4",
+              "type": "support"
+            },
+            {
+              "source": "3",
+              "target": "4",
+              "type": "support"
+            },
+            {
+              "source": "7",
+              "target": "8",
+              "type": "support"
+            },
+            {
+              "source": "1",
+              "target": "6",
+              "type": "support"
+            }
+          ]
+        }
+      }
+    ],
+    "timestamp": 1752749749.2399306
+  }
+]

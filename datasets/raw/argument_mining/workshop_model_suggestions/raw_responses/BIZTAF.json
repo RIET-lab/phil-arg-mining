@@ -1,0 +1,455 @@
+[
+  {
+    "identifier": "BIZTAF",
+    "system_prompt": "## GOAL\nArgument‑mine the following paper to extract its comprehensive argumentative structure.\n\n## DEFINITIONS\n1. **Argument**: A set of propositions, including some number of premises and a conclusion. The premises should logically entail the conclusion.\n2. **Claim**: A proposition that asserts something to be true or false, typically requiring justification or evidence.\n3. **Premise**: A proposition that provides evidence, justification, or logical support for a claim or conclusion.\n\n## CRITICAL REQUIREMENTS\n1. **VERBATIM EXTRACTION ONLY**: Each ADU text must be copied EXACTLY from the paper with no modifications, paraphrasing, or combining of separate sentences.\n2. **NO HALLUCINATION**: Do not create, modify, or invent text that does not appear exactly in the source.\n3. **EXACT MATCHING**: Every word, punctuation mark, and spacing must match the original precisely.\n\n## DIRECTIONS\n1. **Identify Argumentative Discourse Units (ADUs)**  \n   - ADU = any contiguous text span functioning as a claim or a premise in the reasoning structure.\n   - **BE HIGHLY SELECTIVE**: Only include ADUs that are crucial to the overarching argument structure.\n   - Focus on significant claims and premises that contribute meaningfully to the argumentative flow.\n   - **AVOID NOISE**: Skip ADUs that are merely descriptive, tangential, or do not substantially advance the argument.\n   - Prioritize quality over quantity - fewer accurate, important ADUs are better than many insignificant ones.\n   - **EXTRACT ONLY**: Copy text spans exactly as they appear, without any modifications.\n2. **Classify each ADU**  \n   - Label = either `\"claim\"` or `\"premise\"`.  \n3. **Detect directed relations**  \n   - Relation = `\"support\"` or `\"attack\"`, from one ADU (source) to another (target).\n   - Map how ADUs connect to form reasoning chains.\n   - Focus on relationships between the most significant ADUs.\n   - Include relationships between premises that strengthen or weaken each other.\n4. **Verbatim spans**  \n   - Each `\"text\"` value must be copied EXACTLY from the paper with zero modifications.\n   - Do not paraphrase, summarize, or combine separate sentences.\n   - Do not add, remove, or change any words, punctuation, or spacing.\n   - If unsure about exact wording, skip that ADU rather than guess.\n\n## WHAT TO CAPTURE\n**INCLUDE ONLY:**\n- Main argumentative threads that are central to the paper's contribution\n- Core claims that represent the paper's primary arguments or findings\n- Key premises that provide essential support for major claims\n- Critical counterarguments and their refutations\n- Reasoning chains that demonstrate how main conclusions are derived\n\n**EXCLUDE (AVOID NOISE):**\n- Minor details, examples, or descriptive content that don't advance the argument\n- Tangential points or side discussions\n- Pure background information or literature review content\n- Methodological details unless they constitute argumentative claims\n- Obvious statements or commonly accepted facts\n- Redundant or repetitive argumentative content\n\n**GUIDING PRINCIPLE**: If removing an ADU would not significantly impact understanding of the paper's argumentative structure, it should be excluded.\n\n## QUALITY CONTROL\n- Before finalizing each ADU, verify the text exists exactly in the source\n- Prefer fewer, accurate ADUs over many potentially modified ones\n- When in doubt about exact wording, omit the ADU\n\n## OUTPUT FORMAT\nReturn **only** a single valid JSON object matching this schema.  \nDo **not** output any extra text, markdown, or explanations.\nDo **not** add comments.\n**RESPOND WITH ONLY**:\n```json\n{\n  \"ADUs\": {\n    \"<ADU_ID>\": {\n      \"text\": \"<exact span from paper>\",\n      \"label\": \"claim\" | \"premise\"\n    }\n    ...\n  },\n  \"relations\": [\n    {\n      \"source\": \"<ADU_ID>\",\n      \"target\": \"<ADU_ID>\",\n      \"type\": \"support\" | \"attack\"\n    }\n  ]\n}\n```",
+    "user_content": "## THE ANTHROPOLOGICAL FOUNDATIONS OF BUBER'S COSMIC VISION OF DIALOGICAL LIFE 1\n\n## MICHAL BIZOŇ\n\nAbstract: This paper provides an analysis of Martin Buber's not very well-known essay 'Distance and Relation', which is his most relevant contribution to philosophical anthropology. In the essay, which was published almost thirty years after the publication of his most famous book, I  and Thou ,  Buber elaborated on the anthropological foundations of his cosmic vision of dialogical life. The central question is 'How is man possible?' Buber's answer is very important to the further development of his principle of dialogue in  psychology (primarily his notion of confirmation) and philosophy of art, but it is not quite clear how compatible it is with some of his earlier theses from I and Thou . In particular, the relation between 'distance' and the I-It relation is unclear. There are two seemingly contradictory statements: 'In the beginning is the relation' and 'The primal distance is a presupposition of the relation'. The aim of this paper is to examine these anthropological foundations and to elucidate this apparent contradiction.\n\nKeywords: philosophical anthropology; dialogical philosophy; Martin Buber; psychotherapy; distance; relation; confirmation.\n\n## Introduction\n\nIn 1923 Martin Buber published his most famous book, I and Thou ,  in  which  he  presented his  cosmic vision of the dialogical life of man. I call his vision a cosmic one because he discussed the possibility of entering into an I-Thou relationship not only with human persons and God but also with non-human entities such as natural ones or different forms of the spirit. 2 In  fact,  the  cosmic dimension of his philosophy is best expressed in his 'Postscript' (1957) to the second edition of I and Thou (1958), where he says that the area of the I-Thou relationship 'reaches from stones to the stars' (Buber, 1970a, p. 173). 3 This founding work of\n\n1 This work was supported by VEGA grant No. 1/0549/18 - Philosophical and Cosmological Aspects of the Evolution of the Universe and the Place of Human Beings in It.\n\n2 I  examine in detail  the  possibility  of  the  dialogical  relationship  in  these  areas  with  regard  to  the problem of mutuality in my latest book (Bizoň, 2017).\n\n3 Zlatica  Plašienková  and  I  referred  to  this  vision  as  cosmic  in  our  book, The Anthropology of Normativity in Pierre Teilhard de Chardin's and Martin Buber's Thought (Plašienková &amp; Bizoň, 2016, p. 147). For a focus on Teilhard's cosmic vision of man, see Plašienková and Kulisz, 2004. In quoting\n\n<!-- image -->\n\nthe  nascent  philosophy of dialogue inevitably contains a number of important insights and knowledge about man-the philosophizing in it had to be essentially anthropological (Buber, 1967, p. 693)- but what are the anthropological foundations of such a vision? Specifically, this  is  a  question  of  'How  is  man  possible?'  and  'What  is  a  presupposition  of  the  duality of  man's relation with the world (I-Thou, I-It)?' (Buber, 1967, p. 694). In the atmosphere of  an  emerging  modern philosophical anthropology, Buber was aware of these questions and therefore planned to elaborate on them. This was also necessary to further developing his principle of dialogue, for example, in the field of psychology and the philosophy of art. This is why there was a clear shift in Buber's philosophy to philosophical anthropology from 1938 (Schaeder, 1973, p. 411). Almost thirty years after the publication of I and Thou ,  he succeeded in elaborating on the anthropological foundations of his philosophy in a short essay entitled 'Distance and Relation (Urdistanz und Beziehung)' (1950) (cf. Buber, 1970a, p. 171). Undoubtedly, this was his most important theoretical treatise from the period after the Second World War. This is also reflected in the 'more technical' language in which it is written, which differs from his earlier writings such as I and Thou , Dialogue (1932), and The Question to the Single One (1936). In the foreword to the first edition (1951), he states that this was the first  part  of  his  still  uncompleted  anthropological  work  (Buber,  1951,  p.  7).  The  prelude  to this never-completed project 4 was his book What is Man? (1943/1947), which was written as a history of anthropological thought and not as his own philosophical anthropology. 5 In  the above-mentioned foreword, he also writes that the connection between this anthropological work and his writings on dialogical existence should be obvious to the reader (Buber, 1951, p. 7), but it must be said that this is not always the case. In particular, the connection between 'distance' and the I-It relation is unclear. The aim of this paper is to therefore examine the anthropological foundations of Buber's cosmic vision of dialogue life and subsequently to elucidate their connection with some of his earlier theses from I and Thou .\n\n## The twofold principle of human life\n\nBuber's overview of the history of anthropological thought in What is Man? ends  with a  chapter  that  outlines  the  perspectives  of  his  own  thinking  about  man.  Rejecting  both\n\nfrom Buber's works, I think it better to rely on published translations of his works rather than my own. Therefore,  throughout  my  article,  I  refer  to  the  English-language  editions.  Key  terms  are  given  in German in parentheses. The German originals of most of his works can be found in the first volume of Martin Buber Werke (Buber, 1962).\n\n4 The first  volume of his collected works, Werke ,  contains  a  special  section  on  his  contributions  to philosophical anthropology, which includes the following works from the 1950s: 'Man and His ImageWork' (1955), 'The Word That Is Spoken' (1960), 'What Is Common to All' (1960), 'Guilt and Guilt Feelings' (1957) (Buber, 1962, pp. 409-502). Views on whether a collection of these essays can be considered a completed project of his philosophical anthropology vary (cf. Friedman, 1965, p. 7; Schaeder, 1972, p. 123).\n\n5 What is Man? is  the  English  title  of  his  book The Problem of Man (1943),  which  was  originally published in Hebrew as the book form of his inaugural course of lectures as a professor of social philosophy at the Hebrew University of Jerusalem (1938). The German translation was published in 1947 in Switzerland under the title Das Problem des Menschen . In 1948 it appeared as his first book in post-war Germany (Schaeder, 1972, p. 125).\n\nindividualistic and collectivistic anthropology, this 'prospect', as he named the last chapter, claims that 'the fundamental fact of human existence is man with man' (Buber, 2004b, p. 240) and that the original category of human reality is the ontic sphere 'between' man and man (Buber, 2004b, p. 241; cf. Schaeder, 1973, p. 437). In his essay 'Distance and Relation', he follows on from this conclusion and asks about the principle of human life. In seeking the  answer  to  this  fundamental  question,  Buber  proceeds  in  a  way  that  is  typical  of  the philosophical anthropology of his time. He compares the reality of human beings with that of other known beings, namely animals. 6 Since man is a part of nature, and simultaneously an aberration of it, the specific examination of man does not take place within nature but rather starts from it. The aim of his anthropology is not to find those characteristics that distinguish man from other living beings but rather to examine 'the grounds of those characteristics as a whole' that constitute a special way and category of being (Buber, 1965a, pp. 59-60). Man does not differ from other living beings in the way they differ from each other. Buber is not primarily interested in individual human characteristics in themselves. Instead, he seeks out what makes them possible and what constitutes them. In this way, Buber came to the insight that the principle of human life is twofold and is based on two movements. He calls the first of these two movements 'the primal setting at a distance' ( Urdistanzierung ) and the second of them 'entering into a relation' ( In-Beziehung-Treten ) (Buber, 1965a, p. 60).\n\nThe element of 'distance' is common to the various anthropologies of Buber's time; of course, philosophers used it differently and came to their own conclusions. Examples are Scheler's spirit and Plessner's eccentric positionality. Buber obtained his concept of 'primal distance' by comparing the animal and human images of the world. The comparison is based on knowledge of modern biology, especially Uexküll's (1864-1944) theory of Umwelt . 7 The doctrine of Umwelt was very popular among philosophers at that time and influenced the anthropologies of the above-mentioned Max Scheler (1874-1928) and Helmut Plessner (1892-1985) as well as Arnold Gehlen (1904-1976) and Ernst Cassirer (1874-1945). 8 Umwelt refers  to  the  species-specific  and  individual-specific  world  of  a  certain  living  organism. Animals relate to their surroundings through various functional circles, among which the most important are the circles of physical medium, food, enemies, and sex (Uexküll, 1982, p. 33). An animal is concerned only with what is useful and necessary for it. It focuses only on those elements that satisfy its life needs in order to construct the circle of its existence from them. This world is only a certain section of the environment ( Umgebung ) (Uexküll, 1957, p. 13) that surrounds the animal, but it is the only world ( Umwelt ) (Uexküll, 1957, p. 153). In Buber's view, it is questionable whether world is the right term here and whether Umwelt can justifiably  be  regarded  as  a  kind  of  world  and  not  just  as  a  kind  of  realm  ( Bereich ). According to Buber, the 'world' can only be a world that essentially extends beyond the\n\n6 Although this type of investigation is no longer dominant, it is still alive. See, for example, Harari s bestseller Homo Deus , and especially its first part: Homo Sapiens Conquers the World (Harari, 2017). Today the basic anthropological question of 'Who is man?' (we still have no answer to that) is replaced by the question of 'What will man be?' or its stronger variant 'Will man still be man?'\n\n7 For a contemporary view of the concept of Umwelt in the work of Jacob von Uexküll, and elsewhere, see Kliková &amp;  Kleisner (Eds.), 2006.\n\n8 On this, see Brentari, 2015.\n\nrealm of the observer, who is 'in' the world, which is independent as such. Even a 'world of the senses' is not only what is perceived but also what can be perceived (Buber, 1965a, p. 60). An animal's 'image of the world' is nothing more than the dynamic of the presences bound up with its functions of life (Buber, 1965a, p. 61). Unlike for man, no world exists for animals that exists for itself. Contrary to Uexküll, Buber claims that man has a world ( Welt ) and not just an environment ( Umwelt ). An animal is so bound up with its Umwelt that it lives 'with his environment ( Umwelt )  as  with his organs' (Buytendijk cited by Buber, 1965c, p. 158). It is not able to perceive and know anything more and anything other than the things which relates to its own needs (Buber, 1965c, p. 158). The meeting of an animal with nature produces a mass of useable sense data that constitutes its realm of life (Buber, 1965a, p. 61). Man replaces the animal's 'image of the world'-this unsteady conglomeration-with a  unity  which  he  can  imagine  or  think  of  as  existing  for  itself  (Buber,  1965a,  p.  61).  A man goes beyond what is immediately given to him, he 'flies beyond the horizon and the familiar  stars'  and  grasps  a  totality  (Buber,  1965a,  p.  61).  From  the  meeting  of  man  with nature something new and enduring comes into being, something that transcends his realm (Buber, 1965, p. 61). Through being of man, 'what is' ( das Seiende ) becomes detached from him and is recognized for itself, whereby it makes the world's existence possible (Buber, 1965a, p. 61). The world exists only where there is man. Based on this biological distinction between the Umwelt and  the  world  (Rotenstreich,  2010,  p.  37;  1967,  pp.  110-111),  Buber postulates the first  movement constituting human life. As an independent counterpart, the world can exist for man on the condition that there is a distance between him and the world that guarantees its independence. 9 The existence of the first movement does not mean that the  I  of  man  will  'establish'  the  world  (Buber,  1965a,  63)  'Distance'  is  not  a  'reflective attitude', as Rotenstreich understood it, because the world does not exist through reflections but rather through human beings (Buber, 1967, pp. 694-695). This is the primal attitude of man. Buber defines this in more detail as a manner of perception that distinguishes men from animals (Buber, 1967, p. 695). The first essential difference between men and animals that constitutes the principle of human life concerns the way in which the environment perceived. While animals perceive it, so to speak, as a part of their own corporeality, men perceive it as independent of them, as at a distance from them.\n\nTo clarify the second movement, we can begin by pointing out that one can turn to the withdrawn structure of being ( Seiende ) that is the world and enter into a relationship with it (Buber, 1965a, p. 62). Since an animal is unable to distance itself from its surroundings, it cannot 'know the state of relation because one cannot stand in relation to something that is not perceived as contrasted and existing for itself' (Buber, 1965a, p. 62). Buber characterizes the  act  of  entering  into  a  relationship  with  the  world  as  a  synthesizing  apperception ( synthetische  Anschauung ),  which  means  the  apperception  of  a  being  as  a  whole  and  as a  unity  (Buber,  1965a,  p.  62).  The  concept  of  wholeness  and  unity  is  originally  identical with the concept of the world to which man is turned (Buber, 1965a, p. 63). The world as a  genuine  wholeness and unity is not given to man only by 'distance'-it offers him the world only as an object-but it is necessary for man to enter with his whole being into a\n\n9 It should be noted that the concept of 'primal distance' cannot be identified with the concept of the sphere 'between' as Emmanuel Lévinas (1906-1995) attempted (Buber, 1970b, p. 27).\n\nrelationship with it (Buber, 1965, p. 63). The second essential difference between men and animals is the possibility and ability of man to enter into a relationship with the world.\n\nAlthough it  is  obvious  that  the  two  movements  are  very  closely  linked,  a  further examination of their relationship is necessary. First, it must be said that the first movement is the presupposition of the second. This results from the fact that 'one can enter into relation only with a being which has been set at a distance' (Buber, 1965a, p. 60). In other words, one can enter into a relationship only with this being, which has become an independent opposite.  Nevertheless,  there  is  no  relation  of  causality  between  these  two  movements. The categories 'distance' and 'relationship' are implicit to each other, which means that 'the  process  of  distancing  implies  as  its  complementary  the  process  of  entering  into  a relationship' (Wheelwright, 1967, p. 84). While the second movement, as we have seen, is not possible without the first, the first is possible without the second. This is down to the transition from the first to the second being not inevitable but possible; the first movement only allows room for the existence of the second. While a relationship necessarily implies a 'distance' as its presupposition, 'distance' only implies the possibility of a relationship. The nature of the first movement is universal, and therefore it is inherent to each person as a person; however, the nature of the second is personal. The personal dimension of human life is constituted through the 'relation' and not through 'distance'. The first movement yields the answer to the question: 'How is man possible?' The second answers the question: 'How is  human life  realized?'  The  movement of distance provides the human situation, and the movement of the relationship provides man's becoming in that situation (Buber, 1965a, p. 64). The difference between the first and second movement as well as the twofold principle of human life and the distinction between man and animals can be better explained by the example of man's relationship to things and to other people.\n\nConsidering the relationship to things, Buber recognizes that animals also use things and even use them in the exact sense of this word ( verwenden ). 'They turn ( wenden ) something, on which they happen, round and round until they reach the possibility of using it for the attainment of a definite purpose, whether preconceived or arising at the moment' (Buber, 1965a, pp. 64-65). However, they cannot put the thing aside so it can later be used in the same way. They do not consider things as tools except at the moment of use. No things persist  in  an  animal's  consciousness  as  merely  tools,  as  things  that  have  such  and  such  a faculty  or  function.  For  instance,  while  monkeys  make  use  of  a  stone  to  crack  nuts,  the stone does not become a hammer for them. These things are at hand every time the occasion arises, but they do not have their own place in the world (Buber, 1965a, p. 65). By contrast, a man gives distance to things and makes them durable bearers of function: tools with their own functions that are repeatedly at man's disposal in this function. For man, things have an  independent existence. Man is not satisfied with merely using and possessing things; he 'has a great desire to enter into personal relation with things and to imprint on them his relation to them' (Buber, 1965a, p. 66). This great desire can be illustrated by a young man from a tribe scratching a curved line on his axe with the aid of a sharp stone (Buber, 1965a, pp. 65-66). The young man's act is usually explained either as a form of magic that gives the tool more power or as playing with the possibility of the empty space on the axe handle (Buber, 1965a, p. 66). Buber rejects both interpretations because neither the first nor the second, nor the two together (as they are mutually exclusive), can sufficiently explain the fact\n\nthe act was carried out without a model and that its purpose is not purely technical (Buber, 1965a, p. 66). The curved line becomes a picture that gradually becomes independent and ceases to be an accessory to the tool; it gets its own independent structure (Buber, 1965a, p. 66). This form indicated by ornamentation is then realized in the autonomous sphere 'as the sediment of man's relation to things' (Buber, 1965a, p. 66). Here man's relationship to things is manifested in art. 'Art is neither the impression of natural objectivity nor the expression of spiritual subjectivity, but it is the work and witness of the relation between the substantia humana and the substantia rerum , it is the realm of 'the between' which has become a form' (Buber, 1965a, p. 66; cf. Buber, 1965c, p. 165). The fact of art can only be understood based on man's essential relationship to things, only from it and only in connection with it (Buber, 2004a, p.  210).  Every  essential  relationship  to  things  reaches  completion  in  art  (Buber, 2004a, p. 213). 'All art is from its origin essentially of the nature of dialogue,' wrote Buber in his essay 'Dialogue' (1932) (Buber, 2004b, p. 30).\n\n## The role of confirmation in Buber's anthropology\n\nRegarding the sphere of relationships to other people, Buber introduces some important concepts  from  his  anthropology,  such  as  confirmation  ( Bestätigung ),  acceptance ( Akzeptation ),  'making  present'  ( Vergegenwärtigung ),  and  'imagining  the  real' ( Realphantasie ).  Unlike  the  animal  kingdom,  where  the  division  of  labour  works  without granting a function in the sense of an individual award, people in society confirm each other in  their  qualities  and  capacities.  How  is  it  possible  that  man,  who  is  'so  badly  equipped 'by nature'', achieved lordship over the earth (Buber, 1965a, p. 67)? Man faces nature and its  forces  in  two  ways:  through the use of tools and weapons and by forming associations, which rest  on  mutual  individual  completion,  and  the  recognition  of  function  (Buber, 1965a, p. 67). The mutual confirmation of human beings in their uniqueness distinguishes man from other living beings. Man is the sole living creature in whom the category of possibility  is  embodied-he is not fully determined and fixed in his being-and therefore needs confirmation (Buber, 1953, p. 136). A man needs to be confirmed in his being: not in  a  general  being-to  be  a  human  being-but  in  his  unique  being  as  in  his  being-thisman (Buber, 1953, p. 136). By contrast, an animal is fixed in its being, and all possible modifications of its being are preordained, as in the case of a caterpillar's metamorphosis into  a  butterfly.  It  is  beyond  question  that  the  animal  is  and  can  only  be  what  it  is  and therefore does not need confirmation (Buber, 1965a, p. 71; 1953, pp. 135-136). Surrounded by chaos and possibilities, man seeks the confirmation of 'Yes', which, however, can only be received through another person and not through himself (Buber, 1965a, p. 71). The result of this is that on the one hand man is characterized by the desire to be confirmed as what he is  and  as  what  he  can  become,  and  on  the  other  hand  by  the  innate  ability  in  this  way to  confirm other people (Buber, 1965a, p. 68). A presupposition for both characteristics is the  first  movement of 'distance', which guarantees that another person is perceived as an independent counterpart. The confirmation itself then represents the realization of the second movement of the 'relation'.\n\nThe concept of confirmation plays a key role in Buber's dialogical philosophy and has important applications, for example, in education, family life, and psychotherapy (Friedman,\n\n1965,  p.  29).  What  is  confirmation?  That  concept  must  first  be  distinguished  from  the concept of acceptance. Every essential relationship with the other begins with acceptance. One accepts the other as he is here and now in the moment of the encounter (of course, here and now also  forms  what  already  was);  he  accepts  him  in  his  actuality.  The  confirmation concerns the whole man in his present actuality as well as in the possibilities of what he can become. The confirmation also concerns the as-yet-unrealized possibilities of the other. Thus, it supposes the acceptance of the whole potentiality of the other. The act of accepting the other in his actuality does not imply confirmation of him in that actuality. A man can accept another in his actuality, but he does not have to confirm him in it even though he can. While acceptance turns to the present and past of the other, confirmation also looks to his future. To confirm someone in his unique being means making a decisive differentiation in his potentiality with respect to this possibility, to which he has been created to become. Man confirms the being of the other, first in himself and then in the other. The distinction between acceptance and confirmation can be illustrated by the example of education. An educator who comes into contact with a 'problem child' cannot be content with accepting the child as he is (even though it is the first thing he has to do) if he does not want to completely give up on his task of educating him. This would de facto mean confirming him in his actual state  of  being  a  'problem  child'.  Accepting  and  confirming  of  the  other  is  not  identical with the approval that would approve of all his thinking or acting. Man confirms the actual being of his partner only to the extent that he can (cf. Buber, 1965b, pp. 79, 85). If one of the partners in the dialogue holds some positions that are incompatible with my own belief, then I cannot confirm him in them. My partner affects me in his position; I accept him, but I do not confirm him in it. Unlike acceptance, confirmation is limited in scope, but because it is confirmation of what a man is to become, it is realized despite these limitations. 10 The intention of affecting my partner, however, does not mean making an effort to change him in the sense of injecting my own 'rightness' into him (as in propaganda). Rather, it is to allow that which is recognized as right and true in man to germinate and grow in him through my influence in the form suited to individuation (as it is in education) (cf. Buber, 1965a, p. 69; 1965b, pp. 82-85).\n\nEvery 'man wishes to be confirmed in his being by man, and wishes to have a presence in  the  being  of  the  other'  (Buber,  1965a,  p.  71).  What  does  it  mean  to  have  a  presence  in the being of the other? A presupposition for confirmation is the act of 'making present' or 'imagining the real'. In this act, one imagines 'what another man is at this very moment wishing, feeling, perceiving, thinking, and not as a detached content but in his very reality, that is, as a living process in this man' (Buber, 1965a, p. 70). Man becomes himself ( Selbst ) in  the  act  of  making  present;  or  more  precisely  expressed,  he  becomes  himself  with  the other.  The  act  of  making  present  is  ontologically  complete  only  when  man  knows  that he is  made present by the other in the uniqueness of his being and when this knowledge\n\n10 The  significance  of  Buber's  anthropology  for  psychology  and  psychotherapy,  especially  his distinction  between acceptance and confirmation, is evidenced also by the fact that Rogers adopted the concept of confirmation in one of his most important writings, On Becoming a Person (1961) (cf. Rogers, 1961, pp. 55-56). On the influence of Buber's philosophy on psychotherapy, see Abramovitch (2015).\n\ninduces the process of his inmost self-becoming at the same time. The innermost growth or development of the uniqueness of one's own being does not take place in the relation of man to himself but in the relationship between him and the other that is characterized by the mutuality of the making present, acceptance, and confirmation (Buber, 1965a, p. 71). The goal of the relationship is not self-realization;  it  is  only  a  by-product  (Friedman,  1965,  p. 21). The knowledge that a man is made present in his own self by the other, and that he is accepted and confirmed by him in his uniqueness, leads to his true self-acceptance and selfconfirmation.\n\n## Relation between I and Thou and distance and relation\n\nThese newly elaborated anthropological  foundations  of  how  Buber's  cosmic  vision  of dialogical  life  complements and clarifies the basic elaboration in I  and  Thou will  now be examined in more detail. The addition of new elements sometimes involves correcting old ones,  and  some  clarifications  obscure  rather  than  clarify  what  they  wanted  to  illuminate. What is the situation in this case?\n\nWhen looking at the two writings, the question arises of what the connection is between 'distance'  and  'relationship'  and  the  basic  words  of  I-Thou  and  I-It.  The  connection between 'entering into a relation' and the basic word I-Thou is obvious. The first means entering into the I-Thou relationship. The 'relation' from the essay 'Distance and Relation' can  be  fully  identified  with  the  I-Thou  relationship  from I  and  Thou . 11 The  connection between 'primal distance' and the I-It relation is not so obvious. This ambiguity is related to the assertion at the beginning of paragraph 23 in the first part of I and Thou . Here Buber formulates one of the fundamental theses of his philosophy: 'In the beginning is the relation' (Buber, 1970a, p. 69). He 'proves' its validity on two levels in the following paragraphs (§§ 23-27): in the history of the human race (§§ 23-25) and in the history of the human individual (§§ 26-27). On both levels, he shows that the relationship is antecedent 'towards emancipation, delimitation, and separation' (Šajda, 2013, p. 65) using several examples. The existence of an emancipated and separated I does not occur until the hypostatising of the acting Thou and the acting I (Buber, 1970a, p. 73). As the acting Thou becomes the carrier of action, the acting I becomes the carrier of perception (Buber, 1970a, p. 74). The basic word I-Thou precedes the I, and the basic word I-It follows after the emergence of the I and the It (1970a, pp. 73-74). It seems that these passages from I and Thou , which report the primacy of the relationship and how the I gradually emancipates itself (Šajda, 2013, p. 66), contradict the later claim that 'distance' is a presupposition for a 'relation'. 12\n\n11 In  addition  to  the  evident  coincidence  of  meaning,  there  is  also  a  terminological  coincidence, since here Buber uses the German word Beziehung ,  which  is  reserved  in I  and  Thou for  the  I-Thou relationship.\n\n12 Rotenstreich  formulates  this  objection  in  a  similar  fashion:  'The  later  stage  of  Buber's  thought, expressed  in  his  idea  of  distance  and  relation,  leaves  us  with  some  doubt  whether  relationship within the human sphere is as primary as it was described in his earlier and more well-known work' (Rotenstreich, 2010, p. 35; 1967, p. 109).\n\nSuch a reading may be based on the mistaken identification of two different concepts of 'primal distance' and the basic word I-It. This interpretation is supported by the fact that the second movement of the 'relation' is identical to the basic word I-Thou, and therefore by analogy it should be true of the first movement of 'distance' that it is identical with the word I-It.\n\nWhat follows is an attempt to prove that such an identification of conceptual pairs cannot automatically be applied by analogy to the couple of 'distance' and the I-It relation. Both concern a separation of man from his counterpart, but in a different way. The very term 'primal distance' indicates to  us  that  it  is  'more  primal'  and  therefore  a  different  form of  separation  than  the  one  implied  in  the  basic  word  I-It.  'Primal  distance'  is  inherent  to every man as a man; it is a particular state that establishes the human situation and as such is  pre-personal. However, the relations of I-Thou and I-It express the personal existence of man (Friedman, 1965, p. 22). Both are acts of the human being, whether done by the whole being (I-Thou) or not (I-It).  This  means  that  the  'primal  distance'  is  not  an  ontological presupposition  only  for  the  relationship  of  I-Thou  but  also  for  the  relationship  of  I-It (Buber, 1967, p. 694). 'Distance' makes room for entering into a relationship, but when the establishment of the I-Thou relation fails, the distance becomes solidified and thickened (Buber Agassi, 2008, p. 262), thereby presenting an obstacle to the essential relationship. This failure to enter into the essential relationship-this persistence in distance-and not the distance itself corresponds to the I-It relation (Friedman, 1965, p. 22). Finally, if the assertion 'at the beginning is a relation' is to be true, it must assume the existence of some form of distance between the two partners in the relationship, because the existence of an essential relationship is possible only where there is duality and a real ontic difference between man and his partner. Buber also follows this strict logic in describing the emancipation of the human I and the emergence of the realm of It from the realm of Thou in I and Thou . In the original relational event an I is implicitly included without man being aware of it yet (Buber, 1970a, p. 73). Man, who before recognized himself as an I, utters the basic word I-Thou quite naturally. Since the following two sections (§ 24) are crucial to the current problem, a large portion is quoted below:\n\nIn the natural fact, on the other hand, that will give way to the basic word I-It and I-related experience, the I is not yet included. This fact is the discreteness of the human body as the carrier of its sensations, from its environment ( Umwelt ).  In  this  particularity  the  body learns to  know and discriminate itself,  but  this  discrimination  remains  on  the  plane  where  things are next to each other, and therefore it cannot assume the character of implicit I-likeness. But once the I of the relation has emerged and has become existent in its detachment, it somehow etherializes and functionalizes itself and enters into the natural fact of the discreteness of the body from its environment, awakening I-likeness in it. Only now can the conscious I-act, the first form of the basic word I-It, of experience by an I, come into being. The I that has emerged proclaims itself as the carrier of sensations and the environment as their object. (Buber, 1970a, p. 74)\n\nThis  passage  bears  witness  to  the  additional  elaboration  of  the  anthropological foundations really being based on his most important philosophical book. 'The natural fact of the discreteness of the human body as the carrier of its sensations, from its environment' is a precise definition of what Buber later calls 'primal distance'. 'The natural fact' refers\n\nto  the  fact  that  it  is  a  specific  biological  givenness  of  man,  which  allows  him  to  perceive his  environment  as  something  independent  of  him;  therefore,  when  the  'natural  fact'  is identified with 'primal distance', there are the two confused concepts of 'primal distance' and the basic word I-It in this passage, which enables readers to precisely determine the relation between them. From the above, it is clear that these are two different concepts, since the 'natural fact of separation of the body from the environment' precedes the basic word I-It.  Thus,  the  existence  of  the  'primal  distance'  between  man  and  his  counterpart  does not presuppose the emancipated I; on the contrary, it allows it. One realizes that his body is  separated from his environment as a bearer of perception, but he is not yet aware of his awareness-his I. While the basic word I-Thou precedes an I, the basic word I-It only follows after  the  appearance  of  I  and  It.  The  'primal  distance'  is  the  basis  for  man  to  have  the conception of an independent world on the one hand and any conception of himself on the other. Consequently, the process of distancing is a priori in the Kantian sense (Wheelwright, 1967,  p.  84).  'Distance'  provides  the  separation  and  independence  of  man  and  his counterpart, but man is not yet aware of himself as a subject of experiencing and using, and his counterpart is not an object of experiencing and using, as is the case with the I-It relation.\n\nIn  the  concept  of  'primal  distance',  that  is  the  ontological  presupposition  of  all  human relationships to all existing beings, Buber recognized the anthropological foundation of his cosmic vision of dialogical life. In I  and  Thou ,  he  emphasizes the innate desire of man to realize the I-Thou relationship; later in 'Distance and Relation' he emphasizes the innate desire of man to be confirmed in his being by another person and to have a presence in his being. Both desires are perfectly fulfilled in the mutual relationship of two people. At the moments of these encounters 'the spiritual substance of the person matures' (Buber, 1970a, p. 113).\n\n## References\n\nAbramovitch, H. (2015). The influence of Martin Buber's philosophy of dialogue on psychotherapy: His lasting  contribution.  In  P.  Mendes-Flohr,  (Ed.), Dialogue as a trans-disciplinary concept. Martin Buber's philosophy of dialogue and its contemporary reception (pp.  169-181).  Berlin/ Munich/Boston: Walter de Gruyter.\n\nBizoň, M. (2017). Vzájomnosť medzi Ja a Ty. Dialogická filozofia Martina Bubera [Mutuality between I and Thou. The dialogical philosophy of Martin Buber]. Trnava: UCM.\n\nBrentari,  C.  (2015). Jakob von Uexküll. The discovery of the  Umwelt  between  biosemiotics  and theoretical biology . Dordrecht/Heidelberg/New York/London: Springer.\n\nBuber Agassi, J. (2008).  Kommentar [Commentary]. In  P. Mendes-Flohr &amp; P. Schäfer (Eds.), Martin Buber Werkausgabe 10. Schriften zur Psychologie und Psychotherapie [Martin Buber Collected Works, vol. 10. Writings to psychology and psychotherapy] (pp. 259-284). Gütersloh: Gütersloher Verlaghaus.\n\n(pp.\n\nBuber, M. (1951). Urdistanz und Beziehung [Distance and relation]. Heildelberg: Lambert Schneider. Buber, M. (1953). Images of Good and Evil. In M. Buber, Good and Evil. Two Interpretations 63-143). (R. G. Smith &amp; M. Bullock, Trans. ) New York: Charles Scribner's Sons.\n\nBuber, M. (1962). Werke, Bd. 1. [Collected Works, vol. 1]. München: Kösel &amp; Lambert Schneider. Buber, M. (1965a). Distance and relation. In M. Buber, The Knowledge of Man (pp.  59-71).  (M. Friedman &amp; R. G. Smith, Trans.). London: George Allen &amp; Unwin Ltd.\n\nBuber, M. (1965b). Elements of the interhuman. In The Knowledge of Man (pp. 72-88). (M. Friedman &amp; R. G. Smith, Trans.). London: George Allen &amp; Unwin Ltd.\n\nBuber, M. (1965c). Man and His image-work. In The Knowledge of Man (pp. 148-165). (M. Friedman &amp; R. G. Smith, Trans.). London: George Allen &amp; Unwin Ltd.\n\nBuber, M. (1967). Replies to my critics. In P. A. Schilpp &amp; M. Friedman (Eds.), The Philosophy of Martin Buber (pp. 689-744). La Salle/Illinois: Open Court.\n\nBuber, M. (1970a). I and Thou . (W. Kaufmann, Trans.). New York: Charles Scribner's Sons.\n\nBuber, M. (1970b). Interrogations of Martin Buber. In S. Rome &amp; B. Rome (Eds.), Philosophical Interrogations (pp. 13-117). New York: Harper Torchbook.\n\nBuber, M. (2004a). Dialogue. In M. Buber, Between Man and Man . London: Routledge.\n\nBuber, M. (2004b). What is Man? In M. Buber, Between Man and Man . London: Routledge.\n\nFriedman, M. (1965).  Introductory essay. In M. Buber, The Knowledge of Man (pp.  11-58).  (M. Friedman &amp; R. G. Smith, Trans.). London: George Allen &amp; Unwin Ltd.\n\nHarari, Y. N. (2017). Homo Deus. A brief history of tomorrow . New York: Harper.\n\nKliková, A., &amp; Kleisner, K. (Eds.). (2006). Umwelt - Koncepce žitého světa Jakoba von Uexkülla . [Umwelt - The concept of living world of Jakob von Uexküll]. Červený Kostelec: Pavel Mervart.\n\nPlašienková, Z., &amp; Bizoň, M. (2016). Antropológia normativity v myslení Pierra Teilharda de Chardin a  Martina Bubera. Človek-Príroda-Boh .  [The  anthropology of normativity in Pierre Teilhard de Chardin's and Martin Buber's thought]. Bratislava: Univerzita Komenského.\n\nPlašienková, Z., &amp; Kulisz, J. (2004). Na ceste s Teilhardom de Chardin . [On the way with Teilhard de Chardin]. Trnava: Dobrá kniha.\n\nRogers, C. R. (1961). On becoming a person. A therapist's view of psychotherapy .  Boston: Houghton Mifflin Company.\n\nRotenstreich, N. (1967). The right and the limitations of Buber's dialogical thought. In P. A. Schilpp &amp; M. Friedman (Eds.), The Philosophy of Martin Buber (pp. 97-152). La Salle/Illinois: Open Court.\n\nRotenstreich,  N.  (2010). Immediacy and its limits.  A  study  in  Martin  Buber's  thought .  London: Routledge.\n\nSchaeder, G. (1972). Martin Buber. Ein biographischen Abriß [Martin Buber: A biographical sketch]. In  G.  Schaeder  (Ed.), Martin Buber Briefwechsel aus sieben Jahrzehnten. Bd. I: 1897 - 1918 [Martin  Buber.  Correspondence  from  seven  decades.  Vol.  I:  1897-1918].  Heidelberg:  Verlag Lambert Schneider, 19-141.\n\nSchaeder, G. (1973). The Hebrew humanism of Martin Buber. (N. J. Jacobs, Trans.).  Detroit: Wayne State University Press.\n\nŠajda, P.  (2013). Buberov spor s Kierkegaardom. O vzťahu náboženstva k etike a politike .  [Buber's polemic with Kierkegaard. On the relationship of religion  to  ethics  and  politics].  Bratislava: Kalligram.\n\nUexküll, J. Von (1957). A stroll through the worlds of animals and men: A Picture Book of Invisible Worlds. In  C.  H.  Schiller  (Ed.  &amp;  trans.), Instinctive  behavior:  The  development  of  a  modern concept (pp. 5-80). New York: International Universities Press.\n\nUexküll, J. Von (1982). The theory of meaning. Semiotica , 42 (1), 25-82.\n\nWheelwright, P. (1967): Buber's philosophical anthropology. In P. A. Schilpp &amp; M. Friedman (Eds.), The Philosophy of Martin Buber (pp. 69-95). La Salle/Illinois: Open Court.\n\nDepartment of Ethics and Civic Education Faculty of Education Comenius University in Bratislava Moskovská 3 811 08 Bratislava Slovak Republic Email: bizon@uniba.sk",
+    "responses": [
+      {
+        "source": "gpt-4o-2024-11-20",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"ADU1\": {\n      \"text\": \"The central question is 'How is man possible?'\",\n      \"label\": \"claim\"\n    },\n    \"ADU2\": {\n      \"text\": \"Buber's answer is very important to the further development of his principle of dialogue in psychology (primarily his notion of confirmation) and philosophy of art, but it is not quite clear how compatible it is with some of his earlier theses from I and Thou.\",\n      \"label\": \"premise\"\n    },\n    \"ADU3\": {\n      \"text\": \"In particular, the relation between 'distance' and the I-It relation is unclear.\",\n      \"label\": \"premise\"\n    },\n    \"ADU4\": {\n      \"text\": \"There are two seemingly contradictory statements: 'In the beginning is the relation' and 'The primal distance is a presupposition of the relation'.\",\n      \"label\": \"premise\"\n    },\n    \"ADU5\": {\n      \"text\": \"The aim of this paper is to examine these anthropological foundations and to elucidate this apparent contradiction.\",\n      \"label\": \"claim\"\n    },\n    \"ADU6\": {\n      \"text\": \"Buber came to the insight that the principle of human life is twofold and is based on two movements.\",\n      \"label\": \"claim\"\n    },\n    \"ADU7\": {\n      \"text\": \"He calls the first of these two movements 'the primal setting at a distance' (Urdistanzierung) and the second of them 'entering into a relation' (In-Beziehung-Treten).\",\n      \"label\": \"premise\"\n    },\n    \"ADU8\": {\n      \"text\": \"The first movement is the presupposition of the second.\",\n      \"label\": \"claim\"\n    },\n    \"ADU9\": {\n      \"text\": \"This results from the fact that 'one can enter into relation only with a being which has been set at a distance'.\",\n      \"label\": \"premise\"\n    },\n    \"ADU10\": {\n      \"text\": \"The categories 'distance' and 'relationship' are implicit to each other, which means that 'the process of distancing implies as its complementary the process of entering into a relationship'.\",\n      \"label\": \"premise\"\n    },\n    \"ADU11\": {\n      \"text\": \"The personal dimension of human life is constituted through the 'relation' and not through 'distance'.\",\n      \"label\": \"claim\"\n    },\n    \"ADU12\": {\n      \"text\": \"The first movement yields the answer to the question: 'How is man possible?' The second answers the question: 'How is human life realized?'\",\n      \"label\": \"claim\"\n    },\n    \"ADU13\": {\n      \"text\": \"The mutual confirmation of human beings in their uniqueness distinguishes man from other living beings.\",\n      \"label\": \"claim\"\n    },\n    \"ADU14\": {\n      \"text\": \"Man is the sole living creature in whom the category of possibility is embodied—he is not fully determined and fixed in his being—and therefore needs confirmation.\",\n      \"label\": \"premise\"\n    },\n    \"ADU15\": {\n      \"text\": \"A presupposition for both characteristics is the first movement of 'distance', which guarantees that another person is perceived as an independent counterpart.\",\n      \"label\": \"premise\"\n    },\n    \"ADU16\": {\n      \"text\": \"The confirmation itself then represents the realization of the second movement of the 'relation'.\",\n      \"label\": \"claim\"\n    },\n    \"ADU17\": {\n      \"text\": \"The connection between 'entering into a relation' and the basic word I-Thou is obvious.\",\n      \"label\": \"claim\"\n    },\n    \"ADU18\": {\n      \"text\": \"The 'relation' from the essay 'Distance and Relation' can be fully identified with the I-Thou relationship from I and Thou.\",\n      \"label\": \"premise\"\n    },\n    \"ADU19\": {\n      \"text\": \"The connection between 'primal distance' and the I-It relation is not so obvious.\",\n      \"label\": \"claim\"\n    },\n    \"ADU20\": {\n      \"text\": \"'Primal distance' is inherent to every man as a man; it is a particular state that establishes the human situation and as such is pre-personal.\",\n      \"label\": \"premise\"\n    },\n    \"ADU21\": {\n      \"text\": \"The relations of I-Thou and I-It express the personal existence of man.\",\n      \"label\": \"premise\"\n    },\n    \"ADU22\": {\n      \"text\": \"'Distance' makes room for entering into a relationship, but when the establishment of the I-Thou relation fails, the distance becomes solidified and thickened, thereby presenting an obstacle to the essential relationship.\",\n      \"label\": \"claim\"\n    },\n    \"ADU23\": {\n      \"text\": \"The process of distancing is a priori in the Kantian sense.\",\n      \"label\": \"premise\"\n    },\n    \"ADU24\": {\n      \"text\": \"In the concept of 'primal distance', that is the ontological presupposition of all human relationships to all existing beings, Buber recognized the anthropological foundation of his cosmic vision of dialogical life.\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"ADU1\",\n      \"target\": \"ADU2\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU1\",\n      \"target\": \"ADU3\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU3\",\n      \"target\": \"ADU4\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU5\",\n      \"target\": \"ADU4\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU6\",\n      \"target\": \"ADU7\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU8\",\n      \"target\": \"ADU9\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU8\",\n      \"target\": \"ADU10\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU11\",\n      \"target\": \"ADU12\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU13\",\n      \"target\": \"ADU14\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU13\",\n      \"target\": \"ADU15\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU16\",\n      \"target\": \"ADU15\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU17\",\n      \"target\": \"ADU18\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU19\",\n      \"target\": \"ADU20\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU19\",\n      \"target\": \"ADU21\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU22\",\n      \"target\": \"ADU23\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU24\",\n      \"target\": \"ADU22\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "ADU1": {
+              "text": "The central question is 'How is man possible?'",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "Buber's answer is very important to the further development of his principle of dialogue in psychology (primarily his notion of confirmation) and philosophy of art, but it is not quite clear how compatible it is with some of his earlier theses from I and Thou.",
+              "label": "premise"
+            },
+            "ADU3": {
+              "text": "In particular, the relation between 'distance' and the I-It relation is unclear.",
+              "label": "premise"
+            },
+            "ADU4": {
+              "text": "There are two seemingly contradictory statements: 'In the beginning is the relation' and 'The primal distance is a presupposition of the relation'.",
+              "label": "premise"
+            },
+            "ADU5": {
+              "text": "The aim of this paper is to examine these anthropological foundations and to elucidate this apparent contradiction.",
+              "label": "claim"
+            },
+            "ADU6": {
+              "text": "Buber came to the insight that the principle of human life is twofold and is based on two movements.",
+              "label": "claim"
+            },
+            "ADU7": {
+              "text": "He calls the first of these two movements 'the primal setting at a distance' (Urdistanzierung) and the second of them 'entering into a relation' (In-Beziehung-Treten).",
+              "label": "premise"
+            },
+            "ADU8": {
+              "text": "The first movement is the presupposition of the second.",
+              "label": "claim"
+            },
+            "ADU9": {
+              "text": "This results from the fact that 'one can enter into relation only with a being which has been set at a distance'.",
+              "label": "premise"
+            },
+            "ADU10": {
+              "text": "The categories 'distance' and 'relationship' are implicit to each other, which means that 'the process of distancing implies as its complementary the process of entering into a relationship'.",
+              "label": "premise"
+            },
+            "ADU11": {
+              "text": "The personal dimension of human life is constituted through the 'relation' and not through 'distance'.",
+              "label": "claim"
+            },
+            "ADU12": {
+              "text": "The first movement yields the answer to the question: 'How is man possible?' The second answers the question: 'How is human life realized?'",
+              "label": "claim"
+            },
+            "ADU13": {
+              "text": "The mutual confirmation of human beings in their uniqueness distinguishes man from other living beings.",
+              "label": "claim"
+            },
+            "ADU14": {
+              "text": "Man is the sole living creature in whom the category of possibility is embodied—he is not fully determined and fixed in his being—and therefore needs confirmation.",
+              "label": "premise"
+            },
+            "ADU15": {
+              "text": "A presupposition for both characteristics is the first movement of 'distance', which guarantees that another person is perceived as an independent counterpart.",
+              "label": "premise"
+            },
+            "ADU16": {
+              "text": "The confirmation itself then represents the realization of the second movement of the 'relation'.",
+              "label": "claim"
+            },
+            "ADU17": {
+              "text": "The connection between 'entering into a relation' and the basic word I-Thou is obvious.",
+              "label": "claim"
+            },
+            "ADU18": {
+              "text": "The 'relation' from the essay 'Distance and Relation' can be fully identified with the I-Thou relationship from I and Thou.",
+              "label": "premise"
+            },
+            "ADU19": {
+              "text": "The connection between 'primal distance' and the I-It relation is not so obvious.",
+              "label": "claim"
+            },
+            "ADU20": {
+              "text": "'Primal distance' is inherent to every man as a man; it is a particular state that establishes the human situation and as such is pre-personal.",
+              "label": "premise"
+            },
+            "ADU21": {
+              "text": "The relations of I-Thou and I-It express the personal existence of man.",
+              "label": "premise"
+            },
+            "ADU22": {
+              "text": "'Distance' makes room for entering into a relationship, but when the establishment of the I-Thou relation fails, the distance becomes solidified and thickened, thereby presenting an obstacle to the essential relationship.",
+              "label": "claim"
+            },
+            "ADU23": {
+              "text": "The process of distancing is a priori in the Kantian sense.",
+              "label": "premise"
+            },
+            "ADU24": {
+              "text": "In the concept of 'primal distance', that is the ontological presupposition of all human relationships to all existing beings, Buber recognized the anthropological foundation of his cosmic vision of dialogical life.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU1",
+              "target": "ADU2",
+              "type": "support"
+            },
+            {
+              "source": "ADU1",
+              "target": "ADU3",
+              "type": "support"
+            },
+            {
+              "source": "ADU3",
+              "target": "ADU4",
+              "type": "support"
+            },
+            {
+              "source": "ADU5",
+              "target": "ADU4",
+              "type": "support"
+            },
+            {
+              "source": "ADU6",
+              "target": "ADU7",
+              "type": "support"
+            },
+            {
+              "source": "ADU8",
+              "target": "ADU9",
+              "type": "support"
+            },
+            {
+              "source": "ADU8",
+              "target": "ADU10",
+              "type": "support"
+            },
+            {
+              "source": "ADU11",
+              "target": "ADU12",
+              "type": "support"
+            },
+            {
+              "source": "ADU13",
+              "target": "ADU14",
+              "type": "support"
+            },
+            {
+              "source": "ADU13",
+              "target": "ADU15",
+              "type": "support"
+            },
+            {
+              "source": "ADU16",
+              "target": "ADU15",
+              "type": "support"
+            },
+            {
+              "source": "ADU17",
+              "target": "ADU18",
+              "type": "support"
+            },
+            {
+              "source": "ADU19",
+              "target": "ADU20",
+              "type": "support"
+            },
+            {
+              "source": "ADU19",
+              "target": "ADU21",
+              "type": "support"
+            },
+            {
+              "source": "ADU22",
+              "target": "ADU23",
+              "type": "support"
+            },
+            {
+              "source": "ADU24",
+              "target": "ADU22",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "ADU1": {
+              "text": "The central question is 'How is man possible?'",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "Buber's answer is very important to the further development of his principle of dialogue in psychology (primarily his notion of confirmation) and philosophy of art, but it is not quite clear how compatible it is with some of his earlier theses from I and Thou.",
+              "label": "premise"
+            },
+            "ADU3": {
+              "text": "In particular, the relation between 'distance' and the I-It relation is unclear.",
+              "label": "premise"
+            },
+            "ADU4": {
+              "text": "There are two seemingly contradictory statements: 'In the beginning is the relation' and 'The primal distance is a presupposition of the relation'.",
+              "label": "premise"
+            },
+            "ADU5": {
+              "text": "The aim of this paper is to examine these anthropological foundations and to elucidate this apparent contradiction.",
+              "label": "claim"
+            },
+            "ADU6": {
+              "text": "Buber came to the insight that the principle of human life is twofold and is based on two movements.",
+              "label": "claim"
+            },
+            "ADU8": {
+              "text": "The first movement is the presupposition of the second.",
+              "label": "claim"
+            },
+            "ADU11": {
+              "text": "The personal dimension of human life is constituted through the 'relation' and not through 'distance'.",
+              "label": "claim"
+            },
+            "ADU12": {
+              "text": "The first movement yields the answer to the question: 'How is man possible?' The second answers the question: 'How is human life realized?'",
+              "label": "claim"
+            },
+            "ADU13": {
+              "text": "The mutual confirmation of human beings in their uniqueness distinguishes man from other living beings.",
+              "label": "claim"
+            },
+            "ADU15": {
+              "text": "A presupposition for both characteristics is the first movement of 'distance', which guarantees that another person is perceived as an independent counterpart.",
+              "label": "premise"
+            },
+            "ADU16": {
+              "text": "The confirmation itself then represents the realization of the second movement of the 'relation'.",
+              "label": "claim"
+            },
+            "ADU17": {
+              "text": "The connection between 'entering into a relation' and the basic word I-Thou is obvious.",
+              "label": "claim"
+            },
+            "ADU18": {
+              "text": "The 'relation' from the essay 'Distance and Relation' can be fully identified with the I-Thou relationship from I and Thou.",
+              "label": "premise"
+            },
+            "ADU19": {
+              "text": "The connection between 'primal distance' and the I-It relation is not so obvious.",
+              "label": "claim"
+            },
+            "ADU20": {
+              "text": "'Primal distance' is inherent to every man as a man; it is a particular state that establishes the human situation and as such is pre-personal.",
+              "label": "premise"
+            },
+            "ADU24": {
+              "text": "In the concept of 'primal distance', that is the ontological presupposition of all human relationships to all existing beings, Buber recognized the anthropological foundation of his cosmic vision of dialogical life.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU1",
+              "target": "ADU2",
+              "type": "support"
+            },
+            {
+              "source": "ADU1",
+              "target": "ADU3",
+              "type": "support"
+            },
+            {
+              "source": "ADU3",
+              "target": "ADU4",
+              "type": "support"
+            },
+            {
+              "source": "ADU5",
+              "target": "ADU4",
+              "type": "support"
+            },
+            {
+              "source": "ADU11",
+              "target": "ADU12",
+              "type": "support"
+            },
+            {
+              "source": "ADU13",
+              "target": "ADU15",
+              "type": "support"
+            },
+            {
+              "source": "ADU16",
+              "target": "ADU15",
+              "type": "support"
+            },
+            {
+              "source": "ADU17",
+              "target": "ADU18",
+              "type": "support"
+            },
+            {
+              "source": "ADU19",
+              "target": "ADU20",
+              "type": "support"
+            }
+          ]
+        }
+      },
+      {
+        "source": "claude-3-5-sonnet-20241022",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"1\": {\n      \"text\": \"The central question is 'How is man possible?' Buber's answer is very important to the further development of his principle of dialogue in psychology (primarily his notion of confirmation) and philosophy of art, but it is not quite clear how compatible it is with some of his earlier theses from I and Thou.\",\n      \"label\": \"claim\"\n    },\n    \"2\": {\n      \"text\": \"The principle of human life is twofold and is based on two movements. He calls the first of these two movements 'the primal setting at a distance' (Urdistanzierung) and the second of them 'entering into a relation' (In-Beziehung-Treten)\",\n      \"label\": \"claim\"\n    },\n    \"3\": {\n      \"text\": \"one can enter into relation only with a being which has been set at a distance\",\n      \"label\": \"claim\"\n    },\n    \"4\": {\n      \"text\": \"While the second movement, as we have seen, is not possible without the first, the first is possible without the second. This is down to the transition from the first to the second being not inevitable but possible; the first movement only allows room for the existence of the second.\",\n      \"label\": \"claim\"\n    },\n    \"5\": {\n      \"text\": \"Man is the sole living creature in whom the category of possibility is embodied-he is not fully determined and fixed in his being-and therefore needs confirmation\",\n      \"label\": \"claim\"\n    },\n    \"6\": {\n      \"text\": \"The connection between 'entering into a relation' and the basic word I-Thou is obvious. The first means entering into the I-Thou relationship. The 'relation' from the essay 'Distance and Relation' can be fully identified with the I-Thou relationship from I and Thou.\",\n      \"label\": \"claim\"\n    },\n    \"7\": {\n      \"text\": \"'Primal distance' is inherent to every man as a man; it is a particular state that establishes the human situation and as such is pre-personal. However, the relations of I-Thou and I-It express the personal existence of man\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"2\",\n      \"target\": \"1\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"3\",\n      \"target\": \"2\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"4\",\n      \"target\": \"2\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"5\",\n      \"target\": \"1\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"6\",\n      \"target\": \"2\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"7\",\n      \"target\": \"2\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "1": {
+              "text": "The central question is 'How is man possible?' Buber's answer is very important to the further development of his principle of dialogue in psychology (primarily his notion of confirmation) and philosophy of art, but it is not quite clear how compatible it is with some of his earlier theses from I and Thou.",
+              "label": "claim"
+            },
+            "2": {
+              "text": "The principle of human life is twofold and is based on two movements. He calls the first of these two movements 'the primal setting at a distance' (Urdistanzierung) and the second of them 'entering into a relation' (In-Beziehung-Treten)",
+              "label": "claim"
+            },
+            "3": {
+              "text": "one can enter into relation only with a being which has been set at a distance",
+              "label": "claim"
+            },
+            "4": {
+              "text": "While the second movement, as we have seen, is not possible without the first, the first is possible without the second. This is down to the transition from the first to the second being not inevitable but possible; the first movement only allows room for the existence of the second.",
+              "label": "claim"
+            },
+            "5": {
+              "text": "Man is the sole living creature in whom the category of possibility is embodied-he is not fully determined and fixed in his being-and therefore needs confirmation",
+              "label": "claim"
+            },
+            "6": {
+              "text": "The connection between 'entering into a relation' and the basic word I-Thou is obvious. The first means entering into the I-Thou relationship. The 'relation' from the essay 'Distance and Relation' can be fully identified with the I-Thou relationship from I and Thou.",
+              "label": "claim"
+            },
+            "7": {
+              "text": "'Primal distance' is inherent to every man as a man; it is a particular state that establishes the human situation and as such is pre-personal. However, the relations of I-Thou and I-It express the personal existence of man",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "2",
+              "target": "1",
+              "type": "support"
+            },
+            {
+              "source": "3",
+              "target": "2",
+              "type": "support"
+            },
+            {
+              "source": "4",
+              "target": "2",
+              "type": "support"
+            },
+            {
+              "source": "5",
+              "target": "1",
+              "type": "support"
+            },
+            {
+              "source": "6",
+              "target": "2",
+              "type": "support"
+            },
+            {
+              "source": "7",
+              "target": "2",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "1": {
+              "text": "The central question is 'How is man possible?' Buber's answer is very important to the further development of his principle of dialogue in psychology (primarily his notion of confirmation) and philosophy of art, but it is not quite clear how compatible it is with some of his earlier theses from I and Thou.",
+              "label": "claim"
+            },
+            "2": {
+              "text": "The principle of human life is twofold and is based on two movements. He calls the first of these two movements 'the primal setting at a distance' (Urdistanzierung) and the second of them 'entering into a relation' (In-Beziehung-Treten)",
+              "label": "claim"
+            },
+            "3": {
+              "text": "one can enter into relation only with a being which has been set at a distance",
+              "label": "claim"
+            },
+            "4": {
+              "text": "While the second movement, as we have seen, is not possible without the first, the first is possible without the second. This is down to the transition from the first to the second being not inevitable but possible; the first movement only allows room for the existence of the second.",
+              "label": "claim"
+            },
+            "5": {
+              "text": "Man is the sole living creature in whom the category of possibility is embodied-he is not fully determined and fixed in his being-and therefore needs confirmation",
+              "label": "claim"
+            },
+            "6": {
+              "text": "The connection between 'entering into a relation' and the basic word I-Thou is obvious. The first means entering into the I-Thou relationship. The 'relation' from the essay 'Distance and Relation' can be fully identified with the I-Thou relationship from I and Thou.",
+              "label": "claim"
+            },
+            "7": {
+              "text": "'Primal distance' is inherent to every man as a man; it is a particular state that establishes the human situation and as such is pre-personal. However, the relations of I-Thou and I-It express the personal existence of man",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "2",
+              "target": "1",
+              "type": "support"
+            },
+            {
+              "source": "3",
+              "target": "2",
+              "type": "support"
+            },
+            {
+              "source": "4",
+              "target": "2",
+              "type": "support"
+            },
+            {
+              "source": "5",
+              "target": "1",
+              "type": "support"
+            },
+            {
+              "source": "6",
+              "target": "2",
+              "type": "support"
+            },
+            {
+              "source": "7",
+              "target": "2",
+              "type": "support"
+            }
+          ]
+        }
+      }
+    ],
+    "timestamp": 1752754851.8379867
+  }
+]

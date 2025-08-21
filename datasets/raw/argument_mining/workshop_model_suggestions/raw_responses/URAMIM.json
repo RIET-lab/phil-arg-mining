@@ -1,0 +1,444 @@
+[
+  {
+    "identifier": "URAMIM",
+    "system_prompt": "## GOAL\nArgument‑mine the following paper to extract its comprehensive argumentative structure.\n\n## DEFINITIONS\n1. **Argument**: A set of propositions, including some number of premises and a conclusion. The premises should logically entail the conclusion.\n2. **Claim**: A proposition that asserts something to be true or false, typically requiring justification or evidence.\n3. **Premise**: A proposition that provides evidence, justification, or logical support for a claim or conclusion.\n\n## CRITICAL REQUIREMENTS\n1. **VERBATIM EXTRACTION ONLY**: Each ADU text must be copied EXACTLY from the paper with no modifications, paraphrasing, or combining of separate sentences.\n2. **NO HALLUCINATION**: Do not create, modify, or invent text that does not appear exactly in the source.\n3. **EXACT MATCHING**: Every word, punctuation mark, and spacing must match the original precisely.\n\n## DIRECTIONS\n1. **Identify Argumentative Discourse Units (ADUs)**  \n   - ADU = any contiguous text span functioning as a claim or a premise in the reasoning structure.\n   - **BE HIGHLY SELECTIVE**: Only include ADUs that are crucial to the overarching argument structure.\n   - Focus on significant claims and premises that contribute meaningfully to the argumentative flow.\n   - **AVOID NOISE**: Skip ADUs that are merely descriptive, tangential, or do not substantially advance the argument.\n   - Prioritize quality over quantity - fewer accurate, important ADUs are better than many insignificant ones.\n   - **EXTRACT ONLY**: Copy text spans exactly as they appear, without any modifications.\n2. **Classify each ADU**  \n   - Label = either `\"claim\"` or `\"premise\"`.  \n3. **Detect directed relations**  \n   - Relation = `\"support\"` or `\"attack\"`, from one ADU (source) to another (target).\n   - Map how ADUs connect to form reasoning chains.\n   - Focus on relationships between the most significant ADUs.\n   - Include relationships between premises that strengthen or weaken each other.\n4. **Verbatim spans**  \n   - Each `\"text\"` value must be copied EXACTLY from the paper with zero modifications.\n   - Do not paraphrase, summarize, or combine separate sentences.\n   - Do not add, remove, or change any words, punctuation, or spacing.\n   - If unsure about exact wording, skip that ADU rather than guess.\n\n## WHAT TO CAPTURE\n**INCLUDE ONLY:**\n- Main argumentative threads that are central to the paper's contribution\n- Core claims that represent the paper's primary arguments or findings\n- Key premises that provide essential support for major claims\n- Critical counterarguments and their refutations\n- Reasoning chains that demonstrate how main conclusions are derived\n\n**EXCLUDE (AVOID NOISE):**\n- Minor details, examples, or descriptive content that don't advance the argument\n- Tangential points or side discussions\n- Pure background information or literature review content\n- Methodological details unless they constitute argumentative claims\n- Obvious statements or commonly accepted facts\n- Redundant or repetitive argumentative content\n\n**GUIDING PRINCIPLE**: If removing an ADU would not significantly impact understanding of the paper's argumentative structure, it should be excluded.\n\n## QUALITY CONTROL\n- Before finalizing each ADU, verify the text exists exactly in the source\n- Prefer fewer, accurate ADUs over many potentially modified ones\n- When in doubt about exact wording, omit the ADU\n\n## OUTPUT FORMAT\nReturn **only** a single valid JSON object matching this schema.  \nDo **not** output any extra text, markdown, or explanations.\nDo **not** add comments.\n**RESPOND WITH ONLY**:\n```json\n{\n  \"ADUs\": {\n    \"<ADU_ID>\": {\n      \"text\": \"<exact span from paper>\",\n      \"label\": \"claim\" | \"premise\"\n    }\n    ...\n  },\n  \"relations\": [\n    {\n      \"source\": \"<ADU_ID>\",\n      \"target\": \"<ADU_ID>\",\n      \"type\": \"support\" | \"attack\"\n    }\n  ]\n}\n```",
+    "user_content": "## Meta-Reasoning\tin\tMaking\tMoral\tDecisions\tunder Normative\tUncertainty\n\nTOMASZ\tŻURADZKI\n\nInstitute\tof\tPhilosophy,\tJagiellonian\tUniversity,\tPoland t.zuradzki@uj.edu.pl\n\nIn\tmy\tpaper\tI\tanalyze\trecent\tdiscussions\tabout\tmaking\tmoral decisions\tunder\tnormative\tuncertainty.\tI\tdiscuss\twhether\tthis kind\t of\t uncertainty\t should\t have\t practical\t consequences\t for decisions\tand\twhether\tthere\tare\treliable\tmethods\tof\treasoning that\t deal\t with\t the\t possibility\t that\t we\t are\t wrong\t about\t some moral\t issues.\t I\t defend\t a\t limited\t use\t of\t the\t decision\t theory model\tof\treasoning\tin\tcases\tof\tnormative\tuncertainty.\n\nKEYWORDS:\t bioethics,\t decision\t theory,\t metaethics,\t moral uncertainty,\tthe\tethics\tof\twar\n\n## 1.\tINTRODUCTION\n\nThe\t simple\t fact\t is\t that\t even\t when\t we\t feel\t quite\t certain\t about\t moral issues,\t we\t are\t susceptible\t to\t mistakes.\t For\t example,\t we\t have\t to\t act\t in the\t face\t of\t uncertainty\t about\t the\t facts,\t the\t consequences\t of\t our decisions,\t the\t identity\t of\t people\t involved,\t people's\t preferences,\t moral doctrines,\t specific\t moral\t duties,\t or\t the\t ontological\t status\t of\t some entities (belonging to some\t ontological class usually has serious implications\tfor\tmoral\tstatus).\tI\twant\tto\tanalyze\twhether\tthese\tkinds\tof uncertainties should have practical consequences\t for actions and whether\t there\t are\t reliable\t methods\t of\t reasoning\t that\t deal\t with\t the possibility\tthat\twe\tunderstand\tsome\tcrucial\tmoral\tissues\twrong.\n\nThe\t most\t promising\t approach\t is\t to\t try\t to\t extend\t the\t decision theory model of reasoning to encompass normative uncertainty (Lockhart,\t 2000).\t But\t this\t model,\t when\t used\t to\t guide\t our\t action\t in moral\t terms,\t is\t highly\t controversial.\t It\t assumes\t that\t in\t the\t face\t of normative\trisk\tor\tuncertainty\twe\tare\trational\tif\tand\tonly\tif\twe\tmaximize expected\tvalue\t(whatever\tit\tis).\tIn\tthis\tcase\ttwo\tthings\twould\tdetermine what\twe\tought\tto\tdo\tunder\tnormative\tuncertainty:\t1)\tthe\tprobabilities\n\nassigned\t to\t the\t various\t normative\t views;\t 2)\t the\t differences\t in\t values between\t the\t available\t actions,\t according\t to\t each\t of\t those\t views.\t This approach\t -\t if\t successful\t -\t would\t have\t some\t interesting\t applications both\tin\tmetaethics\t(e.g.\trejecting\tnihilism,\tsee:\tRoss,\t2006)\tand\tapplied ethics\tin\tparticular\tthe\tethics\tof\twar\tand\tbioethics\t(permissible\tkilling people\t or\t animals,\t abortion,\t embryo\t research,\t see:\t Guerrero,\t 2007; Moller,\t2011;\tFriberg-Fernros,\t2014;\tŻuradzki,\t2012,\t2014).\tMoreover, the\t argument\t (from\t moral\t or\t normative\t uncertainty)\t is\t also\t used\t in other\tcontexts\t(Henning,\t2015).\n\nThe\tmain\tproblem\tthat\tthe\tsupporters\tof\tthis\tapproach\thave\tto deal with\t is\t the\t question\t of\t intertheoretic\t comparisons\t of\t value. Normally,\twhen\twe\tuse\texpected\tutility\tcalculus\twe\tuse\ta\tcommon\tscale by\t which\t it\t is\t possible\t to\t measure\t the\t values\t attached\t to\t different outcomes\t(this\tis\tone\treason\twhy\tso\tmany\texamples\trefer\tto\tmoney). But there doesn't seem\t to be any way\t of making\t this kind of intertheoretic\tcomparison\tof\tmoral\tvalues\tbetween\tdifferent\ttheories\tor doctrines.\t Moreover,\t recently\t a\t few\t philosophers\t presented\t other arguments\tagainst\tthe\tattempts\tto\textend\texpected\tvalue\tmaximization style\t reasoning\t to\t encompass\t moral\t uncertainty\t (MacAskill,\t 2013; Weatherson, 2014; Harman, 2015; Nissan-Rozen, 2015, Hedden, forthcoming).\n\n## 2.\tMANY\tFACES\tOF\tUNCERTAINTY\n\nThere\tare\tmany\tways\tin\twhich\tyou\tcan\tbe\tuncertain\tabout\tthe\tmorally important\taspects\tof\tyour\taction.\tFor\texample,\tyou\tcould\tbe\tcertain\tthat some\t action\t can\t harm\t some\t people\t (or\t other\t beings\t with\t the\t moral significance),\tbut\tuncertain\tabout\tthe\tidentity\tand\tthe\tnumber\tof\tpeople involved.\n\nA\tcombatant\twho\tfires\tindiscriminately\tfrom\this\tgun\tat\ta\tplace inhabited\tby\tnoncombatants\tis\tin\tthis\tposition.\tHe\tknows\tthat\tthere\tis\ta serious\t risk\t that\t some\t innocent\t people\t could\t be\t fatally\t shot,\t but\t he knows\tneither\ttheir\tidentity\tnor\tnumber.\tAlternatively,\tyou\tcan\tknow that\tthere\tis\ta\tserious\trisk\tthat\tsome\taction\twill\tharm\ta\tperson\tand\tyou can\tknow\twho\tis\tthis\tperson.\tSomeone\twho\tplays\tRussian\troulette\twith a\tprisoner\tof\twar\tis\tin\tthis\tposition.\n\nFinally,\t you\t can\t be\t sure\t that\t some\t action\t will\t harm\t some identified\tbeings,\tbut\tnot\tsure\tabout\tits\tontological\tor\tmoral\tstatus.\tThe real-life\t examples\tof\tbeings\twith\tuncertain\tontological\tor\tmoral\tstatus (at\t least\t from\t the\t perspective\t of\t some\t people)\t include\t fetus,\t human embryos\t(in\tparticular\tat\tthe\tvery\tearly\tstages\tof\tdevelopment)\tor\tsome products (real or only possible) of genetic engineering. Some philosophers\t have\t also\t argued\t that\t it\t is\t the\t case\t of\t at\t least\t some\n\nanimals.\tAnalogically\tto\tthe\ttwo\tabove\texamples,\tone\tcould\tbe\ttempted to\tsay\tthat\tsomeone\twho\taborts\tfetus,\tdestroys\thuman\tembryos\t(during in\tvitro\tprocedures\tor\tduring\tscientific\tresearch)\tor\tkills\tanimal\tis\tin\ta similar\tposition\tas\tsoldiers\tfrom\tthe\ttwo\tabove\texamples.\n\nIn\t all\t these\t cases\t there\t is\t a\t risk\t that\t something\t that\t has\t moral status\t will\t be\t harmed.\t So\t the\t popular\t argument\t says\t that\t in\t all\t these three\t cases\t there\t are\t strong\t reasons\t for\t agents\t not\t to\t act:\t not\t fire indiscriminately\tat\tarea\tinhabited\tby\tnoncombatants,\tnot\tplay\tRussian roulette\twith\ta\tprisoner\tof\twar,\tnot\tharm\thuman\tembryos\tor\tanimals. And\tthis\tpopular\targument\tadds\tthat\tit\tis\talso\ta\treason\tto\tcondemn\tsuch actions\t no\t matter\t what\t their\t results\t are.\t It\t is\t wrong\t -\t says\t this argument\t-\tto\timpose\ta\trisk\tto\tsomeone\twho\tis\tnot\tliable\tto\tbe\texposed, even\tif\t a\t potential\t victim\t is\t actually\t not\t harmed\t (review\t article\t about the\t problem\t of\t risk\t imposition:\t Hayenhjelm\t &amp;\t Wolff,\t 2012).\t This argument\t-\tpresented\tvery\toften\tby\tCatholic\tpreachers\tor\tscholars\t(but also,\t surprisingly,\t by\t defenders\t of\t animals\t rights)\t -\t treats\t all\t three above\t cases\t in\t a\t very\t similar\t way\t and\t is\t used\t to\t argue\t against\t the permissibility\tof\tabortion\tor\tdestruction\tof\tearly\thuman\tembryos.\tIt\tis usually\tpresented\tin\ta\tform\tan\tanalogy\tto\thunting:\n\n## Example\t1:\tDeer\thunting\n\nIf\t I\t am\t hunting\t with\ta\trifle,\t and\tI\tsee\tsomething\tmove\tin\tthe trees\t but\t am\t unsure\t whether\t it\t is\t a\t deer\t or\t a\t person,\t I\t am obliged\tnot\tto\tshoot\tuntil\tI\t establish\t that\t it\t is\t in\t fact\t a\t deer: better\tsafe\tthan\tsorry\t(Shaw,\t2008,\tp.\t219).\n\nCatholic\t preachers\t or\t scholars\t (and\t vegetarians)\t argue\t that\t when someone\tis\tunsure\twhether\tsome\tbeing\thas\ta\tfull\tmoral\tstatus\tor\tnot,\the should\t be\t obliged\t not\t to\t kill\t it.\t Since\t it\t is\t impossible\t to\t resolve empirically\t whether\t or\t not\t the\t target\t has\t full\t moral\t status,\t obligation not\tto\tkill\tis\tnot\ttime-limited.\tAccording\tto\tthis\tview\t(see\tfor\texample: Friberg-Fernros,\t 2014)\t the\t same\t argument\t can\t be\t applied\t to\t human embryos\t (in\t particular\t in\t early\t stages):\t since\t there\t are\t reasonable doubts\t about\t their\t personal\t status,\t morality\t requires\t that\t human embryos\tfrom\tconception\tbe\ttreated\tas\tpersons.\n\n## 3.\tFACTUAL\tUNCERTAINTY\tAND\tTHE\tETHICS\tOF\tWAR\n\nIn\t this\t chapter\t I\t will\t use\t some\t examples\t from\t the\t ethics\t of\t war\t to demonstrate\t the\t difference\t between\t cases\t of\t factual\t and\t normative uncertainty.\tIn\ta\twar\tcontext\tthe\tquestion\tof\trisk\timposition\tis\tdiscussed usually\tin\tthis\tkind\tof\tcontext:\n\n## Example\t2:\tA\tsecurity\tcheckpoint\n\nImagine\tthat\tyou\tare\ta\tsoldier,\tordered\tto\tprotect\ta\tmilitary\tor diplomatic\t convoy\t as\t it\t passes\t through\t hostile\t territory,\t and you\t see\t a\t car\t stopped\t by\t the\t side\t of\t the\t road\t ahead.\t Or imagine\tthat\tyou\tare\tstationed\tat\ta\tsecurity\tcheckpoint\tand\ta car\tapproaches\tdespite\tsigns\tand\twarnings\tdirecting\tit\tto\tstop. The\toccupants\tof\tthe\tcar\tmay\tbe\tcivilians,\tbut\tthey\talso\tmay\tbe irregular\tforces\twaiting\tto\tattack\t(Haque,\t2014,\tp.\t65).\n\nSo\t the\t question\t in\t this\t case\t is\t how\t certain\t should\t be\t a\t soldier\t that people\tat\tthe\tfront\tof\thim\tare\tcombatant,\trather\tthan\tnoncombatants, before\t using\t deadly\t force?\t Surely,\t soldiers\t are\t in\t a\t different\t position than\thunters,\tbecause\tthe\tstake\tis\tmuch\tbigger:\tthey\trisk\ttheir\tlives\tand they\trisk\tthe\tcase\tfor\twhich\tthey\tfight.\tIn\ta\thunter\tcase\tthere\tis\thardly anything\tvaluable\tin\tkilling\ta\tdeer\t(except\tfrom\thunter's\tpleasure,\tsince I\tassume\tthat\tit\tis\tnot\tnecessary\thunting).\tIn\tthis\tsense\ta\tsoldier's\tcase\tis more\tsimilar\tto\tsome\tcases\tof\tabortion\tor\tembryo\tresearch,\twhere\tthe stake\t also\t can\t be\t quite\t high\t (the\t well-being\t or\t health\t of\t woman; development\tof\tscience\tduring\tembryo\tresearch).\n\nThe obligation not to kill civilians is well-established in international law and international theory. For example\t Protocol Additional\tto\tthe\tGeneva\tConventions\tsays:\n\nIn\t order\t to\t ensure\t respect\t for\t and\t protection\t of\t the\t civilian population\tand\tcivilian\tobjects,\tthe\tParties\tto\tthe\tconflict\tshall at\t all\t times\t distinguish\t between\t the\t civilian\t population\t and combatants and between civilian objects and military objectives\t and\t accordingly\t shall\t direct\t their\t operations\t only against\tmilitary\tobjectives\t(Protocol,\t1977,\tart.\t48).\n\nSo\tfirstly,\tall\tparticipants\tin\tconflicts\tmust\tdetermine\twhether\tan\taim\tis legitimate or illegitimate target: they must distinguish between combatants\t and\t noncombatants\t (I\t will\t assume\t that\t combatants\t are people\t who\t are\t directly\t involved\t in\t hostilities,\t some\t of\t them\t can\t be civilians).\tAnd\tsecondly,\tit\tis\tpermissible\tto\ttarget\tonly\tcombatants\t(or other\tmilitary\tobjectives).\tOf\tcourse\tthis\tdescription\tis\thighly\tidealized, and\tI\t we\t have\t seen\t in A\t security\t checkpoint case\t very\t often\t it\t unclear whether\t the\t target\t of\t operation\t are\t combatants\t or\t not.\t Surprisingly, international\t law\t proposes\t a\t very\t similar\t rule\t to\t this\t one\t that\t was proposed\tin Deer\thunting case:\n\nIn\t case\t of\t doubt\t whether\t a\t person\t is\t a\t civilian,\t that\t person shall\tbe\tconsidered\tto\tbe\ta\tcivilian\t(Protocol,\t1977,\tsupra\tnote 9).\n\nThose\t who\t plan\t or\t decide\t upon\t an\t attack\t shall\t (…)\t do everything\tfeasible\tto\tverify\tthat\tthe\tobjectives\tto\tbe\tattacked are\tneither\tcivilians\tnor\tcivilian\tobjects\tand\tare\tnot\tsubject\tto special\tprotection\tbut\tare\tmilitary\tobjectives\t(Protocol,\t1977, supra\tnote\t5).\n\nThis\t point\t of\t the\t Protocol\t does\t not\t specify\t any\t the\t level\t of\t care\t with which a soldier must try to distinguish combatants from noncombatants.\t Neither\t this\t point\t specify\t how\t much\t effort\t should\t be put\t in\t verifying\t (soldiers\t should\t only\t do\t 'everything\t feasible').\t In\t its literal\t interpretations\t it\t means\t that\t if\t there\t is\t any\t doubt\t about\t the nature\tof\ta\ttarget\tproceeding\tis\tprohibited.\tIt\twould\tmean\tfor\texample that\tin\tcases\tlike A\tsecurity\tcheckpoint when\tthere\tis\tany\tdoubt\twhether in\t an\t approaching\t car\t are\t noncombatants,\t soldiers\t are\t not\t allowed\t to use\tdeadly\tforce.\n\nIn\tmany\tconflict\tsituation\tthis\tlevel\tof\tcivilian\tprotection\twould be\t too\t restrictive\t and\t some\t Western\t countries\t entered\t reservation about\tthis\tprovision\t(for\texample\tthe\tUK\tstates\tthat\tit\t'applies\tonly\tin cases\t of\t substantial\t doubt'\t -\t Declaration\t 2002).\t Haque\t noticed\t that despite literate meaning of this regulation in the literature or commentaries\t the\t most\t common\t approach\t to\t this\t problem\t is\t the balancing\t approach\t according\t to\t which\t 'both\t the\t required\t level\t of certainty\tand\tthe\trequired\tlevel\tof\trisk\tvary\twith\tthe\tbalance\tof\tmilitary and\thumanitarian\tconsiderations'\t(Haque,\t2012,\tp.\t63).\tThis\tapproach is\t visible\t in\t Walzer's Just\t and\t Unjust\t Wars when\t he\t writes\t about combatants'\tobligations:\n\nThe\t degree\t of\t risk\t that\t is\t permissible\t is\t going\t to\t vary\t with nature\tof\tthe\ttarget,\tthe\turgency\tof\tthe\tmoment,\tthe\tavailable technology,\tand\tso\ton\t(Walzer,\t2000,\tp.\t156).\n\nIt\t is\t also\t proposed\t by\t commentators\t who\t underline\t that\t combatants should\t'balance'\tpossible\tbenefits\tand\trisk\tto\tcivilians:\n\nThe\t reasonable\t care\t rule\t is\t disquieting.\t It\t vests\t belligerents with\t considerable\t discretion\t in\t multifaceted\t balancing\t and legitimizes\teven\tlarge-scale\tinjury\tto\tinnocent\tcivilians\tunder certain\tcircumstances\t(Waxman,\t2012,\tp.\t1393).\n\nSo\tthe\tmost\tcommon\tapproach\tamong\tscholars\tis\tquite\tcontradictory\tto the\t literal\t meaning\t of\t the\t Protocol:\t now\t one\t expects\t that\t soldiers\t can act\tonly\tif\the\tis\t100\tpercent\tcertain\tin\tall\tcases.\tIn\tsome\tcircumstances solders\tcan\tattack\teven\tin\tthe\tface\tof\tsubstantial\tdoubts\tabout\tthe\tstatus of\t target\t (when\t the\t military\t stakes\t are\t very\t high),\t and\t in\t some circumstances\tsoldiers\tmust\tabstain\tfrom\tattack\tin\tthe\tface\tof\teven\tvery slight\tdoubts.\n\nIt\t can\t be\t visible\t in\t the\t next\t hypothetical\t example,\t which\t is slightly\tmodified\tversion\tof\tthe\tExample\tno.\t1 A\tsecurity\tcheckpoint :\n\n## Example\t3:\tA\tsecurity\tcheckpoint\t(modified)\n\nImagine\tthat\tyou\tare\ta\tsoldier,\tordered\tto\tprotect\ta\tmilitary\tor diplomatic\tconvoy\t[consisting\tof:\ta)\t5\tpeople;\tb)\t20\tpeople]\tas it\t passes\tthrough\thostile\tterritory,\tand\tyou\tsee\ta\tcar\tstopped by\t the\t side\t of\t the\t road\t ahead.\t Or\t imagine\t that\t you\t are stationed\tat\ta\tsecurity\tcheckpoint\t[consisting\tof:\ta)\t5\tsoldiers; b)\t 20\t soldiers]\t and\t a\t car\t approaches\t despite\t signs\t and warnings\tdirecting\tit\tto\tstop.\tThe\toccupants\tof\tthe\tcar\tmay\tbe civilians,\t but\t they\t also\t may\t be\t irregular\t forces\t waiting\t to attack.\n\nIn\tthis\tcase\twe\tmodified\tnumber\tof\tsolders\tendangered:\tin\tthe\ta)\tcases there are only 5 endangered\t soldiers, in the b) cases there 20 endangered\t soldiers.\t I\t assume\t that\t if\t the\t occupants\t of\t the\t car\t are irregular\t forces\t they\t will\t want\t to\t kill\t all\t soldiers.\t According\t to\t the balancing\tapproach\tthe\tway\tin\twhich\tsoldiers\tshould\tprecede\tdepends on\tthe\tnumber\tof\tsolders\tendangered:\tthey\tare\tpermissible\tto\tact\teven\tif they\t have\t more\t serious\t doubts\t in\t the\t b-type\t cases\t than\t in\t the\t a-type cases.\n\nThere\tare\tserious\tobjections\tto\tthe\tbalancing\tapproach\tin\tcase\tof the\t ethics\t of\t war\t (Haque,\t 2012),\t but\t I\t am\t not\t going\t to\t evaluate\t them. Instead,\tI\twant\tto\tdemonstrate\tthat\tthis\tkind\tof\tbalancing\tapproach\tis even\tmore\tdifficult\tto\tuse\tin\tthe\tcases\tof\tmoral\tuncertainty.\n\n## 4.\tMORAL\tUNCERTAINTY\tAND\tBALANCING\tAPPROACH\n\nLet\tme\tstart\tthis\tpart\twith\ta\ttypical\texample\tdiscussed\tin\tthe\tliterature.\n\n## Example\t4:\tMeat\teating\n\nSuppose,\tfor\texample,\tthat\tan\tagent\tis\tuncertain\tbetween\ttwo views\tabout\tthe\tmorality\tof\teating\tmeat.\tIn\tone\tview,\teating meat\tis\ttantamount\tto\tmurder;\tit\tis\tmuch,\tmuch\tworse,\tthen, to\teat\tmeat\tthan\tto\tabstain\tfrom\tit.\tIn\tanother\tview,\tit\tis\tever so\tslightly\tbetter\tto\teat\tmeat\tthan\tto\tabstain\t-\tbetter,\tperhaps,\n\nfor\treasons\tof\thealth\tor\tpleasure.\tIn\tthe\tmost\tplausible\tviews of\t rationality\t under\t moral\t uncertainty,\t it\t is\t rational\t to\t avoid eating\tmeat,\teven\tif\tone's\tbelief\tin\tthe\tsecond\tview\tis\tslightly higher\t(Sepielli,\t2013,\tp.\t581).\n\nAt\tfirst\tsight\tit\tseems\tthat\tthis\texample\tis\tvery\tsimilar\tto\tthe\tcase\tof Deer hunting :\ton\tthe\tone\thand\twe\tcan\tact\tin\ta\trisky\tway\t-\twe\tcan\thave\ta\tsmall benefit\t (a\t deer\t is\t ours;\t we\t eat\t a\t nice\t meal),\t but\t there\t is\t a\t serious possibility\tthat\twe\tdo\tsomething\tvery\twrong:\twe\tkill\ta\tperson;\tor\twe\tkill a\tbeing\tthat\thave\tfull\tmoral\tstatus\t-\tthe\tsame\tor\talmost\tthe\tsame\tas\tan adult\tperson.\tSo\tit\tmay\tseem\tthat\trationality\trequires\tto\tdo\tthe\taction with\t 'the\t highest\t expected\t moral\t value'.\t What\t does\t it\t mean?\t 'An action's\t expected\t moral\t value\t is\t the\t probability-weighted\t sum\t of\t its moral\tvalues\taccording\tto\tthe\tvarious\tmoral\tviews\tor\ttheories'\t(Sepielli, 2013,\tp.\t581).\tMoreover,\tit\tseems\tthat\tany\tplausible\ttheory\tof\trational decision\t making\t under\t uncertainty\t will\t care\t about\t moral\t stakes\t of decisions\taccording\tto\tdifferent\tmoral\ttheories.\tSo,\tbelow\tI\tdemonstrate that\t the\t expected\t moral\t value\t solution\t is\t only\t one\t of\t many\t possible solutions\tthat\twere\tproposed\trecently.\n\nIt\t is\t worth\t noting\t that\t other\t examples\t related\t with\t decisionmaking\tunder\tnormative\tuncertainty\t(abortion,\tdestroying\tearly\thuman embryos)\t are\t more\t complicated\t than\t meat\t eating\t because\t there\t are important\tvalues\tnot\ton\tone\tside,\tbut\ton\tboth\t(so\tthey\tare\tmore\tsimilar to\t the\t security\t checkpoint\t cases).\t Abortions\t are\t usually\t defended because\t of\t some\t important\t values\t at\t stake\t (well-being\t or\t health\t of\t a woman,\t the\t low\t quality\t of\t life\t of\t possible\t child).\t The\t same\t is\t with destroying\t of\t early\t human\t embryos\t either\t because\t of\t reproductive purpose\t(in\tvitro\tfertilization)\tor\tbecause\tof\tscientific\tresearch.\tBelow we\twill\tsee\tthe\timportance\tof\tthis\tdifference.\n\n## 4.1\tMy\tFavorite\tTheory\tand\tits\tproblems\n\nProbably\t the\t most\t obvious\t proposition\t how\t to\t act\t under\t normative uncertainty\t is\t My\t Favorite\t Theory\t approach.\t It\t says\t that\t 'a\t morally conscientious\t agent\t chooses\t an\t option\t that\t is\t permitted\t by\t the\t most credible\t moral\t theory'\t (Gustafsson\t &amp;\t Torpman,\t 2014,\t p.\t 159).\t Even\t if you\thave\tdoubts\tabout\tmeat\teating,\tyou\tare\tpermitted\tto\teat\tit\tif\tyou believe\tthat\ttheory\taccording\tto\twhich\tanimals\thave\tnot\tany\timportant moral\tstatus\tis\tmore\treliable\tthan\tany\tother\ttheory\tabout\tanimal\tstatus.\n\nAlthough this approach looks very intuitive, there are interesting\t counter-examples.\t Consider\t the\t following\t case\t (adopted from\t (Gustafsson\t &amp;\t Torpman,\t 2014)\t in\t which\t you\t can\t either\t choose action\tA\tor\taction\tB,\tand\tyour\tcredences\tare\tdivided\tbetween\ttwo\tmoral\n\ndoctrines\t MD1\tand\tMD2.\tYou\tthink\tthat\tMD1\tis\tslightly\tmore\treliable than\tMD2\t(I\tintroduce\tsome\tnumbers\tfor\tconvenience,\tfor\texample\tthat your\t credence\t in\t MD1\t is\t 0,6\t and\t your\t credence\t in\t MD2\t is\t 0,4,\t but\t of course\tin\treal\tlife\tthis\tkind\tof\tprecision\tis\tnot\tnecessary).\n\nTable\t1\n\n|           | A              | B                |\n|-----------|----------------|------------------|\n| MD1 (0,6) | Slightly wrong | Merely OK        |\n| MD2 (0,4) | Saintly        | Morally terrible |\n\nThe\t descriptions\t of\t the\t results\t show\t the\t moral\t evaluation\t of\t possible outcomes\t (wrong,\t merely\t OK…).\t In\t this\t kind\t of\t cases\t it\t seems\t that despite\tthe\tfact\tthat\tan\tagent\tthinks\tthat\tthe\tmoral\ttheory\tMD1\tis\tmore reliable\tthan\tMD2,\tshe\tshould\tact\tas\tif\tthe\ttheory\tMD2\twere\tcorrect\tor right\tmoral\tdoctrine.\tIt\twould\tmean\tthat\tshe\tshould\tprefer\taction\tA\tover action\tB\t-\tagainst\tMy\tFavorite\tTheory.\tWhy?\tBecause\t-\tanalogically\tto our\tprevious\tcase\tof Meat\teating -\tan\tagent\tmay\tprefer\tnot\trisking\tany serious\t moral\t wrongdoing.\t If\t she\t decided\t on\t B,\t which\t seems\t OK according\tto\tthe\tMD1,\tthe\tfavorite\ttheory\tfor\tan\tagent,\tshe\trisk\ta\tserious wrongdoing\tif\tshe\twere\tnot\tright\tabout\tmoral\ttheories\tand\tin\tfact\tMD2 were\tthe\tright\tdoctrine.\n\nAs\tin\tour\tprevious\tcases\trelated\tto\tthe\tethics\tof\twar,\tthis\tcase also assumes the balancing account: the possibility of making comparisons\t and\t weighing\t different\t values\t on\t one\t scale.\t In\t recent literature\tthere\tare\ttwo\tapproaches\tto\tthis\tproblem:\tnon-comparativism and\tcomparativism.\n\nThis\tfirst\tposition\t(Sepielli,\t2013;\tNissan-Rizan,\t2014)\tassumes that\t there\t is\t no\t analogy\t between\t factual\t and\t normative\t uncertainties and\t it\t is\t impossible\t to\t make\t intertheoretic\t comparisons\t of\t values.\t It means\t that\t tables\t like\t Table\t 1\t have\t no\t sense,\t because\t the\t moral evaluation\t of\t results\t (wrong,\t merely\t OK…)\t is\t different\t for\t MD1\t and MD2.\tSo\tit\tis\tmeaningless\tto\tsay\tthat\trationality\trequires\tthat\twe\tavoid doing\tsomething\tmorally\tterrible\t(according\tto\tMD1),\tsince\tthere\tis\tno common\t'currency'\tfor\tboth\tmoral\ttheories.\tThis\tcommon\tcurrency\tis\ta necessary\trequirement\n\nIn\tthe\tprevious\tcases\trelated\tto\tthe\tethics\tof\twar\twe\tcompared the\t values\t of\t soldiers'\t lives,\t the\t importance\t of\t military\t target,\t and\t the value\t of\t noncombatants\t lives.\t Even\t if\t it\t is\t very\t hard\t to\t compare\t how much\t value\t 'one\t civilian'\t versus\t some\t military\t target,\t the\t balancing account\t tries\t to\t do\t it.\t In\t cases\t of\t normative\t uncertainty\t this\t kind\t of comparisons\tare\teven\tharder:\tit\tseems\tthat\tthere\tis\tno\tway\tfor\tmaking\n\nthis kind of intertheoretic\t comparisons\t of\t moral\t values\t between different\ttheories\tor\tdoctrines.\n\n## 4.2\tExpected\tvalue\tapproach\tand\tdominance\tprinciple\n\nComparativism\tin\tits\tstrong\tform\t(Lockhart,\t2000;\tSepielli,\t2009)\tis\tnow an\t unpopular\t position.\t The\t main\t assumption\t of\t this\t view\t was\t to calculate\tthe\texpected\tmoral\tvalues\tof\tthe\tavailable\tactions,\trelative\tto possible\t axiologies,\t and\t summing\t up\t those\t expected\t moral\t values, weighted\t by\t the\t degree\t of\t belief\t that\t the\t corresponding\t axiology\t is correct.\tThere\twere\ttwo\tmain\tpropositions\thow\tto\tdo\tit:\tthe\tprinciple\tof equity\t among\t moral\t theories\t (Lockhart,\t 2000),\t the\t reactive-attitude approach\t(Sepielli,\t2009).\tBoth\tof\tthem\tseem\tto\tbe\tobviously\tmistaken (Sepielli,\t2013).\n\nComparativism\t in\t its\t weak\t form\t seems\t to\t be\t much\t better proposition. It has weak\t form because it does not require any calculation\t of\t expected\t moral\t values\t of\t all\t available\t actions.\t It\t means that\tit\tcan\tbe\tapplied\tonly\tto\tvery\tspecific\tkinds\tof\tsituations\tin\twhich an\t agent's\t credences\t are\t not\t divided\t between\t two\t different\t moral doctrines,\tbut\tbetween\tonly\tone\tmoral\tdoctrine\tand\tsome\tdoctrine\t(or doctrines)\tthat\tdoes\tnot\tgive\tany\tmoral\treasons.\tIts\tconclusion\tsays\tthat if\tsome\ttheories\tin\twhich\tyou\thave\tcredence\tgive\tyou\tsubjective\treason to\t choose\t action\t A\t over\t action\t B,\t and\t no\t theories\t in\t which\t you\t have credence\tgive\tyou\tsubjective\treason\tto\tchoose\taction\tB\tover\taction\tA, then\tyou\tshould\t(because\tof\tthe\trequirements\tof\trationality)\tchoose\tA over\tB\t(Ross,\t2006).\n\nLet me\t introduce\t another example\t in which\t this type of reasoning\tshould\twork\tperfectly\twell\t(this\tis\ta\tmodified\tversion\tof\tthe example\tdiscussed\tby\tRoss,\t2006).\tSuppose,\tfor\texample,\tthat\tJohn\tmust decide\t whether\t to\t kill\t some\t being\t (that\t could\t have\t important\t moral status)\tor\tnot.\tAn\tagent\tstrongly\tbelieves\t(it\tis\tdoctrine\tno.\t1\t-\tD1)\tthat it\tis\thighly\tprobable\tthat\tfrom\tthe\tmoral\tpoint\tof\tview\tit\tdoes\tnot\tmatter if\the\tkills\tthis\ttype\tof\tbeing\tor\tnot,\tbut\the\tis\tnot\tabsolutely\tcertain\tof\this normative\t views.\t Let\t me\t assume\t that\t his\t degree\t of\t credence\t is\t 0.99. This\tmeans\tthat\the\tthinks\tthat\tthere\tis\ta\tvery\tsmall\tchance\tthat\tanother doctrine\tis\tthe\tright\tone\t(D2).\tAccording\tto\tthis\tsecond\tdoctrine\tkilling this\tkind\tof\torganism\tis\tin\tfact\tmorally\tterrible\t(his\tdegree\tof\tcredence regarding\tthis\tview\tis\t0.01).\n\nTable\t2\n\n|           | A               | B                |\n|-----------|-----------------|------------------|\n| D1 (0,99) | Does not matter | Does not matter  |\n| D2 (0,01) | Morally right   | Morally terrible |\n\nAccepting\t My\t Favorite\t Theory\t approach\t it\t does\t not\t matter\t what\t we choose\tbecause\taccording\tto\tour\tfavorite\ttheory\tthere\tare\tno\treasons\tin favor\t or\t against\t both\t possible\t options.\t In\t this\t case\t we\t could\t -\t for example\t-\tdecide\tby\tflipping\ta\tcoin.\tBut\tan\tagent\taccepts\tdoctrine\tthat says\t that\t there\t is\t very\t small\t chance\t (0,01)\t that\t it\t would\t be\t morally terrible\tto\tkill\tthis\ttype\tof\torganism\tand\tmorally\tright\tnot\tto\tkill\tit.\tIf\tan agent\twants\tto\tmaximize\tthe\texpected\tmoral\tvalue\tof\this\tdecisions,\the should\t choose\t A,\t even\t though\t he\t believes\t that\t the\t probability\t that killing\tthis\ttype\tof\tbeing\tis\tmorally\twrong\tis\tindeed\textremely\tlow.\n\nWhy\t this\t case\t is\t different\t than\t described\t in\t the\t Table\t 1?\t The application\tof\texpected\tmoral\tvalue\tapproach\tin\tthis\ttype\tof\treasoning seems to be correct, because here there is no problem with intertheoretic\t comparisons\t of\t values.\t An\t agent\t does\t not\t have\t to compare\t in\t this\t situation\t any\t values\t or\t disvalues\t between\t different moral\t doctrines\t or\t views\t on\t the\t moral\t status\t of\t this\t living\t organism, since\t one\t of\t views\t says\t that\t everything\t he\t does\t in\t the\t situation\t is morally\tneutral.\tSo\tit\tseems\tthat\tin\tthese\ttypes\tof\tcases,\tthe\tANU\twould indeed\tgive\ta\treason\tto\tprefer\tthe\tsafer\toption,\tonly\tif\tthe\tprobability that\tthis\toption\tis\tmorally\tcorrect\tis\tgreater\tthan\tzero.\n\n## 5.\tCONCLUSION\n\nIn\tthis\tpaper\tI\tsketched\tthe\tproblem\tof\tmeta-reasoning\tin\tmaking\tmoral decisions\tunder\tnormative\tuncertainty.\tI\tfound\tthat\tthere\tis\ta\tpromising type\tof\tmeta-reasoning\tproposed\tby\tRoss\t(2006)\tthat\tcould\tbe\tapplied to\tsome\tcases\tof\tnormative\tuncertainty.\tHowever,\tit\tis\tworth\tnoting\tthat this\tkind\tof\tmeta-reasoning\thas\tbeen\trecently\textensively\tcriticized.\tIn this\t paper\t -\t because\t the\t lack\t of\t space\t -\t I\t have\t not\t considered\t some important\targuments\tagainst\tmeta-reasoning.\tIn\trecent\tliterature\tthere are\t at\t least\t five\t such\t critiques.\t The\t first\t refers\t to\t the\t problem\t of\t 'the infectiousness\tof\tnihilism'\t(MacAskill,\t2013).\tThis\targument\tsays\tthat\tif we\thave\tnonzero\tcredence\tin\tnihilism\tit\tis\timpossible\tto\tuse\texpected value\t reasoning\t (also\t in\t this\t weak\t sense\t of\t comparativism)\t in\t the situations\t of\t normative\t uncertainty,\t because\t the\t expected\t value\t of\t all options is undefined. The second refers to the problem with accessibility.\t Even\t if\t descriptive\t facts\t may\t often\t be\t inaccessible\t to agents,\twe\tcould\tassume\tthat\tnormative\tfacts\tare\ta\tpriori,\tthen\tthere\tis\ta sense\t in\t which\t any\t agent\t is\t in\t a\t position\t to\t know\t the\t moral\t truth (Hedden,\tforthcoming).\tIn\tthis\tcase\tthere\twould\tbe\tno\tsuch\tsituations\tas normative\t uncertainty.\t Thirdly,\t some\t authors\t say\t that\t although\t nonculpable\tfactual\tignorance\tis\tan\texcusing\tfactor,\tit\tis\tnot\tthe\tcase\twith normative\t ignorance\t which\t does\t not\t exculpate\t (Harman,\t 2014).\t The\n\nconclusion\twould\tbe\tsimilar\tto\tthe\tfirst\tcritique:\tthere\tis\tno\tsuch\tstate\tas normative\t uncertainty.\t Fourthly,\t there\t is\t an\t argument\t from\t actionguiding\tand\tfetishism\targument.\tIt\tsays\tthat\tmorally\tgood\tpeople\tcare non-derivatively\tabout\tother\tpeople,\ttheir\twell-being\tand\tthe\tlike.\tMetareasoning\t would\t force\t agents\t to\t care\t not\t about\t people\t but\t about\t one thing:\t doing\t what\t they\t believe\t to\t be\t right,\t where\t this\t is\t read\t de\t dicto and\tnot\tde\tre\t(Weatherson,\t2014).\tIf\tthis\tcritique\tis\tright\tprobably\tthe best\ttheory\tunder\tnormative\tuncertainty\twould\tbe\tMy\tFavorite\tTheory account.\tAnd\tfifthly,\tas\tone\tauthor\thas\tjust\tnoticed\tthere\tis\tan\tadditional problem\t related\t with\t risk\t attitudes\t of\t agents,\t who\t are\t normatively uncertain.\t In\t many\t situations\t they\t could\t assign\t positive\t credence\t to several\t theories\t with\t different\t attitudes\t toward\t risk.\t In\t this\t kind\t of cases the intertheoretical comparisons of moral value would be meaningless\tin\tthe\tsame\tway\tthat\tsentences\tlike\t'thunders\tare\tlouder than\thoney\tis\tsweet'\tare\tmeaningless.\t(Nissan,\t2015,\tp.\t358).\n\nACKNOWLEDGEMENTS:\tThis\twork\twas\tsupported\tby\tNational\tScience Centre\t(NCN)\tgrant\tSONATA\tnumber\tUMO-2011/03/D/HS5/01152.\n\n## REFERENCES\n\nDeclaration,\t(2002),\tUnited\tKingdom\tReservation\t/\tDeclaration\tof\tJuly\t2,\t2002 to Protocol I, supra note 9, available at: http://www.icrc.org/ihl.nsf/NORM/0A9E03F0F2EE757CC125640200 3FB6D2?OpenDocument\n\nFriberg-Fernros,\tH.\t(2014).\tTaking\tprecautionary\tconcerns\tseriously:\tA\tdefense of a misused anti-abortion argument. Journal of Medicine and Philosophy,\t39 (3),\t228-247.\n\nGuerrero,\tA.\tA.\t(2007).\tDon't\tknow,\tdon't\tkill:\tMoral\tignorance,\tculpability,\tand caution. Philosophical\tStudies,\t136 (1),\t59-97.\n\nGustafsson,\t J.\t E.,\t &amp;\t Torpman\t O.\t (2014).\t In\t defence\t of\t My\t Favourite\t Theory. Pacific\tPhilosophical\tQuarterly,\t95 (2),\t159-174.\n\nHarman,\tE.\t(2015).\tThe\tirrelevance\tof\tmoral\tuncertainty.\tIn:\tR.\tShaffer-Landau (Ed.), Oxford\tStudies\tin\tMetaethics ,\t vol.\t 10\t(pp.\t53-78).\tOxford:\tOxford University\tPress.\n\nHaque,\tA.\tA.\t(2012).\tKilling\tin\tthe\tfog\tof\twar. Southern\tCalifornia\tLaw\tReview 86 (1),\t63-116.\n\nHayenhjelm,\tM.,\t&amp;\tWolff,\tJ.\t(2012).\tThe\tmoral\tproblem\tof\trisk\timpositions:\tA survey. European\tJournal\tof\tPhilosophy,\t20 ,\t26-51.\n\nHedden,\tB.\t(forthcoming).\tDoes\tMITE\tmake\tright?\tOn\tdecision-making\tunder normative\t uncertainty.\t In:\t R.\t Shaffer-Landau\t (Ed.), Oxford\t Studies\t in Metaethics ,\tvol.\t11,\tOxford:\tOxford\tUniversity\tPress.\n\nHenning,\t T.\t (2015).\t From\t choice\t to\t chance?\t Saving\t people,\t fairness,\t and lotteries. Philosophical\tReview , 124 (2),\t169-206.\n\nLockhart,\t T.\t (2000). Moral\t uncertainty\t and\t its\t consequences .\t Oxford:\t Oxford University\tPress.\n\nMacAskill,\tW.\t(2013).\tThe\tinfectiousness\tof\tnihilism. Ethics,\t123 (3),\t508-520.\n\nMoller,\tD.\t(2011).\tAbortion\tand\tmoral\trisk. Philosophy,\t86 (3),\t425-443.\n\nNissan-Rozen,\t I.\t (2015).\t Against\t moral\t hedging. Economics\t and\t Philosophy, 31 (3),\t349-369.\n\nProtocol\t(1977).\tProtocol\tAdditional\tto\tthe\tGeneva\tConventions\tof\t12\tAugust 1949,\tand\tRelating\tto\tthe\tProtection\tof\tVictims\tof\tInternational\tArmed Conflicts (Protocol I), June 8, 1977, available at: https://www.icrc.org/ihl/INTRO/470\n\nRoss,\tJ.\t(2006).\tRejecting\tethical\tdeflationism. Ethics,\t116 (4),\t742-768.\n\nSepielli,\tA.\t(2009).\tWhat\tto\tdo\twhen\tyou\tdon't\tknow\twhat\tto\tdo.\tIn:\tR.\tShafferLandau\t (Ed.), Oxford\t Studies\t in\t Metaethics ,\t vol.\t 4\t (pp.\t 5-28).\t Oxford: Oxford\tUniversity\tPress.\n\nSepielli,\tA.\t(2013),\tMoral\tuncertainty\tand\tthe\tprinciple\tof\tequity\tamong\tmoral theories. Philosophy\tand\tPhenomenological\tResearch,\t86 (3),\t580-589.\n\nShaw,\t D.\t M.\t (2008).\t Moral\t qualms,\t future\t persons,\t and\t embryo\t research. Bioethics,\t22 (4),\t218-223.\n\nWalzer,\t M.\t (2000). Just\t and\t unjust\t wars.\t A\t moral\t argument\t with\t historical illustrations (3 rd \tedition).\tLondon:\tBasic\tBooks.\n\nWaxman,\t M.\t C.\t (2008).\t Detention\t as\t targeting:\t Standards\t of\t certainty\t and detention\tof\tsuspected\tterrorists, Columbia\tLaw\tReview,\t108 (6),\t13651430\n\nWeatherson,\t B.\t (2014).\t Running\t risk\t morally. Philosophical\t Studies,\t 167 (1), 141-163.\n\nŻuradzki,\t T.\t (2012).\t Argument\t z\t niepewności\t normatywnej\t a\t etyczna\t ocena badań\tnaukowych\twykorzystujących\tludzkie\tembriony. Diametros,\t32 , 131-159.\n\nŻuradzki,\t T.\t (2014).\t Moral\t uncertainty\t in\t bioethical\t argumentation:\t A\t new understanding of the pro-life view on early human embryos. Theoretical\tMedicine\tand\tBioethics,\t35 (6),\t441-457.",
+    "responses": [
+      {
+        "source": "gpt-4o-2024-11-20",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"ADU1\": {\n      \"text\": \"I defend a limited use of the decision theory model of reasoning in cases of normative uncertainty.\",\n      \"label\": \"claim\"\n    },\n    \"ADU2\": {\n      \"text\": \"The simple fact is that even when we feel quite certain about moral issues, we are susceptible to mistakes.\",\n      \"label\": \"premise\"\n    },\n    \"ADU3\": {\n      \"text\": \"I want to analyze whether these kinds of uncertainties should have practical consequences for actions and whether there are reliable methods of reasoning that deal with the possibility that we understand some crucial moral issues wrong.\",\n      \"label\": \"claim\"\n    },\n    \"ADU4\": {\n      \"text\": \"The most promising approach is to try to extend the decision theory model of reasoning to encompass normative uncertainty.\",\n      \"label\": \"claim\"\n    },\n    \"ADU5\": {\n      \"text\": \"But this model, when used to guide our action in moral terms, is highly controversial.\",\n      \"label\": \"premise\"\n    },\n    \"ADU6\": {\n      \"text\": \"It assumes that in the face of normative risk or uncertainty we are rational if and only if we maximize expected value (whatever it is).\",\n      \"label\": \"premise\"\n    },\n    \"ADU7\": {\n      \"text\": \"Normally, when we use expected utility calculus we use a common scale by which it is possible to measure the values attached to different outcomes.\",\n      \"label\": \"premise\"\n    },\n    \"ADU8\": {\n      \"text\": \"But there doesn't seem to be any way of making this kind of intertheoretic comparison of moral values between different theories or doctrines.\",\n      \"label\": \"premise\"\n    },\n    \"ADU9\": {\n      \"text\": \"There are many ways in which you can be uncertain about the morally important aspects of your action.\",\n      \"label\": \"claim\"\n    },\n    \"ADU10\": {\n      \"text\": \"In all these cases there is a risk that something that has moral status will be harmed.\",\n      \"label\": \"premise\"\n    },\n    \"ADU11\": {\n      \"text\": \"So the popular argument says that in all these three cases there are strong reasons for agents not to act.\",\n      \"label\": \"claim\"\n    },\n    \"ADU12\": {\n      \"text\": \"It is wrong - says this argument - to impose a risk to someone who is not liable to be exposed, even if a potential victim is actually not harmed.\",\n      \"label\": \"claim\"\n    },\n    \"ADU13\": {\n      \"text\": \"The obligation not to kill civilians is well-established in international law and international theory.\",\n      \"label\": \"premise\"\n    },\n    \"ADU14\": {\n      \"text\": \"In case of doubt whether a person is a civilian, that person shall be considered to be a civilian.\",\n      \"label\": \"premise\"\n    },\n    \"ADU15\": {\n      \"text\": \"This point of the Protocol does not specify any the level of care with which a soldier must try to distinguish combatants from noncombatants.\",\n      \"label\": \"premise\"\n    },\n    \"ADU16\": {\n      \"text\": \"In many conflict situation this level of civilian protection would be too restrictive and some Western countries entered reservation about this provision.\",\n      \"label\": \"premise\"\n    },\n    \"ADU17\": {\n      \"text\": \"This approach is visible in Walzer's Just and Unjust Wars when he writes about combatants' obligations.\",\n      \"label\": \"premise\"\n    },\n    \"ADU18\": {\n      \"text\": \"The degree of risk that is permissible is going to vary with nature of the target, the urgency of the moment, the available technology, and so on.\",\n      \"label\": \"premise\"\n    },\n    \"ADU19\": {\n      \"text\": \"Let me start this part with a typical example discussed in the literature.\",\n      \"label\": \"claim\"\n    },\n    \"ADU20\": {\n      \"text\": \"In the most plausible views of rationality under moral uncertainty, it is rational to avoid eating meat, even if one's belief in the second view is slightly higher.\",\n      \"label\": \"claim\"\n    },\n    \"ADU21\": {\n      \"text\": \"Probably the most obvious proposition how to act under normative uncertainty is My Favorite Theory approach.\",\n      \"label\": \"claim\"\n    },\n    \"ADU22\": {\n      \"text\": \"It says that 'a morally conscientious agent chooses an option that is permitted by the most credible moral theory.'\",\n      \"label\": \"premise\"\n    },\n    \"ADU23\": {\n      \"text\": \"Although this approach looks very intuitive, there are interesting counter-examples.\",\n      \"label\": \"claim\"\n    },\n    \"ADU24\": {\n      \"text\": \"Comparativism in its strong form is now an unpopular position.\",\n      \"label\": \"claim\"\n    },\n    \"ADU25\": {\n      \"text\": \"The main assumption of this view was to calculate the expected moral values of the available actions, relative to possible axiologies, and summing up those expected moral values, weighted by the degree of belief that the corresponding axiology is correct.\",\n      \"label\": \"premise\"\n    },\n    \"ADU26\": {\n      \"text\": \"In this paper I sketched the problem of meta-reasoning in making moral decisions under normative uncertainty.\",\n      \"label\": \"claim\"\n    },\n    \"ADU27\": {\n      \"text\": \"I found that there is a promising type of meta-reasoning proposed by Ross (2006) that could be applied to some cases of normative uncertainty.\",\n      \"label\": \"claim\"\n    },\n    \"ADU28\": {\n      \"text\": \"However, it is worth noting that this kind of meta-reasoning has been recently extensively criticized.\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"ADU2\",\n      \"target\": \"ADU3\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU4\",\n      \"target\": \"ADU1\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU5\",\n      \"target\": \"ADU4\",\n      \"type\": \"attack\"\n    },\n    {\n      \"source\": \"ADU6\",\n      \"target\": \"ADU4\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU7\",\n      \"target\": \"ADU8\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU10\",\n      \"target\": \"ADU11\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU11\",\n      \"target\": \"ADU12\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU13\",\n      \"target\": \"ADU14\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU15\",\n      \"target\": \"ADU16\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU17\",\n      \"target\": \"ADU18\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU21\",\n      \"target\": \"ADU22\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU23\",\n      \"target\": \"ADU21\",\n      \"type\": \"attack\"\n    },\n    {\n      \"source\": \"ADU26\",\n      \"target\": \"ADU27\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU27\",\n      \"target\": \"ADU28\",\n      \"type\": \"attack\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "ADU1": {
+              "text": "I defend a limited use of the decision theory model of reasoning in cases of normative uncertainty.",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "The simple fact is that even when we feel quite certain about moral issues, we are susceptible to mistakes.",
+              "label": "premise"
+            },
+            "ADU3": {
+              "text": "I want to analyze whether these kinds of uncertainties should have practical consequences for actions and whether there are reliable methods of reasoning that deal with the possibility that we understand some crucial moral issues wrong.",
+              "label": "claim"
+            },
+            "ADU4": {
+              "text": "The most promising approach is to try to extend the decision theory model of reasoning to encompass normative uncertainty.",
+              "label": "claim"
+            },
+            "ADU5": {
+              "text": "But this model, when used to guide our action in moral terms, is highly controversial.",
+              "label": "premise"
+            },
+            "ADU6": {
+              "text": "It assumes that in the face of normative risk or uncertainty we are rational if and only if we maximize expected value (whatever it is).",
+              "label": "premise"
+            },
+            "ADU7": {
+              "text": "Normally, when we use expected utility calculus we use a common scale by which it is possible to measure the values attached to different outcomes.",
+              "label": "premise"
+            },
+            "ADU8": {
+              "text": "But there doesn't seem to be any way of making this kind of intertheoretic comparison of moral values between different theories or doctrines.",
+              "label": "premise"
+            },
+            "ADU9": {
+              "text": "There are many ways in which you can be uncertain about the morally important aspects of your action.",
+              "label": "claim"
+            },
+            "ADU10": {
+              "text": "In all these cases there is a risk that something that has moral status will be harmed.",
+              "label": "premise"
+            },
+            "ADU11": {
+              "text": "So the popular argument says that in all these three cases there are strong reasons for agents not to act.",
+              "label": "claim"
+            },
+            "ADU12": {
+              "text": "It is wrong - says this argument - to impose a risk to someone who is not liable to be exposed, even if a potential victim is actually not harmed.",
+              "label": "claim"
+            },
+            "ADU13": {
+              "text": "The obligation not to kill civilians is well-established in international law and international theory.",
+              "label": "premise"
+            },
+            "ADU14": {
+              "text": "In case of doubt whether a person is a civilian, that person shall be considered to be a civilian.",
+              "label": "premise"
+            },
+            "ADU15": {
+              "text": "This point of the Protocol does not specify any the level of care with which a soldier must try to distinguish combatants from noncombatants.",
+              "label": "premise"
+            },
+            "ADU16": {
+              "text": "In many conflict situation this level of civilian protection would be too restrictive and some Western countries entered reservation about this provision.",
+              "label": "premise"
+            },
+            "ADU17": {
+              "text": "This approach is visible in Walzer's Just and Unjust Wars when he writes about combatants' obligations.",
+              "label": "premise"
+            },
+            "ADU18": {
+              "text": "The degree of risk that is permissible is going to vary with nature of the target, the urgency of the moment, the available technology, and so on.",
+              "label": "premise"
+            },
+            "ADU19": {
+              "text": "Let me start this part with a typical example discussed in the literature.",
+              "label": "claim"
+            },
+            "ADU20": {
+              "text": "In the most plausible views of rationality under moral uncertainty, it is rational to avoid eating meat, even if one's belief in the second view is slightly higher.",
+              "label": "claim"
+            },
+            "ADU21": {
+              "text": "Probably the most obvious proposition how to act under normative uncertainty is My Favorite Theory approach.",
+              "label": "claim"
+            },
+            "ADU22": {
+              "text": "It says that 'a morally conscientious agent chooses an option that is permitted by the most credible moral theory.'",
+              "label": "premise"
+            },
+            "ADU23": {
+              "text": "Although this approach looks very intuitive, there are interesting counter-examples.",
+              "label": "claim"
+            },
+            "ADU24": {
+              "text": "Comparativism in its strong form is now an unpopular position.",
+              "label": "claim"
+            },
+            "ADU25": {
+              "text": "The main assumption of this view was to calculate the expected moral values of the available actions, relative to possible axiologies, and summing up those expected moral values, weighted by the degree of belief that the corresponding axiology is correct.",
+              "label": "premise"
+            },
+            "ADU26": {
+              "text": "In this paper I sketched the problem of meta-reasoning in making moral decisions under normative uncertainty.",
+              "label": "claim"
+            },
+            "ADU27": {
+              "text": "I found that there is a promising type of meta-reasoning proposed by Ross (2006) that could be applied to some cases of normative uncertainty.",
+              "label": "claim"
+            },
+            "ADU28": {
+              "text": "However, it is worth noting that this kind of meta-reasoning has been recently extensively criticized.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU2",
+              "target": "ADU3",
+              "type": "support"
+            },
+            {
+              "source": "ADU4",
+              "target": "ADU1",
+              "type": "support"
+            },
+            {
+              "source": "ADU5",
+              "target": "ADU4",
+              "type": "attack"
+            },
+            {
+              "source": "ADU6",
+              "target": "ADU4",
+              "type": "support"
+            },
+            {
+              "source": "ADU7",
+              "target": "ADU8",
+              "type": "support"
+            },
+            {
+              "source": "ADU10",
+              "target": "ADU11",
+              "type": "support"
+            },
+            {
+              "source": "ADU11",
+              "target": "ADU12",
+              "type": "support"
+            },
+            {
+              "source": "ADU13",
+              "target": "ADU14",
+              "type": "support"
+            },
+            {
+              "source": "ADU15",
+              "target": "ADU16",
+              "type": "support"
+            },
+            {
+              "source": "ADU17",
+              "target": "ADU18",
+              "type": "support"
+            },
+            {
+              "source": "ADU21",
+              "target": "ADU22",
+              "type": "support"
+            },
+            {
+              "source": "ADU23",
+              "target": "ADU21",
+              "type": "attack"
+            },
+            {
+              "source": "ADU26",
+              "target": "ADU27",
+              "type": "support"
+            },
+            {
+              "source": "ADU27",
+              "target": "ADU28",
+              "type": "attack"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "ADU1": {
+              "text": "I defend a limited use of the decision theory model of reasoning in cases of normative uncertainty.",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "The simple fact is that even when we feel quite certain about moral issues, we are susceptible to mistakes.",
+              "label": "premise"
+            },
+            "ADU3": {
+              "text": "I want to analyze whether these kinds of uncertainties should have practical consequences for actions and whether there are reliable methods of reasoning that deal with the possibility that we understand some crucial moral issues wrong.",
+              "label": "claim"
+            },
+            "ADU5": {
+              "text": "But this model, when used to guide our action in moral terms, is highly controversial.",
+              "label": "premise"
+            },
+            "ADU6": {
+              "text": "It assumes that in the face of normative risk or uncertainty we are rational if and only if we maximize expected value (whatever it is).",
+              "label": "premise"
+            },
+            "ADU8": {
+              "text": "But there doesn't seem to be any way of making this kind of intertheoretic comparison of moral values between different theories or doctrines.",
+              "label": "premise"
+            },
+            "ADU9": {
+              "text": "There are many ways in which you can be uncertain about the morally important aspects of your action.",
+              "label": "claim"
+            },
+            "ADU10": {
+              "text": "In all these cases there is a risk that something that has moral status will be harmed.",
+              "label": "premise"
+            },
+            "ADU13": {
+              "text": "The obligation not to kill civilians is well-established in international law and international theory.",
+              "label": "premise"
+            },
+            "ADU15": {
+              "text": "This point of the Protocol does not specify any the level of care with which a soldier must try to distinguish combatants from noncombatants.",
+              "label": "premise"
+            },
+            "ADU19": {
+              "text": "Let me start this part with a typical example discussed in the literature.",
+              "label": "claim"
+            },
+            "ADU21": {
+              "text": "Probably the most obvious proposition how to act under normative uncertainty is My Favorite Theory approach.",
+              "label": "claim"
+            },
+            "ADU23": {
+              "text": "Although this approach looks very intuitive, there are interesting counter-examples.",
+              "label": "claim"
+            },
+            "ADU25": {
+              "text": "The main assumption of this view was to calculate the expected moral values of the available actions, relative to possible axiologies, and summing up those expected moral values, weighted by the degree of belief that the corresponding axiology is correct.",
+              "label": "premise"
+            },
+            "ADU26": {
+              "text": "In this paper I sketched the problem of meta-reasoning in making moral decisions under normative uncertainty.",
+              "label": "claim"
+            },
+            "ADU27": {
+              "text": "I found that there is a promising type of meta-reasoning proposed by Ross (2006) that could be applied to some cases of normative uncertainty.",
+              "label": "claim"
+            },
+            "ADU28": {
+              "text": "However, it is worth noting that this kind of meta-reasoning has been recently extensively criticized.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU2",
+              "target": "ADU3",
+              "type": "support"
+            },
+            {
+              "source": "ADU23",
+              "target": "ADU21",
+              "type": "attack"
+            },
+            {
+              "source": "ADU26",
+              "target": "ADU27",
+              "type": "support"
+            },
+            {
+              "source": "ADU27",
+              "target": "ADU28",
+              "type": "attack"
+            }
+          ]
+        }
+      },
+      {
+        "source": "claude-3-5-sonnet-20241022",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"1\": {\n      \"text\": \"The simple fact is that even when we feel quite certain about moral issues, we are susceptible to mistakes.\",\n      \"label\": \"claim\"\n    },\n    \"2\": {\n      \"text\": \"I want to analyze whether these kinds of uncertainties should have practical consequences for actions and whether there are reliable methods of reasoning that deal with the possibility that we understand some crucial moral issues wrong.\",\n      \"label\": \"claim\"\n    },\n    \"3\": {\n      \"text\": \"The most promising approach is to try to extend the decision theory model of reasoning to encompass normative uncertainty\",\n      \"label\": \"claim\"\n    },\n    \"4\": {\n      \"text\": \"But this model, when used to guide our action in moral terms, is highly controversial.\",\n      \"label\": \"claim\"\n    },\n    \"5\": {\n      \"text\": \"The main problem that the supporters of this approach have to deal with is the question of intertheoretic comparisons of value.\",\n      \"label\": \"claim\"\n    },\n    \"6\": {\n      \"text\": \"But there doesn't seem to be any way of making this kind of intertheoretic comparison of moral values between different theories or doctrines.\",\n      \"label\": \"premise\"\n    },\n    \"7\": {\n      \"text\": \"I found that there is a promising type of meta-reasoning proposed by Ross (2006) that could be applied to some cases of normative uncertainty.\",\n      \"label\": \"claim\"\n    },\n    \"8\": {\n      \"text\": \"if some theories in which you have credence give you subjective reason to choose action A over action B, and no theories in which you have credence give you subjective reason to choose action B over action A, then you should (because of the requirements of rationality) choose A over B\",\n      \"label\": \"premise\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"1\",\n      \"target\": \"2\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"3\",\n      \"target\": \"2\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"4\",\n      \"target\": \"3\",\n      \"type\": \"attack\"\n    },\n    {\n      \"source\": \"5\",\n      \"target\": \"4\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"6\",\n      \"target\": \"5\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"8\",\n      \"target\": \"7\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "1": {
+              "text": "The simple fact is that even when we feel quite certain about moral issues, we are susceptible to mistakes.",
+              "label": "claim"
+            },
+            "2": {
+              "text": "I want to analyze whether these kinds of uncertainties should have practical consequences for actions and whether there are reliable methods of reasoning that deal with the possibility that we understand some crucial moral issues wrong.",
+              "label": "claim"
+            },
+            "3": {
+              "text": "The most promising approach is to try to extend the decision theory model of reasoning to encompass normative uncertainty",
+              "label": "claim"
+            },
+            "4": {
+              "text": "But this model, when used to guide our action in moral terms, is highly controversial.",
+              "label": "claim"
+            },
+            "5": {
+              "text": "The main problem that the supporters of this approach have to deal with is the question of intertheoretic comparisons of value.",
+              "label": "claim"
+            },
+            "6": {
+              "text": "But there doesn't seem to be any way of making this kind of intertheoretic comparison of moral values between different theories or doctrines.",
+              "label": "premise"
+            },
+            "7": {
+              "text": "I found that there is a promising type of meta-reasoning proposed by Ross (2006) that could be applied to some cases of normative uncertainty.",
+              "label": "claim"
+            },
+            "8": {
+              "text": "if some theories in which you have credence give you subjective reason to choose action A over action B, and no theories in which you have credence give you subjective reason to choose action B over action A, then you should (because of the requirements of rationality) choose A over B",
+              "label": "premise"
+            }
+          },
+          "relations": [
+            {
+              "source": "1",
+              "target": "2",
+              "type": "support"
+            },
+            {
+              "source": "3",
+              "target": "2",
+              "type": "support"
+            },
+            {
+              "source": "4",
+              "target": "3",
+              "type": "attack"
+            },
+            {
+              "source": "5",
+              "target": "4",
+              "type": "support"
+            },
+            {
+              "source": "6",
+              "target": "5",
+              "type": "support"
+            },
+            {
+              "source": "8",
+              "target": "7",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "1": {
+              "text": "The simple fact is that even when we feel quite certain about moral issues, we are susceptible to mistakes.",
+              "label": "claim"
+            },
+            "2": {
+              "text": "I want to analyze whether these kinds of uncertainties should have practical consequences for actions and whether there are reliable methods of reasoning that deal with the possibility that we understand some crucial moral issues wrong.",
+              "label": "claim"
+            },
+            "3": {
+              "text": "The most promising approach is to try to extend the decision theory model of reasoning to encompass normative uncertainty",
+              "label": "claim"
+            },
+            "4": {
+              "text": "But this model, when used to guide our action in moral terms, is highly controversial.",
+              "label": "claim"
+            },
+            "5": {
+              "text": "The main problem that the supporters of this approach have to deal with is the question of intertheoretic comparisons of value.",
+              "label": "claim"
+            },
+            "6": {
+              "text": "But there doesn't seem to be any way of making this kind of intertheoretic comparison of moral values between different theories or doctrines.",
+              "label": "premise"
+            },
+            "7": {
+              "text": "I found that there is a promising type of meta-reasoning proposed by Ross (2006) that could be applied to some cases of normative uncertainty.",
+              "label": "claim"
+            },
+            "8": {
+              "text": "if some theories in which you have credence give you subjective reason to choose action A over action B, and no theories in which you have credence give you subjective reason to choose action B over action A, then you should (because of the requirements of rationality) choose A over B",
+              "label": "premise"
+            }
+          },
+          "relations": [
+            {
+              "source": "1",
+              "target": "2",
+              "type": "support"
+            },
+            {
+              "source": "3",
+              "target": "2",
+              "type": "support"
+            },
+            {
+              "source": "4",
+              "target": "3",
+              "type": "attack"
+            },
+            {
+              "source": "5",
+              "target": "4",
+              "type": "support"
+            },
+            {
+              "source": "6",
+              "target": "5",
+              "type": "support"
+            },
+            {
+              "source": "8",
+              "target": "7",
+              "type": "support"
+            }
+          ]
+        }
+      }
+    ],
+    "timestamp": 1752752424.5107837
+  }
+]

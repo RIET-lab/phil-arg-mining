@@ -1,0 +1,448 @@
+[
+  {
+    "identifier": "TAPJP",
+    "system_prompt": "## GOAL\nArgument‑mine the following paper to extract its comprehensive argumentative structure.\n\n## DEFINITIONS\n1. **Argument**: A set of propositions, including some number of premises and a conclusion. The premises should logically entail the conclusion.\n2. **Claim**: A proposition that asserts something to be true or false, typically requiring justification or evidence.\n3. **Premise**: A proposition that provides evidence, justification, or logical support for a claim or conclusion.\n\n## CRITICAL REQUIREMENTS\n1. **VERBATIM EXTRACTION ONLY**: Each ADU text must be copied EXACTLY from the paper with no modifications, paraphrasing, or combining of separate sentences.\n2. **NO HALLUCINATION**: Do not create, modify, or invent text that does not appear exactly in the source.\n3. **EXACT MATCHING**: Every word, punctuation mark, and spacing must match the original precisely.\n\n## DIRECTIONS\n1. **Identify Argumentative Discourse Units (ADUs)**  \n   - ADU = any contiguous text span functioning as a claim or a premise in the reasoning structure.\n   - **BE HIGHLY SELECTIVE**: Only include ADUs that are crucial to the overarching argument structure.\n   - Focus on significant claims and premises that contribute meaningfully to the argumentative flow.\n   - **AVOID NOISE**: Skip ADUs that are merely descriptive, tangential, or do not substantially advance the argument.\n   - Prioritize quality over quantity - fewer accurate, important ADUs are better than many insignificant ones.\n   - **EXTRACT ONLY**: Copy text spans exactly as they appear, without any modifications.\n2. **Classify each ADU**  \n   - Label = either `\"claim\"` or `\"premise\"`.  \n3. **Detect directed relations**  \n   - Relation = `\"support\"` or `\"attack\"`, from one ADU (source) to another (target).\n   - Map how ADUs connect to form reasoning chains.\n   - Focus on relationships between the most significant ADUs.\n   - Include relationships between premises that strengthen or weaken each other.\n4. **Verbatim spans**  \n   - Each `\"text\"` value must be copied EXACTLY from the paper with zero modifications.\n   - Do not paraphrase, summarize, or combine separate sentences.\n   - Do not add, remove, or change any words, punctuation, or spacing.\n   - If unsure about exact wording, skip that ADU rather than guess.\n\n## WHAT TO CAPTURE\n**INCLUDE ONLY:**\n- Main argumentative threads that are central to the paper's contribution\n- Core claims that represent the paper's primary arguments or findings\n- Key premises that provide essential support for major claims\n- Critical counterarguments and their refutations\n- Reasoning chains that demonstrate how main conclusions are derived\n\n**EXCLUDE (AVOID NOISE):**\n- Minor details, examples, or descriptive content that don't advance the argument\n- Tangential points or side discussions\n- Pure background information or literature review content\n- Methodological details unless they constitute argumentative claims\n- Obvious statements or commonly accepted facts\n- Redundant or repetitive argumentative content\n\n**GUIDING PRINCIPLE**: If removing an ADU would not significantly impact understanding of the paper's argumentative structure, it should be excluded.\n\n## QUALITY CONTROL\n- Before finalizing each ADU, verify the text exists exactly in the source\n- Prefer fewer, accurate ADUs over many potentially modified ones\n- When in doubt about exact wording, omit the ADU\n\n## OUTPUT FORMAT\nReturn **only** a single valid JSON object matching this schema.  \nDo **not** output any extra text, markdown, or explanations.\n\nRESPOND WITH ONLY:\n```json\n{\n  \"ADUs\": {\n    \"<ADU_ID>\": {\n      \"text\": \"<exact span from paper>\",\n      \"label\": \"claim\" | \"premise\"\n    }\n    ...\n  },\n  \"relations\": [\n    {\n      \"source\": \"<ADU_ID>\",\n      \"target\": \"<ADU_ID>\",\n      \"type\": \"support\" | \"attack\"\n    }\n  ]\n}\n```",
+    "user_content": "'Joseph Priestley', British Philosophers 1500-1799 , Philip B. Dematteis and Peter S. Fosl (eds), Dictionary of Literary Biography, Volume 252, Columbia, S.C.: Bruccoli Clark Layman, 2002, 307-323.\n\n## Joseph Priestley\n\n(13 March 1733 [old style] - 6 February 1804)\n\n## Alan Tapper\n\nEdith Cowan University\n\nJoseph  Priestley's  range  of  intellectual  interests  was  very  great,  even  by  the standards of the eighteenth century. He was a Dissenting minister, and his chief concerns were theological. His scientific work, for which he is now best known, occupied much of his remaining time. In addition, he wrote extensively on history, education, rhetoric, and politics.\n\nIn his day, Priestley was also a philosopher of some importance. He argued the case  for  materialism  perhaps  more  cogently  than  did  any  British  thinker  before  recent times.  He  presented  determinism  vigorously,  with  a  focus  on  the  central  issue  of  the nature of causation. He speculated interestingly, following Roger Joseph Boscovich, on the  nature  of  matter.  He  defended  scientific  realism  against  Thomas  Reid's  Common Sense realism and against (as he saw it) David Hume's phenomenonalism. He articulated, against  Hume,  a  working  scientist's  account  of  causation,  induction  and  scientific progress. He defended the Argument from Design against Hume's penetrating criticisms. His attempt to combine theism, materialism and determinism is audacious and original. He tried to show that such a system does not lapse into pantheism. As a political thinker, he  distinguished  usefully  between  civil  and  political  liberty,  and  argued  the  case  for extensive civil liberties. His liberalism is closely bound up with his account of historical progress. He was perhaps the most thorough British exponent of a Providentialist account of progress. His ultimate aim  was  to combine  Enlightenment  principles with a modernized Christian theism.\n\nThree  notable  philosophers  of  his  generation  held  him  in  some  regard.  One, Richard Price, was his lifelong friend, despite their very different moral and metaphysical outlooks.  Thomas  Reid,  by  contrast,  had  no  liking  for  Priestley,  but  he  was  much occupied by Priestley's doctrines and his writings are often directed against him. More surprisingly, we find Priestley being complimented in the Critique of Pure Reason (1781) with the remark that he 'knew how to combine his paradoxical teaching with the interests of religion.' The paradox, Immanuel Kant says, is that of a man who, though 'a pious and zealous teacher of religion,' has striven to 'pull down two such pillars of religion as the  freedom  and  immortality  of  the  soul  (the  hope  of  a  future  life  is  for  him  only  the expectation of the miracle of a future resurrection).' Priestley, in Kant's judgment, 'was concerned for the interests of reason, which must suffer when we seek to exempt certain objects from the laws of material nature, the only laws which we can know and determine with exactitude.' Furthermore, Priestley's political writings had the dubious distinction of provoking the wrath of Edmund Burke. At the time of the American Revolution Burke and Priestley were philosophical allies; by the 1790s they had parted company, arguing opposite positions on the French Revolution, both with considerable force.\n\nPriestley  was  born  not  far  from  Leeds  in  1733.  The  family  were  Yorkshire Calvinists,  or  'Independents.'  His  father  was  a  cloth-dresser.  His  mother  died  when Joseph was still young, and he went to live with a childless aunt, Sarah Keighley, herself staunchly Calvinist, whose home was nevertheless a center for Dissenting ministers of all persuasions. As a young largely self-taught philosopher, Priestley's heroes were Locke, Newton and David Hartley. He was educated at Daventry Academy, where, he said, 'the students were about equally divided upon every question of much importance, such as liberty and necessity, the sleep of the soul, and all the articles of theological orthodoxy and  heresy;  in  consequence  of  which,  all  these  topics  were  the  subject  of  continual discussion.' He was a very quick student in history, languages and the sciences, but his deepest early lessons concerned the value of tolerance and open argument.\n\nThe  strict Calvinism  of  Priestley's circle taught that it was  necessary  to experience a 'new birth' if salvation is to be obtained. Priestley found to his dismay that he  lacked  any  such  experience  but  he  continued  to  consider  himself  a  good  Christian, which caused a rift with his aunt and his family and with his local parish. He continued throughout  life  to  cast  off  doctrines  others  thought  essential  to  Christianity  while  yet retaining a deep attachment to the faith as he saw it. Unorthodoxy and controversy were his  vocations;  after  an  Arminian  and  an  Arian  period,  he  became  eventually  the  chief exponent  of  Unitarianism  in  Britain.  A  deep  intellectual  and  personal  belief  in  divine Providence sustained him throughout; there is no sign that he was simply an intellectual in incomplete transit to deism, pantheism or agnosticism.\n\nAfter six difficult years as an unknown Dissenting clergyman and school teacher, in  1761  Priestley  was  offered  the  position  of  tutor  in  languages  and  literature  at Warrington Academy. In the 1760s Warrington was lively and prosperous, earning the title of the 'Athens' of northern England. There he lectured on modern history, rhetoric, literary criticism and aesthetics. He first made his name as an author with three works: a textbook on English grammar, a study of the theory of language, and an essay on the aims and  practice  of  education.  At  Warrington  he  found  time  to  start  a  new  career  as  an historian of science, beginning with a well-received history of discoveries in electricity, for  which  he  conducted  many  experiments  of  his  own.  The  project  led  him  to membership  of  the  Royal  Society  and  to  a  friendship  with  Benjamin  Franklin  which lasted until Franklin's death. It also set him on the path towards his brilliant experimental career.\n\nSuccess as a lecturer and promise as a scientist did not satisfy Priestley's deeper desire to be a Dissenting minister, and in 1767 he accepted an invitation to a chapel at Mill Hill, Leeds. In this period he wrote his most substantial political work, the Essay on the First Principles of Government of 1768, which is also his first philosophical essay. It is  a  defense  of  civil  liberty,  including  the  religious  liberty  of  Dissenters,  against  John Brown's proposal for a system of uniform state education devoted to producing a more law-abiding citizenry. Against this 'Spartanism' Priestley was a convinced 'Athenian,' and he mustered many of the arguments in favour of social and intellectual diversity later used  by  John  Stuart  Mill  in On Liberty .  Some  have  thought  that  Priestley's Essay  on Government prefigured utilitarianism because Jeremy Bentham recollected finding in it the  phrase  'the  greatest  happiness  of  the  greatest  number.'  The  phrase  is  not  there, though Priestley does say that 'the good and happiness of the members [of society], that is, the majority of the members of any state, is the great standard by which every thing relating to that state must finally be determined.'\n\nThe Essay 's  importance  lies  mainly  in  its  restatement  of  a  Lockean  political philosophy of natural rights and in its clear distinction between political and civil liberty. Political liberty is 'the power which the members of the state reserve to themselves, of arriving at the public offices, or, at least, of having votes in the nomination of those who fill them.' Civil liberty is 'that power over their own actions, which the members of the state reserve to themselves, and which their officers must not infringe.' To leave man's 'natural' condition and enter the state of society is to sacrifice part of one's civil liberty. The consent of the governed is 'the only true and proper foundation of all governments subsisting in the world,' and any people has the right to recall a government which is deemed oppressive. There are no natural political rights, however. Political rights vary in place  and  time.  No  one  form  of  government  -  from  absolute  monarchy  to  radical democracy - is naturally better than any other. Good government is not a matter of form but  of  the  moderation  of  the  rulers,  of  uniform  laws,  and  of  respect  for  civil  liberties. Priestley  regards  the  civil  sphere  as  far  more  important  than  politics  to  a  people's happiness,  for  it  is  in  the  civil  sphere  that  truth  is  discovered,  material  progress  is cultivated,  and  genuine  religion  is  practiced.  His  later  radicalism  arose  not  from  any marked  philosophical change but from coming  to think the British  government immoderate and intrusive.\n\nIn  1773  Priestley  was  employed  as  the  librarian  and  companion  of  Lord Shelburne, with much free time to pursue his scientific and other writings. It was in this period that he entered into the metaphysical disputes of his day. He began conventionally enough, setting out the case for 'natural religion' in his three volume theological primer, the Institutes  of  Natural  and  Revealed  Religion .  Priestley's  theism  is  based  on  the Argument from Design. He sees nature as everywhere exhibiting order, and yet as not in any way self-ordering, since nothing we see in nature shows order arising naturally. The order must come from 'outside,' and since it resembles human productions it must derive from  intelligence,  indeed  a  supreme  intelligence.  He  reinforces  this  position  with  an appeal to the Cosmological Argument. Nothing in the Institutes suggested the controversies that were soon to follow.\n\nPriestley's  most  remarkable  philosophical  work  is  his  defense  of  materialism, which he wrote while with Shelburne. English philosophy had long been dominated by dualism. The few extant versions of materialism had almost no influence on Priestley's version.  He  admired  Hobbes,  but  did  not  borrow  from  him.  He  discussed  materialism with  d'Holbach  on  a  visit  to  Paris  in  1774  -  d'Holbach's Systeme  de  la  Nature had appeared in 1770 - but the beginnings of his own version predates that visit; and his later defenses of the doctrine bear little resemblance to d'Holbach's. The French materialists of the 1770s were using materialism to attack Christianity; Priestley's intentions were to defend  Christianity  by  making  its  metaphysical  framework  more  intelligible,  even  if doing so entailed denial of free will and the soul.\n\nPriestley's  materialism  rests  on  three  main  arguments,  each  of  which  bears interesting  scientific  connections.  He  first  arrived  at  the  doctrine  in  the  course  of defending  the  Lockean  'Theory  of  Ideas'  -  the  theory  that  all  our  perceptions  are mediated to us by sensations - against Reid's 'Common Sense' attack on that theory in his Inquiry into the Human Mind of  1764.  Reid  believed  that  Berkeley  and  Hume  had destroyed the claim that ideas represent reality by showing that our sensations do not in fact  resemble  the  qualities  of  external  objects.  From  these  assumptions  Berkeley  and Hume had concluded that we have no access to external reality, while Reid concluded that, as we do apprehend reality, we do so without the aid of the philosophers' fictitious ideas. Priestley's response, in his 1774 Examination of  the  Common Sense philosophy, was to reject the assumption that sensations or ideas must resemble their objects in order to represent them. For him ideas are not images, and the Theory of Ideas is not a theory of pictures in the brain. The Theory, he thinks, requires only that objects and ideas stand to each other as cause to effect.\n\nReid's main contention had been that representation requires resemblance, but he had also been inclined to attack the claim that objects can cause ideas. Mind and matter, he says in the Inquiry , are so different that 'we can find no handle by which one may lay hold of the other.' He took this to show that perception is a process causally independent of its objects. Priestley seized upon it as showing Reid to be an occasionalist or unwitting idealist.  In  claiming  this  he  is  accepting  Reid's  suggestion  that  totally  dissimilar substances  cannot  interact.  But,  he  believes  objects  do  produce  ideas:  he  takes  this  as given.  It  follows  that  ideas  and  objects  must  be  of  the  same  substance.  And  he  rejects Berkeley's  idealism  because  it  supposes  that  every  act  of  perception  is  produced  by  a divine  intervention,  which  he  regards  as  not  consonant  with  the  simplicity  usually displayed  in  God's  actions.  Following  this  logic,  Priestley  had  no  alternative  but  to declare himself a materialist.\n\nUnderlying  this  debate  is  an  issue  about  causal  relations.  We  can  contrast Priestley's view with that of his near-contemporary Hume, whom Priestley regarded as insufficiently acquainted with real science to have any useful opinions on the philosophy of science. Priestley agreed with Hume that causal relations contain regularities between events, but he denied that they are merely regularities. Causally related events are not for him thus 'loose and separate': they are bound together by the productive agency of some mechanism. His rejection  of  interactionist  dualism  stems  from  its  admitted  inability  to supply such a mechanism for interaction.\n\nThe  second  source  of  Priestley's  materialism  is  to  be  found  in  his  theory  of matter, which he made a central theme of his 1777 Disquisitions relating to Matter and Spirit . Newtonian dualists such as Price, Reid and Andrew Baxter had urged that matter and mind are irreconcilable because one is intrinsically passive and the other intrinsically active. Priestley thought that talk of matter as a 'dead and torpid substance' betrayed the influence of ancient Gnosticism, a religion which regarded matter as evil. According to the  Newtonians,  matter's  apparent  activity  is  to  be  wholly  ascribed  to  the  action  of immaterial forces. But, Priestley asks, if matter is wholly powerless, then what use is it, and why suppose it to exist at all? He follows John Michell (a fellow scientist-clergyman) in likening the Newtonian theory of matter and force to a structure of material bricks and immaterial mortar in which the mortar is doing all the work. Priestley and Michell were themselves indebted to the Jesuit scientist Roger Joseph Boscovich, whom they had both met.\n\nCloser  scrutiny  reveals  some  differences  between  Boscovich  and  Priestley. Priestley  wholly  accepted  his  insistence  on  the  powerfulness  of  matter.  Boscovich  had reached  this  conclusion  by  arguing  that  the  Newtonian  account  of  mechanical  impulse required finite velocities to be lost and gained in a single instant of time, thus violating the  Leibnizian  Law of Continuity. This argument is never mentioned by Priestley. For him mechanical impulse may or may not be theoretically intelligible; his objection is that the Newtonians have not shown that it actually occurs. Rather, the phenomena show us clear  instances  of  the  action-at-a-distance  of  forces,  and  nothing  that  cannot  be  readily explained  by  forces.  In  his  view,  Rule  One  of  Newton's  'Rules  of  Reasoning  in Philosophy' in the Principia (1687) - that 'we are to admit no more causes of things than such  as  are  both  true  and  sufficient  to  explain  appearances'  -  requires  us  to  hold  that matter consists of 'powers of attraction and repulsion' and to do without the hypothesis of solid, impenetrable atoms.\n\nFor Priestley the great theoretical weakness of the atomic theory is that it can not account for the internal cohesion of the atom. He is attracted to Boscovich's theory of the microstructure of matter as infinite powers of repulsion located at dimensionless pointparticles, but he treats that theory as no more than a valuable speculation. The theory is consistent  with  all  data,  but  it  lacks  confirmation  from  experience  or  analogy.  By contrast, the more general theory of matter as 'powers of attraction and repulsion' does command assent, for simplicity and analogy count in its favour.\n\nPriestley  diagnoses  the  Newtonian  notion  of  matter's  passivity  as  arising  from what we might term the 'billiard table illusion.' That billiard balls do not move without first being struck does not show that they are not powerful agents, for we forget that the table is level and that it thus neutralizes the balls' natural tendency to move downwards. The  fact  that  bodies  are  sometimes  in  equilibrium  only  shows  that  sometimes  their natural  powers  balance  each  other  out,  not  that  they  have  no  natural  powers.  And, Priestley concludes, if they can have these natural powers, there is no reason in principle why they might not have others such as the power of consciousness.\n\nPriestley's third and main argument for materialism is a methodological one. He argues in the Disquisitions that in postulating a soul dualists are making the same mistake that  the  Newtonians  make  in  postulating  solid  matter:  both  argue  for  an  entity  whose existence is not directly evident, and for which there is no indirect evidence which cannot be otherwise accounted for. Both thus fall foul of Newton's 'universally received' Rules of Reasoning. Following Hartley he takes it that, as far as we can tell, states of mind are universally  correlated  with  states  of  the  brain,  a  proposition  that  none  of  his  critics contested.  In  their Free  Discussion of  1778  Price  argued  that  Priestley's  move  from correlations  between body and mind to an identity theory is a fallacious one. Priestley replied that of course not all universal correlations are cases of identity - his claim is only that we must not postulate a theoretical entity such as the soul when the phenomena can be attributed to a known entity such as the brain.\n\nPriestley had professed rigorous adherence to Newton's Rules, and required that his reasoning 'be tried by this and by no other test.' Reid was the only critic to take up this challenge. Priestley thought the  Rules  discriminated  between  acceptable  and unacceptable hypotheses; Reid thought they proscribed hypotheses altogether. According to Reid, the clause in Rule One requiring causes to be 'true' rules out any cause which is 'barely  conjectured  to  exist  without  proof.'  Priestley  is  more  liberal:  for  him  a hypothetical  cause  can  be  regarded  as  'true'  if  it  is  modeled  on  a  real  existent.  Reid typically  employs  the  'sufficiency'  criterion  to  exhibit  the  'insufficiency'  of  some hypothesis,  against  those  who  would  over-simplify  the  complexity  of  nature.  Priestley typically contrasts 'sufficient' with 'superfluous,' against those who would overpopulate our  ontology.  The  crux  of  the  disagreement  is  in  their  attitudes  to  analogy.  Newton's Second Rule tells up that 'to the same effects we must, as far as possible, assign the same causes.'  Reid  adopts  a  strict  interpretation  of  'same,'  and  thus  empties  the  Rule  of analogical  content.  Priestley  reads  'sameness'  as  equivalent  to  'likeness';  for  him science  transcends  the  observable,  on  the  basis  of  analogical  inference  from  the observable. For Reid it was part of Newton's greatness that he refused to pronounce on the  nature  of  gravity,  and  in  that  sense  he  discovered  only  the  law  of  gravity,  not  its cause. In contrast Priestley's science does deal with the natures of things, and not just with the laws of their superficial phenomena. For him it is by analogy that we expand our ontology.\n\nThe application of Reid's principles to the mind is somewhat unclear. He has to treat the mind's immateriality as axiomatic. Priestley's principles apply more straightforwardly. He allows that mental phenomena are in some respects sui generis , and that they cannot thus be wholly explained by analogies; but he denies that these features are any better explained by dualism. We do not know exactly how the brain thinks, but then we don't know how magnets work. In both cases we should ascribe the power to its apparent  source,  and  not  to  any  hypothetical  agent.  Had  the  brain  been  demonstrably incapable of performing the role require of it, then the method of analogy described by Rule Two could be used to enlarge our scheme of causes. But as it seems 'sufficient' and is  undoubtedly 'true,' Rule One requires us to reduce our ontology. Not to follow this Rule is tantamount to supposing that 'every particular substance to which any powers or properties are ascribed may have a separate soul also.' Rule One requires simplicity, but it does not entail reductionism. The brain's powers reside in its structure or organization. Nature, in Priestley's view, is a multi-leveled set of systems, in which different powers belong  to  different  levels  of  organization.  Simplicity  does  not  reduce  everything  to physics.\n\nPriestley's  determinism  can  be  more  briefly  described,  as  it  rests  on  one  main argument, forcefully expounded in his Doctrine of Philosophical Necessity of 1777. The work was presented as an 'appendix' to his materialism, and he thinks that materialism and determinism are mutually supporting, but he argues for determinism on independent grounds.  Hume  had  been  wrong,  Priestley  contends,  to  take  the  mechanism  out  of causation,  but  he  was  right  to  insist  that  causal  relations  are  regular.  They  hold  not essentially between single pairs of events, but between kinds of pairs of events. Causal relations  are  universal,  law-like  relations.  This  account  of  causation  is,  he  argues, incompatible with libertarianism. If in the same circumstances I could on one occasion do X and on another occasion do Y, then it cannot be those circumstances that cause me to do either. But neither could my will be said to cause either action. Any self-determining power, 'bearing an equal relation to any two different decisions, cannot be said to be the cause with respect to them both.' This dilemma has only two solutions. Perhaps neither the circumstances nor my will produces the action; in which case the action is 'an effect without  a  cause,'  and  the  libertarian  must  give  up  the  doctrine  that  every  event  has  a cause.  Or  it  must  be  that  such  undetermined  actions  are  impossible,  and  libertarianism itself must be abandoned.\n\nPriestley's main critics, Price and Reid, took up opposing lines of attack. In his Free Discussion with Priestley, Price contended that causation is not a unitary concept, and that a different kind of causation operates in the human sphere from that which reigns in nature. Natural causes are law-like; human causes are not. For him motives are both the final causes and the occasions of our actions, but they are not coercive: we are the agents, not them. Against this Priestley contends that our conception of causation is not shaped by the kinds of substances to which it applies: the concept must be one and the same in all cases, whether human or natural. He claims that the will can no more be said to determine actions than the motion of the air can be said to determine the direction of the wind. We know the motion of the air does not cause any particular wind simply by understanding the concept of causation. He concludes that Price's ontological considerations do not divide the concept into two different kinds of causation.\n\nUnlike Price, Reid accepted that Priestley's conception of causation does lead to determinism, and (in his 1788 Essays on the Active Powers of the Human Mind , though with little mention of Priestley) he directed his attack against that conception. He argued that all real causation is free conscious agency, whether human or divine, and that natural causes  are  only  the  superficial  appearances  of  regularity  occasioned  by  the  hidden operation of conscious agents. He attacked Priestley's conception mainly on the grounds that it cannot account for accidental generalizations, such as the alternating succession of night  and  day.  If  all  regular  relations  are  causal  relations,  then  night  and  day  must  be causally  related.  Priestley  regards  regularities  as  part  of  the  causal  relation  and  also  as evidence of causation. Regularities point to the existence of a mechanism which is in turn the explanation of the regularity. Science advances  from  the regularities to the mechanism by experimentally analyzing the 'proximate cause.' He gives as an example his own discovery of why frequently breathed air is fatal to animal life: experiment shows that  in  being  breathed  the  composition  of  the  air  is  changed.  This  is  only  a  partial explanation but it can in principle be extended towards a complete account of the matter. It is not clear whether or how on his view it would be possible to investigate a regularity and discover no intervening proximate mechanism, so it must be said that he offered no criterion for detecting universal accidental generalizations.\n\nIn 1780 Priestley left Shelburne, in part because his philosophical controversies were beginning to embarrass his patron. He returned to his clerical career, in charge of Birmingham's  prosperous 'New  Meeting',  where  he was  also surrounded by a flourishing  scientific  and  industrial  culture  in  which  he  felt  perfectly  at  home.  Both friends and foes, however, tried to persuade him that philosophy was not his forte. In a sense  he  did  modify  his  course  at  this  time;  little  more  was  said  about  materialism thereafter.  His  next  work,  the Letters  to  a  Philosophical  Unbeliever of  1780,  took  up again the defense of the Argument from Design, against that most vigorous critique of the Argument, Hume's Dialogues concerning Natural Religion ,  published posthumously in 1779.\n\nThe Dialogues attacks the Design Argument in a great number of ways. One of Hume's  contentions  is  that  the  origins  of  life  and  order  are  necessarily  unknowable because the history of the universe is a single, unique event, and no part of the universe can be used as a model by which to explain the whole. More generally, the 'slow and deliberate' steps of science can never enable us to reach cosmic conclusions. Priestley thinks that analogical reasoning, following Newton's Second Rule, is strong enough to bridge these difficulties. He admits that a genuine singularity would be inexplicable, but denies that the Creation is an entirely singular event. The Deity, he says, 'is to be placed in the general class of intelligent and designing agents, though infinitely superior to all others of that kind.'\n\nHowever, on Priestley's account of the Rules, analogy only has a constructive role when the known resources of science have been exhausted. If materialism is sufficient to account for consciousness, why isn't naturalism sufficient to do the same for the order of nature?  Hume  had  argued  that  nature  contains  many  principles  of  order,  and  cites  as examples 'instinct,' 'vegetation' and 'generation.' He sets up the principles of life in opposition to  the  Design  theorist's  model  of  reason  as  the  basic  source  of  order.  'The world,' says Philo (Hume's skeptical spokesman), 'plainly resembles more an animal or a vegetable than it does a watch or knitting-loom.' 'A continual circulation of matter in it produces no disorder: a continual waste in every part is incessantly repaired: the closest sympathy  is  perceived  throughout  the  entire  system:  and  each  part  or  member,  in performing  its  proper  offices,  operates  both  to  its  own  preservation  and  to  that  of  the whole.'\n\nIn Priestley's view, however, it is these very features of life - its orderliness and mutual adjustment - that demand some sort of external explanation. Hume had foreseen this  kind  of  reply,  and  he  accused  it  of  begging  the  question:  both  reason  and  life  are equally principles of order in nature, and it is arbitrary to give one priority over the other. Priestley makes two suggestions as to why life cannot be 'sufficient' for the task Hume requires of it. In the first place, even if we suppose life to have been eternal, this will not explain how  the  various species came  to be so well adapted to their physical environments.  Secondly,  he  claims  that even  the power  of  reproduction  is only superficially a process in which life brings order out of disorder. Reproduction is itself possible  only  because  of  the  intricate  mechanisms  plants  and  animals  possess  for  their own  procreation. He  denies then that plants and animals do bestow  order and organization  on  their  offspring,  and  ascribes  that  ordering  power  to  their  reproductive apparatus.  In  thus  distinguishing  between  the  power  of  life  as  such  and  the  power  of reproduction he is trying to show that it is not him but Hume who begs the question.\n\nPriestley had not only to defend his theism against Hume - he also had to defend it,  as  it  were,  against himself. Price, and later Samuel Taylor Coleridge, contended that materialism and determinism are in some sense inconsistent with belief in a transcendent Deity, and they tend towards Spinozistic pantheism.\n\nPriestley's  materialism  was  based  not  only  on  methodology,  but  also  on  the problem  of  interaction  and  the  theory  of  matter.  The  theological  counterpart  of  the problem  of  mind-body  interaction  is  the  problem  of  'how  an  immaterial  being,  not existing in space, can create, or act upon matter,' a difficulty so great that he concludes we  must  regard  God  as  being  in  some  sense  a  material  being.  He  observes  that  this solution leads to a further difficulty, for we are being required to suppose that nature is somehow  filled  by  an  infinite  material  substance.  Here  Priestley  turns  for  help  to  the Boscovichian hypothesis: on the theory of forces and powers, solidity and impenetrability are not essential to matter, and the interpenetration of substances becomes a possibility. God, then, is quite literally a Being 'in whom we live and move and have our being,' to quote one of Priestley's favorite Biblical phrases.\n\nThis position might be called a monism of attributes - everything is material, even in  some  sense  God.  Some  of  Priestley's  critics  and  commentators,  from  Coleridge onwards,  have  ascribed  to  him  a  monism  of  substance;  somehow  his  quite  strenuous opposition to this version of monism has gone unremarked. The opposition to pantheism could hardly be more explicit:\n\n[F]or  the  same  reason  that  the  maker  of  the  table  …  must  be  different  from  the table, it is equally manifest that the maker of the myself, of the world, and of the universe  …  must  be  a  being  different  from  myself,  the  world,  or  the  universe; which is a sufficient answer to the reasoning of Spinoza, who, making the universe itself to be God, did, in fact, deny that there was any God.\n\nThe  analogy  central  to  the  Argument  from  Design  entails  the  ontological  distinction between maker and made. Spinoza of course rejected Design because he rejected final causes, which he took to be incompatible with determinism, and because he thought the Design theory involved God employing means to achieve ends, which he took to be an impossible mode of operation for a perfect Being. Priestley, on the other hand, saw no difficulty  in  reconciling  final  causes  with  determinism  or  in  God  employing  means  to ends, so long as in all cases the causal relations are regular.\n\nPriestley  also  thought  that  pantheism  could  be  refuted  without  recourse  to  the Argument  from  Design.  This  we  see  in  his Additional  Letters  to  a  Philosophical Unbeliever of  1782,  written  in  reply  to  Matthew  Turner  (who  wrote  as  'William Hammon'; he had given chemistry lectures at Warrington Academy when Priestley was there). Turner espoused a pantheism in which God is identical with the 'forces of nature.' Priestley objects that this hypothesis of an intelligent, self-designing universe is 'contrary to any analogy in nature.' He recognizes that Turner's intelligent material universe bears some resemblance to his own conception of a thinking brain; but, he says, the analogy is not  a  good  one,  for  the  universe  lacks  the  homogeneity  we  find  in  the  brain.  This rejoinder  is  surprising,  for  it  is  precisely  the  Design  Argument's  contention  that  the universe is not disjointed but is in fact an harmonious and simple structure.\n\nPriestley also considers the question of whether, if human intelligence resides in a brain,  God  too,  though  distinct  from  the  universe,  must  'have  in  him  something resembling the structure of the brain.' He rejects this suggestion, contending that 'The divine mind … may be intelligent, in common with the mind of man, and yet not have the visible and tangible properties, or any thing of the consistence of the brain.'\n\nMany things have common properties that are very dissimilar in other respects. If we had known nothing elastic besides steel, we might have concluded that nothing was elastic but steel, or something equally solid and hard; and yet we find elasticity to belong to so rare a substance as air….\n\nThe claim here is that analogies are sometimes misleading. Priestley's argument here is ad hoc . Analogy does suggest that elastic objects are somehow steel-like, and the analogy of materialism does likewise suggest that God has a brain. Even so, his main objection to pantheism still stands, the argument that the analogy of human creativity suggests God is to be to the world as Maker to made.\n\nLate in life Priestley encountered an evolutionary rival to his theism. It came from Erasmus  Darwin  (Charles  Darwin's  grandfather),  in  the  1801  third  edition  of  his Zoonomia . Darwin resembled Hume in that he thought of the biological order as having been generated by a primordial living principle. He postulated what he called 'molecules with formative aptitudes' as the chief agents in reproduction and the driving-force in the generation  of  new  life-forms.  Priestley's  very  last  scientific  experiments  were  directed against  the  doctrine  of  spontaneous  generation  that  he  thought  Darwin's  evolutionary hypothesis  entailed.  (The  results  were  published  after  his  death  in  the American Philosophical Transactions of 1809.) Darwin, he thought, had attributed to his 'particles' just  the  same  sort  of  impossible  spontaneity  that  the  libertarian  assigns  to  free-will;  he had given no account of how these particles are supposed to work. He denied that what Darwin called  the  'lower'  forms  of  life  are  essentially  simpler  forms:  on  his  view  all species  are  highly  complex,  and  all  their  complexities  are  finely  adjusted  to  their environment.\n\nPriestley's general position, then, is that naturalism fails to make sense of biology. If we follow Hume we must ascribe to life itself powers which belong only to the level of life's  components.  If  we  follow  Erasmus  Darwin  we  must  invent  a  mechanically impossible  entity  to  bridge  the  gulf  between  the  non-living  and  the  living.  Since  both these moves fail, we are forced to postulate an intelligent Creator, following the analogy of human creativity. In the case of the mind, Newton's Rules favour a reduced ontology; in the case of nature, an expansion.\n\nFor a time Priestley's contemporaries were either greatly repelled or attracted by his combination  of politics, religion and  philosophy.  Burke's Reflections on the Revolution  in  France of  1790,  which  attacked  Priestley  and  Price  with  considerable vehemence, and the Birmingham Riots of 1791 - in which a 'Church and King' mob destroyed his home and his library - are both monuments of the hostility he inspired in some. A cartoon of the day labeled 'Dr Phlogiston, the Priestley politician or the political priest' depicted him as an enraged firebrand standing on a tract called 'Bible explained away,'  waving  a  'Political  sermon,'  and  with  his  'Essays  on  Matter  and  Spirit' protruding from one pocket. This antagonism led to his emigration to the United States in 1794, where he was for a short time feted as a democratic hero but soon after attacked as a French Revolutionary sympathizer.\n\nYet to the young English radicals of 1790 Priestley was a hero: this admiration appears in figures as diverse as Coleridge, William Wordsworth, Charles Lamb, William Hazlitt, William Godwin, Mary Wollstonecraft, Jeremy Bentham and James Mill. But, as Leslie  Stephen  observed,  this  enthusiasm  was  'swept  away  by  stronger  currents.'  In  a world  starting  to  become  divided  between  English  Christian  conservatism  and  French radical atheism, Priestley's ambition had been to put the most 'advanced' Enlightenment ideas into the service of a rationalized though heterodox Christianity, under the guidance of  the  basic  principles  of  scientific  method.  In  this  he  had  little  success.  Some  of  his admirers moved towards Romantic philosophy and Christian orthodoxy, others towards atheism and empiricism. By the turn of the century, Priestley's influence had dwindled to the narrow stream of rational Unitarians. He died in 1804, at his home in Northumberland, Pennsylvania.\n\nSince  his  death  Priestley's  philosophical  reputation  has  been  meager,  for  two obvious reasons. His combination of materialism, determination and theism has appeared paradoxical.  Leslie  Stephen,  for  instance,  described  it  in  his History  of  Thought  in  the Eighteenth Century (1876) as 'an unnatural alliance,' and declared that his methods of thought  'would,  if  consistently  applied,  destroy  the  last  citadel  of  supernaturalism.' Further, his remarkable  versatility has aroused  suspicion. As  Stephen  put  it, he 'possessed one of those restless intellects which are incapable of confining themselves to any single task, and, unfortunately, incapable in consequence of sounding the depths of any philosophical system.'\n\nPriestley's life was one of perpetual disputation. He always regarded controversy as  a  service  to  truth,  and  it  was  his  custom  to  answer  every  objection  his  critics  could propose. When his arguments led him to seemingly paradoxical conclusions, he held to the arguments rather than reject the premises from which he started. As a counter-balance to  Leslie  Stephen's  dismissive  judgment,  we  can  end  by  noting  the  opinion  of  Hazlitt, expressed in his 1829 essay 'The Late Dr. Priestley.' Priestley, he said, 'was certainly the best controversialist of his day, and one of the best in the language'; and, he added, 'in  boldness  of  inquiry,  quickness  and  elasticity  of  mind,  and  ease  in  making  himself understood, he had no superior.'\n\n## Letters:\n\n- A Scientific Autobiography of Joseph Priestley (1733-1804). Selected Scientific Correspondence, edited by Robert E. Schofield (Cambridge, Massachusetts: MIT Press, 1966).\n\n## Bibliography:\n\nRonald  E.  Crooke, A  Bibliography  of  Joseph  Priestley,  1733-1804 (London:  Library Association, 1966).\n\n## Biographies:\n\n- F.W. Gibbs, Joseph Priestley. Adventurer in Science and Champion of Truth (London: Thomas Nelson and Sons, 1965);\n\nRobert  E.  Schofield, The  Enlightenment  of  Joseph  Priestley.  A  Study  of  His  Life  and Work from 1733 to 1773 (University Park, Pennsylvania: University of Pennsylvania Press, 1997);\n\n## References\n\nR.G.A.  Anderson  and  Christopher  Lawrence,  editors, Science,  Medicine  and  Dissent: Joseph Priestley (1733-1804) (London: Wellcome Trust/Science Museum, 1987); Margaret Canovan, 'Two Concepts of Liberty - Eighteenth-Century Style,' The PricePriestley Newsletter , 2, 1978: 27-41;\n\nMartin Fitzpatrick, 'Toleration and Truth,' Enlightenment and Dissent , 1, 1982: 3-32; Jack Fruchtman Jr., The Apocalyptic Politics of Richard Price and Joseph Priestley: A Study in Late Eighteenth-Century English Millenialism ,  (Philadelphia: American Philosophical Society, 1983);\n\nKnud Haakonssen, editor, Enlightenment and Religion. Rational Dissent in EighteenthCentury Britain (Cambridge: Cambridge University Press, 1996);\n\n- P.M.  Heimann,  'Voluntarism  and  Immanence:  Conceptions  of  Nature  in  EighteenthCentury Thought,' Journal of the History of Ideas , 39, 1978: 271-83;\n- Robert E. Schofield, 'Joseph Priestley: Theology, Physics and Metaphysics,' Enlightenment and Dissent , 3, 1983: 69-82;\n- A.  Truman  Schwartz  and  John  G.  McEvoy,  eds, Motion  Toward  Perfection:  The Achievement of Joseph Priestley (Boston: Skinner House Books, 1990);\n\nAlan Tapper, 'The Beginnings of Priestley's Materialism,' Enlightenment and Dissent , 1, 1982: 73-82;\n\nJohn Yolton, Thinking Matter: Materialism in Eighteenth-Century Britain (Minneapolis: University of Minnesota Press, 1983).\n\n## Papers:\n\nMany of Priestley's non-scientific papers and letters were destroyed in the Birmingham Riots.  Collections  are  to  be  found  in  the  Dr.  Williams  Library,  London;  Dickinson College,  Pennsylvania;  the  American  Philosophical  Society  Library,  Pennsylvania;  and the  Royal  Society,  London.  See  also  the  careful  'Select  Bibliography'  in  Robert  E. Schofield, The Enlightenment of Joseph Priestley.  A  Study  of  His  Life  and  Work  from 1733 to 1773 (University Park, Pennsylvania: University of Pennsylvania Press, 1997).",
+    "responses": [
+      {
+        "source": "gpt-4o-2024-11-20",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"ADU1\": {\n      \"text\": \"Joseph Priestley's range of intellectual interests was very great, even by the standards of the eighteenth century.\",\n      \"label\": \"claim\"\n    },\n    \"ADU2\": {\n      \"text\": \"He argued the case for materialism perhaps more cogently than did any British thinker before recent times.\",\n      \"label\": \"claim\"\n    },\n    \"ADU3\": {\n      \"text\": \"He presented determinism vigorously, with a focus on the central issue of the nature of causation.\",\n      \"label\": \"claim\"\n    },\n    \"ADU4\": {\n      \"text\": \"He defended scientific realism against Thomas Reid's Common Sense realism and against (as he saw it) David Hume's phenomenonalism.\",\n      \"label\": \"claim\"\n    },\n    \"ADU5\": {\n      \"text\": \"He articulated, against Hume, a working scientist's account of causation, induction and scientific progress.\",\n      \"label\": \"claim\"\n    },\n    \"ADU6\": {\n      \"text\": \"He defended the Argument from Design against Hume's penetrating criticisms.\",\n      \"label\": \"claim\"\n    },\n    \"ADU7\": {\n      \"text\": \"His attempt to combine theism, materialism and determinism is audacious and original.\",\n      \"label\": \"claim\"\n    },\n    \"ADU8\": {\n      \"text\": \"He tried to show that such a system does not lapse into pantheism.\",\n      \"label\": \"claim\"\n    },\n    \"ADU9\": {\n      \"text\": \"As a political thinker, he distinguished usefully between civil and political liberty, and argued the case for extensive civil liberties.\",\n      \"label\": \"claim\"\n    },\n    \"ADU10\": {\n      \"text\": \"His liberalism is closely bound up with his account of historical progress.\",\n      \"label\": \"claim\"\n    },\n    \"ADU11\": {\n      \"text\": \"He was perhaps the most thorough British exponent of a Providentialist account of progress.\",\n      \"label\": \"claim\"\n    },\n    \"ADU12\": {\n      \"text\": \"His ultimate aim was to combine Enlightenment principles with a modernized Christian theism.\",\n      \"label\": \"claim\"\n    },\n    \"ADU13\": {\n      \"text\": \"Priestley's materialism rests on three main arguments, each of which bears interesting scientific connections.\",\n      \"label\": \"claim\"\n    },\n    \"ADU14\": {\n      \"text\": \"Priestley's determinism can be more briefly described, as it rests on one main argument, forcefully expounded in his Doctrine of Philosophical Necessity of 1777.\",\n      \"label\": \"claim\"\n    },\n    \"ADU15\": {\n      \"text\": \"Priestley's general position, then, is that naturalism fails to make sense of biology.\",\n      \"label\": \"claim\"\n    },\n    \"ADU16\": {\n      \"text\": \"Since both these moves fail, we are forced to postulate an intelligent Creator, following the analogy of human creativity.\",\n      \"label\": \"claim\"\n    },\n    \"ADU17\": {\n      \"text\": \"Priestley's life was one of perpetual disputation.\",\n      \"label\": \"claim\"\n    },\n    \"ADU18\": {\n      \"text\": \"He always regarded controversy as a service to truth, and it was his custom to answer every objection his critics could propose.\",\n      \"label\": \"claim\"\n    },\n    \"ADU19\": {\n      \"text\": \"When his arguments led him to seemingly paradoxical conclusions, he held to the arguments rather than reject the premises from which he started.\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"ADU2\",\n      \"target\": \"ADU7\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU3\",\n      \"target\": \"ADU7\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU4\",\n      \"target\": \"ADU7\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU5\",\n      \"target\": \"ADU7\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU6\",\n      \"target\": \"ADU7\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU8\",\n      \"target\": \"ADU7\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU9\",\n      \"target\": \"ADU10\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU10\",\n      \"target\": \"ADU11\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU11\",\n      \"target\": \"ADU12\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU13\",\n      \"target\": \"ADU7\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU14\",\n      \"target\": \"ADU7\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU15\",\n      \"target\": \"ADU16\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU17\",\n      \"target\": \"ADU18\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU18\",\n      \"target\": \"ADU19\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "ADU1": {
+              "text": "Joseph Priestley's range of intellectual interests was very great, even by the standards of the eighteenth century.",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "He argued the case for materialism perhaps more cogently than did any British thinker before recent times.",
+              "label": "claim"
+            },
+            "ADU3": {
+              "text": "He presented determinism vigorously, with a focus on the central issue of the nature of causation.",
+              "label": "claim"
+            },
+            "ADU4": {
+              "text": "He defended scientific realism against Thomas Reid's Common Sense realism and against (as he saw it) David Hume's phenomenonalism.",
+              "label": "claim"
+            },
+            "ADU5": {
+              "text": "He articulated, against Hume, a working scientist's account of causation, induction and scientific progress.",
+              "label": "claim"
+            },
+            "ADU6": {
+              "text": "He defended the Argument from Design against Hume's penetrating criticisms.",
+              "label": "claim"
+            },
+            "ADU7": {
+              "text": "His attempt to combine theism, materialism and determinism is audacious and original.",
+              "label": "claim"
+            },
+            "ADU8": {
+              "text": "He tried to show that such a system does not lapse into pantheism.",
+              "label": "claim"
+            },
+            "ADU9": {
+              "text": "As a political thinker, he distinguished usefully between civil and political liberty, and argued the case for extensive civil liberties.",
+              "label": "claim"
+            },
+            "ADU10": {
+              "text": "His liberalism is closely bound up with his account of historical progress.",
+              "label": "claim"
+            },
+            "ADU11": {
+              "text": "He was perhaps the most thorough British exponent of a Providentialist account of progress.",
+              "label": "claim"
+            },
+            "ADU12": {
+              "text": "His ultimate aim was to combine Enlightenment principles with a modernized Christian theism.",
+              "label": "claim"
+            },
+            "ADU13": {
+              "text": "Priestley's materialism rests on three main arguments, each of which bears interesting scientific connections.",
+              "label": "claim"
+            },
+            "ADU14": {
+              "text": "Priestley's determinism can be more briefly described, as it rests on one main argument, forcefully expounded in his Doctrine of Philosophical Necessity of 1777.",
+              "label": "claim"
+            },
+            "ADU15": {
+              "text": "Priestley's general position, then, is that naturalism fails to make sense of biology.",
+              "label": "claim"
+            },
+            "ADU16": {
+              "text": "Since both these moves fail, we are forced to postulate an intelligent Creator, following the analogy of human creativity.",
+              "label": "claim"
+            },
+            "ADU17": {
+              "text": "Priestley's life was one of perpetual disputation.",
+              "label": "claim"
+            },
+            "ADU18": {
+              "text": "He always regarded controversy as a service to truth, and it was his custom to answer every objection his critics could propose.",
+              "label": "claim"
+            },
+            "ADU19": {
+              "text": "When his arguments led him to seemingly paradoxical conclusions, he held to the arguments rather than reject the premises from which he started.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU2",
+              "target": "ADU7",
+              "type": "support"
+            },
+            {
+              "source": "ADU3",
+              "target": "ADU7",
+              "type": "support"
+            },
+            {
+              "source": "ADU4",
+              "target": "ADU7",
+              "type": "support"
+            },
+            {
+              "source": "ADU5",
+              "target": "ADU7",
+              "type": "support"
+            },
+            {
+              "source": "ADU6",
+              "target": "ADU7",
+              "type": "support"
+            },
+            {
+              "source": "ADU8",
+              "target": "ADU7",
+              "type": "support"
+            },
+            {
+              "source": "ADU9",
+              "target": "ADU10",
+              "type": "support"
+            },
+            {
+              "source": "ADU10",
+              "target": "ADU11",
+              "type": "support"
+            },
+            {
+              "source": "ADU11",
+              "target": "ADU12",
+              "type": "support"
+            },
+            {
+              "source": "ADU13",
+              "target": "ADU7",
+              "type": "support"
+            },
+            {
+              "source": "ADU14",
+              "target": "ADU7",
+              "type": "support"
+            },
+            {
+              "source": "ADU15",
+              "target": "ADU16",
+              "type": "support"
+            },
+            {
+              "source": "ADU17",
+              "target": "ADU18",
+              "type": "support"
+            },
+            {
+              "source": "ADU18",
+              "target": "ADU19",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "ADU1": {
+              "text": "Joseph Priestley's range of intellectual interests was very great, even by the standards of the eighteenth century.",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "He argued the case for materialism perhaps more cogently than did any British thinker before recent times.",
+              "label": "claim"
+            },
+            "ADU3": {
+              "text": "He presented determinism vigorously, with a focus on the central issue of the nature of causation.",
+              "label": "claim"
+            },
+            "ADU4": {
+              "text": "He defended scientific realism against Thomas Reid's Common Sense realism and against (as he saw it) David Hume's phenomenonalism.",
+              "label": "claim"
+            },
+            "ADU5": {
+              "text": "He articulated, against Hume, a working scientist's account of causation, induction and scientific progress.",
+              "label": "claim"
+            },
+            "ADU6": {
+              "text": "He defended the Argument from Design against Hume's penetrating criticisms.",
+              "label": "claim"
+            },
+            "ADU7": {
+              "text": "His attempt to combine theism, materialism and determinism is audacious and original.",
+              "label": "claim"
+            },
+            "ADU8": {
+              "text": "He tried to show that such a system does not lapse into pantheism.",
+              "label": "claim"
+            },
+            "ADU9": {
+              "text": "As a political thinker, he distinguished usefully between civil and political liberty, and argued the case for extensive civil liberties.",
+              "label": "claim"
+            },
+            "ADU10": {
+              "text": "His liberalism is closely bound up with his account of historical progress.",
+              "label": "claim"
+            },
+            "ADU11": {
+              "text": "He was perhaps the most thorough British exponent of a Providentialist account of progress.",
+              "label": "claim"
+            },
+            "ADU12": {
+              "text": "His ultimate aim was to combine Enlightenment principles with a modernized Christian theism.",
+              "label": "claim"
+            },
+            "ADU13": {
+              "text": "Priestley's materialism rests on three main arguments, each of which bears interesting scientific connections.",
+              "label": "claim"
+            },
+            "ADU14": {
+              "text": "Priestley's determinism can be more briefly described, as it rests on one main argument, forcefully expounded in his Doctrine of Philosophical Necessity of 1777.",
+              "label": "claim"
+            },
+            "ADU15": {
+              "text": "Priestley's general position, then, is that naturalism fails to make sense of biology.",
+              "label": "claim"
+            },
+            "ADU16": {
+              "text": "Since both these moves fail, we are forced to postulate an intelligent Creator, following the analogy of human creativity.",
+              "label": "claim"
+            },
+            "ADU17": {
+              "text": "Priestley's life was one of perpetual disputation.",
+              "label": "claim"
+            },
+            "ADU18": {
+              "text": "He always regarded controversy as a service to truth, and it was his custom to answer every objection his critics could propose.",
+              "label": "claim"
+            },
+            "ADU19": {
+              "text": "When his arguments led him to seemingly paradoxical conclusions, he held to the arguments rather than reject the premises from which he started.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU2",
+              "target": "ADU7",
+              "type": "support"
+            },
+            {
+              "source": "ADU3",
+              "target": "ADU7",
+              "type": "support"
+            },
+            {
+              "source": "ADU4",
+              "target": "ADU7",
+              "type": "support"
+            },
+            {
+              "source": "ADU5",
+              "target": "ADU7",
+              "type": "support"
+            },
+            {
+              "source": "ADU6",
+              "target": "ADU7",
+              "type": "support"
+            },
+            {
+              "source": "ADU8",
+              "target": "ADU7",
+              "type": "support"
+            },
+            {
+              "source": "ADU9",
+              "target": "ADU10",
+              "type": "support"
+            },
+            {
+              "source": "ADU10",
+              "target": "ADU11",
+              "type": "support"
+            },
+            {
+              "source": "ADU11",
+              "target": "ADU12",
+              "type": "support"
+            },
+            {
+              "source": "ADU13",
+              "target": "ADU7",
+              "type": "support"
+            },
+            {
+              "source": "ADU14",
+              "target": "ADU7",
+              "type": "support"
+            },
+            {
+              "source": "ADU15",
+              "target": "ADU16",
+              "type": "support"
+            },
+            {
+              "source": "ADU17",
+              "target": "ADU18",
+              "type": "support"
+            },
+            {
+              "source": "ADU18",
+              "target": "ADU19",
+              "type": "support"
+            }
+          ]
+        }
+      },
+      {
+        "source": "claude-3-5-sonnet-20241022",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"1\": {\n      \"text\": \"Joseph Priestley's range of intellectual interests was very great, even by the standards of the eighteenth century. He was a Dissenting minister, and his chief concerns were theological. His scientific work, for which he is now best known, occupied much of his remaining time. In addition, he wrote extensively on history, education, rhetoric, and politics.\",\n      \"label\": \"premise\"\n    },\n    \"2\": {\n      \"text\": \"He argued the case for materialism perhaps more cogently than did any British thinker before recent times.\",\n      \"label\": \"claim\"\n    },\n    \"3\": {\n      \"text\": \"His attempt to combine theism, materialism and determinism is audacious and original.\",\n      \"label\": \"claim\"\n    },\n    \"4\": {\n      \"text\": \"Priestley's materialism rests on three main arguments, each of which bears interesting scientific connections.\",\n      \"label\": \"premise\"\n    },\n    \"5\": {\n      \"text\": \"Following Hartley he takes it that, as far as we can tell, states of mind are universally correlated with states of the brain, a proposition that none of his critics contested.\",\n      \"label\": \"premise\"\n    },\n    \"6\": {\n      \"text\": \"Nature, in Priestley's view, is a multi-leveled set of systems, in which different powers belong to different levels of organization. Simplicity does not reduce everything to physics.\",\n      \"label\": \"claim\"\n    },\n    \"7\": {\n      \"text\": \"Priestley's general position, then, is that naturalism fails to make sense of biology. If we follow Hume we must ascribe to life itself powers which belong only to the level of life's components. If we follow Erasmus Darwin we must invent a mechanically impossible entity to bridge the gulf between the non-living and the living. Since both these moves fail, we are forced to postulate an intelligent Creator, following the analogy of human creativity.\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"1\",\n      \"target\": \"2\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"4\",\n      \"target\": \"2\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"5\",\n      \"target\": \"2\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"6\",\n      \"target\": \"3\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"7\",\n      \"target\": \"3\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "1": {
+              "text": "Joseph Priestley's range of intellectual interests was very great, even by the standards of the eighteenth century. He was a Dissenting minister, and his chief concerns were theological. His scientific work, for which he is now best known, occupied much of his remaining time. In addition, he wrote extensively on history, education, rhetoric, and politics.",
+              "label": "premise"
+            },
+            "2": {
+              "text": "He argued the case for materialism perhaps more cogently than did any British thinker before recent times.",
+              "label": "claim"
+            },
+            "3": {
+              "text": "His attempt to combine theism, materialism and determinism is audacious and original.",
+              "label": "claim"
+            },
+            "4": {
+              "text": "Priestley's materialism rests on three main arguments, each of which bears interesting scientific connections.",
+              "label": "premise"
+            },
+            "5": {
+              "text": "Following Hartley he takes it that, as far as we can tell, states of mind are universally correlated with states of the brain, a proposition that none of his critics contested.",
+              "label": "premise"
+            },
+            "6": {
+              "text": "Nature, in Priestley's view, is a multi-leveled set of systems, in which different powers belong to different levels of organization. Simplicity does not reduce everything to physics.",
+              "label": "claim"
+            },
+            "7": {
+              "text": "Priestley's general position, then, is that naturalism fails to make sense of biology. If we follow Hume we must ascribe to life itself powers which belong only to the level of life's components. If we follow Erasmus Darwin we must invent a mechanically impossible entity to bridge the gulf between the non-living and the living. Since both these moves fail, we are forced to postulate an intelligent Creator, following the analogy of human creativity.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "1",
+              "target": "2",
+              "type": "support"
+            },
+            {
+              "source": "4",
+              "target": "2",
+              "type": "support"
+            },
+            {
+              "source": "5",
+              "target": "2",
+              "type": "support"
+            },
+            {
+              "source": "6",
+              "target": "3",
+              "type": "support"
+            },
+            {
+              "source": "7",
+              "target": "3",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "1": {
+              "text": "Joseph Priestley's range of intellectual interests was very great, even by the standards of the eighteenth century. He was a Dissenting minister, and his chief concerns were theological. His scientific work, for which he is now best known, occupied much of his remaining time. In addition, he wrote extensively on history, education, rhetoric, and politics.",
+              "label": "premise"
+            },
+            "2": {
+              "text": "He argued the case for materialism perhaps more cogently than did any British thinker before recent times.",
+              "label": "claim"
+            },
+            "3": {
+              "text": "His attempt to combine theism, materialism and determinism is audacious and original.",
+              "label": "claim"
+            },
+            "4": {
+              "text": "Priestley's materialism rests on three main arguments, each of which bears interesting scientific connections.",
+              "label": "premise"
+            },
+            "5": {
+              "text": "Following Hartley he takes it that, as far as we can tell, states of mind are universally correlated with states of the brain, a proposition that none of his critics contested.",
+              "label": "premise"
+            },
+            "6": {
+              "text": "Nature, in Priestley's view, is a multi-leveled set of systems, in which different powers belong to different levels of organization. Simplicity does not reduce everything to physics.",
+              "label": "claim"
+            },
+            "7": {
+              "text": "Priestley's general position, then, is that naturalism fails to make sense of biology. If we follow Hume we must ascribe to life itself powers which belong only to the level of life's components. If we follow Erasmus Darwin we must invent a mechanically impossible entity to bridge the gulf between the non-living and the living. Since both these moves fail, we are forced to postulate an intelligent Creator, following the analogy of human creativity.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "1",
+              "target": "2",
+              "type": "support"
+            },
+            {
+              "source": "4",
+              "target": "2",
+              "type": "support"
+            },
+            {
+              "source": "5",
+              "target": "2",
+              "type": "support"
+            },
+            {
+              "source": "6",
+              "target": "3",
+              "type": "support"
+            },
+            {
+              "source": "7",
+              "target": "3",
+              "type": "support"
+            }
+          ]
+        }
+      }
+    ],
+    "timestamp": 1752747496.086922
+  }
+]

@@ -1,0 +1,316 @@
+[
+  {
+    "identifier": "SALICA-3",
+    "system_prompt": "## GOAL\nArgument‑mine the following paper to extract its comprehensive argumentative structure.\n\n## DEFINITIONS\n1. **Argument**: A set of propositions, including some number of premises and a conclusion. The premises should logically entail the conclusion.\n2. **Claim**: A proposition that asserts something to be true or false, typically requiring justification or evidence.\n3. **Premise**: A proposition that provides evidence, justification, or logical support for a claim or conclusion.\n\n## CRITICAL REQUIREMENTS\n1. **VERBATIM EXTRACTION ONLY**: Each ADU text must be copied EXACTLY from the paper with no modifications, paraphrasing, or combining of separate sentences.\n2. **NO HALLUCINATION**: Do not create, modify, or invent text that does not appear exactly in the source.\n3. **EXACT MATCHING**: Every word, punctuation mark, and spacing must match the original precisely.\n\n## DIRECTIONS\n1. **Identify Argumentative Discourse Units (ADUs)**  \n   - ADU = any contiguous text span functioning as a claim or a premise in the reasoning structure.\n   - **BE HIGHLY SELECTIVE**: Only include ADUs that are crucial to the overarching argument structure.\n   - Focus on significant claims and premises that contribute meaningfully to the argumentative flow.\n   - **AVOID NOISE**: Skip ADUs that are merely descriptive, tangential, or do not substantially advance the argument.\n   - Prioritize quality over quantity - fewer accurate, important ADUs are better than many insignificant ones.\n   - **EXTRACT ONLY**: Copy text spans exactly as they appear, without any modifications.\n2. **Classify each ADU**  \n   - Label = either `\"claim\"` or `\"premise\"`.  \n3. **Detect directed relations**  \n   - Relation = `\"support\"` or `\"attack\"`, from one ADU (source) to another (target).\n   - Map how ADUs connect to form reasoning chains.\n   - Focus on relationships between the most significant ADUs.\n   - Include relationships between premises that strengthen or weaken each other.\n4. **Verbatim spans**  \n   - Each `\"text\"` value must be copied EXACTLY from the paper with zero modifications.\n   - Do not paraphrase, summarize, or combine separate sentences.\n   - Do not add, remove, or change any words, punctuation, or spacing.\n   - If unsure about exact wording, skip that ADU rather than guess.\n\n## WHAT TO CAPTURE\n**INCLUDE ONLY:**\n- Main argumentative threads that are central to the paper's contribution\n- Core claims that represent the paper's primary arguments or findings\n- Key premises that provide essential support for major claims\n- Critical counterarguments and their refutations\n- Reasoning chains that demonstrate how main conclusions are derived\n\n**EXCLUDE (AVOID NOISE):**\n- Minor details, examples, or descriptive content that don't advance the argument\n- Tangential points or side discussions\n- Pure background information or literature review content\n- Methodological details unless they constitute argumentative claims\n- Obvious statements or commonly accepted facts\n- Redundant or repetitive argumentative content\n\n**GUIDING PRINCIPLE**: If removing an ADU would not significantly impact understanding of the paper's argumentative structure, it should be excluded.\n\n## QUALITY CONTROL\n- Before finalizing each ADU, verify the text exists exactly in the source\n- Prefer fewer, accurate ADUs over many potentially modified ones\n- When in doubt about exact wording, omit the ADU\n\n## OUTPUT FORMAT\nReturn **only** a single valid JSON object matching this schema.  \nDo **not** output any extra text, markdown, or explanations.\nDo **not** add comments.\n**RESPOND WITH ONLY**:\n```json\n{\n  \"ADUs\": {\n    \"<ADU_ID>\": {\n      \"text\": \"<exact span from paper>\",\n      \"label\": \"claim\" | \"premise\"\n    }\n    ...\n  },\n  \"relations\": [\n    {\n      \"source\": \"<ADU_ID>\",\n      \"target\": \"<ADU_ID>\",\n      \"type\": \"support\" | \"attack\"\n    }\n  ]\n}\n```",
+    "user_content": "## FRANCISCO SALTO ALEMANY\n\n## IN CONTINUITY: A REFLECTION ON THE PASSIVE SYNTHESIS OF SAMENESS\n\nIt is an intimate experience for us to think, to understand and to perceive things as being identical'to themselves, and to suppose, consequently, that things are truly \"what\" they are. Something is always conceived as itself. The given is given full of itself in all its modifications. For instance, I can think or perceive partially some lips, I can see them almost in their whole or in some of their aspects, or just see them disappear. But it does not seem to be possible to think or to perceive a given as almost itself, as an aspect or as part of itself. It is the aim of this work to study the assumptions and conditions for the original position of sameness in experience, just as it occurs in the synthesis of the datum singular and distinct. The polarization of single tone (einstimmig) intentional rays in an avr6 already contains the aporiae peculiar to the experience of the identical, whose revelation shall lead us, on the one hand, to one of the nuclei of the analysis of passive synthesis, and, on the other hand, to point up how critical revision of the numerical or extensional model of self-identity is for the unity of meaning. Then, it will be a question of pointing out the reasons why in a phenomenology of identity, the renunciation of the phenomenological legitimacy of the avr6 as a guarantee for the different positions of identity must be observed. To have a meaning does not necessarily mean to have \"one\" meaning (or any quantity of them).\n\n## I. ASSUMPTIONS\n\nThe sameness of an immanent datum becomes a phenomenological problem relevant to the analysis of the experience of the identical when the following assumptions, at least, are considered:\n\n1) The synthetic processes of identification and covering (Deckung) by which the sameness of an object in general becomes a phenomenon, require the prior givenness of immanent data, distinct and singular, whose unity is concrete in the living present. Therefore, in the phenomenological analysis of the object's identity, we are inexorably referred to the aspectival and modal identity of their givenness.\n\nA-T. Tymieniecka (ed.), Analecta Husserliana, Vol. XXXIV, 195-202. ' 1991 Kluwer Academic Publishers.\n\n2) The immanent unity of identity that appears in a singular datum cannot be conceived in the manner of a phenomenal atom of meaning whose synthetic groupings might constitute the object's identity. A singular is not, phenomenologically, an atom of self-identity. Its own sameness is constituted itself synthetically and passively from constituent mUltiplicities which remain implicit. (Husserliana [henceforth, Hua.] XI, 120-1) The givenness of the immanent unity of the identical appearance becomes the passive synthesis \"of the homogeneity in continuity\" (Ibid., 141), which requires as its pre-given conditions: a) continuity in the form of order in temporal (and eventually spatial) points and b) the pre-affective processes of \"concreteness and discreteness\" (concretion and contrast).\n\n3) From the previous assumptions, it follows that a distinction can be reasonably inferred, one between linking syntheses (Verbindung synGLYPH&lt;0&gt; thesen) in which singular data are associated, (already assumed in their differentiation and self-identity, in superior objective unities of sameness) and continuing synthesis, in which immanent singular data are not supposed, but the givenness of singular sameness is constituted throughout them in a continuity. (Cfr. Hua. X, 240-1 and 258f.) The constituent multiplicities in the \"absolute\" present do not consist of multiple unities (Hua. XI, 387): they are not themselves, although they are \"implicitly present in the background of the 'something.'\"\n\n## II. FORMAL CONTINUITY AND INDIVIDUATION\n\n## a) The Complexity of the Singular\n\nIt is easy to understand the reasons that lead Husser! to establish the synthetic structure of the experience of identity and, consequently, to place the formal condition of the unity of the immanent datum in the synthesis of time-consciousness.\n\nThe fact that a datum is given being the same as itself means that its identity has a constancy (it is constant in the continuous course of its modifications). A formal condition for the concrete and present experience of the identical is that this should \"succeed.\" And something succeeds, or endures as something as an avr6 -and independently of its content, if it consists of the continuous succession of itself, that is to say: in the differential constancy of the same through constantly different moments. The basic formal peculiarity of the singular given-\n\nness of the identical is precisely its complexity: to each singular and different datum there does not correspond the event of a singular moment of the history of mental life, but the complex multiplicity of its \"different\" moments. The same only succeeds in the succession of its differences. And yet such different moments are not different for being different from the rest of themselves (or self-identical), but rather because they express the originariness of the phenomenon of succession with regard to the succeeding identity. (Hua. XI, 126f.) The given in identity and difference is, formally, the original phenomenon of succession as a differential constancy of the same. Therefore, the appearance of a distinct singular datum, such as this precise red I perceive now, does not refer us to a singular event that is numerically one in subjective life, but it implicitly contains the pre-giveness of preidentical constituent multiplicities. This datum, now the red of these lips here, if it be a phenomenal singular, then possesses a certain differential volume: it becomes its complex extension in a continuum (at least in the continuum of its temporal modifications). Therefore, the formal condition for the identity to become a phenomenon is its complexity or extension in a continuity. And this way, the dependence of the phenomenal singularity of implicit complexes explains that the experience of the identical should be described through synthesis.\n\n## b) Synthesis Through Continuity\n\nContinuity is defined, in opposition to what continues, by its noncontinuation. Continuity itself does not have an identity, for it does not have modifications. It does not succeed.\n\nLet us take, for instance, the continuity of constituent life, a central assumption in Husserl's phenomenology of identity. This experience has no vestibule; it is not framed, and one cannot attain a perspective with regard to the same material experimental life, which places it in any identifiable place. Every continuity lacks differential volume, and therefore, the identity of a datum. Once the sameness of immanent datum is described as the differential constancy of the same, the continuity is defined, in consequences, as a monotonous constancy. The internal homogeneity of the continuous, its irreversibility and lack of density, are assumptions without which, for Husserl, the appearance of a self-identical plenum able to go through a continuity would be unexplainable.\n\nThe continuation that goes through the continuity is, nevertheless, phenomenologically analyzable and is not a final quality. (Hua. XI, 140) If we now call time the form particular to the continuous of the systems of places of immanent data (Ibid., 417), it will result in the synthesis of the temporal form of singular data being set up as the main and most universal synthesis that necessarily gives unity to all the objects (immanent) just as they become progressively conscious and distinct in passivity. (Ibid., 127) The synthesis of time-consciousness defines \"the original state of the identity.\" (Ibid., 128)\n\nThe momentary structure of the synthesis we discuss is well known. \"In each moment of life, some temporal objectivities are constituted for us, each of which has a momentary now together with the protentional momentary horizon.\" (Ibid., 126) This momentary structure of succession has a synthetic unity, in which the datum identical to itself is constituted. We know that such a synthesis does not consist of the linking of many different singulars in a new singular identity, but it is the original phenomenal position of the immanent datum. \"To synthesize\" means here not \"to gather\" but \"to con-verge\" the same through the continuity of its differences.\n\nJede Einheit ist Einheit im vorigen Sinne beziiglich der zeitlichen Kontiniutiit jedes Stiickes. Aber es sind verschiedene Einheiten, die sich aber zur Einheit eines Ganzen nicht zusammenscWillen, sondern, indem sie auf Einheit kontinuierlicher Erscheinug und eines kontinuierlichen EinheitsbewuBtseins beruhen, stellt sich die identische Einheit der Unterschiedenen wieder her. ... (Hua. X, 240)\n\nThe synthesis of confluence in a continuity presents some formal pecularities which differentiate it from the idealistic notion of synthesis. This one can be translated in its formal behavior as the operator of a function which assigns to each different element of the synthesized multiplicity the same identical value: that of being a member of the new synthesized complex. \"Synthesis,\" in this usual sense, is the result of a unifying operation on a cumulative multitude of different elements. Let us now take the immanent datum red just as it appears to us as \"itself.\" We know that the givenness of its sameness requires the constancy of the same red through the temporal continuity of its modifications and differences:\n\n- we can disregard any segment of the temporal extension of the datum red without its ceasing to be itself in the succession of the remaining segments.\n\nwe can, in abstract, recognize the same datum red in each and everyone of the segments of the continuity.\n\nTherefore, the datum red is in itself and wholly so in any segment, wherever cut out, of the continuity. The original synthesis of sameness does not require the accumulation of diversities: it cannot be defined as the result of a process in time. For \"the same\" to become a phenomenon, it has to extend differentially on a continuity, the datum itself already contains and partakes of its whole. Husser! defines the singular as the whole previously given to its part (Hua. XXIV, 106-7), but the analysis of passive synthesis seems to have shown that the singular datum is one in a way rather different from the way in which \"I\" is one. All things considered, it can be concluded that the unity of meaning is not numerical but intentional, that is to say, able to reproduce its sameness in its parts: able to be immanent in its differences.\n\n## c) Individuation and Qualification\n\nTime functions successfully as individuating form if and only if it defines a continuum of unique points. Once a continuity has been described as a monotonous constancy, it seems as though we could assign to each sequence a unique point, and, in this way, \"individuate\" each identical polarization of single tone intentional rays. However, it will be shown here that the homomorphic correlation between the unicity and the identity of givenness is not phenomenologically legitimate.\n\n## Husserl considers that\n\nDie Einzigkeit der Zeitstelle ist also nichts anderes als das Korrelat der Form der jeweils vollzogenen Identifizierung in ihrem einzigen Zusammenhang, dem des konstituierenden Lebens, in dem sich dieser Gegenstand als als dieser konstituiert und nur identifizierbar ist dadurch, daB eben das BewuBtsein auf sein urspriingliches Konstituieren zuriickgehen, es wieder aufwecken und als dieses selbe, als diesen jederzeit wiedererkennbaren Gegenstand finden kann. (Hua. XI, 144)\n\nThis correlation between the individuum and its identity has, however, many difficulties. Let us first of all review the canonic version of the individuation of the identical. \"Jeder (Gegenstand) ist er selbst und einziger als Gegenstand sienes Zeitstellensystems, das dem universalem, dem der einzigen Zeit zugehort.\" (Ibid., 143) Each identity is differentially extended through a continuity of unique and unrepeatable tem-\n\nporal points which individuate it. Or simply, the identical lasts: it is only self-identical as the duration of \"the same.\"\n\nWe try now to attend to the beginning of this duration. A beginningpoint is only given as the beginning of what has begun: that is to say, as the (begun) sameness found at its beginning. The temporal point at which the duration of the identical begun begins is not, certainly, the point on the beginning itself. The latter remains necessarily implicit when one grasps the beginning of what has begun. The reason is that perceiving the beginning of the begun sameness requires in itself the passive synthesis of differential constancy; therefore, the beginning is \"located\" at a point prior to the beginning of what has begun. (We are forced to call this point \"prior\" if we are to conceive of continuity as the homogeneous irreversibility of its sequences).\n\nOne can carry out a similar analysis on each phase of duration, because each of them is a limit to the individuated unity. This shows the impossibility of assigning self-identity to the point itself. A system of points does not have individual limits: it is unable to individuate exact identities, extensionally or numerically. In consequence we seem brought to an understanding of the self-dentity of the singular datum as being intensional. One should explain jointly: a) the fact that distinct phenomena do appear, and b) the fact that the distinct (self-identical) datum lacks individual limits.\n\nHusser! had already found difficulties in making compatible the experience of the identity and the synthesis of individuation.\n\n(Jede Strecke eines Kontinuum) ist aber kein individuelJes Moment, und sie ist kein Zuvervielfaltigendes, kein Zu-spezifizierendes. Sie ist nicht individuell. In ihr ist, und ist notwendig, die Individualitat. Sie macht nicht Individualitat so, als ob die absolute einzelne Zeitstrecke in abstracto (was allerdings voraussetzt eine Individualitat, die sie fullt, und von der abstrahiert wird) durch die Annahme, sie sei durch ein einzelnes der Spezies Farbe erfiillt, dieses Spezies individuierte.... (Hua. X, 250)\n\nContinuity as a formal condition for the experience of \"the same\" makes impossible the individual determination of the identical, that is, it makes impossible the distinction of limits or phases in the duration of the identical.\n\nWe conclude that the concrete immanent unity always supposed (even in the abstract consideration of the point-system) can not be finitely itself: that is to say, it does not occupy a determinate contour in logical space. The individuum is the identical sameness through the\n\ncontinuity of its modifications; and this implies that its identity is not individual but \"specific.\" (Hua. X, 252) The individuum is identical, is a \"what,\" insofar it \"possesses\" an essence or is qualified. The identity of the individual has the form of a \"species\" because of its differential constancy. The identity is only a quality, and \"there are not, of course, any qualitative individua.\" (Hua. X, 252) The abstract or exact conception of the system of individuating points in a continuity reduces infinitely the \"absolute\" individuum until it becomes the \"residual point of the concrete.\" (Ibid., 257) The typical, concrete or inexact identification is the only one phenomenologically legitimate, and must recognize a margin of \"Unselbigkeit.\"\n\n## III. INTERNAL CONTINUITY AND CONCRETION\n\nPhenomena appear as distinct: different from all else and internally undistinct (or self-identical). We normally call \"concrete\" such singular data constituted as themselves. But the peculiar phenomenological notion of concreteness refers -on the contrary to its etymological meaning as the result of a process of progressive confluence or, in Husserl's words, \"concretion.\" (Hua. XI, 138) Concretion in this strict sense means the construction of the \"constituted\" concrete. It points up the pregiven conditions for the appearance of a sameness, because concretion and discreteness are \"Urphiinomenen\" necessarily involved in the preconscious synthesis of identities.\n\nTogether with succession as a formal condition, the preaffective processes of concretion and contrast explain the synthesis of the immanent datum appearing as \"itself.\" This synthesis through continuous time is only a formal condition for being able to identify phenomena; synthesis through the internal continuity of content must complement it. (Ibid., 139) The datum full of itself a \"plenum\" able to satisfy intentions is synthetically built on the internal continuity of its pre-identical phases (let us say, on its \"cretions\" and \"trasts\" becoming concretions or contrasts). Once more, synthesis through continuity can only be comprehensible in terms of intentions: their not being finitely \"themselves.\"\n\nHyletic affective unity is passively synthesized as a unity out of implicit multiplicities, which are not properly distinct, but the distinction of the singular datum itself depends on them.\n\nNur eine radikale theone, we\\che in gleicher Weise dem konkreten Aufbau der lebendigen Gegenwart und dem Aufbau der einzlnen Konkretionen selbst aus konstitutiven elementen Geniige tun, kann das Riitsel des \"UnbewuBten\" und des wechselnden \"BewuBtwerdens\" lasen. (Hua. XI, 165) ... Kontretion ist nur maglich als Verschmelzung in der Ordnungsform, also von zeitlich Geordnetem. Wir wissen schon, und die niihere Analyse zeigt es sofort, daB diese Ordnung alles Diskreten in sich selbst eine kontinuierliche ist, die in ihrer Stetigkeit durch alles als Einheit fur sich Abgehobene hindurchgeht. ... jedes abgehobene Datum steht nicht nur iiuBerlich zu anderen in lebendigen Beziehungen der Sukzession. Vielmehr es hat in sich selbst einen synthetischen Aufbau, und zwar ist es in sich selbst eine Kontinuitiit der Foige. Diese innere Kontinuitiit ist das Fundament einer kontinuierlichen inhaltlicher Verschmelzung.... (Ibid., 140)\n\nOne should conclude that the concrete unit present in life, as a unit and as a concretion, refers us to non-numerical \"units\" whose sameness is not describable in terms of a finite avr6.\n\nUniversity ofSalamanca\n\n## BIBLIOGRAPHY\n\nHusser!, Edmund. \"Cartesianische Meditationen und Pariser Vortriige,\" Compo B. Strasser. Husserliana Gesammelte Werke I (The Hague: 1950).\n\nHusserl, Edmund. \"Ideen zu einer reinen Phiinomenologie und phiinomenologischen Philosophie. Allgemeine Einfuhrung in die reine Phiinomenologie.\" Compo K. Schuhmann Husserliana Gesammelte Werke III,1,2 (The Hague: 1976).\n\nHusserl, Edmund. \"Zur Phiinomenologie des inneren Zeitbewusstseins (1893-1917).\" Compo R. Boehm. Husserliana Gesammelte Werke X (The Hague: 1966). (Cit. Husserliana X).\n\nHusserl, Edmund. \"Analysen zur passiven Synthesis. Aus Vorlesungs -und Forschungsmanuskripten 1918-1926.\" Compo M. Fleischer. Husserliana Gesammelte Werke XI (The Hague: 1966). (Cit. Husserliana XI).\n\nHusserl, Edmund. \"Formale und transzendentale Logik. Versuch einer Kritik der logischen Vemunft.\" Compo P. Janssen. Husserliana Gesammelte Werke XVII (The Hague: 1974).\n\nHusserl, Edmund. \"Einleitung in die Logik und Erkenntinistheorie. Vorlesungen 19061 7.\" Compo U. Melle. Husserliana Gesammelte Werke XXIV (The Hague: 1984). (Cit. Husserliana XXIV).",
+    "responses": [
+      {
+        "source": "gpt-4o-2024-11-20",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"ADU1\": {\n      \"text\": \"It is the aim of this work to study the assumptions and conditions for the original position of sameness in experience, just as it occurs in the synthesis of the datum singular and distinct.\",\n      \"label\": \"claim\"\n    },\n    \"ADU2\": {\n      \"text\": \"The synthetic processes of identification and covering (Deckung) by which the sameness of an object in general becomes a phenomenon, require the prior givenness of immanent data, distinct and singular, whose unity is concrete in the living present.\",\n      \"label\": \"premise\"\n    },\n    \"ADU3\": {\n      \"text\": \"The immanent unity of identity that appears in a singular datum cannot be conceived in the manner of a phenomenal atom of meaning whose synthetic groupings might constitute the object's identity.\",\n      \"label\": \"premise\"\n    },\n    \"ADU4\": {\n      \"text\": \"A singular is not, phenomenologically, an atom of self-identity.\",\n      \"label\": \"claim\"\n    },\n    \"ADU5\": {\n      \"text\": \"Its own sameness is constituted itself synthetically and passively from constituent mUltiplicities which remain implicit.\",\n      \"label\": \"premise\"\n    },\n    \"ADU6\": {\n      \"text\": \"The fact that a datum is given being the same as itself means that its identity has a constancy (it is constant in the continuous course of its modifications).\",\n      \"label\": \"premise\"\n    },\n    \"ADU7\": {\n      \"text\": \"The same only succeeds in the succession of its differences.\",\n      \"label\": \"claim\"\n    },\n    \"ADU8\": {\n      \"text\": \"Continuity is defined, in opposition to what continues, by its noncontinuation.\",\n      \"label\": \"claim\"\n    },\n    \"ADU9\": {\n      \"text\": \"Continuity itself does not have an identity, for it does not have modifications.\",\n      \"label\": \"premise\"\n    },\n    \"ADU10\": {\n      \"text\": \"The synthesis of time-consciousness defines 'the original state of the identity.'\",\n      \"label\": \"claim\"\n    },\n    \"ADU11\": {\n      \"text\": \"The original synthesis of sameness does not require the accumulation of diversities: it cannot be defined as the result of a process in time.\",\n      \"label\": \"claim\"\n    },\n    \"ADU12\": {\n      \"text\": \"For 'the same' to become a phenomenon, it has to extend differentially on a continuity, the datum itself already contains and partakes of its whole.\",\n      \"label\": \"premise\"\n    },\n    \"ADU13\": {\n      \"text\": \"Continuity as a formal condition for the experience of 'the same' makes impossible the individual determination of the identical, that is, it makes impossible the distinction of limits or phases in the duration of the identical.\",\n      \"label\": \"claim\"\n    },\n    \"ADU14\": {\n      \"text\": \"The individuum is the identical sameness through the continuity of its modifications; and this implies that its identity is not individual but 'specific.'\",\n      \"label\": \"claim\"\n    },\n    \"ADU15\": {\n      \"text\": \"Phenomena appear as distinct: different from all else and internally undistinct (or self-identical).\",\n      \"label\": \"claim\"\n    },\n    \"ADU16\": {\n      \"text\": \"Concretion in this strict sense means the construction of the 'constituted' concrete.\",\n      \"label\": \"claim\"\n    },\n    \"ADU17\": {\n      \"text\": \"Together with succession as a formal condition, the preaffective processes of concretion and contrast explain the synthesis of the immanent datum appearing as 'itself.'\",\n      \"label\": \"premise\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"ADU1\",\n      \"target\": \"ADU2\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU2\",\n      \"target\": \"ADU3\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU3\",\n      \"target\": \"ADU4\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU5\",\n      \"target\": \"ADU4\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU6\",\n      \"target\": \"ADU7\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU8\",\n      \"target\": \"ADU9\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU10\",\n      \"target\": \"ADU11\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU12\",\n      \"target\": \"ADU11\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU13\",\n      \"target\": \"ADU14\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU15\",\n      \"target\": \"ADU16\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU17\",\n      \"target\": \"ADU16\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "ADU1": {
+              "text": "It is the aim of this work to study the assumptions and conditions for the original position of sameness in experience, just as it occurs in the synthesis of the datum singular and distinct.",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "The synthetic processes of identification and covering (Deckung) by which the sameness of an object in general becomes a phenomenon, require the prior givenness of immanent data, distinct and singular, whose unity is concrete in the living present.",
+              "label": "premise"
+            },
+            "ADU3": {
+              "text": "The immanent unity of identity that appears in a singular datum cannot be conceived in the manner of a phenomenal atom of meaning whose synthetic groupings might constitute the object's identity.",
+              "label": "premise"
+            },
+            "ADU4": {
+              "text": "A singular is not, phenomenologically, an atom of self-identity.",
+              "label": "claim"
+            },
+            "ADU5": {
+              "text": "Its own sameness is constituted itself synthetically and passively from constituent mUltiplicities which remain implicit.",
+              "label": "premise"
+            },
+            "ADU6": {
+              "text": "The fact that a datum is given being the same as itself means that its identity has a constancy (it is constant in the continuous course of its modifications).",
+              "label": "premise"
+            },
+            "ADU7": {
+              "text": "The same only succeeds in the succession of its differences.",
+              "label": "claim"
+            },
+            "ADU8": {
+              "text": "Continuity is defined, in opposition to what continues, by its noncontinuation.",
+              "label": "claim"
+            },
+            "ADU9": {
+              "text": "Continuity itself does not have an identity, for it does not have modifications.",
+              "label": "premise"
+            },
+            "ADU10": {
+              "text": "The synthesis of time-consciousness defines 'the original state of the identity.'",
+              "label": "claim"
+            },
+            "ADU11": {
+              "text": "The original synthesis of sameness does not require the accumulation of diversities: it cannot be defined as the result of a process in time.",
+              "label": "claim"
+            },
+            "ADU12": {
+              "text": "For 'the same' to become a phenomenon, it has to extend differentially on a continuity, the datum itself already contains and partakes of its whole.",
+              "label": "premise"
+            },
+            "ADU13": {
+              "text": "Continuity as a formal condition for the experience of 'the same' makes impossible the individual determination of the identical, that is, it makes impossible the distinction of limits or phases in the duration of the identical.",
+              "label": "claim"
+            },
+            "ADU14": {
+              "text": "The individuum is the identical sameness through the continuity of its modifications; and this implies that its identity is not individual but 'specific.'",
+              "label": "claim"
+            },
+            "ADU15": {
+              "text": "Phenomena appear as distinct: different from all else and internally undistinct (or self-identical).",
+              "label": "claim"
+            },
+            "ADU16": {
+              "text": "Concretion in this strict sense means the construction of the 'constituted' concrete.",
+              "label": "claim"
+            },
+            "ADU17": {
+              "text": "Together with succession as a formal condition, the preaffective processes of concretion and contrast explain the synthesis of the immanent datum appearing as 'itself.'",
+              "label": "premise"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU1",
+              "target": "ADU2",
+              "type": "support"
+            },
+            {
+              "source": "ADU2",
+              "target": "ADU3",
+              "type": "support"
+            },
+            {
+              "source": "ADU3",
+              "target": "ADU4",
+              "type": "support"
+            },
+            {
+              "source": "ADU5",
+              "target": "ADU4",
+              "type": "support"
+            },
+            {
+              "source": "ADU6",
+              "target": "ADU7",
+              "type": "support"
+            },
+            {
+              "source": "ADU8",
+              "target": "ADU9",
+              "type": "support"
+            },
+            {
+              "source": "ADU10",
+              "target": "ADU11",
+              "type": "support"
+            },
+            {
+              "source": "ADU12",
+              "target": "ADU11",
+              "type": "support"
+            },
+            {
+              "source": "ADU13",
+              "target": "ADU14",
+              "type": "support"
+            },
+            {
+              "source": "ADU15",
+              "target": "ADU16",
+              "type": "support"
+            },
+            {
+              "source": "ADU17",
+              "target": "ADU16",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "ADU1": {
+              "text": "It is the aim of this work to study the assumptions and conditions for the original position of sameness in experience, just as it occurs in the synthesis of the datum singular and distinct.",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "The synthetic processes of identification and covering (Deckung) by which the sameness of an object in general becomes a phenomenon, require the prior givenness of immanent data, distinct and singular, whose unity is concrete in the living present.",
+              "label": "premise"
+            },
+            "ADU3": {
+              "text": "The immanent unity of identity that appears in a singular datum cannot be conceived in the manner of a phenomenal atom of meaning whose synthetic groupings might constitute the object's identity.",
+              "label": "premise"
+            },
+            "ADU4": {
+              "text": "A singular is not, phenomenologically, an atom of self-identity.",
+              "label": "claim"
+            },
+            "ADU5": {
+              "text": "Its own sameness is constituted itself synthetically and passively from constituent mUltiplicities which remain implicit.",
+              "label": "premise"
+            },
+            "ADU6": {
+              "text": "The fact that a datum is given being the same as itself means that its identity has a constancy (it is constant in the continuous course of its modifications).",
+              "label": "premise"
+            },
+            "ADU7": {
+              "text": "The same only succeeds in the succession of its differences.",
+              "label": "claim"
+            },
+            "ADU8": {
+              "text": "Continuity is defined, in opposition to what continues, by its noncontinuation.",
+              "label": "claim"
+            },
+            "ADU9": {
+              "text": "Continuity itself does not have an identity, for it does not have modifications.",
+              "label": "premise"
+            },
+            "ADU11": {
+              "text": "The original synthesis of sameness does not require the accumulation of diversities: it cannot be defined as the result of a process in time.",
+              "label": "claim"
+            },
+            "ADU15": {
+              "text": "Phenomena appear as distinct: different from all else and internally undistinct (or self-identical).",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU1",
+              "target": "ADU2",
+              "type": "support"
+            },
+            {
+              "source": "ADU2",
+              "target": "ADU3",
+              "type": "support"
+            },
+            {
+              "source": "ADU3",
+              "target": "ADU4",
+              "type": "support"
+            },
+            {
+              "source": "ADU5",
+              "target": "ADU4",
+              "type": "support"
+            },
+            {
+              "source": "ADU6",
+              "target": "ADU7",
+              "type": "support"
+            },
+            {
+              "source": "ADU8",
+              "target": "ADU9",
+              "type": "support"
+            }
+          ]
+        }
+      },
+      {
+        "source": "claude-3-5-sonnet-20241022",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"A1\": {\n      \"text\": \"The sameness of an immanent datum becomes a phenomenological problem relevant to the analysis of the experience of the identical when the following assumptions, at least, are considered\",\n      \"label\": \"claim\"\n    },\n    \"A2\": {\n      \"text\": \"The synthetic processes of identification and covering (Deckung) by which the sameness of an object in general becomes a phenomenon, require the prior givenness of immanent data, distinct and singular, whose unity is concrete in the living present.\",\n      \"label\": \"premise\"\n    },\n    \"A3\": {\n      \"text\": \"The immanent unity of identity that appears in a singular datum cannot be conceived in the manner of a phenomenal atom of meaning whose synthetic groupings might constitute the object's identity. A singular is not, phenomenologically, an atom of self-identity.\",\n      \"label\": \"claim\"\n    },\n    \"A4\": {\n      \"text\": \"The basic formal peculiarity of the singular givenness of the identical is precisely its complexity: to each singular and different datum there does not correspond the event of a singular moment of the history of mental life, but the complex multiplicity of its \\\"different\\\" moments.\",\n      \"label\": \"claim\"\n    },\n    \"A5\": {\n      \"text\": \"Continuity is defined, in opposition to what continues, by its noncontinuation. Continuity itself does not have an identity, for it does not have modifications. It does not succeed.\",\n      \"label\": \"claim\"\n    },\n    \"A6\": {\n      \"text\": \"The concrete immanent unity always supposed (even in the abstract consideration of the point-system) can not be finitely itself: that is to say, it does not occupy a determinate contour in logical space.\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"A2\",\n      \"target\": \"A1\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A4\",\n      \"target\": \"A3\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A5\",\n      \"target\": \"A6\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "A1": {
+              "text": "The sameness of an immanent datum becomes a phenomenological problem relevant to the analysis of the experience of the identical when the following assumptions, at least, are considered",
+              "label": "claim"
+            },
+            "A2": {
+              "text": "The synthetic processes of identification and covering (Deckung) by which the sameness of an object in general becomes a phenomenon, require the prior givenness of immanent data, distinct and singular, whose unity is concrete in the living present.",
+              "label": "premise"
+            },
+            "A3": {
+              "text": "The immanent unity of identity that appears in a singular datum cannot be conceived in the manner of a phenomenal atom of meaning whose synthetic groupings might constitute the object's identity. A singular is not, phenomenologically, an atom of self-identity.",
+              "label": "claim"
+            },
+            "A4": {
+              "text": "The basic formal peculiarity of the singular givenness of the identical is precisely its complexity: to each singular and different datum there does not correspond the event of a singular moment of the history of mental life, but the complex multiplicity of its \"different\" moments.",
+              "label": "claim"
+            },
+            "A5": {
+              "text": "Continuity is defined, in opposition to what continues, by its noncontinuation. Continuity itself does not have an identity, for it does not have modifications. It does not succeed.",
+              "label": "claim"
+            },
+            "A6": {
+              "text": "The concrete immanent unity always supposed (even in the abstract consideration of the point-system) can not be finitely itself: that is to say, it does not occupy a determinate contour in logical space.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "A2",
+              "target": "A1",
+              "type": "support"
+            },
+            {
+              "source": "A4",
+              "target": "A3",
+              "type": "support"
+            },
+            {
+              "source": "A5",
+              "target": "A6",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "A1": {
+              "text": "The sameness of an immanent datum becomes a phenomenological problem relevant to the analysis of the experience of the identical when the following assumptions, at least, are considered",
+              "label": "claim"
+            },
+            "A2": {
+              "text": "The synthetic processes of identification and covering (Deckung) by which the sameness of an object in general becomes a phenomenon, require the prior givenness of immanent data, distinct and singular, whose unity is concrete in the living present.",
+              "label": "premise"
+            },
+            "A3": {
+              "text": "The immanent unity of identity that appears in a singular datum cannot be conceived in the manner of a phenomenal atom of meaning whose synthetic groupings might constitute the object's identity. A singular is not, phenomenologically, an atom of self-identity.",
+              "label": "claim"
+            },
+            "A5": {
+              "text": "Continuity is defined, in opposition to what continues, by its noncontinuation. Continuity itself does not have an identity, for it does not have modifications. It does not succeed.",
+              "label": "claim"
+            },
+            "A6": {
+              "text": "The concrete immanent unity always supposed (even in the abstract consideration of the point-system) can not be finitely itself: that is to say, it does not occupy a determinate contour in logical space.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "A2",
+              "target": "A1",
+              "type": "support"
+            },
+            {
+              "source": "A5",
+              "target": "A6",
+              "type": "support"
+            }
+          ]
+        }
+      }
+    ],
+    "timestamp": 1752758024.248462
+  }
+]

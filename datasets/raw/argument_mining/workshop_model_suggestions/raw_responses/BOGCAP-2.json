@@ -1,0 +1,379 @@
+[
+  {
+    "identifier": "BOGCAP-2",
+    "system_prompt": "## GOAL\nArgument‑mine the following paper to extract its comprehensive argumentative structure.\n\n## DEFINITIONS\n1. **Argument**: A set of propositions, including some number of premises and a conclusion. The premises should logically entail the conclusion.\n2. **Claim**: A proposition that asserts something to be true or false, typically requiring justification or evidence.\n3. **Premise**: A proposition that provides evidence, justification, or logical support for a claim or conclusion.\n\n## CRITICAL REQUIREMENTS\n1. **VERBATIM EXTRACTION ONLY**: Each ADU text must be copied EXACTLY from the paper with no modifications, paraphrasing, or combining of separate sentences.\n2. **NO HALLUCINATION**: Do not create, modify, or invent text that does not appear exactly in the source.\n3. **EXACT MATCHING**: Every word, punctuation mark, and spacing must match the original precisely.\n\n## DIRECTIONS\n1. **Identify Argumentative Discourse Units (ADUs)**  \n   - ADU = any contiguous text span functioning as a claim or a premise in the reasoning structure.\n   - **BE HIGHLY SELECTIVE**: Only include ADUs that are crucial to the overarching argument structure.\n   - Focus on significant claims and premises that contribute meaningfully to the argumentative flow.\n   - **AVOID NOISE**: Skip ADUs that are merely descriptive, tangential, or do not substantially advance the argument.\n   - Prioritize quality over quantity - fewer accurate, important ADUs are better than many insignificant ones.\n   - **EXTRACT ONLY**: Copy text spans exactly as they appear, without any modifications.\n2. **Classify each ADU**  \n   - Label = either `\"claim\"` or `\"premise\"`.  \n3. **Detect directed relations**  \n   - Relation = `\"support\"` or `\"attack\"`, from one ADU (source) to another (target).\n   - Map how ADUs connect to form reasoning chains.\n   - Focus on relationships between the most significant ADUs.\n   - Include relationships between premises that strengthen or weaken each other.\n4. **Verbatim spans**  \n   - Each `\"text\"` value must be copied EXACTLY from the paper with zero modifications.\n   - Do not paraphrase, summarize, or combine separate sentences.\n   - Do not add, remove, or change any words, punctuation, or spacing.\n   - If unsure about exact wording, skip that ADU rather than guess.\n\n## WHAT TO CAPTURE\n**INCLUDE ONLY:**\n- Main argumentative threads that are central to the paper's contribution\n- Core claims that represent the paper's primary arguments or findings\n- Key premises that provide essential support for major claims\n- Critical counterarguments and their refutations\n- Reasoning chains that demonstrate how main conclusions are derived\n\n**EXCLUDE (AVOID NOISE):**\n- Minor details, examples, or descriptive content that don't advance the argument\n- Tangential points or side discussions\n- Pure background information or literature review content\n- Methodological details unless they constitute argumentative claims\n- Obvious statements or commonly accepted facts\n- Redundant or repetitive argumentative content\n\n**GUIDING PRINCIPLE**: If removing an ADU would not significantly impact understanding of the paper's argumentative structure, it should be excluded.\n\n## QUALITY CONTROL\n- Before finalizing each ADU, verify the text exists exactly in the source\n- Prefer fewer, accurate ADUs over many potentially modified ones\n- When in doubt about exact wording, omit the ADU\n\n## OUTPUT FORMAT\nReturn **only** a single valid JSON object matching this schema.  \nDo **not** output any extra text, markdown, or explanations.\nDo **not** add comments.\n**RESPOND WITH ONLY**:\n```json\n{\n  \"ADUs\": {\n    \"<ADU_ID>\": {\n      \"text\": \"<exact span from paper>\",\n      \"label\": \"claim\" | \"premise\"\n    }\n    ...\n  },\n  \"relations\": [\n    {\n      \"source\": \"<ADU_ID>\",\n      \"target\": \"<ADU_ID>\",\n      \"type\": \"support\" | \"attack\"\n    }\n  ]\n}\n```",
+    "user_content": "## COMMODIFICATION AND PHENOMENOLOGY: EVADING CONSENT IN THEORY REGARDING RAPE\n\nJohn H. Bogart Heller, Ehrman, White &amp; McAuliffe\n\nIn a recent essay, Donald Dripps advanced what he calls a \"commodification theory\" of rape, offered as an alternative to understanding rape in terms of lack of consent. Under the \"commodification theory;' rape is understood as the expropria tion of sexual services, i.e., obtaining sex through \"illegitimate' means. One aim of Dripps' s effort was to show the inadequacy of consent approaches to understanding rape. Robin West; while accepting Dripps's critique of consent theories , criticizes Dripps's commodification approach. In its place, West suggests a more phenomenological approach.\n\nThe author argues that (1) neither Dripps nor West offers convincing critiques of consent-based theories; (2) the alternatives offer presuppose the vitality of consent-based approach to understanding rape; and (3) that both Dripps and West consistently conflate more general moral and political issues with that of the nature of rape. they\n\nThat rape is nonconsensual sex, any nonconsensual sex, might be thought no more than hornbook, black-letter law. It isn't. Susan Estrich has shown that; until recently; rape has been understood in law as forcible rather than nonconsensual sex. How far practice; or the letter of the law; has changed in the intervening few years is unclear: There is evidence that the change is not great.\n\nBut whatever the practice; one might think, it is surely clear as a matter of theory that rape is no more than nonconsensual sex. On this score, too, matters are otherwise. Although the underlying; and not fully articulated,  views of Estrich and MacKinnon, among others, have been that nonconsent is central to the occurrence of rape, that position has its opponents:   those who believe that theoretical analysis of rape may dispense with the notion of consent. Two such figures are Robin West and Donald Dripps.\n\nREAL RAPE, 1987.\n\nBoth West and reject consent as an appropriate basis for defining the scope of permissible sex and demarcating permissible sex from rape. Interestingly their critiques are twinned attacks assaults from opposing flanks;, s0 to speak. Yet agree that consent is an inadequate basis for theoretical reasons. At least; I shall interpret their works as advancing theoretical or conceptual misgivings. One might, instead, understand and West to be objecting to particular practice patterns whereby force is ubiquitously substituted for nonconsent.  That interpretation renders West and Dripps much less interesting; and utterly unoriginal Ishall not pursue it. Dripps they Dripps =\n\nSection I consists of a brief sketch of Dripps's theory of rape, along with his critique of the nonconsent approach. Section II describes Robin West's views on the same subjects: Section III provides a defense of nonconsent theory to the attacks of both Dripps and West.\n\n## 1 DRIPPS'S THEORY: SEXUAL PROPERTY\n\nDripps offers a theory of rape built around ideas of sexual property? In essence, rape consists of sexual use of another's body where access to the sexual service is the result of illegitimate pressures.3 Sex is conceived of as service; and rape as an expropriation of the service: For Dripps, rape is to be understood in terms of the perpetrator's conduct and state of mind.4 Knowingly Or purposefully expropriated sexual services is what Dripps believes should replace the common law definition of rape 5 Where expropriation occurs by means of violence or the threat of violence, there is \"sexually motivated assault. Where expropriation is achieved through other illegitimate means the victim is unconscious) , it is the lesser crime of 'sexual expropriation \"6 (e.g-\n\nThe advantage of this account according to Dripps; in its contrast to the common law definition; sex obtained by force and against the will of the victim The common law account requires both the exercise of force and that the victim's will be broken. The defects of a force account are well known. Where a victim suffers no additional injury or does not resist, there may be no finding of rape Or; if the victim acquiesces out of a generalized fear of the perpetrator; there will be no rape lies,\n\n- 2 More specifically; sexual services as property interests. D.A. Dripps, Beyond Rape: An 1786 (1992) \"Dripps\")~ Essay\n- There is a non sequitur in the from identification of rape with sexual appropriation to a focus on perpetrator states of mind Dripps seems to assume that expropriation entails intentional states with respect to the expropriation itself. It doesn't. One may expropriate another's property without knowing (or forming similar intentional states with respect to) the property as the other's. leap\n- Id.\n\n5 Id. at 1803.\n\n6. Id. at 1797, 1799, 1807\n\nId. at 1787, 1793-94 .\n\nReform of rape law to focus on consent is equally defective; according to This is because 'consent obscures \"the normative issues.\"8 It \"is only elastic and indeterminate standard, one that will neither   protect what should be protected nor give any firm guidance to the course of social reform\n\nFor Dripps;, an example of sexual autonomy in sex is by the free exchange of sex in a bathhouse: two relative strangers meeting for the of a sexual exchange. 14 The defect here is the moral emptiness of the reduction of the sex to an entertainment. 15 At the pole, minimal autonomy is physically compelled cooperation (or, better; acquiescence) . In between are the cases that interest most; where an analysis of sex as property is to us.16 typified opposite guide\n\nThe fundamental  defect of a consent at best, grounded in sexual autonomyl0 Sexual autonomy; in turn, is merely relative value and incapable of sorting the nature of constraints on action.1 Apparently; what Dripps has in mind by the relative nature of sexual autonis that autonomy is context sensitive. 12 At the same time, autonomy also omy for the absence of constraints on action.13 In that seems to mean Dripps second sense, autonomy is insensitive to context. In any event; autonomy does not measure the moral qualities of various constraints and, on that basis; will prove a defective foundation for analysis of rape.\n\nExpropriation does not mean nonconsensual  taking or exchange for Dripps . This is because he believes that consent given after (or during) assault will legitimate the exchange 17 For Dripps; assent obtained through violence or threat is consent. 18 Similarly, assent obtained through fraud or intoxication also constitutes consent.19 Consent, for seems to be getting a yes in any way at all. an Dripps,\n\nFor Dripps; the common law definition of rape (forcibly and the will) is a nonconsent account of rape. 20 The requirement of force functions to prevent wholesale criminalization o sex.21 This is because much sex \"results from pressures of dubious legitimacy \"22 But those pressures are not against\n\n8. Id. at 1787 9. Id. 10. Id. at 1788 11 . Id. at 1788-89. 12 Id. at 1789. 13 Id. at 1791 . 14. Id. at 1788-89 15. Id. at 1789 16. Id. at 1799. 17. Id. at 1793. 18. Id. 19. Id. at 1799 20. Id. at 1792-94. 21 . Id. at 1794, 1801 . 22. Id. at 1792.\n\nadequately met by to conditions of consent. 23 The reason for inadequacy is a curious mix of relative value and value insensitivity: The conditions of consent are relative to context or condition; and thus unstable.24 On the other hand, consent does not respond to the proper set of factors, permitting conduct that should, on other grounds, be illegitimate.? looking\n\nInstead of these relative and ineffective notions, Dripps urges us to treat sexual activity as a commodity 2 The terms of analysis are those of property; to an embodied service Our task is to catalogue the terms of legitimate exchange. applied\n\n## IL. WEST'S THEORY: UNWANTED SEX\n\nRobin West, too; rejects understanding rape in terms of consent to sex.27 West agrees with Dripps 'that we use the extraordinarily malleable notion of consent to distinguish\" legitimate from illegitimate means of obtaining sex, rather than \"voluntary from involuntary sex. \"28 West also agrees that the better normative focus is on antecedent causes of sex rather than the presence or absence of consent.29 Yet West does not think Dripps's commodification theory is entirely acceptable.3\n\nWest offers two critiques of the commodity approach. First; the commodity approach is bereft of experiential content: The is not that no one experiences expropriation, but that understanding expropriation does not entail consideration of experience. More specifically the theory does not make any close connection with the experience of rape by victims. For West; the experience is crucial   element of the concept. analysis must directly and centrally incorporate, if not begin with, the victim's experipoint Any\n\nFor West, that experience is of unwanted sex Because unwanted, it is violence; and violence is therefore an essential feature of rape.32 Moreover; the experience is not merely subjection to violence, but a more or less extreme experience: Typically; it is 'more like spiritual murder than either robbery or larceny \"33 Rape then is a primary analytic term; an experience to which others may be analogized 34\n\n23 . Id.\n\n24. Id. at 1789\n\n25. Id.\n\n26. Id.\n\n1446 (1993) (\"West\") .\n\n27. R West;\\_Legitimating the Illegitimate: A Comment on Beyond 93 COLUM. L REv. 1442 Rape\n\n28. Id. at 1447\n\n29. Id. at 1446\n\n30. Id. at 1448.\n\n31 . Id.\n\n32. Id.\n\n33. Id.\n\n34 . Id. at 1449\n\nSecond, sex is not properly understood as a commodity at all.35 For West, commodification is an alienation or externalization, applicable to things other than and separate from one's self: \"In no case does part of any self go with the s0 traded; to the contrary I hold my self back in order to benefit from the exchange. \"36 Commodification; which is objectification, lessens sex . In an important way; this point; too, is an experiential claim. thing\n\nAnother aspect of West's claim here is that meaning, in this instance; is fundamentally an experiential phenomenon 38 Rape within a broader field of sexual experience. Sex is not here reproductive behavior; which is a vision of normative theory grounded in a felt phenomenology: lies\n\nPart of what West asserts here is that commendable sexual experiences involve a kind of exchange dissolution of self\\_that is inconsistent with commodification of sex as a positive normative step: The mirror is that commodified exchanges are of things; parts, or services, which are other than our selves37 It is a duller and lesser experience; if it has any experience peculiar to it at all. taking\n\nWest does not explicitly offer her own account of rape. She agrees with Dripps both that the common law account is fatally defective (if not incoherent) , and that there is no reformable kernel worth preserving.40 The matter should be rethought from the beginning. Where Dripps rests with a structural theory focused on the intentional states and conduct of perpetrators, West sees the need to include within the definitional conception the paradigmatic experience of rape.41 At the same time, West has a distinctive contribution to the critique of the consent theory of rape: impossibility of valid consent given  the unequal  distribution of resources between the sexes. 42\n\nConsent theory is to be rejected, in part, because conditions are such that no woman can give effective valid consent.43 The reason lies in the unequal distribution of resources between men and women. Resource distributions are not mere background which individual events play out. Resource distributions are themselves subject to moral and political critique. Where are sufficiently unjust, preclude the existence of at least some sorts of otherwise morally acceptable voluntary exchanges. The usual example is the \"agreement\" of chattel (a slave) to sexual interactions with her owner: Whatever the words spoken, there is no consent. In an analoagainst they they\n\nId. 1451\n\n36 Id.\n\n37 Id.\n\n38. Id. at 1449\n\n40. Id. at 1443\n\n39 . Here, as in number of other works, West's work reminds me of Max Scheler's phenomenology:\n\n41 Id. at 1448-49\n\n42 Id. at 1452\n\n43. Id. at 1458\n\ngous fashion, the unequal distribution of resources  between the sexes negates the conditions for consent. 44\n\nNevertheless, West's complaint about distribution has other grounds. The conclusion can still be advanced. Maldistribution means the conditions for consent are not fulfilled. A consent account of rape is therefore inadequate because it fails to identify any subset of sexual interactions. All are without consent.\n\nPart of West's argument here is concerned with the claim that the distribution of resources is arbitrary and is therefore unjust; or at least suspect. 45 But that a distribution is arbitrary is not to the The distributions of eye color and of genetically dysfunctional kidneys are also arbitrary The issue, instead, is whether the distribution offends justice; and so on On that score, arbitrariness is not an important category: really point.\n\n## III. A THEORY OF NONCONSENT\n\nA consent-based theory of rape need not be vulnerable to the critiques of either Dripps or West. Further; a consent-based theory is, in several respects; superior. At least in part; this is because a consent theory is presupposed by the approaches advocated by Dripps and West.\n\nDripps himself employs the language of autonomy and free exchange. These terms, too, are open to an identical history of misuse. Nevertheless; Dripps employs the concepts to critical ends and in ways that presuppose the intellectual viability of the concepts in critical normative discourse, despite  historical   practices indistinguishable from those of consent. No reason is offered why consent cannot enjoy the same treatment.\n\nDripps's critiques of consent reflect basic misunderstandings. First; Dripps conflates the conceptual (here, normative) content of consent with the historical range of terminological usage. No doubt, the language of consent has been used in ways  that are intellectually  unacceptable, bizarre, and inconsistent. It is also true that courts have employed the language of consent in contexts that clearly preclude application of the concept of consent. But these historical vagaries do not vitiate either the meaning or the value of the concept. theory\n\nIt is, or should perfectly obvious that words of assent uttered following physical attacks or threats do not normally constitute valid, effective consent. That some have thought is an indictment of them, not of the concept or of its integrity or usefulness. Thus, failure to attend to plausible conceptions of consent underlies much of the criticism advanced by Dripps and by West. This inattention shows up elsewhere, as well. be,\n\n44. Id. at 1452, 1458\n\n45. Id. at 1458.\n\nFor example; in discussing sexual autonomy Dripps denies that \"positive' sexual autonomy; the freedom to have sex with whomever one wishes, is a plausible idea.46 The reason is that, because sex requires at least two sons, it follows that others then have an obligation to participate. 47 But this is wrong on every First, sex does not two or more people. There are plenty of obvious cases of sex acts involving only one person. The most obvious is masturbation.  Bestiality   and necrophilia are also fullblooded sexual activities that involve only one person. perrequire point.\n\nat the center of Dripps's effort is the idea that sex is to be understood as a service commodity: Rape is identified with illegitimate pressures to obtain that service Thus, the heart of the account is in the boundaries of legitimate exchange. But those boundaries are, in fact, familiar. quite\n\nSecond, autonomy does not entail rights to services by others. At least; it is far from uncontroversial that autonomy entails such rights. And even ifit did, rights do not obligations in anything remotely resembling what Dripps suggests. Finally, sexual autonomy is concerned with control over the expression of one's sexuality: It is not; fundamentally; a right at all.48 Rights, and obligations; arise in support of autonomy; entail\n\nForce and fraud are \"illegitimate. Proceeding without verbal assent is \"illegitimate. Indeed, Dripps explicitly sees his project as illuminating \"legitimate and illegitimate pressures to have sex. The difficulty here is in understanding how one is to parse \"legitimate' and \"illegitimate pressures in the absence of consensual relations:. On that score, however; Dripps and West are led astray by the examples use. quite they\n\nA significant portion of their interchange is concerned with what call the \"complex' case: a long-term relationship in which a woman exchanges unsatisfying (or unpleasant) sex for financial security; friendship, and other social 49 Dripps is concerned to protect that relationship from the criminal law.50 West, on the other hand, is concerned to show its immorality 51 Yet neither discussion has any but a tangential relationship to the topic they goods.\n\nSuppose the relationship is morally objectionable\\_indeed; awful; What follows about whether it is Because it involves a relationship that is morally ambiguous and in which the sex itself is bad (for one person) . But neither gives grounds for thinking that the participants have nonconsensually. Both participants understand what they give and what get; both understand the parameters of case? rape? acted they\n\n47. Dripps at 1785.\\_\n\n49. Dripps at 1789; West at 1443.\n\n48. The paucity of imagination in Dripps's exposition reflects a limitation in thought Just as his view of sex is stilted and narrow; SO too is his conceptualization of autonomy; rights, and responsibility\n\n- 50. Dripps,\n- 51 . West at 1453.\n\nthe \"exchange. The case is 'complex only in the sense that it may involve morally problematic sex. But the problem of rape is not that of immoral sex, or even that of bad sex. Those categories are just the ones. Even though rape is immoral, and it involves sex, immoral sex is not rape. wrong\n\nIf what Dripps means is that the practical meaning of autonomy varies across circumstances, he is surely right. But so what? Moral rights vary in the same way; as do cognitive functions. Perhaps what worries is that variations in autonomy seem only loosely connected to moral good. Indeed, it would be quite surprising if there were not such variation. Autonomy is, and should be, context-sensitive. After all, the aims of persons vary, and so too their circumstances: Thus, both the practical content and import of autonomy will vary. But this is a problem only if one also believed that social values are monotonic; ie., that there is a simple and transparent normative structure to human life. Dripps\n\nBut the defects of the critiques of Dripps and of West do not end there Dripps complains that autonomy\\_and one assumes consent-~is an inadequate foundation for analyzing rape because autonomy is relative.52 His argument for this rests on the enumeration of several cases, ranging from the \"bathhouse case to the \"complex case\\_ The cases are supposed to show how constraints on autonomy are relative to context and, thus, objectionable. Unfortunately the claim is quite obscure. point\n\nOnce it is very unclear why this, even if true, should govern our analysis of rape. Nor is it clear why the overall moral assessment of sexual relations is crucial to identifying the nature of rape: Why; that is, single out rape in this way? West, at end, cannot set to the side his moral assessment of sexual relationships. again least, Dripps\n\nThe notion of consent is not especially mysterious. There is, in any event; extensive literature discussing consent and its conditions. In even a cursory examination of consent; central conceptual strands can be identified; strands that throw significant light on efforts to understand rape. The core idea is that we each should, within practical limits, exercise control over the central aspects of our At the least, we should control what is quite lives.\n\nalso distinguishes \"legitimate\" from \"illegitimate' means by which to procure sex. Yet, beyond an abbreviated catalogue of illegitimate means, Dripps offers no explanatory basis for the distinction. That is, Dripps offers thoroughly pedestrian list of illegitimate modes of conduct, but nowhere offers an explanation of why these types of conduct are illegitimate. The list, apparently; is mere historical happenstance. For that reason, in the end, the rejection of consent rings hollow; for the best explanation of Dripps' taxonomy rests squarely on a demarcation of conduct according to compli ance with the conditions for consent. Dripps\n\n52.  Dripps at 1788.\n\ndone to and with our bodies, although the concern with agency certainly extends beyond that parameter. In focusing on autonomy or on agency we are not, pace Dripps; interested particularly in the degree of affective disengagement or in the scope of unconstrained actions. Rather; it is a concern with the forms in which values are embodied and the degree to which individual is able to act on those values. No doubt, autonomy is intertwined with reflective valuation Nonetheless, what matters is the choosing by an individual among alternatives, more or less acceptable. each each\n\nWhat runs through these ideas of autonomy is the thread of control: That feature is sustained whether or not the notion of autonomy is itself politically liberal in character The expressive content of autonomy and of agency is not unique to liberal theories. Just the same notion can be extracted from Marxian and other theoretical stances. What is involved is not a commitment to an Emersonian ego. All that is required   is a moderate degree of respect for each individual as an individual\\_the distinctive lives each of us is. In that sense, whether one is Kantian or utilitarian, individualist Or communitarian, does not   vitiate the import of autonomy\n\nWith respect to sex, autonomy and agency lie in realization of sexual preferences: able to engage in favored conduct without undue diffiParadigmatically, it lies in chosen acts with chosen partners. Autonomy does not lie in unconstrained choice or choices disassociated from personal commitment. being culty.\n\nMore compellingly, the liberal notion of autonomy is too deeply and pervasively entrenched in law; legal theory and public discourse not only in the United States, but in the Eurocentric world, to be ignored. To its abandonment would great deal more than Dripps's reheated history of rape. force require or threats of assaults as illegitimate. He also includes as illegitimate   those where one party is \"unable to express refusal, because she is unconscious, incompetent or helpless. 53 In all these kinds of cases, one person (at least) is denied any effective choice, or power of choice. Even in the event of desiring think, is to deny exercise of agency: In those cases, what happens to the person is not what the person has chosen (or would choose) \\_ Thus they are victims; rather than participants. It is just the contravention of autonomy (in sexuality) that makes these events illegitimate. But seeing it thus is just such\n\nThe expression of autonomy through control leads directly to considerations of consent. Indeed, the property analysis advanced by Dripps necessitates a theory of consent: Dripps's analysis is itself predicated on consensual exchange as the dominant norm.\n\n53 Dripps at 1807\n\nto see that what makes those exchanges illegitimate is the absence of consent and not the presence of refusal.54\n\nConsider an example used by Dripps: shoplifting 56 The core factor that renders shoplifting an illegitimate property transfer is not an expression by the shopowner refusing the transfer: The factor is the absence of consent. It is consent that, pre-eminently; characterizes property transfers as legitimate. Consent expresses the agreement of the parties to the transfer; creating voluntary exchange of values. Through the requirement of consent; the parties are able to retain control over their participation in the transfer and thus are able to better assure realization of their values through the exchange. key\n\nConsent enters as the form in which autonomy or agency is expressed or exercised\\_ Consent is the mark by which autonomous agents choose. Consent operates to legitimate. Once we have seen how consent operates to \"legitimate, in the language of and West, it is possible to focus more sharply the disagreement between West and regarding sex obtained  through misrepresentation. 55 Seen through the of consent; it is West's position that is more persuasive, for on a consent the misrepresentations affect the degree to which there actually is consent, and not the mere appearance, and thus misrepresentation denies legitimacy: Dripps Dripps prism theory\n\nIndeed, that Dripps is thinking in terms of exchanges in the absence of consent is theoretically premature. A transfer of property is not, ipso facto; an exchange. If we conceive of sexuality as a property (albeit aservice) , then there is no obvious   obstacle to understanding it as subject to transfer without exchange of value. It might simply be taken without compensation, or without adequate compensation. But, in either case, it would not be acceptable for one person to effect an exchange, even with adequate compensation, without agreement by the other party. There is still, in such cases, a wrong, an illegitimate transfer or exchange. prior\n\nThus, suppose a person A would agree to sex with another person B in exchange for some value X (X may well be the cooperation of B in sex, or B nevertheless acts wrongly if he takes A's sexual services while her with Xifshe does not agree in advance\\_ The issue is not merely exchange, or exchange of relatively equal values, but the conditions of exchange (conditions of transfer) . Conditions are acceptable morally; which is to say legitimate, as permit the parties to act on their own valuations, i.e., to choose their exchanges. But this makes no sense if leaving they\n\n54.  Dripps seems to think that there is a failure of consent only when there is a refusal of consent.\n\n55. Cf: West at 1450-51 with Dripps at 1802-03.\n\nat 1801 . Dripps\n\nBoth Dripps and West hold consent in because of pervasive social inequalities 57 Dripps, in addition, may have some lingering metaphysical complaints it.58 The pervasive inequality complaint has some force, but not as deployed by either Dripps or West. For both of them, women can give no effective consent because of inequalities of wealth, control over material, access to force, and lesser physical power than possessed by men. For each, the underlying image seems to be the \"consent\" given by the slave or the starving. In cases, there is no consent because the inequalities are so as to be coercive, whether or not recognized by the participants. suspicion against such deep\n\nIf the point; instead, was that inequalities are severe enough to raise validity of consent as a background question, the suggestion is not nearly s0 puzzling. It is a worthwhile inquiry; but is not directly implicated in how we should understand rape. It is a problem addressed by more general political theory\n\nThis seems an odd view for Dripps and West to adopt; for it proves too and so proves nothing. As well, if it were correct, it is irreconcilable with their program of replacing consent with an analysis of \"illegitimate means. Grant for the moment that inequalities between the sexes are such theless, identify legitimate means by which men may obtain cooperation from women In other words, Dripps seems committed to the idea that there are legitimate and illegitimate means by which a slaveholder may obtain cooperation from his slaves. I find this a baffling notion. No doubt, some means are more humane, others more cruel, but legitimacy seems quite an odd category here. much\n\nThere are severe inequalities of class in this country: In at least some cases, raise genuine issues of coercive exploitation. But for all that, do not cast real doubt on how we should understand employment or other economic exchanges. Which are which coercive or otherwise unjust can all be sensibly discussed in terms that give a central place to the question of consensual participation. they they\n\nIt could mean inequality only if every positional difference counted for questions of justice. But that would render inequality a necessary property of numerosity. More tnan one person means there are, necessarily; posi -\n\nIn addition, both Dripps and West may have mistaken difference for inequality   Dripps links his inequality attack on consent, to which West assents, to claim that  exchange entails inequality 59 This is wrong: Exchange entails differences in position, but difference does not entail inequality\n\n57. West at 1452-53; Dripps at 1791\n\n- 59 Dripps at 1791.\n- 58. at 1781. The discussion of causality otherwise seems pointless. Dripps\n\ntional differences: This view is bizarre. Second, some people like exchanges. There are those for whom is intrinsically valuable. Indeed, this view would render the giving of gifts unjust. trading\n\nSuppose W goes to a bar and drinks so heavily as to become unconscious: W does this because she has lost her job, or because she is an alcoholic, or any of a large number of other reasons. M comes upon W while she is unconscious and has sex with her.60\n\nFinally; Dripps' proposed statute is not consistent with his theory. Under his proposal, sex with persons incapable of refusing sex because are incompetent (intoxicated?) , unconscious, and the like, would be instances of 'sexual expropriation. His theory cannot be squared with this provision because nothing in the analysis of \"legitimate means will explain why sex with an unconscious is wrong, unless the unconsciousness was induced by the perpetrator: But; surely; sex with one who is unconscious is rape without regard to how the victim came to be unconscious. they person\n\nIf this is a case of rape, where has M used illegitimate means? Where has Mapplied illegitimate \"pressures to W for sexual cooperation? M exerts no significant pressures on W to cooperate at all. M could, without in any way affecting whether this is rape, make an oral request to W.Mneed not batter or threaten W. Indeed, the whole \"exchange' might be accomplished with minimal contact, and, hence, less force than one may experience walking down the streets.\n\nNone of this matters as to whether this is a case of rape. It is. And it is because there is no consent. Dripps; like those he wishes to criticize, has failed, consistently   to take seriously the requirement of consent to sex, instead substituting compulsion and force: West, although in a more com plex way; repeats the error: In the end, both theories require the very purport to transcend: a consent theory of rape. The conclusion we should draw is that rape is nonconsensual sex.61 thing they\n\n60 find this an odd locution, as \"sex with may suggest a cooperative activity: In this case, it may be accurate to say \"sex on or \"sex in W; but this usage may not be proper English. 61 . For an example of such",
+    "responses": [
+      {
+        "source": "gpt-4o-2024-11-20",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"ADU1\": {\n      \"text\": \"The author argues that (1) neither Dripps nor West offers convincing critiques of consent-based theories; (2) the alternatives offer presuppose the vitality of consent-based approach to understanding rape; and (3) that both Dripps and West consistently conflate more general moral and political issues with that of the nature of rape.\",\n      \"label\": \"claim\"\n    },\n    \"ADU2\": {\n      \"text\": \"Dripps offers a theory of rape built around ideas of sexual property.\",\n      \"label\": \"claim\"\n    },\n    \"ADU3\": {\n      \"text\": \"In essence, rape consists of sexual use of another's body where access to the sexual service is the result of illegitimate pressures.\",\n      \"label\": \"premise\"\n    },\n    \"ADU4\": {\n      \"text\": \"Reform of rape law to focus on consent is equally defective; according to This is because 'consent obscures \\\"the normative issues.\\\"\",\n      \"label\": \"claim\"\n    },\n    \"ADU5\": {\n      \"text\": \"Robin West, too; rejects understanding rape in terms of consent to sex.\",\n      \"label\": \"claim\"\n    },\n    \"ADU6\": {\n      \"text\": \"West offers two critiques of the commodity approach.\",\n      \"label\": \"claim\"\n    },\n    \"ADU7\": {\n      \"text\": \"First; the commodity approach is bereft of experiential content: The is not that no one experiences expropriation, but that understanding expropriation does not entail consideration of experience.\",\n      \"label\": \"premise\"\n    },\n    \"ADU8\": {\n      \"text\": \"Second, sex is not properly understood as a commodity at all.\",\n      \"label\": \"claim\"\n    },\n    \"ADU9\": {\n      \"text\": \"Consent theory is to be rejected, in part, because conditions are such that no woman can give effective valid consent.\",\n      \"label\": \"claim\"\n    },\n    \"ADU10\": {\n      \"text\": \"A consent-based theory of rape need not be vulnerable to the critiques of either Dripps or West.\",\n      \"label\": \"claim\"\n    },\n    \"ADU11\": {\n      \"text\": \"Further; a consent-based theory is, in several respects; superior.\",\n      \"label\": \"claim\"\n    },\n    \"ADU12\": {\n      \"text\": \"Dripps himself employs the language of autonomy and free exchange.\",\n      \"label\": \"premise\"\n    },\n    \"ADU13\": {\n      \"text\": \"No doubt, the language of consent has been used in ways that are intellectually unacceptable, bizarre, and inconsistent.\",\n      \"label\": \"premise\"\n    },\n    \"ADU14\": {\n      \"text\": \"It is, or should perfectly obvious that words of assent uttered following physical attacks or threats do not normally constitute valid, effective consent.\",\n      \"label\": \"claim\"\n    },\n    \"ADU15\": {\n      \"text\": \"The expression of autonomy through control leads directly to considerations of consent.\",\n      \"label\": \"claim\"\n    },\n    \"ADU16\": {\n      \"text\": \"Consent enters as the form in which autonomy or agency is expressed or exercised.\",\n      \"label\": \"claim\"\n    },\n    \"ADU17\": {\n      \"text\": \"Consent expresses the agreement of the parties to the transfer; creating voluntary exchange of values.\",\n      \"label\": \"premise\"\n    },\n    \"ADU18\": {\n      \"text\": \"None of this matters as to whether this is a case of rape. It is. And it is because there is no consent.\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"ADU1\",\n      \"target\": \"ADU10\",\n      \"type\": \"attack\"\n    },\n    {\n      \"source\": \"ADU2\",\n      \"target\": \"ADU3\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU4\",\n      \"target\": \"ADU10\",\n      \"type\": \"attack\"\n    },\n    {\n      \"source\": \"ADU6\",\n      \"target\": \"ADU7\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU6\",\n      \"target\": \"ADU8\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU9\",\n      \"target\": \"ADU10\",\n      \"type\": \"attack\"\n    },\n    {\n      \"source\": \"ADU11\",\n      \"target\": \"ADU10\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU12\",\n      \"target\": \"ADU11\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU13\",\n      \"target\": \"ADU14\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU15\",\n      \"target\": \"ADU16\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU16\",\n      \"target\": \"ADU17\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU18\",\n      \"target\": \"ADU10\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "ADU1": {
+              "text": "The author argues that (1) neither Dripps nor West offers convincing critiques of consent-based theories; (2) the alternatives offer presuppose the vitality of consent-based approach to understanding rape; and (3) that both Dripps and West consistently conflate more general moral and political issues with that of the nature of rape.",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "Dripps offers a theory of rape built around ideas of sexual property.",
+              "label": "claim"
+            },
+            "ADU3": {
+              "text": "In essence, rape consists of sexual use of another's body where access to the sexual service is the result of illegitimate pressures.",
+              "label": "premise"
+            },
+            "ADU4": {
+              "text": "Reform of rape law to focus on consent is equally defective; according to This is because 'consent obscures \"the normative issues.\"",
+              "label": "claim"
+            },
+            "ADU5": {
+              "text": "Robin West, too; rejects understanding rape in terms of consent to sex.",
+              "label": "claim"
+            },
+            "ADU6": {
+              "text": "West offers two critiques of the commodity approach.",
+              "label": "claim"
+            },
+            "ADU7": {
+              "text": "First; the commodity approach is bereft of experiential content: The is not that no one experiences expropriation, but that understanding expropriation does not entail consideration of experience.",
+              "label": "premise"
+            },
+            "ADU8": {
+              "text": "Second, sex is not properly understood as a commodity at all.",
+              "label": "claim"
+            },
+            "ADU9": {
+              "text": "Consent theory is to be rejected, in part, because conditions are such that no woman can give effective valid consent.",
+              "label": "claim"
+            },
+            "ADU10": {
+              "text": "A consent-based theory of rape need not be vulnerable to the critiques of either Dripps or West.",
+              "label": "claim"
+            },
+            "ADU11": {
+              "text": "Further; a consent-based theory is, in several respects; superior.",
+              "label": "claim"
+            },
+            "ADU12": {
+              "text": "Dripps himself employs the language of autonomy and free exchange.",
+              "label": "premise"
+            },
+            "ADU13": {
+              "text": "No doubt, the language of consent has been used in ways that are intellectually unacceptable, bizarre, and inconsistent.",
+              "label": "premise"
+            },
+            "ADU14": {
+              "text": "It is, or should perfectly obvious that words of assent uttered following physical attacks or threats do not normally constitute valid, effective consent.",
+              "label": "claim"
+            },
+            "ADU15": {
+              "text": "The expression of autonomy through control leads directly to considerations of consent.",
+              "label": "claim"
+            },
+            "ADU16": {
+              "text": "Consent enters as the form in which autonomy or agency is expressed or exercised.",
+              "label": "claim"
+            },
+            "ADU17": {
+              "text": "Consent expresses the agreement of the parties to the transfer; creating voluntary exchange of values.",
+              "label": "premise"
+            },
+            "ADU18": {
+              "text": "None of this matters as to whether this is a case of rape. It is. And it is because there is no consent.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU1",
+              "target": "ADU10",
+              "type": "attack"
+            },
+            {
+              "source": "ADU2",
+              "target": "ADU3",
+              "type": "support"
+            },
+            {
+              "source": "ADU4",
+              "target": "ADU10",
+              "type": "attack"
+            },
+            {
+              "source": "ADU6",
+              "target": "ADU7",
+              "type": "support"
+            },
+            {
+              "source": "ADU6",
+              "target": "ADU8",
+              "type": "support"
+            },
+            {
+              "source": "ADU9",
+              "target": "ADU10",
+              "type": "attack"
+            },
+            {
+              "source": "ADU11",
+              "target": "ADU10",
+              "type": "support"
+            },
+            {
+              "source": "ADU12",
+              "target": "ADU11",
+              "type": "support"
+            },
+            {
+              "source": "ADU13",
+              "target": "ADU14",
+              "type": "support"
+            },
+            {
+              "source": "ADU15",
+              "target": "ADU16",
+              "type": "support"
+            },
+            {
+              "source": "ADU16",
+              "target": "ADU17",
+              "type": "support"
+            },
+            {
+              "source": "ADU18",
+              "target": "ADU10",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "ADU1": {
+              "text": "The author argues that (1) neither Dripps nor West offers convincing critiques of consent-based theories; (2) the alternatives offer presuppose the vitality of consent-based approach to understanding rape; and (3) that both Dripps and West consistently conflate more general moral and political issues with that of the nature of rape.",
+              "label": "claim"
+            },
+            "ADU3": {
+              "text": "In essence, rape consists of sexual use of another's body where access to the sexual service is the result of illegitimate pressures.",
+              "label": "premise"
+            },
+            "ADU4": {
+              "text": "Reform of rape law to focus on consent is equally defective; according to This is because 'consent obscures \"the normative issues.\"",
+              "label": "claim"
+            },
+            "ADU5": {
+              "text": "Robin West, too; rejects understanding rape in terms of consent to sex.",
+              "label": "claim"
+            },
+            "ADU6": {
+              "text": "West offers two critiques of the commodity approach.",
+              "label": "claim"
+            },
+            "ADU7": {
+              "text": "First; the commodity approach is bereft of experiential content: The is not that no one experiences expropriation, but that understanding expropriation does not entail consideration of experience.",
+              "label": "premise"
+            },
+            "ADU8": {
+              "text": "Second, sex is not properly understood as a commodity at all.",
+              "label": "claim"
+            },
+            "ADU9": {
+              "text": "Consent theory is to be rejected, in part, because conditions are such that no woman can give effective valid consent.",
+              "label": "claim"
+            },
+            "ADU10": {
+              "text": "A consent-based theory of rape need not be vulnerable to the critiques of either Dripps or West.",
+              "label": "claim"
+            },
+            "ADU11": {
+              "text": "Further; a consent-based theory is, in several respects; superior.",
+              "label": "claim"
+            },
+            "ADU12": {
+              "text": "Dripps himself employs the language of autonomy and free exchange.",
+              "label": "premise"
+            },
+            "ADU13": {
+              "text": "No doubt, the language of consent has been used in ways that are intellectually unacceptable, bizarre, and inconsistent.",
+              "label": "premise"
+            },
+            "ADU14": {
+              "text": "It is, or should perfectly obvious that words of assent uttered following physical attacks or threats do not normally constitute valid, effective consent.",
+              "label": "claim"
+            },
+            "ADU15": {
+              "text": "The expression of autonomy through control leads directly to considerations of consent.",
+              "label": "claim"
+            },
+            "ADU17": {
+              "text": "Consent expresses the agreement of the parties to the transfer; creating voluntary exchange of values.",
+              "label": "premise"
+            },
+            "ADU18": {
+              "text": "None of this matters as to whether this is a case of rape. It is. And it is because there is no consent.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU1",
+              "target": "ADU10",
+              "type": "attack"
+            },
+            {
+              "source": "ADU4",
+              "target": "ADU10",
+              "type": "attack"
+            },
+            {
+              "source": "ADU6",
+              "target": "ADU7",
+              "type": "support"
+            },
+            {
+              "source": "ADU6",
+              "target": "ADU8",
+              "type": "support"
+            },
+            {
+              "source": "ADU9",
+              "target": "ADU10",
+              "type": "attack"
+            },
+            {
+              "source": "ADU11",
+              "target": "ADU10",
+              "type": "support"
+            },
+            {
+              "source": "ADU12",
+              "target": "ADU11",
+              "type": "support"
+            },
+            {
+              "source": "ADU13",
+              "target": "ADU14",
+              "type": "support"
+            },
+            {
+              "source": "ADU18",
+              "target": "ADU10",
+              "type": "support"
+            }
+          ]
+        }
+      },
+      {
+        "source": "claude-3-5-sonnet-20241022",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"1\": {\n      \"text\": \"The author argues that (1) neither Dripps nor West offers convincing critiques of consent-based theories; (2) the alternatives offer presuppose the vitality of consent-based approach to understanding rape; and (3) that both Dripps and West consistently conflate more general moral and political issues with that of the nature of rape.\",\n      \"label\": \"claim\"\n    },\n    \"2\": {\n      \"text\": \"That rape is nonconsensual sex, any nonconsensual sex, might be thought no more than hornbook, black-letter law. It isn't. Susan Estrich has shown that; until recently; rape has been understood in law as forcible rather than nonconsensual sex.\",\n      \"label\": \"premise\"\n    },\n    \"3\": {\n      \"text\": \"For Dripps, rape is to be understood in terms of the perpetrator's conduct and state of mind.\",\n      \"label\": \"premise\"\n    },\n    \"4\": {\n      \"text\": \"For West, that experience is of unwanted sex Because unwanted, it is violence; and violence is therefore an essential feature of rape.\",\n      \"label\": \"premise\"\n    },\n    \"5\": {\n      \"text\": \"A consent-based theory of rape need not be vulnerable to the critiques of either Dripps or West. Further; a consent-based theory is, in several respects; superior. At least in part; this is because a consent theory is presupposed by the approaches advocated by Dripps and West.\",\n      \"label\": \"claim\"\n    },\n    \"6\": {\n      \"text\": \"The conclusion we should draw is that rape is nonconsensual sex.\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"2\",\n      \"target\": \"1\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"3\",\n      \"target\": \"1\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"4\", \n      \"target\": \"1\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"5\",\n      \"target\": \"6\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "1": {
+              "text": "The author argues that (1) neither Dripps nor West offers convincing critiques of consent-based theories; (2) the alternatives offer presuppose the vitality of consent-based approach to understanding rape; and (3) that both Dripps and West consistently conflate more general moral and political issues with that of the nature of rape.",
+              "label": "claim"
+            },
+            "2": {
+              "text": "That rape is nonconsensual sex, any nonconsensual sex, might be thought no more than hornbook, black-letter law. It isn't. Susan Estrich has shown that; until recently; rape has been understood in law as forcible rather than nonconsensual sex.",
+              "label": "premise"
+            },
+            "3": {
+              "text": "For Dripps, rape is to be understood in terms of the perpetrator's conduct and state of mind.",
+              "label": "premise"
+            },
+            "4": {
+              "text": "For West, that experience is of unwanted sex Because unwanted, it is violence; and violence is therefore an essential feature of rape.",
+              "label": "premise"
+            },
+            "5": {
+              "text": "A consent-based theory of rape need not be vulnerable to the critiques of either Dripps or West. Further; a consent-based theory is, in several respects; superior. At least in part; this is because a consent theory is presupposed by the approaches advocated by Dripps and West.",
+              "label": "claim"
+            },
+            "6": {
+              "text": "The conclusion we should draw is that rape is nonconsensual sex.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "2",
+              "target": "1",
+              "type": "support"
+            },
+            {
+              "source": "3",
+              "target": "1",
+              "type": "support"
+            },
+            {
+              "source": "4",
+              "target": "1",
+              "type": "support"
+            },
+            {
+              "source": "5",
+              "target": "6",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "1": {
+              "text": "The author argues that (1) neither Dripps nor West offers convincing critiques of consent-based theories; (2) the alternatives offer presuppose the vitality of consent-based approach to understanding rape; and (3) that both Dripps and West consistently conflate more general moral and political issues with that of the nature of rape.",
+              "label": "claim"
+            },
+            "2": {
+              "text": "That rape is nonconsensual sex, any nonconsensual sex, might be thought no more than hornbook, black-letter law. It isn't. Susan Estrich has shown that; until recently; rape has been understood in law as forcible rather than nonconsensual sex.",
+              "label": "premise"
+            },
+            "3": {
+              "text": "For Dripps, rape is to be understood in terms of the perpetrator's conduct and state of mind.",
+              "label": "premise"
+            },
+            "4": {
+              "text": "For West, that experience is of unwanted sex Because unwanted, it is violence; and violence is therefore an essential feature of rape.",
+              "label": "premise"
+            },
+            "5": {
+              "text": "A consent-based theory of rape need not be vulnerable to the critiques of either Dripps or West. Further; a consent-based theory is, in several respects; superior. At least in part; this is because a consent theory is presupposed by the approaches advocated by Dripps and West.",
+              "label": "claim"
+            },
+            "6": {
+              "text": "The conclusion we should draw is that rape is nonconsensual sex.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "2",
+              "target": "1",
+              "type": "support"
+            },
+            {
+              "source": "3",
+              "target": "1",
+              "type": "support"
+            },
+            {
+              "source": "4",
+              "target": "1",
+              "type": "support"
+            },
+            {
+              "source": "5",
+              "target": "6",
+              "type": "support"
+            }
+          ]
+        }
+      }
+    ],
+    "timestamp": 1752757833.4312332
+  }
+]

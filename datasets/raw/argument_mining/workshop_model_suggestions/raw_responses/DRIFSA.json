@@ -1,0 +1,346 @@
+[
+  {
+    "identifier": "DRIFSA",
+    "system_prompt": "## GOAL\nArgument‑mine the following paper to extract its comprehensive argumentative structure.\n\n## DEFINITIONS\n1. **Argument**: A set of propositions, including some number of premises and a conclusion. The premises should logically entail the conclusion.\n2. **Claim**: A proposition that asserts something to be true or false, typically requiring justification or evidence.\n3. **Premise**: A proposition that provides evidence, justification, or logical support for a claim or conclusion.\n\n## CRITICAL REQUIREMENTS\n1. **VERBATIM EXTRACTION ONLY**: Each ADU text must be copied EXACTLY from the paper with no modifications, paraphrasing, or combining of separate sentences.\n2. **NO HALLUCINATION**: Do not create, modify, or invent text that does not appear exactly in the source.\n3. **EXACT MATCHING**: Every word, punctuation mark, and spacing must match the original precisely.\n\n## DIRECTIONS\n1. **Identify Argumentative Discourse Units (ADUs)**  \n   - ADU = any contiguous text span functioning as a claim or a premise in the reasoning structure.\n   - **BE HIGHLY SELECTIVE**: Only include ADUs that are crucial to the overarching argument structure.\n   - Focus on significant claims and premises that contribute meaningfully to the argumentative flow.\n   - **AVOID NOISE**: Skip ADUs that are merely descriptive, tangential, or do not substantially advance the argument.\n   - Prioritize quality over quantity - fewer accurate, important ADUs are better than many insignificant ones.\n   - **EXTRACT ONLY**: Copy text spans exactly as they appear, without any modifications.\n2. **Classify each ADU**  \n   - Label = either `\"claim\"` or `\"premise\"`.  \n3. **Detect directed relations**  \n   - Relation = `\"support\"` or `\"attack\"`, from one ADU (source) to another (target).\n   - Map how ADUs connect to form reasoning chains.\n   - Focus on relationships between the most significant ADUs.\n   - Include relationships between premises that strengthen or weaken each other.\n4. **Verbatim spans**  \n   - Each `\"text\"` value must be copied EXACTLY from the paper with zero modifications.\n   - Do not paraphrase, summarize, or combine separate sentences.\n   - Do not add, remove, or change any words, punctuation, or spacing.\n   - If unsure about exact wording, skip that ADU rather than guess.\n\n## WHAT TO CAPTURE\n**INCLUDE ONLY:**\n- Main argumentative threads that are central to the paper's contribution\n- Core claims that represent the paper's primary arguments or findings\n- Key premises that provide essential support for major claims\n- Critical counterarguments and their refutations\n- Reasoning chains that demonstrate how main conclusions are derived\n\n**EXCLUDE (AVOID NOISE):**\n- Minor details, examples, or descriptive content that don't advance the argument\n- Tangential points or side discussions\n- Pure background information or literature review content\n- Methodological details unless they constitute argumentative claims\n- Obvious statements or commonly accepted facts\n- Redundant or repetitive argumentative content\n\n**GUIDING PRINCIPLE**: If removing an ADU would not significantly impact understanding of the paper's argumentative structure, it should be excluded.\n\n## QUALITY CONTROL\n- Before finalizing each ADU, verify the text exists exactly in the source\n- Prefer fewer, accurate ADUs over many potentially modified ones\n- When in doubt about exact wording, omit the ADU\n\n## OUTPUT FORMAT\nReturn **only** a single valid JSON object matching this schema.  \nDo **not** output any extra text, markdown, or explanations.\n\nRESPOND WITH ONLY:\n```json\n{\n  \"ADUs\": {\n    \"<ADU_ID>\": {\n      \"text\": \"<exact span from paper>\",\n      \"label\": \"claim\" | \"premise\"\n    }\n    ...\n  },\n  \"relations\": [\n    {\n      \"source\": \"<ADU_ID>\",\n      \"target\": \"<ADU_ID>\",\n      \"type\": \"support\" | \"attack\"\n    }\n  ]\n}\n```",
+    "user_content": "## FRIEDRICH SCHILLER'S ADUALISTIC CONCEPTION OF UNITY\n\nBy Manuel Dries\n\nAuthor copy provided for research purposes only and may differ in minor ways from published versions, which should be considered as authoritativ Published by Maney Publishing (c) The English Goethe Society Girton College, Cambridge This paper considers three general dilemmas that tend to undermine successful configurations of unity: the either/or dilemma, the synthesis dilemma and the relativism dilemma. It further argues that, in his aesthetic writings, Schiller's critique of Kantian dualisms leads him to an adualistic conception of unity that operates with a different, more inclusive approach to opposition and unification. In order to clarify Schiller's innovative and often misunderstood position, the paper draws on the disjunctive logic recently developed by Friedrich Kümmel. An den Dichter Laß die Sprache dir seyn, was der Körper den Liebenden; er nur Ists, der die Wesen trennt und der die Wesen vereint. 1 S chiller's idea of unity has provoked debate among his critics over the past two centuries. I want to argue that his specific practice of dealing with oppositions still deserves our attention today. In various respects, what Schiller has to say in his theoretical writings makes an important contribution to what one might want to call a phenomenology of conflict, conflict resolution and a concomitant theory of unification,  and  this  contribution  has,  to  my  knowledge,  largely  been  misinterpreted. 2 This paper falls into four parts. In the first part, I will discuss what I see as the three dilemmas of unification, using the European Union as an example. In the second part, I present Schiller's critique of Kant's dualistic style of thought. The third part attempts to elucidate Schiller's innovative, adualistic conception of unity, with reference to the disjunctive logic developed by Friedrich Kümmel. And while I shall not  pursue  in  detail  here  the  (to  my  mind,  important)  insights  to  be  found  in Schiller's  literary  writings,  I  shall  end  with  an  interpretation  of  the  relationship between Berta and Rudenz in Wilhelm Tell . For many, the driving force behind the project of a unified Europe has been the ideal of a unity that would once and for all prevent the possibility of another war. In order to overcome the linguistic, historical, social and political differences between the nation states, a unified Europe is supposed to offer a platform of reconciliation and a new European identity for all participants. 3 But  establishing  unity  between\n\n2 See, for example, Hans-Georg Gadamer, Wahrheit und Methode , Tübingen, third edition, 1972, p. 78, and Jürgen Habermas, Die Moderne -ein unvollendetes Projekt , Leipzig, 1990, p. 46.\n\n1 Friedrich Schiller, 'Musenalmanach für das Jahr 1797' (NA, I, 302). I would like to thank Walter Schmoll for the many discussions of the issues treated in this paper we had over the past five years. I have profited particularly from comments on earlier versions by Raymond Geuss, John Guthrie, Mark Henderson and Manolis Simos. To Barry Nisbet and Lesley Sharpe I am indebted for years of instruction and encouragement.\n\n3 An additional factor might also be that the former national identities were largely based on the principle that 'omnis determinatio est negatio': to be German meant not being, say, English, French, or Russian. A practice of identification  by  negation  makes  integration  all  the  more  difficult.\n\nDOI: 10.1179/174962806X99630\n\nentities that are undeniably different from one another proves problematic because of what I want to call the three dilemmas of unification: the either/or dilemma, the synthesis dilemma and the relativist dilemma.\n\nWhen unity is established via an either/or decision, out of the various alternative models, one model (for example, the German federal model) becomes binding for all  participants.  A  unity  based  on  such  an  either/or  decision  is  likely  to  generate discontent, the differences return, and conflict is likely to reappear.\n\nEs ist  die  Crux dieser dualistischen Setzung, dass sie zu einem Ganzen, Reinen, Einen streben muss. In dieser Konstruktion steckt eine gehörige Portion Gewalt, [. . .] Und sie führt zu einer unglaublichen Beglückungshybris, die dem Künstler eine Propheten-, wenn nicht  Gott-gleiche  Funktion  zuschreibt:  Er  befindet  sich  im  Besitz  der  Wahrheit  und ermächtigt den politischen Souverän, die Menschen zu erziehen. (Leitgeb, p.3)\n\nAuthor copy provided for research purposes only and may differ in minor ways from published versions, which should be considered as authoritativ Published by Maney Publishing (c) The English Goethe Society When unity is established via a synthesis, the participating groups usually agree on a  middle  ground.  Either  this  leads  to  a  'lowest  common  denominator'  which  is quickly perceived to be unsatisfactory, or, when the goal is an identity beyond differences,  there  is  no  longer  an  incentive  for  the  groups  to  be  responsive  to  one another. After all, there is no need for me to leave my sphere if the other spheres are 'just  the  same'.  In  either  case,  the  attempted  synthesis  generates  indifference  and separates more than it unites. The  relativist  dilemma  occurs  when  all  participants  demand  equal  validity  for themselves  and  their  context,  and  despite  a  formal  unity,  none  of  the  groups requires  the  other  to  secure  its  own  identity.  When  all  sides  possess  their  own identity in a relativistic sense, the need for exchange and mutual understanding disappears. Again, mutual indifference is the result. This time it is not 'indifference as sameness', but indifference between absolute others. I have nothing to learn from others, because relativism tells me that I am perfectly whole. Again, the result is an increased alienation that frustrates the desired unification. In her recent article on Schiller's Aesthetic Letters , 'Der Mensch in seinem Wahn' in the journal Literaturen , Hanna Leitgeb warns us against what she reads as Schiller's totalitarian ideal of aesthetic education in the name of reason: Die Vorstellung, die Natur des Menschen verändern zu müssen, um ihn vernünftig zu machen ist [. . .] ein durch und durch fundamentalistischer Gedanke, der die Definitionshoheit darüber beansprucht, was vernünftig ist - und ein unendliches Totalisierungspotential in sich birgt, das sich politische wie religiöse Regime und Terroristen aller Couleurs zu eigen machen können. Schiller liefert mit seinem Text eine normative Grundlage, ja geradezu eine Handlungsanleitung für alle Utopisten, die meinen, einen neuen Menschen schaffen zu müssen. 4 In  addition,  Leitgeb  criticizes  Schiller's  strong  dualistic  oppositions.  As  is  well known, Schiller's  theoretical  writings  are  charged  with  oppositions  such  as  -  to name  but  a  few  -  nature/reason,  life/law,  matter/form  and  part/whole.  In Leitgeb's eyes, Schiller's entire aesthetic-educational programme is geared towards the totalitarian overcoming of such antagonism:\n\nOn a  superficial  level,  Schiller  seems  indeed  to  belong  to  that  oft-deconstructed onto-theological  philosophical  tradition  that  privileges  a  rational  foundation  and permanent being over contradictory becoming. In the tenth letter, Schiller declares that he wishes to 'strive for a firm basis' (NA, XX, 341). 5 How can someone strive for  a  'firm  basis'  without  turning  into  a  fundamentalist  who  excludes  others  and imposes his vision on them?\n\n8 In Kant's Kritik der reinen Vernunft , the category of 'Gemeinschaft' refers to the 'Wechselwirkung zwischen dem Handelnden  und  Leidenden',  and  the  corresponding  form  of  judgement  is  'disjunctive':  'Endlich  enthält  das disjunktive  Urtheil  ein  Verhältniß  zweier  oder  mehrerer  Sätze  gegen  einander,  aber  nicht  der  Abfolge,  sondern der  logischen  Entgegensetzung,  sofern  die  Sphäre  des  einen  die  des  andern  ausschließt,  aber  doch  zugleich  der Gemeinschaft,  in  sofern  sie  zusammen  die  Sphäre  der  eigentlichen  Erkenntniß  ausfüllen,  also  ein  Verhältniß  der Theile der Sphäre eines Erkenntnisses, da die Sphäre eines jeden Theils ein Ergänzungsstück der Sphäre des andern zu dem ganzen Inbegriff der eingetheilten Erkenntniß ist; z.E. die Welt ist entweder durch einen blinden Zufall da, oder durch innre Nothwendigkeit, oder durch eine äußere Ursache. Jeder dieser Sätze nimmt einen Theil der Sphäre des möglichen Erkenntnisses über das Dasein einer Welt überhaupt ein, alle zusammen die ganze Sphäre. Das  Erkenntniß  aus  einer  dieser  Sphären  wegnehmen,  heißt,  sie  in  eine  der  übrigen  setzen,  und  dagegen  sie  in eine  Sphäre  setzen,  heißt,  sie  aus  den  übrigen  wegnehmen. Es  ist  also  in  einem  disjunktiven  Urtheile  eine  gewisse Gemeinschaft der Erkenntnisse, die darin besteht, daß sie sich wechselseitig einander ausschließen, aber dadurch doch im Ganzen die  wahre  Erkenntniß  bestimmen,  indem  sie  zusammengenommen  den  ganzen  Inhalt  einer  einzigen  gegebenen  Erkenntniß ausmachen ' (§ 9, A73/B99, my emphasis).\n\nAuthor copy provided for research purposes only and may differ in minor ways from published versions, which should be considered as authoritativ Published by Maney Publishing (c) The English Goethe Society In Über  Anmut  und  Würde ,  Schiller  pays  tribute  to  Kant's  work,  but  he  takes exception to Kant's 'strenge und grelle Entgegensetzung' (NA, XX, 284) and his 'Rigidität'  (NA,  XX,  285)  when  it  comes  to  oppositions  such  as  'reason'  and 'nature',  'person'  and  'condition',  'duty'  and  'inclination'.  According  to  Schiller's reading, Kant has decided the conflict by an either/or logic. However, this is not how Schiller wants to deal with oppositions. An 'ideal' solution has to be one that does not annihilate, because such a procedure would lead to a solution that cannot last.  The  two  ways  are  not  alternatives  from  which  we  can  choose  either  one  or the other. Instead, it is necessary to integrate both sides, but without - and this is important - offering a naive third option. Schiller's oscillating approach strives to ensure both contact and separation. On the one hand, he blames Winckelmann for failing to consider the two as separate. 6 On the other hand, contact between the two is  constitutive  of  their  mutual  interaction:  'Beide  Gesetzgebungen  berühren  hier [im Individuum] einander so nahe, dass ihre Grenzen zusammenfliessen' (NA, XX, 300-01). Schiller avoids the either/or alternative because 'Der bloss niedergeworfene Feind kann wieder auferstehen, aber der versöhnte Feind ist wahrhaft überwunden' (NA, XX, 284; my emphasis). 7 This is the essence of his critique of Kant. Schiller  himself  prefers  an  adualistic  logic,  where  both  opposed  poles  remain separate  and  yet  united. 8 In  the  famous  passage  in Über  Anmut  und  Würde ,  he therefore combines the logic of both/and with that of neither/nor: Wenn nämlich weder die über die Sinnlichkeit herrschende Vernunft, noch die  über die Vernunft herrschende Sinnlichkeit sich mit der Schönheit des Ausdrucks vertragen, so wird [. . .] derjenige Zustand des Gemüts wo Vernunft und Sinnlichkeit - Pflicht und Neigung - zusammenstimmen, die Bedingung seyn, unter der die Schönheit des Spiels erfolgt [my emphasis]. (NA, XX, 282) 5 Friedrich Schiller, On the Aesthetic Education of Man in a Series of Letters ,  edited by Elizabeth M. Wilkinson and L.A.  Willoughby,  Oxford,  1967.  Wilkinson/Willoughby  translate  the  German  verb  'streben'  as  'struggle'  rather than 'strive' (p. 71). 6 'Aber was er vereinigt fand, nahm und gab er auch nur für Eines, und er blieb bei dem stehen, was der bloße Sinn ihn lehrte, ohne zu untersuchen, ob es nicht vielleicht noch zu scheiden sey' (NA, XX, 301). 7 All  emphases  are  original  unless  otherwise  noted.\n\nPublished by Maney Publishing (c) The English Goethe Society\n\nAuthor copy provided for research purposes only and may differ in minor ways from published versions, which should be considered as authoritativ [. . .]  obgleich  dieser  Zustand  [ästhetische  Freiheit]  an  sich  selbst  weder  für  unsere Einsichten noch Gesinnungen etwas entscheidet, mithin unsern intellektuellen und moralischen Werth  ganz  und  gar  problematisch [my  emphasis]  läßt,  so  ist  er  doch  die  nothwendige Bedingung, unter welcher allein wir zu einer Einsicht und zu einer Gesinnung gelangen können. (NA, XX, 383) In 'Zum Umgang mit Gegensätzen bzw. Gegensatzstrukturen', the Tübingen philosopher Friedrich Kümmel observes - and Leitgeb's interpretation suggests that he is  right  -  that  for  'the  thinking  human  being,  the  attitude  towards  oppositional structures is in many important respects still new territory'. He surmises that human beings - following a biological matrix that is also noticeable in our linguistic oppositions - tend to think in alternatives that are designed in such a way as to exclude one another. 10 Kümmel suggests that we emancipate our practice of thinking so as to progress beyond the either/or. The following definition can help us to appreciate Schiller's approach to oppositions: Nicht-dualistische Lösungen müssten [. . .] wahrhaft integrativ sein und d.h. sie müssten sowohl die Dimension der Einheit bzw. des 'Ein Zusammen' anders ansetzen als auch die unverzichtbaren  Trennungslinien  an  einer  anderen  Stelle  markieren.  Das  'Zusammen' verlangt  ein  den  Widerspruch  in  sich  aufnehmendes  Sowohl-als-auch,  die  notwendige Abgrenzung, die Eröffnung eines von den respektiven Beschränkungen freien Feldes im Weder-noch. Wo weder das Ineinander noch das Getrenntsein von selbst gegeben ist, muß beides selbst erarbeitet werden. 11\n\nIn the Aesthetic Letters , Schiller follows the same logic. In Letters XIII and XIV, he argues  against  an  either/or  decision  between  being  and  becoming,  and  he  makes it clear that the play drive enables us to experience the non-reductive, paradoxical relationship between the two. This is the configuration necessary for a lasting reconciliation,  namely  '[. . .]  die  Zeit  in  der  Zeit  aufzuheben,  Werden  mit  absolutem Sein, Veränderung mit Identität zu vereinbaren.' 9 Instead of abolishing the opposition, he condenses it: 'neither is there time nor is time not', 'there is both becoming and being, both change and identity'. Purity and absolute equilibrium 'remain only an idea'; instead, we read in Letter XVI, '[. . .] das Höchste wird in einer Schwankung [my  emphasis]  zwischen  beiden  Prinzipien  bestehen'  (NA,  XX,  357).  Consequently, in his idea of aesthetic freedom, Schiller confirms that the oscillating unity he describes leaves us in a 'problematic' state. Again in Letter XXIII he employs the disjunctive neither/nor logic:\n\n9 'Der  sinnliche  Trieb  will,  daß  Veränderung  sei,  daß  die  Zeit  einen  Inhalt  habe;  der  Formtrieb  will,  daß  die Zeit  aufgehoben,  daß  keine  Veränderung  sei.  Derjenige  Trieb  also,  in  welchem  beide  verbunden  wirken  (es  sei mir  einstweilen,  bis  ich  diese  Benennung  gerechtfertigt  haben  werde,  vergönnt,  ihn  Spieltrieb  zu  nennen),  der Spieltrieb  also  würde  dahin  gerichtet  sein,  die  Zeit  in  der  Zeit  aufzuheben,  Werden  mit  absolutem  Sein, Veränderung mit Identität zu vereinbaren' (NA, XX, 353).\n\n11\n\n10 'Gegensatzstrukturen  haben  die  menschliche  Denk-  und  Wahrnehmungsweise  und  Schematisierung  seiner Welt in Subjekt-Objekt-Struktur von vornherein bestimmt. Es liegt ihnen eine biologische Matrix zugrunde, die auch in sprachlichen Oppositionen ihren Niederschlag gefunden hat. Uns interessiert an dieser Stelle aber nur der sekundäre,  logische  bzw.  paradoxlogische  und  dialektische  Umgang  mit  ihnen,  der  vom  Leben  und  von  der Sprache nicht bereits vorprogrammiert ist', Friedrich Kümmel, 'Zum Umgang mit Gegensätzen bzw. Gegensatzstrukturen',  (unpublished  manuscript),  currently  available  at  http://www.friedrich-kuemmel.de.\n\nKümmel, 'Zum Umgang mit Gegensätzen bzw. Gegensatzstrukturen', pp. 6-7.\n\nPublished by Maney Publishing (c) The English Goethe Society\n\nAuthor copy provided for research purposes only and may differ in minor ways from published versions, which should be considered as authoritativ We can close with an example taken from Schiller's Wilhelm Tell . I read the Berta/ Rudenz  relationship  as  a  critique  of  the  logic  of  unification  that  tacitly  guides Rudenz's actions. Rudenz wishes to be together with the rich aristocrat Berta von Bruneck. In order to bridge the difference that separates him from her, he makes an either/or decision between his own sphere and Berta's sphere. Attinghausen warns him against joining Berta's sphere: Die fremde falsche Welt ist nicht für dich, Dort an dem stolzen Kaiserhof bleibst du Dir ewig fremd mit deinem treuen Herzen! (NA, X, 168) Das Ritterfräulein willst Du Dir erwerben Mit deinem Abfall von dem Land - Betrüg Dich nicht! (NA, X, 171) Rudenz chooses between the two and leaves his life and his country behind. During a hunting expedition, when the two are closer than they have ever been before, Rudenz decides to make the decisive step that will bring them together and reveals his love for her. Yet, despite the fact that Berta also confesses that she would like to love him, she insists that it is now impossible for her to be with him, because he  stopped  being  who  he  was. 13 Rudenz  is  clearly  confused.  Had  he  not  done everything to ensure their unity? Had he not even sacrificed his own people? He replies: 'Von Euch, mein Fräulein, hör' ich diesen Vorwurf? / Wen such' ich denn, als Euch auf jener Seite!' (NA, X, 199). Berta makes it unmistakably clear that his journey  towards  her  has  failed.  Despite  the  fact  that  he  is  now  with  her,  he  is precisely not with her: 'Mich denkt Ihr auf der Seite des Verrats / zu finden?' (NA, X, 200). Rudenz had started from a mistaken conception of unity. He had deemed it  necessary  to  reduce  the  difference  between  them  as  much  as  possible.  In  this attempt, however, he also annihilated what Berta valued the most, himself. 14 Berta now has to remind him: Seid, Wozu die herrliche Natur Euch machte! Erfüllt den Platz, wohin sie Euch gestellt... (NA, X, 201)\n\nContrary to Leitgeb's interpretation, in the aesthetic state nobody is 'in possession of the truth'. Rather, the aesthetic state breaks with our common practice of thinking in our 'natural', either/or logic of alternatives and therefore does not constitute a totalitarian overcoming. It allows the opposed Other to exist, without the false promise of a Hegelian dialectic of reconciliation within the concept. 12\n\n12 In his study Harmonious Tensions ,  Steven D. Martinson also rejects reductive either/or polarizations. He argues that the real dynamics - between both the physiological and the idealistic aspects - within Schiller's work cannot be  captured  in  terms  such  as  'dualism'  and  'dialectical  synthesis'  ( Harmonious  Tensions:  The  Writings  of  Friedrich Schiller ,  Newark, 1996, p. 213). See also Goethe's concepts of 'das tötende Allgemeine' and the 'Vereinigung der Entgegengesetzten' (MA, XII, 338) and the aphorism 'Allgemeine Begriffe und grosser Dünkel sind immer auf dem Wege entsetzliches Unglück anzurichten' (MA, XVII, 806).\n\n13 Dürft  Ihr  von  Liebe  reden  und  von  Treue,\n\nDer treulos wird an seinen nächsten Pflichten?\n\nRudenz tritt  zurück\n\nDer  Sklave  Österreichs,  der  sich  dem  Fremdling\n\nVerkauft,  dem  Unterdrücker  seines  Volks?  (NA,  X,  199).\n\n14 This  is  not  to  be  mistaken  for  any  essentialist  conception  of  identity.  Rudenz's  identity  was  his  relational 'position', the 'Platz' (NA, X, 201) that he abandoned in order to be with Berta.\n\nTheir union can begin the very moment the quality of oscillation is restored and Rudenz realizes that what divides the two does not separate them.\n\nTraditionally,  we  expect  to  find  unity  when  all  differences  and  contradictions have been resolved. Schiller's texts instruct us that what is required for 'a firm basis' might be the realization that, in order to be together, it is necessary to remain separate; in order to become one, it is necessary to remain different. Such a practice of thinking might enable us to conceive of new oscillating unions beyond relativism whether international or interpersonal - 'free [. . .] of the compulsion to infringe the freedom of others in order to assert [our] own' (Letter XXVII). 15\n\n<!-- image -->\n\nAuthor copy provided for research purposes only and may differ in minor ways from published versions, which should be considered as authoritativ Published by Maney Publishing (c) The English Goethe Society",
+    "responses": [
+      {
+        "source": "gpt-4o-2024-11-20",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"ADU1\": {\n      \"text\": \"This paper considers three general dilemmas that tend to undermine successful configurations of unity: the either/or dilemma, the synthesis dilemma and the relativism dilemma.\",\n      \"label\": \"claim\"\n    },\n    \"ADU2\": {\n      \"text\": \"It further argues that, in his aesthetic writings, Schiller's critique of Kantian dualisms leads him to an adualistic conception of unity that operates with a different, more inclusive approach to opposition and unification.\",\n      \"label\": \"claim\"\n    },\n    \"ADU3\": {\n      \"text\": \"Entities that are undeniably different from one another proves problematic because of what I want to call the three dilemmas of unification: the either/or dilemma, the synthesis dilemma and the relativist dilemma.\",\n      \"label\": \"premise\"\n    },\n    \"ADU4\": {\n      \"text\": \"When unity is established via an either/or decision, out of the various alternative models, one model (for example, the German federal model) becomes binding for all participants.\",\n      \"label\": \"premise\"\n    },\n    \"ADU5\": {\n      \"text\": \"A unity based on such an either/or decision is likely to generate discontent, the differences return, and conflict is likely to reappear.\",\n      \"label\": \"premise\"\n    },\n    \"ADU6\": {\n      \"text\": \"When unity is established via a synthesis, the participating groups usually agree on a middle ground.\",\n      \"label\": \"premise\"\n    },\n    \"ADU7\": {\n      \"text\": \"Either this leads to a 'lowest common denominator' which is quickly perceived to be unsatisfactory, or, when the goal is an identity beyond differences, there is no longer an incentive for the groups to be responsive to one another.\",\n      \"label\": \"premise\"\n    },\n    \"ADU8\": {\n      \"text\": \"The relativist dilemma occurs when all participants demand equal validity for themselves and their context, and despite a formal unity, none of the groups requires the other to secure its own identity.\",\n      \"label\": \"premise\"\n    },\n    \"ADU9\": {\n      \"text\": \"Again, the result is an increased alienation that frustrates the desired unification.\",\n      \"label\": \"premise\"\n    },\n    \"ADU10\": {\n      \"text\": \"Schiller avoids the either/or alternative because 'Der bloss niedergeworfene Feind kann wieder auferstehen, aber der versöhnte Feind ist wahrhaft überwunden' (NA, XX, 284; my emphasis).\",\n      \"label\": \"premise\"\n    },\n    \"ADU11\": {\n      \"text\": \"Schiller himself prefers an adualistic logic, where both opposed poles remain separate and yet united.\",\n      \"label\": \"claim\"\n    },\n    \"ADU12\": {\n      \"text\": \"Traditionally, we expect to find unity when all differences and contradictions have been resolved.\",\n      \"label\": \"premise\"\n    },\n    \"ADU13\": {\n      \"text\": \"Schiller's texts instruct us that what is required for 'a firm basis' might be the realization that, in order to be together, it is necessary to remain separate; in order to become one, it is necessary to remain different.\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"ADU1\",\n      \"target\": \"ADU3\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU3\",\n      \"target\": \"ADU4\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU4\",\n      \"target\": \"ADU5\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU3\",\n      \"target\": \"ADU6\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU6\",\n      \"target\": \"ADU7\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU3\",\n      \"target\": \"ADU8\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU8\",\n      \"target\": \"ADU9\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU2\",\n      \"target\": \"ADU11\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU11\",\n      \"target\": \"ADU10\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU12\",\n      \"target\": \"ADU13\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "ADU1": {
+              "text": "This paper considers three general dilemmas that tend to undermine successful configurations of unity: the either/or dilemma, the synthesis dilemma and the relativism dilemma.",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "It further argues that, in his aesthetic writings, Schiller's critique of Kantian dualisms leads him to an adualistic conception of unity that operates with a different, more inclusive approach to opposition and unification.",
+              "label": "claim"
+            },
+            "ADU3": {
+              "text": "Entities that are undeniably different from one another proves problematic because of what I want to call the three dilemmas of unification: the either/or dilemma, the synthesis dilemma and the relativist dilemma.",
+              "label": "premise"
+            },
+            "ADU4": {
+              "text": "When unity is established via an either/or decision, out of the various alternative models, one model (for example, the German federal model) becomes binding for all participants.",
+              "label": "premise"
+            },
+            "ADU5": {
+              "text": "A unity based on such an either/or decision is likely to generate discontent, the differences return, and conflict is likely to reappear.",
+              "label": "premise"
+            },
+            "ADU6": {
+              "text": "When unity is established via a synthesis, the participating groups usually agree on a middle ground.",
+              "label": "premise"
+            },
+            "ADU7": {
+              "text": "Either this leads to a 'lowest common denominator' which is quickly perceived to be unsatisfactory, or, when the goal is an identity beyond differences, there is no longer an incentive for the groups to be responsive to one another.",
+              "label": "premise"
+            },
+            "ADU8": {
+              "text": "The relativist dilemma occurs when all participants demand equal validity for themselves and their context, and despite a formal unity, none of the groups requires the other to secure its own identity.",
+              "label": "premise"
+            },
+            "ADU9": {
+              "text": "Again, the result is an increased alienation that frustrates the desired unification.",
+              "label": "premise"
+            },
+            "ADU10": {
+              "text": "Schiller avoids the either/or alternative because 'Der bloss niedergeworfene Feind kann wieder auferstehen, aber der versöhnte Feind ist wahrhaft überwunden' (NA, XX, 284; my emphasis).",
+              "label": "premise"
+            },
+            "ADU11": {
+              "text": "Schiller himself prefers an adualistic logic, where both opposed poles remain separate and yet united.",
+              "label": "claim"
+            },
+            "ADU12": {
+              "text": "Traditionally, we expect to find unity when all differences and contradictions have been resolved.",
+              "label": "premise"
+            },
+            "ADU13": {
+              "text": "Schiller's texts instruct us that what is required for 'a firm basis' might be the realization that, in order to be together, it is necessary to remain separate; in order to become one, it is necessary to remain different.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU1",
+              "target": "ADU3",
+              "type": "support"
+            },
+            {
+              "source": "ADU3",
+              "target": "ADU4",
+              "type": "support"
+            },
+            {
+              "source": "ADU4",
+              "target": "ADU5",
+              "type": "support"
+            },
+            {
+              "source": "ADU3",
+              "target": "ADU6",
+              "type": "support"
+            },
+            {
+              "source": "ADU6",
+              "target": "ADU7",
+              "type": "support"
+            },
+            {
+              "source": "ADU3",
+              "target": "ADU8",
+              "type": "support"
+            },
+            {
+              "source": "ADU8",
+              "target": "ADU9",
+              "type": "support"
+            },
+            {
+              "source": "ADU2",
+              "target": "ADU11",
+              "type": "support"
+            },
+            {
+              "source": "ADU11",
+              "target": "ADU10",
+              "type": "support"
+            },
+            {
+              "source": "ADU12",
+              "target": "ADU13",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "ADU1": {
+              "text": "This paper considers three general dilemmas that tend to undermine successful configurations of unity: the either/or dilemma, the synthesis dilemma and the relativism dilemma.",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "It further argues that, in his aesthetic writings, Schiller's critique of Kantian dualisms leads him to an adualistic conception of unity that operates with a different, more inclusive approach to opposition and unification.",
+              "label": "claim"
+            },
+            "ADU4": {
+              "text": "When unity is established via an either/or decision, out of the various alternative models, one model (for example, the German federal model) becomes binding for all participants.",
+              "label": "premise"
+            },
+            "ADU5": {
+              "text": "A unity based on such an either/or decision is likely to generate discontent, the differences return, and conflict is likely to reappear.",
+              "label": "premise"
+            },
+            "ADU6": {
+              "text": "When unity is established via a synthesis, the participating groups usually agree on a middle ground.",
+              "label": "premise"
+            },
+            "ADU7": {
+              "text": "Either this leads to a 'lowest common denominator' which is quickly perceived to be unsatisfactory, or, when the goal is an identity beyond differences, there is no longer an incentive for the groups to be responsive to one another.",
+              "label": "premise"
+            },
+            "ADU8": {
+              "text": "The relativist dilemma occurs when all participants demand equal validity for themselves and their context, and despite a formal unity, none of the groups requires the other to secure its own identity.",
+              "label": "premise"
+            },
+            "ADU9": {
+              "text": "Again, the result is an increased alienation that frustrates the desired unification.",
+              "label": "premise"
+            },
+            "ADU10": {
+              "text": "Schiller avoids the either/or alternative because 'Der bloss niedergeworfene Feind kann wieder auferstehen, aber der versöhnte Feind ist wahrhaft überwunden' (NA, XX, 284; my emphasis).",
+              "label": "premise"
+            },
+            "ADU11": {
+              "text": "Schiller himself prefers an adualistic logic, where both opposed poles remain separate and yet united.",
+              "label": "claim"
+            },
+            "ADU12": {
+              "text": "Traditionally, we expect to find unity when all differences and contradictions have been resolved.",
+              "label": "premise"
+            },
+            "ADU13": {
+              "text": "Schiller's texts instruct us that what is required for 'a firm basis' might be the realization that, in order to be together, it is necessary to remain separate; in order to become one, it is necessary to remain different.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU4",
+              "target": "ADU5",
+              "type": "support"
+            },
+            {
+              "source": "ADU6",
+              "target": "ADU7",
+              "type": "support"
+            },
+            {
+              "source": "ADU8",
+              "target": "ADU9",
+              "type": "support"
+            },
+            {
+              "source": "ADU2",
+              "target": "ADU11",
+              "type": "support"
+            },
+            {
+              "source": "ADU11",
+              "target": "ADU10",
+              "type": "support"
+            },
+            {
+              "source": "ADU12",
+              "target": "ADU13",
+              "type": "support"
+            }
+          ]
+        }
+      },
+      {
+        "source": "claude-3-5-sonnet-20241022",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"A1\": {\n      \"text\": \"When unity is established via an either/or decision, out of the various alternative models, one model (for example, the German federal model) becomes binding for all participants. A unity based on such an either/or decision is likely to generate discontent, the differences return, and conflict is likely to reappear.\",\n      \"label\": \"premise\"\n    },\n    \"A2\": {\n      \"text\": \"When unity is established via a synthesis, the participating groups usually agree on a middle ground. Either this leads to a 'lowest common denominator' which is quickly perceived to be unsatisfactory, or, when the goal is an identity beyond differences, there is no longer an incentive for the groups to be responsive to one another.\",\n      \"label\": \"premise\"\n    },\n    \"A3\": {\n      \"text\": \"The relativist dilemma occurs when all participants demand equal validity for themselves and their context, and despite a formal unity, none of the groups requires the other to secure its own identity.\",\n      \"label\": \"premise\"\n    },\n    \"A4\": {\n      \"text\": \"Schiller's oscillating approach strives to ensure both contact and separation.\",\n      \"label\": \"claim\"\n    },\n    \"A5\": {\n      \"text\": \"Der bloss niedergeworfene Feind kann wieder auferstehen, aber der versöhnte Feind ist wahrhaft überwunden\",\n      \"label\": \"premise\"\n    },\n    \"A6\": {\n      \"text\": \"Schiller himself prefers an adualistic logic, where both opposed poles remain separate and yet united.\",\n      \"label\": \"claim\"\n    },\n    \"A7\": {\n      \"text\": \"Contrary to Leitgeb's interpretation, in the aesthetic state nobody is 'in possession of the truth'. Rather, the aesthetic state breaks with our common practice of thinking in our 'natural', either/or logic of alternatives and therefore does not constitute a totalitarian overcoming. It allows the opposed Other to exist, without the false promise of a Hegelian dialectic of reconciliation within the concept.\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"A1\",\n      \"target\": \"A6\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A2\",\n      \"target\": \"A6\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A3\",\n      \"target\": \"A6\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A4\",\n      \"target\": \"A6\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A5\",\n      \"target\": \"A4\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A6\",\n      \"target\": \"A7\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "A1": {
+              "text": "When unity is established via an either/or decision, out of the various alternative models, one model (for example, the German federal model) becomes binding for all participants. A unity based on such an either/or decision is likely to generate discontent, the differences return, and conflict is likely to reappear.",
+              "label": "premise"
+            },
+            "A2": {
+              "text": "When unity is established via a synthesis, the participating groups usually agree on a middle ground. Either this leads to a 'lowest common denominator' which is quickly perceived to be unsatisfactory, or, when the goal is an identity beyond differences, there is no longer an incentive for the groups to be responsive to one another.",
+              "label": "premise"
+            },
+            "A3": {
+              "text": "The relativist dilemma occurs when all participants demand equal validity for themselves and their context, and despite a formal unity, none of the groups requires the other to secure its own identity.",
+              "label": "premise"
+            },
+            "A4": {
+              "text": "Schiller's oscillating approach strives to ensure both contact and separation.",
+              "label": "claim"
+            },
+            "A5": {
+              "text": "Der bloss niedergeworfene Feind kann wieder auferstehen, aber der versöhnte Feind ist wahrhaft überwunden",
+              "label": "premise"
+            },
+            "A6": {
+              "text": "Schiller himself prefers an adualistic logic, where both opposed poles remain separate and yet united.",
+              "label": "claim"
+            },
+            "A7": {
+              "text": "Contrary to Leitgeb's interpretation, in the aesthetic state nobody is 'in possession of the truth'. Rather, the aesthetic state breaks with our common practice of thinking in our 'natural', either/or logic of alternatives and therefore does not constitute a totalitarian overcoming. It allows the opposed Other to exist, without the false promise of a Hegelian dialectic of reconciliation within the concept.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "A1",
+              "target": "A6",
+              "type": "support"
+            },
+            {
+              "source": "A2",
+              "target": "A6",
+              "type": "support"
+            },
+            {
+              "source": "A3",
+              "target": "A6",
+              "type": "support"
+            },
+            {
+              "source": "A4",
+              "target": "A6",
+              "type": "support"
+            },
+            {
+              "source": "A5",
+              "target": "A4",
+              "type": "support"
+            },
+            {
+              "source": "A6",
+              "target": "A7",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "A1": {
+              "text": "When unity is established via an either/or decision, out of the various alternative models, one model (for example, the German federal model) becomes binding for all participants. A unity based on such an either/or decision is likely to generate discontent, the differences return, and conflict is likely to reappear.",
+              "label": "premise"
+            },
+            "A2": {
+              "text": "When unity is established via a synthesis, the participating groups usually agree on a middle ground. Either this leads to a 'lowest common denominator' which is quickly perceived to be unsatisfactory, or, when the goal is an identity beyond differences, there is no longer an incentive for the groups to be responsive to one another.",
+              "label": "premise"
+            },
+            "A3": {
+              "text": "The relativist dilemma occurs when all participants demand equal validity for themselves and their context, and despite a formal unity, none of the groups requires the other to secure its own identity.",
+              "label": "premise"
+            },
+            "A4": {
+              "text": "Schiller's oscillating approach strives to ensure both contact and separation.",
+              "label": "claim"
+            },
+            "A5": {
+              "text": "Der bloss niedergeworfene Feind kann wieder auferstehen, aber der versöhnte Feind ist wahrhaft überwunden",
+              "label": "premise"
+            },
+            "A6": {
+              "text": "Schiller himself prefers an adualistic logic, where both opposed poles remain separate and yet united.",
+              "label": "claim"
+            },
+            "A7": {
+              "text": "Contrary to Leitgeb's interpretation, in the aesthetic state nobody is 'in possession of the truth'. Rather, the aesthetic state breaks with our common practice of thinking in our 'natural', either/or logic of alternatives and therefore does not constitute a totalitarian overcoming. It allows the opposed Other to exist, without the false promise of a Hegelian dialectic of reconciliation within the concept.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "A1",
+              "target": "A6",
+              "type": "support"
+            },
+            {
+              "source": "A2",
+              "target": "A6",
+              "type": "support"
+            },
+            {
+              "source": "A3",
+              "target": "A6",
+              "type": "support"
+            },
+            {
+              "source": "A4",
+              "target": "A6",
+              "type": "support"
+            },
+            {
+              "source": "A5",
+              "target": "A4",
+              "type": "support"
+            },
+            {
+              "source": "A6",
+              "target": "A7",
+              "type": "support"
+            }
+          ]
+        }
+      }
+    ],
+    "timestamp": 1752747794.711517
+  }
+]

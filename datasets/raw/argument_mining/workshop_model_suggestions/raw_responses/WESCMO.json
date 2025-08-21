@@ -1,0 +1,420 @@
+[
+  {
+    "identifier": "WESCMO",
+    "system_prompt": "## GOAL\nArgument‑mine the following paper to extract its comprehensive argumentative structure.\n\n## DEFINITIONS\n1. **Argument**: A set of propositions, including some number of premises and a conclusion. The premises should logically entail the conclusion.\n2. **Claim**: A proposition that asserts something to be true or false, typically requiring justification or evidence.\n3. **Premise**: A proposition that provides evidence, justification, or logical support for a claim or conclusion.\n\n## CRITICAL REQUIREMENTS\n1. **VERBATIM EXTRACTION ONLY**: Each ADU text must be copied EXACTLY from the paper with no modifications, paraphrasing, or combining of separate sentences.\n2. **NO HALLUCINATION**: Do not create, modify, or invent text that does not appear exactly in the source.\n3. **EXACT MATCHING**: Every word, punctuation mark, and spacing must match the original precisely.\n\n## DIRECTIONS\n1. **Identify Argumentative Discourse Units (ADUs)**  \n   - ADU = any contiguous text span functioning as a claim or a premise in the reasoning structure.\n   - **BE HIGHLY SELECTIVE**: Only include ADUs that are crucial to the overarching argument structure.\n   - Focus on significant claims and premises that contribute meaningfully to the argumentative flow.\n   - **AVOID NOISE**: Skip ADUs that are merely descriptive, tangential, or do not substantially advance the argument.\n   - Prioritize quality over quantity - fewer accurate, important ADUs are better than many insignificant ones.\n   - **EXTRACT ONLY**: Copy text spans exactly as they appear, without any modifications.\n2. **Classify each ADU**  \n   - Label = either `\"claim\"` or `\"premise\"`.  \n3. **Detect directed relations**  \n   - Relation = `\"support\"` or `\"attack\"`, from one ADU (source) to another (target).\n   - Map how ADUs connect to form reasoning chains.\n   - Focus on relationships between the most significant ADUs.\n   - Include relationships between premises that strengthen or weaken each other.\n4. **Verbatim spans**  \n   - Each `\"text\"` value must be copied EXACTLY from the paper with zero modifications.\n   - Do not paraphrase, summarize, or combine separate sentences.\n   - Do not add, remove, or change any words, punctuation, or spacing.\n   - If unsure about exact wording, skip that ADU rather than guess.\n\n## WHAT TO CAPTURE\n**INCLUDE ONLY:**\n- Main argumentative threads that are central to the paper's contribution\n- Core claims that represent the paper's primary arguments or findings\n- Key premises that provide essential support for major claims\n- Critical counterarguments and their refutations\n- Reasoning chains that demonstrate how main conclusions are derived\n\n**EXCLUDE (AVOID NOISE):**\n- Minor details, examples, or descriptive content that don't advance the argument\n- Tangential points or side discussions\n- Pure background information or literature review content\n- Methodological details unless they constitute argumentative claims\n- Obvious statements or commonly accepted facts\n- Redundant or repetitive argumentative content\n\n**GUIDING PRINCIPLE**: If removing an ADU would not significantly impact understanding of the paper's argumentative structure, it should be excluded.\n\n## QUALITY CONTROL\n- Before finalizing each ADU, verify the text exists exactly in the source\n- Prefer fewer, accurate ADUs over many potentially modified ones\n- When in doubt about exact wording, omit the ADU\n\n## OUTPUT FORMAT\nReturn **only** a single valid JSON object matching this schema.  \nDo **not** output any extra text, markdown, or explanations.\nDo **not** add comments.\n**RESPOND WITH ONLY**:\n```json\n{\n  \"ADUs\": {\n    \"<ADU_ID>\": {\n      \"text\": \"<exact span from paper>\",\n      \"label\": \"claim\" | \"premise\"\n    }\n    ...\n  },\n  \"relations\": [\n    {\n      \"source\": \"<ADU_ID>\",\n      \"target\": \"<ADU_ID>\",\n      \"type\": \"support\" | \"attack\"\n    }\n  ]\n}\n```",
+    "user_content": "<!-- image -->\n\nRelating Systems Thinking and Design 2022 Symposium University of Brighton;, Brighton, UK, October 13-16, 2022\n\n## Cybernetic Musings on Open Form(s)\n\n## Learning to float\n\n## Claudia Westermann\n\nXi'an Jiaotong-Liverpool University\n\nSecond-order cybernetics conceives of human beings as agents and participants in the making of worlds, embedded in the design process. This conception of designing as a practice of living with and in a world grants it both urgency and hope.\n\nThe paper proposes that design practitioners, in the widest sense, can learn from design cybernetics when conceiving new methodologies for the postAnthropocene era. Further, it proposes that these methodologies' development can take advantage of comparative studies of design cybernetics and design strategies found in traditional Chinese culture. Significantly, Chinese landscape poetry and landscape painting, and, in relation to this, Chinese classical garden design, emphasise elements that are also present in cybernetics discourse: circularity, a floating observer, and the continuity of observer and environment. The paper proposes that these ideas create the necessary conditions for the development of design approaches that re-connect human beings to their environments and permit future agents to initiate change from within. It concludes with an example of a public art installation that implements these ideas.\n\nKEYWORDS: design cybernetics, design ecologies, more-than-human, postAnthropocene, cross-cultural discourse, Chinese Gardens.\n\nRSD TOPIC(S): Methods &amp; Methodology, Socioecological Design, Sociotechnical Systems.\n\n## Learning to Float\n\nThe second-order cybernetics approach to design views designers as embedded in the design process (Glanville, 2007). Yet, as second-order cybernetics generally conceives of human beings as creators of their worlds, what designers experience in the design process can be considered representative of all life situations. Second-order cybernetics refers to an embedded observer, but, as Ranulph Glanville pointed out, this term does not accurately represent that the observer is not merely seeing but also making, embedded in a continuously changing system. To address this discrepancy, Glanville replaced the term observer with the term composer in his later writings (Seaman, 2022). Second-order cybernetics views every human being as an agent participant in the making of worlds. Further, as I have argued elsewhere, second-order cybernetics offers a principle of integration, similar to art, inherent in the idea of conversation. Secondorder conversation is conceived as an aesthetic practice (Westermann, 2021). The term composer captures the aesthetic dimension intrinsic to this process. It honours ideas of Gordon Pask and Herbert Brün (Pask, [1968] 1970; Brün, 1972; Richards, 2010).\n\nExpanding on Pask and Brün, Anetta Pedretti highlighted the importance of understanding that the second-order embedded observer must learn 'to float' (Lombardi, 2021). Floating renounces control as a limiter of potentialities and instead embraces it as an enabler. Consequently, the unknown is introduced as a prerequisite for the agent-environment ecosystem. 'To float' one needs to embrace the unknown. The second-order conception of human beings as makers-of-the-world-they-inhabit entails the continuity of human agents and environments. This is vital for design methodologies that aim at more-than-human-centric design.\n\nSimilar notions are encountered in ancient Chinese approaches to garden design and the related disciplines of landscape painting and poetry. Both design cybernetics and the ancient Chinese landscape-related arts emphasise circularity over linearity. Both\n\nPROCEEDINGS OF RELATING SYSTEMS THINKING AND DESIGN 2022 SYMPOSIUM (RSD11)\n\nrely on a relationship between the observer and the environment that is continuous and essentially emotional.\n\nThe following ancient Chinese expression captures these ideas (Yang, 2014):\n\n!\"#$%&amp;'()*\n\n(Jìqíng sh ā nshu ǐ , y ǔ huà tóng yóu.)\n\nSend love to the landscape and swim with the transformation.\n\nExtending landscape poetry and painting, the Chinese classical gardens were built as a technology for the self-improvement of scholar-officials, the so-called literati. 'Learning to float' was considered essential for this self-improvement. As such, the classical Chinese gardens can be considered a learning technology. Circularity is emphasised in classical Chinese gardens not only as a 'natural' circularity of time. It is a principle of arrangement that affects both time and space. It relates to ideas predating Chinese garden design that are present in the organisation of ancient Chinese encyclopaedias (Hall &amp; Ames, 1998). Furthermore, the idea of a circle in Chinese culture differs from that in European culture. The latter emphasises the outline. In Chinese culture, the circle is centring, and while there is an outline, it does not appear as fixed but as expanding. Consequently, there is less emphasis on 'in or out' because expanding circles turn such a distinction into a temporary one (cp. Hall &amp; Ames, 1998; Berstrand et al., 2022).\n\n## Seats for Seeing\n\nThe public art installation Seats for Seeing (Seats for Seeing, 2019) integrates the aforementioned concepts that are present in both design cybernetics and ancient Chinese approaches to garden design. The work was realised in 2019 in the village of Beikeng, in the remote countryside of Fujian Province, China, by a team of researchers and practitioners from Xi'an Jiaotong-Liverpool University.\n\nPROCEEDINGS OF RELATING SYSTEMS THINKING AND DESIGN 2022 SYMPOSIUM (RSD11)\n\n<!-- image -->\n\nFigure 1: Seats for Seeing, Beikeng village, photographs by Fanyun Chen, December 2019.\n\n<!-- image -->\n\n<!-- image -->\n\nWhen visiting the historical village of Beikeng in Jukou County of Fujian Province in the summer of 2019, we encountered a complex situation marked by contradictions. Historical Chinese villages are the roots of Chinese culture. They are valued for their traditions, crafts and built heritage, yet they have faced significant challenges in an era of fast-paced modernisation.\n\nJukou County is located in the mountainous landscape of Fujian Province. It is a natural paradise, yet it offers few work opportunities outside of farming, which in this mountainous region depends on hard manual labour. As the young relocate to urban centres in search of better opportunities, rural communities face significant issues through depopulation and ageing. Jukou County is composed of thirteen villages with significant heritage from the 16th and 17th centuries. Despite their heritage value, the villages were largely forgotten until a new high-speed train line offered improved connections to larger urban centres. Within this context, the Yanping Art Festival was initiated as an experiment in revitalising the countryside. Held biennially over a two months interval since 2017, it has successfully attracted visitors to the local communities of Jukou County.\n\nBeikeng village, the site of the installation, is one of the smaller villages of Jukou County and one of its most remote. Beikeng's community experienced a significant decline,\n\nwith a reduction of its population from 1000 inhabitants in 1980 to 40-50 inhabitants in 2019.\n\nCreating an installation with the Yanping Art Festival's core aim of revitalising the countryside provided significant challenges. The Seats for Seeing project faced what in design research is referred to as a 'wicked' task, characterised by the impossibility of compartmentalising it into individual elements that can be addressed separately (Rittel, 1972; Fischer &amp; Richards, 2017; Sweeting, 2018; Herr, 2019; Perera, 2020). Art and design address wicked situations that do not require a deterministic description. The ability to address wicked situations - situations, which cannot be tamed - is part of their inherent principle of integration.\n\nFigure 2: Seats for Seeing, Beikeng village, photograph by Claudia Westermann, November 2019.\n\n<!-- image -->\n\nPROCEEDINGS OF RELATING SYSTEMS THINKING AND DESIGN 2022 SYMPOSIUM (RSD11)\n\nThe project Seats for Seeing responds to the challenges facing the village community with a conversational framework that offers opportunities for people of all ages. For some, it is a meeting place; for others, a playground; and for others still, it is an opportunity to contemplate the landscape. It is window and frame. It reflects local forms, crafts and styles into a novel pattern that invites interaction and dialogue. It is a view onto and into the landscape. The project's seats transcend their tangible materiality into instruments on a playground for the composition of landscape sceneries. They can be swirled, spun, bounced, grouped and ungrouped. As such, Seats for Seeing is a conversational technology. It is centring, as it draws the audience into conversation and dialogue. Its ever-evolving pattern embraces and reflects the unknowns of Beikeng, and as such, it is a technology that assists us in 'learning to float.'\n\n## Acknowledgements\n\nSeats for Seeing would not have been possible without my colleague Yiping Dong and her project coordination, which benefited enormously from her earlier work in Jukou County. The project design team consisted of, in alphabetical order, Adam Brillhart, Claudia Westermann, and Thomas Wortmann, with assistance from Fanyun Chen (onsite) and Ominda Nanayakkara (structures). Seats for Seeing was installed in November 2019 in Beikeng village of Jukou County, Yanping District, Nanping City, Fujian Province, China.\n\n## References\n\n1. Berstrand, T., Djalali, A., Dong, Y., Han, J., Hoskyns, T., Roslan, S., Wash Ivanovic, G., &amp; Westermann, C. (2022). A conversation on a paradise on earth in eight frames. East Asian Journal of Philosophy, 1(3), 95-116.\n2. https://doi.org/10.19079/eajp.1.3.95\n2. Brün, H. (1972). For Anticommunication (A. Chandra, Ed.). https://sites.evergreen.edu/arunchandra/wpcontent/uploads/sites/395/2018/05/anticom.pdf\n3. Fischer, T., &amp; Richards, L. D. (2017). From Goal-Oriented to Constraint-Oriented Design: The Cybernetic Intersection of Design Theory and Systems Theory. Leonardo, 50(1), 36-41.\n\nPROCEEDINGS OF RELATING SYSTEMS THINKING AND DESIGN 2022 SYMPOSIUM (RSD11)\n\n4. Glanville, R. (2007). Try again. Fail again. Fail better: the cybernetics in design and the design in cybernetics. Kybernetes - The International Journal of Cybernetics, Systems and Management Sciences, 36(9/10), 1173-1206.\n5. Hall, D. L., &amp; Ames, R. T. (1998). The Cosmological Setting of Chinese Gardens. Studies in the History of Gardens &amp; Designed Landscapes, 18(3), 175-186. https://doi.org/10.1080/14601176.1998.10435545\n6. Herr, C. M. (2019). Constructing Cybernetic Thinking, Design, and Education. In T. Fischer &amp; C. M. Herr (Eds.), Design Cybernetics: Navigating the New (pp. 153170). Springer International Publishing. https://doi.org/10.1007/978-3-030-18557-2\\_8\n7. Lombardi, J. (Ed.). (2021, July 4). Annetta Pedretti, Turning Objects into rhythms. https://www.youtube.com/watch?v=6Q78GHYle0s\n8. Pask, G. ([1968] 1970). A Comment, A Case History, and a Plan. In J. Reichardt (Ed.), Cybernetics, Art and Ideas (pp. 76-99). Studio Vista. http://www.pangaro.com/pask-pdfs.html\n9. Perera, D. (2020). Wicked problems, wicked play: Fun machines as strategy. FormAkademisk, 13(2). https://doi.org/10.7577/formakademisk.3378\n10. Richards, L. D. (2010). The Anticommunication Imperative A Tribute to Herbert Brün. Cybernetics and Human Knowing, 16(1-2), 11-24.\n11. Rittel, H. W. J. (1972). On the Planning Crisis: Systems analysis of the 'first and second generations.' Bedriftskonomen, 8, 390-396.\n12. Seaman, W. (Ed.). (2022). The Architecture of Ideas: The Life and Work of Ranulph Glanville - Cybernetician. Imprint Academic.\n13. Seats for Seeing. (2019). Seats for Seeing [online]. https://seatsforseeing.net\n14. Sweeting, B. (2018). Wicked Problems in Design and Ethics. In P. Jones &amp; K. Kijima (Eds.), Systemic Design: Theory, Methods, and Practice. (pp. 119-143). Springer Japan.\n15. Westermann, C. (2021). On Globes, the Earth, and the Cybernetics of Grace. Technoetic Arts: A Journal of Speculative Research, 19(1/2). https://doi.org/10.1386/tear\\_00049\\_1\n\n16. +,-./01*0234*056789:*0!\"#$&amp;'();&lt;=&gt;?@ABCDE&gt;FGHIJ0K0 LM,NOPQ-.0Q-0R,-STU,VO0W,Q-XQ-.;Y-0XZO0[-XO.M,XQ\\-0\\]0W\\O^0,-S0W,Q-XQ-.0,-S0XZO0 \\_\\\\S0Q-0'MO,XQ-.0'ZQ-OTO0RQXOM,XQ0W,Q-XQ-.*0BCab0K0cMX0Q-0'ZQ-,/0d/0869;86d*",
+    "responses": [
+      {
+        "source": "gpt-4o-2024-11-20",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"ADU1\": {\n      \"text\": \"Second-order cybernetics conceives of human beings as agents and participants in the making of worlds, embedded in the design process.\",\n      \"label\": \"claim\"\n    },\n    \"ADU2\": {\n      \"text\": \"This conception of designing as a practice of living with and in a world grants it both urgency and hope.\",\n      \"label\": \"premise\"\n    },\n    \"ADU3\": {\n      \"text\": \"The paper proposes that design practitioners, in the widest sense, can learn from design cybernetics when conceiving new methodologies for the postAnthropocene era.\",\n      \"label\": \"claim\"\n    },\n    \"ADU4\": {\n      \"text\": \"Further, it proposes that these methodologies' development can take advantage of comparative studies of design cybernetics and design strategies found in traditional Chinese culture.\",\n      \"label\": \"claim\"\n    },\n    \"ADU5\": {\n      \"text\": \"Significantly, Chinese landscape poetry and landscape painting, and, in relation to this, Chinese classical garden design, emphasise elements that are also present in cybernetics discourse: circularity, a floating observer, and the continuity of observer and environment.\",\n      \"label\": \"premise\"\n    },\n    \"ADU6\": {\n      \"text\": \"The paper proposes that these ideas create the necessary conditions for the development of design approaches that re-connect human beings to their environments and permit future agents to initiate change from within.\",\n      \"label\": \"claim\"\n    },\n    \"ADU7\": {\n      \"text\": \"The second-order cybernetics approach to design views designers as embedded in the design process (Glanville, 2007).\",\n      \"label\": \"premise\"\n    },\n    \"ADU8\": {\n      \"text\": \"Second-order cybernetics refers to an embedded observer, but, as Ranulph Glanville pointed out, this term does not accurately represent that the observer is not merely seeing but also making, embedded in a continuously changing system.\",\n      \"label\": \"premise\"\n    },\n    \"ADU9\": {\n      \"text\": \"To address this discrepancy, Glanville replaced the term observer with the term composer in his later writings (Seaman, 2022).\",\n      \"label\": \"premise\"\n    },\n    \"ADU10\": {\n      \"text\": \"Second-order cybernetics views every human being as an agent participant in the making of worlds.\",\n      \"label\": \"claim\"\n    },\n    \"ADU11\": {\n      \"text\": \"Floating renounces control as a limiter of potentialities and instead embraces it as an enabler.\",\n      \"label\": \"claim\"\n    },\n    \"ADU12\": {\n      \"text\": \"Consequently, the unknown is introduced as a prerequisite for the agent-environment ecosystem.\",\n      \"label\": \"premise\"\n    },\n    \"ADU13\": {\n      \"text\": \"The second-order conception of human beings as makers-of-the-world-they-inhabit entails the continuity of human agents and environments.\",\n      \"label\": \"claim\"\n    },\n    \"ADU14\": {\n      \"text\": \"Both design cybernetics and the ancient Chinese landscape-related arts emphasise circularity over linearity.\",\n      \"label\": \"premise\"\n    },\n    \"ADU15\": {\n      \"text\": \"The project Seats for Seeing responds to the challenges facing the village community with a conversational framework that offers opportunities for people of all ages.\",\n      \"label\": \"claim\"\n    },\n    \"ADU16\": {\n      \"text\": \"It reflects local forms, crafts and styles into a novel pattern that invites interaction and dialogue.\",\n      \"label\": \"premise\"\n    },\n    \"ADU17\": {\n      \"text\": \"Its ever-evolving pattern embraces and reflects the unknowns of Beikeng, and as such, it is a technology that assists us in 'learning to float.'\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"ADU1\",\n      \"target\": \"ADU2\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU3\",\n      \"target\": \"ADU4\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU4\",\n      \"target\": \"ADU5\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU5\",\n      \"target\": \"ADU6\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU7\",\n      \"target\": \"ADU8\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU8\",\n      \"target\": \"ADU9\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU10\",\n      \"target\": \"ADU11\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU11\",\n      \"target\": \"ADU12\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU12\",\n      \"target\": \"ADU13\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU14\",\n      \"target\": \"ADU6\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU15\",\n      \"target\": \"ADU16\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU16\",\n      \"target\": \"ADU17\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "ADU1": {
+              "text": "Second-order cybernetics conceives of human beings as agents and participants in the making of worlds, embedded in the design process.",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "This conception of designing as a practice of living with and in a world grants it both urgency and hope.",
+              "label": "premise"
+            },
+            "ADU3": {
+              "text": "The paper proposes that design practitioners, in the widest sense, can learn from design cybernetics when conceiving new methodologies for the postAnthropocene era.",
+              "label": "claim"
+            },
+            "ADU4": {
+              "text": "Further, it proposes that these methodologies' development can take advantage of comparative studies of design cybernetics and design strategies found in traditional Chinese culture.",
+              "label": "claim"
+            },
+            "ADU5": {
+              "text": "Significantly, Chinese landscape poetry and landscape painting, and, in relation to this, Chinese classical garden design, emphasise elements that are also present in cybernetics discourse: circularity, a floating observer, and the continuity of observer and environment.",
+              "label": "premise"
+            },
+            "ADU6": {
+              "text": "The paper proposes that these ideas create the necessary conditions for the development of design approaches that re-connect human beings to their environments and permit future agents to initiate change from within.",
+              "label": "claim"
+            },
+            "ADU7": {
+              "text": "The second-order cybernetics approach to design views designers as embedded in the design process (Glanville, 2007).",
+              "label": "premise"
+            },
+            "ADU8": {
+              "text": "Second-order cybernetics refers to an embedded observer, but, as Ranulph Glanville pointed out, this term does not accurately represent that the observer is not merely seeing but also making, embedded in a continuously changing system.",
+              "label": "premise"
+            },
+            "ADU9": {
+              "text": "To address this discrepancy, Glanville replaced the term observer with the term composer in his later writings (Seaman, 2022).",
+              "label": "premise"
+            },
+            "ADU10": {
+              "text": "Second-order cybernetics views every human being as an agent participant in the making of worlds.",
+              "label": "claim"
+            },
+            "ADU11": {
+              "text": "Floating renounces control as a limiter of potentialities and instead embraces it as an enabler.",
+              "label": "claim"
+            },
+            "ADU12": {
+              "text": "Consequently, the unknown is introduced as a prerequisite for the agent-environment ecosystem.",
+              "label": "premise"
+            },
+            "ADU13": {
+              "text": "The second-order conception of human beings as makers-of-the-world-they-inhabit entails the continuity of human agents and environments.",
+              "label": "claim"
+            },
+            "ADU14": {
+              "text": "Both design cybernetics and the ancient Chinese landscape-related arts emphasise circularity over linearity.",
+              "label": "premise"
+            },
+            "ADU15": {
+              "text": "The project Seats for Seeing responds to the challenges facing the village community with a conversational framework that offers opportunities for people of all ages.",
+              "label": "claim"
+            },
+            "ADU16": {
+              "text": "It reflects local forms, crafts and styles into a novel pattern that invites interaction and dialogue.",
+              "label": "premise"
+            },
+            "ADU17": {
+              "text": "Its ever-evolving pattern embraces and reflects the unknowns of Beikeng, and as such, it is a technology that assists us in 'learning to float.'",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU1",
+              "target": "ADU2",
+              "type": "support"
+            },
+            {
+              "source": "ADU3",
+              "target": "ADU4",
+              "type": "support"
+            },
+            {
+              "source": "ADU4",
+              "target": "ADU5",
+              "type": "support"
+            },
+            {
+              "source": "ADU5",
+              "target": "ADU6",
+              "type": "support"
+            },
+            {
+              "source": "ADU7",
+              "target": "ADU8",
+              "type": "support"
+            },
+            {
+              "source": "ADU8",
+              "target": "ADU9",
+              "type": "support"
+            },
+            {
+              "source": "ADU10",
+              "target": "ADU11",
+              "type": "support"
+            },
+            {
+              "source": "ADU11",
+              "target": "ADU12",
+              "type": "support"
+            },
+            {
+              "source": "ADU12",
+              "target": "ADU13",
+              "type": "support"
+            },
+            {
+              "source": "ADU14",
+              "target": "ADU6",
+              "type": "support"
+            },
+            {
+              "source": "ADU15",
+              "target": "ADU16",
+              "type": "support"
+            },
+            {
+              "source": "ADU16",
+              "target": "ADU17",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "ADU1": {
+              "text": "Second-order cybernetics conceives of human beings as agents and participants in the making of worlds, embedded in the design process.",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "This conception of designing as a practice of living with and in a world grants it both urgency and hope.",
+              "label": "premise"
+            },
+            "ADU3": {
+              "text": "The paper proposes that design practitioners, in the widest sense, can learn from design cybernetics when conceiving new methodologies for the postAnthropocene era.",
+              "label": "claim"
+            },
+            "ADU4": {
+              "text": "Further, it proposes that these methodologies' development can take advantage of comparative studies of design cybernetics and design strategies found in traditional Chinese culture.",
+              "label": "claim"
+            },
+            "ADU5": {
+              "text": "Significantly, Chinese landscape poetry and landscape painting, and, in relation to this, Chinese classical garden design, emphasise elements that are also present in cybernetics discourse: circularity, a floating observer, and the continuity of observer and environment.",
+              "label": "premise"
+            },
+            "ADU6": {
+              "text": "The paper proposes that these ideas create the necessary conditions for the development of design approaches that re-connect human beings to their environments and permit future agents to initiate change from within.",
+              "label": "claim"
+            },
+            "ADU7": {
+              "text": "The second-order cybernetics approach to design views designers as embedded in the design process (Glanville, 2007).",
+              "label": "premise"
+            },
+            "ADU8": {
+              "text": "Second-order cybernetics refers to an embedded observer, but, as Ranulph Glanville pointed out, this term does not accurately represent that the observer is not merely seeing but also making, embedded in a continuously changing system.",
+              "label": "premise"
+            },
+            "ADU9": {
+              "text": "To address this discrepancy, Glanville replaced the term observer with the term composer in his later writings (Seaman, 2022).",
+              "label": "premise"
+            },
+            "ADU10": {
+              "text": "Second-order cybernetics views every human being as an agent participant in the making of worlds.",
+              "label": "claim"
+            },
+            "ADU11": {
+              "text": "Floating renounces control as a limiter of potentialities and instead embraces it as an enabler.",
+              "label": "claim"
+            },
+            "ADU12": {
+              "text": "Consequently, the unknown is introduced as a prerequisite for the agent-environment ecosystem.",
+              "label": "premise"
+            },
+            "ADU13": {
+              "text": "The second-order conception of human beings as makers-of-the-world-they-inhabit entails the continuity of human agents and environments.",
+              "label": "claim"
+            },
+            "ADU14": {
+              "text": "Both design cybernetics and the ancient Chinese landscape-related arts emphasise circularity over linearity.",
+              "label": "premise"
+            },
+            "ADU15": {
+              "text": "The project Seats for Seeing responds to the challenges facing the village community with a conversational framework that offers opportunities for people of all ages.",
+              "label": "claim"
+            },
+            "ADU16": {
+              "text": "It reflects local forms, crafts and styles into a novel pattern that invites interaction and dialogue.",
+              "label": "premise"
+            },
+            "ADU17": {
+              "text": "Its ever-evolving pattern embraces and reflects the unknowns of Beikeng, and as such, it is a technology that assists us in 'learning to float.'",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU1",
+              "target": "ADU2",
+              "type": "support"
+            },
+            {
+              "source": "ADU3",
+              "target": "ADU4",
+              "type": "support"
+            },
+            {
+              "source": "ADU4",
+              "target": "ADU5",
+              "type": "support"
+            },
+            {
+              "source": "ADU5",
+              "target": "ADU6",
+              "type": "support"
+            },
+            {
+              "source": "ADU7",
+              "target": "ADU8",
+              "type": "support"
+            },
+            {
+              "source": "ADU8",
+              "target": "ADU9",
+              "type": "support"
+            },
+            {
+              "source": "ADU10",
+              "target": "ADU11",
+              "type": "support"
+            },
+            {
+              "source": "ADU11",
+              "target": "ADU12",
+              "type": "support"
+            },
+            {
+              "source": "ADU12",
+              "target": "ADU13",
+              "type": "support"
+            },
+            {
+              "source": "ADU14",
+              "target": "ADU6",
+              "type": "support"
+            },
+            {
+              "source": "ADU15",
+              "target": "ADU16",
+              "type": "support"
+            },
+            {
+              "source": "ADU16",
+              "target": "ADU17",
+              "type": "support"
+            }
+          ]
+        }
+      },
+      {
+        "source": "claude-3-5-sonnet-20241022",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"A1\": {\n      \"text\": \"Second-order cybernetics conceives of human beings as agents and participants in the making of worlds, embedded in the design process.\",\n      \"label\": \"claim\"\n    },\n    \"A2\": {\n      \"text\": \"The paper proposes that design practitioners, in the widest sense, can learn from design cybernetics when conceiving new methodologies for the postAnthropocene era.\",\n      \"label\": \"claim\"\n    },\n    \"A3\": {\n      \"text\": \"Chinese landscape poetry and landscape painting, and, in relation to this, Chinese classical garden design, emphasise elements that are also present in cybernetics discourse: circularity, a floating observer, and the continuity of observer and environment.\",\n      \"label\": \"premise\"\n    },\n    \"A4\": {\n      \"text\": \"Second-order cybernetics views every human being as an agent participant in the making of worlds.\",\n      \"label\": \"claim\"\n    },\n    \"A5\": {\n      \"text\": \"Floating renounces control as a limiter of potentialities and instead embraces it as an enabler.\",\n      \"label\": \"claim\"\n    },\n    \"A6\": {\n      \"text\": \"The second-order conception of human beings as makers-of-the-world-they-inhabit entails the continuity of human agents and environments.\",\n      \"label\": \"claim\"\n    },\n    \"A7\": {\n      \"text\": \"Both design cybernetics and the ancient Chinese landscape-related arts emphasise circularity over linearity.\",\n      \"label\": \"claim\"\n    },\n    \"A8\": {\n      \"text\": \"The classical Chinese gardens can be considered a learning technology.\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"A3\",\n      \"target\": \"A2\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A4\",\n      \"target\": \"A1\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A5\",\n      \"target\": \"A6\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A7\",\n      \"target\": \"A2\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A8\",\n      \"target\": \"A2\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "A1": {
+              "text": "Second-order cybernetics conceives of human beings as agents and participants in the making of worlds, embedded in the design process.",
+              "label": "claim"
+            },
+            "A2": {
+              "text": "The paper proposes that design practitioners, in the widest sense, can learn from design cybernetics when conceiving new methodologies for the postAnthropocene era.",
+              "label": "claim"
+            },
+            "A3": {
+              "text": "Chinese landscape poetry and landscape painting, and, in relation to this, Chinese classical garden design, emphasise elements that are also present in cybernetics discourse: circularity, a floating observer, and the continuity of observer and environment.",
+              "label": "premise"
+            },
+            "A4": {
+              "text": "Second-order cybernetics views every human being as an agent participant in the making of worlds.",
+              "label": "claim"
+            },
+            "A5": {
+              "text": "Floating renounces control as a limiter of potentialities and instead embraces it as an enabler.",
+              "label": "claim"
+            },
+            "A6": {
+              "text": "The second-order conception of human beings as makers-of-the-world-they-inhabit entails the continuity of human agents and environments.",
+              "label": "claim"
+            },
+            "A7": {
+              "text": "Both design cybernetics and the ancient Chinese landscape-related arts emphasise circularity over linearity.",
+              "label": "claim"
+            },
+            "A8": {
+              "text": "The classical Chinese gardens can be considered a learning technology.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "A3",
+              "target": "A2",
+              "type": "support"
+            },
+            {
+              "source": "A4",
+              "target": "A1",
+              "type": "support"
+            },
+            {
+              "source": "A5",
+              "target": "A6",
+              "type": "support"
+            },
+            {
+              "source": "A7",
+              "target": "A2",
+              "type": "support"
+            },
+            {
+              "source": "A8",
+              "target": "A2",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "A1": {
+              "text": "Second-order cybernetics conceives of human beings as agents and participants in the making of worlds, embedded in the design process.",
+              "label": "claim"
+            },
+            "A2": {
+              "text": "The paper proposes that design practitioners, in the widest sense, can learn from design cybernetics when conceiving new methodologies for the postAnthropocene era.",
+              "label": "claim"
+            },
+            "A3": {
+              "text": "Chinese landscape poetry and landscape painting, and, in relation to this, Chinese classical garden design, emphasise elements that are also present in cybernetics discourse: circularity, a floating observer, and the continuity of observer and environment.",
+              "label": "premise"
+            },
+            "A4": {
+              "text": "Second-order cybernetics views every human being as an agent participant in the making of worlds.",
+              "label": "claim"
+            },
+            "A5": {
+              "text": "Floating renounces control as a limiter of potentialities and instead embraces it as an enabler.",
+              "label": "claim"
+            },
+            "A6": {
+              "text": "The second-order conception of human beings as makers-of-the-world-they-inhabit entails the continuity of human agents and environments.",
+              "label": "claim"
+            },
+            "A7": {
+              "text": "Both design cybernetics and the ancient Chinese landscape-related arts emphasise circularity over linearity.",
+              "label": "claim"
+            },
+            "A8": {
+              "text": "The classical Chinese gardens can be considered a learning technology.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "A3",
+              "target": "A2",
+              "type": "support"
+            },
+            {
+              "source": "A4",
+              "target": "A1",
+              "type": "support"
+            },
+            {
+              "source": "A5",
+              "target": "A6",
+              "type": "support"
+            },
+            {
+              "source": "A7",
+              "target": "A2",
+              "type": "support"
+            },
+            {
+              "source": "A8",
+              "target": "A2",
+              "type": "support"
+            }
+          ]
+        }
+      }
+    ],
+    "timestamp": 1752754886.523608
+  }
+]

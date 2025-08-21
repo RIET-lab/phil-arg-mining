@@ -1,0 +1,417 @@
+[
+  {
+    "identifier": "ARIAAT-8",
+    "system_prompt": "## GOAL\nArgument‑mine the following paper to extract its comprehensive argumentative structure.\n\n## DEFINITIONS\n1. **Argument**: A set of propositions, including some number of premises and a conclusion. The premises should logically entail the conclusion.\n2. **Claim**: A proposition that asserts something to be true or false, typically requiring justification or evidence.\n3. **Premise**: A proposition that provides evidence, justification, or logical support for a claim or conclusion.\n\n## CRITICAL REQUIREMENTS\n1. **VERBATIM EXTRACTION ONLY**: Each ADU text must be copied EXACTLY from the paper with no modifications, paraphrasing, or combining of separate sentences.\n2. **NO HALLUCINATION**: Do not create, modify, or invent text that does not appear exactly in the source.\n3. **EXACT MATCHING**: Every word, punctuation mark, and spacing must match the original precisely.\n\n## DIRECTIONS\n1. **Identify Argumentative Discourse Units (ADUs)**  \n   - ADU = any contiguous text span functioning as a claim or a premise in the reasoning structure.\n   - **BE HIGHLY SELECTIVE**: Only include ADUs that are crucial to the overarching argument structure.\n   - Focus on significant claims and premises that contribute meaningfully to the argumentative flow.\n   - **AVOID NOISE**: Skip ADUs that are merely descriptive, tangential, or do not substantially advance the argument.\n   - Prioritize quality over quantity - fewer accurate, important ADUs are better than many insignificant ones.\n   - **EXTRACT ONLY**: Copy text spans exactly as they appear, without any modifications.\n2. **Classify each ADU**  \n   - Label = either `\"claim\"` or `\"premise\"`.  \n3. **Detect directed relations**  \n   - Relation = `\"support\"` or `\"attack\"`, from one ADU (source) to another (target).\n   - Map how ADUs connect to form reasoning chains.\n   - Focus on relationships between the most significant ADUs.\n   - Include relationships between premises that strengthen or weaken each other.\n4. **Verbatim spans**  \n   - Each `\"text\"` value must be copied EXACTLY from the paper with zero modifications.\n   - Do not paraphrase, summarize, or combine separate sentences.\n   - Do not add, remove, or change any words, punctuation, or spacing.\n   - If unsure about exact wording, skip that ADU rather than guess.\n\n## WHAT TO CAPTURE\n**INCLUDE ONLY:**\n- Main argumentative threads that are central to the paper's contribution\n- Core claims that represent the paper's primary arguments or findings\n- Key premises that provide essential support for major claims\n- Critical counterarguments and their refutations\n- Reasoning chains that demonstrate how main conclusions are derived\n\n**EXCLUDE (AVOID NOISE):**\n- Minor details, examples, or descriptive content that don't advance the argument\n- Tangential points or side discussions\n- Pure background information or literature review content\n- Methodological details unless they constitute argumentative claims\n- Obvious statements or commonly accepted facts\n- Redundant or repetitive argumentative content\n\n**GUIDING PRINCIPLE**: If removing an ADU would not significantly impact understanding of the paper's argumentative structure, it should be excluded.\n\n## QUALITY CONTROL\n- Before finalizing each ADU, verify the text exists exactly in the source\n- Prefer fewer, accurate ADUs over many potentially modified ones\n- When in doubt about exact wording, omit the ADU\n\n## OUTPUT FORMAT\nReturn **only** a single valid JSON object matching this schema.  \nDo **not** output any extra text, markdown, or explanations.\nDo **not** add comments.\n**RESPOND WITH ONLY**:\n```json\n{\n  \"ADUs\": {\n    \"<ADU_ID>\": {\n      \"text\": \"<exact span from paper>\",\n      \"label\": \"claim\" | \"premise\"\n    }\n    ...\n  },\n  \"relations\": [\n    {\n      \"source\": \"<ADU_ID>\",\n      \"target\": \"<ADU_ID>\",\n      \"type\": \"support\" | \"attack\"\n    }\n  ]\n}\n```",
+    "user_content": "## AI-aesthetics and the artificial author\n\n## Emanuele Arielli 1\n\n## IUAV University Venice\n\nABSTRACT. Consider  this  scenario:  you  discover  that  an  artwork  you  greatly admire, or a captivating novel that deeply moved you, is in fact the product of artificial intelligence, not a human's work. Would your aesthetic judgment shift? Would you perceive the work differently? If so, why? The advent of artificial intelligence (AI) in the realm of art has sparked numerous philosophical questions related to the authorship and artistic intent behind AI-generated works. This paper explores the debate between viewing AI as a tool employed by human artists and perceiving  AI  as  a  new  form  of  artistic  expression  with  minimal  human involvement. While we often seek a human mind behind certain artwork, we may still appreciate and engage with works that lack this element but have aesthetic value nonetheless. The paper also considers the traditional concept of 'implied author', suggesting that readers or artwork viewers might construct an authorial presence from the work itself, regardless of its actual origin. It will be finally suggested  how  AI-generated  art  might  change  our  perceptions  of  human authorship itself.\n\n## 1. Introduction\n\nImagine,  for  a  moment,  that  you're  visiting  an  art  museum.  You've  spent  the  afternoon admiring all the works of art, marveling at the skill and depth of feeling expressed in each piece. Among them, a particular artwork captivates you. Perhaps it's a delicate sculpture that, in its meticulous detail, reveals a story that moves you deeply. Similarly, imagine you've just finished reading a novel that has left you spellbound. The prose is mesmerizing, the characters lifelike, the plot rich and emotionally resonant. You feel a deep connection with the author, sensing her emotional depth and profound understanding of human nature through her words. In both cases, you are in awe, filled  with  admiration  for  the  artists  who  produced  these  masterpieces.  To further illustrate, consider the realm of music. When listening to a symphony, one might be moved by its complexity and the emotional journey it offers.\n\nAnd then, you discover a startling truth: these works were not created by human hands or minds but were instead the product of a generative neural network, an artificial intelligence (AI). How would you feel? The belief that a human composed it, perhaps reflecting his own emotional struggles and triumphs, adds a layer of meaning. But what if you were to discover that those\n\n1 arielli@iuav.it\n\nworks were composed by an AI: would your admiration wane, to be replaced with a sense of disillusionment  or  even  betrayal?  Would  the  sculpture  lose  its  vibrancy,  its  bold  shapes suddenly seeming less bold? Would the characters in the novel feel less real, their joys and sorrows less poignant?\n\nIf your answer to any of these questions is 'yes', then you must ask yourself: Why? Why does knowing  the  creator  was  an  AI,  not  a  human,  change  our  perception  or  evaluation  of  the artwork?  Is  it  the  absence  of  a  conscious  mind,  the  lack  of  personal  history,  emotion,  or intention?  Or  perhaps  it's  the  sense  of  an  invisible  barrier  between  you  and  the  artwork, knowing that there's no human creator with whom to connect, empathize, or engage? These are empirical questions that are beginning to be investigated; but in this paper I will focus on the theoretical aspects of the issue.\n\nThe advent of artificial intelligence in the field of art has raised several philosophical questions related to authoriality and artistic intention of AI-generated works and the aim of this paper is to highlight some possible interpretations and issues about this specific point (for background and further discussions, see Manovich, Arielli, 2021; Arielli, Manovich, 2022). Some argue that AI-systems are simply tools used by human artists - and that are always humans setting in motion those tools -, and that the final product is still a result of human intentionality and creative input. Others claim that AI-generated art represents a new form of artistic expression, in which the AI itself becomes the artist and human involvement is minimal. Others argue that this cannot constitute real art, as the human contribution is limited to merely pushing buttons or writing commands, rendering the works devoid of meaning. But often is it not clear if those works are meaningless because they are aesthetically bad or are meaningless just because they are artificial . We might have artificial works that are more aesthetically appreciated yet are not deemed as valuable compared to their human equivalents. Michael Noll's 1966 paper 'Human or Machine: A Subjective Comparison of Piet Mondrian's 'Composition with Lines' (1917) and a Computer-Generated Picture' describes a seminal study in the field of computer art and aesthetics. In this research, Noll created a computer-generated image that closely resembled the abstract geometric style of Piet Mondrian's paintings. He then conducted an experiment to see if people could distinguish between the genuine Mondrian and the computer-generated artwork. The results  were  intriguing:  participants  were  split  on  their  ability  to  correctly  identify  the human-made  versus  the  machine-made  artwork,  and  some  even  preferred  the  computergenerated image. It is noteworthy to consider this aspect of Noll's study: the individuals who formally appreciated the computer-generated images were not swayed by the knowledge that\n\nthese were not Mondrian's works. It suggests that the aesthetic value attributed to an artwork might  be  seen  as  independent  of  its  human  origin.  Alternatively,  it  might  be  that  the experiment's participants lacked expertise in art and therefore did not view Mondrian, a notable figure in art history, as especially important or authoritative 2 .\n\nThe  point  here  is  how  AI's  emergence  reshapes  the  way  the  public  and  users  perceive authorship. The latest iterations of these systems have bridged the uncanny valley, presenting outputs that bear a closer semblance to human-like intelligence than ever before.  However, while AI systems produce sophisticated outputs, they do not truly understand the content they generate  (yet).  The  perceived  intelligence  of  these  systems  is  a  product  of  the  observer's interpretation. Therefore, the critical question is not about the presence of real authorial intent in AI-generated works, but rather how these technological developments might transform our understanding of authorship from the perspectives of readers, listeners, and viewers.\n\n## 2. An old debate\n\nBefore  considering  if  AI-generated  artworks  challenge  the  idea  of  human  authorship,  it  is important to acknowledge that the idea that maybe there may be no 'real author' is not new, nor is it unique to the realm of artificial generation of content.  The question of authorship has been  a  focal  point  in  philosophical  and  literary  discourse,  particularly  in  the  context  of structuralism  and  its  successor,  post-structuralism,  according  to  which  it  is  not  possible  to attribute a privileged and unique source of meaning to an author of a work of art. Similar to structuralism and post-structuralism, also according to the New Criticism it was important to avoid the 'intentional fallacy', a term coined by W.K. Wimsatt and Monroe Beardsley in 1954. This concept criticizes the practice of assessing a work based on the author's intention instead of its content and the reader's experience. According to New Critics, the author's intention is neither available nor desirable as a standard for judging the success of a work of literary art. Instead, New Criticism promoted an analytical methodology that prized the text's complexity, unity, and the interplay of its constituent elements.\n\n2 'The knowledge that one of the pictures was produced by a computer did not bias the Ss for or against either picture, as mentioned previously. However, the Ss in this experiment had very little or no artistic training and also were quite accustomed to the impact of technology upon many different fields. These Ss therefore probably did not have any prejudices against computers as a new artistic medium. If artists and Ss from a nontechnological environment had been similarly tested, the results might have been different.' (Noll, 1966, p. 9).\n\nRoland Barthes famously declared the 'death of the author' in his 1967 essay. He argued that the author's intentions and biographical context should not dictate the interpretation of a work, since  every  text  is  the  product  of  a  complex  web  of  influences,  a  'tissue  of  citations'  and traditions, the recombination of a whole cultural past and social context. A text is the result of other texts and authors that speak through the pen of the alleged 'autonomous' writer. In the realm of post-structuralism, Michel Foucault contributed to the debate with his essay 'What is an Author?' (1969). Foucault introduced the concept of the 'author-function', which serves as a  mediator  between the  text  and  its  interpretation,  its  social  and  discursive  context,  and  its categorization as a work of art or literature. The author-function is not merely an individual but a complex construct that influences how a work should be interpreted and understood.\n\nThis tradition can also be linked to earlier avant-garde art experiments that explored artistic creation through reducing or even neutralizing the artist's control. Avant-garde movements like Dadaism  and  Surrealism  used  techniques  such  as  chance  and  automatism  to  encourage spontaneous  and  collective  creativity,  thereby  lessening  the  artist's  role.  For  example,  the Surrealists' endeavor to emulate a 'machine-like' state was evident in practices like automatic writing.\n\nThe image of the unique and individual  artist  and  author  has,  over  the  years,  been  largely discredited by these theoretical provocations. We cannot, however, ignore the perspective of everyday  people  who  enjoy  artworks  and  cultural  products.  From  the  point  of  view  of  a phenomenology of  authorship  (that  is,  how  subjects  commonly  perceive  and  reflect  on  the authoriality  of  a  work),  theories  about  the  'death  of  the  author',  though  philosophically compelling, have not actually truly manifested in public attitudes.  Humans  perceive intentionality in everyday life and, as a result, continue to think in terms of authorship when encountering  human-made  cultural  products.  Philosophical  debates,  which  regard  authorial intention as merely a chimera or a projection of cultural dynamics, do not diminish the innate tendency to envision a person behind the work, to inquire 'who did that', and to consider the creator's motives and intentions.\n\nFurthermore, while avant-garde experimentation and automatically generated art emphasized liberation  from  human  decision-making  and  control  by  means  of  stochastic  processes  or mechanic procedures (that nevertheless, one should not forget, still adhered to the creator's initial intent), contemporary AI-generated content introduces a novel form of autonomy with its own control and decision-making capabilities: human authoriality seems replaced by another form of authorship that somewhat mimics the human one.\n\n## 3. Do we need an author in aesthetic appreciation? Two thresholds\n\nOn one side, we can aesthetically engage with any phenomenon that has no 'mind' at all, since they are not the product of human activity, like landscapes, flowers, or other natural structures 3 . On the other side, we assume that our aesthetic experience with human artworks, like  a  painting,  a  song  or  a  novel,  presupposes  instead  our  awareness  of  a  creative intentionality behind the work and inferences about what the maker wanted to convey, his or her inner states and motives.\n\nIn other words, we often assume that 'sensing the mind' behind an artwork, be it a painting, a song, a novel is a crucial ingredient in our aesthetic appreciation of these works. It follows that we would not truly appreciate a work knowing that it is a product of a machine deprived of authorial intentionality, experience, or even consciousness. But a song or a screenplay could be simply emotionally engaging and entertaining in itself and we may not need the illusion of a mind behind the work. Consider the difference between a sophisticated and literarily complex novel might lead us to reflect on the author's motivations and intentions, and a serialized novel written for pure entertainment such as a detective story or a romance novel, usually written following stereotypical schemes and plots. This novel might satisfy us without prompting us to speculate about the author's intentions and feelings (which we can just keep in the background but are not necessary to appreciate the work).\n\nIn  other  words, agency  and  intentionality  attribution  seem  important  in  certain  forms  of cultural production, but not necessarily in others . This is even more true in case of the aesthetic experience of design artifacts: a decorative pattern, a piece of furniture, a phone or a car do not require authorial depth; we do see that they are intentional products, but we do not need to figure out meanings or reasons about the maker´s thoughts. In a moment of reflection, I can admire the skill and creativity of a designer, but the object they created does not establish a dialogue between them and the user as an emotional song or a profound novel might do: no matter  how  the  new  model  of  smartphone  might  be  aesthetically  beautiful,  we  do  not  ask ourselves what the creator intended to tell us with his artifact (even though we might wonder about the functions a designer intended to put in certain features of an artifact, which mostly happens in cases of poor design). Even a catchy song that engages us can lead us to ignore the\n\n3 Even though for some, these cases too might be considered objects of divine authorial creation.\n\nauthor's  intentions  behind  this  tune.  Similarly,  a  movie  can  be  evaluated  positively  for  the simple fact that it is entertaining by itself, without having us think about what the writer or director wanted to say. The generation of AI-art thus becomes an interesting test case. It helps determine in which areas we feel the need for a recognizable subject behind an artifact and in which we can do without one. The pertinent question is where we should draw this line.\n\nSummarizing the issue discussed here, along with some points mentioned at the beginning (namely: is AI merely a tool or a creative agent?), we can now identify at least two conceptual thresholds related to the question of authorship:\n\n1) The first is the threshold of authorial relevance that we have just discussed and concerns the question about when authoriality or the idea of a 'mind' behind the work becomes crucial for aesthetic appreciation.\n\nIt seems that where authorial intention seems irrelevant for our appreciation, we primarily focus on the formal, aesthetic features of the work. In a beautifully designed piece of furniture or a modern architectural structure we linger on the form, the lines, the materials used, and the overall  visual  harmony.  We  appreciate  harmonious  and  low-fi  background  music  for  its pleasant and relaxing qualities.\n\nA  possible  consequence  of  these  considerations  might  be  that  the  threshold  of  authorial relevance could be a demarcating criterion between 'true' art, rich in meaning and relevant to the individual's subjectivity, and purely decorative, entertaining art. AI might thus find its niche in art forms where the 'surface' aspect is paramount and the presence of an author is not crucial for our enjoyment. This includes areas like background music, decorative patterns, industrial design, and formulaic narrative texts, among others.\n\nIn the 1950s experiment with algorithmically generated Mondrians, it was observed that the artificial images were favored over the originals for their formal qualities. This preference can be attributed to an exclusive focus on their abstract, non-figurative style, which lacks direct symbolic  meaning  for  the  naïve  observer.  However,  from  an  historical  and  art  theoretical perspective, this approach overlooks crucial elements. It ignores the link between the image and the artist's original intentions, his personal history, and the socio-historical context of the artwork's creation. Consequently, a purely formalist view of abstract art, one that disregards the author's presence, risks diminishing these works to simple decorative patterns. Take, for instance, the field of abstract expressionism in visual arts, a style typified by artists like Jackson Pollock and Mark Rothko. When we stand in front of a Pollock drip painting, we are primarily\n\ndrawn into a complex web of colors and patterns. But we also seek to understand the emotion, the passion, the turmoil that the artist might have felt while creating this piece. This pursuit of unraveling the artist's intent adds a layer of depth to our aesthetic experience that a formally better AI-generated Pollock would not be able to offer.\n\nIf the first threshold pertains to whether it is relevant for the audience to think in terms of the author's presence, the second threshold concerns the question of 'where' the author is situated, or to which source we attribute authorship. This threshold, therefore, differentiates the source of authorship from what we might call its devices or media, that is, its tools:\n\n2) the threshold of instrumentality concerns the general question of the border between agency and its tools. This second threshold focuses on whether AI is simply a tool used by human artists or if it can be considered an artist in its own right. For centuries, artists have utilized tools as an extension of their creative process - from simple paintbrushes and chisels to more modern tools like cameras and digital software. In these cases, the tool is an extension of the artist's creativity. An example of this is Harold Cohen's AI program, AARON. Cohen programmed AARON to produce original paintings already in the 70s. However, AARON was always seen as a tool, with Cohen being recognized as the artist because of his role in programming and defining the AI's artistic parameters.\n\nIn this issue, the views of practitioners in the field offer valuable insights. Mario Klingemann, a vanguard in the utilization of AI in art, provides a compelling analogy: when one listens to a piano performance, the instrument itself is not considered the artist; it is merely the medium through  which  the  performer's  vision  is  realized.  Similarly,  Klingemann  suggests  that  the complexity of the mechanism, referring to AI, does not shift the locus of artistic authorship. From this perspective, the artist employs advanced tools yet retains ultimate creative authority. This perspective aligns with a view of AI as an extension of the artist's toolkit, a sophisticated means to an end controlled by the human creator. It underscores a continuity in the concept of authorship, situating the human artist at the center, with AI as an instrument to achieve the artist's intent. 4\n\n4 An issue not too distant from this one, which we do not explore here, is the locus of authorship in the relationship between author and performer, for example in music or theater. A performer is not just an 'instrument' of an author and plays a crucial role in our attribution and projection of human feelings and authorial intention: we empathize with the feelings expressed by the singer or by the actor, even though they are just performing a song or piece written by someone else (thinks of the song 'Nothing compares 2 U', written in 1984 by Prince, but famously  performed  and  recorded  by  Sinead  O'Connor  in  1990).  In  certain  cases,  our  perception  merges performance with creation because we see that the performer is not mechanically repeating someone else's work, but in some ways has 'made it their own'.\n\nBut if a piano's keys are pressed by human hands, AI is like a self-playing piano with the capacity to compose new symphonies influenced by every piece it has ever 'heard'. AI systems are  capable  of  creating  artworks  with  minimal  human  intervention.  They  learn  from  vast datasets, generating creative outputs that can be highly unpredictable and original.\n\nConsider the language model GPT developed by OpenAI. It has been trained on a vast dataset from the internet and can generate human-like texts that are nearly indistinguishable from texts written by human authors. Similarly, OpenAI's MuseNet can generate original compositions in various musical styles after having been trained on a dataset of music from various genres and periods. In these cases, does the AI merely serve as a tool, or does it become a creator in its own right? The human programmer's role in directing the AI's creative output is minimal, unlike in the case of Cohen's AARON. Here, the AI is making the 'creative decisions' based on patterns it learned during its training.\n\n## 4. Varieties of AI-authoriality\n\nWhat has been discussed so far brings us back to the central question of this paper: in cases of objects created today with AI, where the artificial system is activated and guided by human decisions,  should  we  attribute  authorship  in  a  different  way  than  we  usually  do?  I  am  not inclined to offer a definitive answer to this question in this context, but rather to map out the range of possible options and describe their characteristics. Based on what has been seen in the previous pages, at least five general responses to the issue could be discerned, without claiming to be exhaustive.\n\n1) The human-centric view sees the human author as the source of all creation and AI as just a sophisticated tool. We normally tend to ascribe an intentionality 'by design' (Dennett 1996) toward any artifact we observe, even though this does not mean we consider the creator or author as someone who has intervened in every aspect of the artifact's construction. There may have been intermediate steps, such as the involvement of other individuals' work or the use of tools. In other words, someone might have designed or conceived an artifact without being involved in every stage of its creation. This is particularly relevant, for instance, in architecture, where the architect is recognized as the author for conceiving and designing a building, even though he did not physically construct the building. Similarly, in contemporary art, artists often conceptually  develop  a  work  that  is  later  physically  executed  by  craftsmen,  sculptors,  or painters. In these instances, authorship transcends physical creation and is rooted in the original\n\nidea or concept; the author is the 'first designer'. This understanding of authorship leads us to consider if in case of AI-assisted creations we could similarly speak of a human 'first designer' who  just sets  in  motion the  machine,  guides  it  and  chooses  according  to  their  ideas.  This perspective includes the notion of a) the 'author as selector', where a person uses an AI system to generate a range of images, sketches, designs, or texts, and then curates and selects from these numerous outputs what they consider closer to their idea. Another notion is the b) 'author as  prompt-engineer', that involves the use of AI systems operated on linguistic 'prompts,' representing a newer form of indirect authorship.\n\nEven the Dadaist artist who experiments with randomness is the 'author' of what they produce because they decide and initiate a process, even if this then follows directions no longer guided by the artist but by contingency and physical processes. Similarly, automatic art still retain human authorship, since automaticity is set in motion by an initial decision of the human artist. From this point of view, for having authorship is just necessary to consider who or what set some process in motion, regardless of how this process is subsequently configured.\n\nConsidering the case of today's text production by LLM (Large Language Models, like GPT), this notion of authorship could be inadequate. In simple cases of mechanical production of text and  communications,  we  attribute  the  source  of  an  utterance  to  a  human  author,  albeit  an unidentifiable one: an automated announcement of a telephone service is something that has been designed to give certain responses by a programmer who developed that service. A digital watch that shows us the time produces a text, but the watch is not the utterer (that is, the 'author' of that text). If there is an 'author' at all, this could only be the designer and builder of the watch. In these cases, the texts are sufficiently predetermined to assert that they were conceived and intended by human creators. However, in systems like GPT, attributing authorship based solely on the initial prompts is no longer straightforward, as the resulting text appears to emerge from processes that suggest the presence of a distinct reasoning entity.\n\n- 2) The exact opposite view considers AI as a full author . In this (probably future) scenario, the presence of an artificial intentionality or mind will be eventually attributed and recognized in AI-works. As AI technologies become more complex and advanced, we might start seeing their outputs as the products of entities with their own agency.\n\nHowever, doubts arise regarding the necessity for AI systems to possess autonomy in the sense of pure initiative. Practically, there's little reason to imagine systems functioning beyond human directives. Yet, the issue of AI autonomy in authorship already exists when human agents use AI systems, allowing them a degree of 'freedom' in generating forms and content. This raises\n\nthe question of where the boundary lies, beyond which original generation not directly inscribed in the programming can be considered a manifestation of authorship that transcends both the programmer's and the artist's intentions.\n\nThe skeptical position argues that it's impossible to attribute authorship to a system; no matter how creative or original, or how disconnected from the initial intentions of programmers and users, because these are not entities to which we attribute initiative, autonomy, or intentionality in the first place: a system could be 'intelligent', but not 'intentional'. Unpredictability or the lack of connection with initial human intents cannot be a criterion for authorship (otherwise, the  use  of  stochastic  methods  in  Dadaism  and  Neo-Dadaism  would  possess  non-human intentionality).  Instead,  it's  the  fact  that  we  recognize  (or  better,  grant)  the  presence  of intentionality that matters first. In other words, it's not from the characteristics of the work (its originality, creativity, etc.) that we derive the presence of authorship. Rather, it's the other way round: it's from the attribution of intentionality and authorship that we perceive that authorship in the work.\n\nTherefore, attributing initiative to the machine makes the problem of AI authoriality a 'side issue' in the broader debate about if or when a machine becomes a 'person'. This issue of General AI transcends aesthetic or authoriality research, as it becomes a secondary effect of a much larger issue of human and social acceptance of autonomous agents with their own will and motivations, integrated into the collective human activity web. Ultimately, the question might hinge on social, psychological, and political mechanisms of intentionality attribution. The  way  societies  and  individuals  ascribe  intentionality  to  AI  systems  could  shape  our understanding of their role as authors, reflecting broader concerns about the integration of AI into human-centric domains.\n\n- 3) An alternative interpretation considers the authorship of AI-generated works as the result of a  blending of sources, texts, and works on which the systems have been trained. ' Remixed Authoriality ' in the realm of AI art means that works are seen as amalgamations of various influences, rather than the product of a single creative mind. This stance aligns with the theories which  proclaim  the  'death  of  the  author'  and  with  the  idea  that  all  cultural  artifacts  are inherently  'post-productive,'  meaning  they  are  reconfigurations  of  pre-existing  materials, challenging the traditional, romanticized view of authorship as an individual's unique creative expression. In this framework, the role of the author is akin to that of a curator or assembler, who brings together diverse cultural elements. This approach is particularly relevant in the context of so-called Remix culture (Lessing 2008), where creation often involves\n\nrecontextualizing,  quoting,  and  repurposing  existing  works.    AI  systems,  in  their  creative endeavours, draw from extensive databases from various domains of human culture. In the context of 'Remixed Authoriality', AI-systems are a channel through which a wide array of human expressions, ideas, and cultural artifacts are processed and reinterpreted. The resulting creations are not just the product of programming by a human creator using those systems but also a reflection of collective human intentionality. From this perspective, the output of these systems can be interpreted as a manifestation of collective authoriality , one that is filtered and transformed by the artificial system.\n\n4) Implied authoriality . One should keep in mind that seeing a specific intentionality in the text does not mean making an assumption about the actual process that produced that text. In this regard, narrative theory distinguished between real and implied authors (Booth 1961). While the  former  is  the  actual  writer  of  the  text,  the  latter  is  the  voice  grounded  in  the  text  and expressed by its content and style. The implied author thus becomes a reader-created construct that is different from who (or what) the actual creator is: when we read a text, we imagine the writer, his thoughts, and his personality emerging from his choice of words, expressions, and sentences. Therefore, though we may know that a text has been artificially generated, we could still engage with the implied author expressed in the text, immersing ourselves in what he or she has to say.  Similarly, in other artistic expressions as well, the crucial factor may be the ability  of  the  artifact  to  'narrate'  intentionality  and  motives,  effectively  allowing  the construction of an authorship that emerges from the work, over and above the original source that produced it (Pierosara 2022). Therefore, we might instead limit ourselves to attributing an 'implied'  author,  assuming  a  stance  in  which  we  relate  to  the  work as  if there  were  an intentionality, well aware that there is none.\n\nIn  the  absence  of  an  author,  the  viewer/listener  might  even  put  himself  in  his  perspective, becoming the author himself and simulating his presence; the implied authoriality becomes an actively imagined authoriality . This is analogous to the game of imagination we enact when we observe random, inanimate forms (lines on a rock face, cracks on a wall, cloud formations) and project meanings onto them. Like in the myth of Pygmalion, the artist who scorned real women but  fell  in  love  with  a  sculptural  idealization  of  them,  we  may  find  a  deep  satisfaction  in engaging with the products of a machine whose soullessness allows us to infuse it with our imagination  or  desires:  we  end  up  inscribing  meanings  into  inanimate  matter,  becoming ourselves the authors through acts of imagination.\n\n5) A final possibility is that AI-generated works compel us to abandon any inferences about authorial intention. In this scenario, we cease to attribute any mind behind the AI artwork, at best  limiting  ourselves  to  a  purely  formal  appreciation,  akin  to  our  response  to  decorative patterns or design products that captivate us primarily for their superficial appearance. If the focus may move away from the idea of authorial intentionality, the primary concern might become if a work resonates with us on a personal level regardless of any hypothesis concerning the  creator's  identity,  whether  human  or  machine.  This  shift  would  represent  a  significant change in how we engage with creative works, shifting the center of our attention on the direct exposure to formal and aesthetic qualities of the work, avoiding questions about its origins. Alternatively,  since  we  do  not  recognize  any  authoriality  in  AI-generated  works,  we  might altogether avoid them, considering them 'soulless' and therefore unworthy of our attention compared to true human works. Consequently, it would be significantly impactful for us to know with certainty whether the music we are listening to or the novel we are reading was produced by a human or a machine, as we might suspend our judgment on authorship and thus any aesthetic engagement only in the case of machine-produced works.\n\n## 5. Conclusion: post-artificial authoriality\n\nThe core of our inquiry is not to define the essence of true authorship nor to construct a theory of an 'artificial author'. Our focus should be on the potential variants of shifts in the public's perception of authorship in the wake of AI's integration into creative domains. The crucial issue, then, is not to determine whether there is 'truly an author' behind the artificial work by scrutinizing their complexity and creativity. Rather, it is important to observe the dynamics of possible  changes  in  our  relationship  with  these  new  forms  of  technological  and  cultural production and to consider how our definitions of authorship and authorial intent might evolve in response. The heart of these shifts lies not in the code or algorithms of these systems, but in how people engage with them, how our understanding of their functions develops, and the roles they  assume  in  our  daily  lives  and  consumption  habits.  Therefore,  our  perception  of  what possesses  authorship  is  deeply  intertwined  with  the  social  and  cultural  acceptance  of  these technological advancements.\n\nThe impact of AI on our perception of authorship is not just a speculative exercise; it is a tangible shift that is already unfolding. And this leads to a more speculative hypothesis: could these forms of artificial production also induce a change in our common way of perceiving and reasoning about any kind of human authorship?\n\nIn a more immediate and practical sense, there arises the pressing issue of the potential future indistinguishability  between  human-made  and  artificially  created  works.  This  challenge  is similar  to  the  current  debates  over  the  implications  of  producing  photo-realistic  artificial imagery, such as deepfakes. Imagine a future where it becomes increasingly challenging to determine whether a painting, a musical composition, or a written text is the product of human intelligence or artificial process. In such a scenario, the significant shift might not be in how we perceive  the  authorship  of  machines,  but  rather  in  our  overall  understanding  of  human authorship. It is conceivable that our expectations and inferences about authorial intentions may weaken and diminish due to the persistent doubt over whether there is any author at all behind what we are observing. As we increasingly encounter works where the distinction between human and artificial creation blurs, our traditional notions of authorship could be challenged. The constant uncertainty about the origin of these works might lead us to approach them with a different mindset, one less concerned with discerning the creator's identity and more focused on the work itself, independent of its authorship, as we previously suggested. This shift could fundamentally alter how we interact with and appreciate artistic and creative works.\n\nThis 'post-artificial' stance, as articulated by Bajohr (2023), foreshadows a profound shift in our approach to understanding and interacting with texts. The pivotal question concerns how we read a text or listen to a song when we can no longer be certain whether it was written by an AI or a human. On one side, as we discussed, this situation could open the door to the humanization of machines, suggesting that we might start to see AI as more than just tools or mechanical aids. On the other side, it also prompts a reevaluation of the human creative process, recognizing the 'mechanical' aspects inherent in our own creativity and intentionality.\n\n## References\n\nArielli, E., &amp; Manovich, L. (2022). AI-aesthetics and the Anthropocentric Myth of Creativity. NODES, 1, 19-20.\n\nBajohr, H. (2023). Artificial and Post-Artificial Texts: On Machine Learning and the Reading Expectations Towards Literary and Non-Literary Writing. Basel Media Culture and Cultural Techniques Working Papers, 2023.007. https://doi.org/10.12685/bmcct.2023.007\n\nBarthes, R. (1967). The Death of the Author. In S. Heath (Trans.), Image, Music, Text (pp. 142-148). Hill and Wang, 1977.\n\nBooth, W.C. (1961). The Rhetoric of Fiction. The University of Chicago Press. (New edition, 1983)\n\nDennett, D.C. (1996). The Intentional Stance. The MIT Press.\n\nFoucault, M. (1969). What is an Author?. Screen, 20(1), 13-34.\n\nLessig, L. (2008). Remix: Making Art and Commerce Thrive in the Hybrid Economy. Penguin.\n\nManovich, L., &amp; Arielli, E. (2021-). Artificial Aesthetics: A Critical Guide to AI, Media and Design. Retrieved from http://manovich.net/index.php/projects/artificial-aesthetics\n\nNoll,  M.A.  (1966).  Human  or  Machine:  A  Subjective  Comparison  of  Piet  Mondrian's 'Composition with Lines' and a Computer-Generated Picture. The Psychological Record, 16(1), 1-10.\n\nPierosara, S. (2022). Narrative autonomy and artificial storytelling. AI &amp;  Society. https://doi.org/10.1007/s00146-022-01595-9\n\nWimsatt, W., &amp; Beardsley, M. C. (1946). The Intentional Fallacy. Sewanee Review, 54, 468488.  Revised  and  republished  in  The  Verbal  Icon:  Studies  in  the  Meaning  of  Poetry. University of Kentucky Press, 1954. pp. 3-18.",
+    "responses": [
+      {
+        "source": "gpt-4o-2024-11-20",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"ADU1\": {\n      \"text\": \"The advent of artificial intelligence (AI) in the realm of art has sparked numerous philosophical questions related to the authorship and artistic intent behind AI-generated works.\",\n      \"label\": \"claim\"\n    },\n    \"ADU2\": {\n      \"text\": \"Some argue that AI-systems are simply tools used by human artists - and that are always humans setting in motion those tools -, and that the final product is still a result of human intentionality and creative input.\",\n      \"label\": \"premise\"\n    },\n    \"ADU3\": {\n      \"text\": \"Others claim that AI-generated art represents a new form of artistic expression, in which the AI itself becomes the artist and human involvement is minimal.\",\n      \"label\": \"premise\"\n    },\n    \"ADU4\": {\n      \"text\": \"Others argue that this cannot constitute real art, as the human contribution is limited to merely pushing buttons or writing commands, rendering the works devoid of meaning.\",\n      \"label\": \"premise\"\n    },\n    \"ADU5\": {\n      \"text\": \"It suggests that the aesthetic value attributed to an artwork might be seen as independent of its human origin.\",\n      \"label\": \"claim\"\n    },\n    \"ADU6\": {\n      \"text\": \"The point here is how AI's emergence reshapes the way the public and users perceive authorship.\",\n      \"label\": \"claim\"\n    },\n    \"ADU7\": {\n      \"text\": \"The critical question is not about the presence of real authorial intent in AI-generated works, but rather how these technological developments might transform our understanding of authorship from the perspectives of readers, listeners, and viewers.\",\n      \"label\": \"claim\"\n    },\n    \"ADU8\": {\n      \"text\": \"The image of the unique and individual artist and author has, over the years, been largely discredited by these theoretical provocations.\",\n      \"label\": \"claim\"\n    },\n    \"ADU9\": {\n      \"text\": \"Humans perceive intentionality in everyday life and, as a result, continue to think in terms of authorship when encountering human-made cultural products.\",\n      \"label\": \"premise\"\n    },\n    \"ADU10\": {\n      \"text\": \"Contemporary AI-generated content introduces a novel form of autonomy with its own control and decision-making capabilities: human authoriality seems replaced by another form of authorship that somewhat mimics the human one.\",\n      \"label\": \"claim\"\n    },\n    \"ADU11\": {\n      \"text\": \"Agency and intentionality attribution seem important in certain forms of cultural production, but not necessarily in others.\",\n      \"label\": \"claim\"\n    },\n    \"ADU12\": {\n      \"text\": \"AI might thus find its niche in art forms where the 'surface' aspect is paramount and the presence of an author is not crucial for our enjoyment.\",\n      \"label\": \"claim\"\n    },\n    \"ADU13\": {\n      \"text\": \"This second threshold focuses on whether AI is simply a tool used by human artists or if it can be considered an artist in its own right.\",\n      \"label\": \"claim\"\n    },\n    \"ADU14\": {\n      \"text\": \"AI systems are capable of creating artworks with minimal human intervention.\",\n      \"label\": \"premise\"\n    },\n    \"ADU15\": {\n      \"text\": \"The human-centric view sees the human author as the source of all creation and AI as just a sophisticated tool.\",\n      \"label\": \"claim\"\n    },\n    \"ADU16\": {\n      \"text\": \"An alternative interpretation considers the authorship of AI-generated works as the result of a blending of sources, texts, and works on which the systems have been trained.\",\n      \"label\": \"claim\"\n    },\n    \"ADU17\": {\n      \"text\": \"The skeptical position argues that it's impossible to attribute authorship to a system; no matter how creative or original, or how disconnected from the initial intentions of programmers and users, because these are not entities to which we attribute initiative, autonomy, or intentionality in the first place.\",\n      \"label\": \"claim\"\n    },\n    \"ADU18\": {\n      \"text\": \"Implied authoriality becomes an actively imagined authoriality.\",\n      \"label\": \"claim\"\n    },\n    \"ADU19\": {\n      \"text\": \"AI-generated works compel us to abandon any inferences about authorial intention.\",\n      \"label\": \"claim\"\n    },\n    \"ADU20\": {\n      \"text\": \"The impact of AI on our perception of authorship is not just a speculative exercise; it is a tangible shift that is already unfolding.\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"ADU1\",\n      \"target\": \"ADU2\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU1\",\n      \"target\": \"ADU3\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU1\",\n      \"target\": \"ADU4\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU5\",\n      \"target\": \"ADU6\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU6\",\n      \"target\": \"ADU7\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU8\",\n      \"target\": \"ADU9\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU10\",\n      \"target\": \"ADU11\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU11\",\n      \"target\": \"ADU12\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU13\",\n      \"target\": \"ADU14\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU15\",\n      \"target\": \"ADU16\",\n      \"type\": \"attack\"\n    },\n    {\n      \"source\": \"ADU17\",\n      \"target\": \"ADU16\",\n      \"type\": \"attack\"\n    },\n    {\n      \"source\": \"ADU18\",\n      \"target\": \"ADU19\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU20\",\n      \"target\": \"ADU19\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "ADU1": {
+              "text": "The advent of artificial intelligence (AI) in the realm of art has sparked numerous philosophical questions related to the authorship and artistic intent behind AI-generated works.",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "Some argue that AI-systems are simply tools used by human artists - and that are always humans setting in motion those tools -, and that the final product is still a result of human intentionality and creative input.",
+              "label": "premise"
+            },
+            "ADU3": {
+              "text": "Others claim that AI-generated art represents a new form of artistic expression, in which the AI itself becomes the artist and human involvement is minimal.",
+              "label": "premise"
+            },
+            "ADU4": {
+              "text": "Others argue that this cannot constitute real art, as the human contribution is limited to merely pushing buttons or writing commands, rendering the works devoid of meaning.",
+              "label": "premise"
+            },
+            "ADU5": {
+              "text": "It suggests that the aesthetic value attributed to an artwork might be seen as independent of its human origin.",
+              "label": "claim"
+            },
+            "ADU6": {
+              "text": "The point here is how AI's emergence reshapes the way the public and users perceive authorship.",
+              "label": "claim"
+            },
+            "ADU7": {
+              "text": "The critical question is not about the presence of real authorial intent in AI-generated works, but rather how these technological developments might transform our understanding of authorship from the perspectives of readers, listeners, and viewers.",
+              "label": "claim"
+            },
+            "ADU8": {
+              "text": "The image of the unique and individual artist and author has, over the years, been largely discredited by these theoretical provocations.",
+              "label": "claim"
+            },
+            "ADU9": {
+              "text": "Humans perceive intentionality in everyday life and, as a result, continue to think in terms of authorship when encountering human-made cultural products.",
+              "label": "premise"
+            },
+            "ADU10": {
+              "text": "Contemporary AI-generated content introduces a novel form of autonomy with its own control and decision-making capabilities: human authoriality seems replaced by another form of authorship that somewhat mimics the human one.",
+              "label": "claim"
+            },
+            "ADU11": {
+              "text": "Agency and intentionality attribution seem important in certain forms of cultural production, but not necessarily in others.",
+              "label": "claim"
+            },
+            "ADU12": {
+              "text": "AI might thus find its niche in art forms where the 'surface' aspect is paramount and the presence of an author is not crucial for our enjoyment.",
+              "label": "claim"
+            },
+            "ADU13": {
+              "text": "This second threshold focuses on whether AI is simply a tool used by human artists or if it can be considered an artist in its own right.",
+              "label": "claim"
+            },
+            "ADU14": {
+              "text": "AI systems are capable of creating artworks with minimal human intervention.",
+              "label": "premise"
+            },
+            "ADU15": {
+              "text": "The human-centric view sees the human author as the source of all creation and AI as just a sophisticated tool.",
+              "label": "claim"
+            },
+            "ADU16": {
+              "text": "An alternative interpretation considers the authorship of AI-generated works as the result of a blending of sources, texts, and works on which the systems have been trained.",
+              "label": "claim"
+            },
+            "ADU17": {
+              "text": "The skeptical position argues that it's impossible to attribute authorship to a system; no matter how creative or original, or how disconnected from the initial intentions of programmers and users, because these are not entities to which we attribute initiative, autonomy, or intentionality in the first place.",
+              "label": "claim"
+            },
+            "ADU18": {
+              "text": "Implied authoriality becomes an actively imagined authoriality.",
+              "label": "claim"
+            },
+            "ADU19": {
+              "text": "AI-generated works compel us to abandon any inferences about authorial intention.",
+              "label": "claim"
+            },
+            "ADU20": {
+              "text": "The impact of AI on our perception of authorship is not just a speculative exercise; it is a tangible shift that is already unfolding.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU1",
+              "target": "ADU2",
+              "type": "support"
+            },
+            {
+              "source": "ADU1",
+              "target": "ADU3",
+              "type": "support"
+            },
+            {
+              "source": "ADU1",
+              "target": "ADU4",
+              "type": "support"
+            },
+            {
+              "source": "ADU5",
+              "target": "ADU6",
+              "type": "support"
+            },
+            {
+              "source": "ADU6",
+              "target": "ADU7",
+              "type": "support"
+            },
+            {
+              "source": "ADU8",
+              "target": "ADU9",
+              "type": "support"
+            },
+            {
+              "source": "ADU10",
+              "target": "ADU11",
+              "type": "support"
+            },
+            {
+              "source": "ADU11",
+              "target": "ADU12",
+              "type": "support"
+            },
+            {
+              "source": "ADU13",
+              "target": "ADU14",
+              "type": "support"
+            },
+            {
+              "source": "ADU15",
+              "target": "ADU16",
+              "type": "attack"
+            },
+            {
+              "source": "ADU17",
+              "target": "ADU16",
+              "type": "attack"
+            },
+            {
+              "source": "ADU18",
+              "target": "ADU19",
+              "type": "support"
+            },
+            {
+              "source": "ADU20",
+              "target": "ADU19",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "ADU1": {
+              "text": "The advent of artificial intelligence (AI) in the realm of art has sparked numerous philosophical questions related to the authorship and artistic intent behind AI-generated works.",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "Some argue that AI-systems are simply tools used by human artists - and that are always humans setting in motion those tools -, and that the final product is still a result of human intentionality and creative input.",
+              "label": "premise"
+            },
+            "ADU3": {
+              "text": "Others claim that AI-generated art represents a new form of artistic expression, in which the AI itself becomes the artist and human involvement is minimal.",
+              "label": "premise"
+            },
+            "ADU4": {
+              "text": "Others argue that this cannot constitute real art, as the human contribution is limited to merely pushing buttons or writing commands, rendering the works devoid of meaning.",
+              "label": "premise"
+            },
+            "ADU5": {
+              "text": "It suggests that the aesthetic value attributed to an artwork might be seen as independent of its human origin.",
+              "label": "claim"
+            },
+            "ADU6": {
+              "text": "The point here is how AI's emergence reshapes the way the public and users perceive authorship.",
+              "label": "claim"
+            },
+            "ADU7": {
+              "text": "The critical question is not about the presence of real authorial intent in AI-generated works, but rather how these technological developments might transform our understanding of authorship from the perspectives of readers, listeners, and viewers.",
+              "label": "claim"
+            },
+            "ADU8": {
+              "text": "The image of the unique and individual artist and author has, over the years, been largely discredited by these theoretical provocations.",
+              "label": "claim"
+            },
+            "ADU9": {
+              "text": "Humans perceive intentionality in everyday life and, as a result, continue to think in terms of authorship when encountering human-made cultural products.",
+              "label": "premise"
+            },
+            "ADU10": {
+              "text": "Contemporary AI-generated content introduces a novel form of autonomy with its own control and decision-making capabilities: human authoriality seems replaced by another form of authorship that somewhat mimics the human one.",
+              "label": "claim"
+            },
+            "ADU11": {
+              "text": "Agency and intentionality attribution seem important in certain forms of cultural production, but not necessarily in others.",
+              "label": "claim"
+            },
+            "ADU12": {
+              "text": "AI might thus find its niche in art forms where the 'surface' aspect is paramount and the presence of an author is not crucial for our enjoyment.",
+              "label": "claim"
+            },
+            "ADU13": {
+              "text": "This second threshold focuses on whether AI is simply a tool used by human artists or if it can be considered an artist in its own right.",
+              "label": "claim"
+            },
+            "ADU14": {
+              "text": "AI systems are capable of creating artworks with minimal human intervention.",
+              "label": "premise"
+            },
+            "ADU15": {
+              "text": "The human-centric view sees the human author as the source of all creation and AI as just a sophisticated tool.",
+              "label": "claim"
+            },
+            "ADU16": {
+              "text": "An alternative interpretation considers the authorship of AI-generated works as the result of a blending of sources, texts, and works on which the systems have been trained.",
+              "label": "claim"
+            },
+            "ADU18": {
+              "text": "Implied authoriality becomes an actively imagined authoriality.",
+              "label": "claim"
+            },
+            "ADU19": {
+              "text": "AI-generated works compel us to abandon any inferences about authorial intention.",
+              "label": "claim"
+            },
+            "ADU20": {
+              "text": "The impact of AI on our perception of authorship is not just a speculative exercise; it is a tangible shift that is already unfolding.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU1",
+              "target": "ADU2",
+              "type": "support"
+            },
+            {
+              "source": "ADU1",
+              "target": "ADU3",
+              "type": "support"
+            },
+            {
+              "source": "ADU1",
+              "target": "ADU4",
+              "type": "support"
+            },
+            {
+              "source": "ADU5",
+              "target": "ADU6",
+              "type": "support"
+            },
+            {
+              "source": "ADU6",
+              "target": "ADU7",
+              "type": "support"
+            },
+            {
+              "source": "ADU8",
+              "target": "ADU9",
+              "type": "support"
+            },
+            {
+              "source": "ADU10",
+              "target": "ADU11",
+              "type": "support"
+            },
+            {
+              "source": "ADU11",
+              "target": "ADU12",
+              "type": "support"
+            },
+            {
+              "source": "ADU13",
+              "target": "ADU14",
+              "type": "support"
+            },
+            {
+              "source": "ADU15",
+              "target": "ADU16",
+              "type": "attack"
+            },
+            {
+              "source": "ADU18",
+              "target": "ADU19",
+              "type": "support"
+            },
+            {
+              "source": "ADU20",
+              "target": "ADU19",
+              "type": "support"
+            }
+          ]
+        }
+      },
+      {
+        "source": "claude-3-5-sonnet-20241022",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"1\": {\n      \"text\": \"Consider this scenario: you discover that an artwork you greatly admire, or a captivating novel that deeply moved you, is in fact the product of artificial intelligence, not a human's work. Would your aesthetic judgment shift? Would you perceive the work differently?\",\n      \"label\": \"claim\"\n    },\n    \"2\": {\n      \"text\": \"Some argue that AI-systems are simply tools used by human artists - and that are always humans setting in motion those tools -, and that the final product is still a result of human intentionality and creative input. Others claim that AI-generated art represents a new form of artistic expression, in which the AI itself becomes the artist and human involvement is minimal.\",\n      \"label\": \"claim\"\n    },\n    \"3\": {\n      \"text\": \"We might have artificial works that are more aesthetically appreciated yet are not deemed as valuable compared to their human equivalents.\",\n      \"label\": \"claim\"\n    },\n    \"4\": {\n      \"text\": \"agency and intentionality attribution seem important in certain forms of cultural production, but not necessarily in others\",\n      \"label\": \"claim\"\n    },\n    \"5\": {\n      \"text\": \"AI might thus find its niche in art forms where the 'surface' aspect is paramount and the presence of an author is not crucial for our enjoyment. This includes areas like background music, decorative patterns, industrial design, and formulaic narrative texts, among others.\",\n      \"label\": \"claim\"\n    },\n    \"6\": {\n      \"text\": \"in systems like GPT, attributing authorship based solely on the initial prompts is no longer straightforward, as the resulting text appears to emerge from processes that suggest the presence of a distinct reasoning entity.\",\n      \"label\": \"claim\"\n    },\n    \"7\": {\n      \"text\": \"it's not from the characteristics of the work (its originality, creativity, etc.) that we derive the presence of authorship. Rather, it's the other way round: it's from the attribution of intentionality and authorship that we perceive that authorship in the work.\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"4\",\n      \"target\": \"5\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"7\",\n      \"target\": \"6\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"3\",\n      \"target\": \"1\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "1": {
+              "text": "Consider this scenario: you discover that an artwork you greatly admire, or a captivating novel that deeply moved you, is in fact the product of artificial intelligence, not a human's work. Would your aesthetic judgment shift? Would you perceive the work differently?",
+              "label": "claim"
+            },
+            "2": {
+              "text": "Some argue that AI-systems are simply tools used by human artists - and that are always humans setting in motion those tools -, and that the final product is still a result of human intentionality and creative input. Others claim that AI-generated art represents a new form of artistic expression, in which the AI itself becomes the artist and human involvement is minimal.",
+              "label": "claim"
+            },
+            "3": {
+              "text": "We might have artificial works that are more aesthetically appreciated yet are not deemed as valuable compared to their human equivalents.",
+              "label": "claim"
+            },
+            "4": {
+              "text": "agency and intentionality attribution seem important in certain forms of cultural production, but not necessarily in others",
+              "label": "claim"
+            },
+            "5": {
+              "text": "AI might thus find its niche in art forms where the 'surface' aspect is paramount and the presence of an author is not crucial for our enjoyment. This includes areas like background music, decorative patterns, industrial design, and formulaic narrative texts, among others.",
+              "label": "claim"
+            },
+            "6": {
+              "text": "in systems like GPT, attributing authorship based solely on the initial prompts is no longer straightforward, as the resulting text appears to emerge from processes that suggest the presence of a distinct reasoning entity.",
+              "label": "claim"
+            },
+            "7": {
+              "text": "it's not from the characteristics of the work (its originality, creativity, etc.) that we derive the presence of authorship. Rather, it's the other way round: it's from the attribution of intentionality and authorship that we perceive that authorship in the work.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "4",
+              "target": "5",
+              "type": "support"
+            },
+            {
+              "source": "7",
+              "target": "6",
+              "type": "support"
+            },
+            {
+              "source": "3",
+              "target": "1",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "1": {
+              "text": "Consider this scenario: you discover that an artwork you greatly admire, or a captivating novel that deeply moved you, is in fact the product of artificial intelligence, not a human's work. Would your aesthetic judgment shift? Would you perceive the work differently?",
+              "label": "claim"
+            },
+            "2": {
+              "text": "Some argue that AI-systems are simply tools used by human artists - and that are always humans setting in motion those tools -, and that the final product is still a result of human intentionality and creative input. Others claim that AI-generated art represents a new form of artistic expression, in which the AI itself becomes the artist and human involvement is minimal.",
+              "label": "claim"
+            },
+            "3": {
+              "text": "We might have artificial works that are more aesthetically appreciated yet are not deemed as valuable compared to their human equivalents.",
+              "label": "claim"
+            },
+            "4": {
+              "text": "agency and intentionality attribution seem important in certain forms of cultural production, but not necessarily in others",
+              "label": "claim"
+            },
+            "5": {
+              "text": "AI might thus find its niche in art forms where the 'surface' aspect is paramount and the presence of an author is not crucial for our enjoyment. This includes areas like background music, decorative patterns, industrial design, and formulaic narrative texts, among others.",
+              "label": "claim"
+            },
+            "6": {
+              "text": "in systems like GPT, attributing authorship based solely on the initial prompts is no longer straightforward, as the resulting text appears to emerge from processes that suggest the presence of a distinct reasoning entity.",
+              "label": "claim"
+            },
+            "7": {
+              "text": "it's not from the characteristics of the work (its originality, creativity, etc.) that we derive the presence of authorship. Rather, it's the other way round: it's from the attribution of intentionality and authorship that we perceive that authorship in the work.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "4",
+              "target": "5",
+              "type": "support"
+            },
+            {
+              "source": "7",
+              "target": "6",
+              "type": "support"
+            },
+            {
+              "source": "3",
+              "target": "1",
+              "type": "support"
+            }
+          ]
+        }
+      }
+    ],
+    "timestamp": 1752755205.3881664
+  }
+]

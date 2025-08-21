@@ -1,0 +1,459 @@
+{
+  "arguments": {},
+  "statements": {
+    "Untitled 1": {
+      "type": "equivalence-class",
+      "title": "Untitled 1",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 2",
+          "fromType": "equivalence-class",
+          "to": "Untitled 1",
+          "toType": "equivalence-class"
+        },
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 3",
+          "fromType": "equivalence-class",
+          "to": "Untitled 1",
+          "toType": "equivalence-class"
+        },
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 4",
+          "fromType": "equivalence-class",
+          "to": "Untitled 1",
+          "toType": "equivalence-class"
+        },
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 5",
+          "fromType": "equivalence-class",
+          "to": "Untitled 1",
+          "toType": "equivalence-class"
+        },
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 6",
+          "fromType": "equivalence-class",
+          "to": "Untitled 1",
+          "toType": "equivalence-class"
+        },
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 7",
+          "fromType": "equivalence-class",
+          "to": "Untitled 1",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "top-level-statement",
+          "isTopLevel": true,
+          "text": "Descartes explicitly states that virtue is sufficient for attaining happiness.",
+          "title": "Untitled 1",
+          "startLine": 3,
+          "startColumn": 1,
+          "endLine": 9,
+          "endColumn": 457,
+          "section": "s1"
+        }
+      ],
+      "section": "s1",
+      "isUsedAsTopLevelStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Untitled 2": {
+      "type": "equivalence-class",
+      "title": "Untitled 2",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 2",
+          "fromType": "equivalence-class",
+          "to": "Untitled 1",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "text": "Within the framework he develops, this is not exactly true: more than virtuous action is needed to secure happiness.",
+          "startLine": 4,
+          "startColumn": 4,
+          "endLine": 4,
+          "endColumn": 120,
+          "title": "Untitled 2",
+          "section": "s1"
+        }
+      ],
+      "section": "s1",
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Untitled 3": {
+      "type": "equivalence-class",
+      "title": "Untitled 3",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 3",
+          "fromType": "equivalence-class",
+          "to": "Untitled 1",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "text": "To be happy, we need to connect virtuous action to a specific intellectual insight into ourselves and the world at large.",
+          "startLine": 5,
+          "startColumn": 4,
+          "endLine": 5,
+          "endColumn": 125,
+          "title": "Untitled 3",
+          "section": "s1"
+        }
+      ],
+      "section": "s1",
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Untitled 4": {
+      "type": "equivalence-class",
+      "title": "Untitled 4",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 4",
+          "fromType": "equivalence-class",
+          "to": "Untitled 1",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "text": "The highest good equals virtuous action, which involves two components, judging well and striving to act according to one's judgment.",
+          "startLine": 6,
+          "startColumn": 4,
+          "endLine": 6,
+          "endColumn": 137,
+          "title": "Untitled 4",
+          "section": "s1"
+        }
+      ],
+      "section": "s1",
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Untitled 5": {
+      "type": "equivalence-class",
+      "title": "Untitled 5",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 5",
+          "fromType": "equivalence-class",
+          "to": "Untitled 1",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "text": "Happiness, in turn, is not the highest good but something that is supposed to follow from it.",
+          "startLine": 7,
+          "startColumn": 4,
+          "endLine": 7,
+          "endColumn": 97,
+          "title": "Untitled 5",
+          "section": "s1"
+        }
+      ],
+      "section": "s1",
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Untitled 6": {
+      "type": "equivalence-class",
+      "title": "Untitled 6",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 6",
+          "fromType": "equivalence-class",
+          "to": "Untitled 1",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "text": "Securing happiness requires that we have a rather multifaceted intellectual insight into virtuous action.",
+          "startLine": 8,
+          "startColumn": 4,
+          "endLine": 8,
+          "endColumn": 109,
+          "title": "Untitled 6",
+          "section": "s1"
+        }
+      ],
+      "section": "s1",
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Untitled 7": {
+      "type": "equivalence-class",
+      "title": "Untitled 7",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 7",
+          "fromType": "equivalence-class",
+          "to": "Untitled 1",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "text": "The Cartesian account of the path from virtue to happiness involves - in addition to acting virtuously - an intellectual insight consisting of three key components: (1) the distinction between what is and what is not up to us, (2) the idea that we are not to blame ourselves for anything we do as long as we have genuinely done our best to judge correctly and act accordingly, and (3) the view that things outside our power are determined by providence.\"",
+          "startLine": 9,
+          "startColumn": 4,
+          "endLine": 9,
+          "endColumn": 457,
+          "title": "Untitled 7",
+          "section": "s1"
+        }
+      ],
+      "section": "s1",
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    }
+  },
+  "relations": [
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "Untitled 2",
+      "fromType": "equivalence-class",
+      "to": "Untitled 1",
+      "toType": "equivalence-class"
+    },
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "Untitled 3",
+      "fromType": "equivalence-class",
+      "to": "Untitled 1",
+      "toType": "equivalence-class"
+    },
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "Untitled 4",
+      "fromType": "equivalence-class",
+      "to": "Untitled 1",
+      "toType": "equivalence-class"
+    },
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "Untitled 5",
+      "fromType": "equivalence-class",
+      "to": "Untitled 1",
+      "toType": "equivalence-class"
+    },
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "Untitled 6",
+      "fromType": "equivalence-class",
+      "to": "Untitled 1",
+      "toType": "equivalence-class"
+    },
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "Untitled 7",
+      "fromType": "equivalence-class",
+      "to": "Untitled 1",
+      "toType": "equivalence-class"
+    }
+  ],
+  "map": {
+    "nodes": [
+      {
+        "id": "s1",
+        "title": "VILWVI",
+        "type": "group-map-node",
+        "color": "#DADADA",
+        "fontColor": "#000000",
+        "level": 1,
+        "labelTitle": "VILWVI",
+        "children": [
+          {
+            "id": "n0",
+            "title": "Untitled 1",
+            "type": "statement-map-node",
+            "labelText": "Descartes explicitly states that virtue is sufficient for attaining happiness.",
+            "color": "#1b9e77",
+            "fontColor": "#000000"
+          },
+          {
+            "id": "n1",
+            "title": "Untitled 2",
+            "type": "statement-map-node",
+            "labelText": "Within the framework he develops, this is not exactly true: more than virtuous action is needed to secure happiness.",
+            "color": "#1b9e77",
+            "fontColor": "#000000"
+          },
+          {
+            "id": "n2",
+            "title": "Untitled 3",
+            "type": "statement-map-node",
+            "labelText": "To be happy, we need to connect virtuous action to a specific intellectual insight into ourselves and the world at large.",
+            "color": "#1b9e77",
+            "fontColor": "#000000"
+          },
+          {
+            "id": "n3",
+            "title": "Untitled 4",
+            "type": "statement-map-node",
+            "labelText": "The highest good equals virtuous action, which involves two components, judging well and striving to act according to one's judgment.",
+            "color": "#1b9e77",
+            "fontColor": "#000000"
+          },
+          {
+            "id": "n4",
+            "title": "Untitled 5",
+            "type": "statement-map-node",
+            "labelText": "Happiness, in turn, is not the highest good but something that is supposed to follow from it.",
+            "color": "#1b9e77",
+            "fontColor": "#000000"
+          },
+          {
+            "id": "n5",
+            "title": "Untitled 6",
+            "type": "statement-map-node",
+            "labelText": "Securing happiness requires that we have a rather multifaceted intellectual insight into virtuous action.",
+            "color": "#1b9e77",
+            "fontColor": "#000000"
+          },
+          {
+            "id": "n6",
+            "title": "Untitled 7",
+            "type": "statement-map-node",
+            "labelText": "The Cartesian account of the path from virtue to happiness involves - in addition to acting virtuously - an intellectual insight consisting of three key components: (1) the distinction between what is and what is not up to us, (2) the idea that we are not to blame ourselves for anything we do as long as we have genuinely done our best to judge correctly and act accordingly, and (3) the view that things outside our power are determined by providence.\"",
+            "color": "#1b9e77",
+            "fontColor": "#000000"
+          }
+        ]
+      }
+    ],
+    "edges": [
+      {
+        "id": "e1",
+        "type": "map-edge",
+        "relationType": "support",
+        "from": "n1",
+        "to": "n0",
+        "fromEquivalenceClass": "Untitled 2",
+        "toEquivalenceClass": "Untitled 1"
+      },
+      {
+        "id": "e2",
+        "type": "map-edge",
+        "relationType": "support",
+        "from": "n2",
+        "to": "n0",
+        "fromEquivalenceClass": "Untitled 3",
+        "toEquivalenceClass": "Untitled 1"
+      },
+      {
+        "id": "e3",
+        "type": "map-edge",
+        "relationType": "support",
+        "from": "n3",
+        "to": "n0",
+        "fromEquivalenceClass": "Untitled 4",
+        "toEquivalenceClass": "Untitled 1"
+      },
+      {
+        "id": "e4",
+        "type": "map-edge",
+        "relationType": "support",
+        "from": "n4",
+        "to": "n0",
+        "fromEquivalenceClass": "Untitled 5",
+        "toEquivalenceClass": "Untitled 1"
+      },
+      {
+        "id": "e5",
+        "type": "map-edge",
+        "relationType": "support",
+        "from": "n5",
+        "to": "n0",
+        "fromEquivalenceClass": "Untitled 6",
+        "toEquivalenceClass": "Untitled 1"
+      },
+      {
+        "id": "e6",
+        "type": "map-edge",
+        "relationType": "support",
+        "from": "n6",
+        "to": "n0",
+        "fromEquivalenceClass": "Untitled 7",
+        "toEquivalenceClass": "Untitled 1"
+      }
+    ]
+  },
+  "sections": [
+    {
+      "type": "section",
+      "id": "s1",
+      "level": 1,
+      "title": "VILWVI",
+      "children": [],
+      "ranges": [],
+      "startLine": 1,
+      "startColumn": 1,
+      "endLine": 9,
+      "endColumn": 457,
+      "isGroup": true,
+      "fontColor": "#000000",
+      "color": "#DADADA"
+    }
+  ],
+  "tags": {}
+}
+

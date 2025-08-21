@@ -1,0 +1,299 @@
+[
+  {
+    "identifier": "STRAJH",
+    "system_prompt": "## GOAL\nArgument‑mine the following paper to extract its comprehensive argumentative structure.\n\n## DEFINITIONS\n1. **Argument**: A set of propositions, including some number of premises and a conclusion. The premises should logically entail the conclusion.\n2. **Claim**: A proposition that asserts something to be true or false, typically requiring justification or evidence.\n3. **Premise**: A proposition that provides evidence, justification, or logical support for a claim or conclusion.\n\n## CRITICAL REQUIREMENTS\n1. **VERBATIM EXTRACTION ONLY**: Each ADU text must be copied EXACTLY from the paper with no modifications, paraphrasing, or combining of separate sentences.\n2. **NO HALLUCINATION**: Do not create, modify, or invent text that does not appear exactly in the source.\n3. **EXACT MATCHING**: Every word, punctuation mark, and spacing must match the original precisely.\n\n## DIRECTIONS\n1. **Identify Argumentative Discourse Units (ADUs)**  \n   - ADU = any contiguous text span functioning as a claim or a premise in the reasoning structure.\n   - **BE HIGHLY SELECTIVE**: Only include ADUs that are crucial to the overarching argument structure.\n   - Focus on significant claims and premises that contribute meaningfully to the argumentative flow.\n   - **AVOID NOISE**: Skip ADUs that are merely descriptive, tangential, or do not substantially advance the argument.\n   - Prioritize quality over quantity - fewer accurate, important ADUs are better than many insignificant ones.\n   - **EXTRACT ONLY**: Copy text spans exactly as they appear, without any modifications.\n2. **Classify each ADU**  \n   - Label = either `\"claim\"` or `\"premise\"`.  \n3. **Detect directed relations**  \n   - Relation = `\"support\"` or `\"attack\"`, from one ADU (source) to another (target).\n   - Map how ADUs connect to form reasoning chains.\n   - Focus on relationships between the most significant ADUs.\n   - Include relationships between premises that strengthen or weaken each other.\n4. **Verbatim spans**  \n   - Each `\"text\"` value must be copied EXACTLY from the paper with zero modifications.\n   - Do not paraphrase, summarize, or combine separate sentences.\n   - Do not add, remove, or change any words, punctuation, or spacing.\n   - If unsure about exact wording, skip that ADU rather than guess.\n\n## WHAT TO CAPTURE\n**INCLUDE ONLY:**\n- Main argumentative threads that are central to the paper's contribution\n- Core claims that represent the paper's primary arguments or findings\n- Key premises that provide essential support for major claims\n- Critical counterarguments and their refutations\n- Reasoning chains that demonstrate how main conclusions are derived\n\n**EXCLUDE (AVOID NOISE):**\n- Minor details, examples, or descriptive content that don't advance the argument\n- Tangential points or side discussions\n- Pure background information or literature review content\n- Methodological details unless they constitute argumentative claims\n- Obvious statements or commonly accepted facts\n- Redundant or repetitive argumentative content\n\n**GUIDING PRINCIPLE**: If removing an ADU would not significantly impact understanding of the paper's argumentative structure, it should be excluded.\n\n## QUALITY CONTROL\n- Before finalizing each ADU, verify the text exists exactly in the source\n- Prefer fewer, accurate ADUs over many potentially modified ones\n- When in doubt about exact wording, omit the ADU\n\n## OUTPUT FORMAT\nReturn **only** a single valid JSON object matching this schema.  \nDo **not** output any extra text, markdown, or explanations.\n\nRESPOND WITH ONLY:\n```json\n{\n  \"ADUs\": {\n    \"<ADU_ID>\": {\n      \"text\": \"<exact span from paper>\",\n      \"label\": \"claim\" | \"premise\"\n    }\n    ...\n  },\n  \"relations\": [\n    {\n      \"source\": \"<ADU_ID>\",\n      \"target\": \"<ADU_ID>\",\n      \"type\": \"support\" | \"attack\"\n    }\n  ]\n}\n```",
+    "user_content": "Pre-print\n\n, edited by Marco Sgarbi. Cham:\n\nPublished version in: Encyclopedia of Renaissance Philosophy Springer, 2022, 125Ð128. DOI: https://doi.org/10.1007/978-3-319-14169-5\\_548.\n\n## Author\n\nAndrea Strazzoni, Ph.D.\n\n## AuthorÕs Affiliation\n\nUniversitˆ degli Studi di Parma, Dipartimento di Antichistica, Lingue, Educazione e Filosofia (A.L.E.F.)\n\nUniversity and Research Library Erfurt/Gotha, Gotha Research Centre\n\n## Title*\n\nAlsted, Johann Heinrich\n\nAlternate names (if there are any)\n\nJohann Heinrich Alstedt\n\n## Dates and places of birth and death*\n\n(Born: mid-March 1588, Ballersbach (Mittenaar) / Died: 9 November 1638, Alba Iulia)\n\n## Abstract*\n\nAlsted was a foremost encyclopedist of the early 17 th century. He provided both a complete presentation of all the subjects of philosophy (of which encyclopedia consisted) and a method to learn them. This method was an original synthesis of the dialectic of Petrus Ramus, the combinatorial art of memory of Raimond Lull and Giordano Bruno, and the method of presentation of philosophical disciplines of BartholomŠus Keckermann. Alsted's encyclopedism was intended as a remedy to the postlapsarian condition of man and was functional to the pedagogical reform pursued at the Academy of Herborn; this was, in turn, an essential part of the Calvinist state reform of the county of Nassau-Dillenburg. In theology, the importance of Alsted consists of having introduced millenarianism in the Reformed Europe, though his early, optimistic views on the imminent end of the world would change to pessimistic as a consequence of the Thirty Years' War.\n\n## Biography\n\nAlsted was born in 1588 in Ballersbach, in the county of Nassau-Dillenburg. After having studied from 1599 at the Herborn Paedagogium, in 1602 he enrolled at the Herborn Academy, which was founded by Johann VI of  Nassau-Dillenburg as part of a general reform of the state on a Calvinist basis, for which Ramus' logic served as pedagogical foundation (Menk 1981; Hotson 2000a, 15-24). In Herborn, Alsted studied under Johannes Piscator (who introduced Ramism in the Academy) and Mathias Martinius, another 'semi-Ramist' (Hotson 2000b, 17, 157; Hotson 2000a, 15). In 1606 he moved to University of Marburg, where he studied under Rudolph Goclenius the Elder and Gregor Sch ö nfeld, by whom he was introduced to mnemotechnics (Hotson 2000a, 56-59), while in 1607 he moved to Basle to study under Amandus Polanus (a Philippo-Ramist). In 1609 he became a teacher at the Herborn Paedagogium, and in 1610, after a call from Martinius to the Academy of Bremen, he could become extraordinary professor of philosophy at the Academy of Herborn, while a call from the University of Frankfurt in 1615 allowed him to become ordinary professor. In 1619 he was delegate of Johann VII of Nassau at the Synod of Dordrecht, and could then assume the third chair of theology, while in 1626, after the death of Piscator, he took the first chair. In these years he published his Systema mnemonicum (1610), Panacea philosophica (1610) and Cursus philosophici encyclopaedia (1620), and was teacher of Jan Amos Comenius (1611-1613). When the prosperity of Herborn was undermined by the events of the Thirty Years' War, in 1629 he accepted the offer of the Prince of Transylvania G‡bor Bethlen of a professorship at the Academy of Alba Julia (Hungarian: GyulafehŽrv‡r, Latin: Apulum). In Transylvania, Alsted had to establish the educational program of the local Calvinist ruling class (Keul 2009, 167-186). He died in Alba Julia in 1638, after having published his Encyclopaedia septem tomis distincta in 1630. (Hotson 2000a, 11-13).\n\n## Heritage and rupture with the tradition\n\nThe main aim of Alsted was to provide a presentation of all learning in philosophy, i.e. an encyclopaedia (Vasoli 2005, 21-29). This aim was theological in nature, since it served as remedy to the postlapsarian condition and to provide men with a complete knowledge (Hotson 2000a, 6673). Moreover, it was functional to the reform of knowledge pursued in Herborn, and would influence Comenius and Samuel Hartlib (Hotson 2011; Č i ž ek 2012). For this aim, Alsted developed first a method of teaching and learning, which consists of memorization itself (Alsted 1609; Alsted 1610a). This method includes both the dialectic of Ramus (as a systematic ordering of notions) and the visual techniques of Bruno and Lull (Hotson 2000a, 39-46; Rossi 2000, 55-60, 97-138; Ong 1965, 163-165). Alsted's encyclopedic project is outlined in the Panacea philosophica , in which the unification of knowledge is made possible, on the one hand, by the discipline of ars magna (appropriated from Lull), which explains the notions common to all sciences and precedes ontology (Savini 2009); on the other hand, knowledge is made possible by canonica , which presents the general praecognita of philosophy and explicates the method of exposition of particular disciplines. This is inspired by Keckermann's logic, and consists of lexica , praecognita , systemata , and gymnasia . Lexica and praecognita define the concepts and the nature of a discipline, systemata explicate its contents, and gymnasia are the exercise of the discipline itself (Hotson 2000a, 31-32). This method underpins the Cursus philosophici encyclopaedia , where Alsted follows a Ramist explanation of the contents of philosophy, providing general definitions and divisions by dichotomies (Hotson 2007, 149-273; Burton 2012, 53). In the Cursus , however, ars magna disappears (Savini 2009), as the whole encyclopaedia is based on archelogia (concerning principles), technologia (on the properties, order and division of disciplines), hexilogia (on mental habits), and canonica (described also in Alsted 1612). Philosophical disciplines are divided, in the Cursus , into theoretical (on necessary things, and including pneumatics, mathematics and cosmology), practical (on contingent things, i.e. the subject of ethics and politics), and poetic (concerning second notions, as rhetoric and mnemonics) (Vasoli 1975; Hotson 2000a, 70-71). This partition of philosophy is kept in his 1630 Encyclopaedia , which presents also a new combinatorial art, based on Lull's and Bruno's mnemotechnics (though deprived of their magical i.e. summoning components (Yates 1966)) and on the knowledge of praecognita , which makes possible the learning of the entire encyclopedia (Hotson 2000a, 163-181).\n\nIn theology, Alsted maintained Trinitarian positions. His arguments in favour of Trinity, such as that reality follows three-fold structures, would be used by Leibniz against the Socinians (Antognazza and Hotson 1999; Hotson 2000b, 66-69). Moreover, along with Joseph Mede he was the founder of Reformed Millenarianism (Hotson 2000b, 1-30): in his Methodus ss. theologiae (1611) and in the Cursus he provides a calculation of the end of the millennium (i.e. the time of the triumph of Christ) and of final judgement for 1694. This position was probably determined by the influence of the Hermetic tradition, envisaging a near regeneration of man. With the dramatic events of the Thirty Years' War, however, Alsted would foresee for this date only the beginning of the millennium (Alsted 1624, Alsted 1627, Hotson 2000b, 20-30, 94-120).\n\n## Cross-References (if there are any; please include a list of other entries in this encyclopedia that may be of further interest to your readers.)\n\nHartlib, Samuel\n\nWars of Religion\n\nRamism\n\nSystem\n\nUniversities\n\nImages in science\n\nOntology\n\nReformation\n\nSocinianism\n\nTheology\n\nPneumatics\n\nTechnology\n\nMetaphysics\n\nEducation - Renaissance Philosophy\n\nGoclenius, Rudolph\n\nKeckermann, Bartholomaeus\n\nMelanchthon, Philipp\n\nWars of Religion\n\nAristotelianism\n\nEncyclopedia and Encyclopedism\n\nCalvinism - Renaissance Philosophy\n\nCombinatorics - Renaissance Philosophy\n\nBruno, Giordano\n\nLullism\n\n## References*\n\n## Primary literature\n\nAlsted, Johann Heinrich. 1609. Clavis artis Lullianae . Strasbourg: sumptibus Lazari Zetzneri.\n\nAlsted, Johann Heinrich. 1610a. Systema mnemonicum duplex I. Minus, succincto praeceptorum ordine quatuor libris adornatum. II. Maius, pleniore praeceptorum methodo, et commentariis scriptis ad praeceptorum illustrationem adornatum libri septem . Frankfurt am Main: in officina Paltheniana.\n\nAlsted, Johann Heinrich. 1610b. Panacea philosophica, id est facilis, nova, et accurate methodus docendi et discendi universam encyclopaediam [É] . Accessit eiusdem criticus, de infinito harmonico philosophiae Aristotelicae, Lullianae et Rameae . Herborn: s.n. [Christoph Corvinus].\n\nAlsted, Johann Heinrich. 1611. Methodus ss. theologiae in sex libros tributa . Offenbach: typis Michaelis Fabritii, impensis Antonii Hummii.\n\nAlsted, Johann Heinrich. 1612. Philosophia digne restituta: libros quatuor praecognitorum philosophicorum complectens . Herborn: typis G. Corvini.\n\nAlsted, Johann Heinrich. 1620. Cursus philosophici encyclopaedia libris XXVII complectens . Herborn: typis Christophori Corvini.\n\nAlsted, Johann Heinrich. 1624. Thesaurus chronologiae . Herborn: s.n. [Christoph Corvinus].\n\nAlsted, Johann Heinrich. 1627. Diatribe de mille annis apocalypticis . Frankfurt am Main: sumptibus Conradi Eifridi.\n\nAlsted, Johann Heinrich. 1630. Encyclopaedia septem tomis distincta . Herborn: s.n. [G. Corvinus and J.-G. Muderspach]. Facs. repr. 1989-1990. Stuttgart-Bad Cannstatt: Fromann-Holzboog.\n\n## Secondary literature\n\nAntognazza, Maria Rosa, and Hotson, Howard. 1999. Alsted and Leibniz on God, the Magistrate and the Millennium . Wiesbaden: Harrassowitz Verlag.\n\nBurton, Simon. 2011. The Hallowing of Logic: The Trinitarian Method of Richard Baxter's Methodus Theologiae . Leiden: Brill.\n\nČ i ž ek, Jan. 2012. Johann Heinrich Alsted: A Mediator between Francesco Patrizi and Jan Amos Comenius? Acta Comeniana 26: 69-87.\n\nClouse, Robert G. 1969. Johann Heinrich Alsted and English Millennialism. The Harvard Theological Review 62/2: 189-207.\n\nHofmann, Franz. 1985. Der enzyklopadische Impuls J. H. Alsteds und sein Gestaltwandel im Werke des J. A. Komensky. In Comenius. Erkennen Ð Glauben Ð Handeln , ed. Hans Schaller, 22-29. Sankt Augustin: Verlag Hans Richarz.\n\nHotson, Howard.  1994. Philosophical pedagogy in reformed central Europe between Ramus and Comenius: a survey of the continental background of the ÒThree ForeignersÓ. In Samuel Hartlib and Universal Reformation: Studies in Intellectual Communication , ed. Mark Greengrass, Michael Leslie, and Timothy Raylor, 29-50. Cambridge: Cambridge University Press.\n\nHotson, Howard. 1999. Leibniz and Millenarianism. In The Young Leibniz and his Philosophy, 1646-1676 , ed. Stuart Brown, 169-198. Dordrecht: Kluwer.\n\nHotson, Howard. 2000a. Johann Heinrich Alsted, 1588-1638: Between Renaissance, Reformation, and Universal Reform . Oxford: Clarendon Press 2000.\n\nHotson, Howard. 2000b. Paradise Postponed: Johann Heinrich Alsted and the Birth of Calvinist Millenarianism . Dordrecht: Kluwer.\n\nHotson, Howard. 2007. Commonplace Learning: Ramism and Its German Ramifications, 15431630 . Oxford: Oxford University Press.\n\nHotson, Howard. 2011. The Ramist Roots of Comenian Pansophia. In Ramus, Pedagogy and the Liberal Arts: Ramism in Britain and the Wider World , ed. Steven J. Reid and Emma A. Watson, 227-250. Farnham: Routledge.\n\nKeul, Istv‡n. 2009. Early Modern Religious Communities in East-Central Europe . Leiden: Brill.\n\nKlein, JŸrgen. 1988. Herborn und England im 17. Jh. Wissenschaftstheorie Ð Calvinistische Theologie Ð Revolution zum Millenium. In J. H. Alsted, Herborns calvinistische Theologie und Wissenschaft im Spiegel der englishcen Kulturreform des frŸhen 17. Jahrhunderts , ed. JŸrgen Klein and Johannes Kramer, 73-146. Frankfurt am Main and New York: Peter Lang.\n\nMenk, Gerhard. 1981. Die Hohe Schule Herborn in ihrer FrŸhzeit (1584-1660). Ein Beitrag zum Hochschulwesen des deutschen Kalvinismus im Zeitalter der Gegenreformation . Wiesbaden: Veršffentlichungen der Historischen Kommission fŸr Nassau.\n\nOng, Walter, J. 2005. Ramus, Method, and the Decay of Dialogue. From the Art of Discourse to the Art of Reason . Cambridge, MA: Harvard University Press, 1958.\n\nRossi, Paolo. 2006. Logic and the Art of Memory . Trans. S. Clucas. London: Continuum. 1 st Italian ed. 1983.\n\nSavini, Massimiliano. 2009. La Panacea Philosophica de Johann Heinrich Alsted: un projet architectonique dÕaccès au savoir. In Branching Off: The Early Moderns in Quest for the Unity of Knowledge , ed. Vlad Alexandrescu, 221-224. Bucharest: Zeta Books, 2009.\n\nSchmidt-Biggemann, Wilhelm. 1988. Apokalyptische Universalwissenschaft: Johann Heinrich Alsteds Diatribe de mille annis apocalypticis. Pietismus und Neuzeit 14: 50-71.\n\nVasoli, Cesare. 1975. Unitˆ e struttura logica delle scienze negli ÇschemiÈ enciclopedici di JohannHeinrich Alsted. In Studi di filosofia in onore di Gustavo Bontadini , vol. II, 413-438. Milano: Vita e pensiero.\n\nVasoli, Cesare. 2005. L'enciclopedismo del Seicento . Naples: Bibliopolis.",
+    "responses": [
+      {
+        "source": "gpt-4o-2024-11-20",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"ADU1\": {\n      \"text\": \"Alsted was a foremost encyclopedist of the early 17th century.\",\n      \"label\": \"claim\"\n    },\n    \"ADU2\": {\n      \"text\": \"He provided both a complete presentation of all the subjects of philosophy (of which encyclopedia consisted) and a method to learn them.\",\n      \"label\": \"claim\"\n    },\n    \"ADU3\": {\n      \"text\": \"This method was an original synthesis of the dialectic of Petrus Ramus, the combinatorial art of memory of Raimond Lull and Giordano Bruno, and the method of presentation of philosophical disciplines of Bartholomäus Keckermann.\",\n      \"label\": \"premise\"\n    },\n    \"ADU4\": {\n      \"text\": \"Alsted's encyclopedism was intended as a remedy to the postlapsarian condition of man and was functional to the pedagogical reform pursued at the Academy of Herborn; this was, in turn, an essential part of the Calvinist state reform of the county of Nassau-Dillenburg.\",\n      \"label\": \"claim\"\n    },\n    \"ADU5\": {\n      \"text\": \"In theology, the importance of Alsted consists of having introduced millenarianism in the Reformed Europe, though his early, optimistic views on the imminent end of the world would change to pessimistic as a consequence of the Thirty Years' War.\",\n      \"label\": \"claim\"\n    },\n    \"ADU6\": {\n      \"text\": \"The main aim of Alsted was to provide a presentation of all learning in philosophy, i.e. an encyclopaedia.\",\n      \"label\": \"claim\"\n    },\n    \"ADU7\": {\n      \"text\": \"This aim was theological in nature, since it served as remedy to the postlapsarian condition and to provide men with a complete knowledge.\",\n      \"label\": \"premise\"\n    },\n    \"ADU8\": {\n      \"text\": \"Moreover, it was functional to the reform of knowledge pursued in Herborn, and would influence Comenius and Samuel Hartlib.\",\n      \"label\": \"premise\"\n    },\n    \"ADU9\": {\n      \"text\": \"For this aim, Alsted developed first a method of teaching and learning, which consists of memorization itself.\",\n      \"label\": \"claim\"\n    },\n    \"ADU10\": {\n      \"text\": \"This method includes both the dialectic of Ramus (as a systematic ordering of notions) and the visual techniques of Bruno and Lull.\",\n      \"label\": \"premise\"\n    },\n    \"ADU11\": {\n      \"text\": \"Alsted's encyclopedic project is outlined in the Panacea philosophica, in which the unification of knowledge is made possible, on the one hand, by the discipline of ars magna (appropriated from Lull), which explains the notions common to all sciences and precedes ontology.\",\n      \"label\": \"claim\"\n    },\n    \"ADU12\": {\n      \"text\": \"On the other hand, knowledge is made possible by canonica, which presents the general praecognita of philosophy and explicates the method of exposition of particular disciplines.\",\n      \"label\": \"premise\"\n    },\n    \"ADU13\": {\n      \"text\": \"This is inspired by Keckermann's logic, and consists of lexica, praecognita, systemata, and gymnasia.\",\n      \"label\": \"premise\"\n    },\n    \"ADU14\": {\n      \"text\": \"In theology, Alsted maintained Trinitarian positions.\",\n      \"label\": \"claim\"\n    },\n    \"ADU15\": {\n      \"text\": \"His arguments in favour of Trinity, such as that reality follows three-fold structures, would be used by Leibniz against the Socinians.\",\n      \"label\": \"premise\"\n    },\n    \"ADU16\": {\n      \"text\": \"Moreover, along with Joseph Mede he was the founder of Reformed Millenarianism.\",\n      \"label\": \"claim\"\n    },\n    \"ADU17\": {\n      \"text\": \"In his Methodus ss. theologiae (1611) and in the Cursus he provides a calculation of the end of the millennium (i.e. the time of the triumph of Christ) and of final judgement for 1694.\",\n      \"label\": \"premise\"\n    },\n    \"ADU18\": {\n      \"text\": \"This position was probably determined by the influence of the Hermetic tradition, envisaging a near regeneration of man.\",\n      \"label\": \"premise\"\n    },\n    \"ADU19\": {\n      \"text\": \"With the dramatic events of the Thirty Years' War, however, Alsted would foresee for this date only the beginning of the millennium.\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"ADU2\",\n      \"target\": \"ADU1\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU3\",\n      \"target\": \"ADU2\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU7\",\n      \"target\": \"ADU6\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU8\",\n      \"target\": \"ADU6\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU10\",\n      \"target\": \"ADU9\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU12\",\n      \"target\": \"ADU11\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU13\",\n      \"target\": \"ADU12\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU15\",\n      \"target\": \"ADU14\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU17\",\n      \"target\": \"ADU16\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU18\",\n      \"target\": \"ADU16\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU19\",\n      \"target\": \"ADU16\",\n      \"type\": \"attack\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "ADU1": {
+              "text": "Alsted was a foremost encyclopedist of the early 17th century.",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "He provided both a complete presentation of all the subjects of philosophy (of which encyclopedia consisted) and a method to learn them.",
+              "label": "claim"
+            },
+            "ADU3": {
+              "text": "This method was an original synthesis of the dialectic of Petrus Ramus, the combinatorial art of memory of Raimond Lull and Giordano Bruno, and the method of presentation of philosophical disciplines of Bartholomäus Keckermann.",
+              "label": "premise"
+            },
+            "ADU4": {
+              "text": "Alsted's encyclopedism was intended as a remedy to the postlapsarian condition of man and was functional to the pedagogical reform pursued at the Academy of Herborn; this was, in turn, an essential part of the Calvinist state reform of the county of Nassau-Dillenburg.",
+              "label": "claim"
+            },
+            "ADU5": {
+              "text": "In theology, the importance of Alsted consists of having introduced millenarianism in the Reformed Europe, though his early, optimistic views on the imminent end of the world would change to pessimistic as a consequence of the Thirty Years' War.",
+              "label": "claim"
+            },
+            "ADU6": {
+              "text": "The main aim of Alsted was to provide a presentation of all learning in philosophy, i.e. an encyclopaedia.",
+              "label": "claim"
+            },
+            "ADU7": {
+              "text": "This aim was theological in nature, since it served as remedy to the postlapsarian condition and to provide men with a complete knowledge.",
+              "label": "premise"
+            },
+            "ADU8": {
+              "text": "Moreover, it was functional to the reform of knowledge pursued in Herborn, and would influence Comenius and Samuel Hartlib.",
+              "label": "premise"
+            },
+            "ADU9": {
+              "text": "For this aim, Alsted developed first a method of teaching and learning, which consists of memorization itself.",
+              "label": "claim"
+            },
+            "ADU10": {
+              "text": "This method includes both the dialectic of Ramus (as a systematic ordering of notions) and the visual techniques of Bruno and Lull.",
+              "label": "premise"
+            },
+            "ADU11": {
+              "text": "Alsted's encyclopedic project is outlined in the Panacea philosophica, in which the unification of knowledge is made possible, on the one hand, by the discipline of ars magna (appropriated from Lull), which explains the notions common to all sciences and precedes ontology.",
+              "label": "claim"
+            },
+            "ADU12": {
+              "text": "On the other hand, knowledge is made possible by canonica, which presents the general praecognita of philosophy and explicates the method of exposition of particular disciplines.",
+              "label": "premise"
+            },
+            "ADU13": {
+              "text": "This is inspired by Keckermann's logic, and consists of lexica, praecognita, systemata, and gymnasia.",
+              "label": "premise"
+            },
+            "ADU14": {
+              "text": "In theology, Alsted maintained Trinitarian positions.",
+              "label": "claim"
+            },
+            "ADU15": {
+              "text": "His arguments in favour of Trinity, such as that reality follows three-fold structures, would be used by Leibniz against the Socinians.",
+              "label": "premise"
+            },
+            "ADU16": {
+              "text": "Moreover, along with Joseph Mede he was the founder of Reformed Millenarianism.",
+              "label": "claim"
+            },
+            "ADU17": {
+              "text": "In his Methodus ss. theologiae (1611) and in the Cursus he provides a calculation of the end of the millennium (i.e. the time of the triumph of Christ) and of final judgement for 1694.",
+              "label": "premise"
+            },
+            "ADU18": {
+              "text": "This position was probably determined by the influence of the Hermetic tradition, envisaging a near regeneration of man.",
+              "label": "premise"
+            },
+            "ADU19": {
+              "text": "With the dramatic events of the Thirty Years' War, however, Alsted would foresee for this date only the beginning of the millennium.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU2",
+              "target": "ADU1",
+              "type": "support"
+            },
+            {
+              "source": "ADU3",
+              "target": "ADU2",
+              "type": "support"
+            },
+            {
+              "source": "ADU7",
+              "target": "ADU6",
+              "type": "support"
+            },
+            {
+              "source": "ADU8",
+              "target": "ADU6",
+              "type": "support"
+            },
+            {
+              "source": "ADU10",
+              "target": "ADU9",
+              "type": "support"
+            },
+            {
+              "source": "ADU12",
+              "target": "ADU11",
+              "type": "support"
+            },
+            {
+              "source": "ADU13",
+              "target": "ADU12",
+              "type": "support"
+            },
+            {
+              "source": "ADU15",
+              "target": "ADU14",
+              "type": "support"
+            },
+            {
+              "source": "ADU17",
+              "target": "ADU16",
+              "type": "support"
+            },
+            {
+              "source": "ADU18",
+              "target": "ADU16",
+              "type": "support"
+            },
+            {
+              "source": "ADU19",
+              "target": "ADU16",
+              "type": "attack"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "ADU2": {
+              "text": "He provided both a complete presentation of all the subjects of philosophy (of which encyclopedia consisted) and a method to learn them.",
+              "label": "claim"
+            },
+            "ADU4": {
+              "text": "Alsted's encyclopedism was intended as a remedy to the postlapsarian condition of man and was functional to the pedagogical reform pursued at the Academy of Herborn; this was, in turn, an essential part of the Calvinist state reform of the county of Nassau-Dillenburg.",
+              "label": "claim"
+            },
+            "ADU5": {
+              "text": "In theology, the importance of Alsted consists of having introduced millenarianism in the Reformed Europe, though his early, optimistic views on the imminent end of the world would change to pessimistic as a consequence of the Thirty Years' War.",
+              "label": "claim"
+            },
+            "ADU14": {
+              "text": "In theology, Alsted maintained Trinitarian positions.",
+              "label": "claim"
+            },
+            "ADU18": {
+              "text": "This position was probably determined by the influence of the Hermetic tradition, envisaging a near regeneration of man.",
+              "label": "premise"
+            }
+          },
+          "relations": []
+        }
+      },
+      {
+        "source": "claude-3-5-sonnet-20241022",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"1\": {\n      \"text\": \"Alsted was a foremost encyclopedist of the early 17th century. He provided both a complete presentation of all the subjects of philosophy (of which encyclopedia consisted) and a method to learn them.\",\n      \"label\": \"claim\"\n    },\n    \"2\": {\n      \"text\": \"This method was an original synthesis of the dialectic of Petrus Ramus, the combinatorial art of memory of Raimond Lull and Giordano Bruno, and the method of presentation of philosophical disciplines of Bartholomäus Keckermann.\",\n      \"label\": \"premise\"\n    },\n    \"3\": {\n      \"text\": \"Alsted's encyclopedism was intended as a remedy to the postlapsarian condition of man and was functional to the pedagogical reform pursued at the Academy of Herborn\",\n      \"label\": \"claim\"\n    },\n    \"4\": {\n      \"text\": \"this was, in turn, an essential part of the Calvinist state reform of the county of Nassau-Dillenburg.\",\n      \"label\": \"premise\"\n    },\n    \"5\": {\n      \"text\": \"The main aim of Alsted was to provide a presentation of all learning in philosophy, i.e. an encyclopaedia\",\n      \"label\": \"claim\"\n    },\n    \"6\": {\n      \"text\": \"This aim was theological in nature, since it served as remedy to the postlapsarian condition and to provide men with a complete knowledge\",\n      \"label\": \"premise\"\n    },\n    \"7\": {\n      \"text\": \"Alsted developed first a method of teaching and learning, which consists of memorization itself\",\n      \"label\": \"claim\"\n    },\n    \"8\": {\n      \"text\": \"This method includes both the dialectic of Ramus (as a systematic ordering of notions) and the visual techniques of Bruno and Lull\",\n      \"label\": \"premise\"\n    },\n    \"9\": {\n      \"text\": \"In theology, Alsted maintained Trinitarian positions. His arguments in favour of Trinity, such as that reality follows three-fold structures, would be used by Leibniz against the Socinians\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"2\",\n      \"target\": \"1\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"4\",\n      \"target\": \"3\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"6\",\n      \"target\": \"5\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"8\",\n      \"target\": \"7\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "1": {
+              "text": "Alsted was a foremost encyclopedist of the early 17th century. He provided both a complete presentation of all the subjects of philosophy (of which encyclopedia consisted) and a method to learn them.",
+              "label": "claim"
+            },
+            "2": {
+              "text": "This method was an original synthesis of the dialectic of Petrus Ramus, the combinatorial art of memory of Raimond Lull and Giordano Bruno, and the method of presentation of philosophical disciplines of Bartholomäus Keckermann.",
+              "label": "premise"
+            },
+            "3": {
+              "text": "Alsted's encyclopedism was intended as a remedy to the postlapsarian condition of man and was functional to the pedagogical reform pursued at the Academy of Herborn",
+              "label": "claim"
+            },
+            "4": {
+              "text": "this was, in turn, an essential part of the Calvinist state reform of the county of Nassau-Dillenburg.",
+              "label": "premise"
+            },
+            "5": {
+              "text": "The main aim of Alsted was to provide a presentation of all learning in philosophy, i.e. an encyclopaedia",
+              "label": "claim"
+            },
+            "6": {
+              "text": "This aim was theological in nature, since it served as remedy to the postlapsarian condition and to provide men with a complete knowledge",
+              "label": "premise"
+            },
+            "7": {
+              "text": "Alsted developed first a method of teaching and learning, which consists of memorization itself",
+              "label": "claim"
+            },
+            "8": {
+              "text": "This method includes both the dialectic of Ramus (as a systematic ordering of notions) and the visual techniques of Bruno and Lull",
+              "label": "premise"
+            },
+            "9": {
+              "text": "In theology, Alsted maintained Trinitarian positions. His arguments in favour of Trinity, such as that reality follows three-fold structures, would be used by Leibniz against the Socinians",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "2",
+              "target": "1",
+              "type": "support"
+            },
+            {
+              "source": "4",
+              "target": "3",
+              "type": "support"
+            },
+            {
+              "source": "6",
+              "target": "5",
+              "type": "support"
+            },
+            {
+              "source": "8",
+              "target": "7",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "3": {
+              "text": "Alsted's encyclopedism was intended as a remedy to the postlapsarian condition of man and was functional to the pedagogical reform pursued at the Academy of Herborn",
+              "label": "claim"
+            },
+            "4": {
+              "text": "this was, in turn, an essential part of the Calvinist state reform of the county of Nassau-Dillenburg.",
+              "label": "premise"
+            },
+            "5": {
+              "text": "The main aim of Alsted was to provide a presentation of all learning in philosophy, i.e. an encyclopaedia",
+              "label": "claim"
+            },
+            "6": {
+              "text": "This aim was theological in nature, since it served as remedy to the postlapsarian condition and to provide men with a complete knowledge",
+              "label": "premise"
+            },
+            "7": {
+              "text": "Alsted developed first a method of teaching and learning, which consists of memorization itself",
+              "label": "claim"
+            },
+            "8": {
+              "text": "This method includes both the dialectic of Ramus (as a systematic ordering of notions) and the visual techniques of Bruno and Lull",
+              "label": "premise"
+            },
+            "9": {
+              "text": "In theology, Alsted maintained Trinitarian positions. His arguments in favour of Trinity, such as that reality follows three-fold structures, would be used by Leibniz against the Socinians",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "4",
+              "target": "3",
+              "type": "support"
+            },
+            {
+              "source": "6",
+              "target": "5",
+              "type": "support"
+            },
+            {
+              "source": "8",
+              "target": "7",
+              "type": "support"
+            }
+          ]
+        }
+      }
+    ],
+    "timestamp": 1752748736.6415987
+  }
+]

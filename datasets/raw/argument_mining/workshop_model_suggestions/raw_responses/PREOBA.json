@@ -1,0 +1,287 @@
+[
+  {
+    "identifier": "PREOBA",
+    "system_prompt": "## GOAL\nArgument‑mine the following paper to extract its comprehensive argumentative structure.\n\n## DEFINITIONS\n1. **Argument**: A set of propositions, including some number of premises and a conclusion. The premises should logically entail the conclusion.\n2. **Claim**: A proposition that asserts something to be true or false, typically requiring justification or evidence.\n3. **Premise**: A proposition that provides evidence, justification, or logical support for a claim or conclusion.\n\n## CRITICAL REQUIREMENTS\n1. **VERBATIM EXTRACTION ONLY**: Each ADU text must be copied EXACTLY from the paper with no modifications, paraphrasing, or combining of separate sentences.\n2. **NO HALLUCINATION**: Do not create, modify, or invent text that does not appear exactly in the source.\n3. **EXACT MATCHING**: Every word, punctuation mark, and spacing must match the original precisely.\n\n## DIRECTIONS\n1. **Identify Argumentative Discourse Units (ADUs)**  \n   - ADU = any contiguous text span functioning as a claim or a premise in the reasoning structure.\n   - **BE HIGHLY SELECTIVE**: Only include ADUs that are crucial to the overarching argument structure.\n   - Focus on significant claims and premises that contribute meaningfully to the argumentative flow.\n   - **AVOID NOISE**: Skip ADUs that are merely descriptive, tangential, or do not substantially advance the argument.\n   - Prioritize quality over quantity - fewer accurate, important ADUs are better than many insignificant ones.\n   - **EXTRACT ONLY**: Copy text spans exactly as they appear, without any modifications.\n2. **Classify each ADU**  \n   - Label = either `\"claim\"` or `\"premise\"`.  \n3. **Detect directed relations**  \n   - Relation = `\"support\"` or `\"attack\"`, from one ADU (source) to another (target).\n   - Map how ADUs connect to form reasoning chains.\n   - Focus on relationships between the most significant ADUs.\n   - Include relationships between premises that strengthen or weaken each other.\n4. **Verbatim spans**  \n   - Each `\"text\"` value must be copied EXACTLY from the paper with zero modifications.\n   - Do not paraphrase, summarize, or combine separate sentences.\n   - Do not add, remove, or change any words, punctuation, or spacing.\n   - If unsure about exact wording, skip that ADU rather than guess.\n\n## WHAT TO CAPTURE\n**INCLUDE ONLY:**\n- Main argumentative threads that are central to the paper's contribution\n- Core claims that represent the paper's primary arguments or findings\n- Key premises that provide essential support for major claims\n- Critical counterarguments and their refutations\n- Reasoning chains that demonstrate how main conclusions are derived\n\n**EXCLUDE (AVOID NOISE):**\n- Minor details, examples, or descriptive content that don't advance the argument\n- Tangential points or side discussions\n- Pure background information or literature review content\n- Methodological details unless they constitute argumentative claims\n- Obvious statements or commonly accepted facts\n- Redundant or repetitive argumentative content\n\n**GUIDING PRINCIPLE**: If removing an ADU would not significantly impact understanding of the paper's argumentative structure, it should be excluded.\n\n## QUALITY CONTROL\n- Before finalizing each ADU, verify the text exists exactly in the source\n- Prefer fewer, accurate ADUs over many potentially modified ones\n- When in doubt about exact wording, omit the ADU\n\n## OUTPUT FORMAT\nReturn **only** a single valid JSON object matching this schema.  \nDo **not** output any extra text, markdown, or explanations.\nDo **not** add comments.\n**RESPOND WITH ONLY**:\n```json\n{\n  \"ADUs\": {\n    \"<ADU_ID>\": {\n      \"text\": \"<exact span from paper>\",\n      \"label\": \"claim\" | \"premise\"\n    }\n    ...\n  },\n  \"relations\": [\n    {\n      \"source\": \"<ADU_ID>\",\n      \"target\": \"<ADU_ID>\",\n      \"type\": \"support\" | \"attack\"\n    }\n  ]\n}\n```",
+    "user_content": "## OPACITY, BELIEF AND ANALYTICITY*\n\n(Received 30 August, 1991)\n\nFrege's   strategy in   accounting for the behavior of   expressions in indirect discourse is well known. maintains the principle that the truth-value of a sentence must remain   unchanged when one of the expressions in the sentence is replaced with another with which it is coreferential.  Yet expressions in certain now familiar contexts appear to flout this principle. When; for instance; an expression in the scope of a verb of propositional attitude such as 'believe' is replaced with another whose reference   is identical, the   truth-value of  the sentence seems and 'Clark Kent' corefer, replacement of 'Clark Kent' for 'Superman' in Frege\n\n## Lois Lane believes that Superman is a hero\n\napparently results in a change of truth-value of that sentence.\n\nA number of criticisms have been leveled at Frege's account, but one in particular raises an issue that serves as the of departure for this paper, point\n\nFrege's solution was to conclude that   expressions   occurring   in opaque contexts do not have their ordinary reference rather, it is the ordinary sense of the expressions that, in such cases; comes to serve as their reference. Replacing 'Superman' with an expression that expresses the same sense in the sentence ('the defender of from Krypton;' say) does not appear to have the same effect on the truth-value of a sentence as does replacing the term with one whose reference is the same but which has another sense. Frege thus preserves the principle of substitutivity; no variation in truth-value is held to occur between two belief sentences whose embedded that-clauses express the same sense * good\n\nSince philosophers have become hardened to the idea that content-sentences in talk  about propositional   attitudes may strangely  refer to such entities propositions, sentences, utterances, and inscriptions.  What is strange is not the entities Frege,\n\nPhilosophical Studies 66:297--306,1992. 1992 Kluwer Academic Publishers. Printed in the Netherlands.\n\nbut the notion that ordinary words for planets; people, tables; and hippopotami in indirect discourse may give up these pedestrian references for the exotica. If we could recover pre-Fregean semantic   innocence, think it would seem to uS plainly incredible that the words 'The earth moves' , uttered after the words 'Galileo said that , mean anything different; or refer to anything than is their wont when come in other environments . else, they\n\nDavidson alludes here to a familiar distinction: that between intensional entities and more mundane objects of reference. This distinction may be understood as based on another, one that Quine (1980, p. 130) has   described as 'two provinces fundamentally   distinct as not to deserve a joint appellation at all. may be called the theory of meaning and the theory of refezence: The difference between the two theories is revealed in the separate   and distinct   ontologies to which each permits   reference. The subject-matter of the theory of meaning includes   meaning,   synonymy, and   analyticity; that   of the   theory of reference, instead, includes naming, truth and extension. They\n\nBut we no longer tend to think much of meaning and mental content as in   themselves harbingers of the exotic. Familiar thought-experiments  involving variations in the extra-individual   environment have taught us that neither   meaning nor mental   content is isolated from the world of pedestrian reference in quite the simple way Davidson suggests. And if this is so, there is another   alternativeto consider in OUr account discourse. The lesson we have learned from Putnam (1975, pp. 215 \\_ antidote we need to quash the   temptation to separate meaning and reference and to provide an alternative account.\n\nNow, Davidson does seem to be right: it does seem difficult to accept that expressions in opaque contexts are ambiguous in the way Frege's account suggests. At the same 'time, we might suggest that the tempta tion to think of such a shift of reference as particularly significant seems strongest if we think of theories of meaning and reference as discriminated in the radical way mentioned above. Given that distinction; the reference shift that expressions in a that-clause appear to experience seems to be precisely a shift from entities belonging to the theory of reference to the theory of meaning,   these disjoint provinces. being\n\nWe will consider expressions of the form 'x believes that p; and\n\nargue that the determination to reject a Fregean solution to the problem of the reference of expressions in an opaque context varies in intensity relative to how inextricable the link between meaning and the extraindividual   environment is perceived to be. If the link is perceived as negligible if a theory of meaning is, as we say, internalist then we can claim that the view that expressions in indirect discourse take their ordinary sense as reference will rest on a distinction with some signifi cance in that theory. Their non-standard behavior is based, in that case, on a theory of meaning that holds that the reference of a that-clause is determined essentially by sub-cutaneous facts about an individual; on a theory of meaning, that is, that carves a significant ontological distinc tion between what serves as the sense of an expression, and what its reference. This may well, with the resolve of opponents  to a Fregean  theory, given the deep referential   ambiguity that is necessarily visited on expressions on such an account.\n\nNow, there is another context for which the same can be made: the context generated by the prefix 'It is analytic that An examination of this context will show that analytic sentences are another class of sentence whose constituent expressions appear to invite the idea of a shift to their ordinary sense as reference. point\n\nIf, on the other hand, the link is perceived as essential if, that is, what determines the meaning of words and the reference of that-clauses is held to be the extra-cutaneous environment then we can argue that there will be no in principle rejection of a view that takes the reference of that-clauses to be their ordinary sense; for, on such an externalist view, the semantic values of expressions in a that-clause will be their ordinary  references after all, or something that involves them essen tially. There is nothing exotic about an expression's taking either its denotation; or what McDowell (1984, pp. 283-294) has called its de re sense as reference   in an opaque context, on an externalist the   cleavage between meaning   and reference that   Davidson appears to be presupposing does not obtain. for, theory,\n\nSuppose 'p' is the analytic truth 'All bachelors are unmarried males; and compare the truth-conditions of 'p' with those of 'It is analytic that What makes 'It is analytic that p' true, on a Fregean account, are the senses referred to by 'p''s constituent expressions, since, in this case, 'p' is opaquely embedded, p' itself analytically true are\n\nthe senses expressed by its constituent expressions as we say, in virtue of its meaning alone. The truth-conditions of 'p' itself thus appear to involve the very entities relevant to the truth of 'It is analytic that p; the very entities referred to by p when p' is embedded in a that-clause. true,\n\nThis seems to   correlate with the   distinction we tend to accept between the nature of analytic truth and that of synthetic truth. For what   is it that   distinguishes the truth of p', above, from the synthetic truth All bachelors are happy'? The truth-conditions of 9 are a function of the ordinary reference of the expression 'bachelor' and whether or not the predicate 'happy' a set of unique features' that do not appear accountable for unless p truth-conditions  are specified in terms of the senses  of its constituent expressions. These features appear to depend on 'p''s truth-value determined, as we say, independent of the world; in virtue, that is, of 'p\"s meaning, and that alone. applies. being\n\nLet us consider what it is about internalist theories of meaning that encourages an ambiguity-favoring account of the semantics of expres -\n\nThus it appears that both the 'It is analytic that and the prefix 'x believes  that have the same influence on an embedded sentence; both, we may say, are reference-shifting   operators. This suggests   that the distinction we tend to accept between analytic and synthetic truth seems to be yet another distinction supported by the divide between meaning and reference described by Quine above. And, same consequences  of externalism about would seem difficult to deny that whatever is problematic about expressions shifting their reference to exotica in belief contexts could be any less so in the case of analytic contexts. So, although analytic sentences are sentences with distinguishing features of a particular kind, and, on the face of it, it does not appear possible that an account of their truth conditions could fail to include an account of their constituent expresa shift of reference to their ordinary senses, never theless, we cannot accept reference t0 exotica for analytic sentences to recover   semantic an account of the truth-conditions of analytic sentences as well. prefix yet\n\nsions in the opaque contents generated by 'x believes that and 'It is analytic that and let see whether   externalism about meaning their reference to exotica when embedded in opaque contexts.\n\nBelief, we are accustomed to saying, is relation between an individual and a particular   view assigns to propositions   is largely a function of   what entities it accepts as relevant to an account of meaning and content. Thus, for example, the semantic analysis of (1), above; will vary, among other things, according to whether the relevant relation is held to obtain between Lois and a proposition whose constituents are the senses expressed by the singular term 'Superman' and the predicate 'hero'; or whether, instead, Lois is held to be in the belief relation to a proposi tion whose constituents are the very objects and properties denoted by those expressions.\n\nWe are to in these   terms, will apply to analytic contexts as do to belief contexts. In the context 'It is analytic that p; p also expresses a proposition with constituent structure. An account of this structure will vary in just the same way as do accounts of the constituent structure of a proposition in a belief context.\n\nThe contribution made by the reference   of expressions is what is crucial to determining the truth-value of a sentence formed by those expressions   Now, an internalist  about content must   claim that it is internal   facts   about a subject that essentiallydetermine that subject's mental  states. Her belief about Superman's heroism is indepen dent of any environmental   variations with respect to Superman. The mental state enjoyed in belief is;, as we have said, commonly analyzed as relation to a proposition. And an internalist   has to say that the expressions embedded in the that-clause that expresses the proposition believed express concepts that have their essential nature fixed in isolation from the environment that contains the references of those terms. In transparent contexts, this split between what words refer to and what mean is not as evident as it becomes in opaque contexts.  The truth-value of a sentence in a transparent context is a function partly of the meaning of its words and partly of the properties of what those words pick out. But  the contribution  to truth-value of the ordinary quite they\n\nreference of expressions   is a liability in opaque contexts; for there; although expressions co-refer, substituting one for the other appears to affect truth-value.\n\nAnd for the internalist; there is an alternative. Denotation is only one aspect of expressions; also have meaning,  which is independently determined. The internalist operating as it does   with a com expressions and what it is that those expressions refer to, is a theory of meaning where there exists the theoretical option of invoking something other than the ordinary reference of expressions to act as their refer ence in opaque contexts namely, their meaning, which has distinct enough properties to offer a solution to a problem generated in those contexts by their denotation they theory,\n\nWithin the externalist camp theoretical commitment  varies.4 Theories of direct reference (TDR), one variety of externalism; hold that the meaning of an expression is identical to its denotation s Another variety employs; instead, the idea of a de re sense. De re senses enmesh particulars and properties, so to speak; they are not bearers of them in such a way as to be intrinsically independent of what bear. What consequences could follow from these types of view in holding that the reference of an expression in an opaque context is its sense since sense is determined by reference? they\n\nNo such theoretical option exists, however; for an externalist about meaning, whose theory does not carve a decisive individuative incision between meaning and the world beyond the subject. But this implies that to hold that the reference of expressions in opaque contexts is their sions   in indirect discourse   ultimately take   nothing  other than their ordinary   reference as reference, if the meaning of an expression   is essentially determined by what in the environment it refers to.\n\nTo of expressions in opaque contexts as referring to their senses is, on a TDR, to in a long-winded, perhaps partly ironic way that   the   reference   of  expressions in those contexts is their ordinary reference and nothing more6 Further, the meaning of the embedded sentence in (1) does not change, since both are terms with the same sense because sense is exhausted by reference speak speak\n\nand (1) and not (2): they\n\n## (2 Lois Lane believes that Clark Kent is a hero\n\nis to be explained as arising from the conditions that govern the forma tion of her beliefs.'\n\nIf the meaning of an expression is held instead to consist in the de re sense it expresses, its reference in an opaque context will be ultimately no less expression in an embedded sentence is, on this view, a de re sense, which is not identical to its ordinary reference. However and this is the de re senses are essentially determined by and not independent of the objects and properties that are their bearers. If we senses as media   through which   ordinary   reference is preserved,   then it on such view, it is   the ordinary reference of an expression   that  genuinely serves as its   reference or semantic value in an opaque context. Crucially, a de re sense is not to be understood as an unmoored  from the world of pedestrian reference; and repudiates as exotica. In these terms, then, we may say that a Fregean account of (l) is innocent of reference to exotica. point key entity\n\nNow, given the analogy we have pressed between belief contexts and analytic contexts, the same account must hold, with no untoward con sequences for analytic truth, for\n\nThe apparent variation in truth-value between (1) and (2) is accounted standardly, by the claim that expressions  can share reference but differ in sense. A particular individual is the reference of the terms in the embedded sentences in (1) and (2) and it is he who, on this sort of view, determines the sense of those terms. Since a de re sense is not identical with the reference of an expression, however, it will not follow that two expressions   with the same reference have the same (de re sense. The troubles Lois generates by instantiating (1) and not (2), in spite of the fact that she is held to be in the belief relation to the very same singular proposition; are explained by taking this into account. for,\n\n- (3) It is analytic that Hesperus is Hesperus.\n\nBut if 'Phosphorus' replaces the second occurrence of 'Hesperus' in (3)\n\n(3) seems, prima facie, to undergo the familiar variation in truth-value. Suppose; however, that we accept TDR; if so, we do not seem to be able to deny that it is also true that\n\n## (4 It is analytic that Hesperus is Phosphorus.\n\nTDR holds that meaning is identical to reference; on this view, there is no change in meaning between the embedded sentences in (3) and (4) Further, since meaning is identical to reference; neither (3) nor (4) is any less true in virtue of meaning; although, again, to put it like this is to speak in roundabout way. It is worth mentioning here, following McGinn (1982, pp. 97\\_115) that a sentence can be true in virtue of meaning in two ways: in purely semantic sense, where the analytic truth of a sentence follows from the semantic values of the terms in the sentence, which are assigned to terms by semantic rules alone; and in more psychological sense, where analytic sentences are held to be those sentences whose terms can be substituted for one another salva veritate in belief context. Accepting (4) as true may grate less, perhaps; if we think of the embedded sentence as analytically true in the   purely semantic sense. If instead we characterize  analytic truth in the more psychological sense; then facts about the believer become relevant; and the   apparent variation in truth-value   between   (3) and (4) can be explained by taking facts about the believer into account.\n\nIf, on the other hand, the embedded expressions are taken to refer to their de re senses, then, again, the is that the expressions do not genuinely refer to exotica; again; de re senses are not independent of the objects and properties that are their bearers. De re senses are, we may say; object-involving, if are expressed by singular terms, and property-involving;   if  they are expressed by   predicates. Thus, in (3) and (4) the embedded expressions refer to their objectinvolving de re senses This view does not, however, commit us to the truth of (4), since we can allow, standardly, that two terms that share reference need not share the same (de re sense. Further, in point key for, they\n\n## (5) It is analytic that bachelors are unmarried males\n\nwe say that the embedded expressions refer to their property-involving de re senses: that is, the ordinary reference of these expressions is what individuates   the senses express; via the de re senses, thus, the they\n\nordinary   reference of   these  expressions is   preserved in an opaque context. Further, we can accept the truth of (5) in the usual way; two expressions can share both reference and sense.\n\nWe have tried to show that the theoretical   alternatives   offered by externalism about meaning   appear to meet Davidson's   plea against semantic  corruption in an account of the reference of expressions in indirect discourse. And we have urged that our recuperation of preFregean semantic innocence cannot be half-hearted . What goes for one opaque context must go for all opaque contexts. This suggests that our recovery will be   complete   only when we overcome the idea that analytic truth is an exotic kind of truth.\n\nNow, the context generated by 'It is analytic that is one for which it may seem as though semantic innocence is the last we ought to want to recover. If expressions in this context refer to their denotations or to their de re senses, then, given our earlier comparison of the truth terms of the world just like synthetic sentences . Externalism about meaning may indeed block the theoretical option of invoking a realm of meaning alone, distinguished by a unique set of properties, t0 serve as what it is that the truth-conditions for this class of sentence will involve But, I would insist, it is far from clear that it follows from this that there is no analytic-synthetic distinction 8 thing\n\n## NOTES\n\n- [am grateful to Bill Earle, Fodor, Graeme Forbes, Colin McGinn and Stephen Schiffer for their comments on this paper. Jerry\n- Barwise and (1981, PP. 387-403) also employ this   particular   segment to introduce their way of recovering semantic innocence. Our treatment differs in that the discussion is framed in terms of externalism about meaning in general, and extended to the question of analytic truth. Perry\n- In what follows we consider different   accounts of the constituent structure of proposition to examine the accounts. We understand familiarly, to take the sense of sentence as the proposition it expresses: a proposition whose constituent structure consists in the senses expressed by the words in the sentence. Frege,\n- It is held to be knowable priori and necessarily true.\n- Salmon and Soames, 1 contains number of articles that are the best introduction to a semantic theory of this kind. 988,\n- Situation semantics is, of course, another variety.\n\n- An objection might be raised here that a TDR meets Davidson's challenge to exorcise appeal to intensional entities in an account of the behavior of expressions in indirect discourse only trivially; if at all. For how is it possible to claim, as we wish to, that Fregean theory need not make an in principle commitment to an independent realm of distinct semantic entities to serve as the reference of expressions in opaque contexts, when TDR does not support even the initial erection of' the Fregean account? view that holds that there is nothing more to the meaning of an expression than its reference, it does not seem possible to claim that expressions in a that-clause shift their reference at all, let alone that the reference-shift experience amounts to nothing untoward when the dust has settled, To meet this objection is not brief work; it raises, among other things; the issue of iterated belief contexts and I must defer elaboration to another paper, Suffice it to say that from the that an expression refers to nothing but its ordinary reference in and out of an opaque context, it does not follow that the sense expressed by the expression in and out of an opaque contexl remains the same. On they fact\n- have considered the consequences of externalism about meaning for analytic truth at some length in another paper ,\n- This kind of solution is perfected in, among others, a number of the papers in Salmon and Soames, 1988.\n\n## REFERENCES\n\nBarwise, Jon and John 1981, 'Semantic Innocence and Uncompromising Situa tions and H K. Wettstein. Minneapolis: University of Minnesota Press, pp. 387-403. Clarendon Press, Pp. 93-108. McDowell, J, 1984,'De Re Senses' , Philosophical Quarterly 136, pp. 283-294. McGinn, C. 1982, 'Rigid Designation and Semantic Value , Philosophical Quarterly 32, pp. 97-115. Putnam, 1975, 'The Meaning of 'Meaning' in Mind, Language and Reality  Philoin From a Logical Point of Salmon; Nathan and Attitudes. Oxford: Oxford University Press. Perry, H View,\n\nDepartment of Philosophy Baruch College The City University of New York New York, NY 10010",
+    "responses": [
+      {
+        "source": "gpt-4o-2024-11-20",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"ADU1\": {\n      \"text\": \"Frege's strategy in accounting for the behavior of expressions in indirect discourse is well known.\",\n      \"label\": \"claim\"\n    },\n    \"ADU2\": {\n      \"text\": \"Frege maintains the principle that the truth-value of a sentence must remain unchanged when one of the expressions in the sentence is replaced with another with which it is coreferential.\",\n      \"label\": \"premise\"\n    },\n    \"ADU3\": {\n      \"text\": \"Yet expressions in certain now familiar contexts appear to flout this principle.\",\n      \"label\": \"claim\"\n    },\n    \"ADU4\": {\n      \"text\": \"Frege's solution was to conclude that expressions occurring in opaque contexts do not have their ordinary reference; rather, it is the ordinary sense of the expressions that, in such cases, comes to serve as their reference.\",\n      \"label\": \"claim\"\n    },\n    \"ADU5\": {\n      \"text\": \"Replacing 'Superman' with an expression that expresses the same sense in the sentence ('the defender of Earth from Krypton,' say) does not appear to have the same effect on the truth-value of a sentence as does replacing the term with one whose reference is the same but which has another sense.\",\n      \"label\": \"premise\"\n    },\n    \"ADU6\": {\n      \"text\": \"Frege thus preserves the principle of substitutivity; no variation in truth-value is held to occur between two belief sentences whose embedded that-clauses express the same sense.\",\n      \"label\": \"claim\"\n    },\n    \"ADU7\": {\n      \"text\": \"Davidson does seem to be right: it does seem difficult to accept that expressions in opaque contexts are ambiguous in the way Frege's account suggests.\",\n      \"label\": \"claim\"\n    },\n    \"ADU8\": {\n      \"text\": \"We will consider expressions of the form 'x believes that p,' and argue that the determination to reject a Fregean solution to the problem of the reference of expressions in an opaque context varies in intensity relative to how inextricable the link between meaning and the extra-individual environment is perceived to be.\",\n      \"label\": \"claim\"\n    },\n    \"ADU9\": {\n      \"text\": \"If the link is perceived as negligible—if a theory of meaning is, as we say, internalist—then we can claim that the view that expressions in indirect discourse take their ordinary sense as reference will rest on a distinction with some significance in that theory.\",\n      \"label\": \"premise\"\n    },\n    \"ADU10\": {\n      \"text\": \"If, on the other hand, the link is perceived as essential—if, that is, what determines the meaning of words and the reference of that-clauses is held to be the extra-cutaneous environment—then we can argue that there will be no in-principle rejection of a view that takes the reference of that-clauses to be their ordinary sense.\",\n      \"label\": \"premise\"\n    },\n    \"ADU11\": {\n      \"text\": \"Thus it appears that both the 'It is analytic that' and the prefix 'x believes that' have the same influence on an embedded sentence; both, we may say, are reference-shifting operators.\",\n      \"label\": \"claim\"\n    },\n    \"ADU12\": {\n      \"text\": \"The contribution made by the reference of expressions is what is crucial to determining the truth-value of a sentence formed by those expressions.\",\n      \"label\": \"claim\"\n    },\n    \"ADU13\": {\n      \"text\": \"The truth-value of a sentence in a transparent context is a function partly of the meaning of its words and partly of the properties of what those words pick out.\",\n      \"label\": \"premise\"\n    },\n    \"ADU14\": {\n      \"text\": \"But the contribution to truth-value of the ordinary reference of expressions is a liability in opaque contexts; for there, although expressions co-refer, substituting one for the other appears to affect truth-value.\",\n      \"label\": \"claim\"\n    },\n    \"ADU15\": {\n      \"text\": \"An internalist operating as it does with a commitment to a distinction between the meaning of expressions and what it is that those expressions refer to, is a theory of meaning where there exists the theoretical option of invoking something other than the ordinary reference of expressions to act as their reference in opaque contexts—namely, their meaning, which has distinct enough properties to offer a solution to a problem generated in those contexts by their denotation.\",\n      \"label\": \"claim\"\n    },\n    \"ADU16\": {\n      \"text\": \"Within the externalist camp theoretical commitment varies.\",\n      \"label\": \"claim\"\n    },\n    \"ADU17\": {\n      \"text\": \"Theories of direct reference (TDR), one variety of externalism, hold that the meaning of an expression is identical to its denotation.\",\n      \"label\": \"premise\"\n    },\n    \"ADU18\": {\n      \"text\": \"De re senses are essentially determined by and not independent of the objects and properties that are their bearers.\",\n      \"label\": \"premise\"\n    },\n    \"ADU19\": {\n      \"text\": \"We have tried to show that the theoretical alternatives offered by externalism about meaning appear to meet Davidson's plea against semantic corruption in an account of the reference of expressions in indirect discourse.\",\n      \"label\": \"claim\"\n    },\n    \"ADU20\": {\n      \"text\": \"What goes for one opaque context must go for all opaque contexts.\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"ADU2\",\n      \"target\": \"ADU3\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU4\",\n      \"target\": \"ADU6\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU5\",\n      \"target\": \"ADU6\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU8\",\n      \"target\": \"ADU9\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU8\",\n      \"target\": \"ADU10\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU13\",\n      \"target\": \"ADU14\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU14\",\n      \"target\": \"ADU15\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU17\",\n      \"target\": \"ADU16\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU18\",\n      \"target\": \"ADU16\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU19\",\n      \"target\": \"ADU20\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "ADU1": {
+              "text": "Frege's strategy in accounting for the behavior of expressions in indirect discourse is well known.",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "Frege maintains the principle that the truth-value of a sentence must remain unchanged when one of the expressions in the sentence is replaced with another with which it is coreferential.",
+              "label": "premise"
+            },
+            "ADU3": {
+              "text": "Yet expressions in certain now familiar contexts appear to flout this principle.",
+              "label": "claim"
+            },
+            "ADU4": {
+              "text": "Frege's solution was to conclude that expressions occurring in opaque contexts do not have their ordinary reference; rather, it is the ordinary sense of the expressions that, in such cases, comes to serve as their reference.",
+              "label": "claim"
+            },
+            "ADU5": {
+              "text": "Replacing 'Superman' with an expression that expresses the same sense in the sentence ('the defender of Earth from Krypton,' say) does not appear to have the same effect on the truth-value of a sentence as does replacing the term with one whose reference is the same but which has another sense.",
+              "label": "premise"
+            },
+            "ADU6": {
+              "text": "Frege thus preserves the principle of substitutivity; no variation in truth-value is held to occur between two belief sentences whose embedded that-clauses express the same sense.",
+              "label": "claim"
+            },
+            "ADU7": {
+              "text": "Davidson does seem to be right: it does seem difficult to accept that expressions in opaque contexts are ambiguous in the way Frege's account suggests.",
+              "label": "claim"
+            },
+            "ADU8": {
+              "text": "We will consider expressions of the form 'x believes that p,' and argue that the determination to reject a Fregean solution to the problem of the reference of expressions in an opaque context varies in intensity relative to how inextricable the link between meaning and the extra-individual environment is perceived to be.",
+              "label": "claim"
+            },
+            "ADU9": {
+              "text": "If the link is perceived as negligible—if a theory of meaning is, as we say, internalist—then we can claim that the view that expressions in indirect discourse take their ordinary sense as reference will rest on a distinction with some significance in that theory.",
+              "label": "premise"
+            },
+            "ADU10": {
+              "text": "If, on the other hand, the link is perceived as essential—if, that is, what determines the meaning of words and the reference of that-clauses is held to be the extra-cutaneous environment—then we can argue that there will be no in-principle rejection of a view that takes the reference of that-clauses to be their ordinary sense.",
+              "label": "premise"
+            },
+            "ADU11": {
+              "text": "Thus it appears that both the 'It is analytic that' and the prefix 'x believes that' have the same influence on an embedded sentence; both, we may say, are reference-shifting operators.",
+              "label": "claim"
+            },
+            "ADU12": {
+              "text": "The contribution made by the reference of expressions is what is crucial to determining the truth-value of a sentence formed by those expressions.",
+              "label": "claim"
+            },
+            "ADU13": {
+              "text": "The truth-value of a sentence in a transparent context is a function partly of the meaning of its words and partly of the properties of what those words pick out.",
+              "label": "premise"
+            },
+            "ADU14": {
+              "text": "But the contribution to truth-value of the ordinary reference of expressions is a liability in opaque contexts; for there, although expressions co-refer, substituting one for the other appears to affect truth-value.",
+              "label": "claim"
+            },
+            "ADU15": {
+              "text": "An internalist operating as it does with a commitment to a distinction between the meaning of expressions and what it is that those expressions refer to, is a theory of meaning where there exists the theoretical option of invoking something other than the ordinary reference of expressions to act as their reference in opaque contexts—namely, their meaning, which has distinct enough properties to offer a solution to a problem generated in those contexts by their denotation.",
+              "label": "claim"
+            },
+            "ADU16": {
+              "text": "Within the externalist camp theoretical commitment varies.",
+              "label": "claim"
+            },
+            "ADU17": {
+              "text": "Theories of direct reference (TDR), one variety of externalism, hold that the meaning of an expression is identical to its denotation.",
+              "label": "premise"
+            },
+            "ADU18": {
+              "text": "De re senses are essentially determined by and not independent of the objects and properties that are their bearers.",
+              "label": "premise"
+            },
+            "ADU19": {
+              "text": "We have tried to show that the theoretical alternatives offered by externalism about meaning appear to meet Davidson's plea against semantic corruption in an account of the reference of expressions in indirect discourse.",
+              "label": "claim"
+            },
+            "ADU20": {
+              "text": "What goes for one opaque context must go for all opaque contexts.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU2",
+              "target": "ADU3",
+              "type": "support"
+            },
+            {
+              "source": "ADU4",
+              "target": "ADU6",
+              "type": "support"
+            },
+            {
+              "source": "ADU5",
+              "target": "ADU6",
+              "type": "support"
+            },
+            {
+              "source": "ADU8",
+              "target": "ADU9",
+              "type": "support"
+            },
+            {
+              "source": "ADU8",
+              "target": "ADU10",
+              "type": "support"
+            },
+            {
+              "source": "ADU13",
+              "target": "ADU14",
+              "type": "support"
+            },
+            {
+              "source": "ADU14",
+              "target": "ADU15",
+              "type": "support"
+            },
+            {
+              "source": "ADU17",
+              "target": "ADU16",
+              "type": "support"
+            },
+            {
+              "source": "ADU18",
+              "target": "ADU16",
+              "type": "support"
+            },
+            {
+              "source": "ADU19",
+              "target": "ADU20",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "ADU1": {
+              "text": "Frege's strategy in accounting for the behavior of expressions in indirect discourse is well known.",
+              "label": "claim"
+            },
+            "ADU3": {
+              "text": "Yet expressions in certain now familiar contexts appear to flout this principle.",
+              "label": "claim"
+            },
+            "ADU7": {
+              "text": "Davidson does seem to be right: it does seem difficult to accept that expressions in opaque contexts are ambiguous in the way Frege's account suggests.",
+              "label": "claim"
+            },
+            "ADU13": {
+              "text": "The truth-value of a sentence in a transparent context is a function partly of the meaning of its words and partly of the properties of what those words pick out.",
+              "label": "premise"
+            },
+            "ADU16": {
+              "text": "Within the externalist camp theoretical commitment varies.",
+              "label": "claim"
+            },
+            "ADU18": {
+              "text": "De re senses are essentially determined by and not independent of the objects and properties that are their bearers.",
+              "label": "premise"
+            },
+            "ADU19": {
+              "text": "We have tried to show that the theoretical alternatives offered by externalism about meaning appear to meet Davidson's plea against semantic corruption in an account of the reference of expressions in indirect discourse.",
+              "label": "claim"
+            },
+            "ADU20": {
+              "text": "What goes for one opaque context must go for all opaque contexts.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU18",
+              "target": "ADU16",
+              "type": "support"
+            },
+            {
+              "source": "ADU19",
+              "target": "ADU20",
+              "type": "support"
+            }
+          ]
+        }
+      },
+      {
+        "source": "claude-3-5-sonnet-20241022",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"A1\": {\n      \"text\": \"Frege's solution was to conclude that   expressions   occurring   in opaque contexts do not have their ordinary reference rather, it is the ordinary sense of the expressions that, in such cases; comes to serve as their reference.\",\n      \"label\": \"claim\"\n    },\n    \"A2\": {\n      \"text\": \"Since philosophers have become hardened to the idea that content-sentences in talk  about propositional   attitudes may strangely  refer to such entities propositions, sentences, utterances, and inscriptions.  What is strange is not the entities Frege, but the notion that ordinary words for planets; people, tables; and hippopotami in indirect discourse may give up these pedestrian references for the exotica.\",\n      \"label\": \"claim\"\n    },\n    \"A3\": {\n      \"text\": \"If we could recover pre-Fregean semantic   innocence, think it would seem to uS plainly incredible that the words 'The earth moves' , uttered after the words 'Galileo said that , mean anything different; or refer to anything than is their wont when come in other environments\",\n      \"label\": \"claim\"\n    },\n    \"A4\": {\n      \"text\": \"Familiar thought-experiments  involving variations in the extra-individual   environment have taught us that neither   meaning nor mental   content is isolated from the world of pedestrian reference in quite the simple way Davidson suggests.\",\n      \"label\": \"premise\"\n    },\n    \"A5\": {\n      \"text\": \"If the link is perceived as essential if, that is, what determines the meaning of words and the reference of that-clauses is held to be the extra-cutaneous environment then we can argue that there will be no in principle rejection of a view that takes the reference of that-clauses to be their ordinary sense\",\n      \"label\": \"claim\"\n    },\n    \"A6\": {\n      \"text\": \"on such an externalist view, the semantic values of expressions in a that-clause will be their ordinary  references after all, or something that involves them essen tially\",\n      \"label\": \"premise\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"A2\",\n      \"target\": \"A1\",\n      \"type\": \"attack\"\n    },\n    {\n      \"source\": \"A3\",\n      \"target\": \"A1\",\n      \"type\": \"attack\"\n    },\n    {\n      \"source\": \"A4\",\n      \"target\": \"A5\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A6\",\n      \"target\": \"A5\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "A1": {
+              "text": "Frege's solution was to conclude that   expressions   occurring   in opaque contexts do not have their ordinary reference rather, it is the ordinary sense of the expressions that, in such cases; comes to serve as their reference.",
+              "label": "claim"
+            },
+            "A2": {
+              "text": "Since philosophers have become hardened to the idea that content-sentences in talk  about propositional   attitudes may strangely  refer to such entities propositions, sentences, utterances, and inscriptions.  What is strange is not the entities Frege, but the notion that ordinary words for planets; people, tables; and hippopotami in indirect discourse may give up these pedestrian references for the exotica.",
+              "label": "claim"
+            },
+            "A3": {
+              "text": "If we could recover pre-Fregean semantic   innocence, think it would seem to uS plainly incredible that the words 'The earth moves' , uttered after the words 'Galileo said that , mean anything different; or refer to anything than is their wont when come in other environments",
+              "label": "claim"
+            },
+            "A4": {
+              "text": "Familiar thought-experiments  involving variations in the extra-individual   environment have taught us that neither   meaning nor mental   content is isolated from the world of pedestrian reference in quite the simple way Davidson suggests.",
+              "label": "premise"
+            },
+            "A5": {
+              "text": "If the link is perceived as essential if, that is, what determines the meaning of words and the reference of that-clauses is held to be the extra-cutaneous environment then we can argue that there will be no in principle rejection of a view that takes the reference of that-clauses to be their ordinary sense",
+              "label": "claim"
+            },
+            "A6": {
+              "text": "on such an externalist view, the semantic values of expressions in a that-clause will be their ordinary  references after all, or something that involves them essen tially",
+              "label": "premise"
+            }
+          },
+          "relations": [
+            {
+              "source": "A2",
+              "target": "A1",
+              "type": "attack"
+            },
+            {
+              "source": "A3",
+              "target": "A1",
+              "type": "attack"
+            },
+            {
+              "source": "A4",
+              "target": "A5",
+              "type": "support"
+            },
+            {
+              "source": "A6",
+              "target": "A5",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "A1": {
+              "text": "Frege's solution was to conclude that   expressions   occurring   in opaque contexts do not have their ordinary reference rather, it is the ordinary sense of the expressions that, in such cases; comes to serve as their reference.",
+              "label": "claim"
+            },
+            "A3": {
+              "text": "If we could recover pre-Fregean semantic   innocence, think it would seem to uS plainly incredible that the words 'The earth moves' , uttered after the words 'Galileo said that , mean anything different; or refer to anything than is their wont when come in other environments",
+              "label": "claim"
+            },
+            "A4": {
+              "text": "Familiar thought-experiments  involving variations in the extra-individual   environment have taught us that neither   meaning nor mental   content is isolated from the world of pedestrian reference in quite the simple way Davidson suggests.",
+              "label": "premise"
+            },
+            "A6": {
+              "text": "on such an externalist view, the semantic values of expressions in a that-clause will be their ordinary  references after all, or something that involves them essen tially",
+              "label": "premise"
+            }
+          },
+          "relations": [
+            {
+              "source": "A3",
+              "target": "A1",
+              "type": "attack"
+            }
+          ]
+        }
+      }
+    ],
+    "timestamp": 1752755635.0505822
+  }
+]

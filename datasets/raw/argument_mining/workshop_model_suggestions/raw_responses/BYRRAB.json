@@ -1,0 +1,309 @@
+[
+  {
+    "identifier": "BYRRAB",
+    "system_prompt": "## GOAL\nArgument‑mine the following paper to extract its comprehensive argumentative structure.\n\n## DEFINITIONS\n1. **Argument**: A set of propositions, including some number of premises and a conclusion. The premises should logically entail the conclusion.\n2. **Claim**: A proposition that asserts something to be true or false, typically requiring justification or evidence.\n3. **Premise**: A proposition that provides evidence, justification, or logical support for a claim or conclusion.\n\n## CRITICAL REQUIREMENTS\n1. **VERBATIM EXTRACTION ONLY**: Each ADU text must be copied EXACTLY from the paper with no modifications, paraphrasing, or combining of separate sentences.\n2. **NO HALLUCINATION**: Do not create, modify, or invent text that does not appear exactly in the source.\n3. **EXACT MATCHING**: Every word, punctuation mark, and spacing must match the original precisely.\n\n## DIRECTIONS\n1. **Identify Argumentative Discourse Units (ADUs)**  \n   - ADU = any contiguous text span functioning as a claim or a premise in the reasoning structure.\n   - **BE HIGHLY SELECTIVE**: Only include ADUs that are crucial to the overarching argument structure.\n   - Focus on significant claims and premises that contribute meaningfully to the argumentative flow.\n   - **AVOID NOISE**: Skip ADUs that are merely descriptive, tangential, or do not substantially advance the argument.\n   - Prioritize quality over quantity - fewer accurate, important ADUs are better than many insignificant ones.\n   - **EXTRACT ONLY**: Copy text spans exactly as they appear, without any modifications.\n2. **Classify each ADU**  \n   - Label = either `\"claim\"` or `\"premise\"`.  \n3. **Detect directed relations**  \n   - Relation = `\"support\"` or `\"attack\"`, from one ADU (source) to another (target).\n   - Map how ADUs connect to form reasoning chains.\n   - Focus on relationships between the most significant ADUs.\n   - Include relationships between premises that strengthen or weaken each other.\n4. **Verbatim spans**  \n   - Each `\"text\"` value must be copied EXACTLY from the paper with zero modifications.\n   - Do not paraphrase, summarize, or combine separate sentences.\n   - Do not add, remove, or change any words, punctuation, or spacing.\n   - If unsure about exact wording, skip that ADU rather than guess.\n\n## WHAT TO CAPTURE\n**INCLUDE ONLY:**\n- Main argumentative threads that are central to the paper's contribution\n- Core claims that represent the paper's primary arguments or findings\n- Key premises that provide essential support for major claims\n- Critical counterarguments and their refutations\n- Reasoning chains that demonstrate how main conclusions are derived\n\n**EXCLUDE (AVOID NOISE):**\n- Minor details, examples, or descriptive content that don't advance the argument\n- Tangential points or side discussions\n- Pure background information or literature review content\n- Methodological details unless they constitute argumentative claims\n- Obvious statements or commonly accepted facts\n- Redundant or repetitive argumentative content\n\n**GUIDING PRINCIPLE**: If removing an ADU would not significantly impact understanding of the paper's argumentative structure, it should be excluded.\n\n## QUALITY CONTROL\n- Before finalizing each ADU, verify the text exists exactly in the source\n- Prefer fewer, accurate ADUs over many potentially modified ones\n- When in doubt about exact wording, omit the ADU\n\n## OUTPUT FORMAT\nReturn **only** a single valid JSON object matching this schema.  \nDo **not** output any extra text, markdown, or explanations.\nDo **not** add comments.\n**RESPOND WITH ONLY**:\n```json\n{\n  \"ADUs\": {\n    \"<ADU_ID>\": {\n      \"text\": \"<exact span from paper>\",\n      \"label\": \"claim\" | \"premise\"\n    }\n    ...\n  },\n  \"relations\": [\n    {\n      \"source\": \"<ADU_ID>\",\n      \"target\": \"<ADU_ID>\",\n      \"type\": \"support\" | \"attack\"\n    }\n  ]\n}\n```",
+    "user_content": "## Reviewing Academic Books\n\nAre There Ethical Issues?\n\n## Edmund F\\_Byrne\n\nFaculty members affiliated with U.S. colleges and universities that aspire to eminence must \"publish perish.\" So all write articles and many write books. Neither articles nor books, however, are always published, in part because of an institutional bias. In particular, the process of deciding which books should be published favors authors who are associated with the most prestigious universities and other research institutions. Some think this bias could be minimized if the pre-publication reviewing of academic books included commitments to objectivity like those built into reviewing academic articles for journals. This is not likely to happen any time soon; though, because both the academic and the publishing industries promote the hierarchy ofper ceived excellence that dominates the process of publishing academic books. So unless one can show that this institutional hierarchy is itself unethical it is not easy to identify anything unethical about the bias that permeates academic book reviewing. Nor can any such showing be made by simply applying some standard-offering ethical system, because ethics has become too focused on individual decision making to address institutional arrangements appropriately. Rather one must look to the social approaches now emerging in business ethics to deal with complex corporate behavior. More space than is now available would be needed to develop this proposition ' So I will just assume it here they -\n\nEdmund F Byrne, 5 Riverpointe Road, Hastings-on-Hudson, NY 10706\n\nEdnuund F. Byrne\n\nand assert instead that anyone committed to such democratic values as fundamental fairness; opportunity; and respect should have ethical concerns about this process: In support of this assertion, I will consider first the process of reviewing academics' articles; then that for reviewing their book manuscripts. focus will be on pre-publication reviewing of philosophical work in the United States, leaving it to others to say whether and to what extent my observations apply to other disciplines and locations. equal equal My\n\n## Anonymity in Journal Peer Reviewing\n\nEditors of journals and collections ordinarily article manuscripts (which I will hereafter call papers) to reviewers without identifying either the author or her institutional affiliation. The intended reason for this attention to anonymity is, of course, to level the playing field among scholars regardless of who are Or what their institutional affiliation. So in principle at least academics' papers are reviewed on their merits and not on the basis of their authors' institutional affliation Clearly though; the practice does not conform to the principle. How could it, given that the editor (or editors) of the journal or collection to which a paper is submitted knows the author's name and affiliation, s0 can and usually does take this into account in deciding whether to send it out for review at all and, if so, how expeditiously and to whom. Since the prestige of a journal is in part based on the percentage of papers that are rejected as initially submitted, there is a built-in incentive not to 'waste time\" on papers whose authors are at lower-echelon institutions. Then, too, even if an editor opts to send a paper out for review; he can influence its fate by a judicious choice of reviewer(s) Even if this were not a factor; a lower-echelon paper's chances of acceptance would also be heavily influenced by what those involved in the paper reviewing process consider to be an appro priate approach to the discipline; e.8  whether the paper demonstrates that the author 'does philosophy\" in a way the top-echelon departments deem proper and whether the author defends a position that is within the range of what ~ recognize as reasonable. In view of these common limiting factors; the semblance of anonymity that is practiced in paper reviewing does not result in a truly level playing field ? Instead, this process is dominated by a cadre of professorial elite whose institutional bias welcomes outsiders' submissions about as well as the helped Sisyphus roll that stone uphill . This screening by and in behalf of an in-group operates in a manner analogous to what historian of science T. S. Kuhn identified as a dominant paradigm. send they they gods \\_\n\nA kind of top-down bias, then, permeates and orchestrates the paper reviewing process. This, however; is not the whole story: For some of the most prestigious journals in which academics publish are falling under the control\n\nof extra-academic interests whose influence on research and publication is undermining objectivity and impartiality; This problem is especially acute if extra-academic interest has a contract research organization (CRO) to do the research and claims the right to censor what published. This is increasingly the case with medical research (Editorial, 2001; \"Publication Ethics;\" 2001). Other fields of scientific endeavor are also subject to extra-academic constraints due to publishers' ever more monopolistic control of discipline-specific journals. In response to this problem, some scientists to establish alternative journals and other publications that the contributors will be better able to control (\"Journal Wars' 2000). Paid gets plan\n\nIn the humanities, extra-academic control of publishing papers is for the most not commercially attractive; s0 this remains in the hands of the respective specialties. Upper-echelon academics control the most prestigious journals; of course, so lower-echelon academics need and have developed alter native outlets. In particular; philosophers at lower-echelon institutions have found ways to circumvent longstanding institutional bias in their profession: Programs at meetings of the American Philosophical Association have over time been to include numerous 'shadow sessions\" organized by sub groups of philosophers with specialized interests. These sub-organizations on conferences and sponsor journals and other publications that cater to their members. Few of these lower-echelon publications enjoy the prestige of journals in the field; but do help lower-status practitioners avoid ing from their academic earth. There is, then, a kind of multi-tiered democracy among career philosophers that offers something for patricians and some albeit less, for plebeians. This, however; is much less the case when it comes to getting books published. part expanded put top perish they thing\n\n## Transparency in Academic Book Reviewing\n\nIn contrast to the anonymity approach to paper reviewing, book reviewing in philosophy (as in other disciplines) is altogether transparent. The reviewer ofa book manuscript, however chosen, knows from the outset the real name of the author. If that name is well known in the discipline, the manuscript obviously stands a chance of favorably reviewed with only non-fatal suggestions for improvement or clarification. Ifthat name is not well known, several courses of action are common. The acquisitions editor; first of all, will often reject manuscripts submitted by unknown authors afiliated with less prestigious institutions. If the manuscript survives this initial screening and is sent to a reviewer, the reviewer; knowing the author's name, can quickly determine (in most cases) the author's institutional affiliation. This done, the reviewer will form an opinion; before reading 1 single word of the manuscript, sharp being good\n\nabout how much it merits serious attention. If the author is affiliated with a lower echelon institution, the reviewer will be tempted to assume at the outset that it is ofinferior quality Nor is this prejudgment entirely unfounded con sidering how comparatively little time or assistance faculty at such institutions are likely to have for research and writing. For their administration is ordinarily short on funds for such purposes; and grants available from outside sources are predictably awarded to applicants at or trained by the more prestigious institutions, because most of the reviewers for these grants are themselves affliated with these institutions. Such constraints notwithstanding, it is nevertheless possible for someone at a less prestigious institution to produce a quality man uscript. So for a book reviewer to believe otherwise without even having read a manuscript is a negative bias that might be contrary to fact. From start to finish, this bias will be consciously associated with the author by name but implicitly and preeminently with the author's institution'\n\nIt seems; then, that the prepublication screening of academics' book manuscripts is more restrictive than is the screening of papers. This is so even though there is a hierarchy of academic book publishers as there is of publish ers ofpapers. The process of determining which academic books should be lished and by which press depends only secondarily on the comparative tige of the publishers. The primary consideration in this is the market niche that each publisher occupies. From the perspective of a publisher; whether associated with a university or not; an academic book, like any other, must have pub pres regard\n\nThe institutionally biased reviewer will be on the alert for evidence of the mediocrity he or she already associates with the author's employing institution; and what is sought will be found. What is in fact found may seem superficial to an impartial observer; especially if the reviewer really has to stretch to find support for his or her negative bias. At no point, of course; will this institutional bias be honestly and overtly expressed. Instead it will take the form of petty criticisms; e.g  Smith says on page fifty-one that such-and-such is the case whereas in the better informed view (that of the reviewer) it is not. In this way flaws; which are never altogether absent, will be found, resulting in a list of negative observations ranging in severity from a factual error to an omitted reference in the bibliographyOr, for that matter, to the expression of an opinion that the reviewer deems untenable. Having come up with alist of such counter-indications to publication; the reviewer might recommend rejecting the perhaps too gauche, the reviewer is more likely to recommend substantial revisions. Then, when the revised manuscript is resubmitted the reviewer can without scruples declare that it still does not satisfy his or her standard for publishability. This might even lead the reviewer to recommend rejecting a manuscript that by his or her own admission is as well written and important as are manuscripts submitted by bet ter known scholars at more respected institutions. being \"rigor lofty\n\na targeted set of purchasers ifit isto be at least marginally successful. In an earera, marginally successful did not necessarily mean profitable, especially not at university presses. But as commercial are bought out by corporations whose principal interest is in publishing blockbuster books, even wellknown authors are driven to submit their less publishers. These publishers; in turn, find themselves increasingly subject to the bottom-line expectations of ever more commerce-oriented umbrella institutions (Epstein; 2001) For these reasons the marketing process of identifying targeted readers is becoming less congenial to the authors of limited-interest academic books. lier presses\n\nGiven this state of affairs, many academics; especially in philosophy can probably tell at least one story about having a book manuscript rejected. And ifsuficiently frustrated may resort to some form of self-publishing, which unfortunately adds little to their academic status. This is especially true of vanity presses and; at least at this time in its evolution; the self-published electronic book which may be downloaded or made available in hard-copy form. Meanwhile, there are some moderately acceptable remedies for the narrowing of book publishing opportunities in particular; the intervention of many sub-spe cialty organizations that arrange with a publisher for their own book series instead of or in addition to a journal. they\n\nReadership targets for academic books have historically been divided between students who need texts and scholars who need \"trade\" books. A book intended as a text depends for its success on adopted by classroom instructors. This involves a complex process, with planned obsoles cence in the form of a series of ever new editions. Texts depend on low-margin mass marketing for success; s0 are typically reviewed pre-publication by randomly selected but preferably large-enrollment classroom instructors who choose the texts to be used in the courses teach. Trade books; on the other hand, depend for their success on being added to the collections of libraries at institutions of higher learning. These in recent years have come to be less reliable as purchasers because face both budgetary limitations and exploding that publishers seem unable to contain even by outsourcing their man ufacture to developing countries. Some analysts of this industry think electronic books are the hope of the future; but the future is not yet a reality: So books with covers and pages still hold sway; Which of these, however; should be acquired? Different libraries have different policies; most, however, are influenced if not bound by recommendations of faculty members in each dis cipline. in turn, are inclined to request books by or about authors whose work is most renowned in their field or, failing this, most favorably and prestigiously reviewed\\_if not in literary supplements then at least in the lisher's marketing blurb. being complete they they prices They pub-\n\nThese sub-specialty books are seldom monographs, but rather collections\n\nofpapers. Their target readership seldom includes anyone other than members of the sponsoring organization and among these perhaps only those who have actually contributed an article to the volume being published. These tions; accordingly; are inordinately expensive and seldom have any impact beyond the small circle of readers who are barely distinguishable from the authors and those oftheir fellow academics who are called upon to support their candidacy for promotion andlor tenure: Nonetheless; those responsible for getsuch a work in typically go through the motions of pre-publication usually by having organization members review one another's submissions. The targeted readership, in short, is self-selected. publica ting=\n\nIn short; the process of pre-reviewing academic books is pragmatic to the core even though suffused with an aura of scholarship, intellectualism, and the advancement oflearning. For, its purpose; for all but the very few elitein a given field, is to satisfy the publish-or-perish requirement for continued employment and perhaps meaningful professional esteem among ones peers. This the reality of the matter, how does one go about identifying the ethical issues that are at play for participants in this process? being\n\nThese remarks about academic book publishing practices will be received differently depending on where the reader is located in relationship to the hier archy of academe: To the well-placed, may be written off as sour grapes; to the less well placed, however, may well call forth remembrances of per sonal experiences. An study could perhaps show a correlation, however, between scholars' institutional status and their ability to get book manof lower-echelon publications as compared to prestigious publications . Nor is it obvious how much that should matter; given the purpose of both, namely; professional career advancement. they empirical\n\n## Is Transparent Book Reviewing Unethical?\n\nAs noted above, anyone partial to fundamental fairness, opportuand equal respect must find the transparency of academic book reviewethically troublesome. This; however; is not equivalent to saying that it is unethical. For, the latter claim surely must depend on more than allegiance to certain values defended by some social and political theorists (among whom I would include myself) . And in fact there are numerous arguments applying such values to the book publishing process. These can be divided into two types: (1) external to academe and (2) internal to academe. equal nity ing against\n\nThe principal external type of argument is at bottom economic in orientation and as such can be called commercial. Its proponents focus on publish as a commercial process and assume accordingly that only what will sell and, ing\n\nin this age of conglomerate ownership; at a substantial proft, should be lished. This narrow view of publishers' responsibilities is a direct challenge to the validity of the arts and humanities as cultural assets. Ás applied in practhe few notable writers whose works are deemed fairly marketable: As already noted, however, it does reputable but low-selling authors off the lists of major publishing houses and on to those of willing university presses, thereby diminishing the opportunities available to less marketable academic authors. pub push\n\nWith or without benefit of social Darwinism as a rationale, the elite take it for that the distribution of academic positions; and privileges is determined on the whole by merit: the best inevitably rise to, represent, and help perpetuate the top: For them accordingly it is close to meaningless to introduce democratic values into any aspect of this system; including in par ticular the book reviewing process. Advocates of professional collegiality; by contrast;, stress the responsibilities one has as a member of a profession to help others enter, master, and advance the profession. It goes without saying that anyone truly committed to this vision will review book manuscripts in a man ner different from the profession's elite. And will do so with an explicit awareness that their professional acts are subject to ethical norms and standards, including fundamental fairness and equal opportunity: perks; granted they quite\n\nThe principal internal argument focuses on the well-being ofa discipline; which as practiced; constitutes a profession. This argument typically assumes that academic publishing should not be reduced to its commercial aspects because its principal function is to disseminate new learning in a particular field. Thus; on this view; its practitioners should collaborate with one another to make this new learning available. Those who take this professional stance are not homogeneous; however; in their approach to advancing the profession; They split into two separate and conflicting views. One stresses competition and for understandable reasons is more likely to be defended by a professions elite. The other, more likely to be defended by less prestigious members of a profession; stresses collegiality .\n\nThe competition model takes its inspiration; in large part, from the way scientists obtain and distribute perks; usually in the form ofpositions; research funding, and awards. Anonymity is a low priority value among scientists as review one another's dossiers; grant applications; and award nominations. The stellar performers in a field are favored without apology or regret, as are their protégés by association, and the burden of 'is decidedly on any one without name recognition Or sponsorship who wishes to enter the inner sanctum of a specialty. Flawed as this system may be, it is assumed to be best suited to the advancement of a scientific field. If ethics plays any role in this system it is to fault any proposal for an alternative approach as a likely hindrance to progress. Thus in the name of progress; women were excluded they special proof long\n\nfrom scientific research, and even when admitted in the twentieth century were often denied credit for their contributions (Harding, 1991; Keller, 1985) . They now have achieved a substantial presence in the humanities, including philosophy; and more recently in academic administration as well. Considerhow little the \"old network\" helped them along the way; one can readily appreciate why women who now hold positions in academe often espouse the collegiality model for reviewing colleagues' work. they boys ing\n\nIn conclusion, for a time (until about the 1970s) the process of reviewacademic books, in particular, those written by philosophers; was dominated by a professional elite who were associated with elite academic institu tions. This domination still prevails to the advantage of the top-echelon universities with which those who make up this professional elite are affiliated as faculty andlor former doctoral students. But no longer determine what published. For as special-interest sub-organizations have come into and taken on publishing responsibilities for the benefit of their members, the number of outlets for philosophical work has expanded. Most alternative out lets lack the prestige ofthe paradigm publishers; and are in their own way controlled by the leading members in each sub-organization. Moreover, focus on collective publications rather than monographs. are more com mitted, though, to the values of participatory democracy in the reviewing process than is the case with elitist outlets. Besides; the publishing service provide contributes very substantially to their members' quest for affirmative personnel decisions at the lower-echelon and universities with which are affiliated. Because of these alternative outlets for articles, though sel dom for books; several of the ethical issues that I noted at the outset of this paper fundamental fairness and opportunity ~ are somewhat neutral ized. Because these outlets are themselves only a fall-back arrangement that in no way disturbs the institutional bias I have described, however, at least one ethical issue in academic book reviewing remains unresolved and indeed barely even addressed. This relates to the third value I noted, namely the right (much favored by highest echelon philosophers) to respect. long ing they7 being gets\\_ they they They they colleges they equal equal\n\nThe collegiality model is not based on communitarian values but in some respects draws upon these insofar as it stresses cooperation, mutual assistance; and participatory decision making. It is at work in the sub-group associations members share in common. Funding is a factor in all this, but is subordinate to dissemination ofknowledge via academically respectable publications . Based on my own experience in a handful of these organizations; I would say differ primarily in the subject matter to which each is dedicated: philosophi cal views of technology; law; social and political issues, Americana, culture; and so on. Another characteristic of many of these organizations is their multi-disciplinary membership and eclectic methodologies. they popular\n\n## Notes\n\n- See in this regard Byrne (forthcoming);\n- 3 If this institutional ranking is at work as I claim it is, it is at work even more bluntly if not brutally when applied to submissions from faculty who are affiliated with traditionally black colleges and universities. So for some individuals in academe there are extra layers ofbias added on to the hierarchical bias to which most academic authors are subject.\n- 2 There is an ongoing debate about whether single or double blind reviewing is way to maintain anonymity and fairness of outcome (see Blank, 1991). What [ am suggesting here is that institutional bias is s0 endemic in the reviewing process that these methodological devices, s0 helpful to assure objectivity when studying natural processes, cannot be relied on to render publication decisions objective and impartial. better\n4. This would not be easy to research. Even if limited to university presses and corporate publishers with large lists in philosophy it should include not only U.S. but also U.K, Canadian, and perhaps Australian publishing houses over, say a ten-year period. Moreover; the assessment of an author's institutional status would need to include not just his or her employer but also the university at which he or she did doc toral studies. Assuming this could be done with regard to one discipline; such as losophy it would become unwieldy if expanded to include multiple disciplines and, a fortiori; if the longitudinal parameters were set at, say, twenty-five years. phi-\n5. In his carefully wrought critique of liberal acceptance of nation states' bias in immigration policies; Phillip Cole (2000) provides us with an excellent example ofhow one might to the principle of equal respect to argue, mutatis mutandis; bias in academic publishing. against appeal\n\n## References\n\nBlank, R , 1991 \"The Effects of Double-blind Versus Single-blind Reviewing: Experimental Evidence from TheAmerican Economic Review: Anerican Econonic Review 81(5): 1041-1067.\n\nByrne, E, forthcoming: 'Business Ethics: A Useful Hybrid in Search of Integrity \" Journal of Business Ethics.\n\n'Ethical Practice in the Accounting Publish Process: Contrasting Opinions of Authors and Editors. Journal of Business Ethics 25(1): 15-31. ing\n\nCole, P, 2000. Philosophies 0f Exclusion: Liberal Political Theory and Immigration. Edinburgh: Edinburgh University Press:\n\nEditorial, 2001. \"Sponsorship, Authorship, and Accountability:' New England Journal of Medicine 335(11): 825-827.\n\nDeGeorge; R., and F Woodward, 1994. 'Ethics and Manuscript Reviewing ' Journal of Scholarly Publishing 25(3): 133-145.\n\nEpstein, J , 2001. Book Business: Publishing Past Present and Future; New York: Norton. Harding; S,, 1991. Whose Science? Whose Knowledge? Ithaca, NY: Cornell University Press .\n\nKeller, E F, 1985. Reflections on Gender and Science. New Haven: Yale University Press: \"Publication Ethics: Truth or Consequences,\" 2001. The Economist; 15-21 Sept.: 70-71.\n\n\"Journal Wars; 2000. The Economist; 12 66-67. May:\n\n<!-- image -->\n\n## COPYRIGHT  INFORMATION\n\nTITLE:   Reviewing academic books: are there  ethical   issues? SOURCE: Journal  of Information   Ethics 11 nol Spr   2002 WN: 0210504923011\n\nThe article and it is reproduced   with   permission. Further   reproduction of this   article in violation of the copyright is prohibited\\_ISN:1061-9321.SCJ:y-FTP:y\n\nCopyright   1982-2002 The H.W Wilson  Company .",
+    "responses": [
+      {
+        "source": "gpt-4o-2024-11-20",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"ADU1\": {\n      \"text\": \"Faculty members affiliated with U.S. colleges and universities that aspire to eminence must \\\"publish or perish.\\\"\",\n      \"label\": \"claim\"\n    },\n    \"ADU2\": {\n      \"text\": \"The process of deciding which books should be published favors authors who are associated with the most prestigious universities and other research institutions.\",\n      \"label\": \"claim\"\n    },\n    \"ADU3\": {\n      \"text\": \"Some think this bias could be minimized if the pre-publication reviewing of academic books included commitments to objectivity like those built into reviewing academic articles for journals.\",\n      \"label\": \"claim\"\n    },\n    \"ADU4\": {\n      \"text\": \"The academic and the publishing industries promote the hierarchy of perceived excellence that dominates the process of publishing academic books.\",\n      \"label\": \"premise\"\n    },\n    \"ADU5\": {\n      \"text\": \"Nor can any such showing be made by simply applying some standard-offering ethical system, because ethics has become too focused on individual decision making to address institutional arrangements appropriately.\",\n      \"label\": \"claim\"\n    },\n    \"ADU6\": {\n      \"text\": \"Editors of journals and collections ordinarily send article manuscripts (which I will hereafter call papers) to reviewers without identifying either the author or her institutional affiliation.\",\n      \"label\": \"premise\"\n    },\n    \"ADU7\": {\n      \"text\": \"The intended reason for this attention to anonymity is, of course, to level the playing field among scholars regardless of who they are or what their institutional affiliation.\",\n      \"label\": \"premise\"\n    },\n    \"ADU8\": {\n      \"text\": \"Clearly though, the practice does not conform to the principle.\",\n      \"label\": \"claim\"\n    },\n    \"ADU9\": {\n      \"text\": \"A kind of top-down bias, then, permeates and orchestrates the paper reviewing process.\",\n      \"label\": \"claim\"\n    },\n    \"ADU10\": {\n      \"text\": \"In contrast to the anonymity approach to paper reviewing, book reviewing in philosophy (as in other disciplines) is altogether transparent.\",\n      \"label\": \"claim\"\n    },\n    \"ADU11\": {\n      \"text\": \"The reviewer of a book manuscript, however chosen, knows from the outset the real name of the author.\",\n      \"label\": \"premise\"\n    },\n    \"ADU12\": {\n      \"text\": \"If the author is affiliated with a lower echelon institution, the reviewer will be tempted to assume at the outset that it is of inferior quality.\",\n      \"label\": \"claim\"\n    },\n    \"ADU13\": {\n      \"text\": \"It seems, then, that the prepublication screening of academics' book manuscripts is more restrictive than is the screening of papers.\",\n      \"label\": \"claim\"\n    },\n    \"ADU14\": {\n      \"text\": \"Given this state of affairs, many academics, especially in philosophy, can probably tell at least one story about having a book manuscript rejected.\",\n      \"label\": \"premise\"\n    },\n    \"ADU15\": {\n      \"text\": \"As noted above, anyone partial to fundamental fairness, opportunity, and equal respect must find the transparency of academic book reviewing ethically troublesome.\",\n      \"label\": \"claim\"\n    },\n    \"ADU16\": {\n      \"text\": \"The principal internal argument focuses on the well-being of a discipline, which as practiced, constitutes a profession.\",\n      \"label\": \"claim\"\n    },\n    \"ADU17\": {\n      \"text\": \"This domination still prevails to the advantage of the top-echelon universities with which those who make up this professional elite are affiliated as faculty and/or former doctoral students.\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"ADU2\",\n      \"target\": \"ADU3\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU4\",\n      \"target\": \"ADU2\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU6\",\n      \"target\": \"ADU7\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU7\",\n      \"target\": \"ADU8\",\n      \"type\": \"attack\"\n    },\n    {\n      \"source\": \"ADU11\",\n      \"target\": \"ADU10\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU12\",\n      \"target\": \"ADU13\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU14\",\n      \"target\": \"ADU13\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU15\",\n      \"target\": \"ADU13\",\n      \"type\": \"attack\"\n    },\n    {\n      \"source\": \"ADU16\",\n      \"target\": \"ADU15\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU17\",\n      \"target\": \"ADU13\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "ADU1": {
+              "text": "Faculty members affiliated with U.S. colleges and universities that aspire to eminence must \"publish or perish.\"",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "The process of deciding which books should be published favors authors who are associated with the most prestigious universities and other research institutions.",
+              "label": "claim"
+            },
+            "ADU3": {
+              "text": "Some think this bias could be minimized if the pre-publication reviewing of academic books included commitments to objectivity like those built into reviewing academic articles for journals.",
+              "label": "claim"
+            },
+            "ADU4": {
+              "text": "The academic and the publishing industries promote the hierarchy of perceived excellence that dominates the process of publishing academic books.",
+              "label": "premise"
+            },
+            "ADU5": {
+              "text": "Nor can any such showing be made by simply applying some standard-offering ethical system, because ethics has become too focused on individual decision making to address institutional arrangements appropriately.",
+              "label": "claim"
+            },
+            "ADU6": {
+              "text": "Editors of journals and collections ordinarily send article manuscripts (which I will hereafter call papers) to reviewers without identifying either the author or her institutional affiliation.",
+              "label": "premise"
+            },
+            "ADU7": {
+              "text": "The intended reason for this attention to anonymity is, of course, to level the playing field among scholars regardless of who they are or what their institutional affiliation.",
+              "label": "premise"
+            },
+            "ADU8": {
+              "text": "Clearly though, the practice does not conform to the principle.",
+              "label": "claim"
+            },
+            "ADU9": {
+              "text": "A kind of top-down bias, then, permeates and orchestrates the paper reviewing process.",
+              "label": "claim"
+            },
+            "ADU10": {
+              "text": "In contrast to the anonymity approach to paper reviewing, book reviewing in philosophy (as in other disciplines) is altogether transparent.",
+              "label": "claim"
+            },
+            "ADU11": {
+              "text": "The reviewer of a book manuscript, however chosen, knows from the outset the real name of the author.",
+              "label": "premise"
+            },
+            "ADU12": {
+              "text": "If the author is affiliated with a lower echelon institution, the reviewer will be tempted to assume at the outset that it is of inferior quality.",
+              "label": "claim"
+            },
+            "ADU13": {
+              "text": "It seems, then, that the prepublication screening of academics' book manuscripts is more restrictive than is the screening of papers.",
+              "label": "claim"
+            },
+            "ADU14": {
+              "text": "Given this state of affairs, many academics, especially in philosophy, can probably tell at least one story about having a book manuscript rejected.",
+              "label": "premise"
+            },
+            "ADU15": {
+              "text": "As noted above, anyone partial to fundamental fairness, opportunity, and equal respect must find the transparency of academic book reviewing ethically troublesome.",
+              "label": "claim"
+            },
+            "ADU16": {
+              "text": "The principal internal argument focuses on the well-being of a discipline, which as practiced, constitutes a profession.",
+              "label": "claim"
+            },
+            "ADU17": {
+              "text": "This domination still prevails to the advantage of the top-echelon universities with which those who make up this professional elite are affiliated as faculty and/or former doctoral students.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU2",
+              "target": "ADU3",
+              "type": "support"
+            },
+            {
+              "source": "ADU4",
+              "target": "ADU2",
+              "type": "support"
+            },
+            {
+              "source": "ADU6",
+              "target": "ADU7",
+              "type": "support"
+            },
+            {
+              "source": "ADU7",
+              "target": "ADU8",
+              "type": "attack"
+            },
+            {
+              "source": "ADU11",
+              "target": "ADU10",
+              "type": "support"
+            },
+            {
+              "source": "ADU12",
+              "target": "ADU13",
+              "type": "support"
+            },
+            {
+              "source": "ADU14",
+              "target": "ADU13",
+              "type": "support"
+            },
+            {
+              "source": "ADU15",
+              "target": "ADU13",
+              "type": "attack"
+            },
+            {
+              "source": "ADU16",
+              "target": "ADU15",
+              "type": "support"
+            },
+            {
+              "source": "ADU17",
+              "target": "ADU13",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "ADU2": {
+              "text": "The process of deciding which books should be published favors authors who are associated with the most prestigious universities and other research institutions.",
+              "label": "claim"
+            },
+            "ADU3": {
+              "text": "Some think this bias could be minimized if the pre-publication reviewing of academic books included commitments to objectivity like those built into reviewing academic articles for journals.",
+              "label": "claim"
+            },
+            "ADU4": {
+              "text": "The academic and the publishing industries promote the hierarchy of perceived excellence that dominates the process of publishing academic books.",
+              "label": "premise"
+            },
+            "ADU5": {
+              "text": "Nor can any such showing be made by simply applying some standard-offering ethical system, because ethics has become too focused on individual decision making to address institutional arrangements appropriately.",
+              "label": "claim"
+            },
+            "ADU9": {
+              "text": "A kind of top-down bias, then, permeates and orchestrates the paper reviewing process.",
+              "label": "claim"
+            },
+            "ADU10": {
+              "text": "In contrast to the anonymity approach to paper reviewing, book reviewing in philosophy (as in other disciplines) is altogether transparent.",
+              "label": "claim"
+            },
+            "ADU11": {
+              "text": "The reviewer of a book manuscript, however chosen, knows from the outset the real name of the author.",
+              "label": "premise"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU2",
+              "target": "ADU3",
+              "type": "support"
+            },
+            {
+              "source": "ADU4",
+              "target": "ADU2",
+              "type": "support"
+            },
+            {
+              "source": "ADU11",
+              "target": "ADU10",
+              "type": "support"
+            }
+          ]
+        }
+      },
+      {
+        "source": "claude-3-5-sonnet-20241022",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"1\": {\n      \"text\": \"Faculty members affiliated with U.S. colleges and universities that aspire to eminence must \\\"publish perish.\\\"\",\n      \"label\": \"premise\"\n    },\n    \"2\": {\n      \"text\": \"the process of deciding which books should be published favors authors who are associated with the most prestigious universities and other research institutions\",\n      \"label\": \"claim\"\n    },\n    \"3\": {\n      \"text\": \"both the academic and the publishing industries promote the hierarchy ofper ceived excellence that dominates the process of publishing academic books\",\n      \"label\": \"premise\"\n    },\n    \"4\": {\n      \"text\": \"anyone committed to such democratic values as fundamental fairness; opportunity; and respect should have ethical concerns about this process\",\n      \"label\": \"claim\"\n    },\n    \"5\": {\n      \"text\": \"The institutionally biased reviewer will be on the alert for evidence of the mediocrity he or she already associates with the author's employing institution; and what is sought will be found.\",\n      \"label\": \"claim\"\n    },\n    \"6\": {\n      \"text\": \"the process of pre-reviewing academic books is pragmatic to the core even though suffused with an aura of scholarship, intellectualism, and the advancement oflearning\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"1\",\n      \"target\": \"2\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"3\",\n      \"target\": \"2\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"2\",\n      \"target\": \"4\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"5\",\n      \"target\": \"4\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"6\",\n      \"target\": \"4\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "1": {
+              "text": "Faculty members affiliated with U.S. colleges and universities that aspire to eminence must \"publish perish.\"",
+              "label": "premise"
+            },
+            "2": {
+              "text": "the process of deciding which books should be published favors authors who are associated with the most prestigious universities and other research institutions",
+              "label": "claim"
+            },
+            "3": {
+              "text": "both the academic and the publishing industries promote the hierarchy ofper ceived excellence that dominates the process of publishing academic books",
+              "label": "premise"
+            },
+            "4": {
+              "text": "anyone committed to such democratic values as fundamental fairness; opportunity; and respect should have ethical concerns about this process",
+              "label": "claim"
+            },
+            "5": {
+              "text": "The institutionally biased reviewer will be on the alert for evidence of the mediocrity he or she already associates with the author's employing institution; and what is sought will be found.",
+              "label": "claim"
+            },
+            "6": {
+              "text": "the process of pre-reviewing academic books is pragmatic to the core even though suffused with an aura of scholarship, intellectualism, and the advancement oflearning",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "1",
+              "target": "2",
+              "type": "support"
+            },
+            {
+              "source": "3",
+              "target": "2",
+              "type": "support"
+            },
+            {
+              "source": "2",
+              "target": "4",
+              "type": "support"
+            },
+            {
+              "source": "5",
+              "target": "4",
+              "type": "support"
+            },
+            {
+              "source": "6",
+              "target": "4",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "1": {
+              "text": "Faculty members affiliated with U.S. colleges and universities that aspire to eminence must \"publish perish.\"",
+              "label": "premise"
+            },
+            "2": {
+              "text": "the process of deciding which books should be published favors authors who are associated with the most prestigious universities and other research institutions",
+              "label": "claim"
+            },
+            "3": {
+              "text": "both the academic and the publishing industries promote the hierarchy ofper ceived excellence that dominates the process of publishing academic books",
+              "label": "premise"
+            },
+            "4": {
+              "text": "anyone committed to such democratic values as fundamental fairness; opportunity; and respect should have ethical concerns about this process",
+              "label": "claim"
+            },
+            "5": {
+              "text": "The institutionally biased reviewer will be on the alert for evidence of the mediocrity he or she already associates with the author's employing institution; and what is sought will be found.",
+              "label": "claim"
+            },
+            "6": {
+              "text": "the process of pre-reviewing academic books is pragmatic to the core even though suffused with an aura of scholarship, intellectualism, and the advancement oflearning",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "1",
+              "target": "2",
+              "type": "support"
+            },
+            {
+              "source": "3",
+              "target": "2",
+              "type": "support"
+            },
+            {
+              "source": "2",
+              "target": "4",
+              "type": "support"
+            },
+            {
+              "source": "5",
+              "target": "4",
+              "type": "support"
+            },
+            {
+              "source": "6",
+              "target": "4",
+              "type": "support"
+            }
+          ]
+        }
+      }
+    ],
+    "timestamp": 1752756845.808789
+  }
+]

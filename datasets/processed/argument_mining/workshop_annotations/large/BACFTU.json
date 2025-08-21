@@ -1,0 +1,331 @@
+{
+  "arguments": {},
+  "statements": {
+    "Untitled 1": {
+      "type": "equivalence-class",
+      "title": "Untitled 1",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 2",
+          "fromType": "equivalence-class",
+          "to": "Untitled 1",
+          "toType": "equivalence-class"
+        },
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 3",
+          "fromType": "equivalence-class",
+          "to": "Untitled 1",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "top-level-statement",
+          "isTopLevel": true,
+          "text": "Contemporary philosophy offers two distinct post-ontotheological strategies for approaching the divine: a post-Heideggerian hermeneutic approach and a materialist approach. ",
+          "title": "Untitled 1",
+          "startLine": 3,
+          "startColumn": 1,
+          "endLine": 7,
+          "endColumn": 318,
+          "section": "s1"
+        }
+      ],
+      "section": "s1",
+      "isUsedAsTopLevelStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Untitled 2": {
+      "type": "equivalence-class",
+      "title": "Untitled 2",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 2",
+          "fromType": "equivalence-class",
+          "to": "Untitled 1",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "text": "The post-Heideggerian hermeneutic approach articulates the divine not as a supreme being, but as an interdependent dimension of finite, contextual meaningfulness. The hermeneutical god-to-come is conceived as a potential futurity, present only as a hint or trace pointing to an absence. ",
+          "startLine": 4,
+          "startColumn": 4,
+          "endLine": 4,
+          "endColumn": 291,
+          "title": "Untitled 2",
+          "section": "s1"
+        }
+      ],
+      "section": "s1",
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Untitled 3": {
+      "type": "equivalence-class",
+      "title": "Untitled 3",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 4",
+          "fromType": "equivalence-class",
+          "to": "Untitled 3",
+          "toType": "equivalence-class"
+        },
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 5",
+          "fromType": "equivalence-class",
+          "to": "Untitled 3",
+          "toType": "equivalence-class"
+        },
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 3",
+          "fromType": "equivalence-class",
+          "to": "Untitled 1",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "text": "The materialist approach of Badiou and Meillassoux rejects Heideggerian finitude and uses mathematics as its ontological model. This strategy leads to two different outcomes: contemporary atheism (Badiou) or a contingent divine entity (Meillassoux). ",
+          "title": "Untitled 3",
+          "startLine": 5,
+          "startColumn": 4,
+          "endLine": 7,
+          "endColumn": 318,
+          "section": "s1"
+        }
+      ],
+      "section": "s1",
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Untitled 4": {
+      "type": "equivalence-class",
+      "title": "Untitled 4",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 4",
+          "fromType": "equivalence-class",
+          "to": "Untitled 3",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "text": "Badiou's contemporary atheism abandons any notion of divinity by understanding being as an inherently meaningless, pure multiplicity. ",
+          "startLine": 6,
+          "startColumn": 6,
+          "endLine": 6,
+          "endColumn": 140,
+          "title": "Untitled 4",
+          "section": "s1"
+        }
+      ],
+      "section": "s1",
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Untitled 5": {
+      "type": "equivalence-class",
+      "title": "Untitled 5",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 5",
+          "fromType": "equivalence-class",
+          "to": "Untitled 3",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "text": "Meillassoux reintroduces a God-entity as a virtual possibility - one that does not exist but could emerge contingently in the future. This notion of a virtual god, whose coming is unpredictable but possible, provides a basis for a rationally legitimate hope and may signal a new, non-ontotheological rationalism.",
+          "startLine": 7,
+          "startColumn": 6,
+          "endLine": 7,
+          "endColumn": 318,
+          "title": "Untitled 5",
+          "section": "s1"
+        }
+      ],
+      "section": "s1",
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    }
+  },
+  "relations": [
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "Untitled 2",
+      "fromType": "equivalence-class",
+      "to": "Untitled 1",
+      "toType": "equivalence-class"
+    },
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "Untitled 4",
+      "fromType": "equivalence-class",
+      "to": "Untitled 3",
+      "toType": "equivalence-class"
+    },
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "Untitled 5",
+      "fromType": "equivalence-class",
+      "to": "Untitled 3",
+      "toType": "equivalence-class"
+    },
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "Untitled 3",
+      "fromType": "equivalence-class",
+      "to": "Untitled 1",
+      "toType": "equivalence-class"
+    }
+  ],
+  "map": {
+    "nodes": [
+      {
+        "id": "s1",
+        "title": "BACFTU",
+        "type": "group-map-node",
+        "color": "#DADADA",
+        "fontColor": "#000000",
+        "level": 1,
+        "labelTitle": "BACFTU",
+        "children": [
+          {
+            "id": "n0",
+            "title": "Untitled 1",
+            "type": "statement-map-node",
+            "labelText": "Contemporary philosophy offers two distinct post-ontotheological strategies for approaching the divine: a post-Heideggerian hermeneutic approach and a materialist approach. ",
+            "color": "#1b9e77",
+            "fontColor": "#000000"
+          },
+          {
+            "id": "n1",
+            "title": "Untitled 2",
+            "type": "statement-map-node",
+            "labelText": "The post-Heideggerian hermeneutic approach articulates the divine not as a supreme being, but as an interdependent dimension of finite, contextual meaningfulness. The hermeneutical god-to-come is conceived as a potential futurity, present only as a hint or trace pointing to an absence. ",
+            "color": "#1b9e77",
+            "fontColor": "#000000"
+          },
+          {
+            "id": "n2",
+            "title": "Untitled 3",
+            "type": "statement-map-node",
+            "labelText": "The materialist approach of Badiou and Meillassoux rejects Heideggerian finitude and uses mathematics as its ontological model. This strategy leads to two different outcomes: contemporary atheism (Badiou) or a contingent divine entity (Meillassoux). ",
+            "color": "#1b9e77",
+            "fontColor": "#000000"
+          },
+          {
+            "id": "n3",
+            "title": "Untitled 4",
+            "type": "statement-map-node",
+            "labelText": "Badiou's contemporary atheism abandons any notion of divinity by understanding being as an inherently meaningless, pure multiplicity. ",
+            "color": "#1b9e77",
+            "fontColor": "#000000"
+          },
+          {
+            "id": "n4",
+            "title": "Untitled 5",
+            "type": "statement-map-node",
+            "labelText": "Meillassoux reintroduces a God-entity as a virtual possibility - one that does not exist but could emerge contingently in the future. This notion of a virtual god, whose coming is unpredictable but possible, provides a basis for a rationally legitimate hope and may signal a new, non-ontotheological rationalism.",
+            "color": "#1b9e77",
+            "fontColor": "#000000"
+          }
+        ]
+      }
+    ],
+    "edges": [
+      {
+        "id": "e1",
+        "type": "map-edge",
+        "relationType": "support",
+        "from": "n1",
+        "to": "n0",
+        "fromEquivalenceClass": "Untitled 2",
+        "toEquivalenceClass": "Untitled 1"
+      },
+      {
+        "id": "e2",
+        "type": "map-edge",
+        "relationType": "support",
+        "from": "n3",
+        "to": "n2",
+        "fromEquivalenceClass": "Untitled 4",
+        "toEquivalenceClass": "Untitled 3"
+      },
+      {
+        "id": "e3",
+        "type": "map-edge",
+        "relationType": "support",
+        "from": "n4",
+        "to": "n2",
+        "fromEquivalenceClass": "Untitled 5",
+        "toEquivalenceClass": "Untitled 3"
+      },
+      {
+        "id": "e4",
+        "type": "map-edge",
+        "relationType": "support",
+        "from": "n2",
+        "to": "n0",
+        "fromEquivalenceClass": "Untitled 3",
+        "toEquivalenceClass": "Untitled 1"
+      }
+    ]
+  },
+  "sections": [
+    {
+      "type": "section",
+      "id": "s1",
+      "level": 1,
+      "title": "BACFTU",
+      "children": [],
+      "ranges": [],
+      "startLine": 1,
+      "startColumn": 1,
+      "endLine": 7,
+      "endColumn": 318,
+      "fontColor": "#000000",
+      "color": "#DADADA",
+      "isGroup": true
+    }
+  ],
+  "tags": {}
+}
+

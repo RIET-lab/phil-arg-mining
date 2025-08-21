@@ -1,0 +1,332 @@
+[
+  {
+    "identifier": "NEEGRT-3",
+    "system_prompt": "## GOAL\nArgument‑mine the following paper to extract its comprehensive argumentative structure.\n\n## DEFINITIONS\n1. **Argument**: A set of propositions, including some number of premises and a conclusion. The premises should logically entail the conclusion.\n2. **Claim**: A proposition that asserts something to be true or false, typically requiring justification or evidence.\n3. **Premise**: A proposition that provides evidence, justification, or logical support for a claim or conclusion.\n\n## CRITICAL REQUIREMENTS\n1. **VERBATIM EXTRACTION ONLY**: Each ADU text must be copied EXACTLY from the paper with no modifications, paraphrasing, or combining of separate sentences.\n2. **NO HALLUCINATION**: Do not create, modify, or invent text that does not appear exactly in the source.\n3. **EXACT MATCHING**: Every word, punctuation mark, and spacing must match the original precisely.\n\n## DIRECTIONS\n1. **Identify Argumentative Discourse Units (ADUs)**  \n   - ADU = any contiguous text span functioning as a claim or a premise in the reasoning structure.\n   - **BE HIGHLY SELECTIVE**: Only include ADUs that are crucial to the overarching argument structure.\n   - Focus on significant claims and premises that contribute meaningfully to the argumentative flow.\n   - **AVOID NOISE**: Skip ADUs that are merely descriptive, tangential, or do not substantially advance the argument.\n   - Prioritize quality over quantity - fewer accurate, important ADUs are better than many insignificant ones.\n   - **EXTRACT ONLY**: Copy text spans exactly as they appear, without any modifications.\n2. **Classify each ADU**  \n   - Label = either `\"claim\"` or `\"premise\"`.  \n3. **Detect directed relations**  \n   - Relation = `\"support\"` or `\"attack\"`, from one ADU (source) to another (target).\n   - Map how ADUs connect to form reasoning chains.\n   - Focus on relationships between the most significant ADUs.\n   - Include relationships between premises that strengthen or weaken each other.\n4. **Verbatim spans**  \n   - Each `\"text\"` value must be copied EXACTLY from the paper with zero modifications.\n   - Do not paraphrase, summarize, or combine separate sentences.\n   - Do not add, remove, or change any words, punctuation, or spacing.\n   - If unsure about exact wording, skip that ADU rather than guess.\n\n## WHAT TO CAPTURE\n**INCLUDE ONLY:**\n- Main argumentative threads that are central to the paper's contribution\n- Core claims that represent the paper's primary arguments or findings\n- Key premises that provide essential support for major claims\n- Critical counterarguments and their refutations\n- Reasoning chains that demonstrate how main conclusions are derived\n\n**EXCLUDE (AVOID NOISE):**\n- Minor details, examples, or descriptive content that don't advance the argument\n- Tangential points or side discussions\n- Pure background information or literature review content\n- Methodological details unless they constitute argumentative claims\n- Obvious statements or commonly accepted facts\n- Redundant or repetitive argumentative content\n\n**GUIDING PRINCIPLE**: If removing an ADU would not significantly impact understanding of the paper's argumentative structure, it should be excluded.\n\n## QUALITY CONTROL\n- Before finalizing each ADU, verify the text exists exactly in the source\n- Prefer fewer, accurate ADUs over many potentially modified ones\n- When in doubt about exact wording, omit the ADU\n\n## OUTPUT FORMAT\nReturn **only** a single valid JSON object matching this schema.  \nDo **not** output any extra text, markdown, or explanations.\nDo **not** add comments.\n**RESPOND WITH ONLY**:\n```json\n{\n  \"ADUs\": {\n    \"<ADU_ID>\": {\n      \"text\": \"<exact span from paper>\",\n      \"label\": \"claim\" | \"premise\"\n    }\n    ...\n  },\n  \"relations\": [\n    {\n      \"source\": \"<ADU_ID>\",\n      \"target\": \"<ADU_ID>\",\n      \"type\": \"support\" | \"attack\"\n    }\n  ]\n}\n```",
+    "user_content": "## Go GLYPH<;11>; 's Revelation Thesis and the Epistemology of Colour Discrimination * †\n\n## Gerrit Neels\n\nSeptember 25, 2021\n\n## Abstract\n\nIn this paper, I raise an objection to Philip Go GLYPH<;11>; 's 'Revelation Thesis' as articulated in his Consciousness and Fundamental Reality (Go GLYPH<;11>; , 2017). In Section 1 I present the Revelation Thesis in the context of Go GLYPH<;11>; 's broader defence of pan-psychism. In Section 2 I argue that the Revelation Thesis entails the identity of indiscriminable phenomenal properties. In Section 3 I argue that the identity of indiscriminable phenomenal properties is false. The upshot is that the Revelation Thesis is false.\n\n## 1 Go GLYPH<;11>; 's Revelation Thesis\n\n## 1.1 The Role of the Revelation Thesis in Go GLYPH<;11>; 's Program\n\nCentral to Philip Go GLYPH<;11>; 's case against physicalism is what he calls the Direct Phenomenal Transparency Thesis. There are two components to this thesis: transparency, and direct phenomenal concepts. I summarize each in turn.\n\n* Forthcoming in Synthese please cite final draft\n\n† Thanks to Murat Aydede and two anonymous reviewers for helpful feedback on earlier drafts of this article.\n\nTransparency in general is a feature of certain concepts; 'A transparent concept reveals what it is for its referent to exist' (Go GLYPH<;11>; , 2017, p.97). Alternatively, 'when thinking a transparent thought, one grasps what one is conceiving of, metaphysically speaking' (Go GLYPH<;11>; , 2017, p.99). The idea here is that in possessing a transparent concept, the concept user grasps the essence of what it is for the concept to be instantiated. An example of a transparent concept in Go GLYPH<;11>; 's sense is a triangle. Anyone possessing the concept of a triangle can deduce that for there to be a triangle is for there to be a three-sided, two-dimensional figure. An example of an opaque concept (one that is not transparent) is water. One cannot simply deduce that for there to be water is for there to be H 2 O . Go GLYPH<;11>; further distinguishes between mildly and radically opaque concepts. A radically opaque concept reveals no significant properties of its referent, whereas a mildly opaque concept reveals significant accidental properties of its referent.\n\nTurning now to the direct phenomenal component of the thesis, the key idea is that of direct phenomenal concept . Introduced by David Chalmers, a direct phenomenal concept is one formed on the basis of attending to phenomenal experience: 'Direct phenomenal concepts are based in acts of attention to instances of phenomenal qualities' (Chalmers, 2003, p. 236). Go GLYPH<;11>; defines them in terms of conscious states: 'a direct phenomenal concept is a phenomenal concept of a conscious state the content of which is wholly based on attending to that state' (Go GLYPH<;11>; , 2017, p.107).\n\nOn accounts like Go GLYPH<;11>; 's and Chalmers', direct phenomenal concepts are intended to provide a bridge between conscious experience and beliefs formed on the basis of conscious experience. 'The content of a phenomenal concept and a corresponding phenomenal belief is partly constituted by an underlying phenomenal quality, in that the content will mirror the quality (picking out instances of the quality in all epistemic possibilities), and in that across a wide range of nearby conceptually possible cases in which the underlying quality is varied while background properties are held constant, the content will co-vary to mirror the quality. Let us call this sort of phenomenal concept a direct phenomenal concept' (Chalmers, 2003, p. 235). In this sense, the content of a direct phenomenal concept (and the content of a\n\nresulting phenomenal belief), is determined by phenomenal experience. As Chalmers describes it, in forming a direct phenomenal concept, the quality of experience that is being attended to is 'taken up' into the concept.\n\nAnother feature of direct phenomenal concepts is that they 'can be very fine-grained, picking out a very specific phenomenal quality (a highly specific shade of phenomenal redness, for example). Standing phenomenal conceptsareusuallymorecoarse-grained, pickingoutlessspecificqualities' (Chalmers, 2003, p.239). For example, the phenomenal concept of redness is a coarse-grained, standing phenomenal concept. The phenomenal concept of the particular hue / shade / tint of redness I form when I attend to my visual experience of the red bow on this gift basket in front of me just now is a fine-grained, direct phenomenal concept.\n\nPutting this all together, the Direct Phenomenal Transparency Thesis is the claim that direct phenomenal concepts are transparent; they reveal what it is for their referent to exist. In attending to one's pain, for example, one forms a direct phenomenal concept of being in that particular state of pain. That concept, Go GLYPH<;11>; claims, reveals what it is for pain of that sort to be instantiated.\n\nGo GLYPH<;11>; notes that Chalmers' famous two-dimensional argument against physicalism presumes that there are no radically opaque concepts. This is, he observes, a contentious presumption. As such, it leaves Chalmers' argument vulnerable. By allowing that there might be radically opaque concepts, but restricting his claims of transparency to direct phenomenal concepts, Go GLYPH<;11>; crafts an argument against physicalism that is much more resistant to critique. The details of this argument are beyond the scope of this paper. What is important for my purpose here is to note that the direct phenomenal transparency thesis is a crucial premise in Go GLYPH<;11>; 's argument against physicalism, which in turn is a crucial preliminary step in defending pan-psychism. Indeed, as Go GLYPH<;11>; says, 'without phenomenal transparency, the epistemic gap between the physical and the experiential has no metaphysical significance' (Go GLYPH<;11>; , 2017, p.17).\n\n## 1.2 The Exposition of the Revelation Thesis\n\nGo GLYPH<;11>; 's approach to defending the direct phenomenal transparency thesis is indirect. He notes that it is entailed by another thesis, the revelation thesis. The revelation thesis builds on the discussion of direct phenomenal concepts. He claims, 'In having a direct phenomenal concept, the token conscious state being attended to is directly presented to the concept user, in such a way that (i) the complete nature of the type to which it belongs is apparent to the concept user, and (ii) the concept user knows with certainty (or something close to it) that the token conscious state exists (as a token of that type)' (Go GLYPH<;11>; , 2017, p. 107). Note that the claim has two conjuncts. The second conjunct claims that the token conscious state that the concept user is attending to belongs to a delimitable type, and the concept user knowing with certainty that it belongs to that type. The first conjunct claims that the complete nature of the type is apparent to the concept user. Presumably, the types referenced here identify phenomenal properties, and the tokens identify particular instantiations of those properties.\n\nSince Go GLYPH<;11>; describes his revelation thesis as underwriting comparisons between phenomenal experiences, the 'complete nature' of such a direct phenomenal concept type evidently includes at least facts about relations that hold between it and other such types. For example, he describes a piece of abstract art that features a large orange patch that fills the left side of a viewer's field of vision, and a large red patch that fills the right side of the viewer's field of vision. He then asks his reader to consider an introspective judgement that the viewer of the painting might make based on attending to her experience-that she is currently having two similar experiences. 'In grasping the nature of each aspect of experience-the aspect representing the red splodge and the aspect representing the orange splodge-I grasp that they have similar natures' (Go GLYPH<;11>; , 2017, p. 112-113).\n\nGo GLYPH<;11>; distinguishes two variants of the revelation thesis:\n\nFull Revelation- In having a direct phenomenal concept of token conscious state C, C is directly presented to the concept user, in such a way that (i) the complete nature of the type to\n\nwhich C belongs is apparent to the concept user, and (ii) the concept user knows with rational certainty (or something close to it) that C exists.\n\nPartial Revelation- In having a direct phenomenal concept of conscious state C, some aspect A of C is directly presented to the concept user, in such a way that (i) the complete nature of the type to which A belongs is apparent to the concept user, and (ii) the concept user knows with rational certainty (or something close to it) that A exists. (Go GLYPH<;11>; , 2017, p.120).\n\nGo GLYPH<;11>; eschews the partial revelation reading in favour of the full revelation reading. That is, what is apparent to the user is not simply the complete nature of the type to which some aspect of her conscious state belongs. Rather, what is apparent to the user is the complete nature of the type to which her conscious state itself belongs.\n\nI take Go GLYPH<;11>; 's discussion of direct phenomenal concepts to include a pair of implicit commitments. First, on his account, we employ direct phenomenal concepts whenever we make introspective judgements about our phenomenal experience. More specifically, we employ them with respect to our experiences of colour, as in his example of the abstract art described above. He gives this as an example of the sort of introspective judgement that he claims we are 'super-justified' in believing. Further, note the role that direct phenomenal concepts play in his explanation for this super-justification, namely the revelation thesis. Second, on his account, each direct phenomenal concept belongs to a unique type. Note his use of the definite article ' the type' in his formulation of the revelation thesis. This is very puzzling. Phenomenal types are often nested; instantiations of phenomenal fire-engine red are also instantiations of phenomenal red. 1 Perhaps what Go GLYPH<;11>; has in mind here is that direct phenomenal concepts are maximally specific, and the unique type is that maximally specific type. Otherwise, I am not sure how to understand this assumption of uniqueness of type with respect to direct phenomenal concepts. If this is all correct,\n\n1 Thanks to an anonymous referee for suggesting this sort of example.\n\nGo GLYPH<;11>; 's view of direct phenomenal concepts di GLYPH<;11>; ers importantly from that of Chalmers. Whereas Chalmers notes that direct phenomenal concepts can be fine-grained, it appears that on Go GLYPH<;11>; 's account they always are fine-grained, and maximally so. While these are not trivial commitments, I will grant them for the sake of the arguments in what follows.\n\n## 1.3 Defense\n\nGo GLYPH<;11>; 's full revelation thesis, then, is a rather strong claim. What defence does he o GLYPH<;11>; er? He employs two strategies in defending the thesis. The first is to suggest it has strong intuitive appeal. He asks his reader to meditate on the following informal alternative expression of the thesis:\n\nSurely you know exactly what your pain is-what it is for someone to feel pained in precisely that way-just by attending to pain and thinking about it in terms of how it feels. There is nothing in any way hidden from you about the reality of how you're feeling; nor is it possible that you're not really feeling that way. And that's because the feeling is 'right there' for you, in such a way that its reality cannot be doubted (Go GLYPH<;11>; , 2017, p.108).\n\nMaybe the idea here is that we are supposed to see that the thesis is self-evident?\n\nSensing, perhaps, that this line of defence is unlikely to be very persuasive, Go GLYPH<;11>; also o GLYPH<;11>; ers his revelation thesis as an inference to the best explanation for what he calls super-justification. Super-justification is 'the claim that in general the degree of confidence it is permissible to have with regards to mathematical and introspective beliefs is much higher than the degree of confidence it is permissible to have with regards to perceptual beliefs, and that the degree of confidence it is permissible to have with regards to introspective and mathematical beliefs is roughly similar' (Go GLYPH<;11>; , 2017, p.112). Having described super-justification, and claiming that it is a surprising fact in need of an explanation, Go GLYPH<;11>; then claims that his revelation thesis is the best explanation for super-justification. 2\n\n2 One concern that might be raised here is that Go GLYPH<;11>; does not seem to have considered\n\n## 2 Implications of the Revelation Thesis\n\nIn this section I draw out some implications of the Revelation Thesis. My strategy will then be to argue in Section 3 that the implications are false, thereby showing that the revelation thesis is false as well. Note, though, that if it turns out that the revelation thesis is false, it does not follow that the direct phenomenal transparency thesis is false. However, if it turns out that the revelation thesis is false, then the direct phenomenal transparency thesis loses the support Go GLYPH<;11>; provides for it, and is perhaps left unmotivated.\n\n## 2.1 Identity of Indiscriminable Phenomenal Properties\n\nGo GLYPH<;11>; 's Revelation Thesis entails what I will call the Identity of Indiscriminable Phenomenal Properties (IIPP). Central to this thesis is the notion of indiscriminability. The sense I have in mind here is that of Williamson: 'to discriminate between x and y is to know that they are di GLYPH<;11>; erent' (Williamson, 1994, p.238). If, upon attending to x and y , a subject S knows they are di GLYPH<;11>; erent, then they are discriminable for her. Conversely, if, upon attending to x and y , S does not know they are di GLYPH<;11>; erent, then they are indiscriminable for her. 3 With this notion of indiscriminability in hand, I can now define IIPP:\n\nIIPP If, in forming direct phenomenal concepts, a concept user attends to separateaspectsofherexperience, andfindsthemtype-indiscriminable, then those aspects belong to the same phenomenal type.\n\nNote that sameness of phenomenal type here should be understood in terms of numerical identity. Further, recall that on Go GLYPH<;11>; 's treatment of direct phenomenal concepts the phenomenal types in question here are not those\n\nany other explanations. A famous objection to the procedure of inference to the best explanation is that in this sort of inference we may just be choosing 'the best of a bad lot' (Van Fraassen, 1989, p.143). Surely if anyone is susceptible to this sort of objection, it is the person considering just one explanation.\n\n3 I acknowledge that 'indiscriminability' ordinarily carries a modal connotation: ie. being able to discriminate. However, since the revelation thesis claims that the concept user has certain knowledge with respect to which phenomenal properties are being instantiated in the conscious state to which she is attending, this simpler version will su GLYPH<;14>; ce.\n\ndelimited by coarse-grained standing phenomenal concepts. Rather, they are those delimited by maximally specific, fine-grained direct phenomenal concepts. That is, they refer to maximally specific, fine-grained phenomenal properties.\n\nTo illustrate how a concept user might find separate aspects of her conscious experience to be type-indiscriminable, consider a variant of Go GLYPH<;11>; 's example of the painting with orange and red splodges. Suppose the subject is seeing a splodge of red in the left side of her field of vision, and seeing another splodge of red in the right side of her field of vision. Further suppose that the subject forms two direct phenomenal concepts with respect to these splodges. Call the direct phenomenal concept representing the phenomenal property the user is attending to in the left side of her field of vision DPCL, and the direct phenomenal concept representing the phenomenal property the user is attending to in the right side of her field of vision DPCR. She attends to these two phenomenal properties, and (by means of forming the direct phenomenal concepts) knows everything there is to know about the phenomenal type to which belong. IIPP is the claim that if the user does not know they belong to di GLYPH<;11>; erent phenomenal types, then they belong to the same exact, fine-grained phenomenal type.\n\nI maintain that the revelation thesis entails IIPP. Suppose the revelation thesis is true. Further, suppose DPCL represents a di GLYPH<;11>; erent phenomenal type than does DPCR. By the first conjunct of the Revelation thesis, the complete natures of the phenomenal types represented by DCPL and DCPR are apparent to the user. Furthermore, by the second conjunct, the concept user knows with certainty that the phenomenal quality she is attending to in the left side of her field of vision exists as a token of the type represented by DPCL, and that the phenomenal quality she is attending to in the right side of her field of vision exists as a token of the type represented by DPCR. Since identity facts are part of the complete natures of things, the concept user is in possession of all the identity facts regarding the phenomenal types represented by DPCL and DPCR. Therefore, the user knows with certainty that the phenomenal property represented by DPCL is of a di GLYPH<;11>; erent type than that represented by DPCL. Thus, if DPCL represents a di GLYPH<;11>; erent type\n\nthan does DPCR, then the user knows with certainty that the phenomenal quality she is attending to in the left side of her field of vision is of a di GLYPH<;11>; erent type than the phenomenal quality she is attending to in the right side of her field of vision. Thus, the two aspects are type-discriminable. By contraposition, then, if in forming direct phenomenal concepts, a concept user attends to separate aspects of her experience, and finds them typeindiscriminable, then those aspects belong to the same phenomenal type. Thus, the revelation thesis entails IIPP.\n\nA corollary of IIPP is that there are no type-indiscriminable di GLYPH<;11>; erences between direct phenomenal concepts. For reductio, suppose there was. That is, DPCL represents a di GLYPH<;11>; erent phenomenal type than does DPCR, but the concept user is unaware that they represent di GLYPH<;11>; erent types. By IIPP and the second conjunct of the previous sentence, then DPCL and DCPR represent the same type, a contradiction.\n\nAnother closely related consequence of RT is that direct phenomenal concepts do not admit of borderline cases. A borderline case, let us say, is one in which there is uncertainty whether a particular token phenomenal property belongs to one type rather than another. Suppose there were borderline cases. Then an agent would be uncertain whether a particular experience belonged to one type rather than another. But that contradicts the second conjunct of RT. Thus, RT implies that there are no borderline cases with respect to direct phenomenal concepts.\n\n## 3 Argument Against IIPP\n\n## 3.1 Pairwise Colour Discrimination\n\nGo GLYPH<;11>; takes it that introspective judgements between our conscious states are among the least contentious examples of super-justification. It was for this reason he chose the example of comparing the orange and red splodges. In this section, I will focus on exactly this sort of introspective judgement. In particular, I will focus on comparisons of phenomenal experiences of colour, an issue that has received a good deal of attention in analytic philosophy in\n\nthe past half century or so.\n\n## 3.1.1 The Phenomenon\n\nAcommonexample involves a subject viewing three colour samples (paint chips, let us say). The subject is unable to distinguish Sample x from Sample y , is unable to distinguish Sample y from Sample z , but is able to distinguish Sample x from Sample z . Examples like this abound in various contexts. David Armstrong raises it as an objection to 'sensory item' theories of perception (Armstrong, 1968). Discussions of vagueness use this phenomenon to treat colours as textbook examples of vague predicates (Dummett, 1975; Wright, 1975; Williamson, 1994). Closer to home for our purposes, Goodman considers the example in the context of describing the conditions for two qualia to be identical (Goodman, 1951).\n\nInterestingly, this is not just a thought experiment. We have data from actual experiments demonstrating this phenomenon, such as the one described by Diana Ra GLYPH<;11>; man. Her experiment involved 41 patches of coloured light arranged in a circle. They were designed to instantiate a phenomenal continuum between two noticeably di GLYPH<;11>; erent shades of green. There were redundancies in the series: roughly every other sample was physically identical to the preceding sample in the wheel. The starting points were randomized, and the subjects were asked to compare two neighbouring samples. If the subject judged them to be the same, they were then asked to compare the next two samples. The subject was taken around the circle, judging successive pairs of samples, until they judged two samples to be di GLYPH<;11>; erent (ie, when they came to the point where they were comparing the endpoints of the continuum). At that point, the experiment ended. 'At the end of the experiment we asked roughly half of the subjects if they had noticed any changes in the colors of the patches during the experiment. All said 'no''(Ra GLYPH<;11>; man, 2012, p.316). This despite the fact that the entire circle remained in view for the duration of the experiment.\n\n## 3.1.2 Non-transitivity of Indiscriminability\n\nIn the literature dealing with pairwise colour discrimination, it is near orthodoxy to say that indiscriminability is a non-transitive relation. That is, from the fact that x is indiscriminable from y , and y is indiscriminable from z , it does not follow that x is indiscriminable from z . 4\n\nGo GLYPH<;11>; , of course, is not in a position to follow the orthodox crowd on this point. For, as we have seen, his position entails that indiscriminability implies identity. Identity, of course, is transitive. Thus, his treatment of this phenomenon must preserve transitivity. Without yet having argued that the revelation thesis is false, I should point out that this is already a problem for Go GLYPH<;11>; . In his dialectic aim, the revelation thesis was meant to be an uncontroversial (or, at least, minimally controversial) starting point in the argument against physicalism. The fact that his thesis entails a minority position with respect to the transitivity of colour discrimination makes Go GLYPH<;11>; 's starting point more controversial than he may have intended.\n\n## 3.1.3 Two Promising Responses\n\nThere are some alternative lines of response to the phenomenon described above that initially appear to o GLYPH<;11>; er some resources for Go GLYPH<;11>; to account for it without jeopardizing the revelation thesis. Delia Gra GLYPH<;11>; -Fara describes (but does not endorse) a response to the phenomenon according to which 'for some su GLYPH<;14>; ciently slight amount of change (in colour, sound, position, etc.), we cannot perceive an object as having changed by less than that amount unless we perceive it as not having changed at all (as having changed by a zero amount)'(Gra GLYPH<;11>; , 2001, p.917). Note that Gra GLYPH<;11>; -Fara mentions change three times: the first one is an objective change, but the latter two are subjective. Insofar as the revelation thesis is concerned with change, 5 it is only concerned with the latter sense. According to this proposal, then, for\n\n4 Armstrong, Dummett, Wright, Williamson, and Goodman, mentioned above, all defend non-transitivity of indiscriminability, as do a number of others. See, for example: (Chuard, 2010; Clark, 1989; Deutsch, 2005; Hellie, 2005; Keefe, 2011; Pelling, 2008)\n\n5 Technically, the revelation thesis is not concerned specifically with change so much as it is concerned with di GLYPH<;11>; erence in general in this context.\n\nsome su GLYPH<;14>; ciently slight amount of di GLYPH<;11>; erence in stimulus, our phenomenal experience represents no di GLYPH<;11>; erence at all. And if that is correct, then we can be fallible in a way that is helpful to Go GLYPH<;11>; . Our perception, on this view, handles di GLYPH<;11>; erence in discrete jumps. Stimuli that lie within a specific range will produce the exact same phenomenal experience.\n\nDiana Ra GLYPH<;11>; man makes a di GLYPH<;11>; erent suggestion that may also be helpful for Go GLYPH<;11>; . She suggests that colour perception may be unstable. That is, for some patch y that is between patches x and z in colour, y may appear one way when compared with x , and another way when compared with z (Ra GLYPH<;11>; man, 2017).\n\nThe question of whether Gra GLYPH<;11>; -Fara's and Ra GLYPH<;11>; man's suggestions are compatible is an interesting one, but it is not particularly relevant for our exercise here. What is relevant is that if either (or both) are correct, then there is a way for Go GLYPH<;11>; to deny both non-transitivity while maintaining that we are infallible in these contexts. He could respond to the problem as follows:\n\nSure, while judging between x and y , the subject is unable to discriminate. And while judging between y and z , the subject is unable to discriminate. But this merely shows that the subject's experience of y next to x is di GLYPH<;11>; erent from the subject's experience of y next to z .\n\nThis line of response gains some plausibility from the nature of direct phenomenal concepts. As Chalmers describes, direct phenomenal concepts donotlastverylong. 'Thelifetimeofadirectphenomenalconceptislimited to the lifetime of the experience...that constitutes it. (In some cases a specific phenomenalconceptmightpersist for a few moments due to the persistence of a vivid iconic memory, but even this will soon disappear.)' (Chalmers, 2003, p.240). If, in the interval between comparing x with y and y with z one loses one direct phenomenal concept and forms another, then IIPP is not in play.\n\nHowever, this feature of direct phenomenal concepts raises other di GLYPH<;14>; -culties for Go GLYPH<;11>; . Note that in Go GLYPH<;11>; 's account, direct phenomenal concepts\n\nperform a demonstrative role. Recall that the revelation thesis is supposed to explain super-justification. That is, it is supposed to explain why 'even supposing I am asleep or in the Matrix, it's hard to dissuade myself of the evident truth that what it's like for me to experience that -the left- hand splodge- is similar to what it's like for me to experience that -the righthand splodge' (Go GLYPH<;11>; , 2017, p.110, emphasis in original). Charlie Pelling notes a worry about demonstrative concepts that are as short-lived as the ones we are considering. He cites an example from Wittgenstein: I can't demonstrate that I know my height by placing my hand on top of my head and claiming to be that tall. Rather, he suggests the following constraint for demonstrative concepts: 'to possess a demonstrative concept of a shade that his experience represents an object to him as having, a subject must be able to tell, after his experience no longer represents an object to him as having that shade, whether or not an object is being represented to him in a new experience as having that shade' (Pelling, 2007, p. 214). If direct phenomenal concepts must be constrained in this way, then this line of response is shut o GLYPH<;11>; for Go GLYPH<;11>; .\n\nIn a similar vein, Poston (2014) questions whether direct phenomenal beliefs can have the cognitive significance Chalmers and Go GLYPH<;11>; ascribe them. Thesebeliefs can only persist as long as the direct phenomenal concepts they employ. But those concepts persist ever so briefly. Poston's contention is that if direct phenomenal beliefs are so fleeting, then judgements of identity similarity and di GLYPH<;11>; erence are not direct phenomenal beliefs. If this is correct, then Go GLYPH<;11>; 's example of the judgement that his experience of the left-hand splodge is similar to his experience of the right-hand splodge is not actually a direct phenomenal belief.\n\nAnother worry for Go GLYPH<;11>; here is raised by Mills. 'It is one thing to allow that a patch may have di GLYPH<;11>; erent apparent colors at di GLYPH<;11>; erent times. It is quite another to insist that I cannot attend simultaneously to the apparent colors of all the patches, or at least enough of them-as few as three-to generate paradox. 6 To my knowledge, no empirical evidence supports\n\n6 Note that Mills is responding to Sorites style arguments in the literature on vagueness that reference this phenomenon. Hence his mention of a paradox.\n\nthis strong claim' (Mills, 2002, p. 387-388). If, as Mills suggests, it is possible to simultaneously attend to three of the patches that generate the phenomenon described in §3.1.1, then this line of response is unavailable to Go GLYPH<;11>; . On the other hand, Jackson and Pinkerton have argued that it is logically impossible for one and the same person to simultaneously be unable to distinguish x from y andunable to distinguish y from z andable to distinguish x from z (Jackson &; Pinkerton, 1973). They argue that since the subject can discriminate between x and z , she can then discriminate between x and y by noting that x is discriminable from z , but y is not. However, this argument involves both phenomenal experience and a subject's making further judgements about phenomenal experience. Since the revelation thesis is a claim about what can be known directly from introspection, it seems to me that Jackson and Pinkerton's argument is not an adequate response for Go GLYPH<;11>; to Mills' worry.\n\nLaying these worries aside, let us grant Go GLYPH<;11>; this line of response. Let us allow that the phenomenon of colour discrimination is not a problem for IIPP insofar as it is presented as a diachronic problem. As it happens, there is a less tractable problem for IIPP lurking in the nearby bushes.\n\n## 3.2 Phenomenal Continua\n\n## 3.2.1 The Phenomenon\n\nYesterday evening I enjoyed watching the sunset. At the top of my field of vision, the sky appeared a deep blue. At the bottom, it appeared a golden yellow. In between these two end-points was a perfectly smooth transition from blue to yellow. I was able to discriminate between the blue phenomenal experience at the top of my field of vision, and the yellow at the bottom. However, there were no discriminable boundaries between the hues that composed my visual field.\n\nIf IIPP were correct, then (given Go GLYPH<;11>; 's view of direct phenomenal concepts) this should not be possible. Recall that a corollary of IIPP was that there are no indiscriminable di GLYPH<;11>; erences with respect to direct phenomenal concepts. What this corollary predicts is that there be discrete bands of\n\ncolour in my experience of the sunset. Without indiscriminable di GLYPH<;11>; erences, my experience of a sunset should perhaps be similar in e GLYPH<;11>; ect to my experience of a rainbow. Why suppose that this is what is predicted by IIPP? Consider that I could pick out a finite number of hues in my field of vision. Bymylights, I perceived something between 5 and 10 hues. 7 If I can't detect the boundaries between these hues, then I can't tell where my experience of one hue ends and my experience of the next hue begins. And if I can't tell that, then there are indiscriminable di GLYPH<;11>; erences at the boundaries between hues.\n\nIn fact, I was unable to detect the boundaries between the various hues I discerned. Thus, there were indiscriminable di GLYPH<;11>; erences. And therefore, IIPP is false.\n\n## 3.2.2 Responses to the Phenomenon\n\nCrispin Wright presents a similar argument to this one in his case for the non-transitivity of colour discrimination (Wright, 1975). But, as we have seen above, that conclusion is at odds with IIPP. So, Wright's approach is of no help to the revelation thesis.\n\nIn response to Wright, Gra GLYPH<;11>; -Fara appeals to fallibilism. First, she notes that her version of fallibilism laid out above in §3.1.4 implies non-transitivity if phenomenal continua are possible. So, that version of fallibilism is no help for the revelation thesis here. She then introduces a di GLYPH<;11>; erent version of fallibilism that allows her to endorse transitivity. This version involves the claim that there is a distinction between how things look to a subject, and howthe subject notices that they look. Notice that this version of fallibilism is at odds with the revelation thesis, since both 'how things look' and 'how the subject notices they look' are both on the subjective side of the objective / subjective divide. By the revelation thesis, things on the subjective side are 'known with rational certainty (or something close to it)'. That is, there is no di GLYPH<;11>; erence between 'how things look' and 'how the subject\n\n7 The fact that I am not sure how many is itself a problem for the revelation thesis. Shouldn't I know with 'rational certainty' exactly how many hues composed this phenomenal experience?\n\nnotices they look', at least while the subject is attending to how things look. Gra GLYPH<;11>; -Fara summarizes: 'Can we be sure, when looking at a colour spectrum, that it does not really look to change discontinuously from red on the left to yellow on the right? Can we be sure that the spectrum does not really look to contain, at certain points, discrete but barely noticeable changes in colour? I do not see that we can be at all sure of these things' (Gra GLYPH<;11>; , 2001, p.922). Clearly this approach is of no help for the revelation thesis. The revelation thesis entails that if it did look to us that there were discrete but barely noticeable changes in a colour spectrum, we would know with rational certainty that it looked to us that way.\n\nNote also that the appeal to the short life-span of direct phenomenal concepts is of no help here, either. My experience of the phenomenal continuum in viewing the sunset was synchronic. All of the relevant direct phenomenal concepts were based on attending to the same experience. Thus, they were all alive simultaneously and throughout the duration of my attention to the experience.\n\nThe synchronic phenomenon of colour discrimination is thus a less tractable problem for the revelation thesis than the diachronic problem. The responses that showed some promise for the latter (controversial though they were), are of no help for the former.\n\n## Conclusion\n\nI conclude, then, that IIPP is false. Even if IIPP can stand in the face of the diachronic problem posed by pairwise colour matching, it cannot stand in the face of the existence of phenomenal continua. IIPP has the virtue of making falsifiable predictions about our phenomenal experience. Unfortunately for IIPP, those predictions are in fact falsified by our experience of phenomenal continua. Since IIPP is entailed by Go GLYPH<;11>; 's revelation thesis, we can infer by contraposition that it, too, is false. This leaves Go GLYPH<;11>; 's direct phenomenal transparency thesis without a defence.\n\n## References\n\nArmstrong, D. M. (1968). A materialist theory of the mind . Routledge.\n\nChalmers, D. (2003). The content and epistemology of phenomenal belief. In\n\n- Q. Smith &; A. Jokic (Eds.), Consciousness: New philosophical perspectives (p. 220-271). Oxford University press.\n\nChuard, P. (2010). Non-transitive looks &; fallibilism. Philosophical studies , 149 (2), 161-200.\n\nClark, A. (1989). The particulate instantiation of homogeneous pink. Synthese , 80 (2), 277-304.\n\nDeutsch, M. (2005). Intentionalism and intransitivity. Synthese , 144 (1), 1-22. Dummett, M. (1975). Wang's paradox. Synthese , 30 (3-4), 301-324.\n\nGo GLYPH<;11>; , P. (2017). Consciousness and fundamental reality . Oxford University Press.\n\nGoodman, N. (1951). The structure of appearance . Harvard University Press. Gra GLYPH<;11>; , D. (2001). Phenomenal continua and the sorites. Mind , 110 (440), 905-936.\n\nHellie, B. (2005). Noise and perceptual indiscriminability. Mind , 114 (455).\n\nJackson, F., &; Pinkerton, R. (1973). On an argument against sensory items. Mind , 82 (326), 269-272.\n\nKeefe, R. (2011). Phenomenal sorites paradoxes and looking the same. Dialectica , 65 (3), 327-344.\n\nMills, E. (2002). Fallibility and the phenomenal sorites. Nous , 36 , 384-407. Pelling, C. (2007). Conceptualism and the (supposed) non-transitivity of colour indiscriminability. Philosophical studies , 134 (2), 211-234.\n\nPelling, C. (2008). Exactness, inexactness, and the non-transitivity of perceptual indiscriminability. Synthese , 164 (2), 289-312.\n\nPoston, T. (2014). Direct phenomenal beliefs, cognitive significance, and the specious present. Philosophical Studies , 168 (2), 483-489.\n\nRa GLYPH<;11>; man, D. (2012). Indiscriminability and phenomenal continua. Philosophical perspectives , 26 , 309-322.\n\nRa GLYPH<;11>; man, D. (2017). Vagueness, hysteresis, and the instability of color. In How colours matter to philosophy (pp. 237-248). Springer.\n\nVan Fraassen, B. (1989). Laws and symmetry . Oxford University Press.\n\nWilliamson, T. (1994). Vagueness . Routledge.\n\nWright, C. (1975). On the coherence of vague predicates. Synthese , 30 (3),\n\n325-365.",
+    "responses": [
+      {
+        "source": "gpt-4o-2024-11-20",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"ADU1\": {\n      \"text\": \"In this paper, I raise an objection to Philip Go GLYPH<;11>; 's 'Revelation Thesis' as articulated in his Consciousness and Fundamental Reality (Go GLYPH<;11>; , 2017).\",\n      \"label\": \"claim\"\n    },\n    \"ADU2\": {\n      \"text\": \"The upshot is that the Revelation Thesis is false.\",\n      \"label\": \"claim\"\n    },\n    \"ADU3\": {\n      \"text\": \"Transparency in general is a feature of certain concepts; 'A transparent concept reveals what it is for its referent to exist' (Go GLYPH<;11>; , 2017, p.97).\",\n      \"label\": \"premise\"\n    },\n    \"ADU4\": {\n      \"text\": \"Go GLYPH<;11>; notes that Chalmers' famous two-dimensional argument against physicalism presumes that there are no radically opaque concepts.\",\n      \"label\": \"premise\"\n    },\n    \"ADU5\": {\n      \"text\": \"By allowing that there might be radically opaque concepts, but restricting his claims of transparency to direct phenomenal concepts, Go GLYPH<;11>; crafts an argument against physicalism that is much more resistant to critique.\",\n      \"label\": \"premise\"\n    },\n    \"ADU6\": {\n      \"text\": \"Indeed, as Go GLYPH<;11>; says, 'without phenomenal transparency, the epistemic gap between the physical and the experiential has no metaphysical significance' (Go GLYPH<;11>; , 2017, p.17).\",\n      \"label\": \"premise\"\n    },\n    \"ADU7\": {\n      \"text\": \"Go GLYPH<;11>; 's Revelation Thesis entails what I will call the Identity of Indiscriminable Phenomenal Properties (IIPP).\",\n      \"label\": \"claim\"\n    },\n    \"ADU8\": {\n      \"text\": \"IIPP If, in forming direct phenomenal concepts, a concept user attends to separateaspectsofherexperience, andfindsthemtype-indiscriminable, then those aspects belong to the same phenomenal type.\",\n      \"label\": \"premise\"\n    },\n    \"ADU9\": {\n      \"text\": \"I maintain that the revelation thesis entails IIPP.\",\n      \"label\": \"claim\"\n    },\n    \"ADU10\": {\n      \"text\": \"A corollary of IIPP is that there are no type-indiscriminable di GLYPH<;11>; erences between direct phenomenal concepts.\",\n      \"label\": \"claim\"\n    },\n    \"ADU11\": {\n      \"text\": \"Another closely related consequence of RT is that direct phenomenal concepts do not admit of borderline cases.\",\n      \"label\": \"claim\"\n    },\n    \"ADU12\": {\n      \"text\": \"I conclude, then, that IIPP is false.\",\n      \"label\": \"claim\"\n    },\n    \"ADU13\": {\n      \"text\": \"Since IIPP is entailed by Go GLYPH<;11>; 's revelation thesis, we can infer by contraposition that it, too, is false.\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"ADU1\",\n      \"target\": \"ADU2\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU3\",\n      \"target\": \"ADU5\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU4\",\n      \"target\": \"ADU5\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU5\",\n      \"target\": \"ADU6\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU7\",\n      \"target\": \"ADU9\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU8\",\n      \"target\": \"ADU9\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU9\",\n      \"target\": \"ADU10\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU9\",\n      \"target\": \"ADU11\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU12\",\n      \"target\": \"ADU13\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "ADU1": {
+              "text": "In this paper, I raise an objection to Philip Go GLYPH<;11>; 's 'Revelation Thesis' as articulated in his Consciousness and Fundamental Reality (Go GLYPH<;11>; , 2017).",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "The upshot is that the Revelation Thesis is false.",
+              "label": "claim"
+            },
+            "ADU3": {
+              "text": "Transparency in general is a feature of certain concepts; 'A transparent concept reveals what it is for its referent to exist' (Go GLYPH<;11>; , 2017, p.97).",
+              "label": "premise"
+            },
+            "ADU4": {
+              "text": "Go GLYPH<;11>; notes that Chalmers' famous two-dimensional argument against physicalism presumes that there are no radically opaque concepts.",
+              "label": "premise"
+            },
+            "ADU5": {
+              "text": "By allowing that there might be radically opaque concepts, but restricting his claims of transparency to direct phenomenal concepts, Go GLYPH<;11>; crafts an argument against physicalism that is much more resistant to critique.",
+              "label": "premise"
+            },
+            "ADU6": {
+              "text": "Indeed, as Go GLYPH<;11>; says, 'without phenomenal transparency, the epistemic gap between the physical and the experiential has no metaphysical significance' (Go GLYPH<;11>; , 2017, p.17).",
+              "label": "premise"
+            },
+            "ADU7": {
+              "text": "Go GLYPH<;11>; 's Revelation Thesis entails what I will call the Identity of Indiscriminable Phenomenal Properties (IIPP).",
+              "label": "claim"
+            },
+            "ADU8": {
+              "text": "IIPP If, in forming direct phenomenal concepts, a concept user attends to separateaspectsofherexperience, andfindsthemtype-indiscriminable, then those aspects belong to the same phenomenal type.",
+              "label": "premise"
+            },
+            "ADU9": {
+              "text": "I maintain that the revelation thesis entails IIPP.",
+              "label": "claim"
+            },
+            "ADU10": {
+              "text": "A corollary of IIPP is that there are no type-indiscriminable di GLYPH<;11>; erences between direct phenomenal concepts.",
+              "label": "claim"
+            },
+            "ADU11": {
+              "text": "Another closely related consequence of RT is that direct phenomenal concepts do not admit of borderline cases.",
+              "label": "claim"
+            },
+            "ADU12": {
+              "text": "I conclude, then, that IIPP is false.",
+              "label": "claim"
+            },
+            "ADU13": {
+              "text": "Since IIPP is entailed by Go GLYPH<;11>; 's revelation thesis, we can infer by contraposition that it, too, is false.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU1",
+              "target": "ADU2",
+              "type": "support"
+            },
+            {
+              "source": "ADU3",
+              "target": "ADU5",
+              "type": "support"
+            },
+            {
+              "source": "ADU4",
+              "target": "ADU5",
+              "type": "support"
+            },
+            {
+              "source": "ADU5",
+              "target": "ADU6",
+              "type": "support"
+            },
+            {
+              "source": "ADU7",
+              "target": "ADU9",
+              "type": "support"
+            },
+            {
+              "source": "ADU8",
+              "target": "ADU9",
+              "type": "support"
+            },
+            {
+              "source": "ADU9",
+              "target": "ADU10",
+              "type": "support"
+            },
+            {
+              "source": "ADU9",
+              "target": "ADU11",
+              "type": "support"
+            },
+            {
+              "source": "ADU12",
+              "target": "ADU13",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "ADU1": {
+              "text": "In this paper, I raise an objection to Philip Go GLYPH<;11>; 's 'Revelation Thesis' as articulated in his Consciousness and Fundamental Reality (Go GLYPH<;11>; , 2017).",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "The upshot is that the Revelation Thesis is false.",
+              "label": "claim"
+            },
+            "ADU3": {
+              "text": "Transparency in general is a feature of certain concepts; 'A transparent concept reveals what it is for its referent to exist' (Go GLYPH<;11>; , 2017, p.97).",
+              "label": "premise"
+            },
+            "ADU4": {
+              "text": "Go GLYPH<;11>; notes that Chalmers' famous two-dimensional argument against physicalism presumes that there are no radically opaque concepts.",
+              "label": "premise"
+            },
+            "ADU5": {
+              "text": "By allowing that there might be radically opaque concepts, but restricting his claims of transparency to direct phenomenal concepts, Go GLYPH<;11>; crafts an argument against physicalism that is much more resistant to critique.",
+              "label": "premise"
+            },
+            "ADU6": {
+              "text": "Indeed, as Go GLYPH<;11>; says, 'without phenomenal transparency, the epistemic gap between the physical and the experiential has no metaphysical significance' (Go GLYPH<;11>; , 2017, p.17).",
+              "label": "premise"
+            },
+            "ADU7": {
+              "text": "Go GLYPH<;11>; 's Revelation Thesis entails what I will call the Identity of Indiscriminable Phenomenal Properties (IIPP).",
+              "label": "claim"
+            },
+            "ADU8": {
+              "text": "IIPP If, in forming direct phenomenal concepts, a concept user attends to separateaspectsofherexperience, andfindsthemtype-indiscriminable, then those aspects belong to the same phenomenal type.",
+              "label": "premise"
+            },
+            "ADU9": {
+              "text": "I maintain that the revelation thesis entails IIPP.",
+              "label": "claim"
+            },
+            "ADU10": {
+              "text": "A corollary of IIPP is that there are no type-indiscriminable di GLYPH<;11>; erences between direct phenomenal concepts.",
+              "label": "claim"
+            },
+            "ADU11": {
+              "text": "Another closely related consequence of RT is that direct phenomenal concepts do not admit of borderline cases.",
+              "label": "claim"
+            },
+            "ADU12": {
+              "text": "I conclude, then, that IIPP is false.",
+              "label": "claim"
+            },
+            "ADU13": {
+              "text": "Since IIPP is entailed by Go GLYPH<;11>; 's revelation thesis, we can infer by contraposition that it, too, is false.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU1",
+              "target": "ADU2",
+              "type": "support"
+            },
+            {
+              "source": "ADU3",
+              "target": "ADU5",
+              "type": "support"
+            },
+            {
+              "source": "ADU4",
+              "target": "ADU5",
+              "type": "support"
+            },
+            {
+              "source": "ADU5",
+              "target": "ADU6",
+              "type": "support"
+            },
+            {
+              "source": "ADU7",
+              "target": "ADU9",
+              "type": "support"
+            },
+            {
+              "source": "ADU8",
+              "target": "ADU9",
+              "type": "support"
+            },
+            {
+              "source": "ADU9",
+              "target": "ADU10",
+              "type": "support"
+            },
+            {
+              "source": "ADU9",
+              "target": "ADU11",
+              "type": "support"
+            },
+            {
+              "source": "ADU12",
+              "target": "ADU13",
+              "type": "support"
+            }
+          ]
+        }
+      },
+      {
+        "source": "claude-3-5-sonnet-20241022",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"A1\": {\n      \"text\": \"Central to Philip Go GLYPH<;11>; 's case against physicalism is what he calls the Direct Phenomenal Transparency Thesis.\",\n      \"label\": \"claim\"\n    },\n    \"A2\": {\n      \"text\": \"In having a direct phenomenal concept, the token conscious state being attended to is directly presented to the concept user, in such a way that (i) the complete nature of the type to which it belongs is apparent to the concept user, and (ii) the concept user knows with certainty (or something close to it) that the token conscious state exists (as a token of that type)\",\n      \"label\": \"claim\"\n    },\n    \"A3\": {\n      \"text\": \"Go GLYPH<;11>; 's Revelation Thesis entails what I will call the Identity of Indiscriminable Phenomenal Properties (IIPP).\",\n      \"label\": \"claim\"\n    },\n    \"A4\": {\n      \"text\": \"If, in forming direct phenomenal concepts, a concept user attends to separateaspectsofherexperience, andfindsthemtype-indiscriminable, then those aspects belong to the same phenomenal type.\",\n      \"label\": \"claim\"\n    },\n    \"A5\": {\n      \"text\": \"Yesterday evening I enjoyed watching the sunset. At the top of my field of vision, the sky appeared a deep blue. At the bottom, it appeared a golden yellow. In between these two end-points was a perfectly smooth transition from blue to yellow. I was able to discriminate between the blue phenomenal experience at the top of my field of vision, and the yellow at the bottom. However, there were no discriminable boundaries between the hues that composed my visual field.\",\n      \"label\": \"premise\"\n    },\n    \"A6\": {\n      \"text\": \"If IIPP were correct, then (given Go GLYPH<;11>; 's view of direct phenomenal concepts) this should not be possible.\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"A2\",\n      \"target\": \"A3\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A3\",\n      \"target\": \"A4\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A5\",\n      \"target\": \"A6\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A6\",\n      \"target\": \"A4\",\n      \"type\": \"attack\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "A1": {
+              "text": "Central to Philip Go GLYPH<;11>; 's case against physicalism is what he calls the Direct Phenomenal Transparency Thesis.",
+              "label": "claim"
+            },
+            "A2": {
+              "text": "In having a direct phenomenal concept, the token conscious state being attended to is directly presented to the concept user, in such a way that (i) the complete nature of the type to which it belongs is apparent to the concept user, and (ii) the concept user knows with certainty (or something close to it) that the token conscious state exists (as a token of that type)",
+              "label": "claim"
+            },
+            "A3": {
+              "text": "Go GLYPH<;11>; 's Revelation Thesis entails what I will call the Identity of Indiscriminable Phenomenal Properties (IIPP).",
+              "label": "claim"
+            },
+            "A4": {
+              "text": "If, in forming direct phenomenal concepts, a concept user attends to separateaspectsofherexperience, andfindsthemtype-indiscriminable, then those aspects belong to the same phenomenal type.",
+              "label": "claim"
+            },
+            "A5": {
+              "text": "Yesterday evening I enjoyed watching the sunset. At the top of my field of vision, the sky appeared a deep blue. At the bottom, it appeared a golden yellow. In between these two end-points was a perfectly smooth transition from blue to yellow. I was able to discriminate between the blue phenomenal experience at the top of my field of vision, and the yellow at the bottom. However, there were no discriminable boundaries between the hues that composed my visual field.",
+              "label": "premise"
+            },
+            "A6": {
+              "text": "If IIPP were correct, then (given Go GLYPH<;11>; 's view of direct phenomenal concepts) this should not be possible.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "A2",
+              "target": "A3",
+              "type": "support"
+            },
+            {
+              "source": "A3",
+              "target": "A4",
+              "type": "support"
+            },
+            {
+              "source": "A5",
+              "target": "A6",
+              "type": "support"
+            },
+            {
+              "source": "A6",
+              "target": "A4",
+              "type": "attack"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "A1": {
+              "text": "Central to Philip Go GLYPH<;11>; 's case against physicalism is what he calls the Direct Phenomenal Transparency Thesis.",
+              "label": "claim"
+            },
+            "A2": {
+              "text": "In having a direct phenomenal concept, the token conscious state being attended to is directly presented to the concept user, in such a way that (i) the complete nature of the type to which it belongs is apparent to the concept user, and (ii) the concept user knows with certainty (or something close to it) that the token conscious state exists (as a token of that type)",
+              "label": "claim"
+            },
+            "A3": {
+              "text": "Go GLYPH<;11>; 's Revelation Thesis entails what I will call the Identity of Indiscriminable Phenomenal Properties (IIPP).",
+              "label": "claim"
+            },
+            "A4": {
+              "text": "If, in forming direct phenomenal concepts, a concept user attends to separateaspectsofherexperience, andfindsthemtype-indiscriminable, then those aspects belong to the same phenomenal type.",
+              "label": "claim"
+            },
+            "A5": {
+              "text": "Yesterday evening I enjoyed watching the sunset. At the top of my field of vision, the sky appeared a deep blue. At the bottom, it appeared a golden yellow. In between these two end-points was a perfectly smooth transition from blue to yellow. I was able to discriminate between the blue phenomenal experience at the top of my field of vision, and the yellow at the bottom. However, there were no discriminable boundaries between the hues that composed my visual field.",
+              "label": "premise"
+            },
+            "A6": {
+              "text": "If IIPP were correct, then (given Go GLYPH<;11>; 's view of direct phenomenal concepts) this should not be possible.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "A2",
+              "target": "A3",
+              "type": "support"
+            },
+            {
+              "source": "A3",
+              "target": "A4",
+              "type": "support"
+            },
+            {
+              "source": "A5",
+              "target": "A6",
+              "type": "support"
+            },
+            {
+              "source": "A6",
+              "target": "A4",
+              "type": "attack"
+            }
+          ]
+        }
+      }
+    ],
+    "timestamp": 1752758054.8991926
+  }
+]

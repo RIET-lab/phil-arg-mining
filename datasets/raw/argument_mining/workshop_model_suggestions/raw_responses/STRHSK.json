@@ -1,0 +1,239 @@
+[
+  {
+    "identifier": "STRHSK",
+    "system_prompt": "## GOAL\nArgument‑mine the following paper to extract its comprehensive argumentative structure.\n\n## DEFINITIONS\n1. **Argument**: A set of propositions, including some number of premises and a conclusion. The premises should logically entail the conclusion.\n2. **Claim**: A proposition that asserts something to be true or false, typically requiring justification or evidence.\n3. **Premise**: A proposition that provides evidence, justification, or logical support for a claim or conclusion.\n\n## CRITICAL REQUIREMENTS\n1. **VERBATIM EXTRACTION ONLY**: Each ADU text must be copied EXACTLY from the paper with no modifications, paraphrasing, or combining of separate sentences.\n2. **NO HALLUCINATION**: Do not create, modify, or invent text that does not appear exactly in the source.\n3. **EXACT MATCHING**: Every word, punctuation mark, and spacing must match the original precisely.\n\n## DIRECTIONS\n1. **Identify Argumentative Discourse Units (ADUs)**  \n   - ADU = any contiguous text span functioning as a claim or a premise in the reasoning structure.\n   - **BE HIGHLY SELECTIVE**: Only include ADUs that are crucial to the overarching argument structure.\n   - Focus on significant claims and premises that contribute meaningfully to the argumentative flow.\n   - **AVOID NOISE**: Skip ADUs that are merely descriptive, tangential, or do not substantially advance the argument.\n   - Prioritize quality over quantity - fewer accurate, important ADUs are better than many insignificant ones.\n   - **EXTRACT ONLY**: Copy text spans exactly as they appear, without any modifications.\n2. **Classify each ADU**  \n   - Label = either `\"claim\"` or `\"premise\"`.  \n3. **Detect directed relations**  \n   - Relation = `\"support\"` or `\"attack\"`, from one ADU (source) to another (target).\n   - Map how ADUs connect to form reasoning chains.\n   - Focus on relationships between the most significant ADUs.\n   - Include relationships between premises that strengthen or weaken each other.\n4. **Verbatim spans**  \n   - Each `\"text\"` value must be copied EXACTLY from the paper with zero modifications.\n   - Do not paraphrase, summarize, or combine separate sentences.\n   - Do not add, remove, or change any words, punctuation, or spacing.\n   - If unsure about exact wording, skip that ADU rather than guess.\n\n## WHAT TO CAPTURE\n**INCLUDE ONLY:**\n- Main argumentative threads that are central to the paper's contribution\n- Core claims that represent the paper's primary arguments or findings\n- Key premises that provide essential support for major claims\n- Critical counterarguments and their refutations\n- Reasoning chains that demonstrate how main conclusions are derived\n\n**EXCLUDE (AVOID NOISE):**\n- Minor details, examples, or descriptive content that don't advance the argument\n- Tangential points or side discussions\n- Pure background information or literature review content\n- Methodological details unless they constitute argumentative claims\n- Obvious statements or commonly accepted facts\n- Redundant or repetitive argumentative content\n\n**GUIDING PRINCIPLE**: If removing an ADU would not significantly impact understanding of the paper's argumentative structure, it should be excluded.\n\n## QUALITY CONTROL\n- Before finalizing each ADU, verify the text exists exactly in the source\n- Prefer fewer, accurate ADUs over many potentially modified ones\n- When in doubt about exact wording, omit the ADU\n\n## OUTPUT FORMAT\nReturn **only** a single valid JSON object matching this schema.  \nDo **not** output any extra text, markdown, or explanations.\n\nRESPOND WITH ONLY:\n```json\n{\n  \"ADUs\": {\n    \"<ADU_ID>\": {\n      \"text\": \"<exact span from paper>\",\n      \"label\": \"claim\" | \"premise\"\n    }\n    ...\n  },\n  \"relations\": [\n    {\n      \"source\": \"<ADU_ID>\",\n      \"target\": \"<ADU_ID>\",\n      \"type\": \"support\" | \"attack\"\n    }\n  ]\n}\n```",
+    "user_content": "## Pre-print\n\nPublished  version  in: Encyclopedia of Renaissance Philosophy ,  edited  by  Marco  Sgarbi.  Cham: Springer, 2022, 1485Ð1489. DOI: https://doi.org/10.1007/978-3-319-14169-5\\_503.\n\nAndrea Strazzoni, Ph.D.\n\n## AuthorÕs Affiliation\n\nUniversitˆ  degli  Studi  di  Parma,  Dipartimento  di  Antichistica,  Lingue,  Educazione  e  Filosofia (A.L.E.F.)\n\nUniversity and Research Library Erfurt/Gotha, Gotha Research Centre\n\n## Title*\n\nHartlib, Samuel\n\n## Alternate names\n\nHartlieb, Samuel Gartlib, Samuel Hartlibius, Samuel\n\n## Dates and places of birth and death*\n\nBorn: 1596-1600, Elbing (Elbl ą g) (Prussia, Kingdom of Poland).\n\nDied: 10 March 1662, Westminster, London.\n\n## Abstract*\n\nThe  main  aim  of  Samuel  Hartlib  was  to  provide  an  advancement  of  learning  finalized  to  the amelioration  of  the  material  conditions  of  men  and  the  pursuit  of  a  religious  peace  i.e.  the unification of the Protestants. To this aim, inspired by Comenius, he devoted his efforts or gathering knowledge by the creation of a society or office of learned men (in technical fields, philosophy, and theology), and by the establishment of a network of correspondents (the Hartlib Circle). The method of discovery underlying his program of advancement of learning was inspired by Bacon's Novum Organum and by Jacopo Aconcio's method of analysis, while the categorization and transmission of knowledge had to be based on commonplace books and artificial languages. His plan of economic improvement, to be fulfilled mainly through the amelioration of husbandry, was motivated by the Puritan Millenarianism to which he adhered.\n\n## Biography*\n\nThe life of Hartlib is documented mostly by his letters and papers, rediscovered in 1933 (Turnbull 1947; HP). He was born in Elbing around 1600 from a German royal merchant and a half-English woman, whose father  was  a  deputy  of  the  English  Company  of  trade  in  the  Baltic.  Hartlib  was educated in Brzeg (Silesia) probably until 1621, although in 1614 he matriculated at the University of Kšnigsberg (Turnbull 1920, 5). Between 1621 and 1626 he was in England, where he studied in Cambridge  under  John  Preston.  He  settled  in  London  from  1628  (Turnbull  1947,  11-15,  34; Dickson 1998, 146), likely under the suggestion of John Dury, minister in Elbing between 1625 and 1630, as part of his efforts to reconcile the Protestants (Turnbull 1920, 7-13). Moreover, he moved to  England  as  a  consequence  of  the  Hapsburg  and  Catholic  conquest  of  the  region  of  Elbing (Trevor-Roper  1967,  231-234).  In  England  Hartlib  pursued  a  program  of  reform  of  learning  by establishing a school in Chichester, although unsuccessfully (Hartlib  1630).  Moreover,  he developed a program of reform of all knowledge, having been acquainted with Comenius's Janua linguarum (1631)  and  with  the  draft  of  the Pansophia ,  which  he  published  in  1637  and  1639 (Webster 1970a, 22-25; Č apkov‡ 1994, 80-85). This program was the outcome of a movement of reform  set  by  Ramus,  Keckermann  and  Alsted  (Hotson  1994  and  2011)  and  served  both  for  the advancement of learning and for religious peace (Clucas 1991; Houston 2014, 124-131). To these aims, Hartlib first envisaged the creation of a ÒSocietas Reformatorum et CorrespondencyÓ (1634) (Dickson  1998,  148-158),  and  then  (together  with  Dury)  of  an  ÒOffice  of  Public  Address  in Spiritual and Temporal mattersÓ, i.e. an institute intended to the gathering of information and to the accomplishment  of  Bacon's  and  ComeniusÕs  scientific  and  educational  programs  (Hartlib  1647, 1648; Slack 2015, 102-116). Moreover, he devoted some short treatises to the attempts of unifying the Protestants (Hartlib 1641, 1643), and to recollections of othersÕs essays, mainly in husbandry. In developing his project of gathering knowledge, Hartlib the ÒintelligencerÓ came to form a Circle, primarily constituted by himself, Dury and Comenius (Trevor-Roper 1967, 219-271), and involving several  experts  with  whom  Hartlib  corresponded  in  around  4,718  letters  (EMLO).  The  Hartlib Circle  included  Robert  Boyle,  Gabriel  Plattes  (author  of  the  Utopian  dialogue Macaria ,  1641), William Petty, John Milton, Theodore Haak and Henry Oldenburg. Members of the Circle formed in 1646-1647 the 'Invisible CollegeÕ that would later inspire the birth of the Royal Society, although Hartlib did not establish or set the program of both (Turnbull 1953; Webster 1974 and 1975, 58). For his writing and projects he spent all his provisions and obtained from the Government of the Commonwealth a pension in 1647. Still, he died in needy conditions in 1662 (Turnbull 1920, 48-51, 62).\n\n## Innovative aspects and influences\n\nHartlibÕs program of reform consisted of 1) the gathering of information and observations, and 2) their categorization in a unique body of knowledge ( pansophia )  (Clucas 1991, 35). This program relied  on  the  methodology  expounded  in  Bacon's Novum  Organum ,  which  Hartlib  opposes  the 'systematic' approach of Cartesian and Scholastic philosophy (Yeo 2010, 188-194), and on Jacopo Aconcio's method, consisting of the analysis of notions and facts as the main source of knowledge in  science  and  religion  (Clucas  1994,  58-62).  Moreover,  Hartlib's  program  required  a  method  of teaching,  learning  and  transmitting  knowledge:  accordingly,  he  appropriated  the  method  of epitomization of John Harrison (Clucas 1994, 64-68; Yeo 2007 and 2010), and recommended the use  of  summaries  and  commonplace  as  the  most  viable  means  in  learning  and  disseminating knowledge. This method, which in Hartlib's plans had to be taught to children in order to enhance their  memory,  would  inspire  William  Petty's  pedagogy  (Petty  1647;  Yeo  2007,  11-17  and  2010, 190-191).  Moreover,  Hartlib  promoted  the  use  of  artificial  languages,  and  availed  the  system  of abbreviations of George Dalgarno (Slaughter 1982, 104-116, 120-122; Strasser 1994; Lewis 2005). Hartlib's  program  was  aimed  to  practice:  first  and  foremost,  to  husbandry,  as  testified  to  by  his collections of technical essays (Hartlib 1651a, b, 1653a, b, 1655a, 1659) and by Plattes's Macaria (Webster 1972), expounding advices for the economic improvement of England. Moreover, Hartlib supported the reform of teaching by the creation of new academies centred on technical disciplines, such as those one can found in John Milton's On Education (Raylor 1993 and 2010). Husbandry was central to Hartlib's interests as it allowed to put in practice his Baconian method, moreover, it was  a  means  for  the  understanding  of  nature,  as  husbandry  was  based  on  the  knowledge  of alchemical  elements  (Matei  2012  and  2013;  Houston  2014,  129-132).  Also,  it  served  to  the transformation  of  the  world  that  was  a  main  ideal  of  Puritanism,  to  which  Hartlib  adhered  (Jue 2006,  67-68).  In  his  views,  the  amelioration  of  the  world  would  lead  to  the  fulfilment  of  the providential  plan  of  God  and  to  the  beginning  of  the  Millennium  (Hartlib  1651c;  Webster  1979; Mulsow  2001;  Jue  2006,  77-84;  Matei  2011;  Houston  2014,  125-126).  Hartlib  even  sponsored colonial projects as part of his project, such as those of the Huguenots Hugh L'Amy and Peter Le Pruvost (Irving 2008, 47-68; Leng 2009).\n\nCross-References (if there are any; please include a list of other entries in this encyclopedia that may be of further interest to your readers.)\n\nBacon, Francis Baconianism\n\nHaak, Theodore\n\nMilton, John - Renaissance Philosophy\n\nEducation - Renaissance Philosophy\n\nAlsted, Johann Heinrich\n\nComenius, J. A.\n\nKeckermann, Bartholomaeus\n\nDescartes, RenŽ - Renaissance Philosophy\n\nRamus, Petrus\n\nRamism\n\nDialogue\n\nEpistle/Letter\n\nChemistry\n\nElements, Natural\n\nExperiment\n\nObservation - Renaissance Philosophy\n\nPractical Knowledge\n\nScientific Academies\n\nPeace\n\nUtopia - Renaissance Philosophy\n\nWars of Religion\n\nAconcio, Jacopo\n\nAcademies\n\nCommonplace book\n\nEconomy and Trade\n\nEncyclopedia and Encyclopedism\n\nTextbook\n\nTreatise\n\nPuritanism\n\nAnalysis/Resolution\n\nCommonplace\n\n## References* (please provide the most important references for your topic) Primary literature\n\nHartlib,  Samuel.  1630.  Letter  from  Samuel  Hartlib  to  John  Dury,  13  September  1630.  EMLO, http://tinyurl.com/79g5ddl. Accessed 30 March 2016.\n\nHartlib, Samuel (ed.). 1637. Conatuum Comenianorum Praeludia: Porta Sapientiae Reserata, sive Pansophiae Seminarium . Oxford: ex officina G. Turneri.\n\nHartlib, Samuel (ed.). 1639. Comenii  Pansophiae  Prodromus .  London:  typis  Miles  Flesher, sumptibus L. Fawne, &amp; S. Gellibrand.\n\nHartlib,  Samuel.  1641. A  briefe  relation  of  that  which  hath  been  lately  attempted  to  procure ecclesiastical peace amongst Protestants . London: printed by I.R. for Andrew Crooke.\n\nHartlib, Samuel. 1643. A faithfvll and seasonable advice, or, The necessity of a correspondencie for the  advancement  of  the  Protestant  cause  humbly  suggested  to  the  great  councell  of  England assembled in Parliament . S.l.: printed by Iohn Hammond.\n\nHartlib, Samuel. 1647. A Brief Discourse Concerning The Accomplishment of our Rerformation: Tending to shew, That by an Office of Publike Addresse in Spirituall and Temporall Matters, the Glory of God, and the Happinesse of this Nation may be highly advanced. Considerations tending to the happy accomplishment of Englands reformation in church and state: Humbly presented to the piety and wisdome of the High and Honourable Court of Parliament . London: s.n.\n\nHartlib, Samuel. 1648. A Further Discoverie Of The Office Of Public Address  For Accommodations . London: s.n.\n\nHartlib,  Samuel.  1650. Londons  charity  inlarged,  stilling  the  orphans  cry .  London:  Printed  by Matth. Symmons, and Robert Ibbitson.\n\nHartlib, Samuel (ed.). 1651a. The reformed husband-man, or, A brief treatise of the errors, defects, and inconveniences of our English husbandry in ploughing and sowing for corn. London: printed by J.C.\n\nHartlib, Samuel (ed.). 1651b. Samuel Hartlib his legacie: or An enlargement of the Discourse of husbandry used in Brabant and Flaunders. London: Printed by H. Hills.\n\nHartlib, Samuel (ed.). 1651c. Clavis apocalyptica, or, The revelation revealed . London: Printed by W. D. for Tho. Matthewes.\n\nHartlib,  Samuel  (ed.).  1652. Cornu  copia,  a  miscellanium  of  lucriferous  and  most  fructiferous experiments,  observations  and  discoveries  immethodically  distributed  to  be  really  demonstrated and communicated in all sincerity . London: s.n.\n\nHartlib,  Samuel (ed.).  1653a. A discoverie for division or setting out of land, as to the best form . London: Printed for Richard Wodenothe.\n\nHartlib, Samuel (ed.). 1653b. A designe for plentie, by an universall planting of fruit-trees . London: Printed for Richard Wodenothe.\n\nHartlib, Samuel (ed.). 1654. The true and readie way to learne the Latine tongue . London: Printed by R. and W. Laybourn.\n\nHartlib, Samuel (ed.). 1655b. Chymical, medicinal, and chyrurgical addresses . London: printed by G. Dawson for Giles Calvert.\n\nHartlib,  Samuel (ed.).  1655a. The reformed Common-wealth of bees. Presented in severall letters and observations . London: Printed for Giles Calvert.\n\nHartlib,  Samuel  (ed.).  1659. The  compleat  husband-man:  or,  A  discourse  of  the  whole  art  of husbandry; both forraign and domestick . London: printed and are to be sold by Edward Brewster.\n\nMilton, John. 1644. Of Education . London: for Thomas Underhill.\n\nPetty,  William.  1647. The  advice  of  W.P.  to  Mr.  Samuel  Hartlib  for  the  advancement  of  some particular parts of learning . London: s.n.\n\nPlattes,  Gabriel.  1641. A  Description  of  the  Famous  Kingdome  of  Macaria .  London:  printed  for Francis Constable.\n\nPlattes, Gabriel. 2013. A Description of the Famous Kingdome of Macaria . In Matei, Oana. 2013. Macaria, the Hartlib Circle, and Husbanding Creation. Society and Politics 7/2 (14): 7-33 (16-23).\n\n## Secondary literature\n\nCagnolati, Antonella. 2001. Il circolo di Hartlib: riforme educative e diffusione del sapere (16301660 . Bologna: CLUEB.\n\nDickson, Donald R. 1998. The Tessera of Antilia. Utopian Brotherhoods &amp; Secret Societies in the Early Seventeenth Century . Leiden-Boston-K ö ln: Brill.\n\nČ apkov‡, Dagmar. 1994. Comenius and His Ideals: Escape from the Labyrinth. Samuel Hartlib and Universal Reformation: Studies in Intellectual Communication , ed. M. Greengrass, Michael Leslie, and Timothy Raylor, 75-91. Cambridge: Cambridge University Press.\n\nClucas, Stephen. 1991. Samuel HartlibÕs Ephemerides, 1635-59, and the Pursuit of Scientific and Philosophical Manuscripts: The Religious Ethos of an Intelligencer. The Seventeenth Century 6: 3355.\n\nClucas.  Stephen.  1994.  In  search  of  ÔThe  True  LogickÕ:  Methodological  Eclecticism  among  the ÔBaconian ReformersÕ. Samuel  Hartlib and Universal Reformation: Studies in Intellectual Communication ,  ed.  M.  Greengrass,  Michael  Leslie,  and  Timothy  Raylor,  51-74.  Cambridge: Cambridge University Press.\n\nClucas,  Stephen.  2010.  Samuel  Hartlib,  Intelligencing  and  Technology  in  Seventeenth  Century Europe. Leonardo da Vinci und Heinrich Schickhardt Zum  Transfer technischen Wissersimvormodern  Europa ,  ed.  R.  Kretzschmar  and  S.  Lorenz,  58-75.  Stuttgart:  Verlag  W. Kohhammer.\n\nEMLO.  Early Modern Letters Online -Samuel Hartlib. University of Oxford. 2015. http://emlo.bodleian.ox.ac.uk/blog/?catalogue=samuel-hartlib. Accessed 31 March 2016\n\nGreengrass,  Mark.  1996.  An  ÒIntelligencerÕs  workshopÓ:  Samuel  HartlibÕs  Ephemerides. Studia Comeniana et Historica 26: 48-62.\n\nGreengrass, Mark. 1998. Archive Refractions: HartlibÕs Papers and the Workings of an Intelligencer. Archives  of  the  Scientific  Revolution:  The  Formation  and  Exchange  of  Ideas  in Seventeenth-Century Europe , ed. M. Hunter, 35-48. Woodbridge: Boydell Press.\n\nGreengrass,  Mark.  2002.  Samuel  Hartlib  and  the  Commonwealth  of  Learning. The  Cambridge History of the Book in Britain. Volume IV: 1557-1659 ,  ed. J. Barnard et al., 304-322. Cambridge: Cambridge University Press.\n\nHotson, Howard. 1994. Philosophical Pedagogy in Reformed Central Europe Between Ramus and Comenius: A Survey of the Continental Background of the ÔThree ForeignersÕ. Samuel Hartlib and Universal Reformation: Studies in Intellectual Communication , ed. M. Greengrass, Michael Leslie, and Timothy Raylor, 27-50. Cambridge: Cambridge University Press.\n\nHotson,  Howard.  2011.  The  Ramist  Roots  of  Comenian  Pansophia. Ramus,  Pedagogy  and  the Liberal  Arts:  Ramism  in  Britain  and  the  Wider  World ,  ed.  S.J.  Reid  and  E.  Wilson,  227-252. Farnham (UK), Burlington (USA): Ashgate.\n\nHouston, Chlo ë .  2014. The Renaissance Utopia. Dialogue, Travel and the Ideal Society .  Farnham (UK), Burlington (USA): Ashgate.\n\nHP. Hartlib Papers. 2013. The University of Sheffield. http://hridigital.shef.ac.uk/hartlib. Accessed 31 March 2016.\n\nIrving, Sarah. 2008. Natural Science and The Origins of The British Empire . London: Pickering &amp; Chatto Publishers.\n\nJue, Jeffrey K. 2006. Heaven  Upon  Earth.  Joseph  Mede  (1586-1638)  and  the  Legacy  of Millenarianism . Dordrecht: Springer.\n\nLeng, Thomas. ÒA Potent Plantation Well Armed and PoliceedÓ: Huguenots, the Hartlib Circle, and British Colonization in the 1640s. The William and Mary Quarterly 66/1: 173-194.\n\nLewis,  Rhodri.  2005.  A  Babel  off  Broad  Street:  artificial  language  planning  in  1650s  Oxford. History of universities. Vol. XX/1, ed. M. Feingold, 108-145. Oxford: Oxford University Press.\n\nMatei, Oana. 2011. Macaria and the ethics of direct participation in the transformation of the world. Societate ş i Politic ă 10: 51-65.\n\nMatei, Oana. 2012. Gabriel Plattes, Hartlib Circle and the Interest for Husbandry in the Seventeenth Century England. Prolegomena 11/2: 207-224.\n\nMatei, Oana. 2013. Macaria, the Hartlib Circle, and Husbanding Creation. Society and Politics 7/2 (14): 7-33.\n\nMulsow, Martin. 2001. Who was the Author of the Ciavis apocalyptica of 1651? Millenarianism and Prophecy between Silesian Mysticism and the Hartlib Circle. Millenarianism and Messianism in Early Modern European Culture. Volume IV, Continental Millenarians: Protestants, Catholics, Heretics , ed. J.C. Laursen and R.H. Popkin, 57-76. Dordrecht: Springer.\n\nRaylor Timothy. 1992. Samuel Hartlib and the commonwealth of bees. Culture and Cultivation in Early  Modern  England:  Writing  and  the  Land ,  ed.  M  Leslie  and  T.  Raylor,  91-129.  Leicester: Leicester University Press.\n\nRaylor, Timothy. 1993. New Light on Milton and Hartlib. Milton Quarterly 27: 19-31.\n\nRaylor,  Timothy.  2010.  Milton,  the  Hartlib  Circle,  and  the  Education  of  the  Aristocracy. The Oxford  Handbook  of  Milton ,  ed.  N.  McDowell  and  N.  Smith,  382-406.  New  York:  Oxford University Press.\n\nSlack, Paul. 2015. The  Invention of Improvement.  Information and  Material Progress in Seventeenth-Century England . Oxford: Oxford University Press.\n\nSlaughter,  Mary  M.  1982. Universal  Languages  and  Scientific  Taxonomy  in  the  Seventeenth Century . Cambridge: Cambridge University Press.\n\nStrasser,  Gerhard.  1994.  Closed  and  Open  Languages:  Samuel  HartlibÕs  Involvement  with Cryptology  and  Universal  Languages. Samuel  Hartlib  and  Universal  Reformation:  Studies  in Intellectual  Communication ,  ed.  M.  Greengrass,  Michael  Leslie,  and  Timothy  Raylor,  151-161. Cambridge: Cambridge University Press.\n\n| Trevor-Roper, Hugh. 1967. Religion, the Reformation, and Social Change . New York: Harper & Row.                                                                                                                                                                              |\n|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|\n| Turnbull, George H. 1920. Samuel Hartlib: A Sketch of his life and his relations to J.A. Comenius London: Hodder&Stoughton.                                                                                                                                                   |\n| Turnbull, George H. 1947. Hartlib, Dury and Comenius. Gleanings from HartlibÕs Papers Liverpool and London: Liverpool University Press.                                                                                                                                       |\n| Turnbull, George H. 1953. Samuel Hartlib's Influence on the Early History of the Royal Society. Notes and Records of the Royal Society 10: 101-130.                                                                                                                           |\n| Yeo, Richard. 2007. Between Memory and Paperbooks: Baconianism and Natural History in Seventeenth-Century England. History of Science 45: 1-46.                                                                                                                               |\n| Yeo, Richard. 2010. Memory and Empirical Information: Samuel Hartlib, John Beale and Robert Boyle. The Body as Object and Instrument of Knowledge. Embodied Empiricism in Early Modern Science , ed. C.T. Wolfe and O. Gal, 185-210. Heidelberg-Dordrecht-New York: Springer. |\n| Yeo, Richard. 2014. Notebooks, English Virtuosi, and Early Modern Science . Chicago: Chicago University Press.                                                                                                                                                                |\n| Webster, Charles. 1968. The Origins of the Royal Society. History of Science 6: 106-128.                                                                                                                                                                                      |\n| Webster, Charles. 1970a. Introduction. Samuel Hartlib and the Advancement of Learning , ed. C. Webster, 1-71. Cambridge: Cambridge University Press.                                                                                                                          |\n| Webster, Charles. 1970b. Samuel Hartlib and the Great Reformation. Acta Comeniana 26: 147-64.                                                                                                                                                                                 |\n| Webster Charles. 1972. The Authorship and Significance of Macaria. Past &Present : 34-48                                                                                                                                                                                      |\n| Webster Charles. 1974. New Light on the Invisible College the Social Relations of English Science in the Mid-Seventeenth Century. Transactions of the Royal Historical Society 24: 19-42.                                                                                     |\n| Webster, Charles. 1975. The Great Instauration. Science, Medicine and Reform 1626-1660 London: Duckworth.                                                                                                                                                                     |\n| Webster, Charles. 1979. Utopian Planning and the Puritan Revolution: Gabriel Plattes, Samuel Hartlib and ÒMacariaÓ . Oxford: Wellcome Unit for the History of Medicine.                                                                                                       |",
+    "responses": [
+      {
+        "source": "gpt-4o-2024-11-20",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"ADU1\": {\n      \"text\": \"The main aim of Samuel Hartlib was to provide an advancement of learning finalized to the amelioration of the material conditions of men and the pursuit of a religious peace i.e. the unification of the Protestants.\",\n      \"label\": \"claim\"\n    },\n    \"ADU2\": {\n      \"text\": \"To this aim, inspired by Comenius, he devoted his efforts or gathering knowledge by the creation of a society or office of learned men (in technical fields, philosophy, and theology), and by the establishment of a network of correspondents (the Hartlib Circle).\",\n      \"label\": \"premise\"\n    },\n    \"ADU3\": {\n      \"text\": \"The method of discovery underlying his program of advancement of learning was inspired by Bacon's Novum Organum and by Jacopo Aconcio's method of analysis, while the categorization and transmission of knowledge had to be based on commonplace books and artificial languages.\",\n      \"label\": \"premise\"\n    },\n    \"ADU4\": {\n      \"text\": \"His plan of economic improvement, to be fulfilled mainly through the amelioration of husbandry, was motivated by the Puritan Millenarianism to which he adhered.\",\n      \"label\": \"premise\"\n    },\n    \"ADU5\": {\n      \"text\": \"Hartlib's program of reform consisted of 1) the gathering of information and observations, and 2) their categorization in a unique body of knowledge (pansophia).\",\n      \"label\": \"claim\"\n    },\n    \"ADU6\": {\n      \"text\": \"This program relied on the methodology expounded in Bacon's Novum Organum, which Hartlib opposes the 'systematic' approach of Cartesian and Scholastic philosophy, and on Jacopo Aconcio's method, consisting of the analysis of notions and facts as the main source of knowledge in science and religion.\",\n      \"label\": \"premise\"\n    },\n    \"ADU7\": {\n      \"text\": \"Moreover, Hartlib's program required a method of teaching, learning and transmitting knowledge: accordingly, he appropriated the method of epitomization of John Harrison, and recommended the use of summaries and commonplace as the most viable means in learning and disseminating knowledge.\",\n      \"label\": \"premise\"\n    },\n    \"ADU8\": {\n      \"text\": \"Husbandry was central to Hartlib's interests as it allowed to put in practice his Baconian method, moreover, it was a means for the understanding of nature, as husbandry was based on the knowledge of alchemical elements.\",\n      \"label\": \"premise\"\n    },\n    \"ADU9\": {\n      \"text\": \"In his views, the amelioration of the world would lead to the fulfilment of the providential plan of God and to the beginning of the Millennium.\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"ADU2\",\n      \"target\": \"ADU1\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU3\",\n      \"target\": \"ADU1\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU4\",\n      \"target\": \"ADU1\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU6\",\n      \"target\": \"ADU5\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU7\",\n      \"target\": \"ADU5\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU8\",\n      \"target\": \"ADU5\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU8\",\n      \"target\": \"ADU9\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "ADU1": {
+              "text": "The main aim of Samuel Hartlib was to provide an advancement of learning finalized to the amelioration of the material conditions of men and the pursuit of a religious peace i.e. the unification of the Protestants.",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "To this aim, inspired by Comenius, he devoted his efforts or gathering knowledge by the creation of a society or office of learned men (in technical fields, philosophy, and theology), and by the establishment of a network of correspondents (the Hartlib Circle).",
+              "label": "premise"
+            },
+            "ADU3": {
+              "text": "The method of discovery underlying his program of advancement of learning was inspired by Bacon's Novum Organum and by Jacopo Aconcio's method of analysis, while the categorization and transmission of knowledge had to be based on commonplace books and artificial languages.",
+              "label": "premise"
+            },
+            "ADU4": {
+              "text": "His plan of economic improvement, to be fulfilled mainly through the amelioration of husbandry, was motivated by the Puritan Millenarianism to which he adhered.",
+              "label": "premise"
+            },
+            "ADU5": {
+              "text": "Hartlib's program of reform consisted of 1) the gathering of information and observations, and 2) their categorization in a unique body of knowledge (pansophia).",
+              "label": "claim"
+            },
+            "ADU6": {
+              "text": "This program relied on the methodology expounded in Bacon's Novum Organum, which Hartlib opposes the 'systematic' approach of Cartesian and Scholastic philosophy, and on Jacopo Aconcio's method, consisting of the analysis of notions and facts as the main source of knowledge in science and religion.",
+              "label": "premise"
+            },
+            "ADU7": {
+              "text": "Moreover, Hartlib's program required a method of teaching, learning and transmitting knowledge: accordingly, he appropriated the method of epitomization of John Harrison, and recommended the use of summaries and commonplace as the most viable means in learning and disseminating knowledge.",
+              "label": "premise"
+            },
+            "ADU8": {
+              "text": "Husbandry was central to Hartlib's interests as it allowed to put in practice his Baconian method, moreover, it was a means for the understanding of nature, as husbandry was based on the knowledge of alchemical elements.",
+              "label": "premise"
+            },
+            "ADU9": {
+              "text": "In his views, the amelioration of the world would lead to the fulfilment of the providential plan of God and to the beginning of the Millennium.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU2",
+              "target": "ADU1",
+              "type": "support"
+            },
+            {
+              "source": "ADU3",
+              "target": "ADU1",
+              "type": "support"
+            },
+            {
+              "source": "ADU4",
+              "target": "ADU1",
+              "type": "support"
+            },
+            {
+              "source": "ADU6",
+              "target": "ADU5",
+              "type": "support"
+            },
+            {
+              "source": "ADU7",
+              "target": "ADU5",
+              "type": "support"
+            },
+            {
+              "source": "ADU8",
+              "target": "ADU5",
+              "type": "support"
+            },
+            {
+              "source": "ADU8",
+              "target": "ADU9",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "ADU1": {
+              "text": "The main aim of Samuel Hartlib was to provide an advancement of learning finalized to the amelioration of the material conditions of men and the pursuit of a religious peace i.e. the unification of the Protestants.",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "To this aim, inspired by Comenius, he devoted his efforts or gathering knowledge by the creation of a society or office of learned men (in technical fields, philosophy, and theology), and by the establishment of a network of correspondents (the Hartlib Circle).",
+              "label": "premise"
+            },
+            "ADU3": {
+              "text": "The method of discovery underlying his program of advancement of learning was inspired by Bacon's Novum Organum and by Jacopo Aconcio's method of analysis, while the categorization and transmission of knowledge had to be based on commonplace books and artificial languages.",
+              "label": "premise"
+            },
+            "ADU4": {
+              "text": "His plan of economic improvement, to be fulfilled mainly through the amelioration of husbandry, was motivated by the Puritan Millenarianism to which he adhered.",
+              "label": "premise"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU2",
+              "target": "ADU1",
+              "type": "support"
+            },
+            {
+              "source": "ADU3",
+              "target": "ADU1",
+              "type": "support"
+            },
+            {
+              "source": "ADU4",
+              "target": "ADU1",
+              "type": "support"
+            }
+          ]
+        }
+      },
+      {
+        "source": "claude-3-5-sonnet-20241022",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"A1\": {\n      \"text\": \"The main aim of Samuel Hartlib was to provide an advancement of learning finalized to the amelioration of the material conditions of men and the pursuit of a religious peace i.e. the unification of the Protestants.\",\n      \"label\": \"claim\"\n    },\n    \"A2\": {\n      \"text\": \"To this aim, inspired by Comenius, he devoted his efforts or gathering knowledge by the creation of a society or office of learned men (in technical fields, philosophy, and theology), and by the establishment of a network of correspondents (the Hartlib Circle).\",\n      \"label\": \"premise\"\n    },\n    \"A3\": {\n      \"text\": \"The method of discovery underlying his program of advancement of learning was inspired by Bacon's Novum Organum and by Jacopo Aconcio's method of analysis\",\n      \"label\": \"premise\"\n    },\n    \"A4\": {\n      \"text\": \"His plan of economic improvement, to be fulfilled mainly through the amelioration of husbandry, was motivated by the Puritan Millenarianism to which he adhered.\",\n      \"label\": \"claim\"\n    },\n    \"A5\": {\n      \"text\": \"Hartlib's program of reform consisted of 1) the gathering of information and observations, and 2) their categorization in a unique body of knowledge (pansophia)\",\n      \"label\": \"claim\"\n    },\n    \"A6\": {\n      \"text\": \"Husbandry was central to Hartlib's interests as it allowed to put in practice his Baconian method, moreover, it was a means for the understanding of nature, as husbandry was based on the knowledge of alchemical elements\",\n      \"label\": \"premise\"\n    },\n    \"A7\": {\n      \"text\": \"In his views, the amelioration of the world would lead to the fulfilment of the providential plan of God and to the beginning of the Millennium\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"A2\",\n      \"target\": \"A1\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A3\",\n      \"target\": \"A5\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A6\",\n      \"target\": \"A4\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A4\",\n      \"target\": \"A7\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "A1": {
+              "text": "The main aim of Samuel Hartlib was to provide an advancement of learning finalized to the amelioration of the material conditions of men and the pursuit of a religious peace i.e. the unification of the Protestants.",
+              "label": "claim"
+            },
+            "A2": {
+              "text": "To this aim, inspired by Comenius, he devoted his efforts or gathering knowledge by the creation of a society or office of learned men (in technical fields, philosophy, and theology), and by the establishment of a network of correspondents (the Hartlib Circle).",
+              "label": "premise"
+            },
+            "A3": {
+              "text": "The method of discovery underlying his program of advancement of learning was inspired by Bacon's Novum Organum and by Jacopo Aconcio's method of analysis",
+              "label": "premise"
+            },
+            "A4": {
+              "text": "His plan of economic improvement, to be fulfilled mainly through the amelioration of husbandry, was motivated by the Puritan Millenarianism to which he adhered.",
+              "label": "claim"
+            },
+            "A5": {
+              "text": "Hartlib's program of reform consisted of 1) the gathering of information and observations, and 2) their categorization in a unique body of knowledge (pansophia)",
+              "label": "claim"
+            },
+            "A6": {
+              "text": "Husbandry was central to Hartlib's interests as it allowed to put in practice his Baconian method, moreover, it was a means for the understanding of nature, as husbandry was based on the knowledge of alchemical elements",
+              "label": "premise"
+            },
+            "A7": {
+              "text": "In his views, the amelioration of the world would lead to the fulfilment of the providential plan of God and to the beginning of the Millennium",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "A2",
+              "target": "A1",
+              "type": "support"
+            },
+            {
+              "source": "A3",
+              "target": "A5",
+              "type": "support"
+            },
+            {
+              "source": "A6",
+              "target": "A4",
+              "type": "support"
+            },
+            {
+              "source": "A4",
+              "target": "A7",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "A1": {
+              "text": "The main aim of Samuel Hartlib was to provide an advancement of learning finalized to the amelioration of the material conditions of men and the pursuit of a religious peace i.e. the unification of the Protestants.",
+              "label": "claim"
+            },
+            "A2": {
+              "text": "To this aim, inspired by Comenius, he devoted his efforts or gathering knowledge by the creation of a society or office of learned men (in technical fields, philosophy, and theology), and by the establishment of a network of correspondents (the Hartlib Circle).",
+              "label": "premise"
+            },
+            "A3": {
+              "text": "The method of discovery underlying his program of advancement of learning was inspired by Bacon's Novum Organum and by Jacopo Aconcio's method of analysis",
+              "label": "premise"
+            },
+            "A4": {
+              "text": "His plan of economic improvement, to be fulfilled mainly through the amelioration of husbandry, was motivated by the Puritan Millenarianism to which he adhered.",
+              "label": "claim"
+            },
+            "A6": {
+              "text": "Husbandry was central to Hartlib's interests as it allowed to put in practice his Baconian method, moreover, it was a means for the understanding of nature, as husbandry was based on the knowledge of alchemical elements",
+              "label": "premise"
+            },
+            "A7": {
+              "text": "In his views, the amelioration of the world would lead to the fulfilment of the providential plan of God and to the beginning of the Millennium",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "A2",
+              "target": "A1",
+              "type": "support"
+            },
+            {
+              "source": "A6",
+              "target": "A4",
+              "type": "support"
+            },
+            {
+              "source": "A4",
+              "target": "A7",
+              "type": "support"
+            }
+          ]
+        }
+      }
+    ],
+    "timestamp": 1752748694.8606446
+  }
+]

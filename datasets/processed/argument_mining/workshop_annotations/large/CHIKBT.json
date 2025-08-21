@@ -1,0 +1,651 @@
+{
+  "arguments": {},
+  "statements": {
+    "Untitled 1": {
+      "type": "equivalence-class",
+      "title": "Untitled 1",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 2",
+          "fromType": "equivalence-class",
+          "to": "Untitled 1",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "top-level-statement",
+          "isTopLevel": true,
+          "text": "The demise of neo-Kantianism was not a simple philosophical refutation, but emerged from changing institutional, psychological, and political climates; and rather than weakening Kant’s legacy, the interwar period produced a new phase of rigor and accuracy in Kant studies.",
+          "title": "Untitled 1",
+          "startLine": 4,
+          "startColumn": 1,
+          "endLine": 13,
+          "endColumn": 184,
+          "section": "s1"
+        }
+      ],
+      "section": "s1",
+      "isUsedAsTopLevelStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Untitled 2": {
+      "type": "equivalence-class",
+      "title": "Untitled 2",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 3",
+          "fromType": "equivalence-class",
+          "to": "Untitled 2",
+          "toType": "equivalence-class"
+        },
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 4",
+          "fromType": "equivalence-class",
+          "to": "Untitled 2",
+          "toType": "equivalence-class"
+        },
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 7",
+          "fromType": "equivalence-class",
+          "to": "Untitled 2",
+          "toType": "equivalence-class"
+        },
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 10",
+          "fromType": "equivalence-class",
+          "to": "Untitled 2",
+          "toType": "equivalence-class"
+        },
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 2",
+          "fromType": "equivalence-class",
+          "to": "Untitled 1",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "text": "Interwar German philosophy was marked by a break with neo-Kantianism, which was blamed for the intellectual and cultural crises of the era.",
+          "title": "Untitled 2",
+          "startLine": 5,
+          "startColumn": 4,
+          "endLine": 13,
+          "endColumn": 184,
+          "section": "s1"
+        }
+      ],
+      "section": "s1",
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Untitled 3": {
+      "type": "equivalence-class",
+      "title": "Untitled 3",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 3",
+          "fromType": "equivalence-class",
+          "to": "Untitled 2",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "text": "Movements shifted to Hegel, Marx, positivism, existentialism, and phenomenology, all explicitly departing from neo-Kantian frameworks.",
+          "startLine": 6,
+          "startColumn": 7,
+          "endLine": 6,
+          "endColumn": 141,
+          "title": "Untitled 3",
+          "section": "s1"
+        }
+      ],
+      "section": "s1",
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Untitled 4": {
+      "type": "equivalence-class",
+      "title": "Untitled 4",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 5",
+          "fromType": "equivalence-class",
+          "to": "Untitled 4",
+          "toType": "equivalence-class"
+        },
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 6",
+          "fromType": "equivalence-class",
+          "to": "Untitled 4",
+          "toType": "equivalence-class"
+        },
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 4",
+          "fromType": "equivalence-class",
+          "to": "Untitled 2",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "text": "Despite its general disfavor, neo-Kantian philosophy was (philosophically) well-equipped for the Weimar world: it was antimetaphysical, promoted science, and supported social democracy and egalitarian ideals.",
+          "title": "Untitled 4",
+          "startLine": 7,
+          "startColumn": 7,
+          "endLine": 9,
+          "endColumn": 183,
+          "section": "s1"
+        }
+      ],
+      "section": "s1",
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Untitled 5": {
+      "type": "equivalence-class",
+      "title": "Untitled 5",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 5",
+          "fromType": "equivalence-class",
+          "to": "Untitled 4",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "text": "Its collapse was due not just to philosophical critique, but to institutional inertia, generational desire for novelty, and especially political circumstances—rising nationalism and anti-Semitism targeted its (often Jewish, left-leaning) leaders.",
+          "startLine": 8,
+          "startColumn": 11,
+          "endLine": 8,
+          "endColumn": 257,
+          "title": "Untitled 5",
+          "section": "s1"
+        }
+      ],
+      "section": "s1",
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Untitled 6": {
+      "type": "equivalence-class",
+      "title": "Untitled 6",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 6",
+          "fromType": "equivalence-class",
+          "to": "Untitled 4",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "text": "Ironically, the scientific and pragmatic aspirations of the Vienna Circle, positivism, and logical empiricism owed much to neo-Kantianism, even as they disavowed the label.",
+          "startLine": 9,
+          "startColumn": 11,
+          "endLine": 9,
+          "endColumn": 183,
+          "title": "Untitled 6",
+          "section": "s1"
+        }
+      ],
+      "section": "s1",
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Untitled 7": {
+      "type": "equivalence-class",
+      "title": "Untitled 7",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 8",
+          "fromType": "equivalence-class",
+          "to": "Untitled 7",
+          "toType": "equivalence-class"
+        },
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 9",
+          "fromType": "equivalence-class",
+          "to": "Untitled 7",
+          "toType": "equivalence-class"
+        },
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 7",
+          "fromType": "equivalence-class",
+          "to": "Untitled 2",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "text": "The \"\"crisis\"\" and criticism of neo-Kantianism often attacked a strawman: many critiques, especially by Marxists (e.g. Lukács), targeted neo-Kantian distortions more than Kant himself.",
+          "title": "Untitled 7",
+          "startLine": 10,
+          "startColumn": 7,
+          "endLine": 12,
+          "endColumn": 187,
+          "section": "s1"
+        }
+      ],
+      "section": "s1",
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Untitled 8": {
+      "type": "equivalence-class",
+      "title": "Untitled 8",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 8",
+          "fromType": "equivalence-class",
+          "to": "Untitled 7",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "text": "Lukács' complaints about systematic rationalism, limits of reason, and freedom are actually closer to Kant’s own self-critique and awareness than to the views of his \"\"school.\"\"",
+          "startLine": 11,
+          "startColumn": 11,
+          "endLine": 11,
+          "endColumn": 188,
+          "title": "Untitled 8",
+          "section": "s1"
+        }
+      ],
+      "section": "s1",
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Untitled 9": {
+      "type": "equivalence-class",
+      "title": "Untitled 9",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 9",
+          "fromType": "equivalence-class",
+          "to": "Untitled 7",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "text": "Many in the interwar era called for going “back to Kant,” undertaking careful historical and philosophical scholarship to distinguish Kant’s own views from neo-Kantian figures.",
+          "startLine": 12,
+          "startColumn": 11,
+          "endLine": 12,
+          "endColumn": 187,
+          "title": "Untitled 9",
+          "section": "s1"
+        }
+      ],
+      "section": "s1",
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Untitled 10": {
+      "type": "equivalence-class",
+      "title": "Untitled 10",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 10",
+          "fromType": "equivalence-class",
+          "to": "Untitled 2",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "text": "The postwar period was thus marked by a revitalization of Kant research: intensive study, editing, and philology established a lasting legacy that persists into the 21st century.",
+          "startLine": 13,
+          "startColumn": 7,
+          "endLine": 13,
+          "endColumn": 184,
+          "title": "Untitled 10",
+          "section": "s1"
+        }
+      ],
+      "section": "s1",
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    }
+  },
+  "relations": [
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "Untitled 3",
+      "fromType": "equivalence-class",
+      "to": "Untitled 2",
+      "toType": "equivalence-class"
+    },
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "Untitled 5",
+      "fromType": "equivalence-class",
+      "to": "Untitled 4",
+      "toType": "equivalence-class"
+    },
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "Untitled 6",
+      "fromType": "equivalence-class",
+      "to": "Untitled 4",
+      "toType": "equivalence-class"
+    },
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "Untitled 4",
+      "fromType": "equivalence-class",
+      "to": "Untitled 2",
+      "toType": "equivalence-class"
+    },
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "Untitled 8",
+      "fromType": "equivalence-class",
+      "to": "Untitled 7",
+      "toType": "equivalence-class"
+    },
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "Untitled 9",
+      "fromType": "equivalence-class",
+      "to": "Untitled 7",
+      "toType": "equivalence-class"
+    },
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "Untitled 7",
+      "fromType": "equivalence-class",
+      "to": "Untitled 2",
+      "toType": "equivalence-class"
+    },
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "Untitled 10",
+      "fromType": "equivalence-class",
+      "to": "Untitled 2",
+      "toType": "equivalence-class"
+    },
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "Untitled 2",
+      "fromType": "equivalence-class",
+      "to": "Untitled 1",
+      "toType": "equivalence-class"
+    }
+  ],
+  "map": {
+    "nodes": [
+      {
+        "id": "s1",
+        "title": "CHIKBT",
+        "type": "group-map-node",
+        "color": "#DADADA",
+        "fontColor": "#000000",
+        "level": 1,
+        "labelTitle": "CHIKBT",
+        "children": [
+          {
+            "id": "n0",
+            "title": "Untitled 1",
+            "type": "statement-map-node",
+            "labelText": "The demise of neo-Kantianism was not a simple philosophical refutation, but emerged from changing institutional, psychological, and political climates; and rather than weakening Kant’s legacy, the interwar period produced a new phase of rigor and accuracy in Kant studies.",
+            "color": "#1b9e77",
+            "fontColor": "#000000"
+          },
+          {
+            "id": "n1",
+            "title": "Untitled 2",
+            "type": "statement-map-node",
+            "labelText": "Interwar German philosophy was marked by a break with neo-Kantianism, which was blamed for the intellectual and cultural crises of the era.",
+            "color": "#1b9e77",
+            "fontColor": "#000000"
+          },
+          {
+            "id": "n2",
+            "title": "Untitled 3",
+            "type": "statement-map-node",
+            "labelText": "Movements shifted to Hegel, Marx, positivism, existentialism, and phenomenology, all explicitly departing from neo-Kantian frameworks.",
+            "color": "#1b9e77",
+            "fontColor": "#000000"
+          },
+          {
+            "id": "n3",
+            "title": "Untitled 4",
+            "type": "statement-map-node",
+            "labelText": "Despite its general disfavor, neo-Kantian philosophy was (philosophically) well-equipped for the Weimar world: it was antimetaphysical, promoted science, and supported social democracy and egalitarian ideals.",
+            "color": "#1b9e77",
+            "fontColor": "#000000"
+          },
+          {
+            "id": "n4",
+            "title": "Untitled 5",
+            "type": "statement-map-node",
+            "labelText": "Its collapse was due not just to philosophical critique, but to institutional inertia, generational desire for novelty, and especially political circumstances—rising nationalism and anti-Semitism targeted its (often Jewish, left-leaning) leaders.",
+            "color": "#1b9e77",
+            "fontColor": "#000000"
+          },
+          {
+            "id": "n5",
+            "title": "Untitled 6",
+            "type": "statement-map-node",
+            "labelText": "Ironically, the scientific and pragmatic aspirations of the Vienna Circle, positivism, and logical empiricism owed much to neo-Kantianism, even as they disavowed the label.",
+            "color": "#1b9e77",
+            "fontColor": "#000000"
+          },
+          {
+            "id": "n6",
+            "title": "Untitled 7",
+            "type": "statement-map-node",
+            "labelText": "The \"\"crisis\"\" and criticism of neo-Kantianism often attacked a strawman: many critiques, especially by Marxists (e.g. Lukács), targeted neo-Kantian distortions more than Kant himself.",
+            "color": "#1b9e77",
+            "fontColor": "#000000"
+          },
+          {
+            "id": "n7",
+            "title": "Untitled 8",
+            "type": "statement-map-node",
+            "labelText": "Lukács' complaints about systematic rationalism, limits of reason, and freedom are actually closer to Kant’s own self-critique and awareness than to the views of his \"\"school.\"\"",
+            "color": "#1b9e77",
+            "fontColor": "#000000"
+          },
+          {
+            "id": "n8",
+            "title": "Untitled 9",
+            "type": "statement-map-node",
+            "labelText": "Many in the interwar era called for going “back to Kant,” undertaking careful historical and philosophical scholarship to distinguish Kant’s own views from neo-Kantian figures.",
+            "color": "#1b9e77",
+            "fontColor": "#000000"
+          },
+          {
+            "id": "n9",
+            "title": "Untitled 10",
+            "type": "statement-map-node",
+            "labelText": "The postwar period was thus marked by a revitalization of Kant research: intensive study, editing, and philology established a lasting legacy that persists into the 21st century.",
+            "color": "#1b9e77",
+            "fontColor": "#000000"
+          }
+        ]
+      }
+    ],
+    "edges": [
+      {
+        "id": "e1",
+        "type": "map-edge",
+        "relationType": "support",
+        "from": "n2",
+        "to": "n1",
+        "fromEquivalenceClass": "Untitled 3",
+        "toEquivalenceClass": "Untitled 2"
+      },
+      {
+        "id": "e2",
+        "type": "map-edge",
+        "relationType": "support",
+        "from": "n4",
+        "to": "n3",
+        "fromEquivalenceClass": "Untitled 5",
+        "toEquivalenceClass": "Untitled 4"
+      },
+      {
+        "id": "e3",
+        "type": "map-edge",
+        "relationType": "support",
+        "from": "n5",
+        "to": "n3",
+        "fromEquivalenceClass": "Untitled 6",
+        "toEquivalenceClass": "Untitled 4"
+      },
+      {
+        "id": "e4",
+        "type": "map-edge",
+        "relationType": "support",
+        "from": "n3",
+        "to": "n1",
+        "fromEquivalenceClass": "Untitled 4",
+        "toEquivalenceClass": "Untitled 2"
+      },
+      {
+        "id": "e5",
+        "type": "map-edge",
+        "relationType": "support",
+        "from": "n7",
+        "to": "n6",
+        "fromEquivalenceClass": "Untitled 8",
+        "toEquivalenceClass": "Untitled 7"
+      },
+      {
+        "id": "e6",
+        "type": "map-edge",
+        "relationType": "support",
+        "from": "n8",
+        "to": "n6",
+        "fromEquivalenceClass": "Untitled 9",
+        "toEquivalenceClass": "Untitled 7"
+      },
+      {
+        "id": "e7",
+        "type": "map-edge",
+        "relationType": "support",
+        "from": "n6",
+        "to": "n1",
+        "fromEquivalenceClass": "Untitled 7",
+        "toEquivalenceClass": "Untitled 2"
+      },
+      {
+        "id": "e8",
+        "type": "map-edge",
+        "relationType": "support",
+        "from": "n9",
+        "to": "n1",
+        "fromEquivalenceClass": "Untitled 10",
+        "toEquivalenceClass": "Untitled 2"
+      },
+      {
+        "id": "e9",
+        "type": "map-edge",
+        "relationType": "support",
+        "from": "n1",
+        "to": "n0",
+        "fromEquivalenceClass": "Untitled 2",
+        "toEquivalenceClass": "Untitled 1"
+      }
+    ]
+  },
+  "sections": [
+    {
+      "type": "section",
+      "id": "s1",
+      "level": 1,
+      "title": "CHIKBT",
+      "children": [],
+      "ranges": [],
+      "startLine": 2,
+      "startColumn": 1,
+      "endLine": 13,
+      "endColumn": 184,
+      "fontColor": "#000000",
+      "color": "#DADADA",
+      "isGroup": true
+    }
+  ],
+  "tags": {}
+}
+

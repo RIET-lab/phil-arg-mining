@@ -1,0 +1,541 @@
+[
+  {
+    "identifier": "SUII",
+    "system_prompt": "## GOAL\nArgument‑mine the following paper to extract its comprehensive argumentative structure.\n\n## DEFINITIONS\n1. **Argument**: A set of propositions, including some number of premises and a conclusion. The premises should logically entail the conclusion.\n2. **Claim**: A proposition that asserts something to be true or false, typically requiring justification or evidence.\n3. **Premise**: A proposition that provides evidence, justification, or logical support for a claim or conclusion.\n\n## CRITICAL REQUIREMENTS\n1. **VERBATIM EXTRACTION ONLY**: Each ADU text must be copied EXACTLY from the paper with no modifications, paraphrasing, or combining of separate sentences.\n2. **NO HALLUCINATION**: Do not create, modify, or invent text that does not appear exactly in the source.\n3. **EXACT MATCHING**: Every word, punctuation mark, and spacing must match the original precisely.\n\n## DIRECTIONS\n1. **Identify Argumentative Discourse Units (ADUs)**  \n   - ADU = any contiguous text span functioning as a claim or a premise in the reasoning structure.\n   - **BE HIGHLY SELECTIVE**: Only include ADUs that are crucial to the overarching argument structure.\n   - Focus on significant claims and premises that contribute meaningfully to the argumentative flow.\n   - **AVOID NOISE**: Skip ADUs that are merely descriptive, tangential, or do not substantially advance the argument.\n   - Prioritize quality over quantity - fewer accurate, important ADUs are better than many insignificant ones.\n   - **EXTRACT ONLY**: Copy text spans exactly as they appear, without any modifications.\n2. **Classify each ADU**  \n   - Label = either `\"claim\"` or `\"premise\"`.  \n3. **Detect directed relations**  \n   - Relation = `\"support\"` or `\"attack\"`, from one ADU (source) to another (target).\n   - Map how ADUs connect to form reasoning chains.\n   - Focus on relationships between the most significant ADUs.\n   - Include relationships between premises that strengthen or weaken each other.\n4. **Verbatim spans**  \n   - Each `\"text\"` value must be copied EXACTLY from the paper with zero modifications.\n   - Do not paraphrase, summarize, or combine separate sentences.\n   - Do not add, remove, or change any words, punctuation, or spacing.\n   - If unsure about exact wording, skip that ADU rather than guess.\n\n## WHAT TO CAPTURE\n**INCLUDE ONLY:**\n- Main argumentative threads that are central to the paper's contribution\n- Core claims that represent the paper's primary arguments or findings\n- Key premises that provide essential support for major claims\n- Critical counterarguments and their refutations\n- Reasoning chains that demonstrate how main conclusions are derived\n\n**EXCLUDE (AVOID NOISE):**\n- Minor details, examples, or descriptive content that don't advance the argument\n- Tangential points or side discussions\n- Pure background information or literature review content\n- Methodological details unless they constitute argumentative claims\n- Obvious statements or commonly accepted facts\n- Redundant or repetitive argumentative content\n\n**GUIDING PRINCIPLE**: If removing an ADU would not significantly impact understanding of the paper's argumentative structure, it should be excluded.\n\n## QUALITY CONTROL\n- Before finalizing each ADU, verify the text exists exactly in the source\n- Prefer fewer, accurate ADUs over many potentially modified ones\n- When in doubt about exact wording, omit the ADU\n\n## OUTPUT FORMAT\nReturn **only** a single valid JSON object matching this schema.  \nDo **not** output any extra text, markdown, or explanations.\nDo **not** add comments.\n**RESPOND WITH ONLY**:\n```json\n{\n  \"ADUs\": {\n    \"<ADU_ID>\": {\n      \"text\": \"<exact span from paper>\",\n      \"label\": \"claim\" | \"premise\"\n    }\n    ...\n  },\n  \"relations\": [\n    {\n      \"source\": \"<ADU_ID>\",\n      \"target\": \"<ADU_ID>\",\n      \"type\": \"support\" | \"attack\"\n    }\n  ]\n}\n```",
+    "user_content": "## INTRODUCTION\n\n## Jussi Suikkanen\n\nFinal author copy; To appear in Methodology and Moral Philosophy , Jussi Suikkanen and Antti Kauppinen (eds.), Routledge.\n\n## Abstract:\n\nThis chapter begins by explaining two widespread attitudes towards the methods of moral philosophy. The first common attitude is that the appropriate method for doing ethics was described by John Rawls when he formulated the reflective equilibrium method. Another common attitude is that moral philosophy has no method Ð anything goes in ethical theorising as long as the results are significant enough. The chapter then motivates the volume by arguing that these attitudes are not helpful. The reflective equilibrium method has its limits and yet not all ways of proceeding in ethics are equally good. For this reason, I argue that we need to be more aware of the argumentative strategies we employ in ethics. This requires being methodologically reflective and transparent and taking part in the debates about the merits and problems of different methodologies exactly in the way done in the chapters of this volume. The second half of the chapter then provides an outline of the other chapters. Here I focus on clarifying exactly how these chapters contribute to the new discussions about the methods of ethics.\n\n## Background\n\nI often come across two different but equally perplexing attitudes towards methodological questions in moral philosophy. Firstly, many think that, as a discipline, moral philosophy has a unique method, comparable in significance to the Ôexperimental methodÕ of the natural sciences. This well-known reflective equilibrium method was first explicitly outlined by John Rawls (1951, 1974 and 1974). Many ethicists appear to think that knowing the basics of how the reflective equilibrium method works is all you need to know about how moral philosophy should be done.\n\nThe reflective equilibrium method is easy to outline. We must begin from judgments about individual cases which must be held sincerely and which must also be stable in the kind of careful deliberation that is not distorted by strong emotions or selfinterested bias. In the second stage, we attempt to formulate a set of general moral principles that could both fit and also justify the previous convictions. When we formulate these principles at this preliminary stage, it will be likely that there will not be a perfect match between our carefully considered judgments about the cases and the general principles.\n\nIn the third stage, we then try to get rid of the previous conflicts in two ways. In some conflict cases, it makes sense for us to modify our judgments about the cases on the basis of the general principles because those principles support our intuitions so well elsewhere. In other cases, in contrast, it makes more sense to attempt to find new, more sophisticated principles so that we do not have to give up our convictions about the cases given how deeply held they are.\n\nFinally, in the fourth stage, we fine-tune our principles by taking into consideration the leading ethical theories on the topic and the best arguments made in their support. We are also to seek wider reflective equilibrium by broadening the set of moral and non-moral beliefs with which the relevant moral principles we have formulated are supposed to be compatible. Thus, at this final stage, we check that the latter principles are compatible also with what we know, for example, about what kind of social systems can be stable and what influences our moral judgments.\n\nIt is easy to see just why the reflective equilibrium is such a promising account of how we ought to do moral philosophy. It is an ideal that seems provide us with almost something like an algorithm Ð clear steps which anyone should be able to follow systemically in order to achieve moral knowledge. The description of the method also intuitively seems to capture something about how many moral philosophers themselves understand what they are doing. It is thus not surprising that majority of moral philosophers continue to endorse the method at least in some form.\n\nDespite this, many ethicists have always been torn about the reflective equilibrium method for several reasons. Firstly, there have always been many forceful objections to the method. One of the most poignant criticisms has always been that, even if when we use the reflective equilibrium method we must begin from our carefully considered moral judgments, these judgments are still bound to be a reflection of cultural indoctrination, superstition and bias (Hare 1975; Brandt 1979, pp. 21Ð2). As a consequence, whatever moral principles end up being in a reflective equilibrium with our carefully considered judgments, these principles will be just as unlikely to reflect the moral reality as the intuitions that serve as the input, or so the objection goes.\n\nEven if this objection seems to have considerable force, it has not been able to change that many peopleÕs mind about the reflective equilibrium method. This is because, if we are not allowed to rely on our carefully considered judgments in the evaluation of moral principles, then we would be required to evaluate those principles from a completely non-moral, non-evaluative point of view.  Yet, in this situation, it 1 becomes less clear on what grounds we could be able to choose between alternative\n\n1 Some have suggested that, instead of carefully considered judgments about cases, we can rely on carefully considered judgments about more general principles (see, e.g., Singer (2005)). This responses assumes, however, that there is an important epistemic difference between the two kinds of judgments.\n\nmoral principles (Hooker 2000, p. 11). As Frank Jackson (1998, p. 135) put it, Ôwe must start from somewhere in current folk morality, otherwise we start from somewhere unintuitive , and that can hardly be a good place to start.Õ\n\nThe reflective equilibrium method also suffers from other problems Ð two of which are relevant here. Firstly, many ethicists feel like the description of the reflective equilibrium method is not especially helpful when it comes to their everyday work. Somewhat boringly, the method merely guides us vaguely to seek coherence between our carefully considered moral convictions, moral principles and the relevant empirical beliefs. Yet, very few people have thought that incoherent views are better than coherent ones and more importantly the reflective equilibrium method does not tell us exactly how we should make our principles cohere with our carefully considered convictions. In any given conflict situation, is it better to give up your carefully considered conviction or reformulate the general principles? The method itself does not tell and therefore, when we make these choices, we must rely on our judgment. Yet, nothing in the description of the method helps us to avoid making mistaken judgments.\n\nThe second issue is that very few recent works in moral philosophy employ the reflective equilibrium method in any recognisable and explicit form. One reason for this is that many ethicists work on questions that simply cannot be answered by using it. If you work in normative ethics and are searching for general principles that capture what kind of actions are right and wrong across different contexts, then at least in principle you can rely on the method. Yet, if you happen to be working on any of the other equally interesting and important questions in normative ethics or if you\n\nare trying to solve problems in either metaethics or applied ethics, then there just does not seem to be any straightforward way in which you could rely on the reflective equilibrium method. For example, in metaethics finding a reflective equilibrium between our moral principles and carefully considered convictions about cases will tell us little about the meaning of moral concepts, the nature of moral judgments or the essence of moral properties. Likewise, in applied ethics, it is equally unlikely that the previous type of coherence between convictions and general principles could shed much light on which morally salient considerations should be taken into account when we consider the most difficult moral questions concerning the climate change, war, new biomedical technology and so on.\n\nPerhaps these limitations of the reflective equilibrium method have led to another extreme in the ethicistsÕ attitudes towards the methodological questions. The second common methodological attitude is a reflection of Paul FeyerabendÕs (1975) Ôanything goesÕ view in the debates concerning the appropriate methods of science. The core idea behind this attitude is the observation that, if we consider both historical and more recent key contributions to moral philosophy, it is difficult to extract a unique method such that its use would explain the fact that these very contributions constitute the most important advances. Rather, what we seem to find from the key works of moral philosophy is very different kinds of arguments and so, in a sense, the biggest advances have been made by using very different kinds of methods. As a consequence, it just is not plausible that any strict methodological rules would have governed the growth of knowledge in moral philosophy any more than in the case of natural sciences. Furthermore, those who have this liberal methodological attitude emphasise that, given that we do not yet know how the new advances will be made in\n\nthe future, we should not require all ethicists to follow any strict methodological rules.\n\nAfter all, doing so would only prevent us from making important discoveries the making of which will also require inventing new methods.  We should thus let different ethicists pursue different lines of inquiry as they see fit and just see what works, or so the argument goes.\n\nThere are several reasons for why this Ômethodological anarchismÕ is not wholly satisfactory either. The main problem is that the attitude is based on a presupposition according to which different views in moral philosophy can be evaluated independently of the arguments provided in their support. If the evaluation of different theories could in this way be distinguished from the arguments that are provided in their support, it would make sense not to be too concerned about the methods of ethics. Any method would do as long as it leads to the right results.\n\nIt is, however, much more appealing to think that how plausible different answers to different questions in moral philosophy are is always intertwined with the question of how strong arguments have been provided for those answers. That is, in moral philosophy, evaluating a philosopherÕs views and the kind of arguments she has provided for them always go hand in hand. This is because there are no ways of evaluating different claims in moral philosophy that would be independent of the arguments made for and against those claims. One good reason for thinking that this is the case is that, usually when two ethicists have a substantive disagreement over some significant question, they equally disagree about the arguments used for defending those views. And, if this is the case, then it makes no sense to think that any way of doing moral philosophy is appropriate as long as it leads to the growth of\n\nmoral knowledge. The ways of proceeding that yield better arguments for the defended conclusions must be better than others.\n\nThe Ôanything goesÕ attitude can also have harmful consequences for how moral philosophers proceed in practice. It seems to suggest that, as moral philosophers, we do not need to be self-reflective: we do not need to think about the ways in which we pursue our research. It seems to tell us that it is enough that we try to answer our research questions the best we can without paying much attention to the question of whether the methods of inquiry we are using are sound. After all, if we happen to stumble upon the right answers, the methods we used can always be declared appropriate in retrospect in the light of the answers we came up with. Yet, surely, this is not the best way to proceed even for individual researchers.\n\nRather, it is much more plausible to think that, as practicing moral philosophers, we should pay serious attention to how we intend to find the answers to the ethical and theoretical questions that interest us. Taking our methods seriously requires us, for example, (i) to consider the kinds of arguments that have been used before in ethics Ð what kind of structures they have and what kind of premises and presuppositions they begin from, (ii) to keep track of the advances in the empirical sciences that touch on the topics of our research, (iii) to follow and take part in the methodological debates within moral philosophy and (iv) to aim at making methodological innovations ourselves. If these recommendations sound overly demanding, one good reason for following them is that the most successful ethicists have always also at the same time been methodologically both innovative and self-aware.\n\nLet me then draw three lessons from the problems of the methodological attitudes outlined above. Firstly, given that moral philosophers investigate very different kinds of questions, it is unlikely that there will be any single method of ethics that could be used to make progress in all debates of moral philosophy. It is unlikely that the best ways to approach the second-order metaphysical questions about the nature of moral properties are the same as the ways in which we should think about first-order questions such as what duties we, as individuals, have towards non-human animals. This suggests that, when it comes to the methods of ethics, we should be methodological pluralists rather than monists. Even if it is not the case that anything goes, there will be a number of different and equally appropriate methods which ethicists should be able to rely on with confidence depending on what kind of questions they are investigating.\n\nThe second lesson we should draw is that it is unlikely that even the best methods of ethics will be simple step-by-step algorithms, which even a computer could be programmed to follow. It is true that, in the methodological debates, it is often assumed that, if moral philosophy had a method, it would have to be something like a set of instructions that anyone could take off the shelf and apply successfully. Yet, as the example of the reflective equilibrium method suggests, it is unlikely that any method of moral philosophy could be specified at the level of specificity required for making it a simpler algorithm. Because of this, I believe that it is more useful to think of the appropriate methods of ethics as methods in a much looser sense.\n\nPerhaps we should then think of different types of argumentative strategies Ð different ways of providing support for views Ð as the genuine methods of ethics. That is, we\n\ncould think that different ethicists who rely on different kind of implicit assumptions in their work, whose explicit arguments begin from different starting points (be they the results of empirical sciences, their personal ethical convictions, or results of abstract philosophical a priori reasoning), and who employ structurally different types of arguments all use different methods of ethics, loosely understood. It is unlikely that these actual methods could be captured in terms of simple step-by-step prescriptions, because using these methods in new contexts will always require judgment. Yet, despite this, we should still be able to observe enough similarities between different types of arguments in order to be able to evaluate meaningfully different general ways of proceeding.\n\nFinally, insofar as we can identify different methods in the previous looser sense, we should resist the idea that all ways of proceeding are equally good. Instead, as I suggested above, we should be reflective about the ways in which we do moral philosophy. We should pay attention to different kinds of arguments, we should take part in the evaluation of different methods and we should be aware of the methods we use and willing to defend them when challenged. This is especially true in ethics because, as we have seen, it is impossible to distinguish the plausibility of a view from the strength of the arguments provided for and against it.\n\nIn this situation it is fortunate that, despite how common the two attitudes described above are, a lot of important work has been recently done on the methods of ethics. Yet, perhaps exactly due to the strength and popularity of those attitudes, many of the recent contributions to the methodological debates have failed to receive the attention they deserve. Of course, the merits of the reflective equilibrium method continue to be\n\ndebated and similarly the question of whether the empirical methods of psychology and social sciences could be used to make new progress in moral philosophy is receiving a lot of attention.  Yet, much of the important methodological work tends to 2 remain more hidden.  One indication of this is that currently there are no overview 3 articles or textbooks that students could use for familiarising themselves with the different ways of proceeding in ethics. Similarly there are very few professional venues in terms of conferences or bespoke publications that would bring together ethicists who take part in the different methodological debates. For these reasons, at the moment, it is unfortunately quite difficult to get a sense of how the discipline of moral philosophy understands its own methods.\n\nBecause of this, I organised two conferences on the ÔNew Methods of EthicsÕ at the University of Birmingham: one in September 2016 and one in January 2017. With the help of funding provided by the Arts and Humanities Research Council and the College of Arts and Law, I was able to invite some of the key contributors to the methodological debates in ethics to these conferences. The amount of submissions I received through an open call for abstracts and the quality of these submissions similarly showed how much interest there really is for exploring the methods of ethics. The purpose of the two conferences was thus to bring together ethicists both from different areas of ethics and from different methodological debates so that they could discuss together the basic question of how we should do moral philosophy.\n\n2 For  comprehensive  overviews  and  lists  of  references,  see  Daniels  (2016)  and  Alfano  and  Loeb (2017).\n\n3 Many recent debates concerning the methodology of moral philosophy have investigated conceptual analysis, intuitions about cases, linguistic judgments (about the felicity or truth of various attributions), parsimony, anti-theory, the idea that an adequate account must be internal to a practice, and other equally interesting topics.\n\nThe aim of this volume is to disseminate the ideas explored at the two conferences to a wider audience. My hope is that the material published here will encourage ethicists to become methodologically more self-aware, critical and innovative. I thus hope that the interesting methodological debates covered here will also receive more attention in the discipline more broadly. Finally, I also hope that the chapters of this volume will prompt others to attempt to map the different ways of proceeding in ethics more clearly and in a way that could be presented in an accessible way to those who are new to moral philosophy. I firmly believe that achieving these aims will help the whole community of moral philosophers to make more progress.\n\n## The chapters\n\nThe chapters of this volume have been structured under four categories. The first three chapters take part in one of the most intensive methodological debates in moral philosophy, which is about what role, if any, the empirical methods of psychology and social sciences should play in ethical theorising. After this, the next two chapters will boldly outline brand new methods: a new first-personal method for doing metaethics and a new method for first-order normative ethics based on the idea of comparing the authoritativeness of different normative standards. The three chapters of the Part 3 will then critically evaluate some of the most influential methods used in moral philosophy recently. Finally, the last two chapters of Part 4 will consider the question of what role, if any, should our first-order normative intuitions play in the evaluation of different metaethical views. That is, these chapters attempt to answer the question of whether doing first-order normative ethics is one of the method we need to rely on when answering metaethical questions.\n\n## Part 1: The Prospects of Empirically Informed Ethics\n\nAt the heart of the recent passionate debates concerning the so-called empirical (or experimental) ethics have been certain general attempts to debunk our moral beliefs. These sceptical arguments proceed in two stages. The debunkers first attempt to describe certain general causal mechanisms responsible for how we came to have our moral beliefs (such as evolution). At this point, the debunkers have also emphasised the fact that our moral intuitions seem to be vulnerable to framing effects (SinnottArmstrong 2008), produced by a Ôquick and dirtyÕ emotional systems (Greene 2013), or widely grounded in reactions of disgust (Kelly 2011). The debunkers then argue that these features of our moral beliefs undermine whatever justification we had for them because the processes responsible for these beliefs turn out to be unreliable.\n\nIn ÔHow to Debunk Moral BeliefsÕ (Chapter 2), Victor Kumar and Joshua May construct a dilemma for the previous kind of general attempts to undermine our moral beliefs. According to them, if the debunkers focus on a belief-formation mechanism such as evolution that could be responsible for most of our moral beliefs, they will struggle to show that this mechanism is unreliable given how many of our moral beliefs can also plausible be assumed to be true. To avoid this problem, the debunkers can focus on more local belief-formation mechanisms based on disgust and other specific emotional reactions or on processes vulnerable to framing. The debunkers have a much better chance of showing that the moral beliefs acquired in these ways may be undermined. Yet, the trade-off here is that no general sceptical conclusions follow Ð it is always open for those who are not sceptics to argue that most of our moral beliefs have not been formed in these ways. Kumar and May thus attempt to\n\nargue that there cannot be general sceptical, empirically orientated debunking arguments that would be effective enough to challenge all our moral beliefs.\n\nYet, Kumar and May also describe a new empirically informed method that could be employed successfully in more local ethical debates. Here they begin from the observation that the so-called Ôconsistency reasoningÕ is very often used in both everyday life and in moral philosophy. This type of reasoning relies on the simple idea that we should treat like cases alike. When our consistency is questioned, we have two choices: we can either change our view about one of the cases or we can explain what the morally relevant difference between the cases is. Kumar and May then propose that one useful role which empirical research can play is that it can reveal to us what features of different situations make us treat them differently Ð to what we are in fact reacting. After empirical investigation has revealed to us what makes us treat the cases we are considering differently, we, of course, need to consider whether those factors really make a genuine moral difference. Yet, given that it is always possible that we are in fact tracking intuitively irrelevant features, empirical investigation can play a significant role in powerful consistency arguments, or so Kumar and May argue.\n\nOne standard method on which most ethicists rely at some point is testing whether different suggested moral principles fit our moral intuitions about various fanciful problem cases. These cases are intentionally unrealistic as their purpose is to enable us to focus on just few isolated features of the situations. Focusing on these features in artificial thought-experiments enables us to test whether our moral principles carve the joints of the moral reality at the right places in a way that would be difficult to do\n\nin messy real-life situations. One famous example of this type is the Trolley case in which a trolley is about to hit five people but you have an option of redirecting it to kill only one person.\n\nYet, recently the epistemic value of these cases for ethical theorising has been challenged on empirical grounds (Schwitzgebel and Cushman 2012 and 2015; Wiegman et al ?). It turns out that, for example, the order in which these cases are presented affects what intuitions even professional ethicists have about them and even the moral principles they are willing to accept. If the intuitions of ethicists can be manipulated this easily, there is a worry that they lack a competence to make the kind of reliable judgments about these cases that could offer us an insight to which moral principles are correct.\n\nIn Chapter 3 ÔWhoÕs Afraid of Trolleys?Õ, Antti Kauppinen attempts to defend the standard methodology of normative ethics by responding to these debunking empirical concerns. Kauppinen first argues that philosophers tend to employ their special competences only in theoretical contexts in which they evaluate different ethical views and for this reason the previous experimental settings might not prompt them to make their best carefully considered convictions. Kauppinen also offers an alternative explanation of why the ethicistsÕ judgments about the cases can be influenced be superficial things such as the order in which the cases are presented. This is because, in the relevant cases, there are many morally salient considerations that need to be taken into account. The order in which the cases are presented can then influence the way in which ethicists weigh these complex factors. Finally, Kauppinen also considers the ways in which we can attempt to screen off the intuitions that do\n\nnot illustrate our best moral competences. This can be done, for example, by being cautious when relying on uncertain intuitions in theorising and by understanding ethical inquiry as a social process in which many of our responses to the individual cases continue to be challenged by others in a way that can be corrective.\n\nThe third chapter taking part in the methodological debates concerning the role of empirical sciences is Tyler Millhouse, Alisabeth Ayars and Shaun NicholsÕs ÔLearnability and Moral Nativism: Exploring Wilde RulesÕ (Chapter 4). According to moral nativism, evolution has provided us with an innate Ômoral rule acquisition capacityÕ that enables us to learn moral rules relatively quickly.  Yet, given that this 4 capacity also imposes certain structures on our moral thought, the nativists also accept that the capacity must constrain the kind of moral rules we can learn.\n\nIf the nativist hypothesis were true, this would have significant consequences for many debates in moral philosophy. For example, if we accept metaethical realism and think that moral facts are independent of human judgments, nativism seems to entail that moral facts could in principle be such that we, as human beings, might not be able to learn the moral rules that best capture those facts. Likewise, if we are not metaethical realists but rather think that moral facts are in some way mind-dependent, then the nativist hypothesis offers us a new empirical way of investigating what the moral facts are. In principle, in this framework, we should be able to rule out ethical theories by empirically investigating whether the moral rules they entail would be learnable by ordinary human beings. Thus, whatever metaethical view we accept, the nativist hypothesis seems to have fascinating consequences.\n\n4 For the most systematic presentation of nativism, see Mikhail (2011).\n\nMillhouse, Ayars and Nichols, however, argue against the nativist hypothesis based on the empirical research they carried out. They begin from a type of moral rules that do not exist anywhere in the world. Nativists tend to think that these rules have some structural features such that the absence of these rules can be explained by the fact that they fail to satisfy the constraints on moral learning set by the innate moral rule acquisition capacity.\n\nMillhouse, Ayars and Nichols focus on what they call Ôthe Wilde rulesÕ.  These rules 5 both permit agents to bring about an outcome intentionally and forbid agents to bring about that very same outcome unintentionally (that is, they prohibit merely allowing the outcome to come about). Such rules do not exist in real life: the moral rules we have either permit (or forbid) bringing a certain outcome both intentionally and unintentionally or they forbid intentionally bringing about an outcome whilst permitting merely allowing the outcome to come about.\n\nChapter 4 then begins from the thought that, if the learning of any moral rules were made impossible by the innate structure of the moral rule learning capacity, the Wilde rules would surely need to be amongst these rules. Yet, the empirical evidence provided by Millhouse, Ayars and Nichols shows clearly that even Wilde rules can be learned naturally without any explicit instructions or explanations. This should make us sceptical about the nativist hypothesis. Given that we can learn Wilde rules, there is no reason to think that any moral rules could have structural features that would make them unlearnable because of our innate moral rule capacities.\n\n5 They  call  these  rules  Wilde  rules  because  of  a  quote  often  attributed  to  Oscar  Wilde  according  to which Ôa gentleman never offends unintentionallyÕ where this rule is taken to imply that intentional offending is permitted.\n\nIn the studies carried out by Millhouse, Ayers and Nichols, the research subjects were asked to imagine a foreign culture with the gibberish rule Ônib weignsÕ. The subjects were then shown examples of violations of the rule. Some participants were given only examples that were clearly actions, some only examples that were clear allowings, and some both. The subjects were then asked how likely it was that certain new cases of actions and allowings were also violations. The results were revealing. Firstly, it was shown that the participants who were shown only examples of violations that were allowings were naturally able to learn Wilde rules: that is, without any instruction or explanation the participants would no longer take actions to be violations of the relevant rule. However, the participants also showed a certain bias against such rules. The participants shown only allowing examples were more inclined to think that also actions were violations than those who were only shown action examples were inclined to think that also allowings were violations. Millhouse, Ayars and Nichols argue that this bias can be explained in the framework of Bayesian accounts of learning Ð the participants are biased against the Wilde rules because they prior expectations of what the rule in question is like has been shaped by the moral rules they have encountered.\n\nThis chapter makes a number of interesting methodological contributions. Firstly, it illustrates with an example what kind of an important role empirical research can play in moral philosophy. It shows that many interesting philosophical hypotheses, for example, about the way in which moral rules are learned can be empirically tested and so there are areas of moral philosophy in which empirical research definitely has a role to play. Furthermore, in the light of Millhouse, Ayars and NicholsÕs work it does\n\nnot seem likely that empirical investigation to which moral rules we can learn could shed much light on which actions are right and wrong even if we assume some form of mind-dependence of moral facts in metaethics. After all, the empirical research carried our here suggests that we are flexible learners.\n\n## Part 2: New Methods\n\nTwo of the authors of this volume have been ambitious enough to outline genuinely new methods of ethics. In her ÔMetaethics from a First-Person StandpointÕ (Chapter 5), Catherine Wilson begins from the observation that, even if in first-order normative ethics the first-person perspective of the agent is often taken seriously (consider, for example, the demandingness objections to consequentialism), the nature of obligations in metaethics has so far been explored purely from the objective thirdpersonal perspective. Thus, her aim is to explore whether new progress could be made in addressing the question Ôwhy should I be moral?Õ if we began our theorising from the first-person standpoint.\n\nThe first stage of WilsonÕs first-personal method is relatively uncontroversial. During the first eight steps of her argument, Wilson lays out clearly from her own first-person perspective how she thinks about morality. Her starting point is the idea that she is often judgmental and she has, by nature, preferences over most things. She also observes how evaluation permeates much of her thinking and language Ð almost any way in which she can describe an object entails something about how good it is.\n\nWilson then considers how plausible it is to think that some things are better for her than others. It is certainly better for her to go on existing right now than it is, for\n\nexample, to swim in shark-infested waters. Other things being equal, those very same things also seem to be better for others too. After this, she is led to consider how she can furthermore evaluate different forms of interaction in terms of whether they follow the Ônorms of civilityÕ that facilitate social interaction. Smiling when being introduced to someone, for example, is better than eating with mouth open and talking at the same time. Yet, these norms also raise new questions in cases in which what is good for me conflicts with the demands of the norms: for instance, why should I follow the social norms when it requires sacrificing my own interests? Here Wilson makes two poignant observations. Firstly, part of why in many cases she is inclined to follow the norms is the way in which she has been in the past rewarded for compliance. Likewise, she finds it pleasant to see her life run smoothly as a consequence of obeying the norms of civility. Yet, she also notes how she is able to opt out in some cases for good reasons and often no punishment follows.\n\nAt the next, eight step, Wilson finally gets to her moral thinking. She begins by considering the content of the corresponding norms of morality. Wilson first concludes that morally wrong actions often involve obtaining a benefit to oneself whilst at the same time imposing a severe burden on others whereas morally right actions tend to involve sacrificing oneÕs own time and trouble in order to provide a benefit to others. In this way, moral norms are just like the norms of civility. Yet, there are also two differences: in the case of moral norms, the relevant harms to others tend to be more serious and also the moral norms are more universal than the norms of civility.\n\nSo far, Wilson has only described her moral thinking from the first-personal perspective. The relevant metaethical question then is: are the norms of morality recognised from the first-personal perspective real? WilsonÕs methodological claim is that thinking about this further question too from the first-personal perspective is fruitful. Her claim is that we can make progress in thinking about this question by considering the lessons we learnt from concerning first-personally why we should follow the norms of civility.\n\nIf I do not follow the norms of morality and others spot this, there will be often outrage, resentment and even punishments. Likewise, given how ingrained acting morally is in us, we similarly get pleasure (in the form of clear conscience) and other rewards from acting morally. Yet, from WilsonÕs first-personal perspective, these recognisable reasons do not seem to exhaust her reasons for following the moral norms. The further reasons have nothing to do with carrots and sticks but rather they seem to be grounded in our shared human way of life that cannot be captured from an external third-personal perspective. As Wilson points out, it is not clear whether from such a perspective there would always be reasons to be moral. Wilson thus makes a compelling argument to the conclusion that there is metaethical understanding that can only be gained through first-personal reflection.\n\nThe second genuinely new method of ethics is outlined in Andrew SepielliÕs ÔConsequentialism and the Evaluation of Action qua ActionÕ (Chapter 6). Sepielli begins from the observation that there are many different standards for evaluating actions that range from thinking about which actions are good moves in chess to considering what we ought to do overall. The crucial difference between these\n\nstandards is that some of them are more authoritative than others. The natural question then is: which standards are the most authoritative ones?\n\nSepielli makes a striking claim in response to this question. He believes that the less authoritative standards evaluate the actions qua narrower categories of evaluation whereas the more authoritative standards evaluate actions more generally qua actions. Thus, for example, the standards of chess are superseded by the standards of overall ought because the former standards take into account only the considerations related to the goal of winning in chess whereas the latter take into account this consideration and also many other considerations, which bear on the evaluated action given all the ends we can have.\n\nIn order to find the most authoritative standard for evaluating actions, we then need to look for a standard that supersedes all others. This standard is the one that is the most liberal in terms of which ends and other considerations that are taken into account in the evaluation of action. Sepielli then argues that the traditional option Ð the evaluation of actions in terms of what we ought to do overall cannot be the most authoritative standard for evaluating actions. This is because there is a more general uber-standard , which evaluates actions qua events generally and therefore supersedes the standard of the overall ought. After all, the former standard places fewer constraints on what is taken into account in the evaluation of action. The overall ought limits our focus to what makes an action good one as an action whereas the uberstandard for evaluating event generally takes this standard into account plus a further set of considerations that make any event good or bad irrespective of whether it is an action or not.\n\nAt this point, SepielliÕs view merges into a new method for doing first-order normative ethics. In first-order normative ethics, what we are most interested in is what the most authoritative standard for evaluating actions tells us to do. This is because we think both that moral demands are over-riding in virtue of their authoritativeness and that morality must in some way be practical and action-guiding. Sepielli thus outlines a two-stage method, which according to him we should apply when doing first-order normative ethics. We should first consider which standard of evaluating actions is the most authoritative due to the fact that it supersedes all other standards by being a more encompassing standard. As we have just seen, if Sepielli is right, that standard is the general standard for evaluating actions qua events.\n\nAt the second stage, we should then consider what that uber-standard is like. What is the way in which we evaluate, for example, how bad different natural disasters (as events that are not actions) are?  Here Sepielli argues that the most general standard of evaluating events in general is a form of agent-neutral consequentialism that does not fetishise agency by making the value of outcomes depend on how they are related to the agency of different agents. After all, that form of consequentialism captures the way in which we tend to evaluate events that are not actions done by human agents. Sepielli thus offers us a new way of understanding how we should do first-order normative ethics. We are to consider first which standard of evaluating actions is most authoritative and then which types of considerations are taken into account in the evaluation of actions by that standard. By applying this method, Sepielli himself is led to endorsing a version of agent-neutral consequentialism but, of course, at this point\n\nthere is room for arguing that the method, when properly applied, should lead us to some other first-order ethical view.\n\n## Part 3: Evaluations of Recent Methods\n\nThe three chapters of Part 3 all evaluate some of the new methods that have been recently used in ethics. Christopher CowieÕs ÔThe Similarity Hypothesis in MetaethicsÕ (Chapter 7) is a defence of the recent ÔmetanormativeÕ method in metaethics. Its defenders no longer focus on morality but rather investigate reasons for actions, beliefs and other attitudes more generally. The metanormative method thus accepts the Ôsimilarity hypothesisÕ, the idea that all reasons are reasons in the same way. That is, according to this assumption, the only difference between reasons in different domains is that they count in favour of different attitudes. Some reasons count in favour of beliefs whereas others in favour of desires, but there is no difference between what it is for those considerations to be reasons for the attitudes they support. If this is right, then investigating the relevant qualities of epistemic reasons should, for example, also help us to understand moral reasons.\n\nThe critics of this methodological approach argue that the similarity hypothesis is false because beliefs have a constitutive aim that can explain what it is for a consideration to be an epistemic reason whereas the practical attitudes for which there are supposed to be practical reasons lack similar constitutive aims. Beliefs aim at being true whereas it is not clear what a corresponding aim for, say, a desire could be. If beliefs and desires are different in this crucial way, then the metanormative method seems to fail: the assumption that epistemic reasons and other reasons are alike would turn out to be mistaken.\n\nThe main aim of CowieÕs chapter is to argue that even the best formulation of the previous challenge to the metanormativity method provided by Stephen Darwall (2003) fails. In response to the previous objection, it could be suggested that practical attitudes such as desires do have constitutive aims: they aim at the good or the desirable (that is, a desire is correct if and only if it is a desire for something good). Darwall has, however, argued that, even if the aim of beliefs (truth) can ground theoretical reasons, the aim of desires (good) cannot do the same because there is an important difference between the kinds of aims truth and goodness are. His claim is that truth is a substantial aim of beliefs and thereby able to ground theoretical reasons whereas goodness is merely a formal aim of desires and hence incapable of grounding practical reasons. He thus argues that the aim of truth bears on what we ought to believe in a more substantial sense Ð it makes beliefs responsible to an external standard whereas, in contrast, the aim of desires, goodness, fails to do so. This is because goodness does not substantially restrict what we ought to desire based on a standard that would be external to practical reasoning. Because of this difference, Darwall argues that the aim of desire cannot ground practical reasons.\n\nCowieÕs objection to Darwall is based on the claim that a key premise in DarwallÕs argument can be read in two ways neither of which enables Darwall to reach his conclusion. Darwall claims that that the crucial difference between beliefs and desires is that, because the aim of desire is merely formal, thinking about what to desire is not responsible to an external standard in the same way as belief formation is responsible to the standard of truth. Cowie observes that this premise can be read either metaphysically or epistemically. Under the metaphysical reading, the premise states\n\nthat, because the constitutive aim of desire is merely formal, the facts about what you ought to desire are such as they are in virtue of you doing some practical reasoning. In contrast, under the epistemic reading, the previous premise claims that, because desires lack a substantive aim, we can identify what we ought to desire only by following the internal norms of practical reasoning.\n\nCowieÕs central objection is that the previous interpretations of the central premise are not a problem for the defenders of the metanormative method. The metaphysical reading fails simply because the mere fact that desires lack a substantive aim cannot entail that what is good and desirable metaphysically depends on the satisfaction of the norms of practical reasoning. The epistemic reading, in contrast, cannot ground the required contrast between epistemic reasons and practical reasons. This is because in the epistemic domain too it is plausible that, in order to identify what we ought to believe, we cannot rely on external standards but rather we must follow the norms internal to theoretical reason. As a consequence, Cowie concludes that the best objection to the metanormative method in metaethics presented so far fails and so we should continue pursuing the metanormative project.\n\nIn his chapter ÔThe ThatÕ (Chapter 8), James Lenman begins by describing two very different approaches to ethical theorising. We could call the first method either ÔvoluntarismÕ or the Ôway of inventionÕ. That we should use this method seems to follow from the fundamental Humean thesis according which our passions Ð desires, plans, cares and concerns Ð constitute the source of both normativity and moral requirements. If this is right, then it seems natural also to think that normative theorising too should begin from the previous attitudes. The appropriate method for\n\nfinding out what is right and wrong would, according to this line of thought, be to first discover what we care about. After all, the talk of moral requirements and normativity is, on this view, a way of giving voice to our most fundamental concerns.\n\nLenman calls the second method, which he finds from the works of Iris Murdoch, Charles Taylor, and Susan Hurley, Ôthe interpretative theoryÕ. This method emphasises the importance of the rich conceptual framework of thick evaluative concepts, which we inherit through growing up in our linguistic communities. The key idea is that, through being embedded in this conceptual framework, we can evaluate things in the world but also see, interpret, and understand ourselves too. Furthermore, by understanding the world and ourselves through the conceptual scheme of thick concepts, we are also able to shape our cares and concerns. This process can, furthermore, lead to a better understanding and interpretation of the thick conceptual scheme itself, which will then again lead to new, improved interpretations of ourselves.\n\nHence, whereas the first method assumes that the legitimate starting point of our moral theorising is what we most fundamentally care about, the second method sees ethical theorising to consist of something like an interpretative hermeneutic cycle in which the thick evaluations shape our understanding of our world and ourselves, which shapes our cares and concerns, which shapes our thick evaluative conceptual scheme, etc. Thus, on this view, ethical theorising fundamentally consists of interpretation that does not have any Archimedean starting point.\n\nLenmanÕs central argument then is that, even if the second interpretative method is a more plausible description of how ethical theorising proceeds, this is not a reason to abandon Humeanism in metaethics. Rather, in addition to being able to accept the interpretative theory, the Humeans can also at the same time tame some of the metaethical mysteries, which the defenders of the interpretative method have left unresolved. The central insight of the interpretative model is that normative thought does not begin now. Rather, we gradually become a part of a whole community that has deliberated before and through this upbringing many of our communityÕs evaluative commitments become ingrained in us. The claim then is that the thick evaluative language has evolved exactly for the purpose of voicing and communicating these commitments. The thick concepts thus contain our shared practical understanding in the form of cares and concerns that make us members of the same community. As we saw above, these concepts enable us to reflect and deliberate together which will lead to shaping our concerns in new ways. Thus, on the level of epistemology, the interpretative view is correct whereas as at the level of metaethics the Humeans can give an account of the attitudes that ground the deep evaluations, or so Lenman argues.\n\nThe final chapter of this section is Jack WoodsÕs ÔFooting the Cost (Of Normative Subjectivism)Õ (Chapter 9). This chapter is a discussion of a method for evaluating metaethical theories, which was first described by Philippa Foot (1972). According to this method, when we evaluate theories that attempt to describe the nature and content of moral judgments, we should not think only of whether the theory in question is true. Rather, according to Foot, we should also consider whether understanding our own moral judgments in the way suggested by the evaluated metaethical theory would\n\nprevent those judgments from satisfying their functional role. The suggestion thus is that, if accepting a metaethical view about the nature of our moral judgments would, for example, make us stop making moral judgments altogether, then that theory could not be correct.\n\nFoot herself applied this method in her argument against different versions of metaethical subjectivism and relativism. According to her, if we all started to think that what is right and wrong depended in some way on our contingent attitudes (which could have been easily different), we might all stop caring about our own moral judgments. Because it would be dangerous not to make any moral judgments, Foot then thought that we should not accept subjectivism or relativism in metaethics.\n\nWoods begins by accepting the basic assumption behind FootÕs method. He grants that metaethical views should be able to capture and make sense of the functional role of moral judgments in a way that can support our judgmentsÕ ability to carry out their functional role rather than undermine it. Thus, in this respect, WoodsÕs methodology in metaethics is inspired by FootÕs work. Yet, despite this, Woods wants to resist FootÕs objection to subjectivism Ð his aim is to argue that FootÕs method itself does not lead to the conclusion that we should reject subjectivism.\n\nWoodsÕs argument against Foot proceeds in two stages. Firstly, he argues that we should try to capture the functional role of moral judgments more carefully that Foot did. In the end, the role of these judgments is to enable us to co-ordinate our choices and actions in a mutually beneficial way. Fulfilling this function is possible only if we can make moral judgments that apply also to other peopleÕs actions. Furthermore, for\n\nthe moral judgments to be able to play the role of co-ordinating our choices and actions, we must be able to disagree with others by making conflicting moral judgments. Otherwise, we could not co-ordinate our actions by solving these disagreements through rational debates in which we take other peopleÕs views about our reasons seriously. It is only against this background that the potential arbitrariness of our moral judgments becomes a problem for the subjectivists. If our judgments and attitudes genuinely were arbitrary, it would not be clear how such judgments and attitudes could be used to persuade others to changes their views in a way that would lead to action co-ordination.\n\nIn the second stage of his argument, Woods tries to respond to the arbitrariness challenge and to show that the subjectivist understanding of our normative judgments can support the functional role, which these judgments play. Firstly, the arbitrariness concern is supported by the idea that we could easily have wildly different sets of cares and concerns. Woods argues against this by defending the idea that our moral outlooks are relatively robust. After all, the cares and concerns that constitute our moral outlooks are what make us who we are and so being able to imagine having a completely different moral outlook would require being able to adopt the standpoint of a completely different person from their first-personal perspective. This is not something we are able to do easily.\n\nWoods also argues that, even if according to the subjectivist framework we must evaluate the actions of others from our own moral standpoint that the objects of our evaluation might not share, the resulting judgments can still play the action coordinating functional role of moral judgments. This is because, even if the moral\n\nstandpoints of those with whom we disagree are different from ours, it is very rare that they are completely different. In most disagreements, solving the disagreement through rational debate can begin from at least some shared moral cares and concerns. If such common ground exists, then it is possible to change oneÕs view in a moral disagreement rationally on the basis of the otherÕs personÕs proposal even if that proposal is understood in the subjectivist way as an evaluation made from the speakerÕs own moral standpoint. As a consequence, Woods claims that, even if the method described by Foot is sound, it gives us no reason to reject subjectivist and relativist views in metaethics.\n\n## Part 4: Metaethics and Normative Ethics\n\nThe last two chapters of this volume, by Pekka VŠyrynen (Chapter 10) and Matthew Silverstein (Chapter 11), are some of the first systematic attempts to answer a certain central methodological question that has always intrigued ethicists. It concerns the relationship between normative ethics and metaethics. There are two views about how these two domains of ethics are related to one another. On one view these two subfields of the discipline are independent of one another, whereas according to the other view they are intertwined areas of investigation. Which one of these views is correct will then have important consequences for how we should do research in ethics. If the fields are independent, then metaethicists do not need to care about what the correct views are in normative ethics (and vice versa), whereas if the fields are intertwined then, for example, finding the correct metaethical view will require taking part in first-order normative debates about what is right and wrong.\n\nOne crucial methodological question in ethics thus is: can the central questions of first-order normative be answered without taking a stand on metaethical issues and likewise is the correct metaethical framework neutral between different first-order ethical theories? Or, are the fields intertwined in such a way that normative ethicists and metaethics have to be done together at the same time? Even if many ethicists have taken a stand on these important methodological questions on the basis of their prior commitments in both normative ethics and metaethics, very few philosophers have considered these questions systematically. This is why the chapters by VŠyrynen and Silverstein chapters are so interesting. They also answer the previous questions in very different ways.\n\nIn his chapter ÔNormative Commitments in Metanormative TheoryÕ (Chapter 10), VŠyrynen argues that whether we should accept a given metanormative theory always turns on how plausible certain first-order normative assumptions are. If this is right, then metaethical inquiry will always also require doing first-order normative theorising. VŠyrynenÕs argument to this conclusion begins from the idea that any metaethical view concerning the meaning of normative terms or the nature of normative judgments and properties will end up referring to facts that make a normative difference according to that view itself. He then argues that any of the previous kind of considerations can make a normative difference only if they are normatively relevant. From this VŠyrynen finally concludes that metaethical theories will always commit themselves to first-order normative claims about which features are normatively relevant.\n\nVŠyrynen also carefully illustrates how the previous argument applies to many wellknown metaethical views. For example, consider the synthetic forms of naturalism according to which the reference of normative terms is determined by to which natural properties these terms are linked with the appropriate kind of causal connections. If we accept this view, then we must accept the idea that which natural properties causally regulate the use of our normative concepts must make a normative difference. After all, here facts about causal regulation will affect which actions are right and wrong. As a consequence, this view entails that facts about causal regulation must be normatively relevant, which itself is a normative assumption requiring firstorder normative justification at the level of normative ethics. As this example illustrates, VŠyrynenÕs argument has significant consequences for how metaethics should be done. If the argument is sound, metaethical theorising will always at least in part consist of considering first-order normative and moral questions.\n\nMatthew SilversteinÕs chapter ÔRevisionist MetaethicsÕ (Chapter 11), in contrast, argues that in metaethics we should not be too concerned about the question of whether the first-order ethical implications of our metaethical views are intuitively acceptable. Silverstein first observes that different sides in the central metaethical debates tend to accept very different kind methodological principles. He calls those who value the explanatory power of metaethical views ÔexplainersÕ and those who value reflective equilibrium with our carefully considered first-order moral convictions ÔpreservationistsÕ.  Even if, of course, we would ultimately prefer a metaethical framework that would do well both explanatorily and extensionally, Silverstein sees the previous two methodological starting points to be pulling in different directions. Explanatory theories tend to be reductive and make normative\n\nproperties to depend on our attitudes, whereas extensionally intuitive theories tend to be non-reductive and thus able to recognise the kind of external and categorical reasons that match our intuitions.\n\nSilverstein then argues that the explainers have a more appropriate methodology than the preservationists. This is because he believes that, given that we lack a sufficiently firm understanding of the subject matter of ethics, we should not care too much about the extensional adequacy of our theories. Silverstein then supports this main line of reasoning in two ways.\n\nFirstly, Silverstein agrees with Alasdair MacIntyre (1981) and G.E.M. Anscombe (1958) that our moral vocabulary is historically based on a legalistic and theistic conception of ethics, which tends to understand right and wrong in terms of GodÕs commands. Since we have abandoned the religious moral framework, we have, of course, made attempts to restructure our conceptual framework in a way that would not depend on God. Silverstein then suggests that, even if we should do moral philosophy in this new situation in which we are in the midst of revising our conceptual framework, we should still be sceptical about those elements of our moral practice that bear the closest traces of its religious and legalistic origins. One such element is the common thought that our moral judgments are universal Ð the intuition that these judgments apply to all agents independently of what they care about.\n\nSilversteinÕs second argument begins from the idea that reasons must be essentially connected to practical reasoning. After all, reasons are considerations that bear on successful reasoning at least in some way. According to Silverstein, this means that\n\nwe should trust our intuitions about reasons only insofar as we understand the process of practical reasoning and what its constitutive aim is. He, however, thinks that we do not really understand practical reasoning. We know that its formal aim is to tell us what to do, but unfortunately, at the moment, we do not really know what the more substantial goals of practical reasoning would be. This is why Silverstein thinks that we should accept that at least some of our intuitions concerning what reasons we have will be wide off the mark. He also believes that, as a consequence, we should not rely on our substantial first-order intuitions about what reasons in evaluating those metaethical theories that have a lot of explanatory power. We should not be preservationists but rather explainers.\n\n## References\n\nAlfano, Mark and Loeb, Don (2017) ÔExperimental Moral PhilosophyÕ, The Stanford Encyclopedia of Philosophy , Fall 2017 Edition, Edward N. Zalta (ed.), URL = https://plato.stanford.edu/archives/fall2017/entries/experimental-moral/.\n\nAnscombe, G.E.M. (1958) ÔModern Moral PhilosophyÕ, Philosophy 33, pp. 1Ð33. Brandt, Richard (1979) A Theory of the Good and the Right (Oxford: Clarendon Press).\n\nDaniels, Norman (2016) ÔReflective EquilibriumÕ, The Stanford Encyclopedia of Philosophy , Winter 2016 Edition, Edward N. Zalta (ed.), URL =\n\nhttps://plato.stanford.edu/archives/win2016/entries/reflective-equilibrium/.\n\nDarwall, Stephen (2003) ÔMoore, Normativity, and Intrinsic ValueÕ, Ethics 113, pp. 468Ð89.\n\nFayerabend, Paul (1975) Against the Method (London: Verso).\n\nFoot, Philippa (1972) ÔMorality as a System of Hypothetical ImperativesÕ,\n\nPhilosophical Review 81, pp. 305Ð16.\n\nGreene, Joshua (2013) Moral Tribes: Emotion, Reason, and the Gap between Them and Us (New York: Penguin).\n\nHare, R.M. (1975) ÔRawlsÕ Theory of JusticeÕ, in Reading Rawls , Norman Daniels. (ed.) (Oxford: Blackwell), pp. 81Ð107.\n\nHooker, Brad (2000) Ideal Code, Real World (Oxford: Oxford University Press). Jackson, Frank (1998) From Metaphysics to Ethics (Oxford: Oxford University Press).\n\nKelly, Daniel (2011) Yuck! The Nature and Moral Significance of Disgust (Cambridge, MA: MIT Press).\n\nMacIntyre, Alasdair (1981) After Virtue (Notre Dame: Notre Dame University Press). Mikhail, John (2011) Elements of Moral Cognition: RawlsÕ Linguistic Analogy and the Cognitive Science of Moral and Legal Judgments (Cambridge: Cambridge University Press).\n\nRawls, John (1951) ÔOutline for a Decision Procedure in EthicsÕ, Philosophical Review 60, pp. 1Ð19.\n\nRawls, John (1971) A Theory of Justice (Cambridge, MA: Harvard University Press). Rawls, John (1974) ÔThe Independence of Moral TheoryÕ, Proceedings and Addresses of the American Philosophical Association 47, pp. 5Ð22.\n\nSchwitzgebel, Eric and Cushman, Fiery (2012) ÔExpertise in Moral Reasoning? Order Effects on Moral Judgment in Professional Philosophers and Non-\n\nPhilosophersÕ, Mind and Language\n\n27, pp. 135Ð157.\n\nSchwitzgebel, Eric and Cushman, Fiery (2015) ÔPhilosophersÕ Biased Judgments\n\nPersist Despite Training, Expertise, and ReflectionÕ, Cognition 141, pp. 127Ð\n\nMoral Psychology,\n\nEthics and the Limits of Philosophy Cambridge University Press).\n\n137. Singer, Peter (2005) ÔEthics and IntuitionsÕ, Journal of Ethics 9, pp. 331Ð352. Sinnott-Armstrong, Walter (2008) ÔFraming Moral IntuitionsÕ, In Vol. 2 , The Cognitive Science of Morality: Intuition and Diversity , Walter Sinnott-Armstrong (ed.) (Cambridge, MA: MIT Press), pp. 47Ð106. Williams, Bernard (1985) (Cambridge, MA:",
+    "responses": [
+      {
+        "source": "gpt-4o-2024-11-20",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"ADU1\": {\n      \"text\": \"The first common attitude is that the appropriate method for doing ethics was described by John Rawls when he formulated the reflective equilibrium method.\",\n      \"label\": \"claim\"\n    },\n    \"ADU2\": {\n      \"text\": \"Another common attitude is that moral philosophy has no method Ð anything goes in ethical theorising as long as the results are significant enough.\",\n      \"label\": \"claim\"\n    },\n    \"ADU3\": {\n      \"text\": \"The reflective equilibrium method has its limits and yet not all ways of proceeding in ethics are equally good.\",\n      \"label\": \"claim\"\n    },\n    \"ADU4\": {\n      \"text\": \"For this reason, I argue that we need to be more aware of the argumentative strategies we employ in ethics.\",\n      \"label\": \"claim\"\n    },\n    \"ADU5\": {\n      \"text\": \"This requires being methodologically reflective and transparent and taking part in the debates about the merits and problems of different methodologies exactly in the way done in the chapters of this volume.\",\n      \"label\": \"premise\"\n    },\n    \"ADU6\": {\n      \"text\": \"The reflective equilibrium method is easy to outline.\",\n      \"label\": \"claim\"\n    },\n    \"ADU7\": {\n      \"text\": \"We must begin from judgments about individual cases which must be held sincerely and which must also be stable in the kind of careful deliberation that is not distorted by strong emotions or self-interested bias.\",\n      \"label\": \"premise\"\n    },\n    \"ADU8\": {\n      \"text\": \"In the second stage, we attempt to formulate a set of general moral principles that could both fit and also justify the previous convictions.\",\n      \"label\": \"premise\"\n    },\n    \"ADU9\": {\n      \"text\": \"Finally, in the fourth stage, we fine-tune our principles by taking into consideration the leading ethical theories on the topic and the best arguments made in their support.\",\n      \"label\": \"premise\"\n    },\n    \"ADU10\": {\n      \"text\": \"It is easy to see just why the reflective equilibrium is such a promising account of how we ought to do moral philosophy.\",\n      \"label\": \"claim\"\n    },\n    \"ADU11\": {\n      \"text\": \"It is an ideal that seems provide us with almost something like an algorithm Ð clear steps which anyone should be able to follow systemically in order to achieve moral knowledge.\",\n      \"label\": \"premise\"\n    },\n    \"ADU12\": {\n      \"text\": \"Despite this, many ethicists have always been torn about the reflective equilibrium method for several reasons.\",\n      \"label\": \"claim\"\n    },\n    \"ADU13\": {\n      \"text\": \"One of the most poignant criticisms has always been that, even if when we use the reflective equilibrium method we must begin from our carefully considered moral judgments, these judgments are still bound to be a reflection of cultural indoctrination, superstition and bias.\",\n      \"label\": \"premise\"\n    },\n    \"ADU14\": {\n      \"text\": \"The reflective equilibrium method also suffers from other problems Ð two of which are relevant here.\",\n      \"label\": \"claim\"\n    },\n    \"ADU15\": {\n      \"text\": \"Firstly, many ethicists feel like the description of the reflective equilibrium method is not especially helpful when it comes to their everyday work.\",\n      \"label\": \"premise\"\n    },\n    \"ADU16\": {\n      \"text\": \"The second issue is that very few recent works in moral philosophy employ the reflective equilibrium method in any recognisable and explicit form.\",\n      \"label\": \"premise\"\n    },\n    \"ADU17\": {\n      \"text\": \"Perhaps these limitations of the reflective equilibrium method have led to another extreme in the ethicistsÕ attitudes towards the methodological questions.\",\n      \"label\": \"claim\"\n    },\n    \"ADU18\": {\n      \"text\": \"The second common methodological attitude is a reflection of Paul FeyerabendÕs (1975) Ôanything goesÕ view in the debates concerning the appropriate methods of science.\",\n      \"label\": \"claim\"\n    },\n    \"ADU19\": {\n      \"text\": \"The core idea behind this attitude is the observation that, if we consider both historical and more recent key contributions to moral philosophy, it is difficult to extract a unique method such that its use would explain the fact that these very contributions constitute the most important advances.\",\n      \"label\": \"premise\"\n    },\n    \"ADU20\": {\n      \"text\": \"There are several reasons for why this Ômethodological anarchismÕ is not wholly satisfactory either.\",\n      \"label\": \"claim\"\n    },\n    \"ADU21\": {\n      \"text\": \"The main problem is that the attitude is based on a presupposition according to which different views in moral philosophy can be evaluated independently of the arguments provided in their support.\",\n      \"label\": \"premise\"\n    },\n    \"ADU22\": {\n      \"text\": \"Rather, it is much more plausible to think that how plausible different answers to different questions in moral philosophy are is always intertwined with the question of how strong arguments have been provided for those answers.\",\n      \"label\": \"claim\"\n    },\n    \"ADU23\": {\n      \"text\": \"Let me then draw three lessons from the problems of the methodological attitudes outlined above.\",\n      \"label\": \"claim\"\n    },\n    \"ADU24\": {\n      \"text\": \"Firstly, given that moral philosophers investigate very different kinds of questions, it is unlikely that there will be any single method of ethics that could be used to make progress in all debates of moral philosophy.\",\n      \"label\": \"premise\"\n    },\n    \"ADU25\": {\n      \"text\": \"The second lesson we should draw is that it is unlikely that even the best methods of ethics will be simple step-by-step algorithms, which even a computer could be programmed to follow.\",\n      \"label\": \"premise\"\n    },\n    \"ADU26\": {\n      \"text\": \"Finally, insofar as we can identify different methods in the previous looser sense, we should resist the idea that all ways of proceeding are equally good.\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"ADU3\",\n      \"target\": \"ADU4\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU4\",\n      \"target\": \"ADU5\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU6\",\n      \"target\": \"ADU7\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU6\",\n      \"target\": \"ADU8\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU6\",\n      \"target\": \"ADU9\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU10\",\n      \"target\": \"ADU11\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU12\",\n      \"target\": \"ADU13\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU14\",\n      \"target\": \"ADU15\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU14\",\n      \"target\": \"ADU16\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU17\",\n      \"target\": \"ADU18\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU20\",\n      \"target\": \"ADU21\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU23\",\n      \"target\": \"ADU24\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU23\",\n      \"target\": \"ADU25\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU26\",\n      \"target\": \"ADU22\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "ADU1": {
+              "text": "The first common attitude is that the appropriate method for doing ethics was described by John Rawls when he formulated the reflective equilibrium method.",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "Another common attitude is that moral philosophy has no method Ð anything goes in ethical theorising as long as the results are significant enough.",
+              "label": "claim"
+            },
+            "ADU3": {
+              "text": "The reflective equilibrium method has its limits and yet not all ways of proceeding in ethics are equally good.",
+              "label": "claim"
+            },
+            "ADU4": {
+              "text": "For this reason, I argue that we need to be more aware of the argumentative strategies we employ in ethics.",
+              "label": "claim"
+            },
+            "ADU5": {
+              "text": "This requires being methodologically reflective and transparent and taking part in the debates about the merits and problems of different methodologies exactly in the way done in the chapters of this volume.",
+              "label": "premise"
+            },
+            "ADU6": {
+              "text": "The reflective equilibrium method is easy to outline.",
+              "label": "claim"
+            },
+            "ADU7": {
+              "text": "We must begin from judgments about individual cases which must be held sincerely and which must also be stable in the kind of careful deliberation that is not distorted by strong emotions or self-interested bias.",
+              "label": "premise"
+            },
+            "ADU8": {
+              "text": "In the second stage, we attempt to formulate a set of general moral principles that could both fit and also justify the previous convictions.",
+              "label": "premise"
+            },
+            "ADU9": {
+              "text": "Finally, in the fourth stage, we fine-tune our principles by taking into consideration the leading ethical theories on the topic and the best arguments made in their support.",
+              "label": "premise"
+            },
+            "ADU10": {
+              "text": "It is easy to see just why the reflective equilibrium is such a promising account of how we ought to do moral philosophy.",
+              "label": "claim"
+            },
+            "ADU11": {
+              "text": "It is an ideal that seems provide us with almost something like an algorithm Ð clear steps which anyone should be able to follow systemically in order to achieve moral knowledge.",
+              "label": "premise"
+            },
+            "ADU12": {
+              "text": "Despite this, many ethicists have always been torn about the reflective equilibrium method for several reasons.",
+              "label": "claim"
+            },
+            "ADU13": {
+              "text": "One of the most poignant criticisms has always been that, even if when we use the reflective equilibrium method we must begin from our carefully considered moral judgments, these judgments are still bound to be a reflection of cultural indoctrination, superstition and bias.",
+              "label": "premise"
+            },
+            "ADU14": {
+              "text": "The reflective equilibrium method also suffers from other problems Ð two of which are relevant here.",
+              "label": "claim"
+            },
+            "ADU15": {
+              "text": "Firstly, many ethicists feel like the description of the reflective equilibrium method is not especially helpful when it comes to their everyday work.",
+              "label": "premise"
+            },
+            "ADU16": {
+              "text": "The second issue is that very few recent works in moral philosophy employ the reflective equilibrium method in any recognisable and explicit form.",
+              "label": "premise"
+            },
+            "ADU17": {
+              "text": "Perhaps these limitations of the reflective equilibrium method have led to another extreme in the ethicistsÕ attitudes towards the methodological questions.",
+              "label": "claim"
+            },
+            "ADU18": {
+              "text": "The second common methodological attitude is a reflection of Paul FeyerabendÕs (1975) Ôanything goesÕ view in the debates concerning the appropriate methods of science.",
+              "label": "claim"
+            },
+            "ADU19": {
+              "text": "The core idea behind this attitude is the observation that, if we consider both historical and more recent key contributions to moral philosophy, it is difficult to extract a unique method such that its use would explain the fact that these very contributions constitute the most important advances.",
+              "label": "premise"
+            },
+            "ADU20": {
+              "text": "There are several reasons for why this Ômethodological anarchismÕ is not wholly satisfactory either.",
+              "label": "claim"
+            },
+            "ADU21": {
+              "text": "The main problem is that the attitude is based on a presupposition according to which different views in moral philosophy can be evaluated independently of the arguments provided in their support.",
+              "label": "premise"
+            },
+            "ADU22": {
+              "text": "Rather, it is much more plausible to think that how plausible different answers to different questions in moral philosophy are is always intertwined with the question of how strong arguments have been provided for those answers.",
+              "label": "claim"
+            },
+            "ADU23": {
+              "text": "Let me then draw three lessons from the problems of the methodological attitudes outlined above.",
+              "label": "claim"
+            },
+            "ADU24": {
+              "text": "Firstly, given that moral philosophers investigate very different kinds of questions, it is unlikely that there will be any single method of ethics that could be used to make progress in all debates of moral philosophy.",
+              "label": "premise"
+            },
+            "ADU25": {
+              "text": "The second lesson we should draw is that it is unlikely that even the best methods of ethics will be simple step-by-step algorithms, which even a computer could be programmed to follow.",
+              "label": "premise"
+            },
+            "ADU26": {
+              "text": "Finally, insofar as we can identify different methods in the previous looser sense, we should resist the idea that all ways of proceeding are equally good.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU3",
+              "target": "ADU4",
+              "type": "support"
+            },
+            {
+              "source": "ADU4",
+              "target": "ADU5",
+              "type": "support"
+            },
+            {
+              "source": "ADU6",
+              "target": "ADU7",
+              "type": "support"
+            },
+            {
+              "source": "ADU6",
+              "target": "ADU8",
+              "type": "support"
+            },
+            {
+              "source": "ADU6",
+              "target": "ADU9",
+              "type": "support"
+            },
+            {
+              "source": "ADU10",
+              "target": "ADU11",
+              "type": "support"
+            },
+            {
+              "source": "ADU12",
+              "target": "ADU13",
+              "type": "support"
+            },
+            {
+              "source": "ADU14",
+              "target": "ADU15",
+              "type": "support"
+            },
+            {
+              "source": "ADU14",
+              "target": "ADU16",
+              "type": "support"
+            },
+            {
+              "source": "ADU17",
+              "target": "ADU18",
+              "type": "support"
+            },
+            {
+              "source": "ADU20",
+              "target": "ADU21",
+              "type": "support"
+            },
+            {
+              "source": "ADU23",
+              "target": "ADU24",
+              "type": "support"
+            },
+            {
+              "source": "ADU23",
+              "target": "ADU25",
+              "type": "support"
+            },
+            {
+              "source": "ADU26",
+              "target": "ADU22",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "ADU1": {
+              "text": "The first common attitude is that the appropriate method for doing ethics was described by John Rawls when he formulated the reflective equilibrium method.",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "Another common attitude is that moral philosophy has no method Ð anything goes in ethical theorising as long as the results are significant enough.",
+              "label": "claim"
+            },
+            "ADU3": {
+              "text": "The reflective equilibrium method has its limits and yet not all ways of proceeding in ethics are equally good.",
+              "label": "claim"
+            },
+            "ADU4": {
+              "text": "For this reason, I argue that we need to be more aware of the argumentative strategies we employ in ethics.",
+              "label": "claim"
+            },
+            "ADU5": {
+              "text": "This requires being methodologically reflective and transparent and taking part in the debates about the merits and problems of different methodologies exactly in the way done in the chapters of this volume.",
+              "label": "premise"
+            },
+            "ADU6": {
+              "text": "The reflective equilibrium method is easy to outline.",
+              "label": "claim"
+            },
+            "ADU8": {
+              "text": "In the second stage, we attempt to formulate a set of general moral principles that could both fit and also justify the previous convictions.",
+              "label": "premise"
+            },
+            "ADU9": {
+              "text": "Finally, in the fourth stage, we fine-tune our principles by taking into consideration the leading ethical theories on the topic and the best arguments made in their support.",
+              "label": "premise"
+            },
+            "ADU10": {
+              "text": "It is easy to see just why the reflective equilibrium is such a promising account of how we ought to do moral philosophy.",
+              "label": "claim"
+            },
+            "ADU11": {
+              "text": "It is an ideal that seems provide us with almost something like an algorithm Ð clear steps which anyone should be able to follow systemically in order to achieve moral knowledge.",
+              "label": "premise"
+            },
+            "ADU12": {
+              "text": "Despite this, many ethicists have always been torn about the reflective equilibrium method for several reasons.",
+              "label": "claim"
+            },
+            "ADU14": {
+              "text": "The reflective equilibrium method also suffers from other problems Ð two of which are relevant here.",
+              "label": "claim"
+            },
+            "ADU15": {
+              "text": "Firstly, many ethicists feel like the description of the reflective equilibrium method is not especially helpful when it comes to their everyday work.",
+              "label": "premise"
+            },
+            "ADU16": {
+              "text": "The second issue is that very few recent works in moral philosophy employ the reflective equilibrium method in any recognisable and explicit form.",
+              "label": "premise"
+            },
+            "ADU17": {
+              "text": "Perhaps these limitations of the reflective equilibrium method have led to another extreme in the ethicistsÕ attitudes towards the methodological questions.",
+              "label": "claim"
+            },
+            "ADU18": {
+              "text": "The second common methodological attitude is a reflection of Paul FeyerabendÕs (1975) Ôanything goesÕ view in the debates concerning the appropriate methods of science.",
+              "label": "claim"
+            },
+            "ADU19": {
+              "text": "The core idea behind this attitude is the observation that, if we consider both historical and more recent key contributions to moral philosophy, it is difficult to extract a unique method such that its use would explain the fact that these very contributions constitute the most important advances.",
+              "label": "premise"
+            },
+            "ADU20": {
+              "text": "There are several reasons for why this Ômethodological anarchismÕ is not wholly satisfactory either.",
+              "label": "claim"
+            },
+            "ADU21": {
+              "text": "The main problem is that the attitude is based on a presupposition according to which different views in moral philosophy can be evaluated independently of the arguments provided in their support.",
+              "label": "premise"
+            },
+            "ADU23": {
+              "text": "Let me then draw three lessons from the problems of the methodological attitudes outlined above.",
+              "label": "claim"
+            },
+            "ADU24": {
+              "text": "Firstly, given that moral philosophers investigate very different kinds of questions, it is unlikely that there will be any single method of ethics that could be used to make progress in all debates of moral philosophy.",
+              "label": "premise"
+            },
+            "ADU25": {
+              "text": "The second lesson we should draw is that it is unlikely that even the best methods of ethics will be simple step-by-step algorithms, which even a computer could be programmed to follow.",
+              "label": "premise"
+            },
+            "ADU26": {
+              "text": "Finally, insofar as we can identify different methods in the previous looser sense, we should resist the idea that all ways of proceeding are equally good.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU3",
+              "target": "ADU4",
+              "type": "support"
+            },
+            {
+              "source": "ADU4",
+              "target": "ADU5",
+              "type": "support"
+            },
+            {
+              "source": "ADU6",
+              "target": "ADU8",
+              "type": "support"
+            },
+            {
+              "source": "ADU6",
+              "target": "ADU9",
+              "type": "support"
+            },
+            {
+              "source": "ADU10",
+              "target": "ADU11",
+              "type": "support"
+            },
+            {
+              "source": "ADU14",
+              "target": "ADU15",
+              "type": "support"
+            },
+            {
+              "source": "ADU14",
+              "target": "ADU16",
+              "type": "support"
+            },
+            {
+              "source": "ADU17",
+              "target": "ADU18",
+              "type": "support"
+            },
+            {
+              "source": "ADU20",
+              "target": "ADU21",
+              "type": "support"
+            },
+            {
+              "source": "ADU23",
+              "target": "ADU24",
+              "type": "support"
+            },
+            {
+              "source": "ADU23",
+              "target": "ADU25",
+              "type": "support"
+            }
+          ]
+        }
+      },
+      {
+        "source": "claude-3-5-sonnet-20241022",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"A1\": {\n      \"text\": \"many think that, as a discipline, moral philosophy has a unique method, comparable in significance to the Ôexperimental methodÕ of the natural sciences. This well-known reflective equilibrium method was first explicitly outlined by John Rawls\",\n      \"label\": \"claim\"\n    },\n    \"A2\": {\n      \"text\": \"The reflective equilibrium method is easy to outline. We must begin from judgments about individual cases which must be held sincerely and which must also be stable in the kind of careful deliberation that is not distorted by strong emotions or selfinterested bias.\",\n      \"label\": \"premise\"\n    },\n    \"A3\": {\n      \"text\": \"In the second stage, we attempt to formulate a set of general moral principles that could both fit and also justify the previous convictions.\",\n      \"label\": \"premise\"\n    },\n    \"A4\": {\n      \"text\": \"In the third stage, we then try to get rid of the previous conflicts in two ways. In some conflict cases, it makes sense for us to modify our judgments about the cases on the basis of the general principles because those principles support our intuitions so well elsewhere. In other cases, in contrast, it makes more sense to attempt to find new, more sophisticated principles so that we do not have to give up our convictions about the cases given how deeply held they are.\",\n      \"label\": \"premise\"\n    },\n    \"A5\": {\n      \"text\": \"Finally, in the fourth stage, we fine-tune our principles by taking into consideration the leading ethical theories on the topic and the best arguments made in their support. We are also to seek wider reflective equilibrium by broadening the set of moral and non-moral beliefs with which the relevant moral principles we have formulated are supposed to be compatible.\",\n      \"label\": \"premise\"\n    },\n    \"A6\": {\n      \"text\": \"even if when we use the reflective equilibrium method we must begin from our carefully considered moral judgments, these judgments are still bound to be a reflection of cultural indoctrination, superstition and bias\",\n      \"label\": \"claim\"\n    },\n    \"A7\": {\n      \"text\": \"if we are not allowed to rely on our carefully considered judgments in the evaluation of moral principles, then we would be required to evaluate those principles from a completely non-moral, non-evaluative point of view.\",\n      \"label\": \"premise\"\n    },\n    \"A8\": {\n      \"text\": \"Somewhat boringly, the method merely guides us vaguely to seek coherence between our carefully considered moral convictions, moral principles and the relevant empirical beliefs. Yet, very few people have thought that incoherent views are better than coherent ones and more importantly the reflective equilibrium method does not tell us exactly how we should make our principles cohere with our carefully considered convictions.\",\n      \"label\": \"claim\"\n    },\n    \"A9\": {\n      \"text\": \"very few recent works in moral philosophy employ the reflective equilibrium method in any recognisable and explicit form.\",\n      \"label\": \"claim\"\n    },\n    \"A10\": {\n      \"text\": \"how plausible different answers to different questions in moral philosophy are is always intertwined with the question of how strong arguments have been provided for those answers.\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"A2\",\n      \"target\": \"A1\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A3\",\n      \"target\": \"A1\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A4\",\n      \"target\": \"A1\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A5\",\n      \"target\": \"A1\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A6\",\n      \"target\": \"A1\",\n      \"type\": \"attack\"\n    },\n    {\n      \"source\": \"A7\",\n      \"target\": \"A6\",\n      \"type\": \"attack\"\n    },\n    {\n      \"source\": \"A8\",\n      \"target\": \"A1\",\n      \"type\": \"attack\"\n    },\n    {\n      \"source\": \"A9\",\n      \"target\": \"A1\",\n      \"type\": \"attack\"\n    },\n    {\n      \"source\": \"A10\",\n      \"target\": \"A1\",\n      \"type\": \"attack\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "A1": {
+              "text": "many think that, as a discipline, moral philosophy has a unique method, comparable in significance to the Ôexperimental methodÕ of the natural sciences. This well-known reflective equilibrium method was first explicitly outlined by John Rawls",
+              "label": "claim"
+            },
+            "A2": {
+              "text": "The reflective equilibrium method is easy to outline. We must begin from judgments about individual cases which must be held sincerely and which must also be stable in the kind of careful deliberation that is not distorted by strong emotions or selfinterested bias.",
+              "label": "premise"
+            },
+            "A3": {
+              "text": "In the second stage, we attempt to formulate a set of general moral principles that could both fit and also justify the previous convictions.",
+              "label": "premise"
+            },
+            "A4": {
+              "text": "In the third stage, we then try to get rid of the previous conflicts in two ways. In some conflict cases, it makes sense for us to modify our judgments about the cases on the basis of the general principles because those principles support our intuitions so well elsewhere. In other cases, in contrast, it makes more sense to attempt to find new, more sophisticated principles so that we do not have to give up our convictions about the cases given how deeply held they are.",
+              "label": "premise"
+            },
+            "A5": {
+              "text": "Finally, in the fourth stage, we fine-tune our principles by taking into consideration the leading ethical theories on the topic and the best arguments made in their support. We are also to seek wider reflective equilibrium by broadening the set of moral and non-moral beliefs with which the relevant moral principles we have formulated are supposed to be compatible.",
+              "label": "premise"
+            },
+            "A6": {
+              "text": "even if when we use the reflective equilibrium method we must begin from our carefully considered moral judgments, these judgments are still bound to be a reflection of cultural indoctrination, superstition and bias",
+              "label": "claim"
+            },
+            "A7": {
+              "text": "if we are not allowed to rely on our carefully considered judgments in the evaluation of moral principles, then we would be required to evaluate those principles from a completely non-moral, non-evaluative point of view.",
+              "label": "premise"
+            },
+            "A8": {
+              "text": "Somewhat boringly, the method merely guides us vaguely to seek coherence between our carefully considered moral convictions, moral principles and the relevant empirical beliefs. Yet, very few people have thought that incoherent views are better than coherent ones and more importantly the reflective equilibrium method does not tell us exactly how we should make our principles cohere with our carefully considered convictions.",
+              "label": "claim"
+            },
+            "A9": {
+              "text": "very few recent works in moral philosophy employ the reflective equilibrium method in any recognisable and explicit form.",
+              "label": "claim"
+            },
+            "A10": {
+              "text": "how plausible different answers to different questions in moral philosophy are is always intertwined with the question of how strong arguments have been provided for those answers.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "A2",
+              "target": "A1",
+              "type": "support"
+            },
+            {
+              "source": "A3",
+              "target": "A1",
+              "type": "support"
+            },
+            {
+              "source": "A4",
+              "target": "A1",
+              "type": "support"
+            },
+            {
+              "source": "A5",
+              "target": "A1",
+              "type": "support"
+            },
+            {
+              "source": "A6",
+              "target": "A1",
+              "type": "attack"
+            },
+            {
+              "source": "A7",
+              "target": "A6",
+              "type": "attack"
+            },
+            {
+              "source": "A8",
+              "target": "A1",
+              "type": "attack"
+            },
+            {
+              "source": "A9",
+              "target": "A1",
+              "type": "attack"
+            },
+            {
+              "source": "A10",
+              "target": "A1",
+              "type": "attack"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "A1": {
+              "text": "many think that, as a discipline, moral philosophy has a unique method, comparable in significance to the Ôexperimental methodÕ of the natural sciences. This well-known reflective equilibrium method was first explicitly outlined by John Rawls",
+              "label": "claim"
+            },
+            "A2": {
+              "text": "The reflective equilibrium method is easy to outline. We must begin from judgments about individual cases which must be held sincerely and which must also be stable in the kind of careful deliberation that is not distorted by strong emotions or selfinterested bias.",
+              "label": "premise"
+            },
+            "A3": {
+              "text": "In the second stage, we attempt to formulate a set of general moral principles that could both fit and also justify the previous convictions.",
+              "label": "premise"
+            },
+            "A4": {
+              "text": "In the third stage, we then try to get rid of the previous conflicts in two ways. In some conflict cases, it makes sense for us to modify our judgments about the cases on the basis of the general principles because those principles support our intuitions so well elsewhere. In other cases, in contrast, it makes more sense to attempt to find new, more sophisticated principles so that we do not have to give up our convictions about the cases given how deeply held they are.",
+              "label": "premise"
+            },
+            "A5": {
+              "text": "Finally, in the fourth stage, we fine-tune our principles by taking into consideration the leading ethical theories on the topic and the best arguments made in their support. We are also to seek wider reflective equilibrium by broadening the set of moral and non-moral beliefs with which the relevant moral principles we have formulated are supposed to be compatible.",
+              "label": "premise"
+            },
+            "A6": {
+              "text": "even if when we use the reflective equilibrium method we must begin from our carefully considered moral judgments, these judgments are still bound to be a reflection of cultural indoctrination, superstition and bias",
+              "label": "claim"
+            },
+            "A7": {
+              "text": "if we are not allowed to rely on our carefully considered judgments in the evaluation of moral principles, then we would be required to evaluate those principles from a completely non-moral, non-evaluative point of view.",
+              "label": "premise"
+            },
+            "A8": {
+              "text": "Somewhat boringly, the method merely guides us vaguely to seek coherence between our carefully considered moral convictions, moral principles and the relevant empirical beliefs. Yet, very few people have thought that incoherent views are better than coherent ones and more importantly the reflective equilibrium method does not tell us exactly how we should make our principles cohere with our carefully considered convictions.",
+              "label": "claim"
+            },
+            "A9": {
+              "text": "very few recent works in moral philosophy employ the reflective equilibrium method in any recognisable and explicit form.",
+              "label": "claim"
+            },
+            "A10": {
+              "text": "how plausible different answers to different questions in moral philosophy are is always intertwined with the question of how strong arguments have been provided for those answers.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "A2",
+              "target": "A1",
+              "type": "support"
+            },
+            {
+              "source": "A3",
+              "target": "A1",
+              "type": "support"
+            },
+            {
+              "source": "A4",
+              "target": "A1",
+              "type": "support"
+            },
+            {
+              "source": "A5",
+              "target": "A1",
+              "type": "support"
+            },
+            {
+              "source": "A6",
+              "target": "A1",
+              "type": "attack"
+            },
+            {
+              "source": "A7",
+              "target": "A6",
+              "type": "attack"
+            },
+            {
+              "source": "A8",
+              "target": "A1",
+              "type": "attack"
+            },
+            {
+              "source": "A9",
+              "target": "A1",
+              "type": "attack"
+            },
+            {
+              "source": "A10",
+              "target": "A1",
+              "type": "attack"
+            }
+          ]
+        }
+      }
+    ],
+    "timestamp": 1752758348.4386618
+  }
+]

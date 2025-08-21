@@ -1,0 +1,555 @@
+[
+  {
+    "identifier": "PURUAD",
+    "system_prompt": "## GOAL\nArgument‑mine the following paper to extract its comprehensive argumentative structure.\n\n## DEFINITIONS\n1. **Argument**: A set of propositions, including some number of premises and a conclusion. The premises should logically entail the conclusion.\n2. **Claim**: A proposition that asserts something to be true or false, typically requiring justification or evidence.\n3. **Premise**: A proposition that provides evidence, justification, or logical support for a claim or conclusion.\n\n## CRITICAL REQUIREMENTS\n1. **VERBATIM EXTRACTION ONLY**: Each ADU text must be copied EXACTLY from the paper with no modifications, paraphrasing, or combining of separate sentences.\n2. **NO HALLUCINATION**: Do not create, modify, or invent text that does not appear exactly in the source.\n3. **EXACT MATCHING**: Every word, punctuation mark, and spacing must match the original precisely.\n\n## DIRECTIONS\n1. **Identify Argumentative Discourse Units (ADUs)**  \n   - ADU = any contiguous text span functioning as a claim or a premise in the reasoning structure.\n   - **BE HIGHLY SELECTIVE**: Only include ADUs that are crucial to the overarching argument structure.\n   - Focus on significant claims and premises that contribute meaningfully to the argumentative flow.\n   - **AVOID NOISE**: Skip ADUs that are merely descriptive, tangential, or do not substantially advance the argument.\n   - Prioritize quality over quantity - fewer accurate, important ADUs are better than many insignificant ones.\n   - **EXTRACT ONLY**: Copy text spans exactly as they appear, without any modifications.\n2. **Classify each ADU**  \n   - Label = either `\"claim\"` or `\"premise\"`.  \n3. **Detect directed relations**  \n   - Relation = `\"support\"` or `\"attack\"`, from one ADU (source) to another (target).\n   - Map how ADUs connect to form reasoning chains.\n   - Focus on relationships between the most significant ADUs.\n   - Include relationships between premises that strengthen or weaken each other.\n4. **Verbatim spans**  \n   - Each `\"text\"` value must be copied EXACTLY from the paper with zero modifications.\n   - Do not paraphrase, summarize, or combine separate sentences.\n   - Do not add, remove, or change any words, punctuation, or spacing.\n   - If unsure about exact wording, skip that ADU rather than guess.\n\n## WHAT TO CAPTURE\n**INCLUDE ONLY:**\n- Main argumentative threads that are central to the paper's contribution\n- Core claims that represent the paper's primary arguments or findings\n- Key premises that provide essential support for major claims\n- Critical counterarguments and their refutations\n- Reasoning chains that demonstrate how main conclusions are derived\n\n**EXCLUDE (AVOID NOISE):**\n- Minor details, examples, or descriptive content that don't advance the argument\n- Tangential points or side discussions\n- Pure background information or literature review content\n- Methodological details unless they constitute argumentative claims\n- Obvious statements or commonly accepted facts\n- Redundant or repetitive argumentative content\n\n**GUIDING PRINCIPLE**: If removing an ADU would not significantly impact understanding of the paper's argumentative structure, it should be excluded.\n\n## QUALITY CONTROL\n- Before finalizing each ADU, verify the text exists exactly in the source\n- Prefer fewer, accurate ADUs over many potentially modified ones\n- When in doubt about exact wording, omit the ADU\n\n## OUTPUT FORMAT\nReturn **only** a single valid JSON object matching this schema.  \nDo **not** output any extra text, markdown, or explanations.\nDo **not** add comments.\n**RESPOND WITH ONLY**:\n```json\n{\n  \"ADUs\": {\n    \"<ADU_ID>\": {\n      \"text\": \"<exact span from paper>\",\n      \"label\": \"claim\" | \"premise\"\n    }\n    ...\n  },\n  \"relations\": [\n    {\n      \"source\": \"<ADU_ID>\",\n      \"target\": \"<ADU_ID>\",\n      \"type\": \"support\" | \"attack\"\n    }\n  ]\n}\n```",
+    "user_content": "## Uncertain Abilities, Diachronic Agency, and Future Selves.\n\nAbstract : Living with chronic illness can involve fluctuating between radically different bodily states depending on whether you are experiencing flareups of illness symptoms. What you can do in these bodily states can differ drastically from one another. Sometimes, these fluctuations in abilities lead to fluctuations in your values. That is, your evaluative perspective can shift when you are experiencing flareups of the illness. This can give rise to a puzzle for planning, since it is unclear what you should plan on doing when you do not have a stable set of preferences guiding your plans. This paper argues that one way to navigate this puzzle is for the agent to adopt an overarching plan that mediates the conflict between her differing perspectives.\n\nKeywords : valuing, disability, chronic illness, planning, plan rationality.\n\n## I.\n\nOne way that illness can undermine agency is by getting in the way of your plans.  For example, 1 consider Alex, an avid marathon runner, who was training for an upcoming race when she developed an auto immune disorder that produced substantial fatigue, leaving her unable to run long distances. Alex's illness prevents her from being able to follow through with her plans to run marathons.\n\nWhile illness undoubtedly undermines people's ability to follow through with plans, illness can also lead to changes in what individuals plan to do in the first place. One reason for this is that illness can change our values. Consider Alex again. Suppose that at first, Alex mourns the loss of being able to run marathons, and wishes she could still engage in this sport, but over time finds that she identifies less with this activity. In particular, she is less invested in it now that she can't run the races herself. This is not to say that she couldn't still engage in valuing marathon running if she wanted to, since there are many ways to value marathons besides running them (e.g., by volunteering at races, reading about marathon running, etc.). But suppose that what Alex cared about was running these races herself. More specifically, the degree to which she valued marathon running depended on being able to engage in this activity in a particular way, namely by running these races herself.\n\nIn this case, it's not that Alex can no longer run marathons but still wants to. Rather, she no longer wants to run marathons in the first place, and so no longer cares about structuring her plans around marathon running, since how much she valued this activity depended on being able\n\n1 Toombs (1987), Scarry (1987), Wendell (1997), Carel (2016).\n\nto run these races. The more general point is that whether we value something, or the extent to which we value it, sometimes depends on our abilities. In these cases, a change in those abilities changes your values, and the plans shaped by those values.\n\nThe example of Alex involves a stable change: she goes from being able to run to being unable to run. But rather than a stable change, illness often involves fluctuating between different sets of abilities depending on whether you're experiencing flareups of illness symptoms.  For 2 example, someone living with chronic pain might sometimes be able to run long distances, while other times be unable to walk for more than a few minutes. If some of your values depend on your abilities, then living with shifting abilities can make your values unstable.\n\nThis paper argues that there is a puzzle for diachronic agency that arises given this connection between some of our values and abilities. The puzzle is that it is unclear what values should guide your plans when your values shift with your abilities. To illustrate the puzzle, consider Diego, who lives with chronic pain and is deciding what career to pursue. When Diego isn't flaring, he wants to be a park ranger. But when he is flaring, the physical exertion of this job is too taxing. Not only that, but during these times different values become more salient to him. For example, the difficulty of effectively describing what his pain feels like to others makes him more attuned to the need for rethinking the ways of communicating pain at our disposal. Experiences like this make it easier for Diego, when in pain, to imaginatively project himself into the role of a researcher working on these issues.\n\nWhich career Diego is drawn to shifts with his bodily state. When flaring more frequently, he prefers pursuing a career as a researcher over being a park ranger. But when his symptoms are less pronounced, he prefers being a park ranger to a researcher. Importantly, when Diego is flaring, he does not regard being a researcher as a back-up, or plan B, to being a park ranger. Rather, the symptoms shift his preference ordering, so that when he is flaring, he would prefer being a researcher even if being a park ranger were an option. His preferences shift in this way because his symptoms alter his evaluative perspective.\n\nDiego can't simply plan for which state he will be in more often, since the frequency and duration of his flares vary greatly over time, making it difficult to predict if he will spend more time in the future flaring or not flaring. Situations like Diego's require planning for multiple,\n\n2 Chronic illnesses are conditions that last longer than one year and require ongoing medical attention and/or limit activities of daily living (CDC).\n\nincompatible, course of action. This present a puzzle because engaging in this kind of planning has traditionally been understood as irrational by philosophers of action. However, I argue that it can in fact be rational to engage in such planning. My solution for how to plan involves the agent adopting a perspective similar to a mediator trying to reconcile a conflict between two distinct individuals. In brief, the idea is that the agent can adopt an overarching plan that conciliates the plans held by her different perspectives. This involves pursuing both plans in a way that doesn't undermine the possibility of pursuing the other. 3\n\nThe paper's structure runs as follows. Section II. specifies the way in which some of our values depend on our abilities. Section III. illustrates how fluctuations in abilities can lead to fluctuations in values. Section IV. specifies the relationship between the plans generated when flaring and when not flaring. I argue that the cases I have in mind involve shifting between two plan A's, rather than having a plan A and a plan B (contingency plan), or a disjunctive plan. In Section V., I elaborate on the idea that you can rationally plan on two plan A's by adopting an overarching plan that has the goal of reconciling your conflicting perspectives. Section VI. concludes.\n\n## II.\n\n## a. Changing Abilities, Changing Values.\n\nThis Section elaborates on how fluctuations in abilities can lead to fluctuations in values.\n\nTo warm up to this idea, I first give examples of how stable changes in abilities can lead to changes in values, before detailing, in II. b., how fluctuating abilities can lead to fluctuating values.\n\nOur bodies and minds change over time in virtue of aging, but also due to illness, accidents, and modifications. Sports injuries can lead to muscle damage, we intentionally remove, alter, and add body parts (e.g., breast reduction surgery, vasectomies, skin grafts), and your vision, sense of taste, memory, and ability to concentrate, among other things, change over your lifetime. These changes sometimes make a difference to our abilities, which in turn can make a difference to our values. For example, as children get older their palettes develop and can discern more complex flavors. With old age the range of flavors we can taste tends to shrink.\n\n3 Of course, the agent can ultimately attain at most one of the ends, since I stipulated that they are incompatible. But the thought is that it can be rational to keep both ends open, to the extent that it's possible to do so without undermining success at at least one of them.\n\nWhat foods we're in a good position to appreciate will change depending on what flavors we can discern. Likewise, having breast reduction surgery may allow you to engage in certain valuable activities, like dancing, that were previously too painful. Or a brain injury may alter how you process information, leading to changes in the value placed in certain activities, like games, by making them more (or less) challenging.\n\n## b. Fluctuating Abilities, Fluctuating Values.\n\nWe often think of the bodily changes brought about by disability as relatively stable.  But 4 some conditions, especially chronic illnesses, make you fluctuate back-and-forth between radically different bodily states depending on whether you're experiencing symptoms of the illness. The fluctuations in what you can do in these bodily states sometimes lead to fluctuations in your values, specifically when the change in bodily state constitutes a transformative experience.  More precisely, flares can alter whether you value some thing, or the extent to 5 which you value it. To illustrate, consider Mai, who has an autoimmune disorder:\n\nMai is passionate about cooking, devoting much of her free time to trying new recipes, learning about different cuisines, and experimenting with new cooking techniques. She also finds that cooking is one of her favorite ways of showing affection, and enjoys hosting dinner parties with close friends that feature her signature dishes.\n\nBut Mai's autoimmune disorder causes flares of fatigue that make it difficult to have the energy needed to cook. When flaring, Mai finds it difficult to have the concentration and strength needed to follow recipes and move about the kitchen performing the tasks involved in cooking (chopping, stirring, lifting, etc.). Mai's flares sometimes prevent her from being able to cook at all. Other times, they substantially slow the pace at which she can cook, making it difficult to get into the flow of the activity.\n\nIt's not just that Mai has difficulty cooking when flaring; she also finds herself less interested in this activity during these periods of time. This is because her symptoms make other values more salient to her. In particular, she finds herself more drawn to writing when flaring. Writing is an activity that can more easily accommodate her flares, since it requires expending less energy. But this isn't the only reason why Mai finds writing more appealing when flaring. It's also that she finds inspiration in the ways her symptoms give her access to radically new ways of experiencing the world.\n\n4 For ease of exposition, I talk about illness changing your body. I intend this to include physical and mental changes brought about by illness.\n\n5 To be clear, illness can be a transformative experience for reasons other than changing your abilities (Carel and Kidd, 2019).\n\nFor example, during several weeks of frequent flares, time feels as though it has stopped: spending most of her time in bed, days melt into one another, and the passage of time recedes into the background of her awareness. This blurring of time is punctuated by moments of acute awareness of time: the fatigue makes it so that even minor tasks require great effort and rest afterwards, leading Mai to be acutely aware of time when attempting these tasks.  Contradictions like these- being at once detached from time and acutely 6 aware of it- lead her to want to communicate these experiences through her writing, and become fodder for her short stories.\n\nWhether Mai values cooking and writing fluctuates with her symptoms, since her symptoms impact what she can do. In particular, her valuing cooking depends on being able to cook. When she is flaring and unable to cook, she does not value cooking, and finds the thought of spending her time engaging in this activity alienating. But it's not only the fact that she can't perform this activity that leads her to change the value that she places in it; it's also that the flares make other values more salient to her. More specifically, the way the flares alter her sense of time makes her want to write about this experience. And, while Mai can still engage in writing when she isn't flaring, she finds herself less drawn to this activity when she doesn't have access to the unique ways of experiencing the world that her symptoms afford her.\n\nMai's case involves an extreme shift in values, since she fluctuates between valuing certain things (e.g., cooking) and not valuing them. But the value changes resulting from flares are not always so extreme. For example, flares can also altar how much you value different things, in a way that makes a difference to your plans. To illustrate this less extreme shift, consider Jo, whose condition causes chronic nerve pain:\n\nJo wants to be a political correspondent. This job involves interviewing people who are sometimes withholding information, a task that requires quickly drawing from a broad understanding of political machinations and policy issues. The job also involves distilling complicated exchanges into short briefs under tight time pressures.\n\nJo is attracted to this job for a number of reasons. She likes that the job requires building her knowledge of politics, while also honing her interpersonal skills during the interviews. Moreover, she enjoys being in a position of explaining crucial aspects of democracy to society at large, and holding politicians to account.\n\nWhen Jo isn't flaring, she's fully invested in making the correspondent career happen. However, Jo's nerve pain makes it difficult at times to perform the tasks involved in this\n\n6 This is just one of the experiences of crip time, the idea that 'disabled/chronically ill and neurodivergent people experience time (and space) differently than able-bodyminded folk' ( Disability Collective ; Samuels (2017).\n\njob. For example, the pain makes it challenging to meet strict deadlines, and she doesn't always have the energy or sustained concentration needed to conduct the long, often exacting, interviews. 7\n\nThough Jo continues valuing correspondent work when flaring, she finds herself less drawn to being a correspondent when in this bodily state, and not primarily because the pain makes it difficult to perform correspondent work, but rather because she is more attracted to pursuing a career in disability advocacy. This is because of the way the symptoms make salient to her the experience of disability. Part of this involves being more attuned to those aspects of the world that are ableist, and being in a better position to be responsive to the needs of other disabled individuals. Factors like these make it easier for Jo to project herself into the role of being an advocate over periods of time when her flares are more intense/ frequent.\n\nJo continues to value correspondent work and advocacy throughout changes in her body. But the weight or priority given to pursuing these projects as a career shifts with her symptoms, since what career she wants to pursue is conditioned on how frequent and prominent her flares are. In particular, when the flares are more prominent/ frequent, she is drawn to disability advocacy. When they are less frequent, she prefers correspondent work. As such, the role she envisions valuing these pursuits playing in her life (specifically, whether she wants to pursue them as a career) is conditioned on her bodily state.\n\nIt would be unproblematic, from a diachronic planning perspective, for Mai's and Jo's values to shift over time if they never had to make long-term choices/ plans informed by these values. But we often do need to make such choices. For example, suppose Mai only has the money to renovate her kitchen or study. When thinking about what to do, Mai feels conflicted because she would prefer renovating her kitchen over the study when not flaring, but would prefer renovating the study over kitchen when flaring. Mai cannot simply make the decision based on which state she will be in more often, since Mai's flares vary greatly in terms of frequency and duration, making it difficult to know what perspective she will spend more time inhabiting in the future.\n\n7 To be clear, there might be ways for the correspondent job to accommodate Jo's pain. All too often, pursuits are unjustly made inaccessible to disabled individuals. In these cases, it's not simply your bodily state, but rather the way society treats individuals with such bodies, that prevents you from engaging in certain activities. But my point is that even with accommodations, Jo's values might still shift because other values, such as the value of advocacy, become more salient to her when flaring (i.e., regardless of whether Jo can be a correspondent when in pain/ whether the value she places in this career shifts when in pain).\n\nNow, in some cases, agents come to know the ebbs and flows of their flares quite well. For example, though Mai might remain uncertain about the frequency and duration of her flares, at a certain point, she might become confident that she will continue flaring at least to some extent. Knowing she will continue flaring should lead her to pursue the plan that can be realized even while flaring. As such, I'm not claiming that the uncertainty about which plan to pursue lasts forever, or that chronically ill individuals never gain any level of predictability over how their illnesses will present in the future. My point is just that not all gain this predictability over illness presentation. And even when one does, there can be a significant period of time before this point during which one is uncertain. 8\n\nSo the challenges that I am exploring in this paper are especially relevant in cases where there is great uncertainty about the permanency or progression of one's condition, including the following situations: at the beginning stages of becoming ill, when one lacks a diagnosis, when the condition isn't well understood, when there's a not-insignificant chance of a new treatment that would impact the frequency/ severity of one's flares, cases of illnesses whose presentation varies significantly across individuals (e.g. with degenerative illnesses, it's often uncertain how fast illness will progress), etc.. In such cases, one can be in the unusually difficult position of shifting between bodily states that impact what pursuits one identifies with, where there's significant uncertainty about what your body will be like in the future.  I return to this puzzle for planning in Section IV. But before getting there, I need to address several worries that one might have about the way I stipulated Mai's psychology. The next Section responds to these issues, filling out Mai's psychology along the way.\n\n## III.\n\n## a. Valuing versus Recognizing Value.\n\nThe previous Section suggested that the value Mai places in cooking and writing shifts with her symptoms. But one might object that a change in Mai's body should not impact her ability to recognize the value of these pursuits. That is, just because she can't cook when flaring doesn't mean the value of cooking is thereby closed off to her.\n\n8 For example, lacking a diagnosis can leave one uncertain of the permanency of one's condition. Crucially, the period of time over which individual's lack such information is often quite lengthy: it takes on average 4.5 years to receive a diagnosis for autoimmune disorders (Benaroya Research Institute), and many specific conditions, like endometriosis, take upwards of 10 years to diagnose (YaleMedicine.org).\n\nI agree that Mai can, and likely still does, believe that cooking is valuable when flaring. My point is just that whether she herself values this pursuit (or the degree to which she values it) depends on being able to engage in this activity herself. Put another way, though she still recognizes the value of this pursuit, whether she herself values it depends on her abilities.\n\nIt's useful at this point to bring up the distinction between recognizing value and valuing. Recognizing value just requires judging or believing that something is valuable; it does not require valuing that thing yourself. For example, I might believe musicals, Pete Davidson, and patriotism are valuable without valuing these things. Valuing requires more than just believing valuable. In particular, to value some thing requires directing or structuring your thoughts, feelings, and actions around the object of value. Slightly more precisely, valuing X requires having some conception of X, being emotionally sensitive to the weal and woe of X, and taking X to provide you with reasons for action. 9\n\nMai still recognizes the value of cooking, but doesn't engage in valuing it (or doesn't value it to the same extent) when flaring. 10 To understand why a change in abilities can change what you are drawn to valuing, I want to focus on a point made by Samuel Scheffler, which is that 'some valuable things can only be valued by certain people.' 11 More specifically, Scheffler argues that 'at least some valuing is positional ,' in the sense that how we are positioned with respect to something partially determines whether we can value it. 12\n\n9 Jaworska (2007); Scheffler (2011); Helm (2010). I adopt a broad conception of action that includes purely mental acts (e.g., focusing attention on the valuable thing, directing your imaginative capacities towards it, etc.). So, you can value something even if you can't manifest your valuing of it through physical acts.\n\n10 As such, these cases are different from standard transformative experiences in at least two respects. First, I am focused on cases in which you're fluctuating between perspectives, whereas standard cases of transformative experiences do not involve this shifting back-and-forth. Second, in standard cases, your perspective as well as your beliefs change. But in the cases that I'm focused on, what you believe to be valuable doesn't change, it's just what you value that changes. See Paul (2014) for more on transformative experiences. Though I focus on changes in valuing, not recognizing value, it bears noting that illness can also involve shifting in-and-out of being able to recognize that something (or anything) is valuable e.g., intense enough physical or psychological pain can prevent you from recognizing value in the first place. See conclusion for more on this point.\n\n11 Scheffler (2011): 38.\n\n12 Ibid, 37.\n\nYour positionality involves things like the relationship you stand in to the valuable thing, the social roles you occupy, your skills, temperament, imaginative capacities, and taste, among other factors. All of these factors play a role in determining what you are in a good position to value. For example, Scheffler argues that if he were told a 'glowing account' of a friendship between two individuals, both of whom he doesn't know and has no connection to, he could judge the friendship is valuable, but' it would be bizarre [absent some special explanation]…for me to say that I value their friendship,' since valuing the friendship requires having some connection to those in the friendship and/or to the relationship itself. 13 Though Scheffler does not bring up the role of abilities, it is a natural thought that our abilities are part of our positionality, and can also shape what we engage in valuing. For example, your valuing a particular kind of music might depend on your ability to hear that music. Likewise, your valuing being a therapist can depend on being able to read the emotions of others. In Mai's case, her valuing cooking depends on her ability to cook.\n\n## b. Finally Valuing Exercising an Ability.\n\nThe claim that Mai only values cooking when she can cook leads to the second objection, which is that there are likely alternative ways for Mai to value cooking. For example, she might have access to assistive technology and other forms of support that would allow her to continue cooking while flaring. Even if there are not such accommodations, she could manifest the value that she places in cooking by engaging in other activities, like listening to cooking podcasts, offering guidance to friends while they cook, etc. More generally, the objection is that even if you don't have the abilities needed to engage in valuing something in one way, there are very often alternative ways, involving the use of different abilities, to value that thing. For example, even if you don't have the ability to hear music, you could value it by feeling the vibrations of the songs. Similarly, you might have difficulty discerning other people's emotions, and so might be unable to promote the value of therapy by being a therapist, but still value therapy by going to therapy.\n\nI agree that there are usually alternative ways to manifest your valuing of something. In fact, acquiring a new disability often leads individuals to find new ways of valuing things that\n\n13 Ibid.\n\nthey likely would not have discovered otherwise. 14 This gives us reason to be wary about intuitions regarding what abilities are needed to value some thing. Because of this, I do not want to take a stand on how you must be positioned, including what abilities you must have, in order to engage in valuing some thing (in any way). So, I am not claiming that Mai can't value cooking when fatigued. Instead, I am making the more modest claim that our abilities can make a difference to our values, specifically if part of what we finally value is exercising an ability for itself. For example, if part of what Mai values is the act of cooking.\n\nThe more general point is that we don't only value abilities instrumentally, as means to manifesting the value that we place in other things, but also value exercising abilities in themselves. In particular, we can finally value exercising an ability and/or that ability can be partially constitutive of a way of finally valuing something else. For an example of the latter possibility, you might finally value doing crosswords, and also finally value sharpening your mind by doing crosswords (i.e., finally value doing crosswords as a particular way of sharpening your mind). Likewise, making food (actually engaging in the act of cooking) constitutes a particular way of promoting the value of cooking, and it is this particular way of manifesting the value of cooking that Mai cares about. So, Mai doesn't just finally value cooking under that description, or cooking per se: part of what she values is doing the cooking (being the cook). Because of this, she is less interested in promoting or manifesting the value of cooking when she herself cannot cook.\n\n## c. Conditioned Final Valuing.\n\nThe idea that Mai finally values cooking does not on its own explain why her valuing the exercise of that ability depends on having that ability. After all, there are many things we continue to value even when we are unable to engage in valuing them. For example, I might be unable to manifest the value that I place in travel due to financial constraints, but that doesn't mean I necessarily stop valuing traveling. Likewise, just because Mai can't cook when flaring doesn't mean she stops valuing this activity. As such, it doesn't follow from being unable to engage in valuing something that you necessarily change the value placed in that thing.\n\n14 Barclay and Ness (forthcoming).\n\nMy response to this worry relies on the notion of conditioned final valuing. Something has conditioned final value if its value depends on certain conditions obtaining. The notion of conditioned final value is not new. For example, Peter Railton argues that something can be valuable for its own sake, contingent on it being consistent with certain conditions, e.g. you might regard a relationship as valuable for its own sake, and not because it makes you happy, and yet it might nonetheless be the case that you would not be in that relationship if it did not make you happy. 15 Put another way, making you happy is not the reason (or not the only/ primary reason) why you are in the relationship, but the (final) value placed in the relationship is conditioned on the relationship making you happy. The idea of conditioned final value also arises in the work of others, including Kant and Christine Korsgaard. For Kant, happiness is finally valuable, but its value is conditioned on the goodness of your will. 16 For Korsgaard, a person is intrinsically valuable, but only if all persons are intrinsically valuable. 17\n\nIn the cases I'm focused on, your valuing exercising an ability is conditioned on being able to exercise that ability yourself. For example, you might finally value whistling only if you can whistle. Or finally value appreciating paintings, conditioned on being able to see them. If the value placed in exercising the ability is contingent in this way, then you would no longer value exercising that ability (or no longer value it to the same extent) were you to lose that ability. For Mai, the value that she places in cooking is conditioned on being able to cook, and the value placed in writing is conditioned on having access to certain ways of experiencing time. 18\n\nOne reason why your valuing the exercise of an ability can be conditioned on having that ability is if the presence or absence of that ability makes a difference to your evaluative perspective. 19 Your abilities can make a difference to your evaluative perspective when your abilities impact what values are made salient to you, what pursuits you're drawn to, how easily\n\n15 Railton (1984).\n\n16 Kant (1785).\n\n17 Korsgaard (1996). These are examples of conditioned final value, whereas I'm focused on conditioned final valuing. Conditioned final valuing is just the valuing of things that you take to have conditioned final value.\n\n18 You do not always (or even regularly) have to manifest your valuing of something to count as valuing it, so long as you would manifest your valuing of it if you had the opportunity to do so. In the cases I'm focused on, what you would manifest your valuing of (if you had the opportunity) shifts with changes in abilities.\n\n19 Again, I'm not claiming that our values are always conditioned our abilities, just that they can be.\n\nyou can imaginatively project yourself into various social roles and positions, among other things. In these cases, shifting in-and-out of having the ability can lead you to shift in-and-out of different evaluative perspectives. 20\n\nIV.\n\n## a. The Puzzle for Planning .\n\nThe previous two Sections argued that illness can lead to fluctuating in-and-out of valuing different things, specifically when your valuing something (or the extent/ way in which you value it) is conditioned on being in a certain bodily state. This raises a puzzle for planning, since diachronically, you have more than one preference ordering, and so it's not clear which preference set should guide your plans. For Jo, the puzzle is that she wants to be a correspondent when not flaring, but an advocate when flaring. For Mai, it's that she wants to renovate her kitchen when not flaring, but her study when flaring. Individuals in such a position seem doomed either to inconsistency or to irrationality, since they either have to pursue the plans held by one perspective while ignoring the plans of the other perspective (and thus be inconsistent), or pursue both plans (which seems straightforwardly irrational, since the ends are ultimately incompatible).\n\nTo better understand this puzzle, and my solution to it, I need to more fully flesh out the content of the agent's competing plans. I do so by canvassing standard types of plans from the philosophy of action literature, explaining why each type does not quite fit the kinds of cases I have in mind. The issue with these types of plans is that none of them have the right structure, or posit the right connection, between the plans held by the agent's different perspectives.\n\nMore precisely, I'm not talking about contingency planning (having a plan A and a plan B), since it doesn't make sense to describe one of the plans as a plan B to the other. The plans are also not a straightforward case of disjunctive planning, or of holding two plan A's, since neither of these types of plans (on their own) can account for the fact that both perspectives care about\n\n20 The puzzle for planning described in the next Section does not require a change in what you value. This is because even with no change in your valuings, symptoms can change the form that your valuing of something takes, in a way that impacts your plans. For example, in one bodily state you might value advocacy by attending rallies, but in a different state value advocacy by phone banking. If you're frequently/ unpredictably shifting between these bodily states, it can be difficult to know which activity to plan for. Even though you can get the puzzle going without a change in your values, I focus on cases where there is such a transformation because they pose an especially deep issue for planning (since in these cases, there is even less in common between the agent's flaring and non-flaring perspectives/ preferences).\n\ncoordinating with the other. Instead, I suggest that the planning-agent has an overarching plan with the plans held by her different perspectives as parts.\n\n## b. Contingency Plans .\n\nA contingency plan, or a plan B, is a plan made for the possibility that you cannot carry out your primary plan (plan A). For example, suppose you prefer Φ-ing to Ψ-ing, but want to Ψ if you cannot Φ. In this scenario, Φ-ing is plan A and Ψ-ing plan B. 21 The difference between contingency planning and the kinds of plans I have in mind can be captured counterfactually. With contingency plans, even if you cannot Φ in the actual world, you would want to Φ (over Ψing) if you could. For example, if advocacy were a contingency plan, then, when Jo is in pain, she would still prefer correspondent work to advocacy. That is, she would still want to be a correspondent even though she is unable to pursue this career. In contrast, when Jo is in pain, she wants to be an advocate, and would want to pursue advocacy even if being a correspondent were an option . It is this counterfactual that blocks us from conceiving of advocacy as a plan B, or second-best, to correspondent work when Jo is flaring.\n\n## c. Disjunctive Plans.\n\nIt also doesn't make sense to describe Jo as holding a disjunctive plan, consisting of what she wants to do if flaring or not flaring. Disjunctive plans are the kind of plans held when you regard two possible courses of action as either equally valuable (on a par), and so are indifferent between them, or when you are waiting to find out more information before settling on which you prefer. 22 The issue is that this also mischaracterizes Jo's attitude towards the careers, since Jo isn't uncertain about the value that she places in them: she prefers one to the other, it's just that which she prefers changes with her bodily state.\n\nAnother way to get at the distinction is that with disjunctive plans, you are torn between two courses of action from the same evaluative perspective. In contrast, Jo's plans are indexed to two distinct perspectives: correspondent work is plan A relative to who Jo is (the perspective she inhabits) when not in pain, and advocacy is plan A relative to who she is when in pain. Put another way, when Jo is in pain, her plan is not (be a correspondent or advocate); it is to be an\n\n21 To be clear, illness is often experienced as getting in the way of acting on your primary plans. I am just suggesting this isn't the only way illness impacts planning.\n\n22 For more on disjunctive planning, see Ferrero (2016).\n\nadvocate full stop, and vice versa when not in pain. 23 As such, conceiving of Jo as having a disjunctive plan fails to capture the fact that when Jo is in either bodily state, she is, from that perspective, fully committed to pursuing just one career.\n\n## d. Two Plan A's .\n\nJo's plans are both plan A's. But I want to suggest that Jo doesn't simply have two plan A's. Instead, she has an overarching plan with these two plan A's as parts. This subsection details why it seems irrational to hold multiple plan A's, before explaining, in the next subsection, what this overarching plan looks like.\n\nA primary plan, or plan A, is a plan that you're fully committed to accomplishing. This means that there are no qualifications/ conditions in the content of the plan. For example, if I am fully committed to going to hiking today, then the content of my plan is (go hiking today), rather than something like (go hiking today, if it is nice out), or (go hiking today, if I'm not tired).\n\nHaving more than one plan A in regard to a specific choice point means being fully committed to incompatible courses of action. For example, suppose I'm fully committed to going to hiking today and staying home-incompatible actions. This seems straightforwardly irrational.\n\nAs Sarah Paul describes, this seems to 'require a certain amount of disunity or compartmentalization,' as it's 'unclear how [two plan A's could]…be brought together into a single practical perspective, as would have to occur when practical questions arise about tradeoffs.' 24 I agree with Paul that having two plan A's involves a degree of disunity or compartmentalization. In fact, my point is precisely that the cases I have in mind present challenges for planning because they involve shifting between different perspectives that cannot easily be unified into a single viewpoint.\n\nIt might turn out that we must conceive of individuals like Jo as being irrational for holding multiple plan A's. This could be yet another reason why it's difficult to live with chronic illness, since illness forces you into irrationality. I don't want to deny that this is sometimes what illness does. At the same time, I think it's worth exploring whether it can be rational to plan\n\n23 I characterize Jo as either being in pain or not being in pain. This is a simplifying assumption, as many illnesses involve feeling symptoms almost always (to some degree), just not always with the same intensity.\n\n24 Paul (2021): 13.\n\non/for multiple plan A's. 25 This is because it would be ethically better if we do not have cast ill individuals, who are already often marginalized, as necessarily irrational. 26 In light of this, I now turn to exploring whether there is someway that Jo can solve, or at least mediate, the conflict between her plan A's. 27\n\nTo understand what this mediation might look like, it's helpful to think of the conflict that Jo faces between her distinct perspectives as similar to a conflict between two different people with mutually incompatible plans. 28 When there's a conflict between what two people want to do, a mediator is sometimes called in to help come to a decision. For example, imagine a couple, Taylor and Kai, who have job offers on opposite sides of the country and disagree about which job they should move for. One strategy that a mediator might pursue is to help them decide on a joint plan that takes each parties interests into consideration. Just as the mediator's goal is to find a path forward that does justice to what both Taylor and Kai want to do, Jo's goal is to coordinate between the two versions of herself, each of whom are fully committed to different plans. 29\n\nCall the version of Jo whose attempting to coordinate amongst her flaring and non-flaring perspectives 'planning-Jo'. Planning-Jo's goal is to figure out if there is a way to diachronically plan that is adequately responsive to what Jo's different perspectives want to do. The next section fleshes out in more detail the nature of the mediating work performed by planning-Jo.\n\n25 'Myth theorists' about rationality claim that holding incompatible plans may be a sign that you are not responding well to reasons, but that the incompatibility itself isn't what's generating this rational pressure, and so it can be rational to pursue incompatible goals (e.g., Kolodny (2008), Lord (2018) Kieswetter (2017)). I'm broadly sympathetic to the idea that there's no independent pressure generated by incompatibility, but I'm not claiming, as these theorists are, that the incompatibility may be a sign that something is awry with your reasons. Rather, the issue is that what you can do is fluctuating.\n\n26 This is similar to the motivation given in Morton (2017).\n\n27 My goal is just to show how it can be rational to engage in such planning. It's a further question whether individuals might be rationally required to keep multiple paths open.\n\n28 This is similar to Richard Pettigrew's claim that we should think of planning across transformative experiences as analogous to diachronic group planning (2019: 49).\n\n29 The cases of perspectival conflict that I'm interested in are ones where the conflicting perspectives are both reasonable. In such cases, it's rational for the mediator to seek compromise. But importantly, compromise is just one goal a mediator might have when mediating a conflict. If the preferences of one party is (say) clearly less important than the other, or unreasonable, then the mediator may simply ignore that person's preferences, and focus instead on getting that person to accept a more reasonable plan of action.\n\nBut before getting there, I need to address two issues that one might have with the way I have characterized Jo's plans. First, one might object that plans like Jo's are not in fact incompatible, since, as Michael Bratman argues, consistency is a synchronic norm of rationality, not a diachronic norm. 30 As such, your plans are only inconsistent if you plan, at the same time, to Φ and not-Φ. But Jo plans to be a correspondent and advocate at different times: Jo plans to be a correspondent when not flaring, and an advocate when flaring. Jo never has both plans as a plan A at the same time, and so, one might argue, is not strictly irrational for holding these two plans.\n\nThe issue with this move is that it doesn't take into consideration the fact that throughout both periods of time, Jo is aware that her evaluative perspective will likely fluctuate in the future. Awareness of this fact puts rational pressure on Jo to consider how the plans held by both versions of herself interact. In addition, the content of each plan is not to pursue a career until a change in bodily state, e.g., Jo doesn't want to be a correspondent for the next few months (until another period of flares is likely to occur). Instead, she wants to be a correspondent for her whole career. So, even if there are temporally-local actions that Jo can take to further the correspondent career, which Jo could accomplish before having another flare, there are also going to be actions that would only make sense to do if her plan is to be a correspondent for a whole career, rather than until the next flare. For example, it would not make sense to lay the groundwork for longterm connections with politicians unless she is trying to be a correspondent for longer than a few months.\n\nThe second objection targets my stipulation that Jo cares that her evaluative perspectives do not remain at odds. Planning-Jo is meant to be a mediator, whose goal is to help the different versions of herself coordinate with each other. But coordination is just one attitude that these versions of Jo might have towards their conflict; knowing that their values are likely to be different in the future could also lead each version of Jo not towards wanting to coordinate, but rather towards wanting to dominate the other perspective. As such, one might question why there is rational pressure on Jo to conceive of herself as a coherent, unified self, rather than as someone who shifts between two distinct perspectives, each of which is intent on having their interests/ plans fulfilled.\n\n30 Bratman (1987).\n\nI am not denying that there will be cases where the agent does not want to coordinate between her distinct perspectives. For example, you might prioritize the interests of one of your perspectives by only pursuing the plans held from that perspective, thus disregarding what you want to do when inhabiting the other perspective. My point is just that at least in some cases, the agent feels pressure to reconcile the tension between perspectives, rather than letting one dominate the other. One reason why some might feel this pressure is that even though there is a shift in perspective with respect to certain values, there can be other aspects of your perspective that remain stable throughout fluctuations bodily state. For example, though Jo experiences a transformational shift regarding what career she wants to pursue, other values and interests, such as the love she has for friends and family, as well as aspects of her personality (say, her sense of humor), remain the same. The fact that Jo identifies with these things throughout changes in her bodily state pushes her towards wanting to coordinate between perspectives. The next subsection proposes one way to capture this coordinating pressure in an account of Jo's plans.\n\n## V.\n\n## a. An Overarching Plan .\n\nSimply describing Jo as holding two plan A's does not on its own capture the fact that Jo feels pressure to coordinate her plans. This is why I need to say more about how the plans interact. We can capture this coordinating pressure by describing planning-Jo as having an overarching plan to have a fulfilling career. This plan is very general (aiming at a fulfilling career doesn't tell us what it means for Jo to have a fulfilling career), and needs specifying if it's to play the action-guiding role that plans are intended to play. 31 How to specify this overarching plan is what Jo feels torn or ambivalent about.\n\nIntroducing an overarching plan may lead some to question whether Jo really has two distinct perspectives. In particular, it might seem like Jo actually has one perspective: planningJo's perspective. On this line of thought, being a correspondent and advocate are subplans of the overarching plan to have a fulfilling career, and it's through the process of negotiating which subplan to ultimately pursue that Jo comes to more stably inhabit a single perspective. But I would argue that we shouldn't think of correspondent work and advocacy as subplans, since\n\n31 This overarching plan plays some role in guiding her practical reasoning, but it puts less pressure on her practical reasoning than plans like the one to be an advocate.\n\nsubplans are generally understood as being mere means to accomplishing your overarching plan. 32 In contrast, correspondent work and advocacy are valued as ends in themselves, and, crucially, get at different values (and so are not interchangeable). What's more, the value that Jo sees in pursuing each plan is not grasped from a stable viewpoint. Instead, the plans express two different practical perspectives or orientations on the world, generated by the distinctive bodily states that Jo inhabits due to her illness.\n\nStill, one might remain unconvinced that the overarching plan doesn't unify Jo's conflicting perspectives. To further understand why the overarching plan tempers but doesn't unify Jo's perspectives, it's useful to remember the parallel drawn in the previous section between Jo's predicament and a conflict between two distinct people. Suppose that Taylor's job offer is in California and Kai's offer is in New York, and that they ultimately decide to move to New York. Taylor and Kai could come to this decision without either one coming to hold the other's perspective. The difference between their perspectives comes out both in the attitude and reasons that they have for moving to New York. For example, Kai wants to move to New York to pursue a job that she values for its own sake, whereas Taylor wants to move to New York for the instrumental reason of accommodating Kai's interests.\n\nSimilarly, though planning-Jo's overarching plan allows the plans held by Jo's different perspectives to temper one another, that doesn't mean either perspective must endorse the other perspective's plans. For example, activist-Jo's attitude towards volunteering (/ her reason for doing so) could be different than Journalist-Jo's attitude towards this activity, even though the overarching plan leads both versions of Jo to plan to volunteer. Activist-Jo plans to volunteer for its own sake (or because it is part of engaging in advocacy work, which is what she values for its own sake), whereas journalist-Jo volunteers as a way of accommodating activist-Jo's plan to be an activist, but doesn't take activist-Jo's plan on as her own. 33\n\n32 Bratman (1987).\n\n33 So there's a sense in which the overarching plan unifies Jo, since it's a plan that Jo can accept and have guide her actions throughout changes in bodily state. But there's another sense in which Jo remains disunified even once the overarching plan is introduced, since the sub-parts of that overarching plan are still stem from distinct perspectives. Given this, it's also apt to call the resulting plan a joint plan (similar to how it would make sense to describe Kai's and Taylor's mediated plan a joint plan, rather than an overarching plan).\n\nAt this point, it's important to emphasize that the plans to be a correspondent and advocate could be unified into a single perspective: there could be an agent who values both careers, and plans to switch off which one they pursue depending on what bodily state they are in. But while some agent could value both careers at once, this agent is not like that, since in the cases I am focused on, the agent is alienated from the values that she holds in her other bodily state. So planning-Jo is just trying to get each version of Jo to coordinate, but not to change what they finally value. In this way, I'm highlighting that an agent can become unified in plan without becoming unified in perspective.\n\nJo's overarching plan allows us to make sense of why the plans of each perspective temper one another. For example, the presence of this overarching plan gives Jo reason keep the possibility of pursuing advocacy open when not in pain, even though during that time she has a clear preference for correspondent work. One way she could do this is by volunteering at a nonprofit on weekends. Likewise, this overarching plan gives her reason, when flaring, not to (say) pass up easy opportunities to network with local politicians, even though she identifies less with this work during those times. Though the overarching plan does this tempering work throughout changes in bodily state, it's still the case that at any given time, Jo's primary plan is to pursue only one of the careers. Because of this, it still makes sense to describe Jo as holding two plan A's.\n\nTo summarize, Jo's overarching plan is like a disjunctive plan in that Jo only needs to accomplish one part of the plan to fulfill the overarching plan. But it's unlike disjunctive planning for the reasons detailed in the previous subsection, and because simple disjunctive planning doesn't impose enough structure on the two plans (a disjunctive plan, on its own, is compatible with the agent focusing all her attention on attaining one side the disjunct). For similar reasons, while the overarching plan has two plan A's as parts, it's different from simply having two plan A's, since that also wouldn't impose enough structure on the plans (i.e., it would remain unclear why either perspective should care about the plans held by the other perspective). So neither the notion of a disjunctive plan nor two plan A's would, on their own, account for the relationship between the two plans. And, while contingency planning would account for there being a relationship between the plans, it doesn't posit the right relationship. This is why I need the notion of an overarching plan, since it not only imposes this extra structure, but imposes the right kind of extra structure.\n\nOf course, at a certain point Jo needs to pick between the careers if she is to have any hope of realizing either one. So there's a temporal element to the rationality of having two plan A's, since it would not be rational or possible to keep multiple paths open indefinitely. Trying to keep (ultimately) incompatible paths open is difficult to do no matter who you are and what your circumstances. But it's especially difficult when ill, since most illnesses substantially impact your energy levels and how much you can do in a given day. 34 This is yet another reason why it can be difficult living with chronic illness, since it can involve being at once torn between different paths, while having even less energy to act on any one of those paths. 35\n\n## VI.\n\nIn closing, I want to note that what I have written will by no means capture everyone's experience of illness, especially because the way illness presents can be incredibly varied, across different illnesses and different people (not to mention for the same person over time). The more frequently you shift between bodily states, the more severe your symptoms, and the greater the uncertainty about how the illness will present in the future, the harder it is to engage in valuing and planning. For example, severe enough flares of symptoms like pain and fatigue can undermine your ability to value much of anything at all, by preventing you from having the energy and attention needed to act, feel, and think in the ways that constitute valuing. 36 Likewise, shifting between bodily states frequently enough can prevent you from having the stability needed to form/ follow through with plans. As such, illness sometimes breaks down your capacity to value and plan, rather than simply changing your values and plans.\n\nAt the same time, symptoms are not always so severe/ unpredictable as to completely undermine agency. When they aren't, the relationship between symptoms and agency becomes more complicated than simply getting in the way of agency. 37 For example, this paper argued\n\n34 The unpredictable impact of illness on energy levels is captured by Spoon Theory, an idea from disability studies that living with illness involves constantly having to calculate how much energy you have left in any given day ('Spoon Theory').\n\n35 This is in addition to the material resources that are needed to keep multiple paths open; resources that disabled individuals frequently lack. Thanks to Quill Kukla for helpful feedback on this point.\n\n36 Wasserman Huang (2020); Nadelhoffer (2022).\n\n37 See Barclay (forthcoming), Reynolds (2022), Barnes (2016) for evidence of how pain can, when not overwhelming, be instrumentally valuable.\n\nthat symptoms can give you a new evaluative perspective-one that is not necessarily better or worse than your old perspective, just different. 38 This gives rise to a puzzle for planning, since it's unclear what you should plan to do when you don't have a stable set of preferences guiding your plans. I suggested that one way to solve this puzzle is to adopt an overarching plan that mediates the conflict between your different perspectives.\n\nIt's important that we understand the rational options available to agents in positions like Jo's and Mai's, since, as just noted, symptoms of illness are not always so intense as to prevent individuals from valuing. This paper explored one such option (planning on multiple plan A's). In this way, this paper can be read as exploring how agency is impacted when living with symptoms that, while significant, are not so severe as to simply extinguish agency. 39,40\n\n## References .\n\nLinda Barclay and Tommy Ness, 'Disability, Transition Costs and the Things that Really Matter,' Journal of Medicine and Philosophy (forthcoming).\n\nElizabeth Barnes, The Minority Body: A Theory of Disability (OUP: 2016).\n\nBenaroya Research Institute, 2017 https://www.benaroyaresearch.org/blog/post/diagnosingautoimmune-diseases.\n\nMichael Bratman, Intention, Plans, and Practical Reason (CSLI Publications: 1987).\n\nAgnes Callard, Aspiration (OUP: 2018).\n\nHavi Carel, Phenomenology of Illness (OUP: 2016).\n\n38 This is not to say symptoms like pain are, in and of themselves, a good thing. Pain may be intrinsically bad. My point is just that when the symptoms are not too severe, you might fully identify with/ not be alienated from the values you have come to hold in virtue of the symptoms, even if you would rather not have those symptoms.\n\n39 Crucially, illness doesn't always involve pain and suffering. But I focus on such cases to highlight that even when it does, that still doesn't mean the illness will necessarily/ only undermine your sense of self, rather than leading to a new self.\n\n40 Many thanks to Facundo Alonso, Bobbi Cohn, Sally Haslanger, Sukaina Hirji, Quill Kukla, Errol Lord, Lisa Miracchi, Jen Morton, Sarah Paul, Tyler Re, Jennifer Saul, David Shoemaker, Daniel Wodak, audiences at the Eastern APA, NOWAR 8, the MIT Workshop on Gender and Philosophy, and the UPenn graduate colloquium, for invaluable feedback on earlier drafts of this paper.\n\nHavi Carel, Ian Kidd 'Expanding Transformative Experience' European Journal of Philosophy , 28 (2019): 199-213.\n\nCDC. 'About Chronic Diseases' (2021). https://www.cdc.gov/chronicdisease/about/index.htm.\n\nEli Clare, Brilliant Imperfection: Grappling with Cure (Duke University Press: 2017).\n\nCritical Disability Studies Collective , https://cdsc.umn.edu/cds/terms.\n\nEndometriosis, Yale Medicine Fact Sheet: https://www.yalemedicine.org/conditions/endometriosis.\n\nLuca Ferrero 'Pro-Tempore Disjunctive Intentions' Time and the Philosophy of Action (Routledge: 2016): 1-16.\n\nHarry Frankfurt, 'The Faintest Passion,' Proceedings and Addresses of the American Philosophical Association 66; 3 (1992): 5-16.\n\nAgnieszka Jaworska, 'Caring and internality,' Philosophy and Phenomenological Research (2007), 529-568\n\nImmanuel Kant, Groundwork of the Metaphysics of Morals (1785) trans. ed. M. Gregor (Cambridge University Press, 1998).\n\nNiko Kolodny, 'The Myth of Practical Consistency,' European Journal of Philosophy (2008): 366-402.\n\nChristine Korsgaard, The Sources of Normativity (Cambridge University Press: 1996).\n\nJennifer Morton, 'Reasoning Under Scarcity,' Australasian Journal of Philosophy (2017).\n\nThomas Nadelhoffer, 'Chronic Pain, Mere-Differences, and Disability Variantism,' The Journal of Philosophy of Disability (2022).\n\nSarah Paul 'Plan B,' Australasian Journal of Philosophy (2021): 13.\n\nL. A. Paul, Transformative Experience (OUP: 2014).\n\nRichard Pettigrew, Choosing for Changing Selves (OUP: 2019).\n\nPeter Railton, 'Alienation, Consequentialism, and the Demands of Morality,' Philosophy &amp; Public Affairs (1984).\n\nJoel Reynolds, The Life Worth Living: Disability, Pain, Morality (University of Minnesota Press: 2022).\n\nEllen Samuels, 'Six Ways of Looking at Crip Time' Disability Studies Quarterly (2017): https://dsq-sds.org/article/view/5824/4684#endnote01.\n\nElaine Scarry, The Body in Pain: The Making and Unmaking of the World (OUP: 1987).\n\nSamuel Scheffler, 'Valuing,' in Reasons and Recognition: Essays on the Philosophy of T.M. Scanlon (OUP: 2011).\n\n'Spoon Theory,' www.butyoudontlooksick.com/the\\_spoon\\_theory).\n\nAness Webster, 'Socially Embedded Agency: Lessons from Marginalized Identities,' Oxford Studies in Agency and Responsibility. Volume 7 , (ed.) David Shoemaker (OUP, 2021).\n\nSusan Wendell, The Rejected Body: Feminist Philosophical Reflections on Disability (Routledge: 1997).",
+    "responses": [
+      {
+        "source": "gpt-4o-2024-11-20",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"ADU1\": {\n      \"text\": \"This paper argues that one way to navigate this puzzle is for the agent to adopt an overarching plan that mediates the conflict between her differing perspectives.\",\n      \"label\": \"claim\"\n    },\n    \"ADU2\": {\n      \"text\": \"One way that illness can undermine agency is by getting in the way of your plans.\",\n      \"label\": \"claim\"\n    },\n    \"ADU3\": {\n      \"text\": \"While illness undoubtedly undermines people's ability to follow through with plans, illness can also lead to changes in what individuals plan to do in the first place.\",\n      \"label\": \"claim\"\n    },\n    \"ADU4\": {\n      \"text\": \"The more general point is that whether we value something, or the extent to which we value it, sometimes depends on our abilities.\",\n      \"label\": \"claim\"\n    },\n    \"ADU5\": {\n      \"text\": \"If some of your values depend on your abilities, then living with shifting abilities can make your values unstable.\",\n      \"label\": \"claim\"\n    },\n    \"ADU6\": {\n      \"text\": \"The puzzle is that it is unclear what values should guide your plans when your values shift with your abilities.\",\n      \"label\": \"claim\"\n    },\n    \"ADU7\": {\n      \"text\": \"Situations like Diego's require planning for multiple, incompatible, course of action.\",\n      \"label\": \"claim\"\n    },\n    \"ADU8\": {\n      \"text\": \"This present a puzzle because engaging in this kind of planning has traditionally been understood as irrational by philosophers of action.\",\n      \"label\": \"claim\"\n    },\n    \"ADU9\": {\n      \"text\": \"However, I argue that it can in fact be rational to engage in such planning.\",\n      \"label\": \"claim\"\n    },\n    \"ADU10\": {\n      \"text\": \"My solution for how to plan involves the agent adopting a perspective similar to a mediator trying to reconcile a conflict between two distinct individuals.\",\n      \"label\": \"claim\"\n    },\n    \"ADU11\": {\n      \"text\": \"This involves pursuing both plans in a way that doesn't undermine the possibility of pursuing the other.\",\n      \"label\": \"premise\"\n    },\n    \"ADU12\": {\n      \"text\": \"These changes sometimes make a difference to our abilities, which in turn can make a difference to our values.\",\n      \"label\": \"claim\"\n    },\n    \"ADU13\": {\n      \"text\": \"The fluctuations in what you can do in these bodily states sometimes lead to fluctuations in your values, specifically when the change in bodily state constitutes a transformative experience.\",\n      \"label\": \"claim\"\n    },\n    \"ADU14\": {\n      \"text\": \"Whether Mai values cooking and writing fluctuates with her symptoms, since her symptoms impact what she can do.\",\n      \"label\": \"claim\"\n    },\n    \"ADU15\": {\n      \"text\": \"It would be unproblematic, from a diachronic planning perspective, for Mai's and Jo's values to shift over time if they never had to make long-term choices/ plans informed by these values.\",\n      \"label\": \"premise\"\n    },\n    \"ADU16\": {\n      \"text\": \"But we often do need to make such choices.\",\n      \"label\": \"premise\"\n    },\n    \"ADU17\": {\n      \"text\": \"In such cases, one can be in the unusually difficult position of shifting between bodily states that impact what pursuits one identifies with, where there's significant uncertainty about what your body will be like in the future.\",\n      \"label\": \"claim\"\n    },\n    \"ADU18\": {\n      \"text\": \"The previous Section suggested that the value Mai places in cooking and writing shifts with her symptoms.\",\n      \"label\": \"claim\"\n    },\n    \"ADU19\": {\n      \"text\": \"Recognizing value just requires judging or believing that something is valuable; it does not require valuing that thing yourself.\",\n      \"label\": \"premise\"\n    },\n    \"ADU20\": {\n      \"text\": \"Valuing requires more than just believing valuable.\",\n      \"label\": \"premise\"\n    },\n    \"ADU21\": {\n      \"text\": \"In particular, to value some thing requires directing or structuring your thoughts, feelings, and actions around the object of value.\",\n      \"label\": \"premise\"\n    },\n    \"ADU22\": {\n      \"text\": \"Though Scheffler does not bring up the role of abilities, it is a natural thought that our abilities are part of our positionality, and can also shape what we engage in valuing.\",\n      \"label\": \"claim\"\n    },\n    \"ADU23\": {\n      \"text\": \"The more general point is that we don't only value abilities instrumentally, as means to manifesting the value that we place in other things, but also value exercising abilities in themselves.\",\n      \"label\": \"claim\"\n    },\n    \"ADU24\": {\n      \"text\": \"Something has conditioned final value if its value depends on certain conditions obtaining.\",\n      \"label\": \"premise\"\n    },\n    \"ADU25\": {\n      \"text\": \"In the cases I'm focused on, your valuing exercising an ability is conditioned on being able to exercise that ability yourself.\",\n      \"label\": \"claim\"\n    },\n    \"ADU26\": {\n      \"text\": \"This raises a puzzle for planning, since diachronically, you have more than one preference ordering, and so it's not clear which preference set should guide your plans.\",\n      \"label\": \"claim\"\n    },\n    \"ADU27\": {\n      \"text\": \"Having more than one plan A in regard to a specific choice point means being fully committed to incompatible courses of action.\",\n      \"label\": \"claim\"\n    },\n    \"ADU28\": {\n      \"text\": \"This seems straightforwardly irrational.\",\n      \"label\": \"claim\"\n    },\n    \"ADU29\": {\n      \"text\": \"I don't want to deny that this is sometimes what illness does.\",\n      \"label\": \"premise\"\n    },\n    \"ADU30\": {\n      \"text\": \"At the same time, I think it's worth exploring whether it can be rational to plan on/for multiple plan A's.\",\n      \"label\": \"claim\"\n    },\n    \"ADU31\": {\n      \"text\": \"Planning-Jo's goal is to figure out if there is a way to diachronically plan that is adequately responsive to what Jo's different perspectives want to do.\",\n      \"label\": \"claim\"\n    },\n    \"ADU32\": {\n      \"text\": \"Jo's overarching plan allows us to make sense of why the plans of each perspective temper one another.\",\n      \"label\": \"claim\"\n    },\n    \"ADU33\": {\n      \"text\": \"This is yet another reason why it can be difficult living with chronic illness, since it can involve being at once torn between different paths, while having even less energy to act on any one of those paths.\",\n      \"label\": \"claim\"\n    },\n    \"ADU34\": {\n      \"text\": \"This paper explored one such option (planning on multiple plan A's).\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"ADU1\",\n      \"target\": \"ADU10\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU10\",\n      \"target\": \"ADU11\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU4\",\n      \"target\": \"ADU5\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU6\",\n      \"target\": \"ADU7\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU7\",\n      \"target\": \"ADU8\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU8\",\n      \"target\": \"ADU9\",\n      \"type\": \"attack\"\n    },\n    {\n      \"source\": \"ADU9\",\n      \"target\": \"ADU10\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU18\",\n      \"target\": \"ADU19\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU19\",\n      \"target\": \"ADU20\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU20\",\n      \"target\": \"ADU21\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU22\",\n      \"target\": \"ADU23\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU25\",\n      \"target\": \"ADU26\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU27\",\n      \"target\": \"ADU28\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU30\",\n      \"target\": \"ADU31\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU31\",\n      \"target\": \"ADU32\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU33\",\n      \"target\": \"ADU34\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "ADU1": {
+              "text": "This paper argues that one way to navigate this puzzle is for the agent to adopt an overarching plan that mediates the conflict between her differing perspectives.",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "One way that illness can undermine agency is by getting in the way of your plans.",
+              "label": "claim"
+            },
+            "ADU3": {
+              "text": "While illness undoubtedly undermines people's ability to follow through with plans, illness can also lead to changes in what individuals plan to do in the first place.",
+              "label": "claim"
+            },
+            "ADU4": {
+              "text": "The more general point is that whether we value something, or the extent to which we value it, sometimes depends on our abilities.",
+              "label": "claim"
+            },
+            "ADU5": {
+              "text": "If some of your values depend on your abilities, then living with shifting abilities can make your values unstable.",
+              "label": "claim"
+            },
+            "ADU6": {
+              "text": "The puzzle is that it is unclear what values should guide your plans when your values shift with your abilities.",
+              "label": "claim"
+            },
+            "ADU7": {
+              "text": "Situations like Diego's require planning for multiple, incompatible, course of action.",
+              "label": "claim"
+            },
+            "ADU8": {
+              "text": "This present a puzzle because engaging in this kind of planning has traditionally been understood as irrational by philosophers of action.",
+              "label": "claim"
+            },
+            "ADU9": {
+              "text": "However, I argue that it can in fact be rational to engage in such planning.",
+              "label": "claim"
+            },
+            "ADU10": {
+              "text": "My solution for how to plan involves the agent adopting a perspective similar to a mediator trying to reconcile a conflict between two distinct individuals.",
+              "label": "claim"
+            },
+            "ADU11": {
+              "text": "This involves pursuing both plans in a way that doesn't undermine the possibility of pursuing the other.",
+              "label": "premise"
+            },
+            "ADU12": {
+              "text": "These changes sometimes make a difference to our abilities, which in turn can make a difference to our values.",
+              "label": "claim"
+            },
+            "ADU13": {
+              "text": "The fluctuations in what you can do in these bodily states sometimes lead to fluctuations in your values, specifically when the change in bodily state constitutes a transformative experience.",
+              "label": "claim"
+            },
+            "ADU14": {
+              "text": "Whether Mai values cooking and writing fluctuates with her symptoms, since her symptoms impact what she can do.",
+              "label": "claim"
+            },
+            "ADU15": {
+              "text": "It would be unproblematic, from a diachronic planning perspective, for Mai's and Jo's values to shift over time if they never had to make long-term choices/ plans informed by these values.",
+              "label": "premise"
+            },
+            "ADU16": {
+              "text": "But we often do need to make such choices.",
+              "label": "premise"
+            },
+            "ADU17": {
+              "text": "In such cases, one can be in the unusually difficult position of shifting between bodily states that impact what pursuits one identifies with, where there's significant uncertainty about what your body will be like in the future.",
+              "label": "claim"
+            },
+            "ADU18": {
+              "text": "The previous Section suggested that the value Mai places in cooking and writing shifts with her symptoms.",
+              "label": "claim"
+            },
+            "ADU19": {
+              "text": "Recognizing value just requires judging or believing that something is valuable; it does not require valuing that thing yourself.",
+              "label": "premise"
+            },
+            "ADU20": {
+              "text": "Valuing requires more than just believing valuable.",
+              "label": "premise"
+            },
+            "ADU21": {
+              "text": "In particular, to value some thing requires directing or structuring your thoughts, feelings, and actions around the object of value.",
+              "label": "premise"
+            },
+            "ADU22": {
+              "text": "Though Scheffler does not bring up the role of abilities, it is a natural thought that our abilities are part of our positionality, and can also shape what we engage in valuing.",
+              "label": "claim"
+            },
+            "ADU23": {
+              "text": "The more general point is that we don't only value abilities instrumentally, as means to manifesting the value that we place in other things, but also value exercising abilities in themselves.",
+              "label": "claim"
+            },
+            "ADU24": {
+              "text": "Something has conditioned final value if its value depends on certain conditions obtaining.",
+              "label": "premise"
+            },
+            "ADU25": {
+              "text": "In the cases I'm focused on, your valuing exercising an ability is conditioned on being able to exercise that ability yourself.",
+              "label": "claim"
+            },
+            "ADU26": {
+              "text": "This raises a puzzle for planning, since diachronically, you have more than one preference ordering, and so it's not clear which preference set should guide your plans.",
+              "label": "claim"
+            },
+            "ADU27": {
+              "text": "Having more than one plan A in regard to a specific choice point means being fully committed to incompatible courses of action.",
+              "label": "claim"
+            },
+            "ADU28": {
+              "text": "This seems straightforwardly irrational.",
+              "label": "claim"
+            },
+            "ADU29": {
+              "text": "I don't want to deny that this is sometimes what illness does.",
+              "label": "premise"
+            },
+            "ADU30": {
+              "text": "At the same time, I think it's worth exploring whether it can be rational to plan on/for multiple plan A's.",
+              "label": "claim"
+            },
+            "ADU31": {
+              "text": "Planning-Jo's goal is to figure out if there is a way to diachronically plan that is adequately responsive to what Jo's different perspectives want to do.",
+              "label": "claim"
+            },
+            "ADU32": {
+              "text": "Jo's overarching plan allows us to make sense of why the plans of each perspective temper one another.",
+              "label": "claim"
+            },
+            "ADU33": {
+              "text": "This is yet another reason why it can be difficult living with chronic illness, since it can involve being at once torn between different paths, while having even less energy to act on any one of those paths.",
+              "label": "claim"
+            },
+            "ADU34": {
+              "text": "This paper explored one such option (planning on multiple plan A's).",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU1",
+              "target": "ADU10",
+              "type": "support"
+            },
+            {
+              "source": "ADU10",
+              "target": "ADU11",
+              "type": "support"
+            },
+            {
+              "source": "ADU4",
+              "target": "ADU5",
+              "type": "support"
+            },
+            {
+              "source": "ADU6",
+              "target": "ADU7",
+              "type": "support"
+            },
+            {
+              "source": "ADU7",
+              "target": "ADU8",
+              "type": "support"
+            },
+            {
+              "source": "ADU8",
+              "target": "ADU9",
+              "type": "attack"
+            },
+            {
+              "source": "ADU9",
+              "target": "ADU10",
+              "type": "support"
+            },
+            {
+              "source": "ADU18",
+              "target": "ADU19",
+              "type": "support"
+            },
+            {
+              "source": "ADU19",
+              "target": "ADU20",
+              "type": "support"
+            },
+            {
+              "source": "ADU20",
+              "target": "ADU21",
+              "type": "support"
+            },
+            {
+              "source": "ADU22",
+              "target": "ADU23",
+              "type": "support"
+            },
+            {
+              "source": "ADU25",
+              "target": "ADU26",
+              "type": "support"
+            },
+            {
+              "source": "ADU27",
+              "target": "ADU28",
+              "type": "support"
+            },
+            {
+              "source": "ADU30",
+              "target": "ADU31",
+              "type": "support"
+            },
+            {
+              "source": "ADU31",
+              "target": "ADU32",
+              "type": "support"
+            },
+            {
+              "source": "ADU33",
+              "target": "ADU34",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "ADU1": {
+              "text": "This paper argues that one way to navigate this puzzle is for the agent to adopt an overarching plan that mediates the conflict between her differing perspectives.",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "One way that illness can undermine agency is by getting in the way of your plans.",
+              "label": "claim"
+            },
+            "ADU3": {
+              "text": "While illness undoubtedly undermines people's ability to follow through with plans, illness can also lead to changes in what individuals plan to do in the first place.",
+              "label": "claim"
+            },
+            "ADU4": {
+              "text": "The more general point is that whether we value something, or the extent to which we value it, sometimes depends on our abilities.",
+              "label": "claim"
+            },
+            "ADU5": {
+              "text": "If some of your values depend on your abilities, then living with shifting abilities can make your values unstable.",
+              "label": "claim"
+            },
+            "ADU6": {
+              "text": "The puzzle is that it is unclear what values should guide your plans when your values shift with your abilities.",
+              "label": "claim"
+            },
+            "ADU8": {
+              "text": "This present a puzzle because engaging in this kind of planning has traditionally been understood as irrational by philosophers of action.",
+              "label": "claim"
+            },
+            "ADU9": {
+              "text": "However, I argue that it can in fact be rational to engage in such planning.",
+              "label": "claim"
+            },
+            "ADU10": {
+              "text": "My solution for how to plan involves the agent adopting a perspective similar to a mediator trying to reconcile a conflict between two distinct individuals.",
+              "label": "claim"
+            },
+            "ADU11": {
+              "text": "This involves pursuing both plans in a way that doesn't undermine the possibility of pursuing the other.",
+              "label": "premise"
+            },
+            "ADU12": {
+              "text": "These changes sometimes make a difference to our abilities, which in turn can make a difference to our values.",
+              "label": "claim"
+            },
+            "ADU13": {
+              "text": "The fluctuations in what you can do in these bodily states sometimes lead to fluctuations in your values, specifically when the change in bodily state constitutes a transformative experience.",
+              "label": "claim"
+            },
+            "ADU14": {
+              "text": "Whether Mai values cooking and writing fluctuates with her symptoms, since her symptoms impact what she can do.",
+              "label": "claim"
+            },
+            "ADU15": {
+              "text": "It would be unproblematic, from a diachronic planning perspective, for Mai's and Jo's values to shift over time if they never had to make long-term choices/ plans informed by these values.",
+              "label": "premise"
+            },
+            "ADU16": {
+              "text": "But we often do need to make such choices.",
+              "label": "premise"
+            },
+            "ADU17": {
+              "text": "In such cases, one can be in the unusually difficult position of shifting between bodily states that impact what pursuits one identifies with, where there's significant uncertainty about what your body will be like in the future.",
+              "label": "claim"
+            },
+            "ADU18": {
+              "text": "The previous Section suggested that the value Mai places in cooking and writing shifts with her symptoms.",
+              "label": "claim"
+            },
+            "ADU19": {
+              "text": "Recognizing value just requires judging or believing that something is valuable; it does not require valuing that thing yourself.",
+              "label": "premise"
+            },
+            "ADU20": {
+              "text": "Valuing requires more than just believing valuable.",
+              "label": "premise"
+            },
+            "ADU21": {
+              "text": "In particular, to value some thing requires directing or structuring your thoughts, feelings, and actions around the object of value.",
+              "label": "premise"
+            },
+            "ADU22": {
+              "text": "Though Scheffler does not bring up the role of abilities, it is a natural thought that our abilities are part of our positionality, and can also shape what we engage in valuing.",
+              "label": "claim"
+            },
+            "ADU23": {
+              "text": "The more general point is that we don't only value abilities instrumentally, as means to manifesting the value that we place in other things, but also value exercising abilities in themselves.",
+              "label": "claim"
+            },
+            "ADU24": {
+              "text": "Something has conditioned final value if its value depends on certain conditions obtaining.",
+              "label": "premise"
+            },
+            "ADU25": {
+              "text": "In the cases I'm focused on, your valuing exercising an ability is conditioned on being able to exercise that ability yourself.",
+              "label": "claim"
+            },
+            "ADU26": {
+              "text": "This raises a puzzle for planning, since diachronically, you have more than one preference ordering, and so it's not clear which preference set should guide your plans.",
+              "label": "claim"
+            },
+            "ADU27": {
+              "text": "Having more than one plan A in regard to a specific choice point means being fully committed to incompatible courses of action.",
+              "label": "claim"
+            },
+            "ADU28": {
+              "text": "This seems straightforwardly irrational.",
+              "label": "claim"
+            },
+            "ADU29": {
+              "text": "I don't want to deny that this is sometimes what illness does.",
+              "label": "premise"
+            },
+            "ADU31": {
+              "text": "Planning-Jo's goal is to figure out if there is a way to diachronically plan that is adequately responsive to what Jo's different perspectives want to do.",
+              "label": "claim"
+            },
+            "ADU32": {
+              "text": "Jo's overarching plan allows us to make sense of why the plans of each perspective temper one another.",
+              "label": "claim"
+            },
+            "ADU33": {
+              "text": "This is yet another reason why it can be difficult living with chronic illness, since it can involve being at once torn between different paths, while having even less energy to act on any one of those paths.",
+              "label": "claim"
+            },
+            "ADU34": {
+              "text": "This paper explored one such option (planning on multiple plan A's).",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU1",
+              "target": "ADU10",
+              "type": "support"
+            },
+            {
+              "source": "ADU10",
+              "target": "ADU11",
+              "type": "support"
+            },
+            {
+              "source": "ADU4",
+              "target": "ADU5",
+              "type": "support"
+            },
+            {
+              "source": "ADU8",
+              "target": "ADU9",
+              "type": "attack"
+            },
+            {
+              "source": "ADU9",
+              "target": "ADU10",
+              "type": "support"
+            },
+            {
+              "source": "ADU18",
+              "target": "ADU19",
+              "type": "support"
+            },
+            {
+              "source": "ADU19",
+              "target": "ADU20",
+              "type": "support"
+            },
+            {
+              "source": "ADU20",
+              "target": "ADU21",
+              "type": "support"
+            },
+            {
+              "source": "ADU22",
+              "target": "ADU23",
+              "type": "support"
+            },
+            {
+              "source": "ADU25",
+              "target": "ADU26",
+              "type": "support"
+            },
+            {
+              "source": "ADU27",
+              "target": "ADU28",
+              "type": "support"
+            },
+            {
+              "source": "ADU31",
+              "target": "ADU32",
+              "type": "support"
+            },
+            {
+              "source": "ADU33",
+              "target": "ADU34",
+              "type": "support"
+            }
+          ]
+        }
+      },
+      {
+        "source": "claude-3-5-sonnet-20241022",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"1\": {\n      \"text\": \"One way that illness can undermine agency is by getting in the way of your plans.\",\n      \"label\": \"claim\"\n    },\n    \"2\": {\n      \"text\": \"While illness undoubtedly undermines people's ability to follow through with plans, illness can also lead to changes in what individuals plan to do in the first place. One reason for this is that illness can change our values.\",\n      \"label\": \"claim\"\n    },\n    \"3\": {\n      \"text\": \"whether we value something, or the extent to which we value it, sometimes depends on our abilities. In these cases, a change in those abilities changes your values, and the plans shaped by those values.\",\n      \"label\": \"claim\"\n    },\n    \"4\": {\n      \"text\": \"rather than a stable change, illness often involves fluctuating between different sets of abilities depending on whether you're experiencing flareups of illness symptoms.\",\n      \"label\": \"premise\"\n    },\n    \"5\": {\n      \"text\": \"If some of your values depend on your abilities, then living with shifting abilities can make your values unstable.\",\n      \"label\": \"claim\"\n    },\n    \"6\": {\n      \"text\": \"there is a puzzle for diachronic agency that arises given this connection between some of our values and abilities. The puzzle is that it is unclear what values should guide your plans when your values shift with your abilities.\",\n      \"label\": \"claim\"\n    },\n    \"7\": {\n      \"text\": \"one way to navigate this puzzle is for the agent to adopt an overarching plan that mediates the conflict between her differing perspectives.\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"4\",\n      \"target\": \"5\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"3\",\n      \"target\": \"5\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"5\",\n      \"target\": \"6\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"7\",\n      \"target\": \"6\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "1": {
+              "text": "One way that illness can undermine agency is by getting in the way of your plans.",
+              "label": "claim"
+            },
+            "2": {
+              "text": "While illness undoubtedly undermines people's ability to follow through with plans, illness can also lead to changes in what individuals plan to do in the first place. One reason for this is that illness can change our values.",
+              "label": "claim"
+            },
+            "3": {
+              "text": "whether we value something, or the extent to which we value it, sometimes depends on our abilities. In these cases, a change in those abilities changes your values, and the plans shaped by those values.",
+              "label": "claim"
+            },
+            "4": {
+              "text": "rather than a stable change, illness often involves fluctuating between different sets of abilities depending on whether you're experiencing flareups of illness symptoms.",
+              "label": "premise"
+            },
+            "5": {
+              "text": "If some of your values depend on your abilities, then living with shifting abilities can make your values unstable.",
+              "label": "claim"
+            },
+            "6": {
+              "text": "there is a puzzle for diachronic agency that arises given this connection between some of our values and abilities. The puzzle is that it is unclear what values should guide your plans when your values shift with your abilities.",
+              "label": "claim"
+            },
+            "7": {
+              "text": "one way to navigate this puzzle is for the agent to adopt an overarching plan that mediates the conflict between her differing perspectives.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "4",
+              "target": "5",
+              "type": "support"
+            },
+            {
+              "source": "3",
+              "target": "5",
+              "type": "support"
+            },
+            {
+              "source": "5",
+              "target": "6",
+              "type": "support"
+            },
+            {
+              "source": "7",
+              "target": "6",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "1": {
+              "text": "One way that illness can undermine agency is by getting in the way of your plans.",
+              "label": "claim"
+            },
+            "2": {
+              "text": "While illness undoubtedly undermines people's ability to follow through with plans, illness can also lead to changes in what individuals plan to do in the first place. One reason for this is that illness can change our values.",
+              "label": "claim"
+            },
+            "3": {
+              "text": "whether we value something, or the extent to which we value it, sometimes depends on our abilities. In these cases, a change in those abilities changes your values, and the plans shaped by those values.",
+              "label": "claim"
+            },
+            "4": {
+              "text": "rather than a stable change, illness often involves fluctuating between different sets of abilities depending on whether you're experiencing flareups of illness symptoms.",
+              "label": "premise"
+            },
+            "5": {
+              "text": "If some of your values depend on your abilities, then living with shifting abilities can make your values unstable.",
+              "label": "claim"
+            },
+            "6": {
+              "text": "there is a puzzle for diachronic agency that arises given this connection between some of our values and abilities. The puzzle is that it is unclear what values should guide your plans when your values shift with your abilities.",
+              "label": "claim"
+            },
+            "7": {
+              "text": "one way to navigate this puzzle is for the agent to adopt an overarching plan that mediates the conflict between her differing perspectives.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "4",
+              "target": "5",
+              "type": "support"
+            },
+            {
+              "source": "3",
+              "target": "5",
+              "type": "support"
+            },
+            {
+              "source": "5",
+              "target": "6",
+              "type": "support"
+            },
+            {
+              "source": "7",
+              "target": "6",
+              "type": "support"
+            }
+          ]
+        }
+      }
+    ],
+    "timestamp": 1752758577.516732
+  }
+]

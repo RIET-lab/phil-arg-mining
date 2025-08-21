@@ -1,0 +1,507 @@
+[
+  {
+    "identifier": "HARTEO-4",
+    "system_prompt": "## GOAL\nArgument‑mine the following paper to extract its comprehensive argumentative structure.\n\n## DEFINITIONS\n1. **Argument**: A set of propositions, including some number of premises and a conclusion. The premises should logically entail the conclusion.\n2. **Claim**: A proposition that asserts something to be true or false, typically requiring justification or evidence.\n3. **Premise**: A proposition that provides evidence, justification, or logical support for a claim or conclusion.\n\n## CRITICAL REQUIREMENTS\n1. **VERBATIM EXTRACTION ONLY**: Each ADU text must be copied EXACTLY from the paper with no modifications, paraphrasing, or combining of separate sentences.\n2. **NO HALLUCINATION**: Do not create, modify, or invent text that does not appear exactly in the source.\n3. **EXACT MATCHING**: Every word, punctuation mark, and spacing must match the original precisely.\n\n## DIRECTIONS\n1. **Identify Argumentative Discourse Units (ADUs)**  \n   - ADU = any contiguous text span functioning as a claim or a premise in the reasoning structure.\n   - **BE HIGHLY SELECTIVE**: Only include ADUs that are crucial to the overarching argument structure.\n   - Focus on significant claims and premises that contribute meaningfully to the argumentative flow.\n   - **AVOID NOISE**: Skip ADUs that are merely descriptive, tangential, or do not substantially advance the argument.\n   - Prioritize quality over quantity - fewer accurate, important ADUs are better than many insignificant ones.\n   - **EXTRACT ONLY**: Copy text spans exactly as they appear, without any modifications.\n2. **Classify each ADU**  \n   - Label = either `\"claim\"` or `\"premise\"`.  \n3. **Detect directed relations**  \n   - Relation = `\"support\"` or `\"attack\"`, from one ADU (source) to another (target).\n   - Map how ADUs connect to form reasoning chains.\n   - Focus on relationships between the most significant ADUs.\n   - Include relationships between premises that strengthen or weaken each other.\n4. **Verbatim spans**  \n   - Each `\"text\"` value must be copied EXACTLY from the paper with zero modifications.\n   - Do not paraphrase, summarize, or combine separate sentences.\n   - Do not add, remove, or change any words, punctuation, or spacing.\n   - If unsure about exact wording, skip that ADU rather than guess.\n\n## WHAT TO CAPTURE\n**INCLUDE ONLY:**\n- Main argumentative threads that are central to the paper's contribution\n- Core claims that represent the paper's primary arguments or findings\n- Key premises that provide essential support for major claims\n- Critical counterarguments and their refutations\n- Reasoning chains that demonstrate how main conclusions are derived\n\n**EXCLUDE (AVOID NOISE):**\n- Minor details, examples, or descriptive content that don't advance the argument\n- Tangential points or side discussions\n- Pure background information or literature review content\n- Methodological details unless they constitute argumentative claims\n- Obvious statements or commonly accepted facts\n- Redundant or repetitive argumentative content\n\n**GUIDING PRINCIPLE**: If removing an ADU would not significantly impact understanding of the paper's argumentative structure, it should be excluded.\n\n## QUALITY CONTROL\n- Before finalizing each ADU, verify the text exists exactly in the source\n- Prefer fewer, accurate ADUs over many potentially modified ones\n- When in doubt about exact wording, omit the ADU\n\n## OUTPUT FORMAT\nReturn **only** a single valid JSON object matching this schema.  \nDo **not** output any extra text, markdown, or explanations.\nDo **not** add comments.\n**RESPOND WITH ONLY**:\n```json\n{\n  \"ADUs\": {\n    \"<ADU_ID>\": {\n      \"text\": \"<exact span from paper>\",\n      \"label\": \"claim\" | \"premise\"\n    }\n    ...\n  },\n  \"relations\": [\n    {\n      \"source\": \"<ADU_ID>\",\n      \"target\": \"<ADU_ID>\",\n      \"type\": \"support\" | \"attack\"\n    }\n  ]\n}\n```",
+    "user_content": "Harold, James. The Ethics of Non-Realist Fiction: Morality's Catch-22 . Philosophia 35:2 (June 2007): 145159.\n\n## The Ethics of Non-Realist Fiction: Morality's Catch-22\n\nWhen philosophers discuss ethics and literature, the literature that they usually have in mind is the modern realistic novel.  The 'great tradition' of morally serious and psychologically realistic fiction (including works by Tolstoy, Austen, James, Dickens, etc.) has often seemed the most important and most interesting set of novels for philosophical discussion. 1   These novels are distinguished by their serious moral concern with social issues and by their psychologically detailed and rich characterization.  Philosophical discussion has therefore focused primarily on novels of this sort and their more recent progeny. 2   In fact, it is difficult to find any sustained discussion of novels outside of this tradition (broadly conceived) in the entire philosophical literature.  But of course the novel comes in many different forms, and though some of these other forms have little or no explicit moral content, others do.  In this essay I propose to look at the relationship between ethics and literature by looking at non-realistic forms of fiction, and at one work in particular, Joseph Heller's Catch-22 .  The topic is how non-realistic novels challenge our philosophical understanding of the relationship between literature and ethics.\n\n## 1. Realistic and non-realistic novels\n\nIt is not at all easy to say what the difference between realistic and non-realistic novels is, though examples of each sort are easy to come by.  It is yet more difficult to define non-realist novels.  'Non-realist' does not mark out a category - it signifies the set of novels excluded from a category.  It would take us far away from our aim here to try to say precisely what makes a\n\n1 See Leavis, F.R. (1948). The Great Tradition: George Eliot, Henry James, Joseph Conrad. (London: Chatto &amp; Windus)\n\n2 I have in mind, for example, the work of Martha Nussbaum.  See Nussbaum, M. (1990). Love's Knowledge: Essays on Philosophy and Literature. (New York: Oxford University Press)\n\nHarold, James. The Ethics of Non-Realist Fiction: Morality's Catch-22 . Philosophia 35:2 (June 2007): 145159.\n\nnovel realistic or non-realistic, but a few remarks might give us a general idea.  Peter Lamarque and Stein Haugom Olsen describe some of the typical features of 'realist' writing:\n\nThere is no complete agreement on the criteria for what is count as a realist mode of writing, nor on the application of these criteria.  However, broadly speaking three features are prominent: a certain kind of aim , namely truth-telling or 'faithfulness' to the facts; a certain kind of content , the representation of social reality in its particulars; and a certain kind of form , involving simplicity rather than ornateness, mirroring that of documentary history. 3\n\nLamarque and Olsen go on to discuss how these three features tend to result in writing that is highly particularized, with an emphasis on characters as individuals rather than types, and a plot in which a causal chain works itself out gradually over a consistent time frame as characters develop and change.  Realist works also emphasize particulars in other respects, such as the geographical, cultural, and historical context.  This account of realistic techniques is broad enough to include a great deal more than those novels of what sometimes called the 'realist' school of literature: that is, the novels by 19 th  century French writers such as de Balzac, Flaubert, Hugo and the like.\n\nNon-realistic novels, then, depart from this general pattern in significant ways.  They tend to differ from one another, however, as much as they differ from the realist type.  What do Joyce's Finnegan's Wake , Heller's Catch-22 , Beckett's Molloy , Kafka's The Castle , Sterne's Tristam Shandy , and Burrough's Naked Lunch have in common, except their departure from realist conventions?  Accordingly, it is not productive to attempt to generalize about non-realist works. In this paper, I focus on one important work of non-realist fiction, and ask about its relationship to morality.  My approach here is decidedly anti-theoretical; I do not claim that other nonrealistic novels will be similar.  Just this one case, however, will be enough to show that the\n\n3 Lamarque, P. &amp; Olsen, S.H. (1994). Truth, Fiction, and Literature: A Philosophical Perspective , 311  (Oxford: . Oxford University Press)\n\nHarold, James. The Ethics of Non-Realist Fiction: Morality's Catch-22 . Philosophia 35:2 (June 2007): 145-\n\n159. conclusions often drawn regarding ethics and literature will need significant modification if they are to apply to those works that fall outside the realistic type.\n\nJoseph Heller's novel Catch-22 is a good example. 4   First, the style is willfully antirealistic.  Heller originally planned to write the novel more realistically, with a linear timescheme, a more serious, less satirical tone, and with psychologically true to life characters. (Some of his earlier attempts at telling the story of Catch-22 have these characteristics.) However, he said that after many years, and after reading (among others) Nabokov and West, he discovered that there were 'different ways to tell a story,' and that an alternative, comic, non-linear approach was better suited to his talents and to the subject. 5   Second, Heller's purpose in writing Catch-22 is decidedly moral.  The novel is celebrated as one of the great antiwar novels, and Heller's writing was partly based by his own experience as a bombardier during World War II, and his own deeply held moral convictions.  So in Catch-22 we have a novel with moral ideas at its center, but which employs non-realistic techniques of different kinds to reach and engage readers.\n\nIn Catch-22 , we move forward and backward through time swiftly and often confusingly; sometimes a single sentence will discuss events occurring at three or four distinct times.  The story's third person, apparently omniscient narrator is not dramatized, but the narrator makes periodic, recurring comments on the feelings and background of characters as well as more general remarks about the world.  The roster of characters is very large and difficult to keep track of; the writing style, including the dialogue, is repetitive, contradictory, outrageous, and filled with wordplay, puns, and allusions.\n\n4 All references are to the Laurel paperback edition.  Heller, J. (1961). Catch-22. (New York: Dell Publishing)\n\n5 Ruas interview with Joseph Heller, quoted in Craig, D. (1997). Tilting at Mortality: Narrative Strategies in Joseph Heller's Fiction , 46  (Detroit, MI: Wayne State University Press) .\n\nHarold, James. The Ethics of Non-Realist Fiction: Morality's Catch-22 . Philosophia 35:2 (June 2007): 145159.\n\nYet for all of the apparent complexity, the main plot is quite simple.  Most of the book is taken up with Yossarian's attempts to avoid getting killed while flying bombing missions; his attention is single-mindedly focused on his own survival.  ('He had decided to live forever or die in the attempt, and his only mission each time he went up was to come down alive.' (30)) As the book progresses, several key events become significant to him: Aarfy's rape and murder of an Italian maid; Nately's death and the consequent despair of 'Nately's whore' (the Italian prostitute whom Nately loved) and her kid sister; and finally, Yossarian's failure to prevent Snowden's death.  Yossarian is eventually presented with the opportunity to go home and escape danger by becoming 'one of the boys,' forcing the remaining pilots to continue flying while being sent home a hero.  He chooses instead to follow his roommate Orr's choice, and to go AWOL, making his way home himself, looking after Nately's whore's sister.  The novel offers a classic story of moral growth: Yossarian's moral outlook is transformed from a highly selfish to a more selfless one as he becomes more keenly aware of the fragility and value of life, and of the value of his own relationships with others.  Yossarian remains resistant to authority throughout, but by the end of the novel, he has developed a stronger sense of his own duties to other people.\n\nIf this message were all that the novel had to offer in terms of moral insight, it would not be terribly interesting.  In what follows, I argue that the novel is much more imaginative and rich morally than this description indicates.  Further, the moral achievements of the book have everything to do with its non-realistic style.  In this paper, I examine three questions regarding ethics and literature, and consider how these questions might be answered with regard to Catch22 .  What emerges is a complex moral picture that does not fit what is usually said about the relationship between morality and works of literature.\n\nHarold, James. The Ethics of Non-Realist Fiction: Morality's Catch-22 . Philosophia 35:2 (June 2007): 145159.\n\n## 2. The relationship between ethics and literature\n\nFor much of the twentieth century, analytic philosophers paid little attention to art or literature, and less to the connection between literature and ethics. 6   There are a few reasons for this.  First, many early analytic philosophers held that neither aesthetic nor moral language was meaningful, so not susceptible to philosophical analysis; careful study of either subject was not encouraged.  Second, the early part of the 20 th  century saw the rise of formalist critcism as an approach to art, and New Criticism as an approach to literature.  These critical traditions emphasized the differences between literary value and moral value, and so few were moved to look for connections.  Third, some movements in the artworld seemed to reinforce this separation - the movement away from realism in literature, and towards abstraction in the fine arts seemed to suggest that the humanistic, morally-laden content of other works of art was not central to their aesthetic identity.\n\nHowever, towards the end of the twentieth century, the pendulum swung back.  The narrow confines of traditional analytic philosophy having been largely abandoned, philosophers became interested in art, and specifically in literature, and they also started getting interested in moral value.   Hilary Putnam and Martha Nussbaum can perhaps be cited as among the first philosophers in the analytic tradition to talk seriously about literature and ethics together. 7   In the years since, a variety of philosophical questions concerning different aspects of the relationship between ethics and literature have been explored.\n\nIn this paper, I look at three questions that have received close philosophical attention in recent years.  The questions are these:\n\n6 See Noël Carroll's discussion in Carroll, N. (2000).  Art and Ethical Criticism: An Overview of Recent Directions of Research. Ethics , 110, 350-387\n\n7 Putnam, H. (1978).  Literature, Science, and Reflection.  (In his Meaning and the Moral Sciences (pp. 87-90). London: Routledge and Kegan Paul.); Nussbaum, N. ( op. cit .)\n\nHarold, James. The Ethics of Non-Realist Fiction: Morality's Catch-22 . Philosophia 35:2 (June 2007): 145159.\n\n- · How does the moral content of literature affect our imaginative experience of literature?\n- · What makes a work of literature morally good or morally bad?\n- · Can we acquire moral knowledge from literature, and if so, how?\n\nIn each of these cases, I consider a response to the question that looks plausible when construed as a claim about realistic works of literature, and consider how that claim would have to be modified if it were to be applied to non-realistic works, such as Catch-22 .  In the final section, I consider how perhaps the questions might be answered regarding Catch-22 , and I suggest some problems that deserve further study.\n\n## 3. Imaginative resistance\n\nLet us begin with the first question, which refers to what has come to be called 'the problem of imaginative resistance,' and which has its origins in Hume.\n\nWhere speculative errors may be found in the polite writings of any age or country, they detract but little from the value of those compositions.  There needs to be but a certain turn of thought or imagination to make us enter into all the opinions which then prevailed and relish the sentiments or conclusions derived from them.  But a very violent effort is required to change our judgments of manners, and excite sentiments of approbation or blame, love or hatred, different from those to which the mind from long custom has been familiarized. 8\n\nHume here distinguishes between two kinds of unfamiliarity in fiction: one which is relatively easy to overcome and which poses no difficulty for appreciation, and another which is very difficult or impossible to overcome and which decreases the value of the work.  His view is that works that offer different moral perspectives from our own - one of his examples is Homer's Iliad - cannot (and should not) be fully appreciated.  Here is how Richard Moran puts it:\n\nIf the story tells us that Duncan was not in fact murdered on Macbeth's orders, then that is what we accept and imagine as fictionally true … However, suppose\n\n8 Hume, D. (1993).  Of the Standard of Taste.  (In A. E. Copley (Ed.), Selected Essays (p. 152).  Oxford: Oxford University Press.)\n\nHarold, James. The Ethics of Non-Realist Fiction: Morality's Catch-22 . Philosophia 35:2 (June 2007): 145159.\n\nthe facts of the murder remain as they are in fact presented in the play, but it is prescribed in this alternate fiction that this was unfortunate only for having interfered with Macbeth's sleep, or that we in the audience are relieved at these events.  These seem to be imaginative tasks of an entirely different order … 9\n\nMore recently, philosophers have extended the phenomenon of imaginative resistance to include cases wherein we are asked to imagine, for example, contradictions. 10   This further question of whether we encounter the same resistance when asked to imagine a conceptual impossibility is more contentious.  But few deny that these cases, too, pose a problem - that it is at least difficult to imagine that, for example, twelve both is and is not the sum of two primes. (Those who believe that we can imagine conceptual impossibilities think that we do so by disguising the impossibility so that it is not present to mind when we imagine.)\n\nThe examples used to illustrate this phenomenon come from realistic fiction, and in the context of realistic fiction the puzzle of imaginative resistance suggests a standard for judging that work: a work that asks us to imagine something that we cannot imagine, or that we have great difficulty imagining, is to that extent a literary failure.  Hume himself suggests that that literary works are 'deformed' when they do this: 'however I may excuse the poet on the manners of his age I can never relish the composition.' 11   That is, realistic fiction depends for its success on the audience's seamless imaginative engagement with the work - difficulty in imagining the world described undermines that engagement in part by drawing one out of the work.\n\nIn Catch-22 , however, imaginative resistance serves to engage the reader more fully with the events and ideas of the work.  The book is filled with contradictions, and with morally\n\n9 Moran, R. (1994).  The Expression of Feeling in Imagination. The Philosophical Review , 103, 95 10 Tamar Gendler takes the view that we can (with difficulty) imagine conceptual impossibilities; Kathleen Stock takes the opposing view. See Gendler, T. (2000).  The Puzzle of Imaginative Resistance. Journal of Philosophy , 97, 55-81.  See also Stock, K. (2003).  The Tower of Goldbach and Other Impossible\n\nHarold, James. The Ethics of Non-Realist Fiction: Morality's Catch-22 . Philosophia 35:2 (June 2007): 145159.\n\noutrageous propositions, which escalate as the book goes on.  Our inability to imagine these propositions contributes to the work's value and success.  Examples of conceptual contradictions abound: 'Yossarian had stopped playing chess with him because the games were so interesting they were foolish' (9); 'The Texan turned out to be good-natured, generous, and likable.  In three days no one could stand him' (10); 'The chaplain was sincerely a very helpful person who was unable to help anyone' (280).  These statements are made in an authoritative, third-person voice.\n\nThe moral cases come in two types.  First, there are cases like the preceding, where the narrator baldly claims that something that is clearly immoral was in fact justified: 'Clevinger was guilty, of course, or he would not have been accused, and since the only way to prove it was to find him guilty, it was their patriotic duty to do so.' (82)  Second, sometimes characters advocate horrifying moral views, which go unchallenged by the other characters.  In these cases, the implication is that in the world of the novel, these ideas are not reprehensible:\n\nAarfy was always trying to help Nately because Nately's father was rich and prominent and in an excellent position to help Aarfy after the war.  'Gee whiz,' he defended himself querulously.  'I remember one day we tricked two dumb high-school girls from town into the fraternity house and made them put out for all the fellows there who wanted them by threatening to call up their parents and say they were putting out for us. We kept them trapped in bed for more than ten hours. We even smacked their faces a little when they started to complain. Then we took away their nickels and dimes and chewing gum and threw them out. Boy, we used to have fun in that fraternity house,' he recalled peacefully, his corpulent cheeks aglow with the jovial, rubicund warmth of nostalgic recollection. (246)\n\nThe narration then passes on to the next scene, without further comment or response from the other characters.  In effect, the work asks us to accept that in this fictional world, these events were not unfortunate.  In this novel, passages like these, which prompt imaginative\n\nTales.  (In Kieran, M. &amp; Lopes, D.M. (Eds.), Imagination, Philosophy, and the Arts (pp. 107-124). New York: Routledge.)\n\nHarold, James. The Ethics of Non-Realist Fiction: Morality's Catch-22 . Philosophia 35:2 (June 2007): 145159.\n\nresistance, serve to further the purposes of the novel.  First, they often make us laugh - the contradictory juxtapositions surprise us and defy our expectations.  Some of the best and most memorable parts of the novel, such as Clevinger's trial, are long comic riffs of paradoxes and wordplay.  The moral contradictions, like the logical ones, bring out the absurdity of the world in which the characters live. 12   Second, the contradictory nature of these authoritative pronouncements reinforce in the reader a sense of the unreliability of putative authorities in general.  The Texan is not really likeable: he is the sort of fellow that we are told is likable.  The voice of the novel, like Colonel Cathcart, is not to be trusted.  Third, they keep us at an emotional distance from the characters and situations.  We are unable to imagine characters like Aarfy because we are repelled or confused by their views of the world.  Heller then uses this emotional distance itself to convey to the reader a sense of Yossarian's own detachment from his surroundings.  This makes Yossarian's transformation at the end of the novel more powerful, as we, like him, are pulled into a less ironic, more deeply emotionally involved view of the events.\n\nThis last point is especially important.  Many philosophers hold that much of our imaginative engagement with fiction comprises 'central' rather than 'acentral' imagining that is, imagining from the point of view of a character rather than that of an onlooker.  The distinction between central and acentral imagining was originally made by Richard Wollheim 13 , but Gregory Currie's distinction between primary and secondary imagining is very much the same 14 , and other writers have made similar distinctions. 15   Philosophers such as Gregory\n\n11 Hume, D. ( op. cit .)\n\n12 I owe this point an anonymous referee.\n\n13 Wollheim, R. (1984). The Thread of Life . (Cambridge: Cambridge University Press).\n\n14 Currie, G. (1995).  The Moral Psychology of Fiction. Australasian Journal of Philosophy , 73, 250-259\n\n15 For example, see Smith, M. (1995). Engaging Characters: Fiction, Emotion, and the Cinema. Oxford University Press)\n\n(Oxford:\n\nHarold, James. The Ethics of Non-Realist Fiction: Morality's Catch-22 . Philosophia 35:2 (June 2007): 145159.\n\nCurrie and Susan Feagin claim that the success of literature in engaging our interest and imagination is in the bulk of cases due to our imagining characters centrally. 16   Currie argues that:\n\nA rough guide to the degree of naturalism in a work of fiction is the extent to which we can let our own minds model those of the characters  To the extent that those minds are opaque, not merely in the sense of being underdescribed by the author, but in that of resisting simulation, we make a work that rejects the standards of naturalism.  Is it just an historical accident that most of our works are naturalistic in this sense?  … I think it unlikely. 17\n\nCurrie does not claim that fiction which is not naturalistic (what I am calling non-realist fiction) must meet these standards, but his view does not explain how it is that novels like Catch-22 can be engaging despite their use of techniques that cause imaginative resistance and ironic distance.  Indeed, Currie seems to suggest that non-realistic works are marginal.  Currie's claims might be correct as far as they go, but we still lack an explanation for how non-realistic works can be as engaging and exciting as some of them are. 18\n\nIn the case of Catch-22 , the characters, including even Yossarian (for much of the book, at least) are kept at an emotional distance.  We are prevented from imagining them centrally for a purpose: our distance from the characters until the end of novel increases the emotional impact of the moral seriousness at the end of the novel.  Chapter 41, 'Snowden,' does insist that the reader imagine centrally, and the experience of suddenly being drawn in quite non-ironically\n\n16 Currie, G. (1995).  Imagination and Simulation: Aesthetics Meets Cognitive Science.  (In Davies, M. &amp; Stone, T. (Eds.), Mental Simulation (pp. 151-169). Cambridge, MA: Blackwell Publishers.); Feagin, S. (1996). Reading with Feeling. (Ithaca, NY: Cornell University Press)\n\n17 Gurrie, G. (1995).  Imagination, the General Theory.  (In Currie, G., Image and Mind: Film, Philosophy, and Cognitive Science (p. 155).  Cambridge: Cambridge University Press.)\n\n18 I am not challenging Currie's or Feagin's claims here about the importance of central imagining, or more specifically, of simulation, for appreciation of and engagement with realistic works of literature.  I am rather emphasizing the limits of these theories.  (Thanks to an anonymous referee for pointing this out.)  However, other philosophers have been more critical of the approach that puts a great deal of emphasis on central imagining, and especially on simulation.  For example, see Carroll, N. (1998). A Philosophy of Mass Art , especially Chapter 4 . (Oxford: Oxford University Press); and Kieran, M. (2003).  In Search of a Narrative.  (In Kieran, M. &amp; Lopes, D.M. (Eds.), op. cit. (pp. 69-87).)\n\nHarold, James. The Ethics of Non-Realist Fiction: Morality's Catch-22 . Philosophia 35:2 (June 2007): 145159.\n\ninto a detailed description of a character's death is more powerful because the reader has been mostly protected from such intense sympathetic feeling by the distanced, humorous tone of the novel up to that point.\n\nHeller makes good use of the phenomenon of imaginative resistance to achieve his intentions: if we simply imagined that the world of Catch-22 was as it is literally described, we would miss the humor, and the emotional power of the novel would be lost.  In reading Catch22 , it is important that we be pulled out of our ordinary habits of simply imagining what we are told.  While most realistic fiction requires that we actively imagine the propositions set forth in the novel, Catch-22 occasionally requires that we do not.\n\nIt would be a grave mistake to say that Catch-22 is not emotionally engaging.  The phenomenon that philosophers call 'imaginative resistance' plays a different role in Catch-22 than it does in realist fiction. Since Heller does not engage us emotionally by getting us to explore in detail the inner psychological lives of his characters, but through his use of humor and sense of the absurd, our inability to imagine the scenarios he describes is not best described as 'resistance'.  These episodes increase rather than decrease our emotional involvement.  In the cases that Moran has in mind, for example, a writer asks the reader to imagine seeing the world the way a character or narrator does, and when we are unable to, our ability to care about the events in the novel is diminished.  This is because in realistic fiction, the central, inner perspective of characters is the vehicle of emotional engagement with the novel.  In Catch-22 , however, the perspective that provides excitement and emotional reward is not a characters' inner life but the author's ironic, distanced view of the world described in the novel.  What is surprising about Heller's novel is just how emotionally engaging this somewhat detached perspective can be.\n\nHarold, James. The Ethics of Non-Realist Fiction: Morality's Catch-22 . Philosophia 35:2 (June 2007): 145159.\n\nImaginative resistance is properly thought of as a demerit in many realistic novels because of the way in which it interferes with the kind of engagement characteristic of realism. In Catch-22 , imaginative resistance is part of what makes the work engaging.  The absurdities and moral outrages of the work provide much of the emotional substance that makes the book's quite acentral perspective emotionally rich.\n\n## 4. Immoral responses\n\nPhilosophers interested in the ethical evaluation of literature have often put emphasis on the power of works of literature to get us to respond imaginatively and emotionally to the events and characters they describe.  When works prescribe a response that seems morally inappropriate, some philosophers have concluded that the work is morally flawed.  According to Berys Gaut's ethicism, for example, works of art are moral or immoral depending on the nature of the response that the work prescribes us to have to the moral perspectives it offers. 19 Berys Gaut argues that artworks manifest attitudes, and some of these attitudes are moral and some are immoral (some are neither).  These attitudes are manifested through the artwork's prescribing us to respond to the events and characters of the work in one way or another.  Some of these responses are morally merited and some are not.  Responses can be of different orders: lower-order responses are responses to the fiction itself, and higher-order responses are responses to one's lower-order responses.  Gaut's example is that: '… my amusement at the character's suffering is prescribed, but there is a higher-order prescription that this amusement itself be regarded as callous and therefore as unmerited.' 20\n\n19 See Gaut, B. (1998).   The Ethical Criticism of Art.  (In Levinson, J. (Ed.), Aesthetics and Ethics:  Essays at the Intersection (pp. 182-203). Cambridge: Cambridge University Press).  For a critique of Gaut's moral criteria, see Harold, J. (2006).  On Judging the Moral Value of Narrative Artworks. The Journal of Aesthetics and Art Criticism , 64, 259-270.\n\n20 Gaut ( op. cit .), p. 193.\n\nHarold, James. The Ethics of Non-Realist Fiction: Morality's Catch-22 . Philosophia 35:2 (June 2007): 145159.\n\nWhether or not a work's attitude is moral depends on the lower- and higher-order responses it prescribes.  Gaut's view is that the responses that are merited are just those that would be morally appropriate if the response was to a real situation, rather than one imagined while engaging with literature.  He writes:\n\nI can criticize someone for taking pleasure in others' pain, for being amused by sadistic cruelty, for being angry at someone when she has done no wrong, for desiring the bad.  The same is true when responses are directed at fictional events, for these responses are actual, not just imagined ones.  If we actually enjoy or are amused by some exhibition of sadistic cruelty in a novel, that shows us in a bad light, reflects ill on our ethical character, and we can properly be criticized for responding in this fashion. 21\n\nHow might this account be applied to the responses Catch-22 prescribes to the various moral situations it describes?\n\nCatch-22 , of course, prescribes a great deal of laughter.  Some of what we are asked to laugh at raises no moral issues, such as Major Major Major's promotion via IBM machine, and Scheisskopf's obsession with parades.  But in a number of places, the humor that the book prescribes might be much more troubling from a moral point of view.  Consider the first episode involving the soldier in white.  This patient appears in the hospital completely covered in bandages.  The other soldiers in the ward immediately question whether he is alive, and whether in fact anyone, living or dead, is inside the bandages.  The nurses clean the bandages and take his temperature regularly, and they also swap his IV fluid with the jar collecting waste:\n\nWhen the jar feeding the inside of his elbow was just about empty, the jar on the floor was just about full, and the two were simply uncoupled from their respective hoses and reversed quickly so that the liquid could be dripped right back into him.  Changing the jar was no trouble to anyone but the men who watched them changed every hour or so and were baffled by the procedure. 'Why can't they hook the two jars up to each other and eliminate the middleman?' the artillery captain … inquired.  'What the hell do they need him for?' (174)\n\n21 Gaut ( ibid. ), p. 194.\n\nHarold, James. The Ethics of Non-Realist Fiction: Morality's Catch-22 . Philosophia 35:2 (June 2007): 145159.\n\nWhether or not one finds this funny (I do), it is clear that the work prescribes that we respond with amusement to this episode and to the artillery captain's suggestion.  Is a response of amusement morally merited here?  On one view, it would not be.  While this amusement might not be pleasure in the soldier in white's pain , it at least involves taking pleasure in his misfortune and injury.  On another view, however, it is not easy to say.  The situation described has no exact real-life counterpart.  It is impossible for a person to survive if his waste is reused as IV fluid.  The situation is a parody of pointless, cryptic medical rituals.  It might well be morally appropriate to laugh at some of the inane, almost mystical hospital rituals that actually exist, and perhaps the right thing to say about Catch-22 is that the response it prescribes is amusement at these rituals, not at the soldier in white's suffering.\n\nWhat I think we should say about this case is a bit more difficult.  The black humor in Catch-22 intentionally breaches the boundaries of good taste.  The episode of the soldier in white, like many of the comic episodes in the novel 22 , takes death and suffering as its object.  In order to find the episode funny, as the novel prescribes, one must suspend any concern for or empathy with the soldier in white character that one might feel.  Even though the soldier in white's suffering is not the object of the joke, a moral awareness of the seriousness of his situation and a concern for his condition would seem to prevent any morally appropriate audience from enjoying the artillery captain's suggestion.  (Imagine how funny the remark would seem if directed towards a real person. 23 )\n\n22 Another episode which raises some of the same issues is the scene in which Yossarian impersonates Guiseppe (who has died) so that his family will be able to believe that they got to see him before he passed away.\n\n23 Joshua Shaw has argued that there are some topics that it is simply inappropriate to joke about.  Shaw, J. (2005, May).  Are There Things We Should Not Joke About? (Paper presented at the Aesthetics Anarchy conference at Indiana University in Bloomington, IN)\n\nHarold, James. The Ethics of Non-Realist Fiction: Morality's Catch-22 . Philosophia 35:2 (June 2007): 145159.\n\nHowever, in Catch-22 , it is simply impossible to take the soldier in white seriously as a character, or to imagine him as a real person.  After the soldier in white dies, Yossarian returns to the hospital (several times, actually), and another solider in white is brought in.  The other characters in the ward, however, insist on treating this new soldier as if he were the same person whom they had seen previously.  Neither soldier in white is ever given a name, a history, or anything that might give us a glimpse into his psychology.  Heller has not given us the resources to imagine his life.  Hence, it is not easy to imagine him as a person .  It is hard to see what would be morally wrong with laughing at the predicament if we are blocked from thinking of the predicament as a person's predicament.\n\nIn other words, Gaut's criteria suggest that we should decide whether a prescribed response is morally merited by asking whether such a response would be merited in similar circumstances in real life.  However, in Heller's novel, we are blocked from drawing the parallel with real life.  The events in the hospital, including those governing the soldier in white's care, are absurd and unrealistic.  We should not conclude that laughter at the artillery captain's suggestion is unmerited simply because it would be in a realistic scenario.  The absurdism of the scene allows us the moral freedom to laugh at what would otherwise be sacrosanct.\n\nWe need a different means for judging when the responses called for by non-realistic novels are morally inappropriate.  When the nature of the imaginative engagement differs widely between the kind of emotional and psychological involvement characteristic of real-life and the kind of emotional and psychological involvement called for by the novel, it is not appropriate to use what is morally appropriate in the former case as a guide for what is morally appropriate in the latter case.  Real-life is a poor guide to the world of Catch-22 .  If laughing at the events of Catch-22 is morally inappropriate, that would be for other reasons, ones having do with the moral means and purposes of Heller's novel.  I'll return to this topic in the final section.\n\nHarold, James. The Ethics of Non-Realist Fiction: Morality's Catch-22 . Philosophia 35:2 (June 2007): 145159.\n\n## 5. How we learn from literature\n\nAccording to a view called 'aesthetic cognitivism,' part of the value of art lies in its ability to provide knowledge, particularly (though not exclusively) moral knowledge. 24   Most philosophers, however, do not believe that we acquire new propositional knowledge by reading literature.  First, as Noël Carroll noted, there is the problem that literature does not provide any warrant for the propositions it endorses. 25   Second, and more importantly, the knowledge associated with literature is meant to be related to the literary nature of the work itself.  The medium is part of the message.  Proponents of aesthetic cogntivism have argued that literature offers us perspectival knowledge: knowledge, for example, of what it is like to have certain experiences, to face certain moral choices, etc.  This kind of knowledge requires realism; in particular, it requires the kind of psychological detail and richness of character lacking in Catch22 and in many other works falling outside the realist tradition.\n\nThere are two reasons for this.  First, many of the characters and events in Catch-22 lack the detail, especially the psychological detail, necessary to learn 'what it is like' to be a bombardier flying missions in Pianosa in 1944, or to be a specific person in that situation, such as Yossarian or McWatt.  The characters and situations of the novel are described loosely, confusingly, and schematically.  Second, our emotional engagement with Catch-22 (at least until its final pages) lacks a close association with any character's emotional life, because these characters lack much of an emotional life, beyond a rather one-sided mood state (anxiety, greed, etc.), and because we are purposely kept at a distance from the characters.  We are encouraged to laugh at them and the absurdity of their situation rather than to empathize with them.\n\n24 For a detailed discussion of aesthetic cognitivism, see Gaut, B. (2003).  Art and Knowledge.  (In Levinson, J. (Ed.), The Oxford Handbook of Aesthetics (pp. 436-450).  Oxford: Oxford University Press.) 25 See Carroll, N. (2002).  The Wheel of Virtue: Art, Literature, and Moral Knowledge. The Journal of Aesthetics and Art Criticism , 60, 3-26.\n\nHarold, James. The Ethics of Non-Realist Fiction: Morality's Catch-22 . Philosophia 35:2 (June 2007): 145159.\n\nRealistic literature teaches us by educating our emotions - by immersing us in the psychological details of people's lives and allowing us to experience their feelings and their thoughts vicariously.  We can learn from fiction because these imaginative experiences can actually be richer than real experiences.  Martha Nussbaum writes:\n\nThe point is that in the activity of literary imagining we are led to imagine and describe with greater precision, focusing our attention on each word, feeling each event more keenly - whereas much of our actual life goes by without that heightened awareness, and is, thus, in a certain sense, not fully or thoroughly lived. … So literature is an extension of life not only horizontally, bringing the reader into contact with events or locations or persons or problems he or she has not otherwise met, but also, so to speak, vertically, giving the reader experience that is deeper, sharper, and more precise than much of what takes place in life. 26\n\nJenefer Robinson, in her analysis of Edith Wharton's The Reef , makes some similar claims. 27   The idea is that the richness of characterization and the way in which the novel engages our own responses closely offers a kind of knowledge: a new way of seeing the world. This way of seeing the world is often thought to be morally valuable.  The perspectival knowledge deepens one's capacity for moral engagement with the real world, and provides opportunity for imaginative exploration of different moral possibilities.\n\nIf this is what is required for us to acquire moral knowledge from fiction, it seems likely that Catch-22 has little to offer.  And in fact, the book does not offer us perspectival knowledge. For most of its 463 pages, Catch-22 denies us the resources we need to involve ourselves as we would in a realistic novel.  The novel engages us by amusing and occasionally confusing us.\n\n26 Nussbaum, M. (1990).  Introduction: Form and Content, Philosophy and Literature.  (In Nussbaum, op. cit ., (pp. 47-48).)\n\n27 See Robinson, J. (1995). L'Education Sentimentale .  (In Davies, S. (Ed.), Art and Its Messages: Meaning, Morality, and Society (pp. 34-48).  University Park, PA: Pennsylvania State University Press.); and Robinson, J. (2005). Deeper than Reason: Emotion and its Role in Literature, Music, and Art , especially\n\nChapter 6.  (Oxford: Oxford University Press)  Robinson does not make the same moral claims about the value of this knowledge that Nussbaum does.\n\nHarold, James. The Ethics of Non-Realist Fiction: Morality's Catch-22 . Philosophia 35:2 (June 2007): 145159.\n\nUntil its final pages, Catch-22 fits the classic model of a satire fairly well. 28   It holds up authority figures to ridicule; it describes a world in which people act as if the senseless and irrational were completely reasonable.  But while morality is central to satire, it is hard to see how reading a book like Catch-22 could teach us morally what we did not already know.  We do not learn that war is absurd from reading it; instead, the moral principles that make satire work are already implicit in the work and must be in order for the satire to be effective.  Northfup Fry notes that: 'The satirist has to select his absurdities, and the act of selection is a moral act.' 29 We have to already be inclined to see the military authorities as an appropriate target in order to appreciate Catch-22 as satire.\n\nPerhaps what we should say is that satires (and Catch-22 is almost a satire) clarify or reinforce moral positions that readers already have.  Noël Carroll has argued for such a view, which he calls 'clarificationism', according to which works of literature can make implicit knowledge explicit, for example, by making clear the logical connections between premises already accepted by the reader. 30   He writes that audiences of A Raisin in the Sun may achieve new insight about the importance of racial inequality, 'possibly spotlighting a heretofore unrecognized application of their precepts.' 31   One might say something similar about readers of satire - they can come to more fully and more clearly grasp the implications of their moral positions.\n\nHowever, this analysis, though closer, also will not quite do.  The difficulty is that Catch22 is not a straightforward work of satire (if indeed there is such a thing).  It does both more and\n\n28 See Frye, N. (1957). Anatomy of Criticism: Four Essays , pp. 223-242.  (Princeton, NJ: Princeton University Press)\n\n29 Frye ( ibid .), p. 224.\n\n30 While much of Carroll's work is focused on the role of morality in evaluating aesthetic merit, he also advances a theory about the moral value of knowledge gained from art, including literature.  He calls this theory 'clarificationism.' Carroll, N. (1998). A Philosophy of Mass Art , pp. 319-341. (Oxford: Oxford University Press)\n\nHarold, James. The Ethics of Non-Realist Fiction: Morality's Catch-22 . Philosophia 35:2 (June 2007): 145159.\n\nless than clarificationism suggests.  To understand this, let us look more closely at its closing chapters.\n\n## 6. A different kind of engagement: the moral significance of Catch-22\n\nThe tone of Catch-22 changes as the book nears its end.  The story becomes more linear the events occurring from Chapter 25 onwards are described nearly chronologically, with a few important exceptions, such as the flashback to Snowden's death.  More importantly, starting at around Chapter 30, with the deaths of Kid Sampson and McWatt, the tone of the novel becomes less comic and more serious.  In the last few chapters the change in tone is dramatic, and we get, for the first time, really detailed, emotionally vivid descriptions of moral events that earlier in the novel would have been treated with a light comic touch.\n\nTwo examples stand out.  First, there is Chapter 39, 'The Eternal City,' in which we are given a deep extended inside view of Yossarian's mind, which is concerned, for the first time, with questions having nothing to do with his own survival.\n\nWhat a lousy earth!  He wondered how many people were destitute that same night even in his own prosperous country, how many homes were shanties, how many husbands were drunk and wives socked, and how many children were bullied, abused or abandoned.  How many families hungered for food they could not afford to buy?  How many hearts were broken?  How many suicides would take place that same night, how many people would go insane?  (421)\n\nHere, near the end of the book, Heller finally makes use of the central imagining that he so carefully avoided up to that point.  This is one of the first inner monologues in the entire book.  We are invited to imagine Yossarian's experience and thoughts, wandering Rome in despair, wondering about how his actions and choices impact the lives of others.\n\nThe second example is the difference between two trials: Clevinger's, which occurs very early in the novel, and the interrogation of Chaplain Tappman, which occurs very near the end.\n\n31 Carroll ( ibid. ), p. 327.\n\nHarold, James. The Ethics of Non-Realist Fiction: Morality's Catch-22 . Philosophia 35:2 (June 2007): 145159.\n\nClevinger's trial is hilarious, and we are given no reason to take it seriously.  The scene is a comic whirlwind of interruptions and linguistic misunderstandings, committed by cowering inferiors and bullying superiors.  The Chaplain's interrogation, in Chapter 36, is superficially similar: he is accused of vague crimes, bullied by ignorant superior officers, and the whole procedure is neither just nor coherent.  Like Clevinger's trial, it includes some very funny exchanges.  But the tone is much darker.  The chapter begins with the sentence: 'Nately's death almost killed the chaplain.' (385)  This is not played for comic effect; the Chaplain's despair and anger are described in some detail, and his experience of the trial is portrayed sympathetically. In Clevinger's trial, the narrator's tone is light and humorous, and the narrator tells us that his treatment was deserved.  The narrator does not make any conclusions about the justice of the Chaplain's treatment, even in jest.  As with Yossarian, at the end of the book we are offered a fuller, more internal picture of the Chaplain's psyche, and he is now portrayed as a fuller character, rather than a caricature.  This changes the nature of our imaginative engagement with him.\n\nE. M. Forster famously distinguished between 'flat' and 'round' characters. 32   Flat characters, he said, could be described in a single sentence, and are incapable of surprising the reader.  Round characters, on the other hand, have the 'incalculability of life' about them. 33 Forster emphasizes that flat characters have important roles to play in the novel, particularly when they are used for comic purposes.  They help to move the plot along; they are easy for readers to remember.  (Forster even criticizes Tolstoy for his failure to provide any flat characters to balance the round ones.)\n\n32 See Forster, E.M. (1927). Aspects of the Novel , pp. 67-78. (New York: Harcourt, Inc.)\n\n33 Forster ( ibid .), p. 78.\n\nHarold, James. The Ethics of Non-Realist Fiction: Morality's Catch-22 . Philosophia 35:2 (June 2007): 145159.\n\nBut Forster also notes that in some novels, flat characters can 'modulate' into round ones.  This is important, because, he notes: 'It is only round people who are fit to perform tragically for any length of time and can move us to any feelings except humour and appropriateness.' 34   In the final chapters of Catch-22 , Heller turns from dark satire to outright tragedy and he simultaneously turns his central characters (Yossarian and the Chaplain) from flat caricatures to rounder, more interesting characters.\n\nThe effect of this is profound.  For most of the novel, we are kept at an ironic distance from the events and characters of the novel, enjoying the easy satiric attacks on authority, greed, and bureaucracy that Catch-22 trades in.  Towards the end, we are gradually invited to take the characters and events more seriously, and to appreciate the moral character of what they experience.  We are no longer subjected to absurd discourses that prompt imaginative resistance; Yossarian and Chaplain Tappman offer us moral centers from which we can regard the immoral and unjust practices of the world as just that.  The world is still absurd, but now that absurdity is maddening rather than hilarious.  Characters reveal themselves to be more complex than they appeared: Tappman shows courage, and Yossarian acts altruistically.  The change in the reader's experience of the novel parallels Yossarian's.  Yossarian is portrayed for most of the novel as detached, ironic and narrowly self-interested.  The novel's main story is of his moral growth.  But the real accomplishment of the novel is to give the reader an experience that parallels Yossarian's: one that moves from ironic distance to genuine concern.  What is interesting is that the novel does not do this by exploring Yossarian's psychological life in detail, but by refusing to do so until the end.\n\nThe most important chapter of the book is 'Snowden,' the penultimate chapter of the book.  The title refers to a character whose death is referred to many times throughout the novel\n\n34 Forster ( ibid .), p. 73.\n\nHarold, James. The Ethics of Non-Realist Fiction: Morality's Catch-22 . Philosophia 35:2 (June 2007): 145159.\n\nbut whose 'secret' is not explained until now.  For the first time, the reality of death and suffering is described in painful, graphic, vivid detail.  The passage is more powerful because the book has consistently denied us this kind of experience of death, choosing instead to laugh at scenes of suffering (as in the soldier in white).  Snowden's death is humanized, and so is Yossarian.  The success of this scene, in terms of its emotional power and in terms of its effect on Yossarian's choices, depends on our previous feelings of amusement and distance.  Heller intends Snowden's death to be shocking, and it is, because no other death in the novel has been described like this for us.\n\nThe three questions that we have been looking at have to do with imaginative resistance, the moral appropriateness of prescribed responses, and moral knowledge, especially perspectival knowledge.  How does Catch-22 , with its transformative conclusion, answer these questions?  First, as we have seen, for most of the novel, Catch-22 makes use of imaginative 'resistance' to achieve deeper engagement with the novel from a perspective that is decidedly detached and acentral.  Through the use of humor, Heller gets us to care about his world and what happens in it.  In the final chapters, the book largely abandons this technique, offering us instead inside views of a couple of key characters.  In this way, when Heller finally makes use of more conventional techniques of emotional engagement, they have a greater emotional impact on the reader than they normally would, and the moral outrages that for so much of the novel were an object of distant ridicule now become matters of real concern.  So Heller makes use of both conventional and unconventional means of emotional engagement in order to bring out the moral content that is the subject of his book.\n\nSecond, we saw that through most of the book, we are called on to laugh and to otherwise respond to events in the novel in ways that would normally seem inappropriate.  But in the context of a non-realistic novel, there seems to be no good reason for thinking that these\n\nHarold, James. The Ethics of Non-Realist Fiction: Morality's Catch-22 . Philosophia 35:2 (June 2007): 145159.\n\nresponses are morally inappropriate.  In the final chapters, however, we are called upon to respond very differently.  Even absurd elements of the story, like 'Nately's whore's' almost supernatural ability to appear out of nowhere and attach Yossarian, are not played for laughs. Rather, the book prescribes that we respond with sympathy and compassion to the many tragedies of the war.  These responses have the moral weight that they do in part because of the contrast between the lighter, more humorous responses called for earlier.  When the work takes on a more realistic tone, the moral appropriateness of more sympathetic responses that the book calls for is highlighted.\n\nThird, we saw that many claims about the moral knowledge to be gained from literature is perspectival - knowledge of what it is like to be a particular kind of person in a particular kind of situation --, but that much of Catch-22 denies us this kind of knowledge.  The ironic voice of the novel provides a different kind of moral knowledge, not of particulars of situation and characters. Catch-22 is a moral indictment not of individuals but of systems and practices bureaucracies military, economic, and otherwise.  The distanced perspective of the novel and its huge cast of characters make it clear that it is not Milo Minderbinder's antics we should worry about, but the coupling of private industry and military power.  Insights into the moral features of institutions and other abstractions are not easily found through the kind of careful detailed examination of particular individual situations and psychologies, but through broad, sweeping panoramas that show us exaggerated archetypes of these phenomena.\n\nThe final section of the book, by taking a more realistic, sympathetic approach to Yossarian and Chaplain Tappman, helps to bring out the moral features of the earlier, more satirical episodes.  That is, while the ironic, acentral perspective of most of the novel is effective at showing us the 'big picture' of the war, it does not humanize the characters, and so the moral significance of the events may fail to become salient in the reader's mind.  The final\n\nHarold, James. The Ethics of Non-Realist Fiction: Morality's Catch-22 . Philosophia 35:2 (June 2007): 145159.\n\nchapters of the book humanize the characters and so increase the moral salience of the events and circumstances that the book has been describing so far.  So Heller does manage, perhaps, to offer us moral knowledge with his novel, but the knowledge in question is knowledge not of particulars, but of abstract institutions, and the role of the central, individual perspective is limited to highlighting the moral effects of these institutions on characters that we come to care about.\n\nCatch-22 can play a further moral role.  Some readers will find that the novel makes our normal experience of realistic novels an object of reflection.  The imaginative experience that is the vehicle of moral learning in most realistic novels becomes the topic of moral reflection in this novel.  Because we are initially prevented from taking the characters and events seriously, when we do begin to do so, we are fully aware of the difference between two ways of responding to an absurd and unjust world: a distanced, selfish, amused response, and a morally engaged, serious response.  It is not so much our engagement with the characters that makes this insight possible as it is our experience of the transition from disengagement to engagement. The effect is one that could not be achieved by the techniques of a realist novel.  It is not clear whether or not Heller intended this response, but the structure of the book clearly enables this kind of reflective insight. 35\n\nNon-realistic novels can have great moral significance (as successes or failures), but they achieve their aims by not using the standard techniques that characterize realistic fiction.  These techniques aim to draw us in to the inner lives of vividly drawn characters.  The non-realist novel either disdains these techniques or uses them for quite different purposes.  Our experience of such novels can be rewarding precisely because the experience is not what we expect; non-realistic novels can have their own moral and literary merits.  Philosophers who\n\nHarold, James. The Ethics of Non-Realist Fiction: Morality's Catch-22 . Philosophia 35:2 (June 2007): 145- 159.\n\nwish to draw conclusions about morality and literature would do well to remember the variety of different approaches to literature, and the many different ways that novels can matter morally.\n\n35 Thanks to an anonymous referee for pointing this out.",
+    "responses": [
+      {
+        "source": "gpt-4o-2024-11-20",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"ADU1\": {\n      \"text\": \"In this essay I propose to look at the relationship between ethics and literature by looking at non-realistic forms of fiction, and at one work in particular, Joseph Heller's Catch-22.\",\n      \"label\": \"claim\"\n    },\n    \"ADU2\": {\n      \"text\": \"The topic is how non-realistic novels challenge our philosophical understanding of the relationship between literature and ethics.\",\n      \"label\": \"claim\"\n    },\n    \"ADU3\": {\n      \"text\": \"Non-realistic novels, then, depart from this general pattern in significant ways.\",\n      \"label\": \"claim\"\n    },\n    \"ADU4\": {\n      \"text\": \"Joseph Heller's novel Catch-22 is a good example.\",\n      \"label\": \"premise\"\n    },\n    \"ADU5\": {\n      \"text\": \"Heller's purpose in writing Catch-22 is decidedly moral.\",\n      \"label\": \"claim\"\n    },\n    \"ADU6\": {\n      \"text\": \"The novel is celebrated as one of the great antiwar novels, and Heller's writing was partly based by his own experience as a bombardier during World War II, and his own deeply held moral convictions.\",\n      \"label\": \"premise\"\n    },\n    \"ADU7\": {\n      \"text\": \"So in Catch-22 we have a novel with moral ideas at its center, but which employs non-realistic techniques of different kinds to reach and engage readers.\",\n      \"label\": \"claim\"\n    },\n    \"ADU8\": {\n      \"text\": \"If this message were all that the novel had to offer in terms of moral insight, it would not be terribly interesting.\",\n      \"label\": \"claim\"\n    },\n    \"ADU9\": {\n      \"text\": \"In what follows, I argue that the novel is much more imaginative and rich morally than this description indicates.\",\n      \"label\": \"claim\"\n    },\n    \"ADU10\": {\n      \"text\": \"Further, the moral achievements of the book have everything to do with its non-realistic style.\",\n      \"label\": \"claim\"\n    },\n    \"ADU11\": {\n      \"text\": \"In this paper, I examine three questions regarding ethics and literature, and consider how these questions might be answered with regard to Catch-22.\",\n      \"label\": \"claim\"\n    },\n    \"ADU12\": {\n      \"text\": \"What emerges is a complex moral picture that does not fit what is usually said about the relationship between morality and works of literature.\",\n      \"label\": \"claim\"\n    },\n    \"ADU13\": {\n      \"text\": \"In Catch-22, however, imaginative resistance serves to engage the reader more fully with the events and ideas of the work.\",\n      \"label\": \"claim\"\n    },\n    \"ADU14\": {\n      \"text\": \"The moral contradictions, like the logical ones, bring out the absurdity of the world in which the characters live.\",\n      \"label\": \"claim\"\n    },\n    \"ADU15\": {\n      \"text\": \"Heller then uses this emotional distance itself to convey to the reader a sense of Yossarian's own detachment from his surroundings.\",\n      \"label\": \"claim\"\n    },\n    \"ADU16\": {\n      \"text\": \"This makes Yossarian's transformation at the end of the novel more powerful, as we, like him, are pulled into a less ironic, more deeply emotionally involved view of the events.\",\n      \"label\": \"claim\"\n    },\n    \"ADU17\": {\n      \"text\": \"In Catch-22, the perspective that provides excitement and emotional reward is not a characters' inner life but the author's ironic, distanced view of the world described in the novel.\",\n      \"label\": \"claim\"\n    },\n    \"ADU18\": {\n      \"text\": \"What is surprising about Heller's novel is just how emotionally engaging this somewhat detached perspective can be.\",\n      \"label\": \"claim\"\n    },\n    \"ADU19\": {\n      \"text\": \"Imaginative resistance is properly thought of as a demerit in many realistic novels because of the way in which it interferes with the kind of engagement characteristic of realism.\",\n      \"label\": \"claim\"\n    },\n    \"ADU20\": {\n      \"text\": \"In Catch-22, imaginative resistance is part of what makes the work engaging.\",\n      \"label\": \"claim\"\n    },\n    \"ADU21\": {\n      \"text\": \"The absurdities and moral outrages of the work provide much of the emotional substance that makes the book's quite acentral perspective emotionally rich.\",\n      \"label\": \"claim\"\n    },\n    \"ADU22\": {\n      \"text\": \"Catch-22, of course, prescribes a great deal of laughter.\",\n      \"label\": \"claim\"\n    },\n    \"ADU23\": {\n      \"text\": \"The absurdism of the scene allows us the moral freedom to laugh at what would otherwise be sacrosanct.\",\n      \"label\": \"claim\"\n    },\n    \"ADU24\": {\n      \"text\": \"We need a different means for judging when the responses called for by non-realistic novels are morally inappropriate.\",\n      \"label\": \"claim\"\n    },\n    \"ADU25\": {\n      \"text\": \"Real-life is a poor guide to the world of Catch-22.\",\n      \"label\": \"claim\"\n    },\n    \"ADU26\": {\n      \"text\": \"Non-realistic novels can have great moral significance (as successes or failures), but they achieve their aims by not using the standard techniques that characterize realistic fiction.\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"ADU1\",\n      \"target\": \"ADU2\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU4\",\n      \"target\": \"ADU5\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU6\",\n      \"target\": \"ADU5\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU5\",\n      \"target\": \"ADU7\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU9\",\n      \"target\": \"ADU10\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU13\",\n      \"target\": \"ADU14\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU15\",\n      \"target\": \"ADU16\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU17\",\n      \"target\": \"ADU18\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU19\",\n      \"target\": \"ADU20\",\n      \"type\": \"attack\"\n    },\n    {\n      \"source\": \"ADU20\",\n      \"target\": \"ADU21\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU23\",\n      \"target\": \"ADU24\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU24\",\n      \"target\": \"ADU25\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU25\",\n      \"target\": \"ADU26\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "ADU1": {
+              "text": "In this essay I propose to look at the relationship between ethics and literature by looking at non-realistic forms of fiction, and at one work in particular, Joseph Heller's Catch-22.",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "The topic is how non-realistic novels challenge our philosophical understanding of the relationship between literature and ethics.",
+              "label": "claim"
+            },
+            "ADU3": {
+              "text": "Non-realistic novels, then, depart from this general pattern in significant ways.",
+              "label": "claim"
+            },
+            "ADU4": {
+              "text": "Joseph Heller's novel Catch-22 is a good example.",
+              "label": "premise"
+            },
+            "ADU5": {
+              "text": "Heller's purpose in writing Catch-22 is decidedly moral.",
+              "label": "claim"
+            },
+            "ADU6": {
+              "text": "The novel is celebrated as one of the great antiwar novels, and Heller's writing was partly based by his own experience as a bombardier during World War II, and his own deeply held moral convictions.",
+              "label": "premise"
+            },
+            "ADU7": {
+              "text": "So in Catch-22 we have a novel with moral ideas at its center, but which employs non-realistic techniques of different kinds to reach and engage readers.",
+              "label": "claim"
+            },
+            "ADU8": {
+              "text": "If this message were all that the novel had to offer in terms of moral insight, it would not be terribly interesting.",
+              "label": "claim"
+            },
+            "ADU9": {
+              "text": "In what follows, I argue that the novel is much more imaginative and rich morally than this description indicates.",
+              "label": "claim"
+            },
+            "ADU10": {
+              "text": "Further, the moral achievements of the book have everything to do with its non-realistic style.",
+              "label": "claim"
+            },
+            "ADU11": {
+              "text": "In this paper, I examine three questions regarding ethics and literature, and consider how these questions might be answered with regard to Catch-22.",
+              "label": "claim"
+            },
+            "ADU12": {
+              "text": "What emerges is a complex moral picture that does not fit what is usually said about the relationship between morality and works of literature.",
+              "label": "claim"
+            },
+            "ADU13": {
+              "text": "In Catch-22, however, imaginative resistance serves to engage the reader more fully with the events and ideas of the work.",
+              "label": "claim"
+            },
+            "ADU14": {
+              "text": "The moral contradictions, like the logical ones, bring out the absurdity of the world in which the characters live.",
+              "label": "claim"
+            },
+            "ADU15": {
+              "text": "Heller then uses this emotional distance itself to convey to the reader a sense of Yossarian's own detachment from his surroundings.",
+              "label": "claim"
+            },
+            "ADU16": {
+              "text": "This makes Yossarian's transformation at the end of the novel more powerful, as we, like him, are pulled into a less ironic, more deeply emotionally involved view of the events.",
+              "label": "claim"
+            },
+            "ADU17": {
+              "text": "In Catch-22, the perspective that provides excitement and emotional reward is not a characters' inner life but the author's ironic, distanced view of the world described in the novel.",
+              "label": "claim"
+            },
+            "ADU18": {
+              "text": "What is surprising about Heller's novel is just how emotionally engaging this somewhat detached perspective can be.",
+              "label": "claim"
+            },
+            "ADU19": {
+              "text": "Imaginative resistance is properly thought of as a demerit in many realistic novels because of the way in which it interferes with the kind of engagement characteristic of realism.",
+              "label": "claim"
+            },
+            "ADU20": {
+              "text": "In Catch-22, imaginative resistance is part of what makes the work engaging.",
+              "label": "claim"
+            },
+            "ADU21": {
+              "text": "The absurdities and moral outrages of the work provide much of the emotional substance that makes the book's quite acentral perspective emotionally rich.",
+              "label": "claim"
+            },
+            "ADU22": {
+              "text": "Catch-22, of course, prescribes a great deal of laughter.",
+              "label": "claim"
+            },
+            "ADU23": {
+              "text": "The absurdism of the scene allows us the moral freedom to laugh at what would otherwise be sacrosanct.",
+              "label": "claim"
+            },
+            "ADU24": {
+              "text": "We need a different means for judging when the responses called for by non-realistic novels are morally inappropriate.",
+              "label": "claim"
+            },
+            "ADU25": {
+              "text": "Real-life is a poor guide to the world of Catch-22.",
+              "label": "claim"
+            },
+            "ADU26": {
+              "text": "Non-realistic novels can have great moral significance (as successes or failures), but they achieve their aims by not using the standard techniques that characterize realistic fiction.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU1",
+              "target": "ADU2",
+              "type": "support"
+            },
+            {
+              "source": "ADU4",
+              "target": "ADU5",
+              "type": "support"
+            },
+            {
+              "source": "ADU6",
+              "target": "ADU5",
+              "type": "support"
+            },
+            {
+              "source": "ADU5",
+              "target": "ADU7",
+              "type": "support"
+            },
+            {
+              "source": "ADU9",
+              "target": "ADU10",
+              "type": "support"
+            },
+            {
+              "source": "ADU13",
+              "target": "ADU14",
+              "type": "support"
+            },
+            {
+              "source": "ADU15",
+              "target": "ADU16",
+              "type": "support"
+            },
+            {
+              "source": "ADU17",
+              "target": "ADU18",
+              "type": "support"
+            },
+            {
+              "source": "ADU19",
+              "target": "ADU20",
+              "type": "attack"
+            },
+            {
+              "source": "ADU20",
+              "target": "ADU21",
+              "type": "support"
+            },
+            {
+              "source": "ADU23",
+              "target": "ADU24",
+              "type": "support"
+            },
+            {
+              "source": "ADU24",
+              "target": "ADU25",
+              "type": "support"
+            },
+            {
+              "source": "ADU25",
+              "target": "ADU26",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "ADU1": {
+              "text": "In this essay I propose to look at the relationship between ethics and literature by looking at non-realistic forms of fiction, and at one work in particular, Joseph Heller's Catch-22.",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "The topic is how non-realistic novels challenge our philosophical understanding of the relationship between literature and ethics.",
+              "label": "claim"
+            },
+            "ADU3": {
+              "text": "Non-realistic novels, then, depart from this general pattern in significant ways.",
+              "label": "claim"
+            },
+            "ADU4": {
+              "text": "Joseph Heller's novel Catch-22 is a good example.",
+              "label": "premise"
+            },
+            "ADU5": {
+              "text": "Heller's purpose in writing Catch-22 is decidedly moral.",
+              "label": "claim"
+            },
+            "ADU6": {
+              "text": "The novel is celebrated as one of the great antiwar novels, and Heller's writing was partly based by his own experience as a bombardier during World War II, and his own deeply held moral convictions.",
+              "label": "premise"
+            },
+            "ADU7": {
+              "text": "So in Catch-22 we have a novel with moral ideas at its center, but which employs non-realistic techniques of different kinds to reach and engage readers.",
+              "label": "claim"
+            },
+            "ADU8": {
+              "text": "If this message were all that the novel had to offer in terms of moral insight, it would not be terribly interesting.",
+              "label": "claim"
+            },
+            "ADU9": {
+              "text": "In what follows, I argue that the novel is much more imaginative and rich morally than this description indicates.",
+              "label": "claim"
+            },
+            "ADU10": {
+              "text": "Further, the moral achievements of the book have everything to do with its non-realistic style.",
+              "label": "claim"
+            },
+            "ADU12": {
+              "text": "What emerges is a complex moral picture that does not fit what is usually said about the relationship between morality and works of literature.",
+              "label": "claim"
+            },
+            "ADU13": {
+              "text": "In Catch-22, however, imaginative resistance serves to engage the reader more fully with the events and ideas of the work.",
+              "label": "claim"
+            },
+            "ADU14": {
+              "text": "The moral contradictions, like the logical ones, bring out the absurdity of the world in which the characters live.",
+              "label": "claim"
+            },
+            "ADU15": {
+              "text": "Heller then uses this emotional distance itself to convey to the reader a sense of Yossarian's own detachment from his surroundings.",
+              "label": "claim"
+            },
+            "ADU16": {
+              "text": "This makes Yossarian's transformation at the end of the novel more powerful, as we, like him, are pulled into a less ironic, more deeply emotionally involved view of the events.",
+              "label": "claim"
+            },
+            "ADU18": {
+              "text": "What is surprising about Heller's novel is just how emotionally engaging this somewhat detached perspective can be.",
+              "label": "claim"
+            },
+            "ADU19": {
+              "text": "Imaginative resistance is properly thought of as a demerit in many realistic novels because of the way in which it interferes with the kind of engagement characteristic of realism.",
+              "label": "claim"
+            },
+            "ADU20": {
+              "text": "In Catch-22, imaginative resistance is part of what makes the work engaging.",
+              "label": "claim"
+            },
+            "ADU21": {
+              "text": "The absurdities and moral outrages of the work provide much of the emotional substance that makes the book's quite acentral perspective emotionally rich.",
+              "label": "claim"
+            },
+            "ADU22": {
+              "text": "Catch-22, of course, prescribes a great deal of laughter.",
+              "label": "claim"
+            },
+            "ADU23": {
+              "text": "The absurdism of the scene allows us the moral freedom to laugh at what would otherwise be sacrosanct.",
+              "label": "claim"
+            },
+            "ADU24": {
+              "text": "We need a different means for judging when the responses called for by non-realistic novels are morally inappropriate.",
+              "label": "claim"
+            },
+            "ADU25": {
+              "text": "Real-life is a poor guide to the world of Catch-22.",
+              "label": "claim"
+            },
+            "ADU26": {
+              "text": "Non-realistic novels can have great moral significance (as successes or failures), but they achieve their aims by not using the standard techniques that characterize realistic fiction.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU1",
+              "target": "ADU2",
+              "type": "support"
+            },
+            {
+              "source": "ADU4",
+              "target": "ADU5",
+              "type": "support"
+            },
+            {
+              "source": "ADU6",
+              "target": "ADU5",
+              "type": "support"
+            },
+            {
+              "source": "ADU5",
+              "target": "ADU7",
+              "type": "support"
+            },
+            {
+              "source": "ADU9",
+              "target": "ADU10",
+              "type": "support"
+            },
+            {
+              "source": "ADU13",
+              "target": "ADU14",
+              "type": "support"
+            },
+            {
+              "source": "ADU15",
+              "target": "ADU16",
+              "type": "support"
+            },
+            {
+              "source": "ADU19",
+              "target": "ADU20",
+              "type": "attack"
+            },
+            {
+              "source": "ADU20",
+              "target": "ADU21",
+              "type": "support"
+            },
+            {
+              "source": "ADU23",
+              "target": "ADU24",
+              "type": "support"
+            },
+            {
+              "source": "ADU24",
+              "target": "ADU25",
+              "type": "support"
+            },
+            {
+              "source": "ADU25",
+              "target": "ADU26",
+              "type": "support"
+            }
+          ]
+        }
+      },
+      {
+        "source": "claude-3-5-sonnet-20241022",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"1\": {\n      \"text\": \"When philosophers discuss ethics and literature, the literature that they usually have in mind is the modern realistic novel.\",\n      \"label\": \"premise\"\n    },\n    \"2\": {\n      \"text\": \"These novels are distinguished by their serious moral concern with social issues and by their psychologically detailed and rich characterization.\",\n      \"label\": \"premise\"\n    },\n    \"3\": {\n      \"text\": \"The topic is how non-realistic novels challenge our philosophical understanding of the relationship between literature and ethics.\",\n      \"label\": \"claim\"\n    },\n    \"4\": {\n      \"text\": \"In Catch-22, however, imaginative resistance serves to engage the reader more fully with the events and ideas of the work.\",\n      \"label\": \"claim\"\n    },\n    \"5\": {\n      \"text\": \"Our inability to imagine these propositions contributes to the work's value and success.\",\n      \"label\": \"claim\"\n    },\n    \"6\": {\n      \"text\": \"The moral contradictions, like the logical ones, bring out the absurdity of the world in which the characters live.\",\n      \"label\": \"claim\"\n    },\n    \"7\": {\n      \"text\": \"For most of the novel, we are kept at an ironic distance from the events and characters of the novel, enjoying the easy satiric attacks on authority, greed, and bureaucracy that Catch-22 trades in.\",\n      \"label\": \"premise\"\n    },\n    \"8\": {\n      \"text\": \"Towards the end, we are gradually invited to take the characters and events more seriously, and to appreciate the moral character of what they experience.\",\n      \"label\": \"premise\"\n    },\n    \"9\": {\n      \"text\": \"The success of this scene, in terms of its emotional power and in terms of its effect on Yossarian's choices, depends on our previous feelings of amusement and distance.\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"1\",\n      \"target\": \"3\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"2\",\n      \"target\": \"3\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"4\",\n      \"target\": \"5\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"5\",\n      \"target\": \"6\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"7\",\n      \"target\": \"9\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"8\",\n      \"target\": \"9\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "1": {
+              "text": "When philosophers discuss ethics and literature, the literature that they usually have in mind is the modern realistic novel.",
+              "label": "premise"
+            },
+            "2": {
+              "text": "These novels are distinguished by their serious moral concern with social issues and by their psychologically detailed and rich characterization.",
+              "label": "premise"
+            },
+            "3": {
+              "text": "The topic is how non-realistic novels challenge our philosophical understanding of the relationship between literature and ethics.",
+              "label": "claim"
+            },
+            "4": {
+              "text": "In Catch-22, however, imaginative resistance serves to engage the reader more fully with the events and ideas of the work.",
+              "label": "claim"
+            },
+            "5": {
+              "text": "Our inability to imagine these propositions contributes to the work's value and success.",
+              "label": "claim"
+            },
+            "6": {
+              "text": "The moral contradictions, like the logical ones, bring out the absurdity of the world in which the characters live.",
+              "label": "claim"
+            },
+            "7": {
+              "text": "For most of the novel, we are kept at an ironic distance from the events and characters of the novel, enjoying the easy satiric attacks on authority, greed, and bureaucracy that Catch-22 trades in.",
+              "label": "premise"
+            },
+            "8": {
+              "text": "Towards the end, we are gradually invited to take the characters and events more seriously, and to appreciate the moral character of what they experience.",
+              "label": "premise"
+            },
+            "9": {
+              "text": "The success of this scene, in terms of its emotional power and in terms of its effect on Yossarian's choices, depends on our previous feelings of amusement and distance.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "1",
+              "target": "3",
+              "type": "support"
+            },
+            {
+              "source": "2",
+              "target": "3",
+              "type": "support"
+            },
+            {
+              "source": "4",
+              "target": "5",
+              "type": "support"
+            },
+            {
+              "source": "5",
+              "target": "6",
+              "type": "support"
+            },
+            {
+              "source": "7",
+              "target": "9",
+              "type": "support"
+            },
+            {
+              "source": "8",
+              "target": "9",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "1": {
+              "text": "When philosophers discuss ethics and literature, the literature that they usually have in mind is the modern realistic novel.",
+              "label": "premise"
+            },
+            "2": {
+              "text": "These novels are distinguished by their serious moral concern with social issues and by their psychologically detailed and rich characterization.",
+              "label": "premise"
+            },
+            "3": {
+              "text": "The topic is how non-realistic novels challenge our philosophical understanding of the relationship between literature and ethics.",
+              "label": "claim"
+            },
+            "4": {
+              "text": "In Catch-22, however, imaginative resistance serves to engage the reader more fully with the events and ideas of the work.",
+              "label": "claim"
+            },
+            "5": {
+              "text": "Our inability to imagine these propositions contributes to the work's value and success.",
+              "label": "claim"
+            },
+            "6": {
+              "text": "The moral contradictions, like the logical ones, bring out the absurdity of the world in which the characters live.",
+              "label": "claim"
+            },
+            "7": {
+              "text": "For most of the novel, we are kept at an ironic distance from the events and characters of the novel, enjoying the easy satiric attacks on authority, greed, and bureaucracy that Catch-22 trades in.",
+              "label": "premise"
+            },
+            "8": {
+              "text": "Towards the end, we are gradually invited to take the characters and events more seriously, and to appreciate the moral character of what they experience.",
+              "label": "premise"
+            },
+            "9": {
+              "text": "The success of this scene, in terms of its emotional power and in terms of its effect on Yossarian's choices, depends on our previous feelings of amusement and distance.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "1",
+              "target": "3",
+              "type": "support"
+            },
+            {
+              "source": "2",
+              "target": "3",
+              "type": "support"
+            },
+            {
+              "source": "4",
+              "target": "5",
+              "type": "support"
+            },
+            {
+              "source": "5",
+              "target": "6",
+              "type": "support"
+            },
+            {
+              "source": "7",
+              "target": "9",
+              "type": "support"
+            },
+            {
+              "source": "8",
+              "target": "9",
+              "type": "support"
+            }
+          ]
+        }
+      }
+    ],
+    "timestamp": 1752753087.4521234
+  }
+]

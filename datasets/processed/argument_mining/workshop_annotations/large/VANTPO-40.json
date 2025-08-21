@@ -1,0 +1,715 @@
+{
+  "arguments": {},
+  "statements": {
+    "Untitled 1": {
+      "type": "equivalence-class",
+      "title": "Untitled 1",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 2",
+          "fromType": "equivalence-class",
+          "to": "Untitled 1",
+          "toType": "equivalence-class"
+        },
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 3",
+          "fromType": "equivalence-class",
+          "to": "Untitled 1",
+          "toType": "equivalence-class"
+        },
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 4",
+          "fromType": "equivalence-class",
+          "to": "Untitled 1",
+          "toType": "equivalence-class"
+        },
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 8",
+          "fromType": "equivalence-class",
+          "to": "Untitled 1",
+          "toType": "equivalence-class"
+        },
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 10",
+          "fromType": "equivalence-class",
+          "to": "Untitled 1",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "top-level-statement",
+          "isTopLevel": true,
+          "text": "Schiller’s Wallenstein poses profound political and existential questions about the nature of peace, security, and political action in Europe, but ultimately refuses to answer them, instead foregrounding tragedy, uncertainty, and the limits of human action.",
+          "title": "Untitled 1",
+          "startLine": 3,
+          "startColumn": 1,
+          "endLine": 14,
+          "endColumn": 278,
+          "section": "s1"
+        }
+      ],
+      "section": "s1",
+      "isUsedAsTopLevelStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Untitled 2": {
+      "type": "equivalence-class",
+      "title": "Untitled 2",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 2",
+          "fromType": "equivalence-class",
+          "to": "Untitled 1",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "text": "The trilogy is set during the Thirty Years’ War and ends with the protagonist’s futile death, symbolizing the unresolved turmoil of history and politics.",
+          "startLine": 4,
+          "startColumn": 7,
+          "endLine": 4,
+          "endColumn": 160,
+          "title": "Untitled 2",
+          "section": "s1"
+        }
+      ],
+      "section": "s1",
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Untitled 3": {
+      "type": "equivalence-class",
+      "title": "Untitled 3",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 3",
+          "fromType": "equivalence-class",
+          "to": "Untitled 1",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "text": "Schiller’s engagement with Kantian ideas of universal history is visible, but his play expresses growing skepticism about rational progress in history, especially after the French Revolution.",
+          "startLine": 5,
+          "startColumn": 7,
+          "endLine": 5,
+          "endColumn": 198,
+          "title": "Untitled 3",
+          "section": "s1"
+        }
+      ],
+      "section": "s1",
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Untitled 4": {
+      "type": "equivalence-class",
+      "title": "Untitled 4",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 5",
+          "fromType": "equivalence-class",
+          "to": "Untitled 4",
+          "toType": "equivalence-class"
+        },
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 6",
+          "fromType": "equivalence-class",
+          "to": "Untitled 4",
+          "toType": "equivalence-class"
+        },
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 7",
+          "fromType": "equivalence-class",
+          "to": "Untitled 4",
+          "toType": "equivalence-class"
+        },
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 4",
+          "fromType": "equivalence-class",
+          "to": "Untitled 1",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "text": "Hegel, in his early critique, is disturbed by Wallenstein’s lack of redemptive closure or catharsis—there is no restoration of moral order, only a “kingdom of nothingness and death.”",
+          "title": "Untitled 4",
+          "startLine": 6,
+          "startColumn": 7,
+          "endLine": 9,
+          "endColumn": 277,
+          "section": "s1"
+        }
+      ],
+      "section": "s1",
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Untitled 5": {
+      "type": "equivalence-class",
+      "title": "Untitled 5",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 5",
+          "fromType": "equivalence-class",
+          "to": "Untitled 4",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "text": "Ancient tragedy, according to Hegel, offers reconciliation by restoring ethical harmony; modern tragedy, by contrast, is marked by subjective aims, irresolvable inner conflict, and accidental or arbitrary outcomes.",
+          "startLine": 7,
+          "startColumn": 11,
+          "endLine": 7,
+          "endColumn": 225,
+          "title": "Untitled 5",
+          "section": "s1"
+        }
+      ],
+      "section": "s1",
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Untitled 6": {
+      "type": "equivalence-class",
+      "title": "Untitled 6",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 6",
+          "fromType": "equivalence-class",
+          "to": "Untitled 4",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "text": "Wallenstein’s protagonist is paralyzed by indecision and self-doubt, which are emblematic of the subjectivity and complexity of modern tragedy.",
+          "startLine": 8,
+          "startColumn": 11,
+          "endLine": 8,
+          "endColumn": 154,
+          "title": "Untitled 6",
+          "section": "s1"
+        }
+      ],
+      "section": "s1",
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Untitled 7": {
+      "type": "equivalence-class",
+      "title": "Untitled 7",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 7",
+          "fromType": "equivalence-class",
+          "to": "Untitled 4",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "text": "Unlike Greek tragedy (e.g., Antigone), where actions directly lead to consequences and meaning, Wallenstein’s demise results from a mixture of contingency, betrayal, and personal flaws, making the ending cold, criminal, and accidental rather than just or meaningful.",
+          "startLine": 9,
+          "startColumn": 11,
+          "endLine": 9,
+          "endColumn": 277,
+          "title": "Untitled 7",
+          "section": "s1"
+        }
+      ],
+      "section": "s1",
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Untitled 8": {
+      "type": "equivalence-class",
+      "title": "Untitled 8",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 9",
+          "fromType": "equivalence-class",
+          "to": "Untitled 8",
+          "toType": "equivalence-class"
+        },
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 8",
+          "fromType": "equivalence-class",
+          "to": "Untitled 1",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "text": "Schiller’s approach to tragedy centers on the sublime: it seeks not to comfort but to confront audiences with human frailty and the limits of reason in the face of fate and historical contingency.",
+          "title": "Untitled 8",
+          "startLine": 10,
+          "startColumn": 7,
+          "endLine": 11,
+          "endColumn": 186,
+          "section": "s1"
+        }
+      ],
+      "section": "s1",
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Untitled 9": {
+      "type": "equivalence-class",
+      "title": "Untitled 9",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 9",
+          "fromType": "equivalence-class",
+          "to": "Untitled 8",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "text": "The audience is meant to find fortitude in the ability to persist after facing meaninglessness and destruction, to experience the freedom that emerges from this confrontation.",
+          "startLine": 11,
+          "startColumn": 11,
+          "endLine": 11,
+          "endColumn": 186,
+          "title": "Untitled 9",
+          "section": "s1"
+        }
+      ],
+      "section": "s1",
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Untitled 10": {
+      "type": "equivalence-class",
+      "title": "Untitled 10",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 11",
+          "fromType": "equivalence-class",
+          "to": "Untitled 10",
+          "toType": "equivalence-class"
+        },
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 10",
+          "fromType": "equivalence-class",
+          "to": "Untitled 1",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "text": "Hegel’s mature philosophy insists that history is rational and meaningful, the gradual realization of human freedom through the state. Schiller, however, rejects such theodicy, depicting history as potentially senseless and freedom as solitary and defiant rather than systemically realized.",
+          "title": "Untitled 10",
+          "startLine": 12,
+          "startColumn": 7,
+          "endLine": 14,
+          "endColumn": 278,
+          "section": "s1"
+        }
+      ],
+      "section": "s1",
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Untitled 11": {
+      "type": "equivalence-class",
+      "title": "Untitled 11",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Untitled 11",
+          "fromType": "equivalence-class",
+          "to": "Untitled 10",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "text": "This philosophical divergence is reflected in their views on tragedy and history: for Hegel, reason and freedom must ultimately prevail; for Schiller, our task is to endure, assert autonomy, and recognize the sublime in the very absence of guarantees. Stein’s contemporary staging of Wallenstein underscores the play’s continuing relevance: the questions of political order, meaning, and tragedy remain unresolved, and audiences continue to leave “with unrelieved hearts,” called to face the uncertainties of history and freedom.",
+          "startLine": 13,
+          "startColumn": 11,
+          "endLine": 14,
+          "endColumn": 278,
+          "title": "Untitled 11",
+          "section": "s1"
+        }
+      ],
+      "section": "s1",
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    }
+  },
+  "relations": [
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "Untitled 2",
+      "fromType": "equivalence-class",
+      "to": "Untitled 1",
+      "toType": "equivalence-class"
+    },
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "Untitled 3",
+      "fromType": "equivalence-class",
+      "to": "Untitled 1",
+      "toType": "equivalence-class"
+    },
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "Untitled 5",
+      "fromType": "equivalence-class",
+      "to": "Untitled 4",
+      "toType": "equivalence-class"
+    },
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "Untitled 6",
+      "fromType": "equivalence-class",
+      "to": "Untitled 4",
+      "toType": "equivalence-class"
+    },
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "Untitled 7",
+      "fromType": "equivalence-class",
+      "to": "Untitled 4",
+      "toType": "equivalence-class"
+    },
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "Untitled 4",
+      "fromType": "equivalence-class",
+      "to": "Untitled 1",
+      "toType": "equivalence-class"
+    },
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "Untitled 9",
+      "fromType": "equivalence-class",
+      "to": "Untitled 8",
+      "toType": "equivalence-class"
+    },
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "Untitled 8",
+      "fromType": "equivalence-class",
+      "to": "Untitled 1",
+      "toType": "equivalence-class"
+    },
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "Untitled 11",
+      "fromType": "equivalence-class",
+      "to": "Untitled 10",
+      "toType": "equivalence-class"
+    },
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "Untitled 10",
+      "fromType": "equivalence-class",
+      "to": "Untitled 1",
+      "toType": "equivalence-class"
+    }
+  ],
+  "map": {
+    "nodes": [
+      {
+        "id": "s1",
+        "title": "VANTPO-40",
+        "type": "group-map-node",
+        "color": "#DADADA",
+        "fontColor": "#000000",
+        "level": 1,
+        "labelTitle": "VANTPO-40",
+        "children": [
+          {
+            "id": "n0",
+            "title": "Untitled 1",
+            "type": "statement-map-node",
+            "labelText": "Schiller’s Wallenstein poses profound political and existential questions about the nature of peace, security, and political action in Europe, but ultimately refuses to answer them, instead foregrounding tragedy, uncertainty, and the limits of human action.",
+            "color": "#1b9e77",
+            "fontColor": "#000000"
+          },
+          {
+            "id": "n1",
+            "title": "Untitled 2",
+            "type": "statement-map-node",
+            "labelText": "The trilogy is set during the Thirty Years’ War and ends with the protagonist’s futile death, symbolizing the unresolved turmoil of history and politics.",
+            "color": "#1b9e77",
+            "fontColor": "#000000"
+          },
+          {
+            "id": "n2",
+            "title": "Untitled 3",
+            "type": "statement-map-node",
+            "labelText": "Schiller’s engagement with Kantian ideas of universal history is visible, but his play expresses growing skepticism about rational progress in history, especially after the French Revolution.",
+            "color": "#1b9e77",
+            "fontColor": "#000000"
+          },
+          {
+            "id": "n3",
+            "title": "Untitled 4",
+            "type": "statement-map-node",
+            "labelText": "Hegel, in his early critique, is disturbed by Wallenstein’s lack of redemptive closure or catharsis—there is no restoration of moral order, only a “kingdom of nothingness and death.”",
+            "color": "#1b9e77",
+            "fontColor": "#000000"
+          },
+          {
+            "id": "n4",
+            "title": "Untitled 5",
+            "type": "statement-map-node",
+            "labelText": "Ancient tragedy, according to Hegel, offers reconciliation by restoring ethical harmony; modern tragedy, by contrast, is marked by subjective aims, irresolvable inner conflict, and accidental or arbitrary outcomes.",
+            "color": "#1b9e77",
+            "fontColor": "#000000"
+          },
+          {
+            "id": "n5",
+            "title": "Untitled 6",
+            "type": "statement-map-node",
+            "labelText": "Wallenstein’s protagonist is paralyzed by indecision and self-doubt, which are emblematic of the subjectivity and complexity of modern tragedy.",
+            "color": "#1b9e77",
+            "fontColor": "#000000"
+          },
+          {
+            "id": "n6",
+            "title": "Untitled 7",
+            "type": "statement-map-node",
+            "labelText": "Unlike Greek tragedy (e.g., Antigone), where actions directly lead to consequences and meaning, Wallenstein’s demise results from a mixture of contingency, betrayal, and personal flaws, making the ending cold, criminal, and accidental rather than just or meaningful.",
+            "color": "#1b9e77",
+            "fontColor": "#000000"
+          },
+          {
+            "id": "n7",
+            "title": "Untitled 8",
+            "type": "statement-map-node",
+            "labelText": "Schiller’s approach to tragedy centers on the sublime: it seeks not to comfort but to confront audiences with human frailty and the limits of reason in the face of fate and historical contingency.",
+            "color": "#1b9e77",
+            "fontColor": "#000000"
+          },
+          {
+            "id": "n8",
+            "title": "Untitled 9",
+            "type": "statement-map-node",
+            "labelText": "The audience is meant to find fortitude in the ability to persist after facing meaninglessness and destruction, to experience the freedom that emerges from this confrontation.",
+            "color": "#1b9e77",
+            "fontColor": "#000000"
+          },
+          {
+            "id": "n9",
+            "title": "Untitled 10",
+            "type": "statement-map-node",
+            "labelText": "Hegel’s mature philosophy insists that history is rational and meaningful, the gradual realization of human freedom through the state. Schiller, however, rejects such theodicy, depicting history as potentially senseless and freedom as solitary and defiant rather than systemically realized.",
+            "color": "#1b9e77",
+            "fontColor": "#000000"
+          },
+          {
+            "id": "n10",
+            "title": "Untitled 11",
+            "type": "statement-map-node",
+            "labelText": "This philosophical divergence is reflected in their views on tragedy and history: for Hegel, reason and freedom must ultimately prevail; for Schiller, our task is to endure, assert autonomy, and recognize the sublime in the very absence of guarantees. Stein’s contemporary staging of Wallenstein underscores the play’s continuing relevance: the questions of political order, meaning, and tragedy remain unresolved, and audiences continue to leave “with unrelieved hearts,” called to face the uncertainties of history and freedom.",
+            "color": "#1b9e77",
+            "fontColor": "#000000"
+          }
+        ]
+      }
+    ],
+    "edges": [
+      {
+        "id": "e1",
+        "type": "map-edge",
+        "relationType": "support",
+        "from": "n1",
+        "to": "n0",
+        "fromEquivalenceClass": "Untitled 2",
+        "toEquivalenceClass": "Untitled 1"
+      },
+      {
+        "id": "e2",
+        "type": "map-edge",
+        "relationType": "support",
+        "from": "n2",
+        "to": "n0",
+        "fromEquivalenceClass": "Untitled 3",
+        "toEquivalenceClass": "Untitled 1"
+      },
+      {
+        "id": "e3",
+        "type": "map-edge",
+        "relationType": "support",
+        "from": "n4",
+        "to": "n3",
+        "fromEquivalenceClass": "Untitled 5",
+        "toEquivalenceClass": "Untitled 4"
+      },
+      {
+        "id": "e4",
+        "type": "map-edge",
+        "relationType": "support",
+        "from": "n5",
+        "to": "n3",
+        "fromEquivalenceClass": "Untitled 6",
+        "toEquivalenceClass": "Untitled 4"
+      },
+      {
+        "id": "e5",
+        "type": "map-edge",
+        "relationType": "support",
+        "from": "n6",
+        "to": "n3",
+        "fromEquivalenceClass": "Untitled 7",
+        "toEquivalenceClass": "Untitled 4"
+      },
+      {
+        "id": "e6",
+        "type": "map-edge",
+        "relationType": "support",
+        "from": "n3",
+        "to": "n0",
+        "fromEquivalenceClass": "Untitled 4",
+        "toEquivalenceClass": "Untitled 1"
+      },
+      {
+        "id": "e7",
+        "type": "map-edge",
+        "relationType": "support",
+        "from": "n8",
+        "to": "n7",
+        "fromEquivalenceClass": "Untitled 9",
+        "toEquivalenceClass": "Untitled 8"
+      },
+      {
+        "id": "e8",
+        "type": "map-edge",
+        "relationType": "support",
+        "from": "n7",
+        "to": "n0",
+        "fromEquivalenceClass": "Untitled 8",
+        "toEquivalenceClass": "Untitled 1"
+      },
+      {
+        "id": "e9",
+        "type": "map-edge",
+        "relationType": "support",
+        "from": "n10",
+        "to": "n9",
+        "fromEquivalenceClass": "Untitled 11",
+        "toEquivalenceClass": "Untitled 10"
+      },
+      {
+        "id": "e10",
+        "type": "map-edge",
+        "relationType": "support",
+        "from": "n9",
+        "to": "n0",
+        "fromEquivalenceClass": "Untitled 10",
+        "toEquivalenceClass": "Untitled 1"
+      }
+    ]
+  },
+  "sections": [
+    {
+      "type": "section",
+      "id": "s1",
+      "level": 1,
+      "title": "VANTPO-40",
+      "children": [],
+      "ranges": [],
+      "startLine": 1,
+      "startColumn": 1,
+      "endLine": 14,
+      "endColumn": 278,
+      "isGroup": true,
+      "fontColor": "#000000",
+      "color": "#DADADA"
+    }
+  ],
+  "tags": {}
+}
+

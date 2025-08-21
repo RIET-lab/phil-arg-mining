@@ -1,0 +1,215 @@
+[
+  {
+    "identifier": "MEYIIC-3",
+    "system_prompt": "## GOAL\nArgument‑mine the following paper to extract its comprehensive argumentative structure.\n\n## DEFINITIONS\n1. **Argument**: A set of propositions, including some number of premises and a conclusion. The premises should logically entail the conclusion.\n2. **Claim**: A proposition that asserts something to be true or false, typically requiring justification or evidence.\n3. **Premise**: A proposition that provides evidence, justification, or logical support for a claim or conclusion.\n\n## CRITICAL REQUIREMENTS\n1. **VERBATIM EXTRACTION ONLY**: Each ADU text must be copied EXACTLY from the paper with no modifications, paraphrasing, or combining of separate sentences.\n2. **NO HALLUCINATION**: Do not create, modify, or invent text that does not appear exactly in the source.\n3. **EXACT MATCHING**: Every word, punctuation mark, and spacing must match the original precisely.\n\n## DIRECTIONS\n1. **Identify Argumentative Discourse Units (ADUs)**  \n   - ADU = any contiguous text span functioning as a claim or a premise in the reasoning structure.\n   - **BE HIGHLY SELECTIVE**: Only include ADUs that are crucial to the overarching argument structure.\n   - Focus on significant claims and premises that contribute meaningfully to the argumentative flow.\n   - **AVOID NOISE**: Skip ADUs that are merely descriptive, tangential, or do not substantially advance the argument.\n   - Prioritize quality over quantity - fewer accurate, important ADUs are better than many insignificant ones.\n   - **EXTRACT ONLY**: Copy text spans exactly as they appear, without any modifications.\n2. **Classify each ADU**  \n   - Label = either `\"claim\"` or `\"premise\"`.  \n3. **Detect directed relations**  \n   - Relation = `\"support\"` or `\"attack\"`, from one ADU (source) to another (target).\n   - Map how ADUs connect to form reasoning chains.\n   - Focus on relationships between the most significant ADUs.\n   - Include relationships between premises that strengthen or weaken each other.\n4. **Verbatim spans**  \n   - Each `\"text\"` value must be copied EXACTLY from the paper with zero modifications.\n   - Do not paraphrase, summarize, or combine separate sentences.\n   - Do not add, remove, or change any words, punctuation, or spacing.\n   - If unsure about exact wording, skip that ADU rather than guess.\n\n## WHAT TO CAPTURE\n**INCLUDE ONLY:**\n- Main argumentative threads that are central to the paper's contribution\n- Core claims that represent the paper's primary arguments or findings\n- Key premises that provide essential support for major claims\n- Critical counterarguments and their refutations\n- Reasoning chains that demonstrate how main conclusions are derived\n\n**EXCLUDE (AVOID NOISE):**\n- Minor details, examples, or descriptive content that don't advance the argument\n- Tangential points or side discussions\n- Pure background information or literature review content\n- Methodological details unless they constitute argumentative claims\n- Obvious statements or commonly accepted facts\n- Redundant or repetitive argumentative content\n\n**GUIDING PRINCIPLE**: If removing an ADU would not significantly impact understanding of the paper's argumentative structure, it should be excluded.\n\n## QUALITY CONTROL\n- Before finalizing each ADU, verify the text exists exactly in the source\n- Prefer fewer, accurate ADUs over many potentially modified ones\n- When in doubt about exact wording, omit the ADU\n\n## OUTPUT FORMAT\nReturn **only** a single valid JSON object matching this schema.  \nDo **not** output any extra text, markdown, or explanations.\n\nRESPOND WITH ONLY:\n```json\n{\n  \"ADUs\": {\n    \"<ADU_ID>\": {\n      \"text\": \"<exact span from paper>\",\n      \"label\": \"claim\" | \"premise\"\n    }\n    ...\n  },\n  \"relations\": [\n    {\n      \"source\": \"<ADU_ID>\",\n      \"target\": \"<ADU_ID>\",\n      \"type\": \"support\" | \"attack\"\n    }\n  ]\n}\n```",
+    "user_content": "Introducing  in  China  the  Aristotelian  Category  of  Quantity: From  the  Coimbra  Commentary  on  the Dialectics (1606) to  the  Chinese Mingli  tan (1636-­1639)\n\nby Simone  Guidi,  Thierry  Meynard*\n\n<!-- image -->\n\nAbstract : Second  Scholasticism  greatly  developed  the  medieval  theory  of  continuous quantity   as   the   Aristotelian   notion   for   thematizing   spatial   extension,   paving   the   way for   the   idea   of   space   as   extension   in   early   modern   natural   philosophy.   The   article analyzes   the   section   related   to   the   category   of   continuous   quantity   in   the   Coimbra commentary  on  the Dialectics (1606),  showing  that  it  is  indebted  to  the  novel  theory  of Francisco  Suárez  on  quantity  as  bestowing  extension  to  a  body  in  a  particular  sense, something  which  had  been  overlooked  by  previous  research.  The  scholarly  debate  on quantity   was   brought   to   China,   and   here   the   Chinese   translation   is   examined   of   the section   on   quantity   in   the   fourth   volume   of   the Mingli   Tan ,   published   in   China   in 1636-­1639. Keywords : Aristotle,   continuous   quantity,   extension,   early   modern   scholasticism, Sebastião  do Couto, Pedro  da  Fonseca , Francisco  Suárez, China. Introduction Among   Aristotle's   ten   categories, poson (quantity)   is   of   particular importance,   being   discussed   in   Chapter 6   of Categories ,   just   after ousia (substance).  As  is  known,  ancient  Greek  commentators  and scholastic  writers understood  Aristotle's Categories mostly  as  a  work  on  logic 1 . Yet,  a  question remained   about   whether   the   categories   were   real   beings,   mental   beings   or FrancoAngeli\n\n*   meiqianl@mail.sysu.edu.cn;;  Sun  Yat-­sen  University,  Guangzhou;; simone.guidi@cnr.it;; Consiglio  Nazionale  delle  Ricerche,  Istituto  per  il  Lessico  Intellettuale  Europeo  e  Storia  delle Idee.   Essay   submitted   March   2022   and   accepted   for   publication   June   2022. -   The   authors would   like   to   express   their   gratitude   to   Dr.   Daniel   Canaris,   Nanjing   University,   for   having polished  the  text  and  for  his  critical  remarks  on  it.\n1. See  Pini 2008.\n\nRivista di storia della filosofia , n. 4 2022, Issn 0393-2516, Issn-e 1972-5558, Doi 10.3280/SF2022-004003\n\nsemantic   beings,   and consequently   whether   they   should   be   studied   by logicians   alone,   by   metaphysicians   alone,   or   by   both 2 .   In   general 3 ,   sixteenth and  seventeenth-­century schoolmen  subscribed to  the  complex  conception  of the   categories   as   both mental and   realist   concepts that   had   been   developed especially   in   the   Thomistic   tradition.   Hence,   they   understood   categories   as «coordinations» or  «arrangements» of  genera  and  species,  and  they  thought  of categorical  relations  as  real  relations 4 .\n\n5. As is known, in Cat. 4b 20-­5a 35, Aristotle distinguishes quantity into discrete (διωρισμένον)  and continuous (συνέχες)  quantity.  Continuous  quantities «are composed   of   parts   which   have   a   position   in   relation   to   one   another»;;   they   are   «lines, surfaces,   bodies»,   thus   extended   beings,   «and   also,   besides   these,   time   and   place». Therefore, continuous   quantities are those in which the parts are (spatially   or chronologically) contiguous components   of   a   divisible   continuity.   Things   «are   called continuous   when   the   touching   limits   of   each   become   one   and   the   same   and   are   […] contained  in  each  other»,  so  that continuous  things  are  mutually  consecutive  and  «naturally in   virtue   of   their   mutual   contact   form   a   unity»   ( Physics ,   V,   3,   227a   10-­15,   trans.   from Barnes   edition). According  to   a   widespread   reading,   continuous   quantities   can   be   further divided   into:   a)   permanent   continuous   quantities,   namely   lines,   surfaces,   bodies;; b)  successive  continuous  quantities,  namely  quantities  in  motion  like  time.  Instead,  discrete quantities  are  those  which «are  not  composed  of  parts  with  a  position»,  whose  contiguity  is impossible. Discrete quantities are   for   instance   «number   and   language»,   whose fundamental  unities  are  mutually  independent  and  keep  their  own  individuality  when  put  in aggregations  or  wholes.\n\nSimilarly,   in   the   case   of   quantity,   and more   specifically   continuous quantity 5 ,   early   modern   scholastics   welcomed the   conceptual   heritage   of Thomism,   which   allowed   the   transformation   of   the   Aristotelian   concept   of continuous   quantity   into   the   modern   notion   of   extension 6 .   Thomistic philosophy  developed  over  the  centuries  what  has  been  called  (in  opposition  to Ockham's  thesis  of  the  identity  of  quantity  and  material  substance) 'quantity realism' 7 .   Thomists  understood  the  category  of  quantity  as a res distinct  from the   material   substance,   the   study   of   which   pertained   both   to   logicians   and metaphysicians.  Hence,  at  the  same  time, late  scholastics also  agreed  with  the doctrine  of  Duns  Scotus  (c. 1265-­1308), who  was  a  quantity  realist  in  turn  and associated   continuous   quantity   to   spatial   extension   in   the   place,   as   «a   real accident  that  serves  to  make  a  material  substance  extended» 8 .  As  we  shall  see, such   a   realistic conception   of   continuous   quantity   as   extension became 2. See  Hall 2008;;  Conti  2008a  and  2008b. 3.  The  Nominalists  tended  to  see  the  categories  as  purely  verbal  utterances,  without  real existence   apart   from   the   mind.   But   they   were   compelled   by   the   implications   of   such   a conception  for  the  Eucharist  to  admit  that  accidents  in  the  category  of  quantity  could  count as  real  accidents.  See  Bakker  2001. 4.   See   for   instance,   about   Fonseca, Martins 1991,  pp.  235-­ff.  On  Suárez  see, instead, Gracia  and  Novotny  2011,  pp. 30-­38,  and  also  Penner 2013  and  Menn 1997. FrancoAngeli\n\n6.   See Pasnau   2011,   pp.   279-­349;;   Anfray   2020;;   Schmaltz   2019,   2020a   and   2020b;; Guidi  2020,  pp.  231-­260.\n7. See  Schmaltz  2020a,  pp.  170-­176.\n8.  Pasnau 2011,  p.  280.\n\nnot   only   because   of   the   foreign-­sounding   language,   but   also   because   the Chinese   reader   has   little   background   understanding   that   could   help   him appreciate   the   relevance   of   the   questions   being   addressed. Unlike   the Jihe yuanben which  exerts  until  today  a  considerable  influence  in  China,  the Mingli tan and   Aristotelian   logic   in   general   have   failed   to   attract   the   interest   of   the Chinese 66 . But   despite   its   lack   of   reception   in   China,   the Mingli   tan still deserves   scholarly   attention.   As   we   have   shown   here,   it   introduced   a   very sophisticated  notion  of  quantity,  not  only  based  on  Aristotle's Categories ,  but also  incorporating  important  philosophical  ideas  from  Thomism, Scotism, and Nominalism,  including  the  most  recent  developments  at  that  time on  quantity as  extension,  by  the  leading  scholastic  philosopher,  Francisco  Suárez.\n\nBibliographical  references Primary  sources -­   Aquinas   1888-­1906:   Thomas   Aquinas, Summa   Theologiae ,   in Sancti   Thomae   de Aquino  Opera  omnia  iussu  Leonis  XIII  P.  M.  edita ,  4-­12. -­  Aquinas  1947:  Thomas  Aquinas, Summa  Theologiae .  Translated  by  the  Fathers  of  the English  Dominican  Province,  Boston,  Benziger  Bros.,  1947. -­   Aristotle   2002:   Aristotle, Catégories ,   translated   by   Frédérique Idelfonse   and   Jean Lallot,  Paris, Seuil,  2002. -­  Conimbricenses  1592: Commentarii  Collegii  Conimbricensis  Societatis  Iesu,  In  Octo libros  Physicorum  Aristotelis  Stagiritae, Lisbon,  António  Mariz,  1592. -­   Conimbricenses   1611: Commentarii   Collegii   Conimbricensis   Societatis   Iesu,   In Universam  Dialecticam [1606],  Cologne:  Bernardus  Gualterius,  1611. -­  Fonseca  1589:  Pedro  da  Fonseca, Commentariorum  Petri  Fonsecae  Societatis  Iesu  in libros   Metaphysicorum   Aristotelis   Stagiritae ,   Tomus   Secundus,   Romae,   ex   Officina Iacobi  Tornerij. -­  Minglitan  1959:  Fu  Fanji, Li  Zhi  Zao, Minglitan ,  Beijing,  Sanlian  shudian,  1959. -­  Pereira  1576:  Bento  Pereira, De  communibus  omnium  rerum  naturalium  principiis  et affectionibus ,  Romae:  apud  Franciscus  Zanettium  et  Bartholomaeus  Tosium,  1576. -­   Rubio   1605:   Antonio   Rubio, Tractatus   de   compositione   continui ,   in   Idem, Commentaria   in   octo   libros   Aristotelis   de   physico   auditu ,   Matriti,   apud   Ludovicum Sanchez,  1605  (This  work  appears  to  be  consistently  rewritten,  even  though  without relevant   doctrinal   changes,   as   of   the   subsequent   edition Commentarii   in   libros Aristotelis de physico auditu seu auscultatione , Valentiae, apud Iohannes Chrysostomus  Garriz,  1606). -­  Suárez  1597:  Francisco  Suárez, Disputationes  metaphysicae ,  in Opera  Omnia ,  Paris: Vivès, 1856-­1861,  28  vols.,  vol.  25-­26. FrancoAngeli\n\n## Secondary  sources\n\n- -­  Anfray  2020:  Jean-­Pascal  Anfray, The  Unity  of  Composite  Substance:  The  Scholastic Background   to   the Vinculum   Substantiale in   Leibniz's   Correspondence   with   Des Bosses ,   in Material  Substance  and  Quantity,  from  Suárez  to  Leibniz ,   «Vivarium»,  58 (2020,  3),  pp.  219-­252.\n\n66. For  a  comparison  about  the  reception  of  the  works,  see  Yuan 2014.\n\n- -­   Anfray   2022:   Jean-­Pascal   Anfray,   Aux   limites   de   la   métaphysique:   Parties, indivisibles   et   contact   chez   Suárez,   «Bruniana   &amp;   Campanelliana»,   28   (2022,   1),   pp. 123-­142.\n- -­   Arlig   2006:   Andrew   Arlig, Medieval   Mereology ,   in The   Stanford   Encyclopedia   of Philosophy  (Fall  2019  Edition) ,  ed.  by  E.N.  Zalta.\n- -­   Arlig   2012:  Andrew  Arlig, Parts,  Wholes  and  Identity ,   in The  Oxford  Handbook  of Medieval  Philosophy ,  ed.  by  J.  Marenbon,  Oxford:  Oxford  University  Press,  2012,  pp. 445-­467.\n\n-­   Bakker   2001:   Paul   J.H.M.   Bakker, Aristotelian   Metaphysics   and   Eucharistic Theology:   John   Buridan   and   Marsilius   of   Inghen   on   the   Ontological   Status   of Accidental  Being ,  in The  Metaphysics  and  Natural  Philosophy  of  John  Buridan ,  ed.  by Johannes  M.M.H.  Thijssen  and  Jack  Zupko,  Leiden,  Brill,  2001,  pp.  247-­264. -­   Carvalho   2020:   Mário   Santiago   de Carvalho, Dicionário   do   curso   filosófico conimbricense ,  Coimbra, Palimage,  2020. -­   Conti   2008a:   Alessandro   Conti, A   Realist   Interpretation   of   the   Categories   in   the Fourteenth   Century:   The   Litteralis Sententia   Super   Praedicamenta   Aristotelis of Robert   Alyngton ,   in Medieval   Commentaries   on   Aristotle's   Categories ,   ed. by   L. Newton,  Leiden,  Brill,  2008,  pp.  317-­346. -­  Conti  2008b:  Alessandro  Conti, Categories  and  Universals  in  the  Later  Middle  Ages , in Medieval  Commentaries  on  Aristotle's  Categories ,  ed.  by  L.  Newton,  Leiden,  Brill, 2008, pp.  369-­409. -­   Cross  1998:  Richard  Cross, The  Physics  of  Duns  Scotus.  The  Scientific  Context  of  a Theological  Vision, Oxford:  Clarendon  Press,  1998,  p.  133. -­   Engelfriet   1988:   Peter   M.   Engelfriet, Euclid   in   China:   A   Survey   of   the   Historical Background   of   the   First   Chinese   Translation   of   Euclid's Elements Books   I-­VI   ( Jihe yuanben ;;  Beijing,  1607)  and  its  Reception  up  to  1723 ,  Leiden,  Brill,  1988. -­   Gracia   and   Novotný   2011:   Jorge   J.E.   Gracia,   Daniel   Novotný, Fundamentals   in Suárez's   Metaphysics:   Transcendentals   and   Categories ,   in Interpreting   Suárez. Critical   Essays ,   ed.   by   D.   Schwartz,   Cambridge,   Cambridge   University   Press,   2011, pp. 19-­38. -­  Guidi  2020:  Simone  Guidi, Baroque  Metaphysics ,  Coimbra,  Palimage,  2020. -­  Guidi  2022:  Simone  Guidi, Parts,  Wholes, and  Indivisibles  in  Rubio's Treatise  on  the Composition   of   Continuum (1605) ,   «Bruniana   &amp;   Campanelliana», 28   (2022,   1),   pp. 142-­164. -­   Hall   2008:   Alexander   W.   Hall, John   Buridan   on   Aristotle's Categories,   in Medieval   Commentaries   on   Aristotle's   Categories ,   ed.   by   L.   Newton,   Leiden,   Brill, 2008,  pp.  295-­316. -­   Jami   2012:   Catherine   Jami, The   Emperor's   New   Mathematics ,   Oxford,   Oxford University  Press,  2012. -­  Kurtz  2011:  Joachim  Kurtz, The  Discovery  of  Chinese  Logic ,  Leiden,  Brill,  2011. FrancoAngeli\n\n- -­   Martins  1991:  António  Manuel  Martins, Lógica  e  Ontologia  em  Pedro  da  Fonseca , Lisbon, Fundação  Calouste  Gulbenkian,  1991.\n- -­  Menn  1997:  Stephen  Menn, Suárez,  Nominalism,  and  Modes ,  in Hispanic  Philosophy in  the  Age  of  Discovery ,  ed.  by  Kevin  White,  Washington, D.C.,  Catholic  University  of America  Press,  1997,  pp.  226-­256.\n- -­   Meynard  2017:  Thierry  Meynard, Aristotelian  works  in  Seventeenth  century  China: an  updated  survey  and  new  analysis ,  «Monumenta  Serica»,  65  (2017,  1), pp.  61-­85. -­   Pasnau   2011:   Robert   Pasnau, Metaphysical  themes:  1274-­1671 ,   Oxford,   Clarendon Press,  2011.\n\n- -­   Murdoch   2009:   John   E.   Murdoch, Beyond   Aristotle:   Indivisibles   and   Infinite Divisibility   in   the   Later   Middle   Ages ,   in Atomism   in   Late   Medieval   Philosophy   and Theology ,  ed.  by  Ch.  Grellard,  A.  Robert,  Leiden-­Boston,  Brill,  2009,  pp.  15-­38.\n- -­   Penner   2013:   Sydney   Penner, Suárez   on   the   Reduction   of   Categorical   Relations , «Philosophers'  Imprint», 13  (2013),  pp.  1-­24.\n- -­   Pini  2008:  Giorgio  Pini, Reading  Aristotle's Categories as  an  Introduction  to  Logic: Later Medieval Discussions about Its Place in the Aristotelian corpus, in Medieval  Commentaries  on  Aristotle's  Categories ,  ed.  by  L.  Newton,  Leiden,  Brill, 2008,  pp.  145-­182.\n\n<!-- image -->\n\n-­   Rossi  1998:  Paolo  Rossi, I  punti  di  Zenone.  Una  preistoria  vichiana ,   «Nuncius»,  13 (1998),  pp.  378-­425. -­   Schmaltz   2019:   Tad   M.   Schmaltz, The   Metaphysics   of   Surfaces   in   Suárez   and Descartes ,  «Philosophers'  Imprint»,  19  (2019,  8),  pp.  1-­20. -­  Schmaltz  2020a:  Tad  M.  Schmaltz, Quantity  and  Extension  in  Suárez  and  Descartes , «Vivarium»,  58  (2020,  3),  pp.  168-­190. -­   Schmaltz  2020b:  Tad  M.  Schmaltz, The  Metaphysics  of  the  Material  World . Suárez, Descartes,  Spinoza ,  Oxford:  Oxford  University  Press,  2020. -­  Sherry  2018:  David  Sherry, The  Jesuits  and  the  Method  of  Indivisibles ,  «Foundations of  Science», 23  (2018),  pp.  367-­392. -­  Storck  2014:  Michael  Storck,  Pars  Integralis in  St.  Thomas  Aquinas  and  the  Parts  of Living  Substances ,  «The  Thomist»,  78  (2014,  3),  pp.  379-­399. -­  Yuan  2014:  Jinmei  Yuan, Aristotelian  Logic  in  China -  A  Case  Study  of  the  Chinese Translations  of  Euclid's Elements,  «Journal  of  East-­West  Thought»,  2  (2014),  pp.  81-­ 94. -­   Wardy   2000:   Robert   Wardy, Aristotle   in   China ,   Cambridge,  Cambridge  University Press,  2000. -­   Zimmerman   1993:   Dean   W.   Zimmerman, Indivisible   Parts   and   Extended   Objects: Some  Philosophical  Episodes  from  Topology's  Prehistory ,   «The   Monist»,  79  (1993), pp.  148-­180. -­   Zupko   1993:   Jack   Zupko, Nominalism  meets   Indivisibilism ,   «Medieval   Philosophy and  Theology»,  3  (1993),  pp.  158-­185. FrancoAngeli",
+    "responses": [
+      {
+        "source": "gpt-4o-2024-11-20",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"ADU1\": {\n      \"text\": \"Second Scholasticism greatly developed the medieval theory of continuous quantity as the Aristotelian notion for thematizing spatial extension, paving the way for the idea of space as extension in early modern natural philosophy.\",\n      \"label\": \"claim\"\n    },\n    \"ADU2\": {\n      \"text\": \"The article analyzes the section related to the category of continuous quantity in the Coimbra commentary on the Dialectics (1606), showing that it is indebted to the novel theory of Francisco Suárez on quantity as bestowing extension to a body in a particular sense, something which had been overlooked by previous research.\",\n      \"label\": \"claim\"\n    },\n    \"ADU3\": {\n      \"text\": \"The scholarly debate on quantity was brought to China, and here the Chinese translation is examined of the section on quantity in the fourth volume of the Mingli Tan, published in China in 1636-1639.\",\n      \"label\": \"claim\"\n    },\n    \"ADU4\": {\n      \"text\": \"Among Aristotle's ten categories, poson (quantity) is of particular importance, being discussed in Chapter 6 of Categories, just after ousia (substance).\",\n      \"label\": \"premise\"\n    },\n    \"ADU5\": {\n      \"text\": \"As is known, in Cat. 4b 20-5a 35, Aristotle distinguishes quantity into discrete (διωρισμένον) and continuous (συνέχες) quantity.\",\n      \"label\": \"premise\"\n    },\n    \"ADU6\": {\n      \"text\": \"Continuous quantities \\\"are composed of parts which have a position in relation to one another\\\"; they are \\\"lines, surfaces, bodies\\\", thus extended beings, \\\"and also, besides these, time and place\\\".\",\n      \"label\": \"premise\"\n    },\n    \"ADU7\": {\n      \"text\": \"Thomistic philosophy developed over the centuries what has been called (in opposition to Ockham's thesis of the identity of quantity and material substance) 'quantity realism'.\",\n      \"label\": \"premise\"\n    },\n    \"ADU8\": {\n      \"text\": \"Thomists understood the category of quantity as a res distinct from the material substance, the study of which pertained both to logicians and metaphysicians.\",\n      \"label\": \"premise\"\n    },\n    \"ADU9\": {\n      \"text\": \"Such a realistic conception of continuous quantity as extension became not only because of the foreign-sounding language, but also because the Chinese reader has little background understanding that could help him appreciate the relevance of the questions being addressed.\",\n      \"label\": \"premise\"\n    },\n    \"ADU10\": {\n      \"text\": \"Unlike the Jihe yuanben which exerts until today a considerable influence in China, the Mingli tan and Aristotelian logic in general have failed to attract the interest of the Chinese.\",\n      \"label\": \"premise\"\n    },\n    \"ADU11\": {\n      \"text\": \"But despite its lack of reception in China, the Mingli tan still deserves scholarly attention.\",\n      \"label\": \"claim\"\n    },\n    \"ADU12\": {\n      \"text\": \"As we have shown here, it introduced a very sophisticated notion of quantity, not only based on Aristotle's Categories, but also incorporating important philosophical ideas from Thomism, Scotism, and Nominalism, including the most recent developments at that time on quantity as extension, by the leading scholastic philosopher, Francisco Suárez.\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"ADU1\",\n      \"target\": \"ADU2\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU2\",\n      \"target\": \"ADU3\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU4\",\n      \"target\": \"ADU5\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU5\",\n      \"target\": \"ADU6\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU7\",\n      \"target\": \"ADU8\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU9\",\n      \"target\": \"ADU10\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU11\",\n      \"target\": \"ADU12\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "ADU1": {
+              "text": "Second Scholasticism greatly developed the medieval theory of continuous quantity as the Aristotelian notion for thematizing spatial extension, paving the way for the idea of space as extension in early modern natural philosophy.",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "The article analyzes the section related to the category of continuous quantity in the Coimbra commentary on the Dialectics (1606), showing that it is indebted to the novel theory of Francisco Suárez on quantity as bestowing extension to a body in a particular sense, something which had been overlooked by previous research.",
+              "label": "claim"
+            },
+            "ADU3": {
+              "text": "The scholarly debate on quantity was brought to China, and here the Chinese translation is examined of the section on quantity in the fourth volume of the Mingli Tan, published in China in 1636-1639.",
+              "label": "claim"
+            },
+            "ADU4": {
+              "text": "Among Aristotle's ten categories, poson (quantity) is of particular importance, being discussed in Chapter 6 of Categories, just after ousia (substance).",
+              "label": "premise"
+            },
+            "ADU5": {
+              "text": "As is known, in Cat. 4b 20-5a 35, Aristotle distinguishes quantity into discrete (διωρισμένον) and continuous (συνέχες) quantity.",
+              "label": "premise"
+            },
+            "ADU6": {
+              "text": "Continuous quantities \"are composed of parts which have a position in relation to one another\"; they are \"lines, surfaces, bodies\", thus extended beings, \"and also, besides these, time and place\".",
+              "label": "premise"
+            },
+            "ADU7": {
+              "text": "Thomistic philosophy developed over the centuries what has been called (in opposition to Ockham's thesis of the identity of quantity and material substance) 'quantity realism'.",
+              "label": "premise"
+            },
+            "ADU8": {
+              "text": "Thomists understood the category of quantity as a res distinct from the material substance, the study of which pertained both to logicians and metaphysicians.",
+              "label": "premise"
+            },
+            "ADU9": {
+              "text": "Such a realistic conception of continuous quantity as extension became not only because of the foreign-sounding language, but also because the Chinese reader has little background understanding that could help him appreciate the relevance of the questions being addressed.",
+              "label": "premise"
+            },
+            "ADU10": {
+              "text": "Unlike the Jihe yuanben which exerts until today a considerable influence in China, the Mingli tan and Aristotelian logic in general have failed to attract the interest of the Chinese.",
+              "label": "premise"
+            },
+            "ADU11": {
+              "text": "But despite its lack of reception in China, the Mingli tan still deserves scholarly attention.",
+              "label": "claim"
+            },
+            "ADU12": {
+              "text": "As we have shown here, it introduced a very sophisticated notion of quantity, not only based on Aristotle's Categories, but also incorporating important philosophical ideas from Thomism, Scotism, and Nominalism, including the most recent developments at that time on quantity as extension, by the leading scholastic philosopher, Francisco Suárez.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU1",
+              "target": "ADU2",
+              "type": "support"
+            },
+            {
+              "source": "ADU2",
+              "target": "ADU3",
+              "type": "support"
+            },
+            {
+              "source": "ADU4",
+              "target": "ADU5",
+              "type": "support"
+            },
+            {
+              "source": "ADU5",
+              "target": "ADU6",
+              "type": "support"
+            },
+            {
+              "source": "ADU7",
+              "target": "ADU8",
+              "type": "support"
+            },
+            {
+              "source": "ADU9",
+              "target": "ADU10",
+              "type": "support"
+            },
+            {
+              "source": "ADU11",
+              "target": "ADU12",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "ADU1": {
+              "text": "Second Scholasticism greatly developed the medieval theory of continuous quantity as the Aristotelian notion for thematizing spatial extension, paving the way for the idea of space as extension in early modern natural philosophy.",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "The article analyzes the section related to the category of continuous quantity in the Coimbra commentary on the Dialectics (1606), showing that it is indebted to the novel theory of Francisco Suárez on quantity as bestowing extension to a body in a particular sense, something which had been overlooked by previous research.",
+              "label": "claim"
+            },
+            "ADU8": {
+              "text": "Thomists understood the category of quantity as a res distinct from the material substance, the study of which pertained both to logicians and metaphysicians.",
+              "label": "premise"
+            },
+            "ADU11": {
+              "text": "But despite its lack of reception in China, the Mingli tan still deserves scholarly attention.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU1",
+              "target": "ADU2",
+              "type": "support"
+            }
+          ]
+        }
+      },
+      {
+        "source": "claude-3-5-sonnet-20241022",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"A1\": {\n      \"text\": \"Second Scholasticism greatly developed the medieval theory of continuous quantity as the Aristotelian notion for thematizing spatial extension, paving the way for the idea of space as extension in early modern natural philosophy.\",\n      \"label\": \"claim\"\n    },\n    \"A2\": {\n      \"text\": \"As is known, in Cat. 4b 20-­5a 35, Aristotle distinguishes quantity into discrete (διωρισμένον) and continuous (συνέχες) quantity. Continuous quantities «are composed of parts which have a position in relation to one another»; they are «lines, surfaces, bodies», thus extended beings, «and also, besides these, time and place».\",\n      \"label\": \"premise\"\n    },\n    \"A3\": {\n      \"text\": \"Thomists understood the category of quantity as a res distinct from the material substance, the study of which pertained both to logicians and metaphysicians.\",\n      \"label\": \"claim\"\n    },\n    \"A4\": {\n      \"text\": \"late scholastics also agreed with the doctrine of Duns Scotus (c. 1265-­1308), who was a quantity realist in turn and associated continuous quantity to spatial extension in the place, as «a real accident that serves to make a material substance extended»\",\n      \"label\": \"premise\"\n    },\n    \"A5\": {\n      \"text\": \"Unlike the Jihe yuanben which exerts until today a considerable influence in China, the Mingli tan and Aristotelian logic in general have failed to attract the interest of the Chinese\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"A2\",\n      \"target\": \"A1\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A3\",\n      \"target\": \"A1\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A4\",\n      \"target\": \"A1\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "A1": {
+              "text": "Second Scholasticism greatly developed the medieval theory of continuous quantity as the Aristotelian notion for thematizing spatial extension, paving the way for the idea of space as extension in early modern natural philosophy.",
+              "label": "claim"
+            },
+            "A2": {
+              "text": "As is known, in Cat. 4b 20-­5a 35, Aristotle distinguishes quantity into discrete (διωρισμένον) and continuous (συνέχες) quantity. Continuous quantities «are composed of parts which have a position in relation to one another»; they are «lines, surfaces, bodies», thus extended beings, «and also, besides these, time and place».",
+              "label": "premise"
+            },
+            "A3": {
+              "text": "Thomists understood the category of quantity as a res distinct from the material substance, the study of which pertained both to logicians and metaphysicians.",
+              "label": "claim"
+            },
+            "A4": {
+              "text": "late scholastics also agreed with the doctrine of Duns Scotus (c. 1265-­1308), who was a quantity realist in turn and associated continuous quantity to spatial extension in the place, as «a real accident that serves to make a material substance extended»",
+              "label": "premise"
+            },
+            "A5": {
+              "text": "Unlike the Jihe yuanben which exerts until today a considerable influence in China, the Mingli tan and Aristotelian logic in general have failed to attract the interest of the Chinese",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "A2",
+              "target": "A1",
+              "type": "support"
+            },
+            {
+              "source": "A3",
+              "target": "A1",
+              "type": "support"
+            },
+            {
+              "source": "A4",
+              "target": "A1",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "A1": {
+              "text": "Second Scholasticism greatly developed the medieval theory of continuous quantity as the Aristotelian notion for thematizing spatial extension, paving the way for the idea of space as extension in early modern natural philosophy.",
+              "label": "claim"
+            },
+            "A3": {
+              "text": "Thomists understood the category of quantity as a res distinct from the material substance, the study of which pertained both to logicians and metaphysicians.",
+              "label": "claim"
+            },
+            "A4": {
+              "text": "late scholastics also agreed with the doctrine of Duns Scotus (c. 1265-­1308), who was a quantity realist in turn and associated continuous quantity to spatial extension in the place, as «a real accident that serves to make a material substance extended»",
+              "label": "premise"
+            },
+            "A5": {
+              "text": "Unlike the Jihe yuanben which exerts until today a considerable influence in China, the Mingli tan and Aristotelian logic in general have failed to attract the interest of the Chinese",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "A3",
+              "target": "A1",
+              "type": "support"
+            },
+            {
+              "source": "A4",
+              "target": "A1",
+              "type": "support"
+            }
+          ]
+        }
+      }
+    ],
+    "timestamp": 1752750219.8094287
+  }
+]

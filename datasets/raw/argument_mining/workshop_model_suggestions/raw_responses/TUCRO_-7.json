@@ -1,0 +1,536 @@
+[
+  {
+    "identifier": "TUCRO_-7",
+    "system_prompt": "## GOAL\nArgument‑mine the following paper to extract its comprehensive argumentative structure.\n\n## DEFINITIONS\n1. **Argument**: A set of propositions, including some number of premises and a conclusion. The premises should logically entail the conclusion.\n2. **Claim**: A proposition that asserts something to be true or false, typically requiring justification or evidence.\n3. **Premise**: A proposition that provides evidence, justification, or logical support for a claim or conclusion.\n\n## CRITICAL REQUIREMENTS\n1. **VERBATIM EXTRACTION ONLY**: Each ADU text must be copied EXACTLY from the paper with no modifications, paraphrasing, or combining of separate sentences.\n2. **NO HALLUCINATION**: Do not create, modify, or invent text that does not appear exactly in the source.\n3. **EXACT MATCHING**: Every word, punctuation mark, and spacing must match the original precisely.\n\n## DIRECTIONS\n1. **Identify Argumentative Discourse Units (ADUs)**  \n   - ADU = any contiguous text span functioning as a claim or a premise in the reasoning structure.\n   - **BE HIGHLY SELECTIVE**: Only include ADUs that are crucial to the overarching argument structure.\n   - Focus on significant claims and premises that contribute meaningfully to the argumentative flow.\n   - **AVOID NOISE**: Skip ADUs that are merely descriptive, tangential, or do not substantially advance the argument.\n   - Prioritize quality over quantity - fewer accurate, important ADUs are better than many insignificant ones.\n   - **EXTRACT ONLY**: Copy text spans exactly as they appear, without any modifications.\n2. **Classify each ADU**  \n   - Label = either `\"claim\"` or `\"premise\"`.  \n3. **Detect directed relations**  \n   - Relation = `\"support\"` or `\"attack\"`, from one ADU (source) to another (target).\n   - Map how ADUs connect to form reasoning chains.\n   - Focus on relationships between the most significant ADUs.\n   - Include relationships between premises that strengthen or weaken each other.\n4. **Verbatim spans**  \n   - Each `\"text\"` value must be copied EXACTLY from the paper with zero modifications.\n   - Do not paraphrase, summarize, or combine separate sentences.\n   - Do not add, remove, or change any words, punctuation, or spacing.\n   - If unsure about exact wording, skip that ADU rather than guess.\n\n## WHAT TO CAPTURE\n**INCLUDE ONLY:**\n- Main argumentative threads that are central to the paper's contribution\n- Core claims that represent the paper's primary arguments or findings\n- Key premises that provide essential support for major claims\n- Critical counterarguments and their refutations\n- Reasoning chains that demonstrate how main conclusions are derived\n\n**EXCLUDE (AVOID NOISE):**\n- Minor details, examples, or descriptive content that don't advance the argument\n- Tangential points or side discussions\n- Pure background information or literature review content\n- Methodological details unless they constitute argumentative claims\n- Obvious statements or commonly accepted facts\n- Redundant or repetitive argumentative content\n\n**GUIDING PRINCIPLE**: If removing an ADU would not significantly impact understanding of the paper's argumentative structure, it should be excluded.\n\n## QUALITY CONTROL\n- Before finalizing each ADU, verify the text exists exactly in the source\n- Prefer fewer, accurate ADUs over many potentially modified ones\n- When in doubt about exact wording, omit the ADU\n\n## OUTPUT FORMAT\nReturn **only** a single valid JSON object matching this schema.  \nDo **not** output any extra text, markdown, or explanations.\nDo **not** add comments.\n**RESPOND WITH ONLY**:\n```json\n{\n  \"ADUs\": {\n    \"<ADU_ID>\": {\n      \"text\": \"<exact span from paper>\",\n      \"label\": \"claim\" | \"premise\"\n    }\n    ...\n  },\n  \"relations\": [\n    {\n      \"source\": \"<ADU_ID>\",\n      \"target\": \"<ADU_ID>\",\n      \"type\": \"support\" | \"attack\"\n    }\n  ]\n}\n```",
+    "user_content": "## A  Revolution  of  the  Mind:  Radical  Enlightenment  and  the  Intellectual Origins of Modern Democracy by Jonathan Israel\n\nOxford: Princeton University Press, 2011, pbk £13.95 (ISBN: 978-0-691-152608), 296pp.\n\nby Ericka Tucker\n\nThe Radical Enlightenment, Israel argues, was characterized philosophically by materialism, monism and determinism; religiously by secularism and universalism and politically by its commitment to democracy and revolutionary reform of political institutions. The Moderate Enlightenment, on the other hand, was characterized by its commitment to dualism,  deism,  constitutional  monarchism,  and  a  morality  based  on sentiment  and  tradition  rather  than  the  Radical  insistence  on  reason. According  to  Israel,  figures  in  the  Moderate  Enlightenment  eschewed revolution and instead believed progress to be based on Providence. Israel argues that the revolutionary events of the 18 th Century were preceded by revolutionary ideas of ' la nouvelle philosophie' , which he identifies with the Radical  Enlightenment.  In  particular,  revolutionary  events  in  America, France and the Netherlands were preceded, Israel argues, by the ideas of equality,  democracy,  and  reason  as  the  basis  of  a  universal  morality, proposed by the most radical of the Enlightenment thinkers.\n\nJonathan Israel is an academic on a mission. His aim is to reconceive the Enlightenment as a pan-European, transatlantic phenomenon with two distinct,  incompatible  strains:  a  Radical  Enlightenment  and  a  Moderate Enlightenment.\n\nIsrael does not write short books. His average tome weighs in at 3 lbs paperback, with an average of 800 pages . A Revolution of the Mind is a much shorter work; it is an attempt to bring out in a manageable length the core of Israel's project in his three larger works: Radical Enlightenment , Enlightenment Contested and Democratic Enlightenment. As such, it is a good place for the student of political philosophy to begin. Having used it in an undergraduate political philosophy class, I can attest that although it is dense, and its cast of characters rather large, the arguments are clear, original and provocative enough to engage students.\n\nA Revolution of the Mind successfully brings out the original points of Israel's  larger  trilogy  on  the  history  of  the  Enlightenment,  and  engages students of philosophy and politics of all ages, backgrounds and expertise. As an original jaunt through the radical history of politics and metaphysics, this is an excellent beginning point for the student of history, contemporary\n\npolitical philosophy and the history of political thought. Revolution also offers much to the philosopher, both professional and student, by offering again, a highly original alternative narrative of the politics and philosophy of the Enlightenment.\n\nIsrael gives us not only an interesting new take on the historiography of  the  Enlightenment,  but  also  does  important  philosophical  work.  He reveals what radicals in the 17 th century knew - dualism and free will do not save genuine freedom; they deny its conditions of possibility. One cannot have genuine freedom, argued Spinoza, without understanding the causal conditions of our existence as material beings. To improve our lives and the lives of our neighbors, we need to understand ourselves as part of Nature, as part of the causal structure of the universe.\n\nAlthough he focuses his attention on the 18 th century, Israel recognizes the  foundations  of  the  Radical  Enlightenment  in  the  17 th century.    He identifies the political and moral kernel of the Radical Enlightenment in Spinoza's metaphysics and political writings. According to Spinoza and his Radical Enlightenment followers, democracy is the freest and most absolute state and therefore the best form of state. However, we cannot count on human nature or Providence alone to achieve this political freedom. Action is required in order to achieve enlightenment.\n\nBeloved Enlightenment figures, such as Kant, Rousseau and Locke, are lambasted and replaced with new heroes: d'Holbach, Schimmelpenninck, Price and Helvétius. Although Kant, Rousseau and Locke are often forgiven their peccadilloes on race, imperialism and gender, their views on rights, freedom, the scope of reason and Enlightenment are taken as 'radical for their time'; however, Israel exposes their views as comparatively conservative, and moderate given the radical ideas on offer.\n\nIsrael occasionally errs on the side of grand pronouncement over specific argumentation. For example, his major thesis, that there are two Enlightenments: Radical and Moderate, is well supported. Israel shows us a variety of ways in which the elements of the two Enlightenments can be differentiated. However, his further claim that these two are incompatible philosophically is a claim that merits more detailed argumentation. That is, to say two philosophical views are different is one thing; to say that they are incompatible  because  of  those  differences,  is  quite  another.  Israel's arguments for difference succeed, but he does not meet the burden of proof for incompatibility. Specialists may take issue with his interpretation of the central  figures:  Hume,  Locke,  Diderot,  d'Holbach  and  Spinoza.  Israel's interpretations of these figures are controversial; however, his extended arguments for his novel interpretation, while available in Israel's articles and longer works, here merit nary a footnote. Given the overarching mission and\n\nargument of the book, Israel chooses to frustrate specialists in favour of greater readability.\n\nMethodologically, Israel practices what he calls the 'controversialist method in the history of ideas.' This method is characterized by interpreting the ideas of individual philosophers in the context of the debates of their own time, by which they are influenced and to which their work contributes. Seeing  this  method  in  action  is  perhaps  the  most  promising  aspect  for contemporary philosophers who want to take historical context seriously. Too often, the ideas of philosophers such as Kant are cherry picked by contemporary philosophers, and the religious, political and philosophical context in which they were conceived is ignored. Israel shows us that by failing to understand the context and controversies in the history of ideas, we fail to understand the contextual nature of philosophy itself. In doing so, we deliberately misinterpret philosophers the past and ignore the contextual nature of our own work.\n\nIndividual philosophers are always more wily and interesting than the 'schools' or movements to which they belong. Surely, Locke, Smith and Hume fit into Israel's category of Moderate, but their specific arguments and views are quite complex. This tension between the historian's aim to group and synthesize and the philosopher's tendency to find differences and to focus on nuances emerges in each chapter. Philosophers will be annoyed, but perhaps that's all the better. Part of the aim of the book is to reconsider our narratives of 17 th and 18th century philosophy and this book succeeds in doing so.\n\nEricka Tucker (eltucker@csupomona.edu) is an Assistant Professor at Cal Poly Pomona. She is currently developing a Spinozan framework for global justice.",
+    "responses": [
+      {
+        "source": "gpt-4o-2024-11-20",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"ADU1\": {\n      \"text\": \"The Radical Enlightenment, Israel argues, was characterized philosophically by materialism, monism and determinism; religiously by secularism and universalism and politically by its commitment to democracy and revolutionary reform of political institutions.\",\n      \"label\": \"claim\"\n    },\n    \"ADU2\": {\n      \"text\": \"The Moderate Enlightenment, on the other hand, was characterized by its commitment to dualism, deism, constitutional monarchism, and a morality based on sentiment and tradition rather than the Radical insistence on reason.\",\n      \"label\": \"claim\"\n    },\n    \"ADU3\": {\n      \"text\": \"According to Israel, figures in the Moderate Enlightenment eschewed revolution and instead believed progress to be based on Providence.\",\n      \"label\": \"claim\"\n    },\n    \"ADU4\": {\n      \"text\": \"Israel argues that the revolutionary events of the 18th Century were preceded by revolutionary ideas of 'la nouvelle philosophie', which he identifies with the Radical Enlightenment.\",\n      \"label\": \"claim\"\n    },\n    \"ADU5\": {\n      \"text\": \"In particular, revolutionary events in America, France and the Netherlands were preceded, Israel argues, by the ideas of equality, democracy, and reason as the basis of a universal morality, proposed by the most radical of the Enlightenment thinkers.\",\n      \"label\": \"claim\"\n    },\n    \"ADU6\": {\n      \"text\": \"Jonathan Israel is an academic on a mission.\",\n      \"label\": \"claim\"\n    },\n    \"ADU7\": {\n      \"text\": \"His aim is to reconceive the Enlightenment as a pan-European, transatlantic phenomenon with two distinct, incompatible strains: a Radical Enlightenment and a Moderate Enlightenment.\",\n      \"label\": \"claim\"\n    },\n    \"ADU8\": {\n      \"text\": \"Israel gives us not only an interesting new take on the historiography of the Enlightenment, but also does important philosophical work.\",\n      \"label\": \"claim\"\n    },\n    \"ADU9\": {\n      \"text\": \"He reveals what radicals in the 17th century knew - dualism and free will do not save genuine freedom; they deny its conditions of possibility.\",\n      \"label\": \"claim\"\n    },\n    \"ADU10\": {\n      \"text\": \"One cannot have genuine freedom, argued Spinoza, without understanding the causal conditions of our existence as material beings.\",\n      \"label\": \"claim\"\n    },\n    \"ADU11\": {\n      \"text\": \"To improve our lives and the lives of our neighbors, we need to understand ourselves as part of Nature, as part of the causal structure of the universe.\",\n      \"label\": \"claim\"\n    },\n    \"ADU12\": {\n      \"text\": \"Although he focuses his attention on the 18th century, Israel recognizes the foundations of the Radical Enlightenment in the 17th century.\",\n      \"label\": \"claim\"\n    },\n    \"ADU13\": {\n      \"text\": \"He identifies the political and moral kernel of the Radical Enlightenment in Spinoza's metaphysics and political writings.\",\n      \"label\": \"claim\"\n    },\n    \"ADU14\": {\n      \"text\": \"According to Spinoza and his Radical Enlightenment followers, democracy is the freest and most absolute state and therefore the best form of state.\",\n      \"label\": \"claim\"\n    },\n    \"ADU15\": {\n      \"text\": \"However, we cannot count on human nature or Providence alone to achieve this political freedom.\",\n      \"label\": \"claim\"\n    },\n    \"ADU16\": {\n      \"text\": \"Action is required in order to achieve enlightenment.\",\n      \"label\": \"claim\"\n    },\n    \"ADU17\": {\n      \"text\": \"Beloved Enlightenment figures, such as Kant, Rousseau and Locke, are lambasted and replaced with new heroes: d'Holbach, Schimmelpenninck, Price and Helvétius.\",\n      \"label\": \"claim\"\n    },\n    \"ADU18\": {\n      \"text\": \"Although Kant, Rousseau and Locke are often forgiven their peccadilloes on race, imperialism and gender, their views on rights, freedom, the scope of reason and Enlightenment are taken as 'radical for their time'; however, Israel exposes their views as comparatively conservative, and moderate given the radical ideas on offer.\",\n      \"label\": \"claim\"\n    },\n    \"ADU19\": {\n      \"text\": \"Israel occasionally errs on the side of grand pronouncement over specific argumentation.\",\n      \"label\": \"claim\"\n    },\n    \"ADU20\": {\n      \"text\": \"For example, his major thesis, that there are two Enlightenments: Radical and Moderate, is well supported.\",\n      \"label\": \"claim\"\n    },\n    \"ADU21\": {\n      \"text\": \"Israel shows us a variety of ways in which the elements of the two Enlightenments can be differentiated.\",\n      \"label\": \"claim\"\n    },\n    \"ADU22\": {\n      \"text\": \"However, his further claim that these two are incompatible philosophically is a claim that merits more detailed argumentation.\",\n      \"label\": \"claim\"\n    },\n    \"ADU23\": {\n      \"text\": \"That is, to say two philosophical views are different is one thing; to say that they are incompatible because of those differences, is quite another.\",\n      \"label\": \"claim\"\n    },\n    \"ADU24\": {\n      \"text\": \"Israel's arguments for difference succeed, but he does not meet the burden of proof for incompatibility.\",\n      \"label\": \"claim\"\n    },\n    \"ADU25\": {\n      \"text\": \"Methodologically, Israel practices what he calls the 'controversialist method in the history of ideas.'\",\n      \"label\": \"claim\"\n    },\n    \"ADU26\": {\n      \"text\": \"This method is characterized by interpreting the ideas of individual philosophers in the context of the debates of their own time, by which they are influenced and to which their work contributes.\",\n      \"label\": \"claim\"\n    },\n    \"ADU27\": {\n      \"text\": \"Israel shows us that by failing to understand the context and controversies in the history of ideas, we fail to understand the contextual nature of philosophy itself.\",\n      \"label\": \"claim\"\n    },\n    \"ADU28\": {\n      \"text\": \"In doing so, we deliberately misinterpret philosophers the past and ignore the contextual nature of our own work.\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"ADU1\",\n      \"target\": \"ADU4\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU4\",\n      \"target\": \"ADU5\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU9\",\n      \"target\": \"ADU10\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU10\",\n      \"target\": \"ADU11\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU12\",\n      \"target\": \"ADU13\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU13\",\n      \"target\": \"ADU14\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU14\",\n      \"target\": \"ADU15\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU15\",\n      \"target\": \"ADU16\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU20\",\n      \"target\": \"ADU21\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU22\",\n      \"target\": \"ADU23\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU23\",\n      \"target\": \"ADU24\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU25\",\n      \"target\": \"ADU26\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU26\",\n      \"target\": \"ADU27\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU27\",\n      \"target\": \"ADU28\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "ADU1": {
+              "text": "The Radical Enlightenment, Israel argues, was characterized philosophically by materialism, monism and determinism; religiously by secularism and universalism and politically by its commitment to democracy and revolutionary reform of political institutions.",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "The Moderate Enlightenment, on the other hand, was characterized by its commitment to dualism, deism, constitutional monarchism, and a morality based on sentiment and tradition rather than the Radical insistence on reason.",
+              "label": "claim"
+            },
+            "ADU3": {
+              "text": "According to Israel, figures in the Moderate Enlightenment eschewed revolution and instead believed progress to be based on Providence.",
+              "label": "claim"
+            },
+            "ADU4": {
+              "text": "Israel argues that the revolutionary events of the 18th Century were preceded by revolutionary ideas of 'la nouvelle philosophie', which he identifies with the Radical Enlightenment.",
+              "label": "claim"
+            },
+            "ADU5": {
+              "text": "In particular, revolutionary events in America, France and the Netherlands were preceded, Israel argues, by the ideas of equality, democracy, and reason as the basis of a universal morality, proposed by the most radical of the Enlightenment thinkers.",
+              "label": "claim"
+            },
+            "ADU6": {
+              "text": "Jonathan Israel is an academic on a mission.",
+              "label": "claim"
+            },
+            "ADU7": {
+              "text": "His aim is to reconceive the Enlightenment as a pan-European, transatlantic phenomenon with two distinct, incompatible strains: a Radical Enlightenment and a Moderate Enlightenment.",
+              "label": "claim"
+            },
+            "ADU8": {
+              "text": "Israel gives us not only an interesting new take on the historiography of the Enlightenment, but also does important philosophical work.",
+              "label": "claim"
+            },
+            "ADU9": {
+              "text": "He reveals what radicals in the 17th century knew - dualism and free will do not save genuine freedom; they deny its conditions of possibility.",
+              "label": "claim"
+            },
+            "ADU10": {
+              "text": "One cannot have genuine freedom, argued Spinoza, without understanding the causal conditions of our existence as material beings.",
+              "label": "claim"
+            },
+            "ADU11": {
+              "text": "To improve our lives and the lives of our neighbors, we need to understand ourselves as part of Nature, as part of the causal structure of the universe.",
+              "label": "claim"
+            },
+            "ADU12": {
+              "text": "Although he focuses his attention on the 18th century, Israel recognizes the foundations of the Radical Enlightenment in the 17th century.",
+              "label": "claim"
+            },
+            "ADU13": {
+              "text": "He identifies the political and moral kernel of the Radical Enlightenment in Spinoza's metaphysics and political writings.",
+              "label": "claim"
+            },
+            "ADU14": {
+              "text": "According to Spinoza and his Radical Enlightenment followers, democracy is the freest and most absolute state and therefore the best form of state.",
+              "label": "claim"
+            },
+            "ADU15": {
+              "text": "However, we cannot count on human nature or Providence alone to achieve this political freedom.",
+              "label": "claim"
+            },
+            "ADU16": {
+              "text": "Action is required in order to achieve enlightenment.",
+              "label": "claim"
+            },
+            "ADU17": {
+              "text": "Beloved Enlightenment figures, such as Kant, Rousseau and Locke, are lambasted and replaced with new heroes: d'Holbach, Schimmelpenninck, Price and Helvétius.",
+              "label": "claim"
+            },
+            "ADU18": {
+              "text": "Although Kant, Rousseau and Locke are often forgiven their peccadilloes on race, imperialism and gender, their views on rights, freedom, the scope of reason and Enlightenment are taken as 'radical for their time'; however, Israel exposes their views as comparatively conservative, and moderate given the radical ideas on offer.",
+              "label": "claim"
+            },
+            "ADU19": {
+              "text": "Israel occasionally errs on the side of grand pronouncement over specific argumentation.",
+              "label": "claim"
+            },
+            "ADU20": {
+              "text": "For example, his major thesis, that there are two Enlightenments: Radical and Moderate, is well supported.",
+              "label": "claim"
+            },
+            "ADU21": {
+              "text": "Israel shows us a variety of ways in which the elements of the two Enlightenments can be differentiated.",
+              "label": "claim"
+            },
+            "ADU22": {
+              "text": "However, his further claim that these two are incompatible philosophically is a claim that merits more detailed argumentation.",
+              "label": "claim"
+            },
+            "ADU23": {
+              "text": "That is, to say two philosophical views are different is one thing; to say that they are incompatible because of those differences, is quite another.",
+              "label": "claim"
+            },
+            "ADU24": {
+              "text": "Israel's arguments for difference succeed, but he does not meet the burden of proof for incompatibility.",
+              "label": "claim"
+            },
+            "ADU25": {
+              "text": "Methodologically, Israel practices what he calls the 'controversialist method in the history of ideas.'",
+              "label": "claim"
+            },
+            "ADU26": {
+              "text": "This method is characterized by interpreting the ideas of individual philosophers in the context of the debates of their own time, by which they are influenced and to which their work contributes.",
+              "label": "claim"
+            },
+            "ADU27": {
+              "text": "Israel shows us that by failing to understand the context and controversies in the history of ideas, we fail to understand the contextual nature of philosophy itself.",
+              "label": "claim"
+            },
+            "ADU28": {
+              "text": "In doing so, we deliberately misinterpret philosophers the past and ignore the contextual nature of our own work.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU1",
+              "target": "ADU4",
+              "type": "support"
+            },
+            {
+              "source": "ADU4",
+              "target": "ADU5",
+              "type": "support"
+            },
+            {
+              "source": "ADU9",
+              "target": "ADU10",
+              "type": "support"
+            },
+            {
+              "source": "ADU10",
+              "target": "ADU11",
+              "type": "support"
+            },
+            {
+              "source": "ADU12",
+              "target": "ADU13",
+              "type": "support"
+            },
+            {
+              "source": "ADU13",
+              "target": "ADU14",
+              "type": "support"
+            },
+            {
+              "source": "ADU14",
+              "target": "ADU15",
+              "type": "support"
+            },
+            {
+              "source": "ADU15",
+              "target": "ADU16",
+              "type": "support"
+            },
+            {
+              "source": "ADU20",
+              "target": "ADU21",
+              "type": "support"
+            },
+            {
+              "source": "ADU22",
+              "target": "ADU23",
+              "type": "support"
+            },
+            {
+              "source": "ADU23",
+              "target": "ADU24",
+              "type": "support"
+            },
+            {
+              "source": "ADU25",
+              "target": "ADU26",
+              "type": "support"
+            },
+            {
+              "source": "ADU26",
+              "target": "ADU27",
+              "type": "support"
+            },
+            {
+              "source": "ADU27",
+              "target": "ADU28",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "ADU1": {
+              "text": "The Radical Enlightenment, Israel argues, was characterized philosophically by materialism, monism and determinism; religiously by secularism and universalism and politically by its commitment to democracy and revolutionary reform of political institutions.",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "The Moderate Enlightenment, on the other hand, was characterized by its commitment to dualism, deism, constitutional monarchism, and a morality based on sentiment and tradition rather than the Radical insistence on reason.",
+              "label": "claim"
+            },
+            "ADU3": {
+              "text": "According to Israel, figures in the Moderate Enlightenment eschewed revolution and instead believed progress to be based on Providence.",
+              "label": "claim"
+            },
+            "ADU4": {
+              "text": "Israel argues that the revolutionary events of the 18th Century were preceded by revolutionary ideas of 'la nouvelle philosophie', which he identifies with the Radical Enlightenment.",
+              "label": "claim"
+            },
+            "ADU5": {
+              "text": "In particular, revolutionary events in America, France and the Netherlands were preceded, Israel argues, by the ideas of equality, democracy, and reason as the basis of a universal morality, proposed by the most radical of the Enlightenment thinkers.",
+              "label": "claim"
+            },
+            "ADU6": {
+              "text": "Jonathan Israel is an academic on a mission.",
+              "label": "claim"
+            },
+            "ADU7": {
+              "text": "His aim is to reconceive the Enlightenment as a pan-European, transatlantic phenomenon with two distinct, incompatible strains: a Radical Enlightenment and a Moderate Enlightenment.",
+              "label": "claim"
+            },
+            "ADU8": {
+              "text": "Israel gives us not only an interesting new take on the historiography of the Enlightenment, but also does important philosophical work.",
+              "label": "claim"
+            },
+            "ADU9": {
+              "text": "He reveals what radicals in the 17th century knew - dualism and free will do not save genuine freedom; they deny its conditions of possibility.",
+              "label": "claim"
+            },
+            "ADU10": {
+              "text": "One cannot have genuine freedom, argued Spinoza, without understanding the causal conditions of our existence as material beings.",
+              "label": "claim"
+            },
+            "ADU11": {
+              "text": "To improve our lives and the lives of our neighbors, we need to understand ourselves as part of Nature, as part of the causal structure of the universe.",
+              "label": "claim"
+            },
+            "ADU12": {
+              "text": "Although he focuses his attention on the 18th century, Israel recognizes the foundations of the Radical Enlightenment in the 17th century.",
+              "label": "claim"
+            },
+            "ADU13": {
+              "text": "He identifies the political and moral kernel of the Radical Enlightenment in Spinoza's metaphysics and political writings.",
+              "label": "claim"
+            },
+            "ADU14": {
+              "text": "According to Spinoza and his Radical Enlightenment followers, democracy is the freest and most absolute state and therefore the best form of state.",
+              "label": "claim"
+            },
+            "ADU15": {
+              "text": "However, we cannot count on human nature or Providence alone to achieve this political freedom.",
+              "label": "claim"
+            },
+            "ADU16": {
+              "text": "Action is required in order to achieve enlightenment.",
+              "label": "claim"
+            },
+            "ADU17": {
+              "text": "Beloved Enlightenment figures, such as Kant, Rousseau and Locke, are lambasted and replaced with new heroes: d'Holbach, Schimmelpenninck, Price and Helvétius.",
+              "label": "claim"
+            },
+            "ADU18": {
+              "text": "Although Kant, Rousseau and Locke are often forgiven their peccadilloes on race, imperialism and gender, their views on rights, freedom, the scope of reason and Enlightenment are taken as 'radical for their time'; however, Israel exposes their views as comparatively conservative, and moderate given the radical ideas on offer.",
+              "label": "claim"
+            },
+            "ADU19": {
+              "text": "Israel occasionally errs on the side of grand pronouncement over specific argumentation.",
+              "label": "claim"
+            },
+            "ADU20": {
+              "text": "For example, his major thesis, that there are two Enlightenments: Radical and Moderate, is well supported.",
+              "label": "claim"
+            },
+            "ADU21": {
+              "text": "Israel shows us a variety of ways in which the elements of the two Enlightenments can be differentiated.",
+              "label": "claim"
+            },
+            "ADU22": {
+              "text": "However, his further claim that these two are incompatible philosophically is a claim that merits more detailed argumentation.",
+              "label": "claim"
+            },
+            "ADU23": {
+              "text": "That is, to say two philosophical views are different is one thing; to say that they are incompatible because of those differences, is quite another.",
+              "label": "claim"
+            },
+            "ADU24": {
+              "text": "Israel's arguments for difference succeed, but he does not meet the burden of proof for incompatibility.",
+              "label": "claim"
+            },
+            "ADU25": {
+              "text": "Methodologically, Israel practices what he calls the 'controversialist method in the history of ideas.'",
+              "label": "claim"
+            },
+            "ADU26": {
+              "text": "This method is characterized by interpreting the ideas of individual philosophers in the context of the debates of their own time, by which they are influenced and to which their work contributes.",
+              "label": "claim"
+            },
+            "ADU27": {
+              "text": "Israel shows us that by failing to understand the context and controversies in the history of ideas, we fail to understand the contextual nature of philosophy itself.",
+              "label": "claim"
+            },
+            "ADU28": {
+              "text": "In doing so, we deliberately misinterpret philosophers the past and ignore the contextual nature of our own work.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU1",
+              "target": "ADU4",
+              "type": "support"
+            },
+            {
+              "source": "ADU4",
+              "target": "ADU5",
+              "type": "support"
+            },
+            {
+              "source": "ADU9",
+              "target": "ADU10",
+              "type": "support"
+            },
+            {
+              "source": "ADU10",
+              "target": "ADU11",
+              "type": "support"
+            },
+            {
+              "source": "ADU12",
+              "target": "ADU13",
+              "type": "support"
+            },
+            {
+              "source": "ADU13",
+              "target": "ADU14",
+              "type": "support"
+            },
+            {
+              "source": "ADU14",
+              "target": "ADU15",
+              "type": "support"
+            },
+            {
+              "source": "ADU15",
+              "target": "ADU16",
+              "type": "support"
+            },
+            {
+              "source": "ADU20",
+              "target": "ADU21",
+              "type": "support"
+            },
+            {
+              "source": "ADU22",
+              "target": "ADU23",
+              "type": "support"
+            },
+            {
+              "source": "ADU23",
+              "target": "ADU24",
+              "type": "support"
+            },
+            {
+              "source": "ADU25",
+              "target": "ADU26",
+              "type": "support"
+            },
+            {
+              "source": "ADU26",
+              "target": "ADU27",
+              "type": "support"
+            },
+            {
+              "source": "ADU27",
+              "target": "ADU28",
+              "type": "support"
+            }
+          ]
+        }
+      },
+      {
+        "source": "claude-3-5-sonnet-20241022",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"A1\": {\n      \"text\": \"The Radical Enlightenment, Israel argues, was characterized philosophically by materialism, monism and determinism; religiously by secularism and universalism and politically by its commitment to democracy and revolutionary reform of political institutions.\",\n      \"label\": \"claim\"\n    },\n    \"A2\": {\n      \"text\": \"The Moderate Enlightenment, on the other hand, was characterized by its commitment to dualism, deism, constitutional monarchism, and a morality based on sentiment and tradition rather than the Radical insistence on reason.\",\n      \"label\": \"claim\"\n    },\n    \"A3\": {\n      \"text\": \"Israel argues that the revolutionary events of the 18th Century were preceded by revolutionary ideas of 'la nouvelle philosophie', which he identifies with the Radical Enlightenment.\",\n      \"label\": \"claim\"\n    },\n    \"A4\": {\n      \"text\": \"One cannot have genuine freedom, argued Spinoza, without understanding the causal conditions of our existence as material beings.\",\n      \"label\": \"claim\"\n    },\n    \"A5\": {\n      \"text\": \"According to Spinoza and his Radical Enlightenment followers, democracy is the freest and most absolute state and therefore the best form of state.\",\n      \"label\": \"claim\"\n    },\n    \"A6\": {\n      \"text\": \"However, we cannot count on human nature or Providence alone to achieve this political freedom. Action is required in order to achieve enlightenment.\",\n      \"label\": \"claim\"\n    },\n    \"A7\": {\n      \"text\": \"Israel shows us that by failing to understand the context and controversies in the history of ideas, we fail to understand the contextual nature of philosophy itself.\",\n      \"label\": \"claim\"\n    },\n    \"A8\": {\n      \"text\": \"his major thesis, that there are two Enlightenments: Radical and Moderate, is well supported.\",\n      \"label\": \"premise\"\n    },\n    \"A9\": {\n      \"text\": \"his further claim that these two are incompatible philosophically is a claim that merits more detailed argumentation.\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"A1\",\n      \"target\": \"A3\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A2\",\n      \"target\": \"A3\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A4\",\n      \"target\": \"A5\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A6\",\n      \"target\": \"A5\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A8\",\n      \"target\": \"A9\",\n      \"type\": \"attack\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "A1": {
+              "text": "The Radical Enlightenment, Israel argues, was characterized philosophically by materialism, monism and determinism; religiously by secularism and universalism and politically by its commitment to democracy and revolutionary reform of political institutions.",
+              "label": "claim"
+            },
+            "A2": {
+              "text": "The Moderate Enlightenment, on the other hand, was characterized by its commitment to dualism, deism, constitutional monarchism, and a morality based on sentiment and tradition rather than the Radical insistence on reason.",
+              "label": "claim"
+            },
+            "A3": {
+              "text": "Israel argues that the revolutionary events of the 18th Century were preceded by revolutionary ideas of 'la nouvelle philosophie', which he identifies with the Radical Enlightenment.",
+              "label": "claim"
+            },
+            "A4": {
+              "text": "One cannot have genuine freedom, argued Spinoza, without understanding the causal conditions of our existence as material beings.",
+              "label": "claim"
+            },
+            "A5": {
+              "text": "According to Spinoza and his Radical Enlightenment followers, democracy is the freest and most absolute state and therefore the best form of state.",
+              "label": "claim"
+            },
+            "A6": {
+              "text": "However, we cannot count on human nature or Providence alone to achieve this political freedom. Action is required in order to achieve enlightenment.",
+              "label": "claim"
+            },
+            "A7": {
+              "text": "Israel shows us that by failing to understand the context and controversies in the history of ideas, we fail to understand the contextual nature of philosophy itself.",
+              "label": "claim"
+            },
+            "A8": {
+              "text": "his major thesis, that there are two Enlightenments: Radical and Moderate, is well supported.",
+              "label": "premise"
+            },
+            "A9": {
+              "text": "his further claim that these two are incompatible philosophically is a claim that merits more detailed argumentation.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "A1",
+              "target": "A3",
+              "type": "support"
+            },
+            {
+              "source": "A2",
+              "target": "A3",
+              "type": "support"
+            },
+            {
+              "source": "A4",
+              "target": "A5",
+              "type": "support"
+            },
+            {
+              "source": "A6",
+              "target": "A5",
+              "type": "support"
+            },
+            {
+              "source": "A8",
+              "target": "A9",
+              "type": "attack"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "A1": {
+              "text": "The Radical Enlightenment, Israel argues, was characterized philosophically by materialism, monism and determinism; religiously by secularism and universalism and politically by its commitment to democracy and revolutionary reform of political institutions.",
+              "label": "claim"
+            },
+            "A2": {
+              "text": "The Moderate Enlightenment, on the other hand, was characterized by its commitment to dualism, deism, constitutional monarchism, and a morality based on sentiment and tradition rather than the Radical insistence on reason.",
+              "label": "claim"
+            },
+            "A3": {
+              "text": "Israel argues that the revolutionary events of the 18th Century were preceded by revolutionary ideas of 'la nouvelle philosophie', which he identifies with the Radical Enlightenment.",
+              "label": "claim"
+            },
+            "A4": {
+              "text": "One cannot have genuine freedom, argued Spinoza, without understanding the causal conditions of our existence as material beings.",
+              "label": "claim"
+            },
+            "A5": {
+              "text": "According to Spinoza and his Radical Enlightenment followers, democracy is the freest and most absolute state and therefore the best form of state.",
+              "label": "claim"
+            },
+            "A6": {
+              "text": "However, we cannot count on human nature or Providence alone to achieve this political freedom. Action is required in order to achieve enlightenment.",
+              "label": "claim"
+            },
+            "A7": {
+              "text": "Israel shows us that by failing to understand the context and controversies in the history of ideas, we fail to understand the contextual nature of philosophy itself.",
+              "label": "claim"
+            },
+            "A8": {
+              "text": "his major thesis, that there are two Enlightenments: Radical and Moderate, is well supported.",
+              "label": "premise"
+            },
+            "A9": {
+              "text": "his further claim that these two are incompatible philosophically is a claim that merits more detailed argumentation.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "A1",
+              "target": "A3",
+              "type": "support"
+            },
+            {
+              "source": "A2",
+              "target": "A3",
+              "type": "support"
+            },
+            {
+              "source": "A4",
+              "target": "A5",
+              "type": "support"
+            },
+            {
+              "source": "A6",
+              "target": "A5",
+              "type": "support"
+            },
+            {
+              "source": "A8",
+              "target": "A9",
+              "type": "attack"
+            }
+          ]
+        }
+      }
+    ],
+    "timestamp": 1752755080.1530998
+  }
+]

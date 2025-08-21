@@ -1,0 +1,340 @@
+[
+  {
+    "identifier": "SOMPIO",
+    "system_prompt": "## GOAL\nArgument‑mine the following paper to extract its comprehensive argumentative structure.\n\n## DEFINITIONS\n1. **Argument**: A set of propositions, including some number of premises and a conclusion. The premises should logically entail the conclusion.\n2. **Claim**: A proposition that asserts something to be true or false, typically requiring justification or evidence.\n3. **Premise**: A proposition that provides evidence, justification, or logical support for a claim or conclusion.\n\n## CRITICAL REQUIREMENTS\n1. **VERBATIM EXTRACTION ONLY**: Each ADU text must be copied EXACTLY from the paper with no modifications, paraphrasing, or combining of separate sentences.\n2. **NO HALLUCINATION**: Do not create, modify, or invent text that does not appear exactly in the source.\n3. **EXACT MATCHING**: Every word, punctuation mark, and spacing must match the original precisely.\n\n## DIRECTIONS\n1. **Identify Argumentative Discourse Units (ADUs)**  \n   - ADU = any contiguous text span functioning as a claim or a premise in the reasoning structure.\n   - **BE HIGHLY SELECTIVE**: Only include ADUs that are crucial to the overarching argument structure.\n   - Focus on significant claims and premises that contribute meaningfully to the argumentative flow.\n   - **AVOID NOISE**: Skip ADUs that are merely descriptive, tangential, or do not substantially advance the argument.\n   - Prioritize quality over quantity - fewer accurate, important ADUs are better than many insignificant ones.\n   - **EXTRACT ONLY**: Copy text spans exactly as they appear, without any modifications.\n2. **Classify each ADU**  \n   - Label = either `\"claim\"` or `\"premise\"`.  \n3. **Detect directed relations**  \n   - Relation = `\"support\"` or `\"attack\"`, from one ADU (source) to another (target).\n   - Map how ADUs connect to form reasoning chains.\n   - Focus on relationships between the most significant ADUs.\n   - Include relationships between premises that strengthen or weaken each other.\n4. **Verbatim spans**  \n   - Each `\"text\"` value must be copied EXACTLY from the paper with zero modifications.\n   - Do not paraphrase, summarize, or combine separate sentences.\n   - Do not add, remove, or change any words, punctuation, or spacing.\n   - If unsure about exact wording, skip that ADU rather than guess.\n\n## WHAT TO CAPTURE\n**INCLUDE ONLY:**\n- Main argumentative threads that are central to the paper's contribution\n- Core claims that represent the paper's primary arguments or findings\n- Key premises that provide essential support for major claims\n- Critical counterarguments and their refutations\n- Reasoning chains that demonstrate how main conclusions are derived\n\n**EXCLUDE (AVOID NOISE):**\n- Minor details, examples, or descriptive content that don't advance the argument\n- Tangential points or side discussions\n- Pure background information or literature review content\n- Methodological details unless they constitute argumentative claims\n- Obvious statements or commonly accepted facts\n- Redundant or repetitive argumentative content\n\n**GUIDING PRINCIPLE**: If removing an ADU would not significantly impact understanding of the paper's argumentative structure, it should be excluded.\n\n## QUALITY CONTROL\n- Before finalizing each ADU, verify the text exists exactly in the source\n- Prefer fewer, accurate ADUs over many potentially modified ones\n- When in doubt about exact wording, omit the ADU\n\n## OUTPUT FORMAT\nReturn **only** a single valid JSON object matching this schema.  \nDo **not** output any extra text, markdown, or explanations.\nDo **not** add comments.\n**RESPOND WITH ONLY**:\n```json\n{\n  \"ADUs\": {\n    \"<ADU_ID>\": {\n      \"text\": \"<exact span from paper>\",\n      \"label\": \"claim\" | \"premise\"\n    }\n    ...\n  },\n  \"relations\": [\n    {\n      \"source\": \"<ADU_ID>\",\n      \"target\": \"<ADU_ID>\",\n      \"type\": \"support\" | \"attack\"\n    }\n  ]\n}\n```",
+    "user_content": "# The Connected Universe:\n\n## Philosophical Implications of Cross-Universal Quantum-Classical Bridges\n\nRobert William Somazze\n\nIndependent Researcher\n\nIn collaboration with Advanced AI\n\nDecember 2024\n\n---\n\n**Table of Contents**\n\nQuotations\n\nAbstract\n\nPreface: The Journey to Understanding\n\n1. The Simplicity of Cosmic Unity\n\n1.1. From Complexity to Clarity\n\n1.2. The Elegance of Connection\n\n2. Discovering Universal Bridges\n\n2.1. The Path to Understanding\n\n2.2. Consciousness as Gateway\n\n3. The Simplicity Beyond Complexity\n\n3.1. Universal Patterns\n\n3.2. The Role of Observation\n\n4. Ethical Clarity in Cosmic Context\n\n4.1. Simple Truths, Profound Implications\n\n4.2. The Clarity of Connection\n\n5. The Future of Discovery\n\n5.1. Pathways to Understanding\n\n5.2. Beyond Current Understanding\n\n6. Concluding Reflection\n\nAbout the Author\n\nCitation Information\n\nNote on AI Collaboration\n\n\"All truths are easy to understand once they are discovered; the point is to discover them.\"\n\n- Galileo Galilei\n\n\"Knowledge is the playground for imagination just as imagination is the classroom for knowledge.\"\n\n- Robert William Somazze\n\n—\n\n**Abstract**\n\nThis paper illuminates the journey of discovery in understanding universal interconnectedness, examining how seemingly complex relationships between quantum and cosmic phenomena become elegantly simple once properly understood. Following Galileo's insight that truth, once discovered, reveals its inherent simplicity, we explore how the connection between universes via quantum-classical bridges might represent such a fundamental truth—one that, once grasped, transforms our understanding of consciousness, reality, and human existence. This work charts both the path of discovery and the resulting clarity it brings to our comprehension of cosmic relationships.\n\n---\n\n**Preface: The Journey to Understanding**\n\nGalileo's observation that \"All truths are easy to understand once they are discovered; the point is to discover them\" forms both the foundation and framework for this exploration. Like Galileo's revolutionary insights about planetary motion, the concept of universal interconnectedness appears complex only until we discover its underlying simplicity. Our journey began with a question that, in retrospect, points to an elegant truth: What if the apparent complexity of our universe masks a simpler reality of cosmic connection?\n\nThe recent James Webb Space Telescope observations of early universal structures don't just challenge our existing models—they suggest that we're approaching a simpler, more unified understanding of cosmic reality. Just as Galileo's observations of Jupiter's moons revealed the elegant truth of celestial motion, these discoveries might be leading us toward a more fundamental understanding of universal connection. In this revelation lies a profound truth: the path to understanding often moves from apparent complexity toward fundamental simplicity.\n\n## 1. The Simplicity of Cosmic Unity\n\n### 1.1 From Complexity to Clarity\n\nThe journey from apparent complexity to underlying simplicity mirrors the scientific process itself. While the mathematics of quantum mechanics and cosmic structure might seem daunting, the fundamental truth they reveal—the interconnectedness of all things—is profound in its simplicity. Like Galileo's insights about falling bodies, once we grasp the basic principle, its applications become clear across scales.\n\n### 1.2 The Elegance of Connection\n\nWhat appears as separate phenomena—quantum entanglement, cosmic structure, consciousness—might be different expressions of a single, elegant truth. Just as Galileo showed that terrestrial and celestial physics follow the same rules, our model suggests that quantum and cosmic phenomena reflect the same underlying reality.\n\n## 2. Discovering Universal Bridges\n\n### 2.1 The Path to Understanding\n\nThe discovery process itself reflects the principle of emerging simplicity. What begins as a complex web of observations and hypotheses gradually resolves into clear, fundamental principles. Like Galileo's realization that all objects fall at the same rate regardless of their mass, our understanding of universal interconnectedness emerges from the complexity of quantum mechanics and cosmic structure as a surprisingly simple truth: everything is fundamentally connected.\n\nThe quantum-classical bridge model emerged not from complexity but from recognizing patterns that point to underlying unity. These patterns, once discovered, reveal themselves as self-evident expressions of cosmic harmony, much as Galileo's laws of motion unveiled the simple mathematics underlying complex celestial movements.\n\n### 2.2 Consciousness as Gateway\n\nPerhaps the most profound discovery is how consciousness itself might serve as a bridge between scales of reality. Once we understand consciousness not as an emergent property but as a fundamental aspect of universal connection, many apparent paradoxes resolve themselves. This resolution mirrors Galileo's principle perfectly—the seemingly complex relationship between observer and observed becomes elegantly simple when we recognize consciousness as an integral part of the universal fabric.\n\nThe quantum measurement paradox, long a source of philosophical and scientific debate, takes on new clarity through this lens. Consciousness, rather than being an awkward addition to quantum theory, emerges as the simple truth underlying measurement itself—the natural bridge between quantum potentiality and classical reality.\n\n## 3. The Simplicity Beyond Complexity\n\n### 3.1 Universal Patterns\n\nJust as Galileo discovered that all objects fall at the same rate regardless of their mass—a simple truth with profound implications—we find that information preservation across cosmic bridges follows surprisingly simple patterns. The complexity lies not in the truth itself but in our journey to discovering it.\n\n### 3.2 The Role of Observation\n\nThe act of observation, central to both quantum mechanics and consciousness studies, might represent another simple truth obscured by apparent complexity. Once we understand the observer as an integral part of the universal system, rather than separate from it, many paradoxes dissolve.\n\nJust as Galileo's discoveries revealed the underlying unity of terrestrial and celestial mechanics, our understanding of universal interconnectedness reveals the fundamental unity of physical law and ethical principle. The transition from physical to ethical truth follows the same pattern of complexity resolving into simplicity—a pattern that becomes evident once we grasp the fundamental nature of cosmic connection.\n\n## 4. Ethical Clarity in Cosmic Context\n\n### 4.1 Simple Truths, Profound Implications\n\nUnderstanding our place in an interconnected universe leads to surprisingly straightforward ethical implications. If everything is connected, then responsibility for our actions follows naturally. The complexity lies not in the principle but in its application. This mirrors the way physical laws, once understood, reveal their inherent simplicity while their applications may remain challengingly complex.\n\nThe relationship between ethical and physical simplicity becomes clear: just as physical laws represent fundamental truths about the universe's operation, ethical principles emerge as fundamental truths about conscious interaction within this interconnected cosmos. The complexity we perceive in ethical decisions, like the complexity early astronomers saw in planetary motion, dissolves into simpler principles once we understand the underlying reality of universal connection.\n\n### 4.2 The Clarity of Connection\n\nThe clarity that emerges from understanding universal connection mirrors Galileo's experience with the laws of motion. Just as the seemingly complex movements of the planets resolved into simple mathematical relationships, the apparent complexity of cosmic ethics resolves into straightforward principles once we grasp the fundamental nature of universal interconnection.\n\n## 5. The Future of Discovery\n\n### 5.1 Pathways to Understanding\n\nAs we continue to explore these connections, we must remember that the most profound truths often appear obvious in retrospect. Our task is not to complicate but to discover and reveal the simple principles that govern cosmic reality.\n\n### 5.2 Beyond Current Understanding\n\nAs we look toward future discoveries, we must remember Galileo's insight about the simplicity of truth. Just as his work opened new horizons for exploration, our model suggests new directions for investigation. The challenge lies not in comprehending these truths once discovered, but in developing the tools and perspective to discover them. Each new discovery, while potentially complex in its details, should ultimately reveal another aspect of the universe's fundamental simplicity.\n\n## 6. Concluding Reflection\n\nThe journey from complexity to simplicity in understanding universal interconnectedness mirrors the broader scientific process. Like Galileo's discoveries about motion and gravity, the truth of cosmic connection might seem obvious once grasped—the challenge lies in the discovery itself. This pattern of discovery leading to clarity repeats across scales, from quantum phenomena to cosmic structure, from physical law to ethical principle.\n\nPerhaps the most elegant aspect of this model is how it unifies seemingly disparate phenomena under a single principle of connection. Just as Galileo unified terrestrial and celestial physics, we seek to unite quantum and cosmic phenomena, consciousness and matter, observer and observed. This unification represents not just a scientific advancement but a philosophical breakthrough—a recognition that the simplicity we discover in physical law extends to all aspects of cosmic existence.\n\nStanding on our cosmic shore, we find that the greatest truths often reflect the greatest simplicity. The interconnected nature of reality, once grasped, provides a clear lens through which to view all phenomena—from the quantum to the cosmic, from the physical to the conscious. This lens reveals not just the structure of our universe but our place within it, suggesting that consciousness itself might be the simplest truth of all—the fundamental bridge between all aspects of cosmic reality.\n\nAs Galileo noted, truth, once discovered, reveals its own simplicity. Our task is not to complicate but to discover, not to obscure but to reveal. In this light, universal interconnectedness emerges not as a complex theory but as a fundamental truth waiting to be fully understood—a truth that, once grasped, illuminates every aspect of existence with its elegant simplicity.\n\n---\n\n**About the Author**\n\nRobert William Somazze is an independent researcher dedicated to discovering and revealing the fundamental simplicity underlying apparent cosmic complexity.\n\n---\n\n**Citation Information**\n\nSomazze, R. W. (2024). The Connected Universe: Philosophical Implications of Cross-Universal Quantum-Classical Bridges. Independent Publication.\n\n---\n\n**Note on AI Collaboration**: This work demonstrates how the collaboration between human insight and artificial intelligence can illuminate the path from complexity to simple truth.",
+    "responses": [
+      {
+        "source": "gpt-4o-2024-11-20",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"ADU1\": {\n      \"text\": \"What if the apparent complexity of our universe masks a simpler reality of cosmic connection?\",\n      \"label\": \"claim\"\n    },\n    \"ADU2\": {\n      \"text\": \"The recent James Webb Space Telescope observations of early universal structures don't just challenge our existing models—they suggest that we're approaching a simpler, more unified understanding of cosmic reality.\",\n      \"label\": \"premise\"\n    },\n    \"ADU3\": {\n      \"text\": \"The journey from apparent complexity to underlying simplicity mirrors the scientific process itself.\",\n      \"label\": \"claim\"\n    },\n    \"ADU4\": {\n      \"text\": \"What appears as separate phenomena—quantum entanglement, cosmic structure, consciousness—might be different expressions of a single, elegant truth.\",\n      \"label\": \"claim\"\n    },\n    \"ADU5\": {\n      \"text\": \"The quantum-classical bridge model emerged not from complexity but from recognizing patterns that point to underlying unity.\",\n      \"label\": \"premise\"\n    },\n    \"ADU6\": {\n      \"text\": \"Consciousness, rather than being an awkward addition to quantum theory, emerges as the simple truth underlying measurement itself—the natural bridge between quantum potentiality and classical reality.\",\n      \"label\": \"claim\"\n    },\n    \"ADU7\": {\n      \"text\": \"The act of observation, central to both quantum mechanics and consciousness studies, might represent another simple truth obscured by apparent complexity.\",\n      \"label\": \"claim\"\n    },\n    \"ADU8\": {\n      \"text\": \"Understanding our place in an interconnected universe leads to surprisingly straightforward ethical implications.\",\n      \"label\": \"claim\"\n    },\n    \"ADU9\": {\n      \"text\": \"If everything is connected, then responsibility for our actions follows naturally.\",\n      \"label\": \"premise\"\n    },\n    \"ADU10\": {\n      \"text\": \"The clarity that emerges from understanding universal connection mirrors Galileo's experience with the laws of motion.\",\n      \"label\": \"premise\"\n    },\n    \"ADU11\": {\n      \"text\": \"As we continue to explore these connections, we must remember that the most profound truths often appear obvious in retrospect.\",\n      \"label\": \"claim\"\n    },\n    \"ADU12\": {\n      \"text\": \"The interconnected nature of reality, once grasped, provides a clear lens through which to view all phenomena—from the quantum to the cosmic, from the physical to the conscious.\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"ADU1\",\n      \"target\": \"ADU2\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU3\",\n      \"target\": \"ADU4\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU5\",\n      \"target\": \"ADU4\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU6\",\n      \"target\": \"ADU7\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU8\",\n      \"target\": \"ADU9\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU8\",\n      \"target\": \"ADU10\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU11\",\n      \"target\": \"ADU12\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "ADU1": {
+              "text": "What if the apparent complexity of our universe masks a simpler reality of cosmic connection?",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "The recent James Webb Space Telescope observations of early universal structures don't just challenge our existing models—they suggest that we're approaching a simpler, more unified understanding of cosmic reality.",
+              "label": "premise"
+            },
+            "ADU3": {
+              "text": "The journey from apparent complexity to underlying simplicity mirrors the scientific process itself.",
+              "label": "claim"
+            },
+            "ADU4": {
+              "text": "What appears as separate phenomena—quantum entanglement, cosmic structure, consciousness—might be different expressions of a single, elegant truth.",
+              "label": "claim"
+            },
+            "ADU5": {
+              "text": "The quantum-classical bridge model emerged not from complexity but from recognizing patterns that point to underlying unity.",
+              "label": "premise"
+            },
+            "ADU6": {
+              "text": "Consciousness, rather than being an awkward addition to quantum theory, emerges as the simple truth underlying measurement itself—the natural bridge between quantum potentiality and classical reality.",
+              "label": "claim"
+            },
+            "ADU7": {
+              "text": "The act of observation, central to both quantum mechanics and consciousness studies, might represent another simple truth obscured by apparent complexity.",
+              "label": "claim"
+            },
+            "ADU8": {
+              "text": "Understanding our place in an interconnected universe leads to surprisingly straightforward ethical implications.",
+              "label": "claim"
+            },
+            "ADU9": {
+              "text": "If everything is connected, then responsibility for our actions follows naturally.",
+              "label": "premise"
+            },
+            "ADU10": {
+              "text": "The clarity that emerges from understanding universal connection mirrors Galileo's experience with the laws of motion.",
+              "label": "premise"
+            },
+            "ADU11": {
+              "text": "As we continue to explore these connections, we must remember that the most profound truths often appear obvious in retrospect.",
+              "label": "claim"
+            },
+            "ADU12": {
+              "text": "The interconnected nature of reality, once grasped, provides a clear lens through which to view all phenomena—from the quantum to the cosmic, from the physical to the conscious.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU1",
+              "target": "ADU2",
+              "type": "support"
+            },
+            {
+              "source": "ADU3",
+              "target": "ADU4",
+              "type": "support"
+            },
+            {
+              "source": "ADU5",
+              "target": "ADU4",
+              "type": "support"
+            },
+            {
+              "source": "ADU6",
+              "target": "ADU7",
+              "type": "support"
+            },
+            {
+              "source": "ADU8",
+              "target": "ADU9",
+              "type": "support"
+            },
+            {
+              "source": "ADU8",
+              "target": "ADU10",
+              "type": "support"
+            },
+            {
+              "source": "ADU11",
+              "target": "ADU12",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "ADU1": {
+              "text": "What if the apparent complexity of our universe masks a simpler reality of cosmic connection?",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "The recent James Webb Space Telescope observations of early universal structures don't just challenge our existing models—they suggest that we're approaching a simpler, more unified understanding of cosmic reality.",
+              "label": "premise"
+            },
+            "ADU3": {
+              "text": "The journey from apparent complexity to underlying simplicity mirrors the scientific process itself.",
+              "label": "claim"
+            },
+            "ADU4": {
+              "text": "What appears as separate phenomena—quantum entanglement, cosmic structure, consciousness—might be different expressions of a single, elegant truth.",
+              "label": "claim"
+            },
+            "ADU5": {
+              "text": "The quantum-classical bridge model emerged not from complexity but from recognizing patterns that point to underlying unity.",
+              "label": "premise"
+            },
+            "ADU6": {
+              "text": "Consciousness, rather than being an awkward addition to quantum theory, emerges as the simple truth underlying measurement itself—the natural bridge between quantum potentiality and classical reality.",
+              "label": "claim"
+            },
+            "ADU7": {
+              "text": "The act of observation, central to both quantum mechanics and consciousness studies, might represent another simple truth obscured by apparent complexity.",
+              "label": "claim"
+            },
+            "ADU8": {
+              "text": "Understanding our place in an interconnected universe leads to surprisingly straightforward ethical implications.",
+              "label": "claim"
+            },
+            "ADU9": {
+              "text": "If everything is connected, then responsibility for our actions follows naturally.",
+              "label": "premise"
+            },
+            "ADU10": {
+              "text": "The clarity that emerges from understanding universal connection mirrors Galileo's experience with the laws of motion.",
+              "label": "premise"
+            },
+            "ADU11": {
+              "text": "As we continue to explore these connections, we must remember that the most profound truths often appear obvious in retrospect.",
+              "label": "claim"
+            },
+            "ADU12": {
+              "text": "The interconnected nature of reality, once grasped, provides a clear lens through which to view all phenomena—from the quantum to the cosmic, from the physical to the conscious.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU1",
+              "target": "ADU2",
+              "type": "support"
+            },
+            {
+              "source": "ADU3",
+              "target": "ADU4",
+              "type": "support"
+            },
+            {
+              "source": "ADU5",
+              "target": "ADU4",
+              "type": "support"
+            },
+            {
+              "source": "ADU6",
+              "target": "ADU7",
+              "type": "support"
+            },
+            {
+              "source": "ADU8",
+              "target": "ADU9",
+              "type": "support"
+            },
+            {
+              "source": "ADU8",
+              "target": "ADU10",
+              "type": "support"
+            },
+            {
+              "source": "ADU11",
+              "target": "ADU12",
+              "type": "support"
+            }
+          ]
+        }
+      },
+      {
+        "source": "claude-3-5-sonnet-20241022",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"A1\": {\n      \"text\": \"This paper illuminates the journey of discovery in understanding universal interconnectedness, examining how seemingly complex relationships between quantum and cosmic phenomena become elegantly simple once properly understood.\",\n      \"label\": \"claim\"\n    },\n    \"A2\": {\n      \"text\": \"Like Galileo's revolutionary insights about planetary motion, the concept of universal interconnectedness appears complex only until we discover its underlying simplicity.\",\n      \"label\": \"claim\"\n    },\n    \"A3\": {\n      \"text\": \"What appears as separate phenomena—quantum entanglement, cosmic structure, consciousness—might be different expressions of a single, elegant truth.\",\n      \"label\": \"claim\"\n    },\n    \"A4\": {\n      \"text\": \"The quantum-classical bridge model emerged not from complexity but from recognizing patterns that point to underlying unity.\",\n      \"label\": \"claim\"\n    },\n    \"A5\": {\n      \"text\": \"Perhaps the most profound discovery is how consciousness itself might serve as a bridge between scales of reality.\",\n      \"label\": \"claim\"\n    },\n    \"A6\": {\n      \"text\": \"Consciousness, rather than being an awkward addition to quantum theory, emerges as the simple truth underlying measurement itself—the natural bridge between quantum potentiality and classical reality.\",\n      \"label\": \"claim\"\n    },\n    \"A7\": {\n      \"text\": \"If everything is connected, then responsibility for our actions follows naturally.\",\n      \"label\": \"premise\"\n    },\n    \"A8\": {\n      \"text\": \"Understanding our place in an interconnected universe leads to surprisingly straightforward ethical implications.\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"A2\",\n      \"target\": \"A1\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A3\",\n      \"target\": \"A1\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A4\",\n      \"target\": \"A3\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A5\",\n      \"target\": \"A3\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A6\",\n      \"target\": \"A5\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A7\",\n      \"target\": \"A8\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "A1": {
+              "text": "This paper illuminates the journey of discovery in understanding universal interconnectedness, examining how seemingly complex relationships between quantum and cosmic phenomena become elegantly simple once properly understood.",
+              "label": "claim"
+            },
+            "A2": {
+              "text": "Like Galileo's revolutionary insights about planetary motion, the concept of universal interconnectedness appears complex only until we discover its underlying simplicity.",
+              "label": "claim"
+            },
+            "A3": {
+              "text": "What appears as separate phenomena—quantum entanglement, cosmic structure, consciousness—might be different expressions of a single, elegant truth.",
+              "label": "claim"
+            },
+            "A4": {
+              "text": "The quantum-classical bridge model emerged not from complexity but from recognizing patterns that point to underlying unity.",
+              "label": "claim"
+            },
+            "A5": {
+              "text": "Perhaps the most profound discovery is how consciousness itself might serve as a bridge between scales of reality.",
+              "label": "claim"
+            },
+            "A6": {
+              "text": "Consciousness, rather than being an awkward addition to quantum theory, emerges as the simple truth underlying measurement itself—the natural bridge between quantum potentiality and classical reality.",
+              "label": "claim"
+            },
+            "A7": {
+              "text": "If everything is connected, then responsibility for our actions follows naturally.",
+              "label": "premise"
+            },
+            "A8": {
+              "text": "Understanding our place in an interconnected universe leads to surprisingly straightforward ethical implications.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "A2",
+              "target": "A1",
+              "type": "support"
+            },
+            {
+              "source": "A3",
+              "target": "A1",
+              "type": "support"
+            },
+            {
+              "source": "A4",
+              "target": "A3",
+              "type": "support"
+            },
+            {
+              "source": "A5",
+              "target": "A3",
+              "type": "support"
+            },
+            {
+              "source": "A6",
+              "target": "A5",
+              "type": "support"
+            },
+            {
+              "source": "A7",
+              "target": "A8",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "A1": {
+              "text": "This paper illuminates the journey of discovery in understanding universal interconnectedness, examining how seemingly complex relationships between quantum and cosmic phenomena become elegantly simple once properly understood.",
+              "label": "claim"
+            },
+            "A2": {
+              "text": "Like Galileo's revolutionary insights about planetary motion, the concept of universal interconnectedness appears complex only until we discover its underlying simplicity.",
+              "label": "claim"
+            },
+            "A3": {
+              "text": "What appears as separate phenomena—quantum entanglement, cosmic structure, consciousness—might be different expressions of a single, elegant truth.",
+              "label": "claim"
+            },
+            "A4": {
+              "text": "The quantum-classical bridge model emerged not from complexity but from recognizing patterns that point to underlying unity.",
+              "label": "claim"
+            },
+            "A5": {
+              "text": "Perhaps the most profound discovery is how consciousness itself might serve as a bridge between scales of reality.",
+              "label": "claim"
+            },
+            "A6": {
+              "text": "Consciousness, rather than being an awkward addition to quantum theory, emerges as the simple truth underlying measurement itself—the natural bridge between quantum potentiality and classical reality.",
+              "label": "claim"
+            },
+            "A7": {
+              "text": "If everything is connected, then responsibility for our actions follows naturally.",
+              "label": "premise"
+            },
+            "A8": {
+              "text": "Understanding our place in an interconnected universe leads to surprisingly straightforward ethical implications.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "A2",
+              "target": "A1",
+              "type": "support"
+            },
+            {
+              "source": "A3",
+              "target": "A1",
+              "type": "support"
+            },
+            {
+              "source": "A4",
+              "target": "A3",
+              "type": "support"
+            },
+            {
+              "source": "A5",
+              "target": "A3",
+              "type": "support"
+            },
+            {
+              "source": "A6",
+              "target": "A5",
+              "type": "support"
+            },
+            {
+              "source": "A7",
+              "target": "A8",
+              "type": "support"
+            }
+          ]
+        }
+      }
+    ],
+    "timestamp": 1752758512.4304123
+  }
+]

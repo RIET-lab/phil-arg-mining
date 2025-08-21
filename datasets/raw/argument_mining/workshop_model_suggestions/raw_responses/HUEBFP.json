@@ -1,0 +1,415 @@
+[
+  {
+    "identifier": "HUEBFP",
+    "system_prompt": "## GOAL\nArgument‑mine the following paper to extract its comprehensive argumentative structure.\n\n## DEFINITIONS\n1. **Argument**: A set of propositions, including some number of premises and a conclusion. The premises should logically entail the conclusion.\n2. **Claim**: A proposition that asserts something to be true or false, typically requiring justification or evidence.\n3. **Premise**: A proposition that provides evidence, justification, or logical support for a claim or conclusion.\n\n## CRITICAL REQUIREMENTS\n1. **VERBATIM EXTRACTION ONLY**: Each ADU text must be copied EXACTLY from the paper with no modifications, paraphrasing, or combining of separate sentences.\n2. **NO HALLUCINATION**: Do not create, modify, or invent text that does not appear exactly in the source.\n3. **EXACT MATCHING**: Every word, punctuation mark, and spacing must match the original precisely.\n\n## DIRECTIONS\n1. **Identify Argumentative Discourse Units (ADUs)**  \n   - ADU = any contiguous text span functioning as a claim or a premise in the reasoning structure.\n   - **BE HIGHLY SELECTIVE**: Only include ADUs that are crucial to the overarching argument structure.\n   - Focus on significant claims and premises that contribute meaningfully to the argumentative flow.\n   - **AVOID NOISE**: Skip ADUs that are merely descriptive, tangential, or do not substantially advance the argument.\n   - Prioritize quality over quantity - fewer accurate, important ADUs are better than many insignificant ones.\n   - **EXTRACT ONLY**: Copy text spans exactly as they appear, without any modifications.\n2. **Classify each ADU**  \n   - Label = either `\"claim\"` or `\"premise\"`.  \n3. **Detect directed relations**  \n   - Relation = `\"support\"` or `\"attack\"`, from one ADU (source) to another (target).\n   - Map how ADUs connect to form reasoning chains.\n   - Focus on relationships between the most significant ADUs.\n   - Include relationships between premises that strengthen or weaken each other.\n4. **Verbatim spans**  \n   - Each `\"text\"` value must be copied EXACTLY from the paper with zero modifications.\n   - Do not paraphrase, summarize, or combine separate sentences.\n   - Do not add, remove, or change any words, punctuation, or spacing.\n   - If unsure about exact wording, skip that ADU rather than guess.\n\n## WHAT TO CAPTURE\n**INCLUDE ONLY:**\n- Main argumentative threads that are central to the paper's contribution\n- Core claims that represent the paper's primary arguments or findings\n- Key premises that provide essential support for major claims\n- Critical counterarguments and their refutations\n- Reasoning chains that demonstrate how main conclusions are derived\n\n**EXCLUDE (AVOID NOISE):**\n- Minor details, examples, or descriptive content that don't advance the argument\n- Tangential points or side discussions\n- Pure background information or literature review content\n- Methodological details unless they constitute argumentative claims\n- Obvious statements or commonly accepted facts\n- Redundant or repetitive argumentative content\n\n**GUIDING PRINCIPLE**: If removing an ADU would not significantly impact understanding of the paper's argumentative structure, it should be excluded.\n\n## QUALITY CONTROL\n- Before finalizing each ADU, verify the text exists exactly in the source\n- Prefer fewer, accurate ADUs over many potentially modified ones\n- When in doubt about exact wording, omit the ADU\n\n## OUTPUT FORMAT\nReturn **only** a single valid JSON object matching this schema.  \nDo **not** output any extra text, markdown, or explanations.\nDo **not** add comments.\n**RESPOND WITH ONLY**:\n```json\n{\n  \"ADUs\": {\n    \"<ADU_ID>\": {\n      \"text\": \"<exact span from paper>\",\n      \"label\": \"claim\" | \"premise\"\n    }\n    ...\n  },\n  \"relations\": [\n    {\n      \"source\": \"<ADU_ID>\",\n      \"target\": \"<ADU_ID>\",\n      \"type\": \"support\" | \"attack\"\n    }\n  ]\n}\n```",
+    "user_content": "## Brentano's Four Phases and the Rise of Scientific Philosophy in the Light of his Relation to his Students\n\nWolfgang Huemer Università di Parma wolfgang.huemer@unipr.it\n\nAbstract: Brentano's position in the history of philosophy is often illustrated by the long list of important philosophers who have studied with him. Yet, the relations between Brentano and his students were not always without friction. In the present article I argue that Brentano's students were most attracted by his conception of a scientific  philosophy,  which  promised  to  leave  the  received  tradition  (German Idealism)  behind  and  to  mark  the  beginning  of  a  new  period  in  the  history  of philosophy - a project they were happy to be part of. Brentano's work remained in an important sense fragmentary, however, and could, thus, not provide the inner unity that would have been essential for forming a compact school or a unified philosophical movement.\n\nBrentano has a somewhat peculiar position in the history of philosophy that is quite ambivalent. While it is true that he is often mentioned among the important and influential philosophers of the  late  nineteenth  and  early  twentieth  century,  his  work  is  hardly discussed .  Often,  the significance of his contributions to philosophy is illustrated not with a careful analysis of his own philosophical position, but with reference to the facts that he had introduced the notion of intentionality and that he had influenced a large number of students who have become important philosophers  in  their  own  right.  Thus,  Brentano's  impact  on  his  students  has  come  to characterize essentially his role in the history of philosophy, to the point that many presentations of  Brentano's  philosophy  include  a  part  that  is  dedicated  to  the  Brentano  school. 1 Yet, Brentano's relation to his students was not always harmonious and though it is indisputable that he did have a decisive influence on their philosophical outlook, it is also true that many of them eclectically borrowed from Brentano, but deviated from his views in relevant ways - often with the goal to give rise to a school of their own.\n\nIn what follows I will focus on the dynamics of the relations between Brentano and his students by discussing two aspects of his philosophical outlook that attracted them most: his doctrine that philosophy should adopt the method of the natural sciences and his four-phase model  of  the  history  of  philosophy.  I  will  argue  that  the  somewhat  troublesome  relations between Brentano and his students are - at least to some extent - related to an inner tension in\n\n1 See, for example, the recent Routledge Handbook , which has been published at the occasion of the centenary of Brentano's death and which focused on Brentano and the Brentano school (Kriegel 2017).\n\nBrentano's  philosophical  production  that  is  related  to  aspect  that  Emil  Utitz  has  dubbed Brentano's 'multidimensionality' (cf. Utitz 1954). This aspect, I will suggest, explains both Brentano's success and his invisibility. 2\n\n## 1. Heterogeneity within the Brentano School\n\nBrentano  has  often  been  described  as  a  charismatic  teacher 3 ,  his  classes  were  always  very crowded 4 ,  and  he  was  often  praised  for  his  ability  to  engage  in  lively  discussions  with  his students 5 . It seems that his relation to students has taken different forms over the years, though. Following  Arnauld  Dewalque 6 ,  we  can  distinguish  the  students  from  his  early  days,  when Brentano taught at the University of Würzburg, like Carl Stumpf and Anton Marty; his students from the period in Vienna, which lasted from 1874 to 1895, such as Edmund Husserl, Alexius Meinong, and Kasimir Twardowski; and, finally, the young scholars he had influenced when he had already given up teaching, many of who were students of Anton Marty in Prague, like Oskar Kraus and Alfred Kastil. While Stumpf and Marty developed their own positions on the basis of - and with explicit reference to - Brentano's philosophy, many of his students from the Vienna period seem to have been more interested in founding a philosophical school of their own. They typically did acknowledge their debt to Brentano and took up key notions he had introduced - most notably the notion of intentionality - but took off in very different directions and further developed their Brentanian heritage in their own way. Most of Brentano's students from this period would not have considered themselves to be part of a 'Brentano school'. 7 This latter term was typically reserved for students from the last period who are nowadays often\n\n2 Brentano's 'invisibility' has often been discussed, most notably by the contributions to the volume The Brentano Puzzle (Poli 1998).\n\n3 Very often, these characterizations include a description of Brentano's direct impact on his students in class, but also of his appearance, the effects of his 'husky' voice or his 'priestly' gestures during lectures (cf. Husserl 1976, 48).  In  his  obituary  of  Brentano,  Alois  Höfler  observes  that  many  other  obituaries  indulge  in  descriptions  of Brentano's physical appearance (cf. Höfler 1917, 319f) - but we find descriptions of that kind also in most of the Reminiscences of his students (cf., for example, Stumpf 1976, 12; Husserl 1976, 47f; Utitz 1954, 76), when they try to explain how Brentano could captivate students and arouse a 'fast schwärmerische Begeisterung' ['a nearly lyrical enthusiasm'] (Höfler 1917, 320).\n\n4 Brentano's  success  among  students  in  his  early  period  in  Würzburg  reported  in  the  documents  reprinted  in Freudenberger (1969), for his period in Vienna we have the testimonies of his students, e.g. in Husserl (1976, 52) or Höfler (1917, 321).\n\n5 Cf., for example, Husserl (1976, 49) or Utitz (1954, 76).\n\n6 Cf. Dewalque (2017a).\n\n7 A remark of Husserl in his Reminiscences illustrates his relation to Brentano well: 'At the beginning I was his enthusiastic pupil, and I never ceased to have the highest regard for him as a teacher; still, it was not to be that I should remain a member of his school' (Husserl 1976, 53). In different periods of his life, Husserl has quite different characterizations of his relationship to Brentano; often he acknowledges his debts, but in some places he complains that Brentano had exerted too strong an influence on him for too much time (cf., for example, Husserl 1994, 82).\n\nreferred  to  as  'orthodox'  Brentanists  and  who  fervently  defended  what  they  took  to  be Brentano's doctrine against each form of critique or deviation. 8\n\nThe  Brentano  school,  thus,  was  not  a  clearly  defined  movement,  nor  did  the philosophers who are nowadays considered to be its members form a homogeneous movement. None  of  them  has  ever  drafted  a  'manifesto'  to  sketch  the  core  of  a  shared  position,  the philosophical  outlook,  or  the  methodological  principles  that  could  have  distinguished  the Brentano  school  from  other  movements. 9 Moreover,  many  of  the  philosophers  that  I  have mentioned above would have hesitated, for one reason or another 10 , to pledge adherence to such a  movement.  Thus,  when  we  speak  of  the  Brentano  school  today,  we  are  talking  about  a historiographical  construct  and  not  about  a  self-proclaimed  movement  of  persons  who collectively worked on the development of a shared philosophical position. 11 It is definitely a useful historiographical construct, though, for it allows us to set apart a group of philosophers who have worked in the same historical period and geographic region, have a shared nucleus of technical vocabulary, and have - next to their direct acquaintance with Brentano - a similar perspective on philosophy in common that is characterized by a vivid interest in philosophical psychology and, at least to some degree, by the (admittedly vague) idea that philosophy should be done in a rigorous or scientific manner (in the broadest possible sense). And even though each  member  of  this  group  has  eclectically  taken  up  and  freely  elaborated  on  Brentano's impulses in his or her own way, it can be helpful to distinguish this group of philosophers from other philosophical traditions that have been forming at the time in Central Europe and beyond.\n\n8 Edmund  Husserl's  testimony  is  telling.  In  a  letter  to  Farber,  he  compares  Oskar  Kraus  with  the  Spanish Inquisition. He characterizes Kraus as a benevolent person ['ein 'guter Kerl''] but adds,: 'Er würde die Gegner Brentano's ohne eine Miene zu verziehen, wenn er die Macht hätte, auf Scheiterhaufen verbrennen.' ['He would not hesitate, if he had the power, to burn Brentano's enemies at the stake.'] (Husserl 1994, 82).\n\n9 This is true for many schools or traditions in philosophy. Nonetheless, it is a fact worth mentioning, since at the beginning of the twentieth century some philosophical movements did present themselves in such a manner. Take, for  example,  the  Vienna  Circle,  where  we  have  a  manifesto  that  even  contains  a  list  of  the  members  of  the movement; cf. (Neurath, Hahn, &amp; Carnap, 1973).\n\n10 While  Carl  Stumpf  expresses  his  reservations  about  the  very  idea  of  philosophical  schools  -  which,  when conceived in a traditional way, can stand at odds with the very conception of scientific philosophy - when he notes in his Reminiscences that Brentano was 'on principle and with every right, against the development of a 'school'' (Stumpf 1976, 44), Husserl or Meinong preferred to insist in their independence from Brentano and the autonomy of their own positions.\n\n11 From a historical perspective , one could try to formulate a set of theses that all and only members of the Brentano school share, as Arnauld Dewalque has done in his (2017b). In this way, one can - from a historical perspective give an interesting overlook of the views that were widely held among Brentano's students. Given that most of the theses listed give space for interpretation on the one hand, and that the Brentano school has clear historical and geographical limits in addition to the principles listed, on the other, it seems to me that Dewalque's list is best understood not as a list of necessary and jointly sufficient condition for membership in the Brentano school, but as a list of views that are typically held among Brentano's students (and that, thus, characterize what Wittgenstein would have called a 'family-resemblance' that holds among Brentano's students). For a more detailed discussion of questions concerning the unity of the Brentano school, see also Huemer (2019).\n\nNotwithstanding the heterogeneity within the Brentano school, we can definitely say that the basic elements that have been shared by the members of this group clearly show the signature of Franz Brentano and, thus, reflect on the way in which he succeeded in influencing his students. Brentano offered courses on many topics, but the very fact that the two elements mentioned above have inspired many of his students, shows that they must have impressed them in a particular manner. In the following section I will focus on Brentano's views on the right method for philosophy, while the shared interest in psychology will play a role in the subsequent  section,  where  I  will  discuss  Brentano's  four-phase  model  of  the  history  of philosophy.\n\n## 2. A Rigorous and Scientific Method for Philosophy\n\nFrom very early in his career on and throughout his life, Brentano advocated the thesis that philosophy should adopt the rigorous method of the natural sciences. He first formulated this maxim at the occasion of his Habilitation at  the  University of Würzburg in 1866, where he submitted 25 theses in Latin, the fourth of which reads: ' Verae philosophiae methodus nulla alia nisi scientiae naturarum est .' 12 The thesis is but a short and programmatic statement. In the context of the other theses - and in light of the fact that Brentano does not spell out how exactly the scientific method should be adapted in philosophy - it can be read as an expression of the view that the dominant speculative approaches of German system-philosophy have come to an end and that the time for a renewal has come. 13 Thus, for Brentano, the dawn of a new period in philosophy was closely linked to the development of a new philosophical method that followed the example of the sober and rigorous method of the natural sciences.\n\nBrentano's views concerning method strongly impressed students in all periods of his career,  as  the  testimonies  show.  Both  Carl  Stumpf,  one  of  Brentano's  first  students  at  the University of Würzburg in the late 1860ies, and Edmund Husserl, who attended Brentano's lectures  at  the  University  of  Vienna  some  twenty  years  later,  have  acknowledged  that Brentano's  example,  and  in  particular  his  views  on  philosophical  method,  had  a  decisive influence on their decision to pursue a professional career in philosophy 14 -  and  also  Alois\n\n12 ' The true method of philosophy is none other than that of the science of nature .' The theses both in their original Latin formulation and in Brentano's own translation into German, are reprinted in Brentano (1929, 133141).\n\n13 I discuss this point in more detail in Huemer (2018).\n\n14 Cf. Stumpf (1976, 12) and Husserl (1976, 48). It might be interesting to note that Alexius Meinong found it necessary to explicitly deny that Brentano had an influence on his choice to pursue a career in philosophy; cf. Meinong (1923, 103).\n\nHöfler,  whose  relationship  with  Brentano  was  not  exactly  harmonious,  praises  him  for  his methodological  rigor  (cf.  Höfler  1917).  Even  after  his  active  teaching  career,  Brentano continued to fascinate young scholars by the way in which he put his claim that philosophy ought to adopt a rigorous method into practice, as the testimony of Emil Utitz shows, who corresponded with Brentano and met him regularly from 1905 on (cf. Utitz 1954).\n\nIn light of these testimonies, it is interesting to note that Brentano did not make a great effort to spell out in detail how the rigorous scientific method should be applied in philosophy. In particular, he does not dedicate a major publication to these concerns. In several texts, most notably in his Psychology from an Empirical Standpoint and in Descriptive Psychology he does speak  of  questions  concerning  methodology,  distinguishing,  for  example,  descriptive  from genetic psychology or treating the role of inner perception. He does not, however, give detailed step-by-step  instructions  of  how  a  researcher  in  the  field  of  philosophy  should  proceed. 15 Moreover, unlike Husserl, for example, who introduced a clearly described methodology, the phenomenological and eidetic reductions, Brentano did not develop particular procedures that are to be applied - and the application of which could be regarded a distinctive criterion for membership of the Brentano school.\n\nThis absence of detailed explanation in his written work raises the question of how Brentano presented the ideal of a rigorous method for philosophy to his students, which image exactly he communicated to them and how he trained them to do philosophy in a scientific manner.  When  we  look  at  the  reports  of  his  students,  it  seems  that  Brentano  taught  his philosophical  method  mainly by  doing ,  i.e.,  by showing in  his  courses  how  philosophical problems ought to be approached in a proper manner. None of the students describes specific scientific  procedures  to  which  they  would  have  been  introduced  by  Brentano,  nor  do  they suggest that Brentano called for a mathematization or formalization of philosophy. 16 Rather, they  praise  Brentano  in  a  rather  generic  way  for  his  rigorous  and  sober  argumentation,  his conclusive logic, and for his ability to trace back the origin of each concept in experience. Emil Utitz, for example, writes:\n\n15 For a qualification of this claim with respect to Descriptive Psychology , cf. footnote 20. At some places, where he does give more precise indications, he seems to be interested mainly in listing examples of how research could be  conducted,  but  does  not  follow  his  own  indications  in  later  moments.  Think,  for  example,  of  Brentano's suggestion that psychologists could study other minds by analysing 'biographies of men who have distinguished themselves as artists, scientists, or for outstanding character, as well as those of notorious criminals' (Brentano 1995b, 31). As far as I am informed, Brentano has never conducted analyses of this kind, nor has he actively tried to invite others to do so.\n\n16 There are places where Brentano explicitly denies the use of mathematical methods for psychology (cf., for example, Brentano 1929, 35). His views on this point might be understood as a reaction to Herbart's approach. For a contrast of Herbart and Brentano, cf. Huemer and Landerer (2010).\n\n...  und  mich  begeisterte  das  gleiche  Verfahren:  die  schlichte,  nüchterne,  strenge Phrasenlosigkeit, die Forderung zwingender Logik, die verantwortungsvolle Rechenschaftsablage gegenüber jedem Begriff durch den Nachweis seines Ursprungs in der Erfahrung. (Utitz 1954, 73) 17\n\nAlong the same lines, Alois Höfler praises the zur  Virtuosität  gesteigerte  logische  Klarheit  und  Festigkeit,  mit  der  Brentano  die Diskussion zu leiten verstand, ein intellektuelles Vergnügen bereitete, das ich so rein in philosophischen Dingen bis dahin nicht erlebt hatte 18\n\nand expresses his otherwise quite bitter obituary his\n\n…aufrichtige  und  bis  heute  nicht  geschwundene  Dankbarkeit  dafür,  daß  ich  ja  in Brentano wirklich den allerersten Lehrer gefunden hatte, der mich in philosophischen Dingen ebenso strenge Maßstäbe anlegen lehrte, wie ich es in Mathematik und Physik gelernt hatte… (Höfler 1917, 320f) 19\n\nCarl Stumpf notes in a similar vein that Brentano used to insist in the logical rigor of thinking:\n\nJust  as  he  himself  was  schooled  by  the  greatest  masters  of  syllogistic,  Aristotle  and Aquinas,  so  he,  too,  trained  his  students,  above  all,  in  self-discipline  and  a  critical attitude with respect to the logical requisites of thought. (Stumpf 1976, 13)\n\nThese  testimonies  suggest  that  Brentano  did  not  aim  at  training  his  students  to  adopt  a particular, well defined method, nor did he want to make them blindly follow a static sequence of  methodological procedures. 20 Rather,  he  encouraged  them  to  think  independently  and  to apply the same logical rigor he had demonstrated them. Moreover, it seems that Brentano did not hide his philosophical aversions in front of his students (cf. Höfler 1917). Thus, it must have been easy for them to grasp that Brentano privileged a broadly empiricist and positivist\n\n17 '… and I was thrilled by this very method: the plain, sober, rigorous concision, the claim of conclusive logic, the responsible accounting for all concepts by establishing their origins in experience.'\n\n18 'logical clarity and rigor, that were elevated to the levels of virtuosity, with which Brentano knew to guide the discussion,  which  aroused  in  me  an  intellectual  pleasure  that  up  to  that  moment  I  had  never  experienced  in philosophical matters.'\n\n19 '…honest and until today not diminished thankfulness for the fact that I have found in Brentano really the very first teacher, who taught me to apply in philosophical matters the same rigorous standards, as I have learnt to do in mathematics and physics…'\n\n20 There are exceptions, though: in his several lectures on psychology Brentano does give more precise indications of how researchers in the field have to proceed; cf. Brentano (1995a). These explanations apply not to philosophy in general, though, but to the specific field of descriptive psychology. Moreover, Brentano made these remarks in occasional lectures only, mainly in the late 1880ies and early 1890ies, whereas students from all periods of his career as an academic teacher (and beyond) where fascinated by the rigorous method he applied when he was doing philosophy with them.\n\noutlook that was based on the three steps of observation, description, and induction over Kant's 'willkürlichen Konstruktionen und sein widernatürliches A priori' and the 'Extravaganzen der Nachfolger'  (Brentano  1929,  12) 21 ,  the  philosophers  of  German  idealism  who  built  their systems  on  '…entirely  unnatural  means  of  gaining  knowledge  on  the  basis  of  'principles' lacking in all insight, ingenious 'directly intuitive' powers, mystical intensifications of mental life…' (Brentano 1998, 86).\n\n## 3. Brentano's Four Phases and the Dawning of a New Period\n\nThe testimonies discussed in the preceding section suggest that Brentano captivated his students with the thesis that philosophy ought to be conducted with the same methodological rigor as the natural sciences - and the way he put this thesis in practice when doing philosophy with his students in class. This approach, which Brentano knew to contrast with the ones adopted by the system-philosophers  of  German  idealism,  which  had  dominated  the  philosophical  scene  in Germany for a long time, appeared as a promise of renewal. 22 Moreover, the way in which Brentano applied this method in a field of study, philosophical psychology, which underwent enormous transformation and saw groundbreaking innovations at the time, must have invited his students to think that a new period in philosophy is about to begin. The fact that Brentano encouraged students to think independently might have instilled in them the desire to contribute to this new era of research and thus to give shape to this dawning new period in philosophy.\n\nBrentano nourished this hope with his four-phase model of the history of philosophy, according to which each of the three periods of philosophy - ancient, medieval, and modern philosophy  -  is  subdivided  into  four  phases.  The  first  phase  of  each  period,  according  to Brentano, is a phase of ascending development, while the other three phases are phases of decline: the second phase is characterized by divulgation, the achievements of the first phase are explored and scholars are mainly interested in the practical application of the results of the first phase. In this process, the new paradigm starts to show its limits, people lose their trust in science. A general skeptical attitude gains ground and comes to dominate the third phase. This leaves unsatisfied, as people have a natural inclination to strive for knowledge, but they do so without relying on methodologically sound research. Thus, in the fourth phase scepticism turns\n\n21 'arbitrary constructions and his unnatural A priori' and the 'extravagancies of his successors.'\n\n22 Cf., for example, Stumpf's statement: 'We were especially happy that the method he claimed for philosophy was none other than that of the natural sciences, and that he based his hopes for a rebirth of philosophy on this method.' (Stumpf 1976, 11)\n\ninto mysticism. Brentano's outlook is not pessimistic, though. Even though at the fourth phase the lowest levels of decline are reached, it also contains the promise that with the end of one period the upcoming of a new period - and with it a new phase of ascending development - is imminent, which will be made possible by a shift in paradigm that brings into view phenomena that  have  been  overlooked  so  far  and  requires  a  new  methodological  framework  'that  is essentially appropriate to nature.' (Brentano 1998, p. 85 f.)\n\nBrentano has presented his Four-Phase Model of philosophy to a wider audience quite late  in  his  career,  at  a  public  lecture  in  Vienna  that  took  place  in  November  1894  and  was published in print in the following year. In the introduction to the booklet he states, however, that he had based his lectures on the history of philosophy on this model for a long time already. We know from the testimony of Carl Stumpf that the 'first time Brentano was struck by this idea, as he later told me, was during his convalescence from a serious illness (Easter 1860)' (Stumpf 1976, 11). 23 Moreover, Stumpf was familiar with the model from Brentano's early lectures in Würzburg.\n\nIt  has  been  pointed  out  that  Brentano's  model  is  far  from  accurate.  It  contains generalizations  and  simplifications  that  cannot  do  justice  to  the  complex  and  variegated development that has characterized the history of philosophy. 24 The very fact that Brentano used the scheme in his lectures on the history of philosophy suggests, however, that his main goal  was  not  to  present  a  sophisticated  scheme  that  faithfully  represents  the  history  of philosophy in all its subtleties. Probably he was rather looking for a didactic tool that allowed him not only to draw the students' attention to the history of philosophy, but at the same time invited them to take an active approach towards the discipline. By focusing on the dynamics of development, he invited students to wonder how the model will extend into the future - and by suggesting that the third period of philosophy has come to an end with the last phase of decline, he  raised  the  expectation  that  an  ascending  development  was  imminent.  In  fact,  in  his  late lecture he explicitly states: 'we have quite generally good grounds … for believing that our own age is the beginning of a new period of development.' (Brentano 1998, 102)\n\nMoreover, by introducing a new method and drawing the students' attention to a new discipline, psychology, that studied mental phenomena, i.e., phenomena that had been ignored or studied in a different manner up to that moment, he probably wanted to invite his students to think that they had one of the main representatives of a new phase of ascending development\n\n23 This anecdote about the origin of the model suggests that Brentano developed the idea over the years. For a discussion on the relations between Brentano's conception and that of Comte, cf. Tănăsescu (2017).\n\n24 Cf., for example, Gilson (1976).\n\nin front of them. In fact, in the published version of his lecture on the four phases he states that this task would be computed 'by us or by our successors.' (Brentano 1998, 111) It is likely that Brentano made this point not only in the published version, but also in the lectures on the history of philosophy he had taught over the years. If this contention is correct, Brentano did not only teach his students to apply logical rigor to their lines of reasoning, he also gave them the feeling to be part of a new development that might shape the future of the discipline - and he nourished their hope that one day they might make a decisive contribution to it.\n\n## 4. Brentano's Multi-dimensionality\n\nThe question, now, is why Brentano was not able to give more unity to his school. We should keep in mind that this is a quite complex question that does not allow for a simple answer: too many persons are involved, and many of them were quite complex in their personality. I would nonetheless like to highlight one aspect which, in combination with many others, might have brought this situation about: in several respects Brentano did not live up to his own ideals - and some of these internal tensions might have disappointed some of his more talented students. I will  focus  on  two  of  these  respects,  Brentano's  promise  to  teach  his  students  to  become independent, autonomous and critical thinkers and the outer form of his work, which is closely tied to his reluctance to publish.\n\nWith regard to the former, several of his students have noted a 'schicksalhafte Dialektik in Brentanos Persönlichkeit' (Utitz 1954, 79) 25 and addressed the tension explicitly. Edmund Husserl, for example, writes: 'No one was more conducive to spontaneous, free thought than Brentano, yet no one took it harder when his own firmly entrenched convictions were attacked' (Husserl 1976, 51). Most of Brentano's former students seem to have struggled with Brentano's reactions. Stumpf speaks diplomatically of 'occasional ill-feelings' (Stumpf 1976, 44); Husserl is more personal when he writes:\n\nI knew, however, how much it agitated him when people went their own way, even if they used his ideas as a starting point. He could often be unjust in such situations; this is what happened to me, and it was painful. (Husserl 1976, 53)\n\nThis suggests that Brentano did not make an active effort to ensure the loyalty of his former students. Instead of choosing a diplomatic way of winning them back and possibly amending his own position to accommodate - at least in part - their critique, it seems that he easily felt\n\n25 'fateful dialectic in Brentano's personality.'\n\nbetrayed and distanced the students who deviated from his position. It seems that Brentano wanted to develop an overall picture, within which students could work out the details; but he had difficulties to accept that they would challenge the picture or try to improve or amend it in the one or the other respect. The very fact that this behavior stands at odds with Brentano's ideal of teaching students to become autonomous thinkers might have increased the sense of disappointment in his former students.\n\nEr, der den  Unfug  der  üblichen  System-Philosophie  schärfer  als  jeder  andere durchschaute, wollte doch letzten Endes ein System, das auf alle Fragen Antwort weiß. Und er,  das  Muster  eiserner  Logik,  fröhnte  doch  einer  derartigen  Utopie,  daß  seine Philosophie die ganze Menschheit läutern und erlösen könne. (Utitz 1954, 84) 26\n\nIn these lines, Emil Utitz also addresses the formal tension that characterizes Brentano's work: He liked to present himself as an innovator and promised a new philosophical position that was able to substitute the systems of German idealism, but his work remained a fragment in an important sense. Brentano's often described reluctance to publish - which was closely tied to his tendency to improve or revise his views again and again - has had a noticeable impact on his literary production. 'Nie versucht, übereilt mit genialen Einfällen hervorzutreten, ließ er bei stets wacher Selbstkritik alles geduldig ausreifen, …' (Kastil 1951,  7) 27 , with the result that his published work is not as substantial as one might expect from the founder of a philosophical movement. 28 Even  his  main  publication,  the Psychology  from  an  Empirical  Standpoint , remained a fragment, as the second volume has never been published, at least not in the form in which it was announced in the foreword of the book. This fragmentary aspect of Brentano's work might, in fact, have been an invitation to his students to borrow parts of it and place them in different contexts. However, it was definitely not helpful to the formation of a movement. Brentano's reluctance to publish might have had a negative impact on his students for two reasons: on the one hand, Brentano would have needed to give substance to his promise of a new phase of ascending development by presenting an opus maximum that lays out its bases; he raised in his students high expectations, and the higher the expectations were, the more they might  have  been  disappointed  when  they  realized  that  the  promise  would  not  be  fulfilled.\n\n26 'He, who understood the nonsense of received system-philosophy clearer than anyone else, wanted eventually a system that has an answer to all questions. And he, the example of rigorous logic, indulged in the utopic idea that his philosophy could purge and redeem the whole mankind.'\n\n27 'Never tempted to come forth with genial ideas in a rash manner, he let patiently fully mature everything in a state of always vigilant self-critique…'\n\n28 For a discussion of the fragmentary character of Brentano's work, cf. Werle (1989).\n\nSecond, a comprehensive sketch of his position could have helped them as a guide for their own research and made it more inviting to follow the in the footsteps of their teacher.\n\nIf these contentions are correct, the very fact that Brentano was a charismatic teacher and successfully raised high expectations in his students, but eventually could not live up to them, might have been one aspect (among many) that explains why the Brentano school has not become one of the dominant traditions in the early twentieth century.\n\n## 5. Conclusion\n\nIn  the  preceding  sections  I  have  argued  that  Brentano's  fascination  for  students  depended essentially on a combination of his claim that a new, rigorous and scientific method was needed for philosophy and his historiographic four-phase model of the history of philosophy. With these  two  elements,  he  succeeded  in  communicating  to  the  students  that  a  new  period  of philosophical  research  is  about  to  begin  -  and  thus  nourished  their  hopes  that  they  could contribute to its development. Brentano raised high expectations in his students which clashed, however, with  inner  tension  that  characterized  Brentano's  philosophical  production.  I  have argued that these unfulfilled expectations might be one reason - among many others - for the heterogeneity of the Brentano school.\n\n## References:\n\nBrentano, F. 1929. Über die Zukunft der Philosophie , edited by O. Kraus. Leipzig: Meiner.\n\nBrentano, F. 1995a. Descriptive Psychology . Translated by B. Müller. London &amp; New York: Routledge.\n\nBrentano, F. 1995b. Psychology from an Empirical Standpoint ,  edited by O. Kraus &amp; L. L. McAlister. Translated by A. C. Rancurello, D. B. Terrell, &amp; L. L. McAlister. London, New York: Routledge.\n\nBrentano, F. 1998. 'The Four Phases of Philosophy.' In The Four Phases of Philosophy , edited by B. M. Mezei &amp; B. Smith, 81-111. Amsterdam, Atlanta, GA: Rodopi.\n\nDewalque, A. 2017a. 'The Rise of the Brentano School.' In Routledge Handbook of Franz Brentano  and  the  Brentano  School ,  edited  by  Uriah  Kriegel,  225-35.  New  York: Routledge.\n\n| Dewalque, A. 2017b. 'The Unity of the Brentano School.' In Routledge Handbook of Franz Brentano and the Brentano School , edited by Uriah Kriegel, 236-48. New York: Routledge.                                                                          |\n|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|\n| Freudenberger, T. 1969. Die Universität Würzburg und das erste vatikanische Konzil: Ein Beitrag zur Kirchen- und Geistesgeschichte des 19. Jahrhunderts . Neustadt a.d. Aisch: Degener.                                                                  |\n| Gilson, E. 1976. 'Franz Brentano's Interpretation of Medieval Philosophy.' In The Philosophy of Franz Brentano , edited by L. L. McAlister, 56-67. London: Duckworth. Höfler, A. 1917. 'Franz Brentano in Wien.' Süddeutsche Monatshefte , May: 319-325. |\n| Huemer, W. 2018. '' Verae philosophiae methodus nulla alia nisi scientiae naturalis est' : Brentano's conception of philosophy as rigorous science.' Brentano Studien XVI: 53- 72.                                                                       |\n| Huemer, W. 2019. 'Is Brentano's Method a Unifying Element in the Brentano School?', in: Rivista di Filosofia Neo-Scolastica 111 (4):                                                                                                                     |\n| 297-310. https://doi.org/10.26350/001050_000151. Huemer, W., & Landerer, C. 2010. 'Mathematics, experience and laboratories: Herbart's and                                                                                                               |\n| Brentano's role in the rise of scientific psychology.' History of the Human Sciences 23 (3): 72-94. https://doi.org/10.1177/0952695110363639 Husserl, E. 1976. 'Reminiscences of Franz Brentano.' In The Philosophy of Franz Brentano                    |\n| , edited by L. L. McAlister, 47-55. London: Duckworth.                                                                                                                                                                                                   |\n| Husserl, E. 1994. Briefwechsel, Bd. IV: Die Freiburger Schüler , edited by E. Schuhmann &K. Schuhmann. Dordrecht: Kluwer. Kastil, A. 1951. Die Philosophie Franz Brentanos. Eine Einführung in seine Lehre . Bern:                                       |\n| Francke. Kriegel, U., ed. 2017. The Routledge Handbook of Franz Brentano and the Brentano School                                                                                                                                                         |\n| Meinong, A. 1923. 'Selbstdarstellung.' In Die Philosophie der Gegenwart in Selbstdarstellungen , edited by R. Schmidt, 100-160. Leipzig: Meiner. Neurath, O., Hahn, H., & Carnap, R. 1973. 'The Scientific Conception of the World:                      |\n| The Vienna Circle.' In Empiricism and Sociology , edited by M. Neurath & R. S.                                                                                                                                                                           |\n| 299-318. Dordrecht: Reidel.                                                                                                                                                                                                                              |\n| Cohen, Poli, R. ed. 1998. The Brentano Puzzle . Aldershot: Ashgate.                                                                                                                                                                                      |\n| Stumpf, C. 1976. 'Reminiscences of Franz Brentano.' In The Philosophy of Franz edited by L. L. McAlister, 10-46. London: Duckworth.                                                                                                                      |\n| Brentano                                                                                                                                                                                                                                                 |\n| ,                                                                                                                                                                                                                                                        |\n| New York: Routledge.                                                                                                                                                                                                                                     |\n| .                                                                                                                                                                                                                                                        |\n\nTănăsescu,  I.  2017.  'Die  Phasentheorie:  Franz  Brentano  und  Auguste  Comte.' Brentano Studien XV (1): 329-360.\n\nUtitz, E. 1954. 'Erinnerungen an Franz Brentano.' W issenschaftliche Zeitschrift der MartinLuther-Universität Halle-Wittenberg 4(1): 73-90.\n\nWerle, J. M.  1989. Franz Brentano und die Zukunft der Philosophie: Studien zur Wissenschaftsgeschichte und Wissenschaftssystematik im 19. Jahrhundert . Amsterdam &amp; Atlanta, GA: Rodopi.",
+    "responses": [
+      {
+        "source": "gpt-4o-2024-11-20",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"ADU1\": {\n      \"text\": \"Brentano's position in the history of philosophy is often illustrated by the long list of important philosophers who have studied with him.\",\n      \"label\": \"claim\"\n    },\n    \"ADU2\": {\n      \"text\": \"Yet, the relations between Brentano and his students were not always without friction.\",\n      \"label\": \"claim\"\n    },\n    \"ADU3\": {\n      \"text\": \"Brentano's students were most attracted by his conception of a scientific philosophy, which promised to leave the received tradition (German Idealism) behind and to mark the beginning of a new period in the history of philosophy - a project they were happy to be part of.\",\n      \"label\": \"claim\"\n    },\n    \"ADU4\": {\n      \"text\": \"Brentano's work remained in an important sense fragmentary, however, and could, thus, not provide the inner unity that would have been essential for forming a compact school or a unified philosophical movement.\",\n      \"label\": \"claim\"\n    },\n    \"ADU5\": {\n      \"text\": \"Brentano has a somewhat peculiar position in the history of philosophy that is quite ambivalent.\",\n      \"label\": \"claim\"\n    },\n    \"ADU6\": {\n      \"text\": \"While it is true that he is often mentioned among the important and influential philosophers of the late nineteenth and early twentieth century, his work is hardly discussed.\",\n      \"label\": \"premise\"\n    },\n    \"ADU7\": {\n      \"text\": \"Often, the significance of his contributions to philosophy is illustrated not with a careful analysis of his own philosophical position, but with reference to the facts that he had introduced the notion of intentionality and that he had influenced a large number of students who have become important philosophers in their own right.\",\n      \"label\": \"premise\"\n    },\n    \"ADU8\": {\n      \"text\": \"Thus, Brentano's impact on his students has come to characterize essentially his role in the history of philosophy, to the point that many presentations of Brentano's philosophy include a part that is dedicated to the Brentano school.\",\n      \"label\": \"claim\"\n    },\n    \"ADU9\": {\n      \"text\": \"Brentano's relation to his students was not always harmonious and though it is indisputable that he did have a decisive influence on their philosophical outlook, it is also true that many of them eclectically borrowed from Brentano, but deviated from his views in relevant ways - often with the goal to give rise to a school of their own.\",\n      \"label\": \"claim\"\n    },\n    \"ADU10\": {\n      \"text\": \"Brentano advocated the thesis that philosophy should adopt the rigorous method of the natural sciences.\",\n      \"label\": \"claim\"\n    },\n    \"ADU11\": {\n      \"text\": \"He first formulated this maxim at the occasion of his Habilitation at the University of Würzburg in 1866, where he submitted 25 theses in Latin, the fourth of which reads: 'Verae philosophiae methodus nulla alia nisi scientiae naturarum est.'\",\n      \"label\": \"premise\"\n    },\n    \"ADU12\": {\n      \"text\": \"The thesis is but a short and programmatic statement.\",\n      \"label\": \"premise\"\n    },\n    \"ADU13\": {\n      \"text\": \"In the context of the other theses - and in light of the fact that Brentano does not spell out how exactly the scientific method should be adapted in philosophy - it can be read as an expression of the view that the dominant speculative approaches of German system-philosophy have come to an end and that the time for a renewal has come.\",\n      \"label\": \"claim\"\n    },\n    \"ADU14\": {\n      \"text\": \"Brentano's views concerning method strongly impressed students in all periods of his career, as the testimonies show.\",\n      \"label\": \"claim\"\n    },\n    \"ADU15\": {\n      \"text\": \"Both Carl Stumpf, one of Brentano's first students at the University of Würzburg in the late 1860ies, and Edmund Husserl, who attended Brentano's lectures at the University of Vienna some twenty years later, have acknowledged that Brentano's example, and in particular his views on philosophical method, had a decisive influence on their decision to pursue a professional career in philosophy.\",\n      \"label\": \"premise\"\n    },\n    \"ADU16\": {\n      \"text\": \"Brentano did not make a great effort to spell out in detail how the rigorous scientific method should be applied in philosophy.\",\n      \"label\": \"claim\"\n    },\n    \"ADU17\": {\n      \"text\": \"In particular, he does not dedicate a major publication to these concerns.\",\n      \"label\": \"premise\"\n    },\n    \"ADU18\": {\n      \"text\": \"Brentano nourished this hope with his four-phase model of the history of philosophy, according to which each of the three periods of philosophy - ancient, medieval, and modern philosophy - is subdivided into four phases.\",\n      \"label\": \"claim\"\n    },\n    \"ADU19\": {\n      \"text\": \"The first phase of each period, according to Brentano, is a phase of ascending development, while the other three phases are phases of decline.\",\n      \"label\": \"premise\"\n    },\n    \"ADU20\": {\n      \"text\": \"Brentano's outlook is not pessimistic, though.\",\n      \"label\": \"claim\"\n    },\n    \"ADU21\": {\n      \"text\": \"Even though at the fourth phase the lowest levels of decline are reached, it also contains the promise that with the end of one period the upcoming of a new period - and with it a new phase of ascending development - is imminent, which will be made possible by a shift in paradigm that brings into view phenomena that have been overlooked so far and requires a new methodological framework 'that is essentially appropriate to nature.'\",\n      \"label\": \"premise\"\n    },\n    \"ADU22\": {\n      \"text\": \"Brentano raised high expectations in his students which clashed, however, with inner tension that characterized Brentano's philosophical production.\",\n      \"label\": \"claim\"\n    },\n    \"ADU23\": {\n      \"text\": \"Brentano's reluctance to publish might have had a negative impact on his students for two reasons: on the one hand, Brentano would have needed to give substance to his promise of a new phase of ascending development by presenting an opus maximum that lays out its bases; he raised in his students high expectations, and the higher the expectations were, the more they might have been disappointed when they realized that the promise would not be fulfilled.\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"ADU1\",\n      \"target\": \"ADU2\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU3\",\n      \"target\": \"ADU4\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU5\",\n      \"target\": \"ADU6\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU5\",\n      \"target\": \"ADU7\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU8\",\n      \"target\": \"ADU9\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU10\",\n      \"target\": \"ADU11\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU10\",\n      \"target\": \"ADU13\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU14\",\n      \"target\": \"ADU15\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU16\",\n      \"target\": \"ADU17\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU18\",\n      \"target\": \"ADU19\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU20\",\n      \"target\": \"ADU21\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU22\",\n      \"target\": \"ADU23\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "ADU1": {
+              "text": "Brentano's position in the history of philosophy is often illustrated by the long list of important philosophers who have studied with him.",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "Yet, the relations between Brentano and his students were not always without friction.",
+              "label": "claim"
+            },
+            "ADU3": {
+              "text": "Brentano's students were most attracted by his conception of a scientific philosophy, which promised to leave the received tradition (German Idealism) behind and to mark the beginning of a new period in the history of philosophy - a project they were happy to be part of.",
+              "label": "claim"
+            },
+            "ADU4": {
+              "text": "Brentano's work remained in an important sense fragmentary, however, and could, thus, not provide the inner unity that would have been essential for forming a compact school or a unified philosophical movement.",
+              "label": "claim"
+            },
+            "ADU5": {
+              "text": "Brentano has a somewhat peculiar position in the history of philosophy that is quite ambivalent.",
+              "label": "claim"
+            },
+            "ADU6": {
+              "text": "While it is true that he is often mentioned among the important and influential philosophers of the late nineteenth and early twentieth century, his work is hardly discussed.",
+              "label": "premise"
+            },
+            "ADU7": {
+              "text": "Often, the significance of his contributions to philosophy is illustrated not with a careful analysis of his own philosophical position, but with reference to the facts that he had introduced the notion of intentionality and that he had influenced a large number of students who have become important philosophers in their own right.",
+              "label": "premise"
+            },
+            "ADU8": {
+              "text": "Thus, Brentano's impact on his students has come to characterize essentially his role in the history of philosophy, to the point that many presentations of Brentano's philosophy include a part that is dedicated to the Brentano school.",
+              "label": "claim"
+            },
+            "ADU9": {
+              "text": "Brentano's relation to his students was not always harmonious and though it is indisputable that he did have a decisive influence on their philosophical outlook, it is also true that many of them eclectically borrowed from Brentano, but deviated from his views in relevant ways - often with the goal to give rise to a school of their own.",
+              "label": "claim"
+            },
+            "ADU10": {
+              "text": "Brentano advocated the thesis that philosophy should adopt the rigorous method of the natural sciences.",
+              "label": "claim"
+            },
+            "ADU11": {
+              "text": "He first formulated this maxim at the occasion of his Habilitation at the University of Würzburg in 1866, where he submitted 25 theses in Latin, the fourth of which reads: 'Verae philosophiae methodus nulla alia nisi scientiae naturarum est.'",
+              "label": "premise"
+            },
+            "ADU12": {
+              "text": "The thesis is but a short and programmatic statement.",
+              "label": "premise"
+            },
+            "ADU13": {
+              "text": "In the context of the other theses - and in light of the fact that Brentano does not spell out how exactly the scientific method should be adapted in philosophy - it can be read as an expression of the view that the dominant speculative approaches of German system-philosophy have come to an end and that the time for a renewal has come.",
+              "label": "claim"
+            },
+            "ADU14": {
+              "text": "Brentano's views concerning method strongly impressed students in all periods of his career, as the testimonies show.",
+              "label": "claim"
+            },
+            "ADU15": {
+              "text": "Both Carl Stumpf, one of Brentano's first students at the University of Würzburg in the late 1860ies, and Edmund Husserl, who attended Brentano's lectures at the University of Vienna some twenty years later, have acknowledged that Brentano's example, and in particular his views on philosophical method, had a decisive influence on their decision to pursue a professional career in philosophy.",
+              "label": "premise"
+            },
+            "ADU16": {
+              "text": "Brentano did not make a great effort to spell out in detail how the rigorous scientific method should be applied in philosophy.",
+              "label": "claim"
+            },
+            "ADU17": {
+              "text": "In particular, he does not dedicate a major publication to these concerns.",
+              "label": "premise"
+            },
+            "ADU18": {
+              "text": "Brentano nourished this hope with his four-phase model of the history of philosophy, according to which each of the three periods of philosophy - ancient, medieval, and modern philosophy - is subdivided into four phases.",
+              "label": "claim"
+            },
+            "ADU19": {
+              "text": "The first phase of each period, according to Brentano, is a phase of ascending development, while the other three phases are phases of decline.",
+              "label": "premise"
+            },
+            "ADU20": {
+              "text": "Brentano's outlook is not pessimistic, though.",
+              "label": "claim"
+            },
+            "ADU21": {
+              "text": "Even though at the fourth phase the lowest levels of decline are reached, it also contains the promise that with the end of one period the upcoming of a new period - and with it a new phase of ascending development - is imminent, which will be made possible by a shift in paradigm that brings into view phenomena that have been overlooked so far and requires a new methodological framework 'that is essentially appropriate to nature.'",
+              "label": "premise"
+            },
+            "ADU22": {
+              "text": "Brentano raised high expectations in his students which clashed, however, with inner tension that characterized Brentano's philosophical production.",
+              "label": "claim"
+            },
+            "ADU23": {
+              "text": "Brentano's reluctance to publish might have had a negative impact on his students for two reasons: on the one hand, Brentano would have needed to give substance to his promise of a new phase of ascending development by presenting an opus maximum that lays out its bases; he raised in his students high expectations, and the higher the expectations were, the more they might have been disappointed when they realized that the promise would not be fulfilled.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU1",
+              "target": "ADU2",
+              "type": "support"
+            },
+            {
+              "source": "ADU3",
+              "target": "ADU4",
+              "type": "support"
+            },
+            {
+              "source": "ADU5",
+              "target": "ADU6",
+              "type": "support"
+            },
+            {
+              "source": "ADU5",
+              "target": "ADU7",
+              "type": "support"
+            },
+            {
+              "source": "ADU8",
+              "target": "ADU9",
+              "type": "support"
+            },
+            {
+              "source": "ADU10",
+              "target": "ADU11",
+              "type": "support"
+            },
+            {
+              "source": "ADU10",
+              "target": "ADU13",
+              "type": "support"
+            },
+            {
+              "source": "ADU14",
+              "target": "ADU15",
+              "type": "support"
+            },
+            {
+              "source": "ADU16",
+              "target": "ADU17",
+              "type": "support"
+            },
+            {
+              "source": "ADU18",
+              "target": "ADU19",
+              "type": "support"
+            },
+            {
+              "source": "ADU20",
+              "target": "ADU21",
+              "type": "support"
+            },
+            {
+              "source": "ADU22",
+              "target": "ADU23",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "ADU1": {
+              "text": "Brentano's position in the history of philosophy is often illustrated by the long list of important philosophers who have studied with him.",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "Yet, the relations between Brentano and his students were not always without friction.",
+              "label": "claim"
+            },
+            "ADU3": {
+              "text": "Brentano's students were most attracted by his conception of a scientific philosophy, which promised to leave the received tradition (German Idealism) behind and to mark the beginning of a new period in the history of philosophy - a project they were happy to be part of.",
+              "label": "claim"
+            },
+            "ADU4": {
+              "text": "Brentano's work remained in an important sense fragmentary, however, and could, thus, not provide the inner unity that would have been essential for forming a compact school or a unified philosophical movement.",
+              "label": "claim"
+            },
+            "ADU5": {
+              "text": "Brentano has a somewhat peculiar position in the history of philosophy that is quite ambivalent.",
+              "label": "claim"
+            },
+            "ADU6": {
+              "text": "While it is true that he is often mentioned among the important and influential philosophers of the late nineteenth and early twentieth century, his work is hardly discussed.",
+              "label": "premise"
+            },
+            "ADU7": {
+              "text": "Often, the significance of his contributions to philosophy is illustrated not with a careful analysis of his own philosophical position, but with reference to the facts that he had introduced the notion of intentionality and that he had influenced a large number of students who have become important philosophers in their own right.",
+              "label": "premise"
+            },
+            "ADU8": {
+              "text": "Thus, Brentano's impact on his students has come to characterize essentially his role in the history of philosophy, to the point that many presentations of Brentano's philosophy include a part that is dedicated to the Brentano school.",
+              "label": "claim"
+            },
+            "ADU9": {
+              "text": "Brentano's relation to his students was not always harmonious and though it is indisputable that he did have a decisive influence on their philosophical outlook, it is also true that many of them eclectically borrowed from Brentano, but deviated from his views in relevant ways - often with the goal to give rise to a school of their own.",
+              "label": "claim"
+            },
+            "ADU10": {
+              "text": "Brentano advocated the thesis that philosophy should adopt the rigorous method of the natural sciences.",
+              "label": "claim"
+            },
+            "ADU11": {
+              "text": "He first formulated this maxim at the occasion of his Habilitation at the University of Würzburg in 1866, where he submitted 25 theses in Latin, the fourth of which reads: 'Verae philosophiae methodus nulla alia nisi scientiae naturarum est.'",
+              "label": "premise"
+            },
+            "ADU12": {
+              "text": "The thesis is but a short and programmatic statement.",
+              "label": "premise"
+            },
+            "ADU13": {
+              "text": "In the context of the other theses - and in light of the fact that Brentano does not spell out how exactly the scientific method should be adapted in philosophy - it can be read as an expression of the view that the dominant speculative approaches of German system-philosophy have come to an end and that the time for a renewal has come.",
+              "label": "claim"
+            },
+            "ADU14": {
+              "text": "Brentano's views concerning method strongly impressed students in all periods of his career, as the testimonies show.",
+              "label": "claim"
+            },
+            "ADU16": {
+              "text": "Brentano did not make a great effort to spell out in detail how the rigorous scientific method should be applied in philosophy.",
+              "label": "claim"
+            },
+            "ADU17": {
+              "text": "In particular, he does not dedicate a major publication to these concerns.",
+              "label": "premise"
+            },
+            "ADU18": {
+              "text": "Brentano nourished this hope with his four-phase model of the history of philosophy, according to which each of the three periods of philosophy - ancient, medieval, and modern philosophy - is subdivided into four phases.",
+              "label": "claim"
+            },
+            "ADU20": {
+              "text": "Brentano's outlook is not pessimistic, though.",
+              "label": "claim"
+            },
+            "ADU21": {
+              "text": "Even though at the fourth phase the lowest levels of decline are reached, it also contains the promise that with the end of one period the upcoming of a new period - and with it a new phase of ascending development - is imminent, which will be made possible by a shift in paradigm that brings into view phenomena that have been overlooked so far and requires a new methodological framework 'that is essentially appropriate to nature.'",
+              "label": "premise"
+            },
+            "ADU22": {
+              "text": "Brentano raised high expectations in his students which clashed, however, with inner tension that characterized Brentano's philosophical production.",
+              "label": "claim"
+            },
+            "ADU23": {
+              "text": "Brentano's reluctance to publish might have had a negative impact on his students for two reasons: on the one hand, Brentano would have needed to give substance to his promise of a new phase of ascending development by presenting an opus maximum that lays out its bases; he raised in his students high expectations, and the higher the expectations were, the more they might have been disappointed when they realized that the promise would not be fulfilled.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU1",
+              "target": "ADU2",
+              "type": "support"
+            },
+            {
+              "source": "ADU3",
+              "target": "ADU4",
+              "type": "support"
+            },
+            {
+              "source": "ADU5",
+              "target": "ADU6",
+              "type": "support"
+            },
+            {
+              "source": "ADU5",
+              "target": "ADU7",
+              "type": "support"
+            },
+            {
+              "source": "ADU8",
+              "target": "ADU9",
+              "type": "support"
+            },
+            {
+              "source": "ADU10",
+              "target": "ADU11",
+              "type": "support"
+            },
+            {
+              "source": "ADU10",
+              "target": "ADU13",
+              "type": "support"
+            },
+            {
+              "source": "ADU16",
+              "target": "ADU17",
+              "type": "support"
+            },
+            {
+              "source": "ADU20",
+              "target": "ADU21",
+              "type": "support"
+            },
+            {
+              "source": "ADU22",
+              "target": "ADU23",
+              "type": "support"
+            }
+          ]
+        }
+      },
+      {
+        "source": "claude-3-5-sonnet-20241022",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"1\": {\n      \"text\": \"Brentano's relation to his students was not always harmonious and though it is indisputable that he did have a decisive influence on their philosophical outlook, it is also true that many of them eclectically borrowed from Brentano, but deviated from his views in relevant ways - often with the goal to give rise to a school of their own.\",\n      \"label\": \"claim\"\n    },\n    \"2\": {\n      \"text\": \"The Brentano school, thus, was not a clearly defined movement, nor did the philosophers who are nowadays considered to be its members form a homogeneous movement.\",\n      \"label\": \"claim\"\n    },\n    \"3\": {\n      \"text\": \"Brentano did not aim at training his students to adopt a particular, well defined method, nor did he want to make them blindly follow a static sequence of methodological procedures. Rather, he encouraged them to think independently and to apply the same logical rigor he had demonstrated them.\",\n      \"label\": \"claim\"\n    },\n    \"4\": {\n      \"text\": \"No one was more conducive to spontaneous, free thought than Brentano, yet no one took it harder when his own firmly entrenched convictions were attacked\",\n      \"label\": \"premise\"\n    },\n    \"5\": {\n      \"text\": \"I knew, however, how much it agitated him when people went their own way, even if they used his ideas as a starting point. He could often be unjust in such situations; this is what happened to me, and it was painful.\",\n      \"label\": \"premise\"\n    },\n    \"6\": {\n      \"text\": \"Er, der den Unfug der üblichen System-Philosophie schärfer als jeder andere durchschaute, wollte doch letzten Endes ein System, das auf alle Fragen Antwort weiß. Und er, das Muster eiserner Logik, fröhnte doch einer derartigen Utopie, daß seine Philosophie die ganze Menschheit läutern und erlösen könne.\",\n      \"label\": \"premise\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"4\",\n      \"target\": \"1\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"5\", \n      \"target\": \"1\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"6\",\n      \"target\": \"1\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"3\",\n      \"target\": \"2\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "1": {
+              "text": "Brentano's relation to his students was not always harmonious and though it is indisputable that he did have a decisive influence on their philosophical outlook, it is also true that many of them eclectically borrowed from Brentano, but deviated from his views in relevant ways - often with the goal to give rise to a school of their own.",
+              "label": "claim"
+            },
+            "2": {
+              "text": "The Brentano school, thus, was not a clearly defined movement, nor did the philosophers who are nowadays considered to be its members form a homogeneous movement.",
+              "label": "claim"
+            },
+            "3": {
+              "text": "Brentano did not aim at training his students to adopt a particular, well defined method, nor did he want to make them blindly follow a static sequence of methodological procedures. Rather, he encouraged them to think independently and to apply the same logical rigor he had demonstrated them.",
+              "label": "claim"
+            },
+            "4": {
+              "text": "No one was more conducive to spontaneous, free thought than Brentano, yet no one took it harder when his own firmly entrenched convictions were attacked",
+              "label": "premise"
+            },
+            "5": {
+              "text": "I knew, however, how much it agitated him when people went their own way, even if they used his ideas as a starting point. He could often be unjust in such situations; this is what happened to me, and it was painful.",
+              "label": "premise"
+            },
+            "6": {
+              "text": "Er, der den Unfug der üblichen System-Philosophie schärfer als jeder andere durchschaute, wollte doch letzten Endes ein System, das auf alle Fragen Antwort weiß. Und er, das Muster eiserner Logik, fröhnte doch einer derartigen Utopie, daß seine Philosophie die ganze Menschheit läutern und erlösen könne.",
+              "label": "premise"
+            }
+          },
+          "relations": [
+            {
+              "source": "4",
+              "target": "1",
+              "type": "support"
+            },
+            {
+              "source": "5",
+              "target": "1",
+              "type": "support"
+            },
+            {
+              "source": "6",
+              "target": "1",
+              "type": "support"
+            },
+            {
+              "source": "3",
+              "target": "2",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "1": {
+              "text": "Brentano's relation to his students was not always harmonious and though it is indisputable that he did have a decisive influence on their philosophical outlook, it is also true that many of them eclectically borrowed from Brentano, but deviated from his views in relevant ways - often with the goal to give rise to a school of their own.",
+              "label": "claim"
+            },
+            "2": {
+              "text": "The Brentano school, thus, was not a clearly defined movement, nor did the philosophers who are nowadays considered to be its members form a homogeneous movement.",
+              "label": "claim"
+            },
+            "4": {
+              "text": "No one was more conducive to spontaneous, free thought than Brentano, yet no one took it harder when his own firmly entrenched convictions were attacked",
+              "label": "premise"
+            },
+            "5": {
+              "text": "I knew, however, how much it agitated him when people went their own way, even if they used his ideas as a starting point. He could often be unjust in such situations; this is what happened to me, and it was painful.",
+              "label": "premise"
+            },
+            "6": {
+              "text": "Er, der den Unfug der üblichen System-Philosophie schärfer als jeder andere durchschaute, wollte doch letzten Endes ein System, das auf alle Fragen Antwort weiß. Und er, das Muster eiserner Logik, fröhnte doch einer derartigen Utopie, daß seine Philosophie die ganze Menschheit läutern und erlösen könne.",
+              "label": "premise"
+            }
+          },
+          "relations": [
+            {
+              "source": "4",
+              "target": "1",
+              "type": "support"
+            },
+            {
+              "source": "5",
+              "target": "1",
+              "type": "support"
+            },
+            {
+              "source": "6",
+              "target": "1",
+              "type": "support"
+            }
+          ]
+        }
+      }
+    ],
+    "timestamp": 1752752374.6919596
+  }
+]

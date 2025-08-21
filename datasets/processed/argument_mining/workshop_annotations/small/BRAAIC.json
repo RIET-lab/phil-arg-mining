@@ -1,0 +1,270 @@
+{
+  "arguments": {},
+  "statements": {
+    "Untitled 1": {
+      "type": "equivalence-class",
+      "title": "Untitled 1",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Importance of creativity to connection",
+          "fromType": "equivalence-class",
+          "to": "Untitled 1",
+          "toType": "equivalence-class"
+        },
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "AIs reduce creative work",
+          "fromType": "equivalence-class",
+          "to": "Untitled 1",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "top-level-statement",
+          "isTopLevel": true,
+          "text": "The widespread availability of generative artificial intelligence (AI) models poses a threat to human connection.",
+          "title": "Untitled 1",
+          "startLine": 3,
+          "startColumn": 1,
+          "endLine": 6,
+          "endColumn": 177,
+          "section": "s1"
+        }
+      ],
+      "section": "s1",
+      "isUsedAsTopLevelStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Importance of creativity to connection": {
+      "type": "equivalence-class",
+      "title": "Importance of creativity to connection",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Creativity involves self-disclosure",
+          "fromType": "equivalence-class",
+          "to": "Importance of creativity to connection",
+          "toType": "equivalence-class"
+        },
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Importance of creativity to connection",
+          "fromType": "equivalence-class",
+          "to": "Untitled 1",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "title": "Importance of creativity to connection",
+          "text": "Human creativity is especially capable of helping us connect to others in a valuable way",
+          "startLine": 4,
+          "startColumn": 5,
+          "endLine": 5,
+          "endColumn": 138,
+          "section": "s1"
+        }
+      ],
+      "section": "s1",
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Creativity involves self-disclosure": {
+      "type": "equivalence-class",
+      "title": "Creativity involves self-disclosure",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Creativity involves self-disclosure",
+          "fromType": "equivalence-class",
+          "to": "Importance of creativity to connection",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "title": "Creativity involves self-disclosure",
+          "text": "Self-disclosure occurs when we are creative, making it possible for others to understand us.",
+          "startLine": 5,
+          "startColumn": 7,
+          "endLine": 5,
+          "endColumn": 138,
+          "section": "s1"
+        }
+      ],
+      "section": "s1",
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "AIs reduce creative work": {
+      "type": "equivalence-class",
+      "title": "AIs reduce creative work",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "AIs reduce creative work",
+          "fromType": "equivalence-class",
+          "to": "Untitled 1",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "title": "AIs reduce creative work",
+          "text": "The widespread availability of generative AI models reduces our incentives to engage in various sorts of creative work in the arts and sciences.",
+          "startLine": 6,
+          "startColumn": 5,
+          "endLine": 6,
+          "endColumn": 177,
+          "section": "s1"
+        }
+      ],
+      "section": "s1",
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    }
+  },
+  "relations": [
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "Creativity involves self-disclosure",
+      "fromType": "equivalence-class",
+      "to": "Importance of creativity to connection",
+      "toType": "equivalence-class"
+    },
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "Importance of creativity to connection",
+      "fromType": "equivalence-class",
+      "to": "Untitled 1",
+      "toType": "equivalence-class"
+    },
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "AIs reduce creative work",
+      "fromType": "equivalence-class",
+      "to": "Untitled 1",
+      "toType": "equivalence-class"
+    }
+  ],
+  "map": {
+    "nodes": [
+      {
+        "id": "s1",
+        "title": "BRAAIC",
+        "type": "group-map-node",
+        "color": "#DADADA",
+        "fontColor": "#000000",
+        "level": 1,
+        "labelTitle": "BRAAIC",
+        "children": [
+          {
+            "id": "n0",
+            "title": "Untitled 1",
+            "type": "statement-map-node",
+            "labelText": "The widespread availability of generative artificial intelligence (AI) models poses a threat to human connection.",
+            "color": "#1b9e77",
+            "fontColor": "#000000"
+          },
+          {
+            "id": "n1",
+            "title": "Importance of creativity to connection",
+            "type": "statement-map-node",
+            "labelTitle": "Importance of creativity to connection",
+            "labelText": "Human creativity is especially capable of helping us connect to others in a valuable way",
+            "color": "#1b9e77",
+            "fontColor": "#000000"
+          },
+          {
+            "id": "n2",
+            "title": "Creativity involves self-disclosure",
+            "type": "statement-map-node",
+            "labelTitle": "Creativity involves self-disclosure",
+            "labelText": "Self-disclosure occurs when we are creative, making it possible for others to understand us.",
+            "color": "#1b9e77",
+            "fontColor": "#000000"
+          },
+          {
+            "id": "n3",
+            "title": "AIs reduce creative work",
+            "type": "statement-map-node",
+            "labelTitle": "AIs reduce creative work",
+            "labelText": "The widespread availability of generative AI models reduces our incentives to engage in various sorts of creative work in the arts and sciences.",
+            "color": "#1b9e77",
+            "fontColor": "#000000"
+          }
+        ]
+      }
+    ],
+    "edges": [
+      {
+        "id": "e1",
+        "type": "map-edge",
+        "relationType": "support",
+        "from": "n2",
+        "to": "n1",
+        "fromEquivalenceClass": "Creativity involves self-disclosure",
+        "toEquivalenceClass": "Importance of creativity to connection"
+      },
+      {
+        "id": "e2",
+        "type": "map-edge",
+        "relationType": "support",
+        "from": "n1",
+        "to": "n0",
+        "fromEquivalenceClass": "Importance of creativity to connection",
+        "toEquivalenceClass": "Untitled 1"
+      },
+      {
+        "id": "e3",
+        "type": "map-edge",
+        "relationType": "support",
+        "from": "n3",
+        "to": "n0",
+        "fromEquivalenceClass": "AIs reduce creative work",
+        "toEquivalenceClass": "Untitled 1"
+      }
+    ]
+  },
+  "sections": [
+    {
+      "type": "section",
+      "id": "s1",
+      "level": 1,
+      "title": "BRAAIC",
+      "children": [],
+      "ranges": [],
+      "startLine": 1,
+      "startColumn": 1,
+      "endLine": 6,
+      "endColumn": 177,
+      "isGroup": true,
+      "fontColor": "#000000",
+      "color": "#DADADA"
+    }
+  ],
+  "tags": {}
+}
+

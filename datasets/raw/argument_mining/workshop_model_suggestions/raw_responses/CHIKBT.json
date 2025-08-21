@@ -1,0 +1,313 @@
+[
+  {
+    "identifier": "CHIKBT",
+    "system_prompt": "## GOAL\nArgument‑mine the following paper to extract its comprehensive argumentative structure.\n\n## DEFINITIONS\n1. **Argument**: A set of propositions, including some number of premises and a conclusion. The premises should logically entail the conclusion.\n2. **Claim**: A proposition that asserts something to be true or false, typically requiring justification or evidence.\n3. **Premise**: A proposition that provides evidence, justification, or logical support for a claim or conclusion.\n\n## CRITICAL REQUIREMENTS\n1. **VERBATIM EXTRACTION ONLY**: Each ADU text must be copied EXACTLY from the paper with no modifications, paraphrasing, or combining of separate sentences.\n2. **NO HALLUCINATION**: Do not create, modify, or invent text that does not appear exactly in the source.\n3. **EXACT MATCHING**: Every word, punctuation mark, and spacing must match the original precisely.\n\n## DIRECTIONS\n1. **Identify Argumentative Discourse Units (ADUs)**  \n   - ADU = any contiguous text span functioning as a claim or a premise in the reasoning structure.\n   - **BE HIGHLY SELECTIVE**: Only include ADUs that are crucial to the overarching argument structure.\n   - Focus on significant claims and premises that contribute meaningfully to the argumentative flow.\n   - **AVOID NOISE**: Skip ADUs that are merely descriptive, tangential, or do not substantially advance the argument.\n   - Prioritize quality over quantity - fewer accurate, important ADUs are better than many insignificant ones.\n   - **EXTRACT ONLY**: Copy text spans exactly as they appear, without any modifications.\n2. **Classify each ADU**  \n   - Label = either `\"claim\"` or `\"premise\"`.  \n3. **Detect directed relations**  \n   - Relation = `\"support\"` or `\"attack\"`, from one ADU (source) to another (target).\n   - Map how ADUs connect to form reasoning chains.\n   - Focus on relationships between the most significant ADUs.\n   - Include relationships between premises that strengthen or weaken each other.\n4. **Verbatim spans**  \n   - Each `\"text\"` value must be copied EXACTLY from the paper with zero modifications.\n   - Do not paraphrase, summarize, or combine separate sentences.\n   - Do not add, remove, or change any words, punctuation, or spacing.\n   - If unsure about exact wording, skip that ADU rather than guess.\n\n## WHAT TO CAPTURE\n**INCLUDE ONLY:**\n- Main argumentative threads that are central to the paper's contribution\n- Core claims that represent the paper's primary arguments or findings\n- Key premises that provide essential support for major claims\n- Critical counterarguments and their refutations\n- Reasoning chains that demonstrate how main conclusions are derived\n\n**EXCLUDE (AVOID NOISE):**\n- Minor details, examples, or descriptive content that don't advance the argument\n- Tangential points or side discussions\n- Pure background information or literature review content\n- Methodological details unless they constitute argumentative claims\n- Obvious statements or commonly accepted facts\n- Redundant or repetitive argumentative content\n\n**GUIDING PRINCIPLE**: If removing an ADU would not significantly impact understanding of the paper's argumentative structure, it should be excluded.\n\n## QUALITY CONTROL\n- Before finalizing each ADU, verify the text exists exactly in the source\n- Prefer fewer, accurate ADUs over many potentially modified ones\n- When in doubt about exact wording, omit the ADU\n\n## OUTPUT FORMAT\nReturn **only** a single valid JSON object matching this schema.  \nDo **not** output any extra text, markdown, or explanations.\nDo **not** add comments.\n**RESPOND WITH ONLY**:\n```json\n{\n  \"ADUs\": {\n    \"<ADU_ID>\": {\n      \"text\": \"<exact span from paper>\",\n      \"label\": \"claim\" | \"premise\"\n    }\n    ...\n  },\n  \"relations\": [\n    {\n      \"source\": \"<ADU_ID>\",\n      \"target\": \"<ADU_ID>\",\n      \"type\": \"support\" | \"attack\"\n    }\n  ]\n}\n```",
+    "user_content": "phil\\_347\n\n## KANT BETWEEN THE WARS: A REPLY TO HOHENDAHL\n\nANDREW CHIGNELL\n\n## I. INTRODUCTION\n\nPeter Hohendahl's paper provides an illuminating survey of some of the most important developments in German philosophy between the world wars. The fragmented and yet immensely creative character of this period is visible in the list of writers he considers: some recommended a return to Hegel (e.g., Sternberg), some moved in that direction but only as a stepping stone to a reappropriation of Marx (LukÆcs, Horkheimer), some remained within a broadly Kantian framework but advocated significant changes (Simmel, Husserl), many were drawn to an antimetaphysical positivism (Carnap), and still others inclined toward existentialism and a new ontology of 'being' (Heidegger).\n\nDespite this diversity, a common feature of these movements is their stated opposition to the neo-Kantian Schulphilosophie that had dominated German thought for nearly half a century. In that respect, at the very least, they were entirely successful: whereas many of the interwar movements are still 'very much a part of today's philosophical discussion,' Hohendahl points out, the works of Hermann Cohen, Paul Natorp, Wilhelm Windelband, and Heinrich Rickert are largely consigned to the margins of intellectual history (pp. 18-19). 1\n\nA significant problem for attempts to discuss the legacy of Kant is that his influence in Germany is so pervasive that it is hard to separate the critics from the disciples: nearly everyone in the tradition owes a huge debt-acknowledged or not-to Kant. Hohendahl is aware of this and notes that he had to choose between focusing on the ways in which the various interwar movements diverged from what had gone before, and the ways in which they were continuous with it. He opts\n\n1 Ernst Cassirer is of course the great exception here: he has been read throughout the last half-century, in part (though by no means exclusively) because of his famous conflict with Martin Heidegger.\n\n41. 50\n\n## ANDREW CHIGNELL\n\nfor the former, and for good reason-revolutions and ruptures are usually more interesting than discipleship and run-of-the-mill development. In an effort to provide a slight counterbalance here, however, I propose to emphasize the latter.\n\nIt would be tiresome simply to list the various ways in which the interwar critics are indebted to their neo-Kantian predecessors, of course. So I will try to show, somewhat more controversially, that the philosophical content of neo-Kantianism, even if not its institutional form, was more adequate to the needs of the 1920s and 1930s than its interwar critics allowed. The goal is to lend credence to the idea that the demise of classical neo-Kantianism between the wars had at least as much to do with institutional, psychological, and/or political developments as with any strictly philosophical failures. The idea is one that Hohendahl also advocates: 'the debates of the 1920s and 1930s,' he says, 'are no longer firmly located in the field of philosophy' (p. 38).\n\nIn the third section, I go on very briefly to consider one of the figures Hohendahl discusses-Georg LukÆcs-and argue that where his criticisms of Kantianism hit a target, that target is usually a neo-Kantian philosopher rather than the Sage of Königsberg himself. My suspicion is that this is true of some of the other prominent critiques of Kant in this period as well, although I will not be able to make a case for that broader claim here. If the suspicion is correct, then the attacks on 'Kant' effectively (if paradoxically) created yet another need to go back to the historical Kant and try to reconstruct his views anew. In other words, the realization that the neo-Kantians had not been particularly faithful to their namesake may have been part of what fueled renewed efforts by historians of philosophy after World War II (on both sides of the Atlantic) to reread and reconstruct Kant's philosophy more carefully.\n\nIt is worth emphasizing that the goal here is not reverently to portray Kant as unworthy of criticism; that would be quixotic and silly. The goal, rather, is to supplement Hohendahl's illuminating survey of the discontinuities by considering some of the unacknowledged affinities between neo-Kantian philosophy and the intellectual climate of the Weimar and National Socialist eras. A secondary goal is to suggest that the critiques of 'Kant' in the latter eras-accurate or not-planted seeds that ultimately flowered into the scholarly efforts of the present day.\n\n## II. NEO-KANTIANISM AS SCAPEGOAT\n\nThe two main schools of neo-Kantianism are identified not by their doctrines but rather by their geographical headquarters. Philosophers in the Marburg school-Hermann Cohen, Paul Natorp, and Ernst Cassirer, among othersdeveloped the critical metaphysics of experience (without the metaphysics of the thing in itself), and sought to deduce constitutive a priori principles that were\n\n## KANT BETWEEN THE WARS\n\nconsistent with the mathematical and scientific discoveries of the 19th and early 20th centuries. Philosophers in the Baden school, on the other hand, focused less on natural science and more on the theory of value-the right, the good, and the beautiful-and the logical structure of such value judgments. The Badensians were also more concerned with meta-philosophical issues: Windelband and Rickert argued, for instance, that understanding the formal conditions of a given type of knowledge helps maintain disciplinary boundaries between the sciences of nature (fact) and the sciences of spirit (value). 2\n\nIn the years following World War I, neo-Kantianism of both varieties became (in the words of a disgruntled Cassirer) the 'scapegoat' ( Sündenböcke ) for many of the perceived problems in imperial and Weimar culture. In Hohendahl's words, the Marburg and Baden projects were regarded 'essentially as a continuation of the prewar era,' and thus as inadequate to the 'profound sense of loss' and severe social, political, and cultural turbulences swirling through Germany after the Great War (see Hohendahl's essay in this issue). In addition, prominent neoKantians like Natorp had written popular essays in the years leading up to the war arguing that Germany was within its rights as an intellectually superior culture to widen its sphere of influence-even via force if necessary (see Hohendahl's essay in this issue). Likewise, Emil Lask-one of Rickert's greatest students-had insisted on fighting for Germany in the trenches, and died tragically in the process.\n\nAll of this made it hard for the postwar generation to see that, from a purely philosophical point of view, neo-Kantianism was reasonably well-suited to the era of Dadaismus, social democracy, and All Quiet on the Western Front . For starters, the neo-Kantians could (and some of them-most prominently Cassirer-did) plausibly argue that it was absolute idealism -with its sweeping claims about the march of history, and its optimism about the increasingly rational self-unfolding of the Absolute-that best cohered with the naïve meliorism, ethnocentrism, and imperialism that led Europe into the catastrophic war.\n\nSecond, by way of contrast, the neo-Kantians could emphasize the antimetaphysical and politically benign impulses of their program-in particular, their view that philosophy is a handmaiden to natural science, protecting the right of empirical inquiry to tell us about reality, and restricting the Geisteswissenschaften to the more amorphous realms of culture. Such impulses should have been attractive to a politically jaded and religiously disillusioned continent. Indeed, they were\n\n2 For a complete overview of classical neo-Kantianism see Klaus Köhnke's, Entstehung und Aufstieg des Neukantianismus: Die deutsche Universitätsphilosophie zwischen Idealismus und Positivismus (Frankfurt am Main: Suhrkamp, 1986). This book was later translated by J. Hollingdale as The Rise of Neo-Kantianism (NewYork: Cambridge University Press, 1991). For a much shorter overview, see my 'On going back to Kant' as well as the other essays in the summer 2008 special edition of the Philosophical Forum devoted to 'Neo-Kantianism and its Relevance Today.'\n\n## ANDREW CHIGNELL\n\nthus attractive, but only when they were not flying under the neo-Kantian banner. For, as Hohendahl suggests in his discussion of Carnap, the positivist program of the Vienna Circle and the later logical empiricists more or less appropriated the handmaiden-to-science vision of philosophy that was prominent in neoKantianism. One can almost hear the later Viennese in a 1887 statement of neo-Kantian Alois Riehl: 'True philosophy follows science; in constant connection with science, it is ever obtaining a clearer and more complete understanding of science.' 3 Conversely, Carnap and Hans Reichenbach-despite their official resistance to Kant and the synthetic a priori -ultimately preserved a commitment to the 'constitutive a priori '-that is, the evolving, coordinating principles of natural science and mathematics.\n\nIn addition to being antimetaphysical supporters of natural science, the neoKantians tended to be moderate humanists in their political philosophy. And with a few exceptions-most notoriously, the anti-Semitic Badensian Bruno Bauchthey were also dedicated to egalitarian ideals and progressive social democracy. It seems as though precisely that sort of movement would have been attractive to intellectuals on a continent that had just been ravaged by the illiberal unreason of war.\n\nMy admittedly speculative suggestion here, then, is that far from needing to collapse after World War I, neo-Kantianism might and perhaps should very well have come into its own, at least from a broadly philosophical point of view. It had vanquished Hegelianism, had kept the radical impulses of the Kierkegaards, Schopenhauers, and Nietzsches out of the mainstream, and had succeeded in influencing Jewish thought (via Hermann Cohen and Jonas Cohn), Russian thought (witness the very active neo-Kantian school in St. Petersburg), and even British thought at the moment when (paradoxically) the English saw themselves breaking with all things Teutonic by renouncing Bradleyanism. 4\n\nSo what went wrong? Why, given these apparent affinities with the interwar Zeitgeist , did neo-Kantianism instead suffer catastrophic collapse?\n\n3 Reihl, Der philosophische Kritizismus , 3 vols. (Leipzig: A. Kröner, 1887). The quotation is taken from Reihl, The Principles of the Critical Philosophy: Introduction to the Theory and Science of Metaphysics , vol. 3, trans. A. Fairbanks (London: Kegan Paul, Trench, Trübner, &amp; Co., 1894) 17.\n\n4 The triumph of Moore and Russell over the neo-Hegelians was only really completed in the 1920s, just as Russell was writing a long and enthusiastic Foreword to an English translation of Friedrich Lange's History of Materialism (the translation appeared in 1925, the year after Bradley died). See Friedrich Lange, Geschichte der Materialismus (Iserlohn: J. Baedeker, 1866, expanded 1873-85), translated by E. C. Thomas into English as The History of Materialism and Criticism of its Present Importance (London: Kegan Paul, Trench, Trübner, &amp; Co., 1925). Interestingly, in Lange's work, we find an important antecedent of the Husserlian method of epoché -the practice of bracketing existence-assumptions about objects in order to focus on and characterize the experiential field.\n\n## KANT BETWEEN THE WARS\n\nOne suggestion is flatfootedly institutional: There is a natural tendency on the part of any group of young philosophers (especially, it seems, young German philosophers) to try to be revolutionary, to seek recognition for starting something new, to band together in the patricidal overthrow of their Doktorväter . Adding to this is the fact that the canons of the German academy require that doctoral theses as well habilitations contribute something new to the storehouse of human knowledge. The requirement of originality often heightens the patricidal urge just mentioned. But whatever merits this suggestion has by way of explaining the revolutionary works of the younger generation, it does not seem to fit older figures (e.g., Husserl) who were already well-established.\n\nAnother suggestion focuses less on institutional pressures and more on individual psychology. Peter Eli Gordon claims that after the war a 'new hunger for metaphysical speculation' seized intellectuals in the younger generation (many of whose friends and comrades had died in the trenches) and led them to 'turn away in droves from the critical model and in its stead forge diverse philosophies of religion, revolutionary utopia, and existence.' 5 This urge to metaphysics and utopianism was inevitable, according to Gordon, after so many decades of careful, critical philosophy had proved impotent against a catastrophic global war. The most extreme instance of this was Heidegger, of course, whose project after the war was explicitly to overthrow his neo-Kantian forebears in an effort to stage a kind of rebirth of metaphysics itself (although it was often done, paradoxically, in the name of Kant himself). But whatever merits this suggestion has by way of explaining Heidegger, Rosenzweig, and perhaps even LukÆcs, it does not seem to fit antimetaphysical figures like Carnap and Husserl.\n\nA third suggestion is straightforwardly political: Because the vast majority of the neo-Kantians were social democrats, and because a large number of them were Jewish, they were viewed with hostility by the increasingly powerful right-wing movements of the late 1920s and early 1930s. Jewish neo-Kantians who were still active in 1933 (Richard Hönigswald, Jonas Cohn, and Ernst Cassirer) were ultimately forced to retire and many fled. Those who stayed, such as Husserl (who declined a professorship at UCLA), suffered professional demotion and personal humiliation. But, on the other hand, many Jewish critics of neo-Kantianism also fled (e.g., Reichenbach) and yet their views gained prominence across both continents. And Husserl's personal demise in 1938 clearly did not prevent phenomenology from enjoying huge influence in the 20th century. Moreover, some neo-Kantians did keep their Lehrstühle: Bruno Bauch was a favorite of the Nazis, of course, but Nicolai Hartmann, too, was allowed to continue teaching in Berlin throughout the war as long as he held his political tongue. Although they trained\n\n5 Peter Eli Gordon, 'Science, Finitude, and Infinity: Neo-Kantianism and the Birth of Existentialism,' Jewish Social Studies 6, 1 (1999): 30-53, 33.\n\n## ANDREW CHIGNELL\n\nsome of the graduate students who would go on to great prominence in the later 20th century (Hans-Georg Gadamer, in particular), the fact that these neoKantians kept teaching during the interwar period did not prevent the movement as a whole from falling into disrepute.\n\nDespite the merits of these three explanatory suggestions, then, the wholesale collapse of institutional neo-Kantianism remains something of an historical mystery. 6\n\n## III. CASE STUDY: LUK`CS' KANT\n\nHohendahl is clearly right to say that 'there is no reason to understand the legacy of Kant exclusively in affirmative terms' and that a 'critical or negative stance' can owe as much of a debt as an affirmative appropriation. It is also worth considering, however, the extent to which the interwar critiques of Kant actually apply to the man-in-himself, rather than his late 19th century appearances. In the space that remains, I can only discuss one of the authors Hohendahl discusses-Georg LukÆcs. My suggestion is that some of the bestknown criticisms of Kant made by LukÆcs at the height of his career do not apply very well to Kant himself, even if they do apply to some neo-Kantians. More interesting than this, however, is the fact that many of the concerns that motivate LukÆcs to criticize Kant are actually concerns that Kant himself openly expressed.\n\nAlthough LukÆcs wrote some important pieces on Kantian themes earlier in his career, History and Class Consciousness (1923) is by far his best-known work. In it, LukÆcs repeatedly criticizes Kant's philosophy as (in Hohendahl's words) 'the most radical and advanced consciousness of the early bourgeoisie' (p. 21). In the famous chapter on 'Reification and the Consciousness of the Proletariat,' LukÆcs justifies this characterization by arguing that Kant's work exemplifies the highest development of the reifying 'rationalism' that subsumes all concrete particulars under concepts and principles, and integrates all individual cognitions into architectonic systems. But the critical philosophy also places limits on pure reason, LukÆcs says, and in particular on its ability to answer fundamental questions about the transcendental nature of mind (why, for instance, is there only sensibility and understanding, rather than some third basic faculty)? For LukÆcs, the tension between these aspirations and limits somehow 'reflects the limits of the new social order of the bourgeoisie'; indeed, he claims in one place that the entire tradition\n\n6 For more, see Ulrich Sieg, Aufstieg und Niedergang des Marburger Neukantianismus: die Geschichte einer philosophischen Schulgemeinschaft (Königshausen und Neumann: Würzburg, 1994).\n\n## KANT BETWEEN THE WARS\n\nof critical philosophy 'springs from the reified structure of consciousness,' and that it ends in a series of 'Antinomies of Bourgeois Thought.' 7\n\nAt this juncture, readers of Spinoza, Leibniz, and Wolff are likely to protest that the demands for rational understanding and system were already acutely manifested in 17th-century rationalism. Kant scholars, other the other hand, may complain about LukÆcs' overemphasis on the 'rationalist' aspect of the critical philosophy: after all, from the mid-1760s onward, Kant clearly opposes the unrestricted use of the Principle of Sufficient Reason, and also insists that pure reason is unable to rise to the 'unconditioned' and provide a comprehensive account of mind and world.\n\nMore striking, however, is the fact that LukÆcs sometimes writes as though Kant himself was unaware of the tension between demand for systematic cognition and the self-imposed limits of critical reason, and that he thus ended up in the 'Antinomies of Bourgeois Reason' despite himself. But while this charge may apply to some of the neo-Kantians, it is difficult to see how it could apply to Kant himself. Kant repeatedly expresses not only his awareness of the limits of theoretical knowledge, but also his frustration with that fact and his nostalgia for something like epistemic acquaintance with the whole. 'Why,' Kant asks, 'has Providence set many objects, although they are intimately connected with our highest interest, so high that it is barely granted to us to encounter them in an indistinct perception, doubted even by ourselves, through which our searching glance is more enticed than satisfied?' ( Critique of Pure Reason , A743-4/B771-2).\n\nKant's own response to the antinomies, of course, is neither to give up (as Lukacs claims he did in History and Class Consciousness [p. 134]), nor to give in to the speculative urge, but rather to set knowledge aside and try to be content with mere 'belief' ( Glaube ) about things-in-themselves. In other words, Kant claims that there is plenty for critical philosophers to say about the 'unconditioned,' so long as we recognize that the status of our claims is that of hope, acceptance, or 'firm rational belief,' rather than that of knowledge or cognition. 8\n\nLukÆcs' criticism of Kant's moral philosophy likewise seems to stray somewhat from its stated target. He charges Kant with defending (in Hohendahl's words) the 'individualism of the new class subject' and thereby allowing the 'loss of substantive freedom' (p. 23). Here he is presumably referring to the fact that the phenomenal laws, for Kant, govern the entirety of the empirical world-including the empirical human self. Neo-Kantians in both the Marburg and the Baden schools adopted this deterministic picture, but in keeping with their opposition to the thing-in-itself, they also jettisoned Kant's practical commitment to a substantive\n\n7 Georg LukÆcs, History and Class Consciousness , trans. R. Livingstone (Cambridge, MA: MIT Press, 1971) 110.\n\n8 See my 'Belief in Kant,' Philosophical Review 116, 3 (2007): 323-60.\n\n## ANDREW CHIGNELL\n\nnoumenal or transcendental freedom that is compatible with this phenomenal determinism. From the historical Kant's point of view, however, this is a serious misstep, for it is precisely in the hard-to-fathom agency of the transcendental self-the self that is insulated from all causal and economic determination-that the substantive freedom required for moral responsibility is located.\n\nLukÆcs dismisses such talk of transcendental freedom as 'empty' and 'unable [. . .] to avoid the abyss of fatalism,' but there is no specification of precisely what in Kant's compatibilism he finds unworkable. 9 Indeed, he appears to be opposed to the idea of compatibilism generally, noting that 'the freedom (of the subject) is neither able to overcome the sensuous necessity of the system of knowledge and the soullessness of the fatalistically conceived laws of nature, nor is it able to give them any meaning.' 10 But this is more stipulation than argument, and thus makes it tempting to say of LukÆcs' critique what Hohendahl says of Max Horkheimer's: namely, that its aim 'is not a reconstruction of the historical Kant or even an evaluation of relevant philosophical problems' (p. 35). Instead, LukÆcs seems (at least in this book) to give in to the temptation to use Kant and other modern philosophers as stalking-horses for the (bourgeois) conception of the world and the self that he hopes to undermine. This is an acceptable rhetorical strategy, of course, but it is also useful for readers to consider whether such attacks really hit their stated target.\n\n## IV. WILL THE REAL KANT PLEASE STEP FORWARD?\n\nThe perceived unattractiveness of prominent neo-Kantian readings of Kant elicited more than just criticism; it also led some of the members of the interwar generation to call for a more painstaking historical and rational reconstruction of Kant's own views. Despite all the criticism, there was still a strong urge among some of them, anyway, to take on the mantle of the great Prussian philosopher. Thus, for example, Husserl ultimately adopted the label 'transcendental idealism' for his own philosophy, and Heidegger's lengthy study of the first Critique was advertised as 'the first, explicit ground-laying for metaphysics' of the sort that he himself aimed to continue. 11\n\nAs a result of all this, by mid-century, the legacy of Kant had become both so contested and so crucial that a new generation of scholars saw the need for yet\n\n9 LukÆcs (1971): 133.\n\n10 Ibid: 134.\n\n11 Edmund Husserl, Ideas pertaining to a Pure Phenomenology and to a Phenomenological Philosophy , First Book , trans. Fred Kersten (Dordrecht: Kluwer Academic Publishers, 1983). Martin Heidegger, Kant and the Problem of Metaphysics , 5th ed., trans. R. Taft (Bloomington: Indiana University Press, 1997) 191. This passage is quoted by Hohendahl at p. 29.\n\n## KANT BETWEEN THE WARS\n\nanother movement back to Kant. Building on the careful textual, philological, and editorial work of various friends (if not exactly card-carrying members) of the neo-Kantian movement, such as Erich Adickes and Benno Erdmann, the generation that came into its own after World War II founded the vibrant traditions of historical Kant scholarship that are now flourishing across both Europe and the Americas.\n\nIn a roundabout fashion, then, the powerful attacks on Kant in the interwar period led not to a weakening of Kant's legacy but rather to a new and somewhat more careful historical and philosophical study of Kant's works. At the beginning of the 21st century, that exciting project is still very much underway. 12\n\nCornell University\n\n12 I am grateful to Peter Hohendahl and Thomas Teufel for helpful comments on an earlier draft of this paper, and for many good discussions along the way. Thanks also to Hohendahl and Peter Gilgen for organizing the stimulating conference on 'The Fate of Kant in an Age of Crisis: 1918-1945' at which these remarks were first presented.",
+    "responses": [
+      {
+        "source": "gpt-4o-2024-11-20",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"ADU1\": {\n      \"text\": \"Despite this diversity, a common feature of these movements is their stated opposition to the neo-Kantian Schulphilosophie that had dominated German thought for nearly half a century.\",\n      \"label\": \"claim\"\n    },\n    \"ADU2\": {\n      \"text\": \"The goal is to lend credence to the idea that the demise of classical neo-Kantianism between the wars had at least as much to do with institutional, psychological, and/or political developments as with any strictly philosophical failures.\",\n      \"label\": \"claim\"\n    },\n    \"ADU3\": {\n      \"text\": \"In the years following World War I, neo-Kantianism of both varieties became (in the words of a disgruntled Cassirer) the 'scapegoat' (Sündenböcke) for many of the perceived problems in imperial and Weimar culture.\",\n      \"label\": \"claim\"\n    },\n    \"ADU4\": {\n      \"text\": \"For starters, the neo-Kantians could (and some of them—most prominently Cassirer—did) plausibly argue that it was absolute idealism—with its sweeping claims about the march of history, and its optimism about the increasingly rational self-unfolding of the Absolute—that best cohered with the naïve meliorism, ethnocentrism, and imperialism that led Europe into the catastrophic war.\",\n      \"label\": \"premise\"\n    },\n    \"ADU5\": {\n      \"text\": \"Second, by way of contrast, the neo-Kantians could emphasize the antimetaphysical and politically benign impulses of their program—in particular, their view that philosophy is a handmaiden to natural science, protecting the right of empirical inquiry to tell us about reality, and restricting the Geisteswissenschaften to the more amorphous realms of culture.\",\n      \"label\": \"premise\"\n    },\n    \"ADU6\": {\n      \"text\": \"My admittedly speculative suggestion here, then, is that far from needing to collapse after World War I, neo-Kantianism might and perhaps should very well have come into its own, at least from a broadly philosophical point of view.\",\n      \"label\": \"claim\"\n    },\n    \"ADU7\": {\n      \"text\": \"One suggestion is flatfootedly institutional: There is a natural tendency on the part of any group of young philosophers (especially, it seems, young German philosophers) to try to be revolutionary, to seek recognition for starting something new, to band together in the patricidal overthrow of their Doktorväter.\",\n      \"label\": \"premise\"\n    },\n    \"ADU8\": {\n      \"text\": \"Another suggestion focuses less on institutional pressures and more on individual psychology.\",\n      \"label\": \"premise\"\n    },\n    \"ADU9\": {\n      \"text\": \"Peter Eli Gordon claims that after the war a 'new hunger for metaphysical speculation' seized intellectuals in the younger generation (many of whose friends and comrades had died in the trenches) and led them to 'turn away in droves from the critical model and in its stead forge diverse philosophies of religion, revolutionary utopia, and existence.'\",\n      \"label\": \"premise\"\n    },\n    \"ADU10\": {\n      \"text\": \"A third suggestion is straightforwardly political: Because the vast majority of the neo-Kantians were social democrats, and because a large number of them were Jewish, they were viewed with hostility by the increasingly powerful right-wing movements of the late 1920s and early 1930s.\",\n      \"label\": \"premise\"\n    },\n    \"ADU11\": {\n      \"text\": \"Despite the merits of these three explanatory suggestions, then, the wholesale collapse of institutional neo-Kantianism remains something of an historical mystery.\",\n      \"label\": \"claim\"\n    },\n    \"ADU12\": {\n      \"text\": \"Hohendahl is clearly right to say that 'there is no reason to understand the legacy of Kant exclusively in affirmative terms' and that a 'critical or negative stance' can owe as much of a debt as an affirmative appropriation.\",\n      \"label\": \"claim\"\n    },\n    \"ADU13\": {\n      \"text\": \"In a roundabout fashion, then, the powerful attacks on Kant in the interwar period led not to a weakening of Kant's legacy but rather to a new and somewhat more careful historical and philosophical study of Kant's works.\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"ADU2\",\n      \"target\": \"ADU3\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU4\",\n      \"target\": \"ADU6\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU5\",\n      \"target\": \"ADU6\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU7\",\n      \"target\": \"ADU11\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU8\",\n      \"target\": \"ADU11\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU9\",\n      \"target\": \"ADU11\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU10\",\n      \"target\": \"ADU11\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU12\",\n      \"target\": \"ADU13\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "ADU1": {
+              "text": "Despite this diversity, a common feature of these movements is their stated opposition to the neo-Kantian Schulphilosophie that had dominated German thought for nearly half a century.",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "The goal is to lend credence to the idea that the demise of classical neo-Kantianism between the wars had at least as much to do with institutional, psychological, and/or political developments as with any strictly philosophical failures.",
+              "label": "claim"
+            },
+            "ADU3": {
+              "text": "In the years following World War I, neo-Kantianism of both varieties became (in the words of a disgruntled Cassirer) the 'scapegoat' (Sündenböcke) for many of the perceived problems in imperial and Weimar culture.",
+              "label": "claim"
+            },
+            "ADU4": {
+              "text": "For starters, the neo-Kantians could (and some of them—most prominently Cassirer—did) plausibly argue that it was absolute idealism—with its sweeping claims about the march of history, and its optimism about the increasingly rational self-unfolding of the Absolute—that best cohered with the naïve meliorism, ethnocentrism, and imperialism that led Europe into the catastrophic war.",
+              "label": "premise"
+            },
+            "ADU5": {
+              "text": "Second, by way of contrast, the neo-Kantians could emphasize the antimetaphysical and politically benign impulses of their program—in particular, their view that philosophy is a handmaiden to natural science, protecting the right of empirical inquiry to tell us about reality, and restricting the Geisteswissenschaften to the more amorphous realms of culture.",
+              "label": "premise"
+            },
+            "ADU6": {
+              "text": "My admittedly speculative suggestion here, then, is that far from needing to collapse after World War I, neo-Kantianism might and perhaps should very well have come into its own, at least from a broadly philosophical point of view.",
+              "label": "claim"
+            },
+            "ADU7": {
+              "text": "One suggestion is flatfootedly institutional: There is a natural tendency on the part of any group of young philosophers (especially, it seems, young German philosophers) to try to be revolutionary, to seek recognition for starting something new, to band together in the patricidal overthrow of their Doktorväter.",
+              "label": "premise"
+            },
+            "ADU8": {
+              "text": "Another suggestion focuses less on institutional pressures and more on individual psychology.",
+              "label": "premise"
+            },
+            "ADU9": {
+              "text": "Peter Eli Gordon claims that after the war a 'new hunger for metaphysical speculation' seized intellectuals in the younger generation (many of whose friends and comrades had died in the trenches) and led them to 'turn away in droves from the critical model and in its stead forge diverse philosophies of religion, revolutionary utopia, and existence.'",
+              "label": "premise"
+            },
+            "ADU10": {
+              "text": "A third suggestion is straightforwardly political: Because the vast majority of the neo-Kantians were social democrats, and because a large number of them were Jewish, they were viewed with hostility by the increasingly powerful right-wing movements of the late 1920s and early 1930s.",
+              "label": "premise"
+            },
+            "ADU11": {
+              "text": "Despite the merits of these three explanatory suggestions, then, the wholesale collapse of institutional neo-Kantianism remains something of an historical mystery.",
+              "label": "claim"
+            },
+            "ADU12": {
+              "text": "Hohendahl is clearly right to say that 'there is no reason to understand the legacy of Kant exclusively in affirmative terms' and that a 'critical or negative stance' can owe as much of a debt as an affirmative appropriation.",
+              "label": "claim"
+            },
+            "ADU13": {
+              "text": "In a roundabout fashion, then, the powerful attacks on Kant in the interwar period led not to a weakening of Kant's legacy but rather to a new and somewhat more careful historical and philosophical study of Kant's works.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU2",
+              "target": "ADU3",
+              "type": "support"
+            },
+            {
+              "source": "ADU4",
+              "target": "ADU6",
+              "type": "support"
+            },
+            {
+              "source": "ADU5",
+              "target": "ADU6",
+              "type": "support"
+            },
+            {
+              "source": "ADU7",
+              "target": "ADU11",
+              "type": "support"
+            },
+            {
+              "source": "ADU8",
+              "target": "ADU11",
+              "type": "support"
+            },
+            {
+              "source": "ADU9",
+              "target": "ADU11",
+              "type": "support"
+            },
+            {
+              "source": "ADU10",
+              "target": "ADU11",
+              "type": "support"
+            },
+            {
+              "source": "ADU12",
+              "target": "ADU13",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "ADU1": {
+              "text": "Despite this diversity, a common feature of these movements is their stated opposition to the neo-Kantian Schulphilosophie that had dominated German thought for nearly half a century.",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "The goal is to lend credence to the idea that the demise of classical neo-Kantianism between the wars had at least as much to do with institutional, psychological, and/or political developments as with any strictly philosophical failures.",
+              "label": "claim"
+            },
+            "ADU3": {
+              "text": "In the years following World War I, neo-Kantianism of both varieties became (in the words of a disgruntled Cassirer) the 'scapegoat' (Sündenböcke) for many of the perceived problems in imperial and Weimar culture.",
+              "label": "claim"
+            },
+            "ADU6": {
+              "text": "My admittedly speculative suggestion here, then, is that far from needing to collapse after World War I, neo-Kantianism might and perhaps should very well have come into its own, at least from a broadly philosophical point of view.",
+              "label": "claim"
+            },
+            "ADU7": {
+              "text": "One suggestion is flatfootedly institutional: There is a natural tendency on the part of any group of young philosophers (especially, it seems, young German philosophers) to try to be revolutionary, to seek recognition for starting something new, to band together in the patricidal overthrow of their Doktorväter.",
+              "label": "premise"
+            },
+            "ADU8": {
+              "text": "Another suggestion focuses less on institutional pressures and more on individual psychology.",
+              "label": "premise"
+            },
+            "ADU9": {
+              "text": "Peter Eli Gordon claims that after the war a 'new hunger for metaphysical speculation' seized intellectuals in the younger generation (many of whose friends and comrades had died in the trenches) and led them to 'turn away in droves from the critical model and in its stead forge diverse philosophies of religion, revolutionary utopia, and existence.'",
+              "label": "premise"
+            },
+            "ADU10": {
+              "text": "A third suggestion is straightforwardly political: Because the vast majority of the neo-Kantians were social democrats, and because a large number of them were Jewish, they were viewed with hostility by the increasingly powerful right-wing movements of the late 1920s and early 1930s.",
+              "label": "premise"
+            },
+            "ADU11": {
+              "text": "Despite the merits of these three explanatory suggestions, then, the wholesale collapse of institutional neo-Kantianism remains something of an historical mystery.",
+              "label": "claim"
+            },
+            "ADU12": {
+              "text": "Hohendahl is clearly right to say that 'there is no reason to understand the legacy of Kant exclusively in affirmative terms' and that a 'critical or negative stance' can owe as much of a debt as an affirmative appropriation.",
+              "label": "claim"
+            },
+            "ADU13": {
+              "text": "In a roundabout fashion, then, the powerful attacks on Kant in the interwar period led not to a weakening of Kant's legacy but rather to a new and somewhat more careful historical and philosophical study of Kant's works.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU2",
+              "target": "ADU3",
+              "type": "support"
+            },
+            {
+              "source": "ADU7",
+              "target": "ADU11",
+              "type": "support"
+            },
+            {
+              "source": "ADU8",
+              "target": "ADU11",
+              "type": "support"
+            },
+            {
+              "source": "ADU9",
+              "target": "ADU11",
+              "type": "support"
+            },
+            {
+              "source": "ADU10",
+              "target": "ADU11",
+              "type": "support"
+            },
+            {
+              "source": "ADU12",
+              "target": "ADU13",
+              "type": "support"
+            }
+          ]
+        }
+      },
+      {
+        "source": "claude-3-5-sonnet-20241022",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"1\": {\n      \"text\": \"The goal is to lend credence to the idea that the demise of classical neo-Kantianism between the wars had at least as much to do with institutional, psychological, and/or political developments as with any strictly philosophical failures.\",\n      \"label\": \"claim\"\n    },\n    \"2\": {\n      \"text\": \"from a purely philosophical point of view, neo-Kantianism was reasonably well-suited to the era of Dadaismus, social democracy, and All Quiet on the Western Front\",\n      \"label\": \"claim\"\n    },\n    \"3\": {\n      \"text\": \"the neo-Kantians could emphasize the antimetaphysical and politically benign impulses of their program-in particular, their view that philosophy is a handmaiden to natural science, protecting the right of empirical inquiry to tell us about reality, and restricting the Geisteswissenschaften to the more amorphous realms of culture.\",\n      \"label\": \"premise\"\n    },\n    \"4\": {\n      \"text\": \"the neo-Kantians tended to be moderate humanists in their political philosophy. And with a few exceptions-most notoriously, the anti-Semitic Badensian Bruno Bauch-they were also dedicated to egalitarian ideals and progressive social democracy.\",\n      \"label\": \"premise\"\n    },\n    \"5\": {\n      \"text\": \"far from needing to collapse after World War I, neo-Kantianism might and perhaps should very well have come into its own, at least from a broadly philosophical point of view.\",\n      \"label\": \"claim\"\n    },\n    \"6\": {\n      \"text\": \"Because the vast majority of the neo-Kantians were social democrats, and because a large number of them were Jewish, they were viewed with hostility by the increasingly powerful right-wing movements of the late 1920s and early 1930s.\",\n      \"label\": \"premise\"\n    },\n    \"7\": {\n      \"text\": \"the wholesale collapse of institutional neo-Kantianism remains something of an historical mystery.\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"3\",\n      \"target\": \"2\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"4\",\n      \"target\": \"2\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"2\",\n      \"target\": \"5\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"6\",\n      \"target\": \"1\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"5\",\n      \"target\": \"7\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "1": {
+              "text": "The goal is to lend credence to the idea that the demise of classical neo-Kantianism between the wars had at least as much to do with institutional, psychological, and/or political developments as with any strictly philosophical failures.",
+              "label": "claim"
+            },
+            "2": {
+              "text": "from a purely philosophical point of view, neo-Kantianism was reasonably well-suited to the era of Dadaismus, social democracy, and All Quiet on the Western Front",
+              "label": "claim"
+            },
+            "3": {
+              "text": "the neo-Kantians could emphasize the antimetaphysical and politically benign impulses of their program-in particular, their view that philosophy is a handmaiden to natural science, protecting the right of empirical inquiry to tell us about reality, and restricting the Geisteswissenschaften to the more amorphous realms of culture.",
+              "label": "premise"
+            },
+            "4": {
+              "text": "the neo-Kantians tended to be moderate humanists in their political philosophy. And with a few exceptions-most notoriously, the anti-Semitic Badensian Bruno Bauch-they were also dedicated to egalitarian ideals and progressive social democracy.",
+              "label": "premise"
+            },
+            "5": {
+              "text": "far from needing to collapse after World War I, neo-Kantianism might and perhaps should very well have come into its own, at least from a broadly philosophical point of view.",
+              "label": "claim"
+            },
+            "6": {
+              "text": "Because the vast majority of the neo-Kantians were social democrats, and because a large number of them were Jewish, they were viewed with hostility by the increasingly powerful right-wing movements of the late 1920s and early 1930s.",
+              "label": "premise"
+            },
+            "7": {
+              "text": "the wholesale collapse of institutional neo-Kantianism remains something of an historical mystery.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "3",
+              "target": "2",
+              "type": "support"
+            },
+            {
+              "source": "4",
+              "target": "2",
+              "type": "support"
+            },
+            {
+              "source": "2",
+              "target": "5",
+              "type": "support"
+            },
+            {
+              "source": "6",
+              "target": "1",
+              "type": "support"
+            },
+            {
+              "source": "5",
+              "target": "7",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "1": {
+              "text": "The goal is to lend credence to the idea that the demise of classical neo-Kantianism between the wars had at least as much to do with institutional, psychological, and/or political developments as with any strictly philosophical failures.",
+              "label": "claim"
+            },
+            "2": {
+              "text": "from a purely philosophical point of view, neo-Kantianism was reasonably well-suited to the era of Dadaismus, social democracy, and All Quiet on the Western Front",
+              "label": "claim"
+            },
+            "3": {
+              "text": "the neo-Kantians could emphasize the antimetaphysical and politically benign impulses of their program-in particular, their view that philosophy is a handmaiden to natural science, protecting the right of empirical inquiry to tell us about reality, and restricting the Geisteswissenschaften to the more amorphous realms of culture.",
+              "label": "premise"
+            },
+            "5": {
+              "text": "far from needing to collapse after World War I, neo-Kantianism might and perhaps should very well have come into its own, at least from a broadly philosophical point of view.",
+              "label": "claim"
+            },
+            "6": {
+              "text": "Because the vast majority of the neo-Kantians were social democrats, and because a large number of them were Jewish, they were viewed with hostility by the increasingly powerful right-wing movements of the late 1920s and early 1930s.",
+              "label": "premise"
+            },
+            "7": {
+              "text": "the wholesale collapse of institutional neo-Kantianism remains something of an historical mystery.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "3",
+              "target": "2",
+              "type": "support"
+            },
+            {
+              "source": "2",
+              "target": "5",
+              "type": "support"
+            },
+            {
+              "source": "6",
+              "target": "1",
+              "type": "support"
+            },
+            {
+              "source": "5",
+              "target": "7",
+              "type": "support"
+            }
+          ]
+        }
+      }
+    ],
+    "timestamp": 1752754256.6965902
+  }
+]

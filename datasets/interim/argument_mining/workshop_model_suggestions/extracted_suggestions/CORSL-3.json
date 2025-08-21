@@ -1,0 +1,14 @@
+{
+  "This expository article focuses on the fundamental differences between first-order logic and second-order logic.": "gpt-4o-2024-11-20",
+  "Rejection of second-order logic is viewed as involving radical repudiation of part of our scientific tradition.": "gpt-4o-2024-11-20",
+  "Basic logic is the logic of basic propositions.": "gpt-4o-2024-11-20",
+  "There is a radical increase in expressive power of first-order languages as compared to basic languages.": "claude-3-5-sonnet-20241022",
+  "First-order logic can be called countable logic.": "gpt-4o-2024-11-20",
+  "Second-order logic differs radically from first-order.": "gpt-4o-2024-11-20",
+  "In first-order every contradiction is negative; in second-order there are self-contradictory propositions which are exclusively positive.": "gpt-4o-2024-11-20",
+  "No matter what human action you consider, if everyone does it to everyone doing it to them, then everyone has it done to them by everyone to whom they do it.": "claude-3-5-sonnet-20241022",
+  "Each of the above propositions is actually a tautology, a proposition implied by its own negation.": "claude-3-5-sonnet-20241022",
+  "The most basic laws of logic are the laws of excluded middle, non-contradiction, and truth and consequence: \"Every proposition is either true or false\", \"No proposition is both true and false\" and \"Every proposition implied by a true proposition is true\".": "claude-3-5-sonnet-20241022",
+  "Basic logic can be called finite logic because every finite invalid argument of basic logic is refutable by a counterargument whose propositions have reference only to a finite number of individuals.": "claude-3-5-sonnet-20241022",
+  "My main point in this essay is that the reasoning in a given logic achieves more than can be expressed in that logic and that the transcending of a given logic by going to a higher order is one way of reaping the full fruit of one's reasoning in a given logic.": "claude-3-5-sonnet-20241022"
+}

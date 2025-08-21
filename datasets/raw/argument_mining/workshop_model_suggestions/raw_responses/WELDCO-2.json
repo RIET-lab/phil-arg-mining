@@ -1,0 +1,361 @@
+[
+  {
+    "identifier": "WELDCO-2",
+    "system_prompt": "## GOAL\nArgument‑mine the following paper to extract its comprehensive argumentative structure.\n\n## DEFINITIONS\n1. **Argument**: A set of propositions, including some number of premises and a conclusion. The premises should logically entail the conclusion.\n2. **Claim**: A proposition that asserts something to be true or false, typically requiring justification or evidence.\n3. **Premise**: A proposition that provides evidence, justification, or logical support for a claim or conclusion.\n\n## CRITICAL REQUIREMENTS\n1. **VERBATIM EXTRACTION ONLY**: Each ADU text must be copied EXACTLY from the paper with no modifications, paraphrasing, or combining of separate sentences.\n2. **NO HALLUCINATION**: Do not create, modify, or invent text that does not appear exactly in the source.\n3. **EXACT MATCHING**: Every word, punctuation mark, and spacing must match the original precisely.\n\n## DIRECTIONS\n1. **Identify Argumentative Discourse Units (ADUs)**  \n   - ADU = any contiguous text span functioning as a claim or a premise in the reasoning structure.\n   - **BE HIGHLY SELECTIVE**: Only include ADUs that are crucial to the overarching argument structure.\n   - Focus on significant claims and premises that contribute meaningfully to the argumentative flow.\n   - **AVOID NOISE**: Skip ADUs that are merely descriptive, tangential, or do not substantially advance the argument.\n   - Prioritize quality over quantity - fewer accurate, important ADUs are better than many insignificant ones.\n   - **EXTRACT ONLY**: Copy text spans exactly as they appear, without any modifications.\n2. **Classify each ADU**  \n   - Label = either `\"claim\"` or `\"premise\"`.  \n3. **Detect directed relations**  \n   - Relation = `\"support\"` or `\"attack\"`, from one ADU (source) to another (target).\n   - Map how ADUs connect to form reasoning chains.\n   - Focus on relationships between the most significant ADUs.\n   - Include relationships between premises that strengthen or weaken each other.\n4. **Verbatim spans**  \n   - Each `\"text\"` value must be copied EXACTLY from the paper with zero modifications.\n   - Do not paraphrase, summarize, or combine separate sentences.\n   - Do not add, remove, or change any words, punctuation, or spacing.\n   - If unsure about exact wording, skip that ADU rather than guess.\n\n## WHAT TO CAPTURE\n**INCLUDE ONLY:**\n- Main argumentative threads that are central to the paper's contribution\n- Core claims that represent the paper's primary arguments or findings\n- Key premises that provide essential support for major claims\n- Critical counterarguments and their refutations\n- Reasoning chains that demonstrate how main conclusions are derived\n\n**EXCLUDE (AVOID NOISE):**\n- Minor details, examples, or descriptive content that don't advance the argument\n- Tangential points or side discussions\n- Pure background information or literature review content\n- Methodological details unless they constitute argumentative claims\n- Obvious statements or commonly accepted facts\n- Redundant or repetitive argumentative content\n\n**GUIDING PRINCIPLE**: If removing an ADU would not significantly impact understanding of the paper's argumentative structure, it should be excluded.\n\n## QUALITY CONTROL\n- Before finalizing each ADU, verify the text exists exactly in the source\n- Prefer fewer, accurate ADUs over many potentially modified ones\n- When in doubt about exact wording, omit the ADU\n\n## OUTPUT FORMAT\nReturn **only** a single valid JSON object matching this schema.  \nDo **not** output any extra text, markdown, or explanations.\nDo **not** add comments.\n**RESPOND WITH ONLY**:\n```json\n{\n  \"ADUs\": {\n    \"<ADU_ID>\": {\n      \"text\": \"<exact span from paper>\",\n      \"label\": \"claim\" | \"premise\"\n    }\n    ...\n  },\n  \"relations\": [\n    {\n      \"source\": \"<ADU_ID>\",\n      \"target\": \"<ADU_ID>\",\n      \"type\": \"support\" | \"attack\"\n    }\n  ]\n}\n```",
+    "user_content": "## Du Châtelet on the Need for Mathematics in Physics\n\n## Aaron Wells University of Notre Dame\n\nAbstract: There is a tension in Emilie Du Châtelet's thought on mathematics. The objects of mathematics are ideal or fictional entities; nevertheless, mathematics is presented as indispensable for an account of the physical world. After outlining Du Châtelet's position, and  showing  how  she  departs  from  Christian  Wolff's  pessimism  about  Newtonian mathematical physics, I show that the tension in her position is only apparent. Du Châtelet has a worked-out defense of the explanatory and epistemic need for mathematical objects, consistent with their metaphysical non-fundamentality. I conclude by sketching how Du Châtelet's conception of mathematical indispensability differs interestingly from many contemporary approaches.\n\n## 1. Introduction\n\nIn this paper, I outline Emilie Du Châtelet's philosophical justification of mathematical methods in philosophy and natural science. Like Christian Wolff, she regards space, time, and mathematical objects as ideal entities-as products, in part, of the imagination. While Wolff concludes that mathematics is not a good guide to how the world really is, Du Châtelet defends the indispensability of mathematics for an account of the physical world. In the final section, I briefly note some ways in which Du Châtelet's approach differs from common contemporary accounts of the indispensability of mathematics; I suggest that her views are nevertheless defensible and worthy of further study.\n\n## 2. Wolff's Ambivalence about Mathematics in Physics\n\nWe now tend to assume both that physics is an importantly distinct discipline from mathematics, and physics nonetheless can and should be mathematical. In the seventeenth and eighteenth centuries, by contrast, the demarcation between mathematics and physics in this period was far from clear, and the mathematization of physics was vigorously resisted in some\n\n## Draft. Please cite the published version, forthcoming in Philosophy of Science .\n\nquarters. As Gingras (2001, 385) puts it, historians tend to focus 'on the 'winners,' those who…accepted the mathematical conception of natural philosophy,' rather than on various 'resistances to mathematization.'\n\nAntoine Furetière's Dictionnaire , from 1690, is typical in defining physics ( physique ) as 'the science of natural causes' ([Furetière] 1690, under ' physique '). The dictionary offers various definitions of mechanics ( méchanique ) under a separate heading. Most of these definitions designate mechanics as a branch of mathematics. Mechanics is not described as directly treating actual natural causes ([Furetière] 1690, under ' méchanique '; Shank 2018, 4647). The institutional structure of the early French Academy reflected these distinctions, scheduling mathematics sessions on different days than those on physique (George 1938).\n\nThe separation of causal physics and mathematical mechanics was still common in the eighteenth century. Gingras (2001) notes, for example, that Diderot and Buffon criticized the mathematization of physics throughout the 1740s and 1750s. Christian Wolff, arguably the most influential German philosopher of the early eighteenth century, was also ambivalent about mathematical physics. To be sure, Wolff famously defends what he calls the mathematical method , taking genuine explanations to involve deduction from axioms and definitions, broadly on the model of Greek geometry. Furthermore, Wolff considers definitions in mathematics to be models of clarity and distinctness. 1\n\nPraise for mathematical method and the precision of mathematical concepts, however, has historically been quite compatible with doubts about causal applications of mathematics (Mancosu 1992; Dear 1995, 161-168). Wolff fits this pattern. He is pessimistic about the role of mathematics in causal explanation, stressing that explanations ought to track how things are in themselves (' was in den Sachen selbst liege '), at the level of fundamental simple substances (2001, 336). These substances are non-extended. We do not observe them directly, but their causal features can be partly deduced through metaphysical argument. Insofar as mathematical concepts depend on our imagination, however, they do not track properties of fundamental simple substances, or mind-independent causal relations generally. 2 Wolff thinks it also follows from\n\n1 See Gava (2018) and the methodological remarks ('Kurzer Unterricht von der Mathematischen Lehr-Art') that open Wolff (1737b). In §1, Wolff sketches the mathematical method; in §12, he argues that mathematical definitions use only distinct concepts.\n\n2 See Wolff (2001, 336ff.). For discussion of Wolff's contention that metaphysics enjoys greater certainty than mathematics, see Buchenau (2011). On Wolff's idealism generally, see Rutherford (2004).\n\n## Draft. Please cite the published version, forthcoming in Philosophy of Science .\n\nthese considerations that mathematical objects are at best merely possible entities. As such, mathematical propositions are hypotheses that do not prove that their objects are actually instantiated.\n\nOn the basis of arguments like these, Katherine Dunlop (2013) has shown, Wolff was willing to downgrade central claims in Newton's Principia , such as those concerning force, to at best hypothetical status (and at worst, to being mere figments of the imagination wrongly taken to be causes). Wolff interprets these claims as describing regularities in phenomena, not causes; they may be useful for discovery and prediction, but cannot genuinely explain without metaphysical supplementation. Summing up his differences with Newton, Wolff wrote to Manteuffel on January 27 1741 that Newton was no 'metaphysician' and 'only expressed imaginary notions [ notions imaginaires ]' rather than 'real concepts' (Wolff 2019, I:209). Dunlop even suggests that Wolff regards mathematical physics as merely 'advantageous for metaphysics,' but not as 'necessary, or even especially important' (2013, 467). That is, even in the order of discovery, Wolff may not regard mathematical methods as indispensable for doing rational cosmology.\n\nWolff's alternative is, in brief, to do metaphysics-though in a way that he takes to be responsive to empirical constraints. Wolff contends that (mathematical) physics must be reconstructed as rational cosmology , a branch of axiomatic metaphysics that he thinks can fully account for real causes (Wolff 1737a, sec. 76; Wolff 1983, sec. 143; Wolff 1996, sec. 59; 94-97; 139). It does so by tracking the causal powers and states 'of each simple thing' (Wolff 1996, sec. 593; Dyck 2020, 123).\n\n## 3. Du Châtelet: Mathematical Physics and Mathematical Idealism\n\nDu Châtelet repeatedly points out the influence of Christian Wolff on her work, and there is a growing body of recent scholarship on the topic. 3 Here I focus on affinities between Wolff's views and Du Châtelet's idealism about space, time, and mathematics. She holds that the fundamental level of created reality consists of real, simple substances, which are not in space and time. The bodies we can observe are partly grounded in our cognitive faculties.\n\n3 See Du Châtelet (1740, 12-14; 131 - 33), as well as an August 1740 letter (#281) to Frederick II of Prussia. Du Châtelet and Wolff corresponded, although their letters are mostly lost. For further references and discussion see e.g. Rey (2013), Neumann (2014), and Stan (2018).\n\n## Draft. Please cite the published version, forthcoming in Philosophy of Science .\n\nAs Carson (2004, 170) has put it, mathematical concepts are for Du Châtelet 'doubly removed from the real.' Geometrical extension, for example, is a product of a second step of abstraction from bodies, which are already non-fundamental (Du Châtelet 1740, 179-80). As such, Du Châtelet presents mathematical objects as 'fictions' or 'imaginary beings' (99-100; 105; 118-19). She also dismisses some scientific hypotheses, such as the Cartesian vortex theory of gravitation, as merely imaginary (Du Châtelet 1738, 534; 1759, 32-33; 1759, 111-13). 4\n\nGiven these commitments, we might expect Du Châtelet to follow Wolff and deny that Newtonian physics can track the real causal structure of the world without supplementation. Instead, she is optimistic about mathematical physics. The Preface of the Institutions stresses the crucial explanatory role of geometry in physics:\n\nWith no resort to it, one would hope in vain to make great progress in the study of nature. It is the key to all discoveries; and if there are still several inexplicable things in physics, that is because geometry has been insufficiently used to explain them, and one has perhaps not yet gone far enough in this science. (1740, 3)\n\nWhile this passage specifically concerns geometry, it is noteworthy that when Du Châtelet recasts a number of Newton's key proofs in the language of Leibnizian calculus (in her commentary on Book III of Newton's Principia ), 5 she does not explicitly suggest that she regards calculus as raising distinctive logical or ontological problems. 6\n\nHer account of the argumentative structure of Newton's Principia also expresses optimism freestanding mathematical physics. In Principia Book III, she writes, Newton 'applies…the propositions of the first [i.e., Book I] to the explication of celestial phenomena' (1759, 9). This is so even though much of Book I presents abstract mathematical propositions, or what she calls the foundations of 'the geometry of the infinite' or infinitesimal (9). Such propositions abstract from manifest kinds or 'species' of matter, and from the kind of medium in\n\n4 In the 1740s, vortex theories were still a live option for explaining phenomena such as comets or the motion of distant planets. See Euler's reference to 'vortices or some other material cause' as 'very probable' in a 1747 letter to Clairaut, quoted in Hankins (1985, 32). Nonetheless, Du Châtelet defended the Newtonian position on comets (1759, 112).\n\n5 Zinsser and Courcelle (2003) discuss the structure and composition of this commentary.\n\n6 On the disputed foundations of calculus, see Blay (1986) and Chareix (2010). Many practitioners during this period were nevertheless untroubled by foundational questions about calculus and focused on its practical applications. For example, the Encyclopédie entry on 'analysis' (attributed to d'Alembert) stresses the practical utility of calculus or 'infinite' analysis, without mentioning foundational problems that might distinguish it from the 'finite' analysis in algebra and geometry. I thank Monica Solomon for prompting me to address this point.\n\nwhich bodies move (9). Nevertheless, for Du Châtelet Book I 'provides' Newton's 'entire theory' of gravitation (9).\n\nPropositions referring to imaginary mathematical objects can thus yield a true theory (if not the full details of its application to actual phenomena). 7 The general propositions of Book I are premises in sound physical demonstrations, despite their mathematical status. And, conversely, she suggests that the specific applications of mathematics laid out in Book III can be used to address puzzles in 'mere geometry' [ la seule Géométrie ], that is, in pure mathematics (1759, 37). So, unlike some early French readers of Newton, Du Châtelet understands the Principia as an integrated work of mathematical and physical science-not as a mere treatise in mathematics. 8\n\n## 4. Vindicating the Use of Mathematics in Physics\n\nIn this section, I present three ways in which Du Châtelet attempts to justify the role of mathematics in physics. Fully evaluating these justifications is a project for another time.\n\nFirst, Du Châtelet generalizes from particular cases of the legitimate scientific use of idealized mathematical objects, in order to defuse worries about the fictional or imaginary character of mathematical objects. Here we can make use of work distinguishing between abstractions (which merely leave out some properties of the target phenomena) from idealizations (which represent target phenomena falsely); see e.g. Koyré (1968, 45-46) and McMullin (1985). As we'll see, some of Du Châtelet's remarks show that she regards mathematical objects as products of abstraction. Yet she also implies that mathematics involves strictly false idealizations. For example, she holds that the ideas of mathematical space and time are images 'produced by confused ideas' (1740, 113).\n\nDu Châtelet frequently discusses fairly uncontroversial cases of idealized mathematical representation-cases where even those taking a more realist view of mathematical objects might accept some role for idealization. To take one example, Newton's calculations of the shape of the earth began with a series of mathematical idealizations. Newton had treated the earth as a fluid body of homogeneous density: first as a sphere and then as an elliptical spheroid. Like Newton\n\n7 See also Du Châtelet's geometrical exposition of Galileo's account of falling bodies (1740, 258-65).\n\n8 Gingras (2001, 398-403) and Shank (2018) clarify why even well-informed early readers often regarded the Principia as a mathematical treatise. Shank takes Du Châtelet's commentary to follow this trend (273), but provides no direct evidence for this reading.\n\nhimself, Du Châtelet regards these assumptions as probably false. She notes that Newton voiced doubts about homogeneity and suggested an alternative hypothesis: the increasing density of the earth towards its core (1759, 56-57; 194).\n\nNevertheless, she contends that Newton's idealized treatment of the earth as homogeneous was fruitful: it was testable and could be refined through an evolving research program. She is in a position to note that Newton's theory had been substantially refined by subsequent observations. 9 Moreover, this is a rare case in which the universality of Newtonian gravitation-i.e. the attraction of 'all the particles composing the earth' taken distributively and not just collectively-plays a direct role in Newton's reasoning (1759, 57-59). 10\n\nThis example shows that, for Du Châtelet, abstract representations that do not truly represent empirical reality can still play a role in correct reasoning. What matters is whether the reasoning in question leads to empirically accurate conclusions, and not whether each of its premises is strictly speaking true. Some problems in astronomy, for example, can be solved using simple but false Ptolemaic assumptions 'because we can in these instances substitute one hypothesis for the other [i.e., a Copernican hypothesis] without damaging the truth [ sans faire tort à la vérité ]' (1740, 106). A physicist may make such assumptions so long as doing so does not result in any 'error' in 'explications and…experiments' (1742, 206). Strictly false or distorting representations should be distinguished from erroneous judgments and inferences that may be made on their basis. 11\n\nDu Châtelet considers many other cases that illustrate this point. One can treat the moon as a point-mass, comets as subject solely to gravitational forces, outer space as if it were a void, and so on. All these cases involve successive mathematical approximation, which begins with the simplest ideal cases and continues through gradually more complex cases as more relevant evidence is obtained, refining mathematical parameters as needed. These passages strongly imply that Du Châtelet accepts Newton's method of approximation-discussed by Cohen (1980) and\n\n9 Du Châtelet stayed informed on the latest research in this area, as can be seen from her correspondence with Maupertuis and Clairaut. In 1739, before acquiring a copy of Newton's Principia , a letter to L. F. Prault indicates that she owned Maupertuis's 1738 Figure de la Terre (Du Châtelet 2009, 111). Her commentary on the Principia , in turn, incorporates substantial discussion of Clairaut's 1743 Theorie de la Figure de la Terre . On the initial reception of Newton's difficult treatment of this topic, see Greenberg (1996).\n\n10 This fits nicely with Du Châtelet's account of the role of hypotheses as allowing us 'to discover the truth' (1740, 78). Du Châtelet's account of hypotheses found its way into Diderot and d'Alembert's Encyclopedia and was highly praised by Euler in a 1741-2 letter to Du Châtelet (2018, 145). For further discussion, see Maglo (2008), Hagengruber (2012), Brading (2019), and Detlefsen (2019).\n\n11 Compare the Port-Royal Logic : 'error derives only from judging badly' (Arnauld and Nicole 1996, 59).\n\nSmith (2002), among others-as a legitimate use of mathematical idealization. For example, she argues that an advantage of Newtonian gravitational theory is that, as 'knowledge of phenomena' becomes 'more exact…the easier it is to apply the attractive principle to their explication' (1759, 184). She is suggesting that, as more precise observations and experiments are obtained, the principle of attraction, and in particular what we would now call the gravitational constant, may itself be subject to revision. 12\n\nMore broadly, Du Châtelet defends what she calls general or physical explanations; this provides a more general framework for making sense of idealizations in explanation. Du Châtelet distinguishes between the 'general' or physical explanation of phenomena and engagement 'in detail with phenomena and their mechanical causes' (1740, 321; 1742, 203). General explanations are at best incomplete, and may rely on strictly false assumptions. But they do pick out genuine features of a 'force,' such as the force of attraction, even if 'the cause of this tendency' is not thereby explained in mechanistic terms (1759, 10). 13 So as Brading (2019, 89-91) has emphasized, although Du Châtelet takes mechanistic explanation as an ultimate goal of inquiry, her account does not thereby undercut all non-mechanistic characterizations of force.\n\nHer position faces a serious challenge, however: mathematical representations appear to be different in kind from bodies, which themselves differ from the non-extended simples Du Châtelet takes to be most fundamental in created reality. It is not clear that quantitative approximation can usefully be applied across these distinctions in kind. 14\n\nMathematical representations and bodies, however, have an important feature in common: they are essentially spatiotemporal. Mathematical objects are derived from acts of abstraction from bodies, which are themselves non-fundamental yet real substances. What this means is that mathematical objects are partly grounded in bodies, and may approximate the properties of bodies. 15 Du Châtelet holds that our representations can have degrees of clarity and\n\n12 On empirical questions regarding gravity see e.g. Du Châtelet (1740, 333-34). She follows Newton in presenting constants and other physical values as 'approximately' ( à peu près ) true. For example, she explicitly connects the use of mathematical idealization-here, treating Jupiter as if it were uniformly dense-with the merely approximate truth of the results (1759, 66).\n\n13 Similarly, the action of a pump can be 'very well' explained in terms of the elasticity of air-and this relationship can be precisely quantified-even if the mechanical cause of air's elasticity has not been characterized (1742, 203). The latter is a 'new question,' distinct from physical explanation as such (203; 204-5).\n\n14 Compare McKenzie's (2020) helpful discussion of these issues in the context of contemporary metaphysics.\n\n15 Du Châtelet may be influenced by a tradition dating back to Aristotle's treatment of mathematics in his Physics and Metaphysics , on which mathematical entities such as points and lines are abstracted from real things. On this account, mathematical entities genuinely exist in real things; see Lear (1982).\n\ndistinctness. She could make use of this assumption to further work out the relevant notion of approximation, via the suggestion (discussed further below) that mathematical representations are in some sense indeterminate .\n\nThere is a difference in kind, on Du Châtelet's view, between bodies and simple substances. But the latter are essentially non-spatiotemporal, and Du Châtelet affirms that it is 'impossible' for us to determinately 'represent' their causal properties (Du Châtelet 1740, 16970). So it is natural for her to deny that approximation can yield determinate knowledge of simple substances.\n\nA second line of argument emphasizes the epistemic advantages of abstracting from the details of particulars, and insists that there is no genuine alternative to mathematical abstraction in particular. Du Châtelet contends that that all the sciences 'must' employ abstract mathematical notions both in the context of discovering laws or principles-this is the ' art d'inventer ' or ars inveniendi -and to address problems that cannot be solved by the unaided understanding (1740, 106). Here she breaks with a widely held Aristotelian doctrine that is still to be found in Locke. What is 'by us…measurable' in numerical terms, Locke writes, is 'principally… Expansion and Duration ': that is, pure spatial and temporal quantities rather than qualities (1975, sec. II.XVI.8). 16\n\nFor Du Châtelet, by contrast, it is unavoidable that the sciences represent qualities mathematically. The need for abstraction is grounded in limitations of our intellect. Given the finitude of our mental faculties, in most cases we cannot reason about a multiplicity of particulars without abstracting from many 'internal determinations,' in order to represent their relational, quantitative features (1740, 107).\n\nThis point applies not just in scientific contexts, but in everyday reasoning. To take Du Châtelet's example, an iron bar has numerous internal determinations, some of which explain its manifest solidity and cohesion. But we can characterize the length of the bar numerically; the parts of this quantity exist 'outside of one another' and contingently 'are one by their union' in a way that may remain constant across variations in internal determinations (1740, 98; emphasis\n\n16 For Aristotelians, quality and quantity are different basic categories. Thus the mathematization of quality was resisted by many medieval thinkers. There were, however, important exceptions, such as the Oxford Calculators (Maier 1968; Sylla 1973).\n\n## Draft. Please cite the published version, forthcoming in Philosophy of Science .\n\nin original). 17 Quantitative descriptions have a generality that is lacking in accounts that appeal to the manifest secondary qualities of bodies. This is no accident: mathematical objects are not completely determinate, according to Du Châtelet. For example, they are not subject to some versions of the principle of the identity of indiscernibles. 18 Indeterminacy has epistemic advantages, however. Mathematical representation is a privileged way of knowing general properties of matter-in a way that is not possible through singular perceptions of bodies-even if the entities it posits are metaphysically ideal.\n\nA third argument reinforces the indispensability of mathematical representation by undercutting Wolff's alternative, namely rational (or broadly metaphysical) physics and cosmology. Du Châtelet takes metaphysics to have a specific, limited role to play. From Wolff and Leibniz, she borrows fundamental principles of reasoning and some minimal ontological structure, such as Wolff's version of the substance/attribute/mode distinction (Stan 2018). But empirical physics, rather than Wolffian rational cosmology, supplies determinate truths about the actual world, including its most general descriptive laws and principles.\n\nBreaking with Wolff, Du Châtelet argues that the objects of metaphysics can be conceived only by the understanding, and not the imagination. But it is precisely the imagination, and the spatiotemporal properties it deals with, that are needed for making determinate claims about actual bodies. 19 Du Châtelet does appear sympathetic to some aspects of Wolff's mathematical method, but repeatedly suggests that metaphysics has not yet learned enough from mathematical practice to attain anything like mathematical rigor (1740, 131-33; 150-51).\n\n## 5. Conclusions\n\nI have argued that despite her broadly Wolffian metaphysics, Du Châtelet is far more optimistic than Wolff about the explanatory and epistemic status of mathematics, and that this position is linked to core features of her metaphysics and epistemology. I'd like to conclude by stepping away from the historical narrative provided so far and drawing connections to recent discussions of the scientific indispensability of mathematics. Despite thematic similarities\n\n17 In practice, for Du Châtelet, mathematical representations of matter will involve complex quantities, such as directed forces, rather than mere geometrical representations of shape and motion (as Wolff had assumed) (1742, 136-37; 163-65; 207-8; 209-10).\n\n18 See Du Châtelet (1740, 98-99) on the lack of any intrinsic grounds, other than numerical nonidentity, for individuating mathematical objects.\n\n19 A similar assertion appears in §13 of Kant's 1770 'Inaugural Dissertation.'\n\n## Draft. Please cite the published version, forthcoming in Philosophy of Science .\n\nbetween Du Châtelet's work and contemporary debates, some of her assumptions are strikingly different from those commonly made today. Connecting these contemporary and historical discussions can help highlight the distinctiveness of Du Châtelet's position. She arguably stakes out a viable position that has relatively few contemporary adherents.\n\nFirst, we've seen that Du Châtelet asserts that geometry explains physical things, rather than merely representing them. She presents this as a natural claim, but in the contemporary philosophy of mathematics literature, it is fairly controversial (Saatsi 2011; Baker 2009).\n\nSecond, Du Châtelet does not rest her account of the ontology of mathematics solely on what it can do for physics. It's unclear if she takes any ontological conclusions to follow merely from the indispensability of mathematics. By contrast, indispensability arguments today are not merely based on the fact that mathematical objects play a crucial role in science. They make an additional epistemological assumption that it is rational to 'believe in the existence of any entity that plays an indispensable explanatory role in our best scientific theories' (Baker 2009, 613). One plausible worry about this approach is that it determines the ontological status of mathematics merely in terms of their relation to scientific theories, rather than providing a freestanding account of mathematics. This is a reason to take a second look at Du Châtelet's use of metaphysics rather than epistemology in grounding the status of mathematics.\n\nA final, elementary point is that Du Châtelet does not deny the existence of mathematical objects outright, but also does not endorse Platonism or some other form of heavyweight realism. 20 This type of intermediate position-not metaphysically realist about mathematical objects, but committed to mathematical indispensability-seems underrepresented in the literature today, and deserves further attention. 21\n\n20 Baker (2009, 612) frames indispensability arguments as showing that 'scientific realists ought also to be mathematical platonists.'\n\n21 I would like to especially thank Monica Solomon for outstanding written comments on an earlier draft of this paper. I am also grateful to Katherine Brading, Jamee Elder, Ashton Green, Qiu Lin, Phil Mack, Andrea Reichenberger, Marius Stan, Paul Tran-Hoang, and audience members at the 2020 Central APA for helpful discussion, suggestions, and encouragement.\n\n## References\n\n## Primary sources\n\n| Arnauld, Antoine and Pierre Nicole. 1996. Logic or the Art of Thinking . Edited by Jill Vance Buroker. New York: Cambridge University Press.                                                                                                                                                                                                                                                                                                                                                                                                                                           |\n|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|\n| Du Châtelet, Emilie. 1738. 'Lettre sur les Eléments de la Philosophie de Newton.' Journal des Sçavans (Septembre): 534-41. ---.1740. Institutions de Physique . Paris. ---.1742. Institutions Physiques: Nouvelle Edition . Amsterdam. ---.1759. 'Exposition Abregée du Systême du Monde,' in Principes Mathématiques de la Philosophie Naturelle: [translated with commentary] par Madame la Marquise Du Chastellet (Volume II). Paris. ---.2009. Selected Philosophical and Scientific Writings . Edited by Judith Zinsser and Isabelle Bour.. Chicago: University of Chicago Press. |\n\n- ---. 1996. , Edited by Gunter Gawlick and\n- Discursus praeliminaris de philosophia in genere Lothar Kreimendahl. Stuttgart: Frommann-Holzboog.\n\n---. 2001. Deutsche Schriften . Edited by Jean École et al.. Hildesheim: Olms.\n\n---. 2019. Briefwechsel zwischen Christian Wolff und Ernst Christoph von Manteuffel . Edited by Jürgen Stolzenberg et al.. Hildesheim: Olms.\n\n## Other sources\n\nBaker, Alan. 2009. 'Mathematical Explanation in Science.' The British Journal for the Philosophy of Science 60 (3): 611-33.\n\nBlay, Michel. 1986. 'Deux moments de la critique du calcul infinitésimal: Michel Rolle et George Berkeley.' Revue d'histoire des sciences 39: 223-53.\n\nBrading, Katherine. 2019. Emilie Du Châtelet and the Foundations of Physical Science . New York: Routledge.\n\nBuchenau, Stefanie. 2011. 'Notions directrices et architectonique de la métaphysique.' Astérion 9. https://doi:10.4000/asterion.2136\n\nCarson, Emily. 2004. 'Metaphysics, Mathematics and the Distinction between the Sensible and the Intelligible in Kant's Inaugural Dissertation.' Journal of the History of Philosophy 42 (2): 165-94.\n\nChareix, Fabien. 2010. 'Geometrization or Mathematization: Christiaan Huygens's Critiques of Infinitesimal Analysis in his Correspondence with Leibniz.' In The Practice of Reason , edited by Marcelo Dascal, 33-50. Amsterdam: John Benjamins.\n\nCohen, I. Bernard. 1980. The Newtonian Revolution . Cambridge: Cambridge University Press.\n\nDear, Peter. 1995. Discipline and Experience . Chicago: University of Chicago Press.\n\nDetlefsen, Karen (2019). 'Du Châtelet and Descartes on the Roles of Hypothesis and Metaphysics in Natural Philosophy.' In Feminist History of Philosophy , edited by Eileen O'Neill and Marcy Lascano, 97-128. Cham: Springer.\n\nDunlop, Katherine. 2013. 'Mathematical Method and Newtonian Science in the Philosophy of Christian Wolff.' Studies in History and Philosophy of Science Part A , 44 (3): 457-69.\n\nGava, Gabriele. 2018. 'Kant, Wolff, and the Method of Philosophy.' In Oxford Studies in Early Modern Philosophy, Volume VIII , edited by Dan Garber and Don Rutherford, 271-304. Oxford: Oxford University Press.\n\nGeorge, Albert. 1938. 'The Genesis of the Académie des Sciences.' Annals of Science 3 (4): 372401.\n\nGingras, Yves. 2001. 'What did mathematics do to physics?' History of Science 39 (4): 383-416.\n\nGreenberg, John. 1996. 'Isaac Newton and the Problem of the Earth's Shape.' Archive for History of Exact Sciences 49 (4): 371-91.\n\nHagengruber, Ruth. 2012. 'Emilie du Châtelet Between Leibniz and Newton: The Transformation of Metaphysics.' In Emilie du Châtelet between Leibniz and Newton , edited by Ruth Hagengruber, 1-60. Dordrecht: Springer.\n\nHankins, Thomas. 1985. Jean d'Alembert: Science and the Enlightenment . Cambridge: Cambridge University Press.\n\nKoyré, Alexandre. 1968. Metaphysics and Measurement . London: Chapman &amp; Hall.\n\nLear, Jonathan. 1982. 'Aristotle's Philosophy of Mathematics.' The Philosophical Review 91 (2): 161-92.\n\nMaglo, Koffi. 2008. 'Madame Du Châtelet, l'Encyclopédie, et la philosophie des sciences.' In Emilie Du Châtelet: éclairages et documents nouveaux , edited by Ulla Kölving and Olivier Courcelle, 255-66. Paris: Centre international d'étude du XVIIIe siècle.\n\nMancosu, Paolo. 1992. 'Aristotelian Logic and Euclidean Mathematics.' Studies in History and Philosophy of Science 23 (2): 241-65.\n\nMcMullin, Ernan. 1985. 'Galilean Idealization.' Studies in History and Philosophy of Science 16 (3): 247-73.\n\nMaier, Annelise. 1968. Zwei Grundprobleme der Scholastischen Naturphilosophie . Rome: Edizioni di Storia e Letteratura.\n\nMcKenzie, Kerry. 2020. 'A Curse on Both Houses: Naturalistic versus A Priori Metaphysics and the Problem of Progress.' Res Philosophica 97 (1): 1-29.\n\nNeumann, Hanns-Peter. 2014. 'Der preußische Kronprinz Friedrich und die französische Übersetzung der Deutschen Metaphysik Christian Wolffs im Jahr 1736.' Forschungen zur Brandenburgischen und Preußischen Geschichte 24 (1): 35-68.\n\nRey, Anne-Lise. 2013. 'Le leibnizo-newtonianisme: la construction d'une philosophie naturelle complexe dans la première moitié du 18 e siècle.' Dix-huitième siècle 45 (1): 115-129.\n\nRutherford, Donald. 'Idealism Declined: Leibniz and Christian Wolff.' In Leibniz and his Correspondents , edited by Paul Lodge, 214-37. Cambridge: Cambridge University Press.\n\nSaatsi, Juha. 2011. 'The Enhanced Indispensability Argument: Representational versus Explanatory Role of Mathematics in Science.' The British Journal for the Philosophy of Science 62: 143-154.\n\nShank, John Bennett. 2018. Before Voltaire: The French Origins of 'Newtonian' Mechanics, 1680-1715 . Chicago: University of Chicago Press.\n\nSmith, George. 2002. 'The Methodology of the Principia .' In The Cambridge Companion to Newton , edited by I. Bernard Cohen, 187-228. Cambridge: Cambridge University Press.\n\nStan, Marius. 2018. 'Emilie du Châtelet's Metaphysics of Substance.' Journal of the History of Philosophy 56 (3): 477-496.\n\nSylla, Edith. 1973. 'Medieval Concepts of the Latitude of Forms: The Oxford Calculators.' Archives d'histoire doctrinale et littéraire du moyen âge 40: 223-83.\n\nZinsser, Judith, and Courcelle, Olivier. 2003. 'A Remarkable Collaboration: The Marquise Du Châtelet and Alexis Clairaut.' Studies on Voltaire and the Eighteenth Century 12: 107-20.",
+    "responses": [
+      {
+        "source": "gpt-4o-2024-11-20",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"ADU1\": {\n      \"text\": \"There is a tension in Emilie Du Châtelet's thought on mathematics.\",\n      \"label\": \"claim\"\n    },\n    \"ADU2\": {\n      \"text\": \"The objects of mathematics are ideal or fictional entities; nevertheless, mathematics is presented as indispensable for an account of the physical world.\",\n      \"label\": \"claim\"\n    },\n    \"ADU3\": {\n      \"text\": \"Du Châtelet has a worked-out defense of the explanatory and epistemic need for mathematical objects, consistent with their metaphysical non-fundamentality.\",\n      \"label\": \"claim\"\n    },\n    \"ADU4\": {\n      \"text\": \"Christian Wolff, arguably the most influential German philosopher of the early eighteenth century, was also ambivalent about mathematical physics.\",\n      \"label\": \"premise\"\n    },\n    \"ADU5\": {\n      \"text\": \"Wolff considers definitions in mathematics to be models of clarity and distinctness.\",\n      \"label\": \"premise\"\n    },\n    \"ADU6\": {\n      \"text\": \"Wolff is pessimistic about the role of mathematics in causal explanation, stressing that explanations ought to track how things are in themselves ('was in den Sachen selbst liege'), at the level of fundamental simple substances.\",\n      \"label\": \"premise\"\n    },\n    \"ADU7\": {\n      \"text\": \"Given these commitments, we might expect Du Châtelet to follow Wolff and deny that Newtonian physics can track the real causal structure of the world without supplementation.\",\n      \"label\": \"premise\"\n    },\n    \"ADU8\": {\n      \"text\": \"Instead, she is optimistic about mathematical physics.\",\n      \"label\": \"claim\"\n    },\n    \"ADU9\": {\n      \"text\": \"With no resort to it, one would hope in vain to make great progress in the study of nature.\",\n      \"label\": \"premise\"\n    },\n    \"ADU10\": {\n      \"text\": \"It is the key to all discoveries; and if there are still several inexplicable things in physics, that is because geometry has been insufficiently used to explain them, and one has perhaps not yet gone far enough in this science.\",\n      \"label\": \"premise\"\n    },\n    \"ADU11\": {\n      \"text\": \"Propositions referring to imaginary mathematical objects can thus yield a true theory (if not the full details of its application to actual phenomena).\",\n      \"label\": \"claim\"\n    },\n    \"ADU12\": {\n      \"text\": \"This example shows that, for Du Châtelet, abstract representations that do not truly represent empirical reality can still play a role in correct reasoning.\",\n      \"label\": \"claim\"\n    },\n    \"ADU13\": {\n      \"text\": \"What matters is whether the reasoning in question leads to empirically accurate conclusions, and not whether each of its premises is strictly speaking true.\",\n      \"label\": \"premise\"\n    },\n    \"ADU14\": {\n      \"text\": \"Du Châtelet contends that that all the sciences 'must' employ abstract mathematical notions both in the context of discovering laws or principles-this is the 'art d'inventer' or ars inveniendi-and to address problems that cannot be solved by the unaided understanding.\",\n      \"label\": \"claim\"\n    },\n    \"ADU15\": {\n      \"text\": \"Breaking with Wolff, Du Châtelet argues that the objects of metaphysics can be conceived only by the understanding, and not the imagination.\",\n      \"label\": \"claim\"\n    },\n    \"ADU16\": {\n      \"text\": \"But it is precisely the imagination, and the spatiotemporal properties it deals with, that are needed for making determinate claims about actual bodies.\",\n      \"label\": \"premise\"\n    },\n    \"ADU17\": {\n      \"text\": \"I have argued that despite her broadly Wolffian metaphysics, Du Châtelet is far more optimistic than Wolff about the explanatory and epistemic status of mathematics, and that this position is linked to core features of her metaphysics and epistemology.\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"ADU1\",\n      \"target\": \"ADU2\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU2\",\n      \"target\": \"ADU3\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU4\",\n      \"target\": \"ADU6\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU6\",\n      \"target\": \"ADU7\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU7\",\n      \"target\": \"ADU8\",\n      \"type\": \"attack\"\n    },\n    {\n      \"source\": \"ADU9\",\n      \"target\": \"ADU10\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU11\",\n      \"target\": \"ADU12\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU12\",\n      \"target\": \"ADU13\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU14\",\n      \"target\": \"ADU15\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU15\",\n      \"target\": \"ADU16\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU17\",\n      \"target\": \"ADU8\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "ADU1": {
+              "text": "There is a tension in Emilie Du Châtelet's thought on mathematics.",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "The objects of mathematics are ideal or fictional entities; nevertheless, mathematics is presented as indispensable for an account of the physical world.",
+              "label": "claim"
+            },
+            "ADU3": {
+              "text": "Du Châtelet has a worked-out defense of the explanatory and epistemic need for mathematical objects, consistent with their metaphysical non-fundamentality.",
+              "label": "claim"
+            },
+            "ADU4": {
+              "text": "Christian Wolff, arguably the most influential German philosopher of the early eighteenth century, was also ambivalent about mathematical physics.",
+              "label": "premise"
+            },
+            "ADU5": {
+              "text": "Wolff considers definitions in mathematics to be models of clarity and distinctness.",
+              "label": "premise"
+            },
+            "ADU6": {
+              "text": "Wolff is pessimistic about the role of mathematics in causal explanation, stressing that explanations ought to track how things are in themselves ('was in den Sachen selbst liege'), at the level of fundamental simple substances.",
+              "label": "premise"
+            },
+            "ADU7": {
+              "text": "Given these commitments, we might expect Du Châtelet to follow Wolff and deny that Newtonian physics can track the real causal structure of the world without supplementation.",
+              "label": "premise"
+            },
+            "ADU8": {
+              "text": "Instead, she is optimistic about mathematical physics.",
+              "label": "claim"
+            },
+            "ADU9": {
+              "text": "With no resort to it, one would hope in vain to make great progress in the study of nature.",
+              "label": "premise"
+            },
+            "ADU10": {
+              "text": "It is the key to all discoveries; and if there are still several inexplicable things in physics, that is because geometry has been insufficiently used to explain them, and one has perhaps not yet gone far enough in this science.",
+              "label": "premise"
+            },
+            "ADU11": {
+              "text": "Propositions referring to imaginary mathematical objects can thus yield a true theory (if not the full details of its application to actual phenomena).",
+              "label": "claim"
+            },
+            "ADU12": {
+              "text": "This example shows that, for Du Châtelet, abstract representations that do not truly represent empirical reality can still play a role in correct reasoning.",
+              "label": "claim"
+            },
+            "ADU13": {
+              "text": "What matters is whether the reasoning in question leads to empirically accurate conclusions, and not whether each of its premises is strictly speaking true.",
+              "label": "premise"
+            },
+            "ADU14": {
+              "text": "Du Châtelet contends that that all the sciences 'must' employ abstract mathematical notions both in the context of discovering laws or principles-this is the 'art d'inventer' or ars inveniendi-and to address problems that cannot be solved by the unaided understanding.",
+              "label": "claim"
+            },
+            "ADU15": {
+              "text": "Breaking with Wolff, Du Châtelet argues that the objects of metaphysics can be conceived only by the understanding, and not the imagination.",
+              "label": "claim"
+            },
+            "ADU16": {
+              "text": "But it is precisely the imagination, and the spatiotemporal properties it deals with, that are needed for making determinate claims about actual bodies.",
+              "label": "premise"
+            },
+            "ADU17": {
+              "text": "I have argued that despite her broadly Wolffian metaphysics, Du Châtelet is far more optimistic than Wolff about the explanatory and epistemic status of mathematics, and that this position is linked to core features of her metaphysics and epistemology.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU1",
+              "target": "ADU2",
+              "type": "support"
+            },
+            {
+              "source": "ADU2",
+              "target": "ADU3",
+              "type": "support"
+            },
+            {
+              "source": "ADU4",
+              "target": "ADU6",
+              "type": "support"
+            },
+            {
+              "source": "ADU6",
+              "target": "ADU7",
+              "type": "support"
+            },
+            {
+              "source": "ADU7",
+              "target": "ADU8",
+              "type": "attack"
+            },
+            {
+              "source": "ADU9",
+              "target": "ADU10",
+              "type": "support"
+            },
+            {
+              "source": "ADU11",
+              "target": "ADU12",
+              "type": "support"
+            },
+            {
+              "source": "ADU12",
+              "target": "ADU13",
+              "type": "support"
+            },
+            {
+              "source": "ADU14",
+              "target": "ADU15",
+              "type": "support"
+            },
+            {
+              "source": "ADU15",
+              "target": "ADU16",
+              "type": "support"
+            },
+            {
+              "source": "ADU17",
+              "target": "ADU8",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "ADU1": {
+              "text": "There is a tension in Emilie Du Châtelet's thought on mathematics.",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "The objects of mathematics are ideal or fictional entities; nevertheless, mathematics is presented as indispensable for an account of the physical world.",
+              "label": "claim"
+            },
+            "ADU3": {
+              "text": "Du Châtelet has a worked-out defense of the explanatory and epistemic need for mathematical objects, consistent with their metaphysical non-fundamentality.",
+              "label": "claim"
+            },
+            "ADU4": {
+              "text": "Christian Wolff, arguably the most influential German philosopher of the early eighteenth century, was also ambivalent about mathematical physics.",
+              "label": "premise"
+            },
+            "ADU5": {
+              "text": "Wolff considers definitions in mathematics to be models of clarity and distinctness.",
+              "label": "premise"
+            },
+            "ADU7": {
+              "text": "Given these commitments, we might expect Du Châtelet to follow Wolff and deny that Newtonian physics can track the real causal structure of the world without supplementation.",
+              "label": "premise"
+            },
+            "ADU8": {
+              "text": "Instead, she is optimistic about mathematical physics.",
+              "label": "claim"
+            },
+            "ADU9": {
+              "text": "With no resort to it, one would hope in vain to make great progress in the study of nature.",
+              "label": "premise"
+            },
+            "ADU10": {
+              "text": "It is the key to all discoveries; and if there are still several inexplicable things in physics, that is because geometry has been insufficiently used to explain them, and one has perhaps not yet gone far enough in this science.",
+              "label": "premise"
+            },
+            "ADU11": {
+              "text": "Propositions referring to imaginary mathematical objects can thus yield a true theory (if not the full details of its application to actual phenomena).",
+              "label": "claim"
+            },
+            "ADU12": {
+              "text": "This example shows that, for Du Châtelet, abstract representations that do not truly represent empirical reality can still play a role in correct reasoning.",
+              "label": "claim"
+            },
+            "ADU13": {
+              "text": "What matters is whether the reasoning in question leads to empirically accurate conclusions, and not whether each of its premises is strictly speaking true.",
+              "label": "premise"
+            },
+            "ADU15": {
+              "text": "Breaking with Wolff, Du Châtelet argues that the objects of metaphysics can be conceived only by the understanding, and not the imagination.",
+              "label": "claim"
+            },
+            "ADU16": {
+              "text": "But it is precisely the imagination, and the spatiotemporal properties it deals with, that are needed for making determinate claims about actual bodies.",
+              "label": "premise"
+            },
+            "ADU17": {
+              "text": "I have argued that despite her broadly Wolffian metaphysics, Du Châtelet is far more optimistic than Wolff about the explanatory and epistemic status of mathematics, and that this position is linked to core features of her metaphysics and epistemology.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU1",
+              "target": "ADU2",
+              "type": "support"
+            },
+            {
+              "source": "ADU2",
+              "target": "ADU3",
+              "type": "support"
+            },
+            {
+              "source": "ADU7",
+              "target": "ADU8",
+              "type": "attack"
+            },
+            {
+              "source": "ADU9",
+              "target": "ADU10",
+              "type": "support"
+            },
+            {
+              "source": "ADU11",
+              "target": "ADU12",
+              "type": "support"
+            },
+            {
+              "source": "ADU12",
+              "target": "ADU13",
+              "type": "support"
+            },
+            {
+              "source": "ADU15",
+              "target": "ADU16",
+              "type": "support"
+            },
+            {
+              "source": "ADU17",
+              "target": "ADU8",
+              "type": "support"
+            }
+          ]
+        }
+      },
+      {
+        "source": "claude-3-5-sonnet-20241022",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"1\": {\n      \"text\": \"There is a tension in Emilie Du Châtelet's thought on mathematics. The objects of mathematics are ideal or fictional entities; nevertheless, mathematics is presented as indispensable for an account of the physical world.\",\n      \"label\": \"claim\"\n    },\n    \"2\": {\n      \"text\": \"Like Christian Wolff, she regards space, time, and mathematical objects as ideal entities-as products, in part, of the imagination. While Wolff concludes that mathematics is not a good guide to how the world really is, Du Châtelet defends the indispensability of mathematics for an account of the physical world.\",\n      \"label\": \"claim\"\n    },\n    \"3\": {\n      \"text\": \"With no resort to it, one would hope in vain to make great progress in the study of nature. It is the key to all discoveries; and if there are still several inexplicable things in physics, that is because geometry has been insufficiently used to explain them, and one has perhaps not yet gone far enough in this science.\",\n      \"label\": \"claim\"\n    },\n    \"4\": {\n      \"text\": \"Propositions referring to imaginary mathematical objects can thus yield a true theory (if not the full details of its application to actual phenomena).\",\n      \"label\": \"claim\"\n    },\n    \"5\": {\n      \"text\": \"Mathematical objects are derived from acts of abstraction from bodies, which are themselves non-fundamental yet real substances. What this means is that mathematical objects are partly grounded in bodies, and may approximate the properties of bodies.\",\n      \"label\": \"premise\"\n    },\n    \"6\": {\n      \"text\": \"Given the finitude of our mental faculties, in most cases we cannot reason about a multiplicity of particulars without abstracting from many 'internal determinations,' in order to represent their relational, quantitative features\",\n      \"label\": \"premise\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"5\",\n      \"target\": \"4\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"6\",\n      \"target\": \"3\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"4\",\n      \"target\": \"1\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"3\",\n      \"target\": \"1\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "1": {
+              "text": "There is a tension in Emilie Du Châtelet's thought on mathematics. The objects of mathematics are ideal or fictional entities; nevertheless, mathematics is presented as indispensable for an account of the physical world.",
+              "label": "claim"
+            },
+            "2": {
+              "text": "Like Christian Wolff, she regards space, time, and mathematical objects as ideal entities-as products, in part, of the imagination. While Wolff concludes that mathematics is not a good guide to how the world really is, Du Châtelet defends the indispensability of mathematics for an account of the physical world.",
+              "label": "claim"
+            },
+            "3": {
+              "text": "With no resort to it, one would hope in vain to make great progress in the study of nature. It is the key to all discoveries; and if there are still several inexplicable things in physics, that is because geometry has been insufficiently used to explain them, and one has perhaps not yet gone far enough in this science.",
+              "label": "claim"
+            },
+            "4": {
+              "text": "Propositions referring to imaginary mathematical objects can thus yield a true theory (if not the full details of its application to actual phenomena).",
+              "label": "claim"
+            },
+            "5": {
+              "text": "Mathematical objects are derived from acts of abstraction from bodies, which are themselves non-fundamental yet real substances. What this means is that mathematical objects are partly grounded in bodies, and may approximate the properties of bodies.",
+              "label": "premise"
+            },
+            "6": {
+              "text": "Given the finitude of our mental faculties, in most cases we cannot reason about a multiplicity of particulars without abstracting from many 'internal determinations,' in order to represent their relational, quantitative features",
+              "label": "premise"
+            }
+          },
+          "relations": [
+            {
+              "source": "5",
+              "target": "4",
+              "type": "support"
+            },
+            {
+              "source": "6",
+              "target": "3",
+              "type": "support"
+            },
+            {
+              "source": "4",
+              "target": "1",
+              "type": "support"
+            },
+            {
+              "source": "3",
+              "target": "1",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "1": {
+              "text": "There is a tension in Emilie Du Châtelet's thought on mathematics. The objects of mathematics are ideal or fictional entities; nevertheless, mathematics is presented as indispensable for an account of the physical world.",
+              "label": "claim"
+            },
+            "2": {
+              "text": "Like Christian Wolff, she regards space, time, and mathematical objects as ideal entities-as products, in part, of the imagination. While Wolff concludes that mathematics is not a good guide to how the world really is, Du Châtelet defends the indispensability of mathematics for an account of the physical world.",
+              "label": "claim"
+            },
+            "3": {
+              "text": "With no resort to it, one would hope in vain to make great progress in the study of nature. It is the key to all discoveries; and if there are still several inexplicable things in physics, that is because geometry has been insufficiently used to explain them, and one has perhaps not yet gone far enough in this science.",
+              "label": "claim"
+            },
+            "4": {
+              "text": "Propositions referring to imaginary mathematical objects can thus yield a true theory (if not the full details of its application to actual phenomena).",
+              "label": "claim"
+            },
+            "5": {
+              "text": "Mathematical objects are derived from acts of abstraction from bodies, which are themselves non-fundamental yet real substances. What this means is that mathematical objects are partly grounded in bodies, and may approximate the properties of bodies.",
+              "label": "premise"
+            },
+            "6": {
+              "text": "Given the finitude of our mental faculties, in most cases we cannot reason about a multiplicity of particulars without abstracting from many 'internal determinations,' in order to represent their relational, quantitative features",
+              "label": "premise"
+            }
+          },
+          "relations": [
+            {
+              "source": "5",
+              "target": "4",
+              "type": "support"
+            },
+            {
+              "source": "6",
+              "target": "3",
+              "type": "support"
+            },
+            {
+              "source": "4",
+              "target": "1",
+              "type": "support"
+            },
+            {
+              "source": "3",
+              "target": "1",
+              "type": "support"
+            }
+          ]
+        }
+      }
+    ],
+    "timestamp": 1752751533.741809
+  }
+]

@@ -1,0 +1,708 @@
+[
+  {
+    "identifier": "OLSTPO-10",
+    "system_prompt": "## GOAL\nArgument‑mine the following paper to extract its comprehensive argumentative structure.\n\n## DEFINITIONS\n1. **Argument**: A set of propositions, including some number of premises and a conclusion. The premises should logically entail the conclusion.\n2. **Claim**: A proposition that asserts something to be true or false, typically requiring justification or evidence.\n3. **Premise**: A proposition that provides evidence, justification, or logical support for a claim or conclusion.\n\n## CRITICAL REQUIREMENTS\n1. **VERBATIM EXTRACTION ONLY**: Each ADU text must be copied EXACTLY from the paper with no modifications, paraphrasing, or combining of separate sentences.\n2. **NO HALLUCINATION**: Do not create, modify, or invent text that does not appear exactly in the source.\n3. **EXACT MATCHING**: Every word, punctuation mark, and spacing must match the original precisely.\n\n## DIRECTIONS\n1. **Identify Argumentative Discourse Units (ADUs)**  \n   - ADU = any contiguous text span functioning as a claim or a premise in the reasoning structure.\n   - **BE HIGHLY SELECTIVE**: Only include ADUs that are crucial to the overarching argument structure.\n   - Focus on significant claims and premises that contribute meaningfully to the argumentative flow.\n   - **AVOID NOISE**: Skip ADUs that are merely descriptive, tangential, or do not substantially advance the argument.\n   - Prioritize quality over quantity - fewer accurate, important ADUs are better than many insignificant ones.\n   - **EXTRACT ONLY**: Copy text spans exactly as they appear, without any modifications.\n2. **Classify each ADU**  \n   - Label = either `\"claim\"` or `\"premise\"`.  \n3. **Detect directed relations**  \n   - Relation = `\"support\"` or `\"attack\"`, from one ADU (source) to another (target).\n   - Map how ADUs connect to form reasoning chains.\n   - Focus on relationships between the most significant ADUs.\n   - Include relationships between premises that strengthen or weaken each other.\n4. **Verbatim spans**  \n   - Each `\"text\"` value must be copied EXACTLY from the paper with zero modifications.\n   - Do not paraphrase, summarize, or combine separate sentences.\n   - Do not add, remove, or change any words, punctuation, or spacing.\n   - If unsure about exact wording, skip that ADU rather than guess.\n\n## WHAT TO CAPTURE\n**INCLUDE ONLY:**\n- Main argumentative threads that are central to the paper's contribution\n- Core claims that represent the paper's primary arguments or findings\n- Key premises that provide essential support for major claims\n- Critical counterarguments and their refutations\n- Reasoning chains that demonstrate how main conclusions are derived\n\n**EXCLUDE (AVOID NOISE):**\n- Minor details, examples, or descriptive content that don't advance the argument\n- Tangential points or side discussions\n- Pure background information or literature review content\n- Methodological details unless they constitute argumentative claims\n- Obvious statements or commonly accepted facts\n- Redundant or repetitive argumentative content\n\n**GUIDING PRINCIPLE**: If removing an ADU would not significantly impact understanding of the paper's argumentative structure, it should be excluded.\n\n## QUALITY CONTROL\n- Before finalizing each ADU, verify the text exists exactly in the source\n- Prefer fewer, accurate ADUs over many potentially modified ones\n- When in doubt about exact wording, omit the ADU\n\n## OUTPUT FORMAT\nReturn **only** a single valid JSON object matching this schema.  \nDo **not** output any extra text, markdown, or explanations.\nDo **not** add comments.\n**RESPOND WITH ONLY**:\n```json\n{\n  \"ADUs\": {\n    \"<ADU_ID>\": {\n      \"text\": \"<exact span from paper>\",\n      \"label\": \"claim\" | \"premise\"\n    }\n    ...\n  },\n  \"relations\": [\n    {\n      \"source\": \"<ADU_ID>\",\n      \"target\": \"<ADU_ID>\",\n      \"type\": \"support\" | \"attack\"\n    }\n  ]\n}\n```",
+    "user_content": "## The Problem of Penal Slavery in Quobna Ottobah Cugoano's Abolitionism\n\nAccepted for publication in Philosophers' Imprint\n\n## doi.org/10.3998/phimp.4009\n\nAbstract: The  Black  antislavery  theorist  Quobna  Ottobah  Cugoano  (c.1757-c.1791)  is increasingly recognized as a noteworthy figure in the history of philosophy. Born in presentday Ghana, Cugoano was enslaved at the age of 13 and shipped to Grenada, before being taken onwards to England, where the 1772 Somerset court ruling in effect freed him. His Thoughts and  Sentiments on  the  Evil  of  Slavery [1787/1791]  broke  new  ground  by  demanding  the immediate  end  of  the  slave-trade  and  of  slavery  itself,  without  any  compensation  to slaveholders. Notwithstanding this, Cugoano endorsed the legitimacy of penal enslavement on principled grounds - like many other abolitionists writing in late eighteenth-century Britain. 'Every free community might keep slaves, or criminal prisoners in bondage' - and even sell them.  Amidst  the  growing  literature  exploring  Cugoano's  abolitionism,  his  paradoxical justification of penal slavery has bewildered commentators. Far from an offhand inconsistency, I  argue  that  this  justification  is  deeply  embedded  within  his  moral  and  legal  philosophy; constraining his antislavery arguments while simultaneously serving retaliatory aims. His twopronged principle of just punishment - the lex talionis ('eye for an eye, bondage for bondage') as tempered by mercy - sometimes demands penally enslaving colonial slaveholders and slavetraders in turn. Throughout, I compare Cugoano's justification of penal enslavement with those of  other  early  modern  philosophers,  especially  Locke  and  Kant.  This  helps  me  position Cugoano within the history of philosophy, thus making his views more accessible to a wider philosophical  audience.  It  also  indicates  just  how  deeply  theories  of  punishment  shaped philosophical thinking about penal bondage in the period.\n\nKey  words: Quobna  Ottobah  Cugoano  (c.1757-c.1791);  slavery  and  antislavery;  penal bondage; philosophy of punishment; lex talionis ;  John Locke (1632-1704); Immanuel Kant (1724-1804)\n\nAuthor: Johan  Olsthoorn  is  Associate  Professor  in  Political  Theory  at  the  University  of Amsterdam. Email: j.c.a.olsthoorn[a]uva.nl.\n\n## Introduction\n\nEfforts to diversify the history of philosophy - in terms of both themes and thinkers studied have directed philosophers to Thoughts and Sentiments on the Evil of Slavery [1787/1791], written  by  the  Black  antislavery  theorist  Quobna  Ottobah  Cugoano  (c.1757-c.1791). 1 Philosophical analyses of this short and powerful treatise - Cugoano's only one - remain so far in short supply. This article provides a comprehensive reconstruction of Cugoano's moral and legal philosophy in order to analyse an apparent tension in his abolitionism. In this work dedicated  to  the  'total  abolition  of  slavery'  Cugoano  defends  on  principled  grounds  the legitimacy of enslaving human beings in punishment (98). 2\n\nBorn in present-day Ghana, Cugoano was enslaved at the age of 13 and trafficked to Grenada, before being taken onwards to England, where the 1772 Somerset court ruling in\n\n1 Excerpts of Cugoano's treatise have been included in a recent anthology of primary texts in the history of philosophy (Marshall &amp; Sreedhar 2019). On Cugoano's place in the history of philosophy, see Bernasconi (2019) and Jorati [forthcoming].\n\n2 All in-text citations by page number alone are to Thoughts and Sentiments (Cugoano 1999). Cugoano published two versions of this work. The abridged 1791 edition republished, mostly verbatim, only those sections from the 1787 edition that quash any biblical warrant for modern colonial slavery. Its new title reflects its limited polemical focus. The abridged text differs only marginally from that of the 1787 edition. For ease, I discuss Thoughts and Sentiments as if it were a single work.\n\neffect  freed  him. 3 His Thoughts and  Sentiments is  considered  'radical  even  by  abolitionist standards' (Gunn 2010: 630; also Carretta 1999: xx-xxi; Brown 2006: 297; Shanafelt 2021: 25-26). Cugoano broke new ground by calling for an immediate abolition of the slave-trade and  of  slavery  itself,  without  any  compensation  to  slaveholders  (Dahl  2021:  286).  Though denouncing all modern colonial slavery as profoundly unjust, Cugoano insists that political communities can rightfully enslave, brand, and sell convicts. '[E]very free community might keep slaves, or criminal prisoners in bondage', provided such 'criminal slavery and bondage [is] according to the nature of their crimes' (58-59).\n\nBelief  in  the  legitimacy  of  penal  bondage  was  surprisingly  widespread  among abolitionist thinkers writing in late eighteenth-century Britain. Even Black political philosophers  once  enslaved  themselves  generally  accepted  the  doctrine.  In The  Interesting Narrative , Olaudah Equiano (c.1745-c.1797) justified traditional forms of slavery and slavetrading  practiced  among  West-African  nations  by  appeal  to  principles  of  just  punishment. 'Sometimes indeed we sold slaves to [neighbouring peoples], but they were only prisoners of war,  or  such  among  us  as  had  been  convicted  of…  crimes,  which  we  esteemed  heinous' (Equiano  2018:  22;  also  Benezet  1772:  105,  109).  More  fiercely,  the  English  abolitionist Granville Sharp (1735-1813) applauded penally enslaving European enslavers in retaliation for their atrocities. 'Here is a just Retaliation for Tyranny ; -Slavery for Slavery !' (1776: 83n, also 58, 177). Cugoano - the most radical antislavery theorist in the period - regarded penal enslavement of both ordinary criminals and colonial enslavers as justifiable in principle, I will show.\n\n3 For  a  self-narration  of  his  early  life,  see  Cugoano  1999:  12-16.  On  Cugoano's  political activities  in  1780s  London,  see  Hanley  2019:  171-202.  Hochschild  2005  provides  a  lively history of the British abolitionist movement, albeit with scarce a glimpse of Cugoano.\n\nAmidst  the  growing  literature  exploring  Cugoano's  abolitionism  (e.g.,  Ward  1998; Peters  2017;  Dahl  2020;  Cardon  2023),  his  paradoxical  justification  of  penal  slavery  has bewildered  the  few  commentators  attentive  to  it.  Anthony  Bogues  (2003:  41)  calls  it  'a contradiction in Cugoano's thought'. 'His embrace of penal slavery was certainly unusual', writes  Jeffrey  Glover  (2017:  526).  Robert  Bernasconi  (2019:  35)  notes  circumspectly  that 'Cugoano seem[s] to allow for the possibility that some forms of slavery might be legitimate'. Explaining away initial surprise, Bernasconi argues that this legitimation serves to justify equal retaliation against colonial slaveholders and slave-traders: 'if one enslaves someone unjustly, then  one  should  oneself  be  enslaved'  (2019:  35).  Carrie  Shanafelt  (2021:  35)  sees  such retaliatory enslavement as 'a satisfying fantasy' (emotionally, presumably) - albeit a futile one. 'Cugoano concludes that the retributive justice of enslaving slaveholders will not put an end to the cycle of violence and oppression'.\n\nThis article offers the first full reconstruction of the nature, grounds, and theoretical implications  of  Cugoano's justification  of  penal  bondage.  The  problem  of  penal  slavery,  I contend,  runs  much  deeper  in  his  abolitionism  than  has  been  previously  recognized. Pace Bogues, I argue that this justification is an integral part of his moral and legal theory. Pace Bernasconi and Shanafelt, I  contend  that Cugoano's defence of penal  slavery goes  beyond retaliation against European enslavers. It targets ordinary lawbreakers as well. People held in penal bondage, Cugoano maintains, may under some conditions be rightfully bought and sold (58-59). To block  a  partial justification of  the transatlantic  slave-trade,  he  therefore  had  to reinterpret the conditions for legitimately trafficking enslaved convicts. Comparisons of his justification of penal bondage with the rival ones of Locke and Kant indicate just how deeply theories of punishment shaped philosophical thinking on penal bondage in the period.\n\nThe paper unfolds as follows. Section 1 provides a brief overview of early modern philosophical theories of penal bondage, to better position Cugoano's thinking on the subject.\n\nSection 2 analyses his theory  of law and morality.  Sections 3 and  4 explore  how his  twin principles of just punishment - retaliation and mercy - transform the condition and duration of justified penal bondage. Section 5 shows how Cugoano could coherently condemn the colonial slave-trade despite his endorsement of the legitimacy of domestic penal enslavement. Section 6 concludes.\n\n## 1. Penal Slavery in Early Modern Philosophy\n\nPunishment for crime was the most widely accepted apologetic ground for enslavement of human beings among early modern philosophers. Even supposedly liberal thinkers condoned permanent penal bondage, including Locke (1988: II.23-24), Beccaria (1995: 68-69), and Kant (1996:  471-472). 4 Penal  slavery  was  not  so  much  a  different kind of  slavery  as  a  distinct apologetic ground . Like all forms of human bondage, penal slavery came in many forms and degrees of  atrocity,  in  both  theory  and  practice.  Penal  enslavement  could  be  temporary  or perpetual. It could be applied to individuals or to entire nations, guilty of starting an unjust war. Some  philosophers  argued  that  the  penally  enslaved  retain  basic  natural  rights;  others conceived of the condition as a substitute for capital punishment, exercised over humans who had  forfeited  all  rights.  Some  maintained  that  people  publicly  enslaved  for  crime  can  be rightfully bought and sold; others denied this. Some even proclaimed the condition heritable,\n\n4 Compare the condemnations of penal slavery in Montesquieu (1989: 3.15.2) and Adam Smith (1982: 198, 455). Little has been written on early modern philosophical ideas of penal slavery. Article-length overviews of ideas of slavery in early modern philosophy include Hunting 1978; Pesante 2009; Watkins 2017. Book-length studies include Sala-Molins 2006; Franke 2009; Nyquist 2013; Brace 2018; Jorati [forthcoming].\n\non the ground that 'successors ought also to join in bearing the evils that are due' (Gentili 1933: 120-121).\n\nEarly modern philosophers writing on penal enslavement need not have had racialized colonial realities in sight (only, or even primarily). Penal slavery was a widespread practice both beyond and within early modern Europe. Convicts powered Mediterranean galleys and toiled in North European workhouses (Spierenburg 2015). Branding felons was not uncommon in Europe, nor was selling them to the colonies as convict servants (Dressler 2019; Heinsen 2021). According to Orlando Patterson (2018: 44), penal slavery in public works and galley slavery qualify as 'slavery in every sense of the term' (despite being non-inheritable); 'a severe form of enslavement of Europeans by Europeans' which flourished for centuries. Astonishingly,  scholars  'have  either  neglected'  European  penal  slavery  'or  defined  it  as something other than slavery when they have recognized it' (2018: 45). This article can remain non-committal on whether the term 'slavery' indeed accurately describes forms of convict labour practiced within and beyond early modern Europe. What matters for my argument is that early modern philosophers generally theorized penal bondage as a form of enslavement proper  -  and  as  in  principle  legitimate.  That  conceptualization,  I  contend,  had  significant normative  and  theoretical  implications  even  within  late  eighteenth-century  abolitionist thinking.\n\nMany  early  modern  philosophers  reconciled  universal  natural  rights  with  penal enslavement by conceptualizing those rights as wholly forfeitable through grave wrongdoing. For Hugo Grotius (1583-1645), penal enslavement is legitimate 'when he who has deserved to lose his Liberty, is forced to submit himself to him who has a Right to punish him' (2005: 2.5.32). The severity of the crime determines the form and hardship of penal subjection. Samuel Pufendorf (1632-1694) followed Grotius (2005: 3.7.1) in arguing that individuals as well as entire peoples may 'by way of Punishment, made Slaves ' (1729: 8.3.28). In Thomas More's\n\nUtopia (2002: 81), 'the gravest crimes are punished with slavery' (adultery included). The Utopians reason that 'convict labour is more beneficial to the commonwealth' than capital punishment,  and  equally  deterrent.  By  contrast,  Cesare  Beccaria  (1995:  67-69)  regarded permanent penal servitude 'in manacles and chains' as the greater deterrent, rendering the death penalty unnecessary and unjust.\n\nDespite  deeming  self-enslavement  morally  impossible,  John  Locke  (1632-1704) notoriously  permitted  enslaving  those  who  had  forfeited  their  lives  by  engaging  in  unjust aggression.  Anyone  who  'by  his  fault,  forfeited  his  own  Life,  by  some  Act  that  deserves Death,' may rightfully be enslaved in lieu of capital punishment (1988: II.23). Slavery is the rightful  condition of those who, having lost all rights, may be killed at will (II.85;  II.172). Grounded in personal guilt, slavery is not heritable (II.182; II.189). Locke assimilated penal slavery to just  war slavery (i.e., to  prisoners  captured in a just war) by arguing  that  unjust aggression creates a state of war, even within the commonwealth (II.155; II.181; II.232). This allowed  him  to  claim,  startlingly,  that  ' Slavery … is nothing  else,  but the  State  of  War continued, between a lawful Conqueror , and a Captive ' (II.24). Penal slavery could be invoked to justify colonial slavery even without being reduced to just war slavery, insofar as rights over enslaved convicts were conceived as tradeable across national borders. 5\n\nFor Immanuel Kant (1724-1804), dignity ( Würde ) is that exalted status humans have in  virtue  of  their  capacity to abide by  the moral law (Sensen 2011). Criminals forfeit their dignity through grave wrongdoing.\n\n5 Locke is silent on whether aggressors rightfully enslaved by just conquerors may be bought and sold. The First Treatise does refer to 'Slaves bought with Money' in the Caribbean (1988: I.131). For discussion, see Farr 1989.\n\n'Certainly no human being in a state can be without any dignity, since he at least has the dignity of a citizen. The exception is someone who lost it by his own crime , because of which, though he is kept alive, he is made a mere tool of another's choice (either of the state or of another citizen)' (Kant 1996: 471, also 494)\n\nTheir (civic) dignity lost, felons may be reduced 'to the state of a slave [ Sklavenstand ] for a certain time, or permanently' (1996: 474). 6 Anyone in such conditions of bondage (' servus in sensu stricto ') is rightfully 'the property of another, who is accordingly not merely his master but also his owner and can therefore alienate him as a thing [and] use him as he pleases' (1996: 471). Only crime can justify enslavement. Therefore, 'hereditary bondage as such is absurd since guilt from someone's crime cannot be inherited' (1996: 486, also 432, 472).\n\nSome early moderns distinguished two kinds of enslavement legitimately imposed for wrongdoing. What we may call 'penal slavery proper' is punishment inflicted for grave crime. So-called 'reparation slavery' consists in forced labour imposed to compensate for wrongful damage  done  which  the  culprit  cannot  pay  back  otherwise  (e.g.,  Hutcheson  2007:  3.3.2; Rutherforth 1754: 1.20.4). 7 Reparation slavery was seen as essentially time-bound. Once the damage  has  been  repaid  through  forced  labour,  the  wrongdoer  must  regain  their  freedom. Reparation slavery is in this respect akin to indentured and debt slavery, where people are\n\n6 Kant  scholars  dispute  what  form  of  dignity  is  forfeitable  through  grave  wrongdoing. Schönecker (2021) argues that felons only forgo their civic dignity; their human dignity is kept intact. Whatever view we take, for Kant human dignity does not categorically forbid penal enslavement. Why it does not is a question beyond the scope of this article.\n\n7 Locke (1988: II.11) depicts deterrence and reparation as distinct grounds of punishment. This permitted him to subsume reparation slavery under penal slavery.\n\nJohan Olsthoorn (Amsterdam)\n\ncoerced to work until their loans or debts have been paid off (e.g., Carmichael 2002: 139; Paley 2002: 136). Both forms of penal bondage were theorized as forms of slavery, if only because those so enslaved could be legitimately bought and sold. As Thomas Rutherforth (1712-1771) reasoned: 'the creditors damage may, at least in part, be repared, though not by using the debtor as his own slave, yet by selling him for a slave to the person, who wants him' (1754: 1.20.4). Francis  Hutcheson  (1694-1746)  argued  that  because  slavery  for  crime  and  for  damagereparation are 'constituted solely for the behoof of others', people enslaved on either ground are tradeable (2007: 3.3.2). By contrast, the British abolitionist Thomas Clarkson (1760-1846) maintained that states are entitled to publicly enslave criminals but not to sell them (1786: 105106).\n\nFor Cugoano, the sole legitimate ground for enslavement is grave wrongdoing. 'Those that break the laws of civilization, in any flagrant manner, are the only species of men that others have a right to enslave' (58, also 19). In what follows, I argue that Cugoano's theory of just punishment determines what form penal enslavement may take, as well as its permissible duration. Conditions of justified penal bondage differ greatly from the dehumanizing horrors innocent Black people faced at colonial plantations.\n\n## 2. Human and Divine Law\n\nTo grasp the character and limits of justified penal bondage in Cugoano, we have to explore his  views on morality, law, and punishment. Thoughts and Sentiments offers no systematic moral theory. The following reconstruction imparts coherence on remarks on the subject found across the book.\n\nCugoano's theory of law and punishment, I maintain, rests squarely upon a divine law theory of ethics. Divine lawgiving has created morality. Without God, there would have been\n\nno moral right and wrong. 'If this law of God had not been given to men, murder itself would not have been any crime' (54). 8 The law of God is a revealed one, laid down in the Bible. Above all, it dictates love and charity. Love God, and love your neighbours as you love yourself - regardless of race, ethnicity, creed, or nationality (50, 139). Besides this universal law of love, the Bible contains a basic law of punishment, consisting of two parts. Justice states that wrongdoers deserve punishment equal to their crime - eye for an eye, tooth for tooth. 9 Yet mercy is  morally  required  when  inflicting  like-for-like  punishment on  deserving  offenders serves no social good. Gratuitous punishment is impermissible, notwithstanding the criminal's desert (determined by justice). Love and punishment are two sides of the Golden Rule: treat others as you would want to be treated yourself (52, 141, citing Matt. 7:12). The two divine laws serve separate purposes. The law of love determines which actions are crimes. The dual law  of  punishment  determines  when specific  crimes should  be  punished, as  well  as  which punishments are due.\n\nCugoano sometimes  invokes  the law of  love  to  denounce  modern  colonial  slavery. '[T]here is no slave-holder would like to have himself enslaved, and to be treated as a dog, and sold like a beast; and therefore the slave-holders, and merchandizers of men, transgress this\n\n8 The sentence continues, confusingly: 'and those who punished [murder] with death would just have been as guilty as the other.' Absent a divine prohibition of murder, Cugoano appears to suggest, capitally punishing a murderer equals killing an innocent person. Then again, killing the  innocent  is  itself  not  wrong  unless  God  had  previously  forbidden  it.  On  the  long  and checkered history of voluntarism about morality in the scholastic and natural law traditions, see Schneewind 1998.\n\n9 Cf.  Equiano 2018:  29;  Sharp 1776:  75:  'This is God's Law of Retribution , Evil for Evil , Measure for Measure '.\n\nJohan Olsthoorn (Amsterdam)\n\nplain law' (52, 141). More frequently, he condemns slavery as a violation of natural rights, in particular of freedom ('the common right and privilege of all') (22). Throughout Thoughts and Sentiments , Cugoano accuses slaveholders and slave-traders of robbery: 'every man who keeps a slave, is a robber, whenever he compels him to his service without giving him a just reward' (125). 10 Their robbery consists in 'taking away the natural liberties of men, and compelling them  to  any  involuntary  slavery  or  compulsory  service'  which  'is  an  injury  and  robbery contrary  to  all  law,  civilization,  reason,  justice,  equity,  and  humanity'  (51;  also  35,  125). Indeed, 'the ensnarings of others and taking away their liberty by slavery and oppression, is the worst kind of robbery' (11).\n\nThe relation between natural rights and the divine law is somewhat obscure. 11  Cugoano insists that the injustice of slavery can be known without revelation, through natural reason alone  (28).  Yet  his  voluntarism  about  morality  implies  that  violations  of  natural  rights  are wrong, not of themselves, but in virtue of contravening divine law. In other words, God made kidnapping and other forms of robbery morally wrong by forbidding them. In fact, for God to forbid kidnapping is to give people natural rights of liberty. Voluntarists commonly theorized natural rights as grounded in and derived from the moral duties God imposes through natural law upon everyone else. This renders natural law duties normatively prior to natural rights\n\n10 Dahl  (2021:  287-289)  highlights  the  centrality  of  'robbery'  (instead  of  'domination')  in Cugoano's analysis of the wrongfulness of slavery. Few passages in Thoughts and Sentiments zoom in on the specific horrors and injustices suffered by Black enslaved women (but see 7475).\n\n11 In  her  analysis  of  Cugoano's  abolitionism  Ward  (1998:  84)  treats  the  two  as  grounding separate arguments. Bogues (2003: 26, 32) and Jeffers (2017: 136-138) consider Cugoano a natural rights theorist.\n\n(Haakonssen 2000: 1337-1338). Supporting the same reading, Cugoano portrays natural rights as a divine gift. 'God… gave to all equally a natural right to liberty' (97). 12\n\nRights of civil punishment likewise originate in divine dictates. 'All the criminal laws of civilization seem to be founded upon that law of God which was published to Noah and his sons… Whoso sheddeth man's blood, by man shall his blood be shed ' (54, citing Gen. 9:6). 13 Civil punishment is permissible in virtue of this biblical command. The Bible expounds which crimes are punishable and in what ways. Its two principles of just punishment - justice and mercy - jointly determine what punishments are due. Lex talionis calls for retribution equal to the crime, while the law of mercy permits infliction of punishment only if it serves some good. Punishment, in short, must follow lex talionis as tempered by mercy (57). Humans have hence limited moral discretion in determining what punishments to mete out for which crimes (55). Excessive punishment is unjust. Anyone punishing 'beyond the bounds of a just retaliation' falls 'into the same crimes of the oppressors' (60). Any civil law sanctioning punishment of innocents is unjust, as is punishment inflicted by those who lack the right to punish.\n\nCrime warrants  punishment. Yet  not  so  much  because it  breaks  civil  law  ('laws  of civilization'), but because it flouts divine law.\n\n'The reason why a man suffers death for breaking the laws of his country is, because he transgresseth the law of God in that community he belongs to; and the laws of civilization are binding to put that law in force' (55)\n\n12 On the natural equality of all races as vouchsafed by Scripture, see Cugoano 1999: 29-45, 118-135. On his valuation of Black skin colour, see Wheeler 2015: 28-34.\n\n13 Locke (1988: II.11) cited the same verse to justify natural rights of punishment.\n\nCivil law must implement and enforce the divine law. European and colonial laws at the time shockingly failed to do so. They left heinous crimes of enslavers unpunished. 'When the Divine law… tells us, that he who stealeth or maketh merchandize of men, that such a thief shall surely die, the laws of civilization say, in many cases, that it is no crime' (57). What's more, European laws legally sanctioned what the divine law of love prohibits: slavery and the slave-trade (57, 71,  87).  Morals  are  thus  'screwed  up'  (57).  Any  country  implicated  in  such  iniquitous practices,  Cugoano  laments,  'have  left  their  own  laws  of  civilization  to  adopt  those  of barbarians and robbers' (87). Robbers may keep justice among themselves - but do not practice it towards the rest of humanity. 14\n\nThe need  for  civil  law  to  match  divine  law  underpins  Cugoano's  rhetorically  most powerful appeal for immediate and total abolition. Mend your ways, British people, or face divine wrath! Like Benezet (1772: 82) and Sharp (1776) before him, Cugoano fulminates that the British government's sanctioning of colonial slavery and of the slave-trade risked incurring 'awful visitations of God for this inhuman violation of his laws' (77). The Bible teaches that war, famine, pestilence, and earthquakes are 'inflicted for the sins of nations' (78). Thoughts and Sentiments develops a striking theory of national complicity for structural injustice (7684; see Bernasconi 2019: 34-35; Dahl 2020). All British inhabitants have a responsibility to speak out against the terrible injustices backed by their government (79). They should do so, curiously, less for the sake of cruelly enslaved Africans than 'for their own good and safety… lest they provoke the vengeance of the Almighty against them' (84). By arguing that modern slavery is not simply immoral but a transgression of God's law Cugoano bolsters his warning of looming divine retribution.\n\n## 3. Retaliation\n\n14 Cf. Sharp 1773: 23. On justice among robbers, the locus classicus is Cicero 1991: 2.40.\n\nThe lex talionis is rather unpopular among legal philosophers today. 15 The ancient principle calling for punishment equal to the crime is liable to seemingly fatal objections. 'The simple equivalencies of an eye for an eye or a death for a death', H.L.A. Hart (2008: 233) wrote, 'seem  either  repugnant  or  inapplicable  to  most  offences'.  A  principle  of  appropriate punishment, the lex talionis purports to spell out how much punishment should be inflicted for particular offences. Yet for many crimes, the principle gives no clear guidance. (Perjury for perjury? Blackmail for blackmail?) For others, like-for-like punishment is intuitively repulsive. 'Should we punish a rapist by raping him?', Bedau (1978: 611) asks rhetorically. Enslave those guilty  of  enslaving  others?  Rather  than  a  simple  equivalence  between  penalty  and  crime, modern theories of punishment call for proportionality between penalties imposed for different crimes.\n\nRepugnant as applying the lex talionis to monstrosities like slavery is, it is surprising that this retaliatory principle figures prominently in the British Enlightenment's most radical abolitionist treatise, written by someone once enslaved himself. This may explain why some have read Cugoano's call for like-for-like punishment of European enslavers as either rhetoric or  reverie  (Shanafelt  2021:  35);  the  sheer  unlikelihood  of  the  downtrodden  enslaving  their colonial  masters  neutered  by  adopting  the  moral  high-ground  of  mercy,  with  the  pleasing assurance of divine vengeance to come. Thoughts and Sentiments can indeed be so read. Yet\n\n15 For canonical statements of the principle, see Exod. 21:23-25; Lev. 24:17-21. J.S. Mill (1969: 253 [5.29]) could still sense its pre-theoretical appeal: 'No rule on this subject recommends itself so strongly to the primitive and spontaneous sentiment of justice, as the lex talionis , an eye for an eye and a tooth for a tooth'. For criticism of the lex talionis , see Lacey 1988: 17-18; for defences, see Waldron 1992; Fish 2008.\n\ndoing so risks overlooking how deeply embedded penal slavery is within Cugoano biblical theory  of  law,  morality,  and  punishment;  and  how  profoundly  it  shapes  his  antislavery arguments.\n\nFor  both  Shanafelt  and  Bernasconi,  Cugoano's  justification  of  penal  enslavement serves retaliatory purposes alone: 'if one enslaves someone unjustly, then one should oneself be enslaved' (Bernasconi 2019: 35; also Carretta 1999: xxi). Their retaliatory reading falls short  on  three  accounts. First,  many  enslavers  deserve  death  rather  than  enslavement. Paraphrasing Deut. 24:7, Cugoano declares: 'he that stealeth a man… and selleth him, or that maketh merchandize of him… that thief shall die' (53, 142). Of those who oppress, enslave, and kill their fellow-humans, 'the laws of God and man require that they should be suppressed, and deprived of their liberty, or perhaps their lives' (51, 140; also 54). Enslaving innocents is so much worse than other crimes that 'when a man is robbed of himself, and sold into captivity and cruel slavery', the punishment truly 'ought to be double death, if it was possible' (53, 142).\n\nSecond, Cugoano endorses penal  enslavement for a much  wider set of  crimes than enslavement of innocents alone. 'Those that  break the laws  of civilization, in any flagrant manner, are the only species of men that others have a right to enslave' (58). Enslavers are not the only ones readily breaking the laws of civilization. Ordinary thieves, robbers, defrauders, and counterfeiters do so too - thereby becoming potentially liable to penal enslavement (also Beccaria 1995: 53; Equiano 2018: 22). Cugoano glosses Exod. 22:2-3 as follows: 'when the property of others is taken away, either by stealth, fraud, or violence, the aggressors should be subjected to such bondage and hard labour… as would be requisite to make restitution to the injured'. Caught thieves should make full restitution for their larceny; 'and if he had nothing, then he should be sold for his theft' (56). Not all wrongs punishable with penal bondage are equally grave. Robbing innocents of their freedom is vastly worse than stealing their goods\n\n(11,  45-46,  71,  86-87).  Nor  does  penal  enslavement  befit  the  worst  crimes. Lex  talionis demands a life for a  life:  'murder  is  irreversibly  to  be  punished  with  death'  (55). Forging counterfeit  money  and  violent  robbery  of  sizable  possessions  sometimes  merits  capital punishment too (57). Penal enslavement is the appropriate punishment only for damage which 'admits of a possible restoration', such as theft or robbery (56). Such punishment is permissible because God declared it so. ' He who leadeth into captivity, shall be carried captive, and be bound in the cords of his own iniquity ' (82, citing Rev. 13:10).\n\n'Wherefore, if the law of God does not so clearly warrant, that they should die for their theft, it, at least, fully warrants that they should be sold into slavery for their crimes; and the laws of civilization may justly bind them, and hold them in perpetual bondage, because they have sold themselves to work iniquity' (58)\n\nThird, the retaliatory reading overlooks that Cugoano advances a dual principle of just punishment: combining justice (i.e., the lex talionis )  and mercy. Enslavers are deserving of like-for-like punishment, as per the lex talionis : 'for he who leadeth into captivity, should be carried  captive'  (59).  Yet  the  divine  law  of  mercy  tempers  just  retaliation:  inflicting  the punishment malefactors deserve is morally permissible only if it promotes some social good. What punishments are due is hence not determined by the lex talionis alone. Though Thoughts and Sentiments indeed cries out for just retaliation against colonial enslavers, equal to their crimes, merciful moderation is sometimes morally mandatory.\n\nThe  upshot  is  twofold.  First,  anyone  guilty  of  robbery  can  be  deserving  of  penal bondage - not only 'robbers of men'. Second, slave-traders and slaveholders should be penally enslaved for restitutive purposes: in order to provide due compensation to their victims (and only insofar as it does so) (Glover 2017: 525). Like his contemporaries, Cugoano regarded\n\nconvict labour as productive: it creates material value, suitable to repay victims. As enslavers are  'liable  to  every  damage'  caused  to  their  victims,  an  inability  to  repay  warrants condemnation to hard labour in criminal bondage (54). Unjustly enslaved people, violently torn from their native communities, are owed restitution even if full compensation for the wrongs they have suffered is impossible (Dahl 2021: 290). Cugoano insists upon 'a just commutation for what cannot be fully restored, in order to make restoration, as far as could be, for the injuries already done to [enslaved Africans]' (102). Remarkably, retaliatory enslavement of enslavers is thus part of his bold demand for slavery reparations.\n\nInvoking lex talionis to  justify  penally  enslaving  thieves  seems  odd.  How  is enslavement a punishment equal to the crime of theft? Incidentally, Cugoano is not the only Enlightenment  philosopher  defending  this  counterintuitive  position.  The  'arch-talon  Kant' (Waldron 1992: 40) did so too. For Kant (1996: 473), punishing according to ' ius talionis ' is a categorical imperative. 16 While both Kant and Cugoano invoked lex talionis to justify penally enslaving thieves, their arguments differ. Kant's reasoning is tortuous. As thieves act contrary to the possibility of private property, like-for-like punishment requires depriving them of all property in turn.\n\n'Whoever steals  makes  the  property  of  everyone  else  insecure  and  therefore  deprives himself  (by  the  principle  of  retribution)  of  security  in  any  possible  property.  He  has\n\n16 Kant's theory of punishment is both retributivist and retaliatory. Retributivist theories make criminal desert central to their accounts of what justifies state punishment: the state either may or  should punish malefactors  to  give them  what they deserve. Not  all retributivist theories include a principle of retaliation, calling for repayment in kind. On the place of retributivism and the lex talionis in Kant's ethical and legal theory, see Wood 2010; Pickering 2022.\n\nnothing and can also acquire nothing; but he still wants to live, and this is now possible only if others provide for him.' (Kant 1996: 474) 17\n\nAll  property  withheld,  condemned  thieves  become  entirely  dependent  on  state  support.  In exchange  for  provisions,  Kant  asserts  (without  argument),  the  convict  should  be  penally enslaved. 'But since the state will not provide for him free of charge, he must let it have his powers for any kind of work it pleases (in convict or prison labor) and is reduced to the status of a slave [ Sklavenstand ] for a certain time, or permanently' (1996: 474). By contrast, Cugoano justifies penally enslaving thieves consequentially, via the effects it assorts: the fruits of forced labour serve to make restitution for the injury done. Where restitution is impossible, the divine law of mercy forbids imposition of penal bondage (56). On this point, Cugoano again departs from the Prussian philosopher.\n\n## 4. Mercy, restitution, and deterrence\n\nKant was adamant that justice must be done. '[E]very murderer… must suffer death' (Kant 1996: 475). No exceptions. Indeed, a people cannot justly dissolve itself unless it first executes 'the last murderer remaining in prison… so that each has done to him what his deeds deserve' (1996: 474). Cugoano strongly disagreed. For him, mercy must temper justice.\n\n17 See also Kant's 1784 lectures on natural right: 'in accordance with jus talionis , e.g. a thief robs someone of his whole property, one must accordingly also take his property from him and, because he frustrates the other's endeavors to acquire property, one must also place the thief outside of the condition where he can acquire his own property. Thus he will be exiled into labor and will be provided for like an animal' (Kant 2016: 175).\n\n'The just law of God requires an equal retaliation and restoration for every injury that man may do to others…. but the law of forbearance, righteousness and forgiveness, forbids the retaliation to be sought after, when it would be doing as great an injury to them, without any reparation or benefit to ourselves' (52, 142).\n\nMercy in no way lessens the crime. Forbearance merely remits the punishment. It does not exculpate (54). As Cugoano stresses, 'this law of forbearance is no alteration of the law itself' (53). The law of forbearance plays a dual role in Cugoano's philosophy. As a principle of permissible  punishment,  it  forbids  pointless  retaliatory  justice.  And  as  a  principle  of appropriate punishment, it determines when leniency in punishment is called for (i.e., when punishment should be less harsh than the lex talionis demands).\n\nJeremy Waldron (1992) has argued that the lex talionis does not presuppose a particular theory about either the point or the justification of punishment. That is, the principle tells us neither what the just goals of punishment are, nor what makes punishment permissible. All it does  is  indicate,  roughly,  which  punishments  are  due  for  which  crimes  ('like-for-like'). Waldron hence denies that the lex  talionis is  a  principle  of  retribution  (to  wit,  that  justice requires that wrongdoers get what they deserve). Cugoano's theory of law and punishment supports Waldron's thesis. Cugoano is a consequentialist about punishment, not a retributivist (as Kant was). 18 Having committed a crime deserving of punishment is for him a necessary but\n\n18 Cugoano's hybrid theory of just punishment contains an interesting mix of retributivist and consequentialist elements. Offenders deserve to be punished in accordance to their deeds (a retributivist tenet). Yet punishing offenders in line with their deserts is impermissible unless it serves some social good (a consequentialist one). In the end, consequentialist just goals of\n\nnot a sufficient condition for permissible punishment. Indeed, the law of forbearance forbids purely  retaliatory  punishment,  done  for  the  sake  of  vengeance  alone.  To  be  morally permissible, punishment must bring some 'reparation or benefit to ourselves'. This holds true even if the punishment is justified by lex talionis :\n\n'when a man is carried captive and enslaved, and maimed and cruelly treated, that would make no adequate reparation and restitution for the injuries he had received, if he was even to  get  the  person  who  had  ensnared  him  to  be  taken  captive  and  treated  in  the  same manner' (52, 142).\n\nWhen punishment produces no social benefits whatsoever, it should be forgone - however much the wrongdoer deserves chastisement. 'Wherefore the honest and upright… cannot think of doing evil, nor require an equal retaliation for such injuries done to them, so as to revenge themselves upon others, for that which would do them no manner of good' (52-53, 142). 19\n\npunishment (reparation, deterrence, etc.) determine if and how much punishment should be inflicted upon deserving offenders. His account is therefore closest, I believe, to what legal philosophers today call 'side-constraint consequentialism' (Duff 2001: 11-12; Hart 2008: 236237).\n\n19 A few lines earlier, Cugoano had glossed the law of mercy more strictly: 'Wherefore it is better, and more our duty, to suffer ourselves to be lashed and cruelly treated, than to take up the task of their barbarity' (52). That claim contradicts the duty to forcibly resist wrongful enslavement Cugoano posits later (59). Bernasconi (2019: 36) remarks: 'there was perhaps even a duty to enslave the enslavers'. True, provided that such retaliatory enslavement serves some social good.\n\nThoughts and Sentiments cites several potential benefits of civil punishment in general, and of penal enslavement in particular: (1) reparation and compensation to victims; (2) societal deterrence  of  crime;  (3)  moral  reformation  of  the  offender;  and,  perhaps,  (4)  personal liberation; and (5) moral education of the community. I briefly discuss each in turn.\n\nFirst, imposing penal bondage is warranted to compel wrongdoers to make material restitution to the victims for the injuries they have done (if they lack other means of repayment). For guidelines on how much compensation is due for specific injuries, Cugoano turns to Exod. 22. Anyone unable to recompensate for injury done 'should be subjected to such bondage and hard labour… as would be requisite to make restitution to the injured' (56, also 52). The penally enslaved are 'to be sold to the community', together with all their belongings, 'to make a commutation of restitution as far as could be' (58). 20 The profits of this sale supposedly accrue to the victims (or their kin). Criminals sold to the community 'should be kept at some useful and  laborious  employment'  for  public  profit,  such  as  recovering  wastelands  (58).  The reparation rationale makes penal slavery in principle time-limited.\n\nThe second just goal of punishment is societal deterrence of crime. In general, by the law of forbearance, civil laws should 'seek out such rules of punishment as are best calculated to prevent injuries of every kind'. If possible, one should 'punish with a less degree of severity than their crimes deserve' (57). Wrongdoers deserve like-for-like punishment, even when the divine  law  of  forbearance  prescribes  leniency. 21 Deterrence  justifies  marking  and  branding those condemned to perpetual bondage, so that 'the very sight of one of them might deter others\n\n20 According to Locke (1988: II.183-184), only damage suffered can give just conquerors a right to the possessions of the conquered; and then only to as much as compensation requires.\n\n21 Cugoano  does  not  argue  for  leniency  in  punishment  on  retributivist  grounds  (cf.  DuusOtterström 2013).\n\nfrom committing their crimes' (58). Cugoano does not mention incapacitation of criminals as a just goal of punishment (cf. Grotius 2005: 2.20.9.1).\n\nThird, punishment and penal bondage should aim to make offenders repentant, 'to bring about a reformation to themselves' (56). The duration of penal bondage should match both the gravity of the crime as well as any 'good behaviour' of the convict during bondage. Good behaviour is contrasted with 'stubbornness' and 'obduracy' - i.e., with lack of repentance (58).  Where  forbearance is  permitted,  punishments  should  be  tailored  to  help  'reclaim  the transgressors'  (57). No  mercy is  due to the unrepentant. Only those unrepentant of violent crimes may be subjected to corporeal punishments (56-57). All this indicates that reformation of the offender is a just goal of punishment, calling for mercy accordingly.\n\nTwo other apparent just goals of punishment are more unusual - and my reconstructions of them more speculative. The unjustly enslaved, Cugoano writes, may enslave their aggressors as a last resort, to reclaim their freedom by right of self-defence.\n\n'if there was no other way to deliver a man from slavery, but by enslaving his master, it would be lawful for him to do so if he was able, for this would be doing justice to himself, and be justice as the law requires, to chastise his master for enslaving of him wrongfully' (59).\n\nIt  is  unclear whether Cugoano regards just defensive enslavement as a form of punishment proper,  involving  the  exercise  of  rights  of  punishment.  The  provided  rationale  is  cursory, running  together  rights  of  self-defence  and  of  punishment  ('justice  as  the  law  requires'). Thoughts and Sentiments nowhere else mentions individual rights of punishment, popularized by  Grotius  (2005:  2.20.7-9)  and  Locke  (1988:  II.7-9).  Cugoano's  interpretation  of  Mosaic slavery suggests that moral education of the community may be another just goal of penal\n\nenslavement - at least for God. The deity instituted human bondage among the Israelites to 'prefigure  and  point  out,  that  spiritual  subjection  and  bondage  to  sin'  to  which  depraved humanity  would  succumb;  providing  instructive  analogies  to  the  eventual  deliverance  and emancipation  through  Christ  (131;  also  37-47,  127-136). 22 Bracketing  the  last  two  more dubious grounds, we can conclude that penal enslavement is morally permissible only insofar as it produces amends to victims, deters crime, or morally corrects the offender.\n\nThe divine law of forbearance not only delimits when penal enslavement is morally permissible. It also attenuates the condition of penal bondage. Its hardship and duration should match  both  the  gravity  of  the  crime  as  well  as  the  convict's  repentance,  on  pain  of  the punishment  lacking  divine  authorization  (58).  These  moderating  principles  render  penal enslavement essentially corrective in orientation and time-bound in character. Redemption is built into it. However, justified penal slavery is not necessarily less harsh to offenders than modern colonial slavery (an atrocity made unspeakably worse through its racialization and heritability). For those unrepentant of violent crimes Cugoano advocates hard treatment akin to colonial slavery: 'all such [bodily] punishments as are necessary should be inflicted upon them without pitying or sparing them, though perhaps not to be continued forever in the brutal manner that the West-India slaves suffer for almost no crimes' (56-57).  The divine law of punishment permits remorseless violent offenders to be mercilessly tortured - though 'perhaps' not perpetually so.\n\nThese passages conditionally justify a form of penal bondage more severe than that practiced,  by  his  own  description,  among  his  Fante  people.  '[T]hose  which  they  keep  [as slaves] are well fed… and treated well' (16; cf. 35). Equiano (2018: 25) likewise downplayed\n\n22 On Cugoano's hermeneutical strategy dealing with biblical slavery, see Stewart 2021: 642646.\n\nthe brutality of West-African slavery. 'Those prisoners which were not sold or redeemed we kept  as  slaves:  but  how  different  was  their  condition  from  that  of  the  slaves  in  the  West Indies!' 23 Cugoano's  retaliatory  agenda  -  not  shared  by  Equiano  -  may  explain  why  he endorsed in principle harsher forms of penal slavery than those long practiced in West-Africa. Throughout Thoughts and Sentiments ,  he depicts colonial slaveholders and slave-traders as beasts  and  devilish  monsters. 24 By  treating  Black  people  as  animals,  White  enslavers dehumanize themselves, becoming 'the most abandoned slaves of infernal wickedness' (83). Here,  as  elsewhere,  Cugoano  adopts  a  rhetoric  of  inversion,  morally  attributing  the  very inhumanity to enslavers with which they treat enslaved Black people (e.g., 22, 66-67). Their abominable crimes render colonial enslavers deserving of the harshest punishments, including enslavement.\n\n## 5. Penal Bondage and the Slave Trade\n\nThoughts and Sentiments powerfully advocates the immediate end of 'the African Slave Trade, and  the  West-India  Slavery'  (117).  Cugoano's  abolitionist  arguments  are  complicated, however, by his principled endorsement of the legitimacy of penal slavery. Not only because the institution of slavery evidently persists in some form as long as penal bondage does. But also  because  Cugoano  accepts  that  those  justly  held  in  penal  bondage  may  be  sold  and\n\n23 Paley (2002: 136) called colonial plantation slavery 'a dominion and system of laws, the most merciless and tyrannical that ever were tolerated upon the face of the earth'.\n\n24 Throughout the Second Treatise , Locke permitted treating unjust aggressors as 'wild Savage Beasts, with whom Men can have no Society nor Security' (1988: II.11, II.16, II.172, II.181; see Kingston 2008).\n\ntrafficked (58-59, 156n). On what grounds, then, does he preclude continuation of penal slavery on colonial plantations with purchased convicts?\n\nCugoano develops two facially contradictory lines of argument to ensure that justified penal bondage does not undercut his abolitionism. The first  restricts rights to buy  and sell penally  enslaved  persons  to  co-nationals.  The  penally  enslaved  'ought  to  be  sold  to  the community' (58). Ownership over them may be traded, but only to co-nationals and only with the  felon's  consent:  'every  free  community  might  keep  slaves,  or  criminal  prisoners  in bondage; and should they be sold to any other, it should not be to strangers, nor without their own consent' (58-59). 25 In ethnically homogenous societies, the prohibition to sell enslaved criminals to outsiders prevents racialization of slavery. More importantly for present purposes, it forestalls a then-common apologetic ground for colonial slavery; to wit, that European slavetrading  is  just  since  the  Africans  that  were  bought  and  sold  were  all  criminals  previously condemned to slavery.\n\nA similar rebuttal had been advanced by Sharp. European slaveholders, he reasoned, can have no legal certainty that trafficked Africans had in their country of origin been justly condemned for grave wrongdoing. And even if they had such certainty, colonial slaveholders altogether lack due authority to punish those criminally enslaved abroad. Suppose someone 'was a convicted Criminal in his native country; yet this Criminal never offended the Planter, nor the Laws of the Planter's Nation… so that neither the Planter nor any of his Abettors can have any just right to continue the punishment of an offence committed in another country' (Sharpe 1776: 150n). Significantly, Sharp tacitly accepts here the legitimacy of domestic penal\n\n25 Oddly, Glover (2017: 525-526) glosses this passage as banning sale of the penally enslaved altogether: 'Cugoano removes slavery from the market'.\n\nenslavement. What he denounces is the slave-trade: convicts may be held in bondage only within their own communities.\n\nThe  same  troublesome  position  was  held  by  another  prominent  White  British abolitionist. In a prize-winning essay, Clarkson (1786: 45) acknowledged that those 'justly convicted of crimes, or taken in a just war' can be 'sentenced to the severities of servitude'. He countered that enslaving African convicts in overseas colonies is entirely disproportionate: 'the African servitude comprehends banishment , a deprivation of liberty , and many corporal sufferings … what crime can we possibly imagine to be so enormous, as to be worthy of so great a punishment?' (1786: 77, 81). Besides, penally enslaving African convicts in colonies abroad is unjust because it neither promotes deterrence of crime, nor offenders' moral reform, nor  any  other  just  goal  of  punishment  (1786:  82-83).  Arguments  like  these  may  have ideologically shored up otherwise contradictory contemporary pleas for abolition of the slavetrade alone, leaving other practices of slavery in place. 26\n\nEarly on in Thoughts and Sentiments ,  Cugoano develops a second, reformist line of argument to challenge any transatlantic trade in enslaved convicts.\n\n'It may be true, that some of the slaves transported from Africa, may have committed crimes in their own country, that require some slavery as a punishment; but, according to\n\n26 For instance, the founding manifesto of the Société des Amis des Noirs (1788), penned by Condorcet (2012: 148-155), targeted the slave-trade alone; the manifesto took pride in having the support of some planters. The British government outlawed the slave-trade in 1807; slavery itself followed only in 1833.\n\nthe laws of equity and justice, they ought to become free, as soon as their labour has paid for their purchase in the West-Indies or elsewhere' (156n). 27\n\nConstrained by his principled justification of penal bondage, Cugoano could not flatly insist on the impermissibility of selling enslaved convicts (on pain of inconsistency). Rather, like Sharp and Clarkson before him, he denies that colonial slaveholders are entitled to punish people criminally enslaved in Africa. 28 Unlike his abolitionist predecessors, however, Cugoano here affirms slaveholders can legitimately buy persons so enslaved (cf. Clarkson 1786: 104).\n\nThat contention seemingly jars with the passage cited above, which forbid the sale of 'slaves,  or  criminal  prisoners  in  bondage'  to  foreigners  (58-59).  The  two  passages  can  be harmonized. Cugoano, I contend, bans the sale of enslaved convicts as slaves to foreigners. Both passages convey his attempt to turn the legal condition of convicts sold abroad to one akin to indentured servitude (a widespread practice at the time). Indentured servitude is a form\n\n27 Cugoano (26-27) laments how some West-African nations have started taking prisoners of war from their neighbors in order to sell them to 'the European market'. Cugoano himself was kidnapped and enslaved by African slave-traders; 'but if there were no buyers there would be no sellers' (16, also 73). On Europeans diabolically instigating African peoples to enslave each other, including innocents, see also Benezet 1772: 97-98; Clarkson 1786: 45-50; Equiano 2018: 24. Clarkson (1786: 46) laments that the slave-trade incentivized African rulers to create 'new crimes'  punishable  by  enslavement;  an  accusation  validated  by  modern  historical  research (Ferreira 2011: 121-122).\n\n28 A  co-authored letter to Sharp, co-signed by Cugoano, makes a similar point: 'surely the trader  cannot  believe…  that  it  belongs  to  him,  more  enlightened  than  we  [West-Africans practicing slavery], to execute so horrid a doom' (189-190).\n\nof  bondage  distinct  from  slavery.  It  arises  through  a  contract  in  which  the  subjected  [1] voluntarily engages a debt (e.g., for transport to the colonies); [2] to be paid off by granting the creditor for limited time full disposal of their labour (Tomlins 2010: 31-32).\n\nBoth elements of indentured servitude crop up in the conditions for legitimate sale of enslaved convicts to foreigners. A consent-clause brings out the contractual element: 'if any man should buy another man without his own consent', compelling them to toil 'without any agreement',  then  'the  enslaver  is  a  robber'  (59).  These  lines  indicate  that  for  the  sale  of enslaved  convicts  to  non-nationals  to  be  permissible,  convicts  will  at  least  need  to  have personally consented to it. Next, any bondage abroad is essentially time-limited: 'they ought to become free, as soon as their labour has paid for their purchase' (156n). Equity demands that criminals sold to outsiders 'naturally become free as soon as their purchase could be paid' (59).  The  community  pockets  the  proceeds  of  the  sale,  in  lieu  of  reaping  the  fruits  of  the criminal's  hard  labour  directly.  If  penal  enslavement  had  been  imposed  upon  the  felon  to forcibly secure material compensation to their victims for the injuries they had suffered, the funds procured through the sale may discharge the very 'debt' punishment sought to exact.\n\nFor Cugoano, I have argued, enslaved convicts can be legitimately sold to outsiders yet not as slaves, but as indentured servants (for a limited duration and with their personal consent). 29 Trading humans as if they were 'chattels and goods… without their own consent' is never justified (36, 125). Even aside from the non-heritable status of penal bondage, these\n\n29 Cugoano  presumably  adopted  this  position  because  he  believed  it  had  biblical  warrant. Moses had imposed similar conditions on the debt slavery of bond-servants - 'a state of equity and justice' (35). 'There was no harm in buying a man who was in a state of captivity and bondage by others, and keeping him in servitude till such time as his purchase was redeemed by his labour and service' (36, 125).\n\nconditions are plainly incompatible with modern colonial slavery and the slave-trade. If my reconstruction is sound, then all that colonial buyers are entitled to is to hold bought criminals in bondage until their hard labour has redeemed their purchase price. Foreign buyers' status is that of a creditor, not an owner. Lacking the authority to punish, their rights of control over the bound criminal are much curtailed. I conclude that Cugoano could coherently permit the sale of enslaved convicts while denouncing the injustice of colonial slavery and the slave-trade, by transforming the legal condition of convicts sold to outsiders into something like indentured servitude.\n\n## 6. Conclusion\n\nFull eradication of human bondage was not just a practical but also a theoretical struggle for Enlightenment abolitionists. Even the most radical antislavery treatises in late Enlightenment Britain assumed - or had to assume - the legitimacy of penal slavery. What was objected to, above  all,  was  enslavement  of  innocents. 30 My  analysis  has  shown  that  these  assumptions severely  constrain  Cugoano's  arguments  for  abolitionism  while  simultaneously  serving retaliatory aims. Justice sometimes requires penally enslaving the enslavers in turn - life for life, bondage for bondage. That retaliatory doctrine, I have argued, is no mere rhetoric but a foundational feature of Cugoano's moral and legal philosophy. Indeed, the problem of penal slavery runs deeper than mentioned still: not punishing enslavers with bondage can cross divine law. The biblical laws of retaliation and forbearance jointly set a universal standard for due punishment, determining when and how to punish crimes. Any departure from that biblical\n\n30 Davis 1999: 453: 'The early antislavery literature shows less concern over arbitrary power per se than over arbitrary power divorced from traditional sanction'.\n\nmeasure (i.e., 'over'- and 'under'-punishment) is morally prohibited and risks incurring God's wrath. A refusal to penally enslave wrongdoers where such punishment is mandatory makes people  liable  to  divine  punishment.  What's  more, all nations  have  a  'duty  to  chastize  and suppress such unjust and tyrannical oppressors and enslavers of men' (89). As Dahl (2020) shows, Cugoano posits a cosmopolitan duty incumbent upon all of humanity to end forthwith the diabolical colonial slave-trade and slavery itself. And, I submit, a cosmopolitan duty to hold colonial enslavers criminally accountable.\n\nMinding Bogues's plea (2003: 32) to place Thoughts and Sentiments alongside other major philosophical works of the period, I will close by contrasting Cugoano's conception of justified penal bondage with those of Locke and Kant. All three theorists permit enslavement only  on  grounds  of  grave  wrongdoing  (thereby  outlawing  heritable  slavery).  Cugoano's account  is  nonetheless  notably  less  dehumanizing  than  those  of  Locke  and  Kant  (however problematic it remains to readers today). Moderating lex talionis , the law of mercy requires penal enslavement to serve some social good and to morally reform offenders by instilling remorse. The possibility  of  redemption is built  into  penal  bondage  through  repentance  and restitution. Justified penal bondage is in principle time-limited for Cugoano. Not only because it may be imposed only for crimes which admit material restoration - the convict going free once full restitution is made (56). But also because convicts sold by the political community to outsiders may be kept in bondage only until their labour has paid off their purchase price. By contrast,  Kant's  retributivist  theory  of  penal  enslavement  lacks  any  such  redemptive dimensions: the criminal must get what they deserve, come what may. For Locke, anyone justly enslaved had previously forfeited their lives by committing some capital crime, rendering them 'liable  to  be  destroied'  by  all  'in  the  execution  of  Justice'  (1988:  II.172).  The  bellicose condition of slavery endures until the just conqueror enters an agreement of peace with their enslaved captive, restoring the latter's rights (II.85; II.172); or until the captive himself ends\n\n'the hardship of his Slavery' through suicide (II.23). For Locke and Kant, emancipation is never promised or required by any principle of just punishment.\n\nThis admittedly brief comparison indicates, first, that Enlightenment theories on the nature and conditions of justified penal bondage vary considerably; and, second, that they are normatively underpinned by rival theories of just punishment. The prevalence of philosophical justifications of penal slavery evinces, furthermore, that Enlightenment conceptions of natural rights differ considerably from modern human rights. Human rights, which purportedly express inherent human dignity, are widely seen as unconditional. Natural rights, by contrast, were commonly conceptualized as fully forfeitable through wrongdoing. Even staunch defenders of universal natural rights could therefore coherently endorse the legitimacy of penal slavery. To understand why and how natural rights (and perhaps human dignity itself) were theorized as forfeitable, we need to look at the underlying theories of just punishment. Those theories were invoked to justify stripping malefactors of basic rights, reducing them to slavery. The main takeaway is that early modern philosophical writings on penal slavery should be studied, not as unsavoury historical curiosities, but as potentially significant elements of past theories of punishment, human dignity, and natural rights. 31\n\n31 For  feedback  and  encouragement,  thanks  are  due  to  two  anonymous  reviewers  for  this journal; Thomas Fossen; Lauren Kopajtic; Mads Langballe Jensen; Eric Schliesser; Susanne Sreedhar; and audiences at the Universities of Copenhagen, Utrecht, and John Jay College, CUNY.  Research  on  this  article  was  supported  by  a  Theme  Group  Fellowship  of  the Netherlands Institute for Advanced Study.\n\n## References\n\nBeccaria, Cesare. 1995 [1764]. On Crimes and Punishments and Other Writings , ed. Richard Bellamy. Cambridge: Cambridge University Press.\n\nBedau, Hugo Adam. 1978. 'Retribution and the Theory of Punishment', Journal of Philosophy 75 (11): 601-620.\n\nBenezet, Anthony. 1772. Some Historical Account of Guinea . London: W. Owen.\n\nBernasconi, Robert. 2019. 'Ottobah Cugoano's Place in the History of Philosophy: Slavery and the Philosophical Canon' in Debating African Philosophy: Perspectives on Identity, Decolonial  Ethics  and  Comparative  Philosophy ,  ed.  George  Hull,  25-42.  London: Routledge.\n\nBogues,  Anthony.  2003.  'The  Political  Thought  of  Quobna  Cugoano:  Radicalized  Natural Liberty' in idem, Black Heretics, Black Prophets: Radical Political Intellectuals , 2546. New York: Routledge.\n\nBrace, Laura. 2018. The Politics of Slavery . Edinburgh: Edinburgh University Press.\n\nBrown, Christopher Leslie. 2006. Moral Capital: Foundations of British Abolitionism . Chapel Hill: University of North Carolina Press.\n\nCardon, Allison. 2023. 'Something Else Ought Yet to be Done': Ottobah Cugoano's Critical Abolitionism', Studies in Eighteenth-Century Culture 52: 85-106.\n\nCarmichael,  Gershom.  2002  [1724]. Natural  Rights  on  the  Threshold  of  the  Scottish Enlightenment: The Writings of Gershom Carmichael, ed. James Moore and Michael Silverthorne. Indianapolis: Liberty Fund.\n\nCarretta, Vincent. 1999. 'Introduction' in idem (ed.), Quobna Ottobah Cugoano: Thoughts and Sentiments on the Evil of Slavery , ix-xxviii. London: Penguin.\n\nCicero. 1991. On Duties , ed. M.T. Griffin and E.M. Atkins. Cambridge: Cambridge University Press.\n\nClarkson, Thomas. 1786. An Essay on the Slavery and the Commerce of the Human Species, Particularly the African . London: J. Phillips.\n\nCondorcet.  2012. Political  Writings ,  ed.  Steven  Lukes  and  Nadia  Urbinati.  Cambridge: Cambridge University Press.\n\nCugoano, Quobna Ottobah. 1999 [1787/1791]. Thoughts and Sentiments on the Evil of Slavery , ed. Vincent Carretta. London: Penguin.\n\nDahl, Adam. 2020. 'Creolizing Natural Liberty: Transnational Obligation in the Thought of Ottobah Cugoano', Journal of Politics 82 (3): 908-920.\n\n---.  2021. 'Oppression and Racial Slavery: Abolitionist Challenges to NeoRepublicanism', Contemporary Political Theory 20 (2): 272-295.\n\nDavis, David Brion. 1999 [1975]. The Problem of Slavery in the Age of Revolution, 1770-1823 . Ithaca: Cornell University Press.\n\nDressler, Nicole. 2019. 'Enimies to Mankind': Convict Servitude, Authority, and Humanitarianism in the British Atlantic World', Early American Studies 17 (3): 343376.\n\nDuff, R.A. 2001. Punishment, Communication, and Community .  Oxford: Oxford University Press.\n\nDuus-Otterström, Göran. 2013. 'Why Retributivists Should Endorse Leniency in Punishment', Law and Philosophy 32 (4): 459-482.\n\nEquiano,  Olaudah.  2018  [1789]. The  Interesting  Narrative ,  ed.  Brycchan  Carey.  Oxford: Oxford University Press.\n\nFarr, James. 1989. 'Slaves Bought With Money': A Reply to Drescher', Political Theory 17 (3): 471-474.\n\nFerreira, Roquinaldo. 2011. 'Slaving and Resistance to Slaving in West Central Africa' in The Cambridge World History of Slavery, Vol. 3 , ed. David Eltis and Stanley L. Engerman, 111-131. Cambridge: Cambridge University Press.\n\nFish, Morris. 2008. 'An Eye for an Eye: Proportionality as a Moral Principle of Punishment', Oxford Journal of Legal Studies 28 (1): 57-71.\n\nFranke, Bernd. 2009. Sklaverei und  Unfreiheit im  Naturrecht des  17.  Jahrhunderts . Hildesheim: Olms.\n\nGentili, Alberico. 1933 [1598]. De Jure Belli Libri Tres , 2 vols, ed. John C. Rolfe. Oxford: Clarendon Press.\n\nGlover, Jeffrey. 2017. 'Witnessing African Slavery: Slavery, the Laws of War, and AngloAmerican Abolitionism', William and Mary Quarterly 74 (3): 503-532.\n\nGrotius,  Hugo.  2005  [1625]. The  Rights  of  War  and  Peace ,  3  vols,  ed.  Richard  Tuck. Indianapolis: Liberty Fund.\n\nGunn, Jeffrey. 2010. 'Creating a Paradox: Quobna Ottobah Cugoano and the Slave Trade's Violation of the Principles of Christianity, Reason, and Property Ownership', Journal of World History 21 (4): 629-656.\n\nHaakonssen, Knud. 2000. 'Divine/Natural Law Theories in Ethics' in The Cambridge History of  Seventeenth-Century  Ethics ,  ed.  Daniel  Garber  and  Michael  Ayers,  1317-1357. Cambridge: Cambridge University Press.\n\nHanley,  Ryan.  2019. Beyond  Slavery  and  Abolition:  Black  British  Writing,  c.  1770-1830 . Cambridge: Cambridge University Press.\n\nHart, H.L.A. 2008. Punishment and Responsibility: Essays in the Philosophy of Law , second edition. Oxford: Oxford University Press.\n\nHeinsen, Johan. 2021. 'Penal Slavery in Early Modern Scandinavia', Journal of Global Slavery 6 (3): 343-368.\n\nHochschild,  Adam.  2005. Bury  the  Chains:  Prophets  and  Rebels  in  the  Fight  to  Free  an Empire's Slaves . New York: Houghton Mifflin.\n\nHunting, Claudine. 1978. 'The Philosophes and  Black Slavery: 1748-1765', Journal of the History of Ideas 39 (3): 405-418.\n\nHutcheson,  Francis.  2007. Philosophiae  Moralis  Institutio  Compendiaria , with  A  Short Introduction to Moral Philosophy , ed. Luigi Turco. Indianapolis: Liberty Fund.\n\nJeffers, Chike. 2017. 'Rights, Race, and the Beginnings of Modern Africana Philosophy' in The  Routledge  Companion  to  Philosophy  of  Race ,  ed.  Paul  Taylor  et  al.,  127-139. London: Routledge.\n\nJorati,  Julia.  [forthcoming]. Slavery  and  Race:  Philosophical  Debates  in  the  Eighteenth Century . Oxford: Oxford University Press.\n\nKant,  Immanuel.  1996. Practical  Philosophy ,  ed.  and  transl.  M.J.  Gregor.  Cambridge: Cambridge University Press.\n\n---. 2016. Lectures  and  Drafts  on  Political  Philosophy ,  ed.  Frederick  Rauscher  and Kenneth R. Westphal. Cambridge: Cambridge University Press.\n\nKingston,  Rebecca.  2008.  'Locke,  Waldron  and  the  Moral  Status  of  'Crooks'', European Journal of Political Theory 7 (2): 203-221.\n\nLacey, Nicola. 1988. State Punishment: Political Principles and Community Values . London: Routledge.\n\nLocke,  John.  1988  [1690]. Two  Treatises  of  Government ,  ed.  Peter  Laslett.  Cambridge: Cambridge University Press.\n\nMarshall, Eugene and Susanne Sreedhar (eds). 2019. A New Modern Philosophy: The Inclusive Anthology of Primary Sources . London: Routledge.\n\nMill, John Stuart. 1969 [1861]. 'Utilitarianism' in Collected Works, Vol. X: Essays on Ethics, Religion and Society , ed. J.M. Robson, 203-259. Toronto: University of Toronto Press.\n\nMontesquieu, Charles de. 1989 [1748]. The Spirit of the Laws , ed. Anne Cohler, Basia Miller and Harold Stone. Cambridge: Cambridge University Press.\n\nMore, Thomas. 2002 [1516]. Utopia , ed. George M. Logan and Robert M. Adams. Cambridge: Cambridge University Press.\n\nNyquist, Mary. 2013. Arbitrary  Rule:  Slavery,  Tyranny,  and  the  Power of Life  and  Death Chicago: The University of Chicago Press.\n\n.\n\nPaley, William. 2002 [1785]. The Principles of Moral and Political Philosophy . Indianapolis: Liberty Fund.\n\nPatterson, Orlando. 2018 [1982]. Slavery and Social Death: A Comparative Study . Cambridge, MA: Harvard University Press.\n\nPesante, Maria Luisa. 2009. 'Slaves, Servants and Wage Earners: Free and Unfree Labour, from Grotius to Blackstone', History of European Ideas 35 (3): 289-320.\n\nPeters, Tacuma. 2017. 'The Anti-Imperialism of Ottobah Cugoano: Slavery, Abolition, and Colonialism  in Thoughts  and  Sentiments  on  the  Evil  of  Slavery ', The  CLR  James Journal 23 (1-2): 61-82.\n\nPickering,  Mark.  2022.  'Kant  on  Why  Criminal  Offenders  Must  be  Punished', Southern Journal of Philosophy 60 (4): 637-663.\n\nPufendorf, Samuel. 1729 [1672]. Of the Law of Nature and Nations ,  transl.  Basil  Kennett. London: J. Walthoe.\n\nRutherforth, Thomas. 1754. Institutes of Natural Law , 2 vols. Cambridge.\n\nSala-Molins, Louis. 2006 [1992]. Dark Side of the Enlightenment: Slavery and the  French Enlightenment ,  transl.  John  Conteh-Morgan.  Minneapolis:  University  of  Minnesota Press.\n\nSchneewind, J.B. 1998. The Invention of Autonomy: A History of Modern Moral Philosophy Cambridge: Cambridge University Press.\n\n.\n\nSchönecker, Diedrich. 2021. 'Verlieren Verbrecher ihre Würde? Zur Analyse einer brisanten Stelle in Kants Rechtslehre ', Journal of the History of Philosophy 59 (4): 607-628. Sensen, Oliver. 2011. Kant on Human Dignity . Berlin: De Gruyter. Shanafelt,  Carrie  D.  2021.  'A  World  of  Debt':  Quobna  Ottobah  Cugoano, The  Wealth  of Nations , and the End of Finance', Eighteenth-Century Studies 55 (1): 21-43. Sharp, Granville. 1773. An Essay on Slavery, proving from Scripture its Inconsistency with Humanity and Religion . Burlington: Printed by Isaac Collins. ---. 1776. The  Law  of  Retribution:  or,  a  Serious  Warning  to  Great  Britain  and  her Colonies . London: Printed by W. Richardson. Smith, Adam. 1982. Lectures on Jurisprudence , ed. R.L. Meek. Indianapolis: Liberty Fund. Spierenburg, Pieter. 2015. 'Prison and Convict Labour in Early Modern Europe' in Global Convict  Labour ,  ed.  Christian  Giuseppe  De  Vito  and  Alex  Lichtenstein,  108-125. Leiden: Brill. Stewart,  Dustin  D.  2021.  'Cugoano  and  the  Hermeneutics  of  Black  Calvinism', English Literary History 88 (3): 629-659. Tomlins, Christopher. 2010. Freedom Bound: Law, Labor, and Civic Identity in Colonizing English America, 1580-1865 . Cambridge: Cambridge University Press. Waldron, Jeremy. 1992. 'Lex Talionis', Arizona Law Review 34 (1): 25-52. Ward, Julie K. 1998. 'The Master's Tools': Abolitionist Arguments of Equiano and Cugoano' in Subjugation and Bondage: Critical Essays on Slavery and Social Philosophy ,  ed. Tommy Lott, 79-98. Lanham, MD: Rowman &amp; Littlefield. Watkins,  Margaret.  2017.  'Slaves  Among  Us':  The  Climate  and  Character  of  EighteenthCentury Philosophical Discussions of Slavery', Philosophy Compass 12: 1-11. Wheeler,  Roxanne.  2015  [2001].  'Betrayed  by  Some  of  My  Own  Complexion:  Cugoano, Abolition,  and  the  Contemporary  Language  of  Racialism'  in Genius  in  Bondage:\n\n, ed. Vincent Carretta and Philip Gould, 17-35.\n\nLiterature of the Early Black Atlantic Lexington: University of Kentucky Press.\n\nWood, Allen W. 2010. 'Punishment, Retribution, and the Coercive Enforcement of Right' in Kant's Metaphysics of Morals: A Critical Guide , ed. Lara Denis, 111-129. Cambridge: Cambridge University Press.",
+    "responses": [
+      {
+        "source": "gpt-4o-2024-11-20",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"ADU1\": {\n      \"text\": \"This article provides a comprehensive reconstruction of Cugoano's moral and legal philosophy in order to analyse an apparent tension in his abolitionism.\",\n      \"label\": \"claim\"\n    },\n    \"ADU2\": {\n      \"text\": \"In this work dedicated to the 'total abolition of slavery' Cugoano defends on principled grounds the legitimacy of enslaving human beings in punishment (98).\",\n      \"label\": \"claim\"\n    },\n    \"ADU3\": {\n      \"text\": \"Belief in the legitimacy of penal bondage was surprisingly widespread among abolitionist thinkers writing in late eighteenth-century Britain.\",\n      \"label\": \"premise\"\n    },\n    \"ADU4\": {\n      \"text\": \"Cugoano - the most radical antislavery theorist in the period - regarded penal enslavement of both ordinary criminals and colonial enslavers as justifiable in principle, I will show.\",\n      \"label\": \"claim\"\n    },\n    \"ADU5\": {\n      \"text\": \"Amidst the growing literature exploring Cugoano's abolitionism, his paradoxical justification of penal slavery has bewildered the few commentators attentive to it.\",\n      \"label\": \"premise\"\n    },\n    \"ADU6\": {\n      \"text\": \"This article offers the first full reconstruction of the nature, grounds, and theoretical implications of Cugoano's justification of penal bondage.\",\n      \"label\": \"claim\"\n    },\n    \"ADU7\": {\n      \"text\": \"The problem of penal slavery, I contend, runs much deeper in his abolitionism than has been previously recognized.\",\n      \"label\": \"claim\"\n    },\n    \"ADU8\": {\n      \"text\": \"Pace Bogues, I argue that this justification is an integral part of his moral and legal theory.\",\n      \"label\": \"claim\"\n    },\n    \"ADU9\": {\n      \"text\": \"Pace Bernasconi and Shanafelt, I contend that Cugoano's defence of penal slavery goes beyond retaliation against European enslavers.\",\n      \"label\": \"claim\"\n    },\n    \"ADU10\": {\n      \"text\": \"Comparisons of his justification of penal bondage with the rival ones of Locke and Kant indicate just how deeply theories of punishment shaped philosophical thinking on penal bondage in the period.\",\n      \"label\": \"claim\"\n    },\n    \"ADU11\": {\n      \"text\": \"Punishment for crime was the most widely accepted apologetic ground for enslavement of human beings among early modern philosophers.\",\n      \"label\": \"premise\"\n    },\n    \"ADU12\": {\n      \"text\": \"Many early modern philosophers reconciled universal natural rights with penal enslavement by conceptualizing those rights as wholly forfeitable through grave wrongdoing.\",\n      \"label\": \"premise\"\n    },\n    \"ADU13\": {\n      \"text\": \"For Cugoano, the sole legitimate ground for enslavement is grave wrongdoing.\",\n      \"label\": \"claim\"\n    },\n    \"ADU14\": {\n      \"text\": \"Cugoano's theory of law and punishment, I maintain, rests squarely upon a divine law theory of ethics.\",\n      \"label\": \"claim\"\n    },\n    \"ADU15\": {\n      \"text\": \"The law of God is a revealed one, laid down in the Bible.\",\n      \"label\": \"premise\"\n    },\n    \"ADU16\": {\n      \"text\": \"Above all, it dictates love and charity.\",\n      \"label\": \"premise\"\n    },\n    \"ADU17\": {\n      \"text\": \"The Bible contains a basic law of punishment, consisting of two parts.\",\n      \"label\": \"premise\"\n    },\n    \"ADU18\": {\n      \"text\": \"Justice states that wrongdoers deserve punishment equal to their crime - eye for an eye, tooth for tooth.\",\n      \"label\": \"premise\"\n    },\n    \"ADU19\": {\n      \"text\": \"Yet mercy is morally required when inflicting like-for-like punishment on deserving offenders serves no social good.\",\n      \"label\": \"premise\"\n    },\n    \"ADU20\": {\n      \"text\": \"Cugoano sometimes invokes the law of love to denounce modern colonial slavery.\",\n      \"label\": \"premise\"\n    },\n    \"ADU21\": {\n      \"text\": \"Cugoano accuses slaveholders and slave-traders of robbery.\",\n      \"label\": \"premise\"\n    },\n    \"ADU22\": {\n      \"text\": \"Crime warrants punishment.\",\n      \"label\": \"premise\"\n    },\n    \"ADU23\": {\n      \"text\": \"Civil law must implement and enforce the divine law.\",\n      \"label\": \"claim\"\n    },\n    \"ADU24\": {\n      \"text\": \"The need for civil law to match divine law underpins Cugoano's rhetorically most powerful appeal for immediate and total abolition.\",\n      \"label\": \"claim\"\n    },\n    \"ADU25\": {\n      \"text\": \"The lex talionis is rather unpopular among legal philosophers today.\",\n      \"label\": \"premise\"\n    },\n    \"ADU26\": {\n      \"text\": \"Repugnant as applying the lex talionis to monstrosities like slavery is, it is surprising that this retaliatory principle figures prominently in the British Enlightenment's most radical abolitionist treatise, written by someone once enslaved himself.\",\n      \"label\": \"premise\"\n    },\n    \"ADU27\": {\n      \"text\": \"Cugoano's justification of penal enslavement serves retaliatory purposes alone: 'if one enslaves someone unjustly, then one should oneself be enslaved'.\",\n      \"label\": \"claim\"\n    },\n    \"ADU28\": {\n      \"text\": \"Cugoano endorses penal enslavement for a much wider set of crimes than enslavement of innocents alone.\",\n      \"label\": \"claim\"\n    },\n    \"ADU29\": {\n      \"text\": \"The divine law of mercy tempers just retaliation: inflicting the punishment malefactors deserve is morally permissible only if it promotes some social good.\",\n      \"label\": \"claim\"\n    },\n    \"ADU30\": {\n      \"text\": \"Thoughts and Sentiments cites several potential benefits of civil punishment in general, and of penal enslavement in particular.\",\n      \"label\": \"premise\"\n    },\n    \"ADU31\": {\n      \"text\": \"Penal enslavement is morally permissible only insofar as it produces amends to victims, deters crime, or morally corrects the offender.\",\n      \"label\": \"claim\"\n    },\n    \"ADU32\": {\n      \"text\": \"The divine law of forbearance not only delimits when penal enslavement is morally permissible.\",\n      \"label\": \"premise\"\n    },\n    \"ADU33\": {\n      \"text\": \"It also attenuates the condition of penal bondage.\",\n      \"label\": \"premise\"\n    },\n    \"ADU34\": {\n      \"text\": \"Cugoano's abolitionist arguments are complicated, however, by his principled endorsement of the legitimacy of penal slavery.\",\n      \"label\": \"claim\"\n    },\n    \"ADU35\": {\n      \"text\": \"Cugoano develops two facially contradictory lines of argument to ensure that justified penal bondage does not undercut his abolitionism.\",\n      \"label\": \"claim\"\n    },\n    \"ADU36\": {\n      \"text\": \"Cugoano could coherently permit the sale of enslaved convicts while denouncing the injustice of colonial slavery and the slave-trade, by transforming the legal condition of convicts sold to outsiders into something like indentured servitude.\",\n      \"label\": \"claim\"\n    },\n    \"ADU37\": {\n      \"text\": \"Full eradication of human bondage was not just a practical but also a theoretical struggle for Enlightenment abolitionists.\",\n      \"label\": \"premise\"\n    },\n    \"ADU38\": {\n      \"text\": \"Justice sometimes requires penally enslaving the enslavers in turn - life for life, bondage for bondage.\",\n      \"label\": \"claim\"\n    },\n    \"ADU39\": {\n      \"text\": \"The biblical laws of retaliation and forbearance jointly set a universal standard for due punishment, determining when and how to punish crimes.\",\n      \"label\": \"claim\"\n    },\n    \"ADU40\": {\n      \"text\": \"The prevalence of philosophical justifications of penal slavery evinces, furthermore, that Enlightenment conceptions of natural rights differ considerably from modern human rights.\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"ADU1\",\n      \"target\": \"ADU6\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU2\",\n      \"target\": \"ADU7\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU3\",\n      \"target\": \"ADU4\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU5\",\n      \"target\": \"ADU7\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU8\",\n      \"target\": \"ADU7\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU9\",\n      \"target\": \"ADU7\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU11\",\n      \"target\": \"ADU13\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU12\",\n      \"target\": \"ADU13\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU14\",\n      \"target\": \"ADU13\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU15\",\n      \"target\": \"ADU14\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU16\",\n      \"target\": \"ADU14\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU17\",\n      \"target\": \"ADU14\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU18\",\n      \"target\": \"ADU14\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU19\",\n      \"target\": \"ADU14\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU20\",\n      \"target\": \"ADU14\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU21\",\n      \"target\": \"ADU14\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU22\",\n      \"target\": \"ADU14\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU23\",\n      \"target\": \"ADU14\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU24\",\n      \"target\": \"ADU14\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU25\",\n      \"target\": \"ADU27\",\n      \"type\": \"attack\"\n    },\n    {\n      \"source\": \"ADU26\",\n      \"target\": \"ADU27\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU28\",\n      \"target\": \"ADU27\",\n      \"type\": \"attack\"\n    },\n    {\n      \"source\": \"ADU29\",\n      \"target\": \"ADU27\",\n      \"type\": \"attack\"\n    },\n    {\n      \"source\": \"ADU30\",\n      \"target\": \"ADU31\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU32\",\n      \"target\": \"ADU31\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU33\",\n      \"target\": \"ADU31\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU34\",\n      \"target\": \"ADU35\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU36\",\n      \"target\": \"ADU35\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU37\",\n      \"target\": \"ADU38\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU39\",\n      \"target\": \"ADU38\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU40\",\n      \"target\": \"ADU38\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "ADU1": {
+              "text": "This article provides a comprehensive reconstruction of Cugoano's moral and legal philosophy in order to analyse an apparent tension in his abolitionism.",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "In this work dedicated to the 'total abolition of slavery' Cugoano defends on principled grounds the legitimacy of enslaving human beings in punishment (98).",
+              "label": "claim"
+            },
+            "ADU3": {
+              "text": "Belief in the legitimacy of penal bondage was surprisingly widespread among abolitionist thinkers writing in late eighteenth-century Britain.",
+              "label": "premise"
+            },
+            "ADU4": {
+              "text": "Cugoano - the most radical antislavery theorist in the period - regarded penal enslavement of both ordinary criminals and colonial enslavers as justifiable in principle, I will show.",
+              "label": "claim"
+            },
+            "ADU5": {
+              "text": "Amidst the growing literature exploring Cugoano's abolitionism, his paradoxical justification of penal slavery has bewildered the few commentators attentive to it.",
+              "label": "premise"
+            },
+            "ADU6": {
+              "text": "This article offers the first full reconstruction of the nature, grounds, and theoretical implications of Cugoano's justification of penal bondage.",
+              "label": "claim"
+            },
+            "ADU7": {
+              "text": "The problem of penal slavery, I contend, runs much deeper in his abolitionism than has been previously recognized.",
+              "label": "claim"
+            },
+            "ADU8": {
+              "text": "Pace Bogues, I argue that this justification is an integral part of his moral and legal theory.",
+              "label": "claim"
+            },
+            "ADU9": {
+              "text": "Pace Bernasconi and Shanafelt, I contend that Cugoano's defence of penal slavery goes beyond retaliation against European enslavers.",
+              "label": "claim"
+            },
+            "ADU10": {
+              "text": "Comparisons of his justification of penal bondage with the rival ones of Locke and Kant indicate just how deeply theories of punishment shaped philosophical thinking on penal bondage in the period.",
+              "label": "claim"
+            },
+            "ADU11": {
+              "text": "Punishment for crime was the most widely accepted apologetic ground for enslavement of human beings among early modern philosophers.",
+              "label": "premise"
+            },
+            "ADU12": {
+              "text": "Many early modern philosophers reconciled universal natural rights with penal enslavement by conceptualizing those rights as wholly forfeitable through grave wrongdoing.",
+              "label": "premise"
+            },
+            "ADU13": {
+              "text": "For Cugoano, the sole legitimate ground for enslavement is grave wrongdoing.",
+              "label": "claim"
+            },
+            "ADU14": {
+              "text": "Cugoano's theory of law and punishment, I maintain, rests squarely upon a divine law theory of ethics.",
+              "label": "claim"
+            },
+            "ADU15": {
+              "text": "The law of God is a revealed one, laid down in the Bible.",
+              "label": "premise"
+            },
+            "ADU16": {
+              "text": "Above all, it dictates love and charity.",
+              "label": "premise"
+            },
+            "ADU17": {
+              "text": "The Bible contains a basic law of punishment, consisting of two parts.",
+              "label": "premise"
+            },
+            "ADU18": {
+              "text": "Justice states that wrongdoers deserve punishment equal to their crime - eye for an eye, tooth for tooth.",
+              "label": "premise"
+            },
+            "ADU19": {
+              "text": "Yet mercy is morally required when inflicting like-for-like punishment on deserving offenders serves no social good.",
+              "label": "premise"
+            },
+            "ADU20": {
+              "text": "Cugoano sometimes invokes the law of love to denounce modern colonial slavery.",
+              "label": "premise"
+            },
+            "ADU21": {
+              "text": "Cugoano accuses slaveholders and slave-traders of robbery.",
+              "label": "premise"
+            },
+            "ADU22": {
+              "text": "Crime warrants punishment.",
+              "label": "premise"
+            },
+            "ADU23": {
+              "text": "Civil law must implement and enforce the divine law.",
+              "label": "claim"
+            },
+            "ADU24": {
+              "text": "The need for civil law to match divine law underpins Cugoano's rhetorically most powerful appeal for immediate and total abolition.",
+              "label": "claim"
+            },
+            "ADU25": {
+              "text": "The lex talionis is rather unpopular among legal philosophers today.",
+              "label": "premise"
+            },
+            "ADU26": {
+              "text": "Repugnant as applying the lex talionis to monstrosities like slavery is, it is surprising that this retaliatory principle figures prominently in the British Enlightenment's most radical abolitionist treatise, written by someone once enslaved himself.",
+              "label": "premise"
+            },
+            "ADU27": {
+              "text": "Cugoano's justification of penal enslavement serves retaliatory purposes alone: 'if one enslaves someone unjustly, then one should oneself be enslaved'.",
+              "label": "claim"
+            },
+            "ADU28": {
+              "text": "Cugoano endorses penal enslavement for a much wider set of crimes than enslavement of innocents alone.",
+              "label": "claim"
+            },
+            "ADU29": {
+              "text": "The divine law of mercy tempers just retaliation: inflicting the punishment malefactors deserve is morally permissible only if it promotes some social good.",
+              "label": "claim"
+            },
+            "ADU30": {
+              "text": "Thoughts and Sentiments cites several potential benefits of civil punishment in general, and of penal enslavement in particular.",
+              "label": "premise"
+            },
+            "ADU31": {
+              "text": "Penal enslavement is morally permissible only insofar as it produces amends to victims, deters crime, or morally corrects the offender.",
+              "label": "claim"
+            },
+            "ADU32": {
+              "text": "The divine law of forbearance not only delimits when penal enslavement is morally permissible.",
+              "label": "premise"
+            },
+            "ADU33": {
+              "text": "It also attenuates the condition of penal bondage.",
+              "label": "premise"
+            },
+            "ADU34": {
+              "text": "Cugoano's abolitionist arguments are complicated, however, by his principled endorsement of the legitimacy of penal slavery.",
+              "label": "claim"
+            },
+            "ADU35": {
+              "text": "Cugoano develops two facially contradictory lines of argument to ensure that justified penal bondage does not undercut his abolitionism.",
+              "label": "claim"
+            },
+            "ADU36": {
+              "text": "Cugoano could coherently permit the sale of enslaved convicts while denouncing the injustice of colonial slavery and the slave-trade, by transforming the legal condition of convicts sold to outsiders into something like indentured servitude.",
+              "label": "claim"
+            },
+            "ADU37": {
+              "text": "Full eradication of human bondage was not just a practical but also a theoretical struggle for Enlightenment abolitionists.",
+              "label": "premise"
+            },
+            "ADU38": {
+              "text": "Justice sometimes requires penally enslaving the enslavers in turn - life for life, bondage for bondage.",
+              "label": "claim"
+            },
+            "ADU39": {
+              "text": "The biblical laws of retaliation and forbearance jointly set a universal standard for due punishment, determining when and how to punish crimes.",
+              "label": "claim"
+            },
+            "ADU40": {
+              "text": "The prevalence of philosophical justifications of penal slavery evinces, furthermore, that Enlightenment conceptions of natural rights differ considerably from modern human rights.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU1",
+              "target": "ADU6",
+              "type": "support"
+            },
+            {
+              "source": "ADU2",
+              "target": "ADU7",
+              "type": "support"
+            },
+            {
+              "source": "ADU3",
+              "target": "ADU4",
+              "type": "support"
+            },
+            {
+              "source": "ADU5",
+              "target": "ADU7",
+              "type": "support"
+            },
+            {
+              "source": "ADU8",
+              "target": "ADU7",
+              "type": "support"
+            },
+            {
+              "source": "ADU9",
+              "target": "ADU7",
+              "type": "support"
+            },
+            {
+              "source": "ADU11",
+              "target": "ADU13",
+              "type": "support"
+            },
+            {
+              "source": "ADU12",
+              "target": "ADU13",
+              "type": "support"
+            },
+            {
+              "source": "ADU14",
+              "target": "ADU13",
+              "type": "support"
+            },
+            {
+              "source": "ADU15",
+              "target": "ADU14",
+              "type": "support"
+            },
+            {
+              "source": "ADU16",
+              "target": "ADU14",
+              "type": "support"
+            },
+            {
+              "source": "ADU17",
+              "target": "ADU14",
+              "type": "support"
+            },
+            {
+              "source": "ADU18",
+              "target": "ADU14",
+              "type": "support"
+            },
+            {
+              "source": "ADU19",
+              "target": "ADU14",
+              "type": "support"
+            },
+            {
+              "source": "ADU20",
+              "target": "ADU14",
+              "type": "support"
+            },
+            {
+              "source": "ADU21",
+              "target": "ADU14",
+              "type": "support"
+            },
+            {
+              "source": "ADU22",
+              "target": "ADU14",
+              "type": "support"
+            },
+            {
+              "source": "ADU23",
+              "target": "ADU14",
+              "type": "support"
+            },
+            {
+              "source": "ADU24",
+              "target": "ADU14",
+              "type": "support"
+            },
+            {
+              "source": "ADU25",
+              "target": "ADU27",
+              "type": "attack"
+            },
+            {
+              "source": "ADU26",
+              "target": "ADU27",
+              "type": "support"
+            },
+            {
+              "source": "ADU28",
+              "target": "ADU27",
+              "type": "attack"
+            },
+            {
+              "source": "ADU29",
+              "target": "ADU27",
+              "type": "attack"
+            },
+            {
+              "source": "ADU30",
+              "target": "ADU31",
+              "type": "support"
+            },
+            {
+              "source": "ADU32",
+              "target": "ADU31",
+              "type": "support"
+            },
+            {
+              "source": "ADU33",
+              "target": "ADU31",
+              "type": "support"
+            },
+            {
+              "source": "ADU34",
+              "target": "ADU35",
+              "type": "support"
+            },
+            {
+              "source": "ADU36",
+              "target": "ADU35",
+              "type": "support"
+            },
+            {
+              "source": "ADU37",
+              "target": "ADU38",
+              "type": "support"
+            },
+            {
+              "source": "ADU39",
+              "target": "ADU38",
+              "type": "support"
+            },
+            {
+              "source": "ADU40",
+              "target": "ADU38",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "ADU1": {
+              "text": "This article provides a comprehensive reconstruction of Cugoano's moral and legal philosophy in order to analyse an apparent tension in his abolitionism.",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "In this work dedicated to the 'total abolition of slavery' Cugoano defends on principled grounds the legitimacy of enslaving human beings in punishment (98).",
+              "label": "claim"
+            },
+            "ADU3": {
+              "text": "Belief in the legitimacy of penal bondage was surprisingly widespread among abolitionist thinkers writing in late eighteenth-century Britain.",
+              "label": "premise"
+            },
+            "ADU4": {
+              "text": "Cugoano - the most radical antislavery theorist in the period - regarded penal enslavement of both ordinary criminals and colonial enslavers as justifiable in principle, I will show.",
+              "label": "claim"
+            },
+            "ADU6": {
+              "text": "This article offers the first full reconstruction of the nature, grounds, and theoretical implications of Cugoano's justification of penal bondage.",
+              "label": "claim"
+            },
+            "ADU7": {
+              "text": "The problem of penal slavery, I contend, runs much deeper in his abolitionism than has been previously recognized.",
+              "label": "claim"
+            },
+            "ADU8": {
+              "text": "Pace Bogues, I argue that this justification is an integral part of his moral and legal theory.",
+              "label": "claim"
+            },
+            "ADU9": {
+              "text": "Pace Bernasconi and Shanafelt, I contend that Cugoano's defence of penal slavery goes beyond retaliation against European enslavers.",
+              "label": "claim"
+            },
+            "ADU10": {
+              "text": "Comparisons of his justification of penal bondage with the rival ones of Locke and Kant indicate just how deeply theories of punishment shaped philosophical thinking on penal bondage in the period.",
+              "label": "claim"
+            },
+            "ADU11": {
+              "text": "Punishment for crime was the most widely accepted apologetic ground for enslavement of human beings among early modern philosophers.",
+              "label": "premise"
+            },
+            "ADU12": {
+              "text": "Many early modern philosophers reconciled universal natural rights with penal enslavement by conceptualizing those rights as wholly forfeitable through grave wrongdoing.",
+              "label": "premise"
+            },
+            "ADU13": {
+              "text": "For Cugoano, the sole legitimate ground for enslavement is grave wrongdoing.",
+              "label": "claim"
+            },
+            "ADU14": {
+              "text": "Cugoano's theory of law and punishment, I maintain, rests squarely upon a divine law theory of ethics.",
+              "label": "claim"
+            },
+            "ADU15": {
+              "text": "The law of God is a revealed one, laid down in the Bible.",
+              "label": "premise"
+            },
+            "ADU16": {
+              "text": "Above all, it dictates love and charity.",
+              "label": "premise"
+            },
+            "ADU17": {
+              "text": "The Bible contains a basic law of punishment, consisting of two parts.",
+              "label": "premise"
+            },
+            "ADU18": {
+              "text": "Justice states that wrongdoers deserve punishment equal to their crime - eye for an eye, tooth for tooth.",
+              "label": "premise"
+            },
+            "ADU19": {
+              "text": "Yet mercy is morally required when inflicting like-for-like punishment on deserving offenders serves no social good.",
+              "label": "premise"
+            },
+            "ADU20": {
+              "text": "Cugoano sometimes invokes the law of love to denounce modern colonial slavery.",
+              "label": "premise"
+            },
+            "ADU22": {
+              "text": "Crime warrants punishment.",
+              "label": "premise"
+            },
+            "ADU23": {
+              "text": "Civil law must implement and enforce the divine law.",
+              "label": "claim"
+            },
+            "ADU24": {
+              "text": "The need for civil law to match divine law underpins Cugoano's rhetorically most powerful appeal for immediate and total abolition.",
+              "label": "claim"
+            },
+            "ADU25": {
+              "text": "The lex talionis is rather unpopular among legal philosophers today.",
+              "label": "premise"
+            },
+            "ADU26": {
+              "text": "Repugnant as applying the lex talionis to monstrosities like slavery is, it is surprising that this retaliatory principle figures prominently in the British Enlightenment's most radical abolitionist treatise, written by someone once enslaved himself.",
+              "label": "premise"
+            },
+            "ADU28": {
+              "text": "Cugoano endorses penal enslavement for a much wider set of crimes than enslavement of innocents alone.",
+              "label": "claim"
+            },
+            "ADU29": {
+              "text": "The divine law of mercy tempers just retaliation: inflicting the punishment malefactors deserve is morally permissible only if it promotes some social good.",
+              "label": "claim"
+            },
+            "ADU31": {
+              "text": "Penal enslavement is morally permissible only insofar as it produces amends to victims, deters crime, or morally corrects the offender.",
+              "label": "claim"
+            },
+            "ADU32": {
+              "text": "The divine law of forbearance not only delimits when penal enslavement is morally permissible.",
+              "label": "premise"
+            },
+            "ADU33": {
+              "text": "It also attenuates the condition of penal bondage.",
+              "label": "premise"
+            },
+            "ADU34": {
+              "text": "Cugoano's abolitionist arguments are complicated, however, by his principled endorsement of the legitimacy of penal slavery.",
+              "label": "claim"
+            },
+            "ADU35": {
+              "text": "Cugoano develops two facially contradictory lines of argument to ensure that justified penal bondage does not undercut his abolitionism.",
+              "label": "claim"
+            },
+            "ADU36": {
+              "text": "Cugoano could coherently permit the sale of enslaved convicts while denouncing the injustice of colonial slavery and the slave-trade, by transforming the legal condition of convicts sold to outsiders into something like indentured servitude.",
+              "label": "claim"
+            },
+            "ADU37": {
+              "text": "Full eradication of human bondage was not just a practical but also a theoretical struggle for Enlightenment abolitionists.",
+              "label": "premise"
+            },
+            "ADU38": {
+              "text": "Justice sometimes requires penally enslaving the enslavers in turn - life for life, bondage for bondage.",
+              "label": "claim"
+            },
+            "ADU39": {
+              "text": "The biblical laws of retaliation and forbearance jointly set a universal standard for due punishment, determining when and how to punish crimes.",
+              "label": "claim"
+            },
+            "ADU40": {
+              "text": "The prevalence of philosophical justifications of penal slavery evinces, furthermore, that Enlightenment conceptions of natural rights differ considerably from modern human rights.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU1",
+              "target": "ADU6",
+              "type": "support"
+            },
+            {
+              "source": "ADU2",
+              "target": "ADU7",
+              "type": "support"
+            },
+            {
+              "source": "ADU3",
+              "target": "ADU4",
+              "type": "support"
+            },
+            {
+              "source": "ADU8",
+              "target": "ADU7",
+              "type": "support"
+            },
+            {
+              "source": "ADU9",
+              "target": "ADU7",
+              "type": "support"
+            },
+            {
+              "source": "ADU11",
+              "target": "ADU13",
+              "type": "support"
+            },
+            {
+              "source": "ADU12",
+              "target": "ADU13",
+              "type": "support"
+            },
+            {
+              "source": "ADU14",
+              "target": "ADU13",
+              "type": "support"
+            },
+            {
+              "source": "ADU15",
+              "target": "ADU14",
+              "type": "support"
+            },
+            {
+              "source": "ADU16",
+              "target": "ADU14",
+              "type": "support"
+            },
+            {
+              "source": "ADU17",
+              "target": "ADU14",
+              "type": "support"
+            },
+            {
+              "source": "ADU18",
+              "target": "ADU14",
+              "type": "support"
+            },
+            {
+              "source": "ADU19",
+              "target": "ADU14",
+              "type": "support"
+            },
+            {
+              "source": "ADU20",
+              "target": "ADU14",
+              "type": "support"
+            },
+            {
+              "source": "ADU22",
+              "target": "ADU14",
+              "type": "support"
+            },
+            {
+              "source": "ADU23",
+              "target": "ADU14",
+              "type": "support"
+            },
+            {
+              "source": "ADU24",
+              "target": "ADU14",
+              "type": "support"
+            },
+            {
+              "source": "ADU32",
+              "target": "ADU31",
+              "type": "support"
+            },
+            {
+              "source": "ADU33",
+              "target": "ADU31",
+              "type": "support"
+            },
+            {
+              "source": "ADU34",
+              "target": "ADU35",
+              "type": "support"
+            },
+            {
+              "source": "ADU36",
+              "target": "ADU35",
+              "type": "support"
+            },
+            {
+              "source": "ADU37",
+              "target": "ADU38",
+              "type": "support"
+            },
+            {
+              "source": "ADU39",
+              "target": "ADU38",
+              "type": "support"
+            },
+            {
+              "source": "ADU40",
+              "target": "ADU38",
+              "type": "support"
+            }
+          ]
+        }
+      },
+      {
+        "source": "claude-3-5-sonnet-20241022",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"1\": {\n      \"text\": \"Notwithstanding this, Cugoano endorsed the legitimacy of penal enslavement on principled grounds - like many other abolitionists writing in late eighteenth-century Britain. 'Every free community might keep slaves, or criminal prisoners in bondage' - and even sell them.\",\n      \"label\": \"claim\"\n    },\n    \"2\": {\n      \"text\": \"Far from an offhand inconsistency, I argue that this justification is deeply embedded within his moral and legal philosophy; constraining his antislavery arguments while simultaneously serving retaliatory aims.\",\n      \"label\": \"claim\"\n    },\n    \"3\": {\n      \"text\": \"His two-pronged principle of just punishment - the lex talionis ('eye for an eye, bondage for bondage') as tempered by mercy - sometimes demands penally enslaving colonial slaveholders and slave-traders in turn.\",\n      \"label\": \"claim\"\n    },\n    \"4\": {\n      \"text\": \"Divine lawgiving has created morality. Without God, there would have been no moral right and wrong.\",\n      \"label\": \"premise\"\n    },\n    \"5\": {\n      \"text\": \"Justice states that wrongdoers deserve punishment equal to their crime - eye for an eye, tooth for tooth. Yet mercy is morally required when inflicting like-for-like punishment on deserving offenders serves no social good.\",\n      \"label\": \"premise\"\n    },\n    \"6\": {\n      \"text\": \"Having committed a crime deserving of punishment is for him a necessary but not a sufficient condition for permissible punishment. Indeed, the law of forbearance forbids purely retaliatory punishment, done for the sake of vengeance alone.\",\n      \"label\": \"claim\"\n    },\n    \"7\": {\n      \"text\": \"To be morally permissible, punishment must bring some 'reparation or benefit to ourselves'.\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"4\",\n      \"target\": \"5\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"5\", \n      \"target\": \"6\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"6\",\n      \"target\": \"7\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"5\",\n      \"target\": \"3\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"3\",\n      \"target\": \"2\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"2\",\n      \"target\": \"1\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "1": {
+              "text": "Notwithstanding this, Cugoano endorsed the legitimacy of penal enslavement on principled grounds - like many other abolitionists writing in late eighteenth-century Britain. 'Every free community might keep slaves, or criminal prisoners in bondage' - and even sell them.",
+              "label": "claim"
+            },
+            "2": {
+              "text": "Far from an offhand inconsistency, I argue that this justification is deeply embedded within his moral and legal philosophy; constraining his antislavery arguments while simultaneously serving retaliatory aims.",
+              "label": "claim"
+            },
+            "3": {
+              "text": "His two-pronged principle of just punishment - the lex talionis ('eye for an eye, bondage for bondage') as tempered by mercy - sometimes demands penally enslaving colonial slaveholders and slave-traders in turn.",
+              "label": "claim"
+            },
+            "4": {
+              "text": "Divine lawgiving has created morality. Without God, there would have been no moral right and wrong.",
+              "label": "premise"
+            },
+            "5": {
+              "text": "Justice states that wrongdoers deserve punishment equal to their crime - eye for an eye, tooth for tooth. Yet mercy is morally required when inflicting like-for-like punishment on deserving offenders serves no social good.",
+              "label": "premise"
+            },
+            "6": {
+              "text": "Having committed a crime deserving of punishment is for him a necessary but not a sufficient condition for permissible punishment. Indeed, the law of forbearance forbids purely retaliatory punishment, done for the sake of vengeance alone.",
+              "label": "claim"
+            },
+            "7": {
+              "text": "To be morally permissible, punishment must bring some 'reparation or benefit to ourselves'.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "4",
+              "target": "5",
+              "type": "support"
+            },
+            {
+              "source": "5",
+              "target": "6",
+              "type": "support"
+            },
+            {
+              "source": "6",
+              "target": "7",
+              "type": "support"
+            },
+            {
+              "source": "5",
+              "target": "3",
+              "type": "support"
+            },
+            {
+              "source": "3",
+              "target": "2",
+              "type": "support"
+            },
+            {
+              "source": "2",
+              "target": "1",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "1": {
+              "text": "Notwithstanding this, Cugoano endorsed the legitimacy of penal enslavement on principled grounds - like many other abolitionists writing in late eighteenth-century Britain. 'Every free community might keep slaves, or criminal prisoners in bondage' - and even sell them.",
+              "label": "claim"
+            },
+            "2": {
+              "text": "Far from an offhand inconsistency, I argue that this justification is deeply embedded within his moral and legal philosophy; constraining his antislavery arguments while simultaneously serving retaliatory aims.",
+              "label": "claim"
+            },
+            "4": {
+              "text": "Divine lawgiving has created morality. Without God, there would have been no moral right and wrong.",
+              "label": "premise"
+            },
+            "7": {
+              "text": "To be morally permissible, punishment must bring some 'reparation or benefit to ourselves'.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "2",
+              "target": "1",
+              "type": "support"
+            }
+          ]
+        }
+      }
+    ],
+    "timestamp": 1752753001.7635763
+  }
+]

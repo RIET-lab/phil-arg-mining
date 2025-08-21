@@ -1,0 +1,205 @@
+{
+  "arguments": {},
+  "statements": {
+    "Untitled 1": {
+      "type": "equivalence-class",
+      "title": "Untitled 1",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Implied author",
+          "fromType": "equivalence-class",
+          "to": "Untitled 1",
+          "toType": "equivalence-class"
+        },
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Engagement and social consensus trumps 'actual' authorship",
+          "fromType": "equivalence-class",
+          "to": "Untitled 1",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "top-level-statement",
+          "isTopLevel": true,
+          "text": "We may appreciate and engage with works that lack a human creator; these works have aesthetic value",
+          "title": "Untitled 1",
+          "startLine": 3,
+          "startColumn": 1,
+          "endLine": 5,
+          "endColumn": 220,
+          "section": "s1"
+        }
+      ],
+      "section": "s1",
+      "isUsedAsTopLevelStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Implied author": {
+      "type": "equivalence-class",
+      "title": "Implied author",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Implied author",
+          "fromType": "equivalence-class",
+          "to": "Untitled 1",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "title": "Implied author",
+          "text": "Aesthetic consumers mentally create an \"\"implied author\"\" ",
+          "startLine": 4,
+          "startColumn": 5,
+          "endLine": 4,
+          "endColumn": 81,
+          "section": "s1"
+        }
+      ],
+      "section": "s1",
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    },
+    "Engagement and social consensus trumps 'actual' authorship": {
+      "type": "equivalence-class",
+      "title": "Engagement and social consensus trumps 'actual' authorship",
+      "relations": [
+        {
+          "type": "relation",
+          "relationType": "support",
+          "from": "Engagement and social consensus trumps 'actual' authorship",
+          "fromType": "equivalence-class",
+          "to": "Untitled 1",
+          "toType": "equivalence-class"
+        }
+      ],
+      "members": [
+        {
+          "type": "statement",
+          "role": "relation-statement",
+          "title": "Engagement and social consensus trumps 'actual' authorship",
+          "text": "How people engage with art is more important than trying to \"\"define the essence of true authorship nor to construct a theory of an 'artificial author'.\"\"",
+          "startLine": 5,
+          "startColumn": 5,
+          "endLine": 5,
+          "endColumn": 220,
+          "section": "s1"
+        }
+      ],
+      "section": "s1",
+      "isUsedAsRelationStatement": true,
+      "fontColor": "#000000",
+      "color": "#1b9e77"
+    }
+  },
+  "relations": [
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "Implied author",
+      "fromType": "equivalence-class",
+      "to": "Untitled 1",
+      "toType": "equivalence-class"
+    },
+    {
+      "type": "relation",
+      "relationType": "support",
+      "from": "Engagement and social consensus trumps 'actual' authorship",
+      "fromType": "equivalence-class",
+      "to": "Untitled 1",
+      "toType": "equivalence-class"
+    }
+  ],
+  "map": {
+    "nodes": [
+      {
+        "id": "s1",
+        "title": "ARIAAT-8",
+        "type": "group-map-node",
+        "color": "#DADADA",
+        "fontColor": "#000000",
+        "level": 1,
+        "labelTitle": "ARIAAT-8",
+        "children": [
+          {
+            "id": "n0",
+            "title": "Untitled 1",
+            "type": "statement-map-node",
+            "labelText": "We may appreciate and engage with works that lack a human creator; these works have aesthetic value",
+            "color": "#1b9e77",
+            "fontColor": "#000000"
+          },
+          {
+            "id": "n1",
+            "title": "Implied author",
+            "type": "statement-map-node",
+            "labelTitle": "Implied author",
+            "labelText": "Aesthetic consumers mentally create an \"\"implied author\"\" ",
+            "color": "#1b9e77",
+            "fontColor": "#000000"
+          },
+          {
+            "id": "n2",
+            "title": "Engagement and social consensus trumps 'actual' authorship",
+            "type": "statement-map-node",
+            "labelTitle": "Engagement and social consensus trumps 'actual' authorship",
+            "labelText": "How people engage with art is more important than trying to \"\"define the essence of true authorship nor to construct a theory of an 'artificial author'.\"\"",
+            "color": "#1b9e77",
+            "fontColor": "#000000"
+          }
+        ]
+      }
+    ],
+    "edges": [
+      {
+        "id": "e1",
+        "type": "map-edge",
+        "relationType": "support",
+        "from": "n1",
+        "to": "n0",
+        "fromEquivalenceClass": "Implied author",
+        "toEquivalenceClass": "Untitled 1"
+      },
+      {
+        "id": "e2",
+        "type": "map-edge",
+        "relationType": "support",
+        "from": "n2",
+        "to": "n0",
+        "fromEquivalenceClass": "Engagement and social consensus trumps 'actual' authorship",
+        "toEquivalenceClass": "Untitled 1"
+      }
+    ]
+  },
+  "sections": [
+    {
+      "type": "section",
+      "id": "s1",
+      "level": 1,
+      "title": "ARIAAT-8",
+      "children": [],
+      "ranges": [],
+      "startLine": 1,
+      "startColumn": 1,
+      "endLine": 5,
+      "endColumn": 220,
+      "isGroup": true,
+      "fontColor": "#000000",
+      "color": "#DADADA"
+    }
+  ],
+  "tags": {}
+}
+

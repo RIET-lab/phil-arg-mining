@@ -1,0 +1,332 @@
+[
+  {
+    "identifier": "GLUPEO-3",
+    "system_prompt": "## GOAL\nArgument‑mine the following paper to extract its comprehensive argumentative structure.\n\n## DEFINITIONS\n1. **Argument**: A set of propositions, including some number of premises and a conclusion. The premises should logically entail the conclusion.\n2. **Claim**: A proposition that asserts something to be true or false, typically requiring justification or evidence.\n3. **Premise**: A proposition that provides evidence, justification, or logical support for a claim or conclusion.\n\n## CRITICAL REQUIREMENTS\n1. **VERBATIM EXTRACTION ONLY**: Each ADU text must be copied EXACTLY from the paper with no modifications, paraphrasing, or combining of separate sentences.\n2. **NO HALLUCINATION**: Do not create, modify, or invent text that does not appear exactly in the source.\n3. **EXACT MATCHING**: Every word, punctuation mark, and spacing must match the original precisely.\n\n## DIRECTIONS\n1. **Identify Argumentative Discourse Units (ADUs)**  \n   - ADU = any contiguous text span functioning as a claim or a premise in the reasoning structure.\n   - **BE HIGHLY SELECTIVE**: Only include ADUs that are crucial to the overarching argument structure.\n   - Focus on significant claims and premises that contribute meaningfully to the argumentative flow.\n   - **AVOID NOISE**: Skip ADUs that are merely descriptive, tangential, or do not substantially advance the argument.\n   - Prioritize quality over quantity - fewer accurate, important ADUs are better than many insignificant ones.\n   - **EXTRACT ONLY**: Copy text spans exactly as they appear, without any modifications.\n2. **Classify each ADU**  \n   - Label = either `\"claim\"` or `\"premise\"`.  \n3. **Detect directed relations**  \n   - Relation = `\"support\"` or `\"attack\"`, from one ADU (source) to another (target).\n   - Map how ADUs connect to form reasoning chains.\n   - Focus on relationships between the most significant ADUs.\n   - Include relationships between premises that strengthen or weaken each other.\n4. **Verbatim spans**  \n   - Each `\"text\"` value must be copied EXACTLY from the paper with zero modifications.\n   - Do not paraphrase, summarize, or combine separate sentences.\n   - Do not add, remove, or change any words, punctuation, or spacing.\n   - If unsure about exact wording, skip that ADU rather than guess.\n\n## WHAT TO CAPTURE\n**INCLUDE ONLY:**\n- Main argumentative threads that are central to the paper's contribution\n- Core claims that represent the paper's primary arguments or findings\n- Key premises that provide essential support for major claims\n- Critical counterarguments and their refutations\n- Reasoning chains that demonstrate how main conclusions are derived\n\n**EXCLUDE (AVOID NOISE):**\n- Minor details, examples, or descriptive content that don't advance the argument\n- Tangential points or side discussions\n- Pure background information or literature review content\n- Methodological details unless they constitute argumentative claims\n- Obvious statements or commonly accepted facts\n- Redundant or repetitive argumentative content\n\n**GUIDING PRINCIPLE**: If removing an ADU would not significantly impact understanding of the paper's argumentative structure, it should be excluded.\n\n## QUALITY CONTROL\n- Before finalizing each ADU, verify the text exists exactly in the source\n- Prefer fewer, accurate ADUs over many potentially modified ones\n- When in doubt about exact wording, omit the ADU\n\n## OUTPUT FORMAT\nReturn **only** a single valid JSON object matching this schema.  \nDo **not** output any extra text, markdown, or explanations.\nDo **not** add comments.\n**RESPOND WITH ONLY**:\n```json\n{\n  \"ADUs\": {\n    \"<ADU_ID>\": {\n      \"text\": \"<exact span from paper>\",\n      \"label\": \"claim\" | \"premise\"\n    }\n    ...\n  },\n  \"relations\": [\n    {\n      \"source\": \"<ADU_ID>\",\n      \"target\": \"<ADU_ID>\",\n      \"type\": \"support\" | \"attack\"\n    }\n  ]\n}\n```",
+    "user_content": "\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\n\n## ETIKA POLITIKY MARTINA RAKOVSKÉHO: MEDZI MACHIAVELLIM A LUTHEROM\n\nVASIL GLUCHMAN, Inštitút filozofie a etiky FF PU, Prešov\n\nGLUCHMAN, V.: Political Ethics  of  Martin  Rakovský:  Between  Machiavelli  and Luther\n\nFILOZOFIA 64, 2009, No 6, p. 560\n\nThe writings of Martin Rakovský can be seen as a reflection of the problems, including political ones, of his time. His aim was also to offer an idea of a perfect ruler, who would bring peoples the peace and calm down the stormy events of the 16 th century. The personal virtues of such a ruler should have been the guarantee of the welfare of all citizens. Given Rakovský's religious attitude he can be regarded as a reformation humanist standing between Machiavelli and Luther.\n\n## Keywords: Rakovský - Machiavelli - Luther - Renaissance - Ethics - Politics\n\nÚvod. Paul  Oskar  Kristeller  tvrdí,  že  renesančný  humanizmus  bol  viac  kultúrnym a vzdelávacím programom ako filozofickou tendenciou alebo systémom. Centrom pozornosti nebola klasika a filozofia, ale najmä literatúra. K podstatným aspektom renesančného humanizmu patril podľa jeho názoru dôraz na človeka, viera v hodnotu človeka, jeho dôstojnosť a privilegované miesto v univerze ([7], 22 - 23; 30 -32). K tejto charakteristike renesančného humanizmu dodáva Jill Krayeová, že mnohé renesančné diela predstavovali človeka nielen ako obraz boha, ale sám človek bol ako druhý boh, vládca zeme a kráľ všetkých božích stvorení. Renesančný človek žil vo svete stvorenom špeciálne pre neho, ktorého bol pánom. Všetko slúžilo jeho potrebám ([6], 310).\n\nEugenio Garin pri charakteristike renesančnej filozofie a renesančného filozofa poukázal na to, že renesancia prináša okrem iného aj nový typ filozofa ktorý, často nepôsobí na univerzite, keďže ho odtiaľ vyhnali pre spochybňovanie stredovekých právd, ale mimo tohto  prostredia  sa  pokúša  vybudovať  nové  poznanie,  vybudovať  kráľovstvo  človeka, zbaviť ho nánosu okultizmu. Viedlo to k stieraniu hraníc medzi jednotlivými disciplínami, a tak humanisti boli zároveň umelcami, vedcami, filozofmi, politikmi, lekármi, teológmi atď.  Nazval ich rebelujúcimi dušami, bojujúcimi na viacerých frontoch a potulnými rytiermi  poznania  pohybujúcimi  sa  medzi  snami  a mágiou,  utópiami  a ilúziami  večného mieru, medzi kritickými reflexiami skutočnosti a mystickým cestovaním vo vesmíre ([3], 158).\n\nRenesancia a reformácia. Uvedené charakteristiky  sa  však  primárne  vzťahujú  na renesančný humanizmus v Taliansku, kde toto myšlienkové hnutie vzniklo a kde získalo aj najväčší rozmach. Podstatne iná situácia však bola v rámci tzv. zaalpského renesančného humanizmu, ktorý sa začal rozvíjať až v období úpadku tohto hnutia v Taliansku, prepuknutia  krízy  katolíckej  cirkvi,  vzniku  reformácie  a mnohých  náboženských,  politických, ale aj ozbrojených bojov sprevádzajúcich Európu v 16. storočí. Predovšetkým pod vplyvom duchovnej a politickej krízy, ktorá podnietila vznik reformácie a nástup protes-\n\ntantizmu v Európe, v rámci tzv. zaalpského renesančného humanizmu sa vytratil dôraz na človeka i viera v jeho sily a schopnosti, v jeho dôstojnosť a privilegované miesto vo svete. Práve  pod  silnejúcim  vplyvom  reformácie  a protestantizmu  v tzv.  zaalpských  krajinách možno  skôr  hovoriť  o reformačnom  humanizme  hľadajúcom  symbiózu  medzi  antickou učenosťou a múdrosťou na jednej strane a dobou 16. storočia na strane druhej. Ide o snahu nájsť spôsoby využitia antického poznania pre súdobé potreby a pomery, do značnej miery v súlade s protestantským učením v jeho luteránskej alebo kalvínskej podobe, v závislosti od miesta a sily, resp. vplyvu týchto náboženských smerov v jednotlivých oblastiach kontinentálnej Európy.\n\nAlasdair  MacIntyre  charakterizoval uvedené obdobie postavami Luthera a Machiavelliho. Podľa jeho názoru obidvaja, hoci rozličným spôsobom, prispeli k prekonaniu paradigmy kresťansky orientovanej, hierarchickej a syntetizujúcej stredovekej spoločnosti. Luther  interpretoval  morálne  pravidlá  a normy  ako  božie  príkazy,  ktoré  nepotrebujú žiadne zdôvodňovanie ani vysvetľovanie, pretože sú sebaevidentné. Na druhej strane sú však  pravidlá  a normy  politického  a ekonomického  života,  ktoré  majú  svoje  vlastné zdôvodnenie.  Znamená  to,  že  zatiaľ  čo  v individuálnom  živote  je  človek  podriadený morálnym  normám  ako  božím  príkazom,  v spoločenskom  živote  sa  riadi  normami a pravidlami  ustanovenými  svetskou  mocou.  Podľa  MacIntyra  v prípade  Machiavelliho morálne normy, respektíve pravidlá sú len 'technické' normy vedúce nás k dosiahnutiu cieľa, ktoré však ľudia veľmi často porušujú, ak je to pre nich výhodné ([10], 121 - 130). Luther a Machiavelli teda svojimi názormi vymedzili sociálny, politický, kultúrny, intelektuálny, duchovný, no aj ekonomický priestor, v ktorom sa odohrávali drámy 16. storočia, ktoré  mali svoje pokračovanie ešte aj dlho potom, minimálne do polovice 18. storočia.\n\nReformačný humanizmus. Reformační humanisti (a nielen oni) sa často pokúšali nájsť v antike model riešenia súdobých politických problémov. Tak, ako Platón, Aristoteles a mnohí iní antickí filozofi sa usilovali formulovať ideálnu predstavu fungovania štátu a politickej  moci,  aj  v renesančnom  humanizme  nachádzame  dosť  významných diel zaoberajúcich sa fungovaním štátu, získavaním a uplatňovaním politickej moci atď. Jedným z najznámejších renesančných autorov zaoberajúcich sa touto problematikou bol Niccolo Machiavelli, ktorý však na rozdiel od antických autorov neformuloval ideálnu predstavu štátu  a fungovania  politickej  moci,  ale  opísal  existujúci  stav,  s ktorým  sa  stretol  počas svojho života a politického pôsobenia. Zatiaľ čo permanentná politická kríza talianskych mestských štátov ho viedla k pesimistickým záverom a k opisu reálneho fungovania politika a politiky vo vtedajších pomeroch, mnohých reformačných humanistov (aj pod vplyvom protestantského náboženstva) politická, náboženská a duchovná kríza, sprevádzajúca 16. storočie, viedla práve naopak k hľadaniu odpovedí na otázku, aká by mala byť ideálna forma vlády a aký by mal byť ideálny panovník prinášajúci upokojenie rozbúrených politických, náboženských, kultúrnych a duchovných pomerov vo vtedajšej Európe. Na rozdiel  od  Machiavelliho  opisujúceho,  ako  to  je,  oni  u antických  vzorov,  ako  boli  Platón, Aristoteles,  Cicero  a ďalší,  hľadali  odpoveď  na  otázku,  ako  by  to  malo  byť.  Preto  do značnej  miery  ignorovali  Machiavelliho,  keďže  jeho  navrhované  spôsoby  fungovania politiky a riešenia súdobých politických problémov boli priamo protikladné ich zámerom a sotva mohli napomôcť upokojeniu situácie v rozbúrenej Európe, skôr naopak.\n\nMartin Rakovský a jeho etika politiky. Bolo veľmi málo tých, ktorí sa v geografickom priestore terajšieho Slovenska venovali v 16. storočí hľadaniu odpovedí na otázky spravovania štátu, spravodlivej politickej moci, etiky a morálky v politike. Najvýznamnejším,  prípadne  jedným  z najvýznamnejších,  určite  bol  Martin  Rakovský  (1535  -1579), ktorý je známejší skôr ako básnik než ako filozof, a to predovšetkým preto, že zatiaľ čo slovenskí literárni historici mu venovali a venujú pomerne značnú pozornosť, 1 u  historikov slovenskej filozofie je takmer na okraji záujmu. 2\n\nKeďže práca Miloslava Okála o živote a diele Martina Rakovského je pomerne podrobná  a analytická,  nebudem  sa  zaoberať  otázkami,  ktoré  v nej  autor  veľmi  podrobne vysvetlil a analyzoval, a to najmä pokiaľ ide o prepojenie Rakovského diela s klasickou antickou  tradíciou,  v tomto  prípade  týkajúcou  sa  jej  filozoficko-politického  myslenia. Sústredím svoju pozornosť primárne na etické a morálne aspekty filozoficko-politického myslenia  v diele  Martina  Rakovského,  na  jeho  'osciláciu'  medzi  Machiavellim  a Lutherom, t. j. medzi tým, čo je, a tým, čo má byť. 3 Predmetom mojich úvah budú dve Rakovského práce: Libelus de partibus rei publicae et causis mutationum regnorum imperiorumque (1560) a De magistratu politico (1574). 4\n\nNapriek tomu, že medzi vydaním prvej a druhej Rakovského knihy ubehlo štrnásť rokov, obsahovo na seba nadväzujú. Zatiaľ čo prvá kniha, ktorá vyšla v slovenskom preklade  pod  názvom O rozvrstvení  obyvateľstva  a príčinách  štátnych  prevratov,  zväčša podľa  Aristotela , je  do  značnej  miery  kritikou  súdobých  pomerov  v spoločnosti,  kniha O svetskej  vrchnosti je  pokusom  formulovať  víziu  ideálneho  panovníka  a fungovania politickej moci v štáte, a to predovšetkým na základe morálnych hodnôt, resp. cností.\n\nMachiavelli vo Vladárovi napísal, že '... uznal za vhodnejšie zaoberať sa tým, ako veci  v skutočnosti  sú,  než  ako  sa  javia:  je  totiž  veľký  rozdiel  medzi  tým,  ako  sa  žije, a tým, ako by sa malo žiť, a ten, kto si nevšíma, čo sa robí, a radšej sa drží toho, čo by sa\n\n1 Príkladom je veľmi záslužná práca Miloslava Okála, ktorý preložil najvýznamnejšie Rakovského práce do slovenčiny a napísal dvojzväzkový životopis Martina Rakovského ([12]; [13]). Aj viacerí iní literárni historici vo svojich prácach venovali značnú pozornosť literárnemu dielu Martina Rakovského. Možno tu spomenúť práce Zuzany Kákošovej, Štefana Krčméryho, Jozefa Minárika, Daniela Škoviera, Stanislava Šmatláka, Evy Tkáčikovej a ďalších.\n\n2 V Prvých  slovenských  dejinách  filozofie (1939)  od  Samuela  Štefana  Osuského  nájdeme  veľmi stručnú  zmienku  o Martinovi  Rakovskom,  trochu  podrobnejšie  analyzoval  jeho  názory  český  filozof Albert  Pražák  (1934)  v Prehľade  dejín  slovenskej  filozofie (1965)  nájdeme  v príspevku  Jána  Kocku a Stanislava  Felbera  len  o niečo  viac  pozornosti  venovanej  Rakovskému  než  u Osuského.  V Dejinách filozofického myslenia na Slovensku I (1987) nájdeme obšírnejšiu informáciu, ktorej autorkou je Elena Várossová, no aj v tomto prípade ide skôr o deskripciu než o analýzu a dobovo nadčasové hodnotenie významu a prínosu diela Martina Rakovského.\n\n3 K analýze Lutherovho vymedzenia toho, čo má byť, bližšie pozri moju prácu Angažovanosť, solidarita, zodpovednosť ([4], 32 - 52).\n\n4 Rakovský podľa Okála kládol veľký dôraz na etiku a hľadanie pravdy, no pozeral sa na ne očami kresťana ([13],  197).  Znamená to,  že  v duchu  svojho  náboženského  presvedčenia  videl  zdroj  a pôvod dobra a pravdy v Bohu. Na druhej strane však treba dodať, že jasne videl aj skutočnosť, pozemský život a možnosti  dosahovania  dobra  a pravdy  v našom  živote.  Ja  by  som  v žiadnom  prípade  nepovažoval Rakovského vyjadrenia na adresu náboženstva za preexponované, prípadne vyjadrujúce nejakú podobu náboženského fanatizmu. Skôr naopak, myslím si, že patril k pomerne umierneným zástancom luteránstva.\n\nmalo robiť, skôr padne, ako sa zachová. Totiž človek, ktorý sa chce v každom smere ukázať  dobrým,  musí  zahynúť  medzi  toľkými  ľuďmi,  ktorí  nie  sú  dobrí'  ([11],  40  -  41). Možno aj pod vplyvom toho Rakovský sa najprv pokúsil spoznať to, čo je, t. j. akí boli jeho súčasníci. Dospel ku skrušujúcemu poznaniu, že klamstvo, podvody, úplatky často dominujú v spoločnosti, čo konkrétne znamená, že nespravodlivosť možno nazývať právom a bezbožnosť cnosťou. 5 Keďže jednou zo základných cností uplatňovania politickej moci v štáte bola podľa jeho názoru spravodlivosť, kritizoval správanie a konanie šľachty, zneužívajúcej svoje postavenie na ťažké vykorisťovanie práce sedliakov. No rovnako aj chudobným vyčíta ich závisť a nepriateľstvo vo vzťahu k bohatým, ktoré sú podľa jeho názoru na škodu samotným chudobným. Kritizuje aj spoločnosť zakladajúcu sa na úsilí o dosiahnutie materiálneho bohatstva, stávajúceho sa tak jediným kritériom cnosti v chápaní súdobej spoločnosti ([16], 161 - 163). Práve v snahe o hromadenie bohatstva, majetku, v hlade po zisku, prehlbovaní nerovnosti, v pýche, egoizme, mrzkom zmýšľaní a strachu vidí najväčšie nešťastie pre štát a jeho politické usporiadanie. Uvedomuje si, že ani nie tak túžba po moci, ovládaní iných, ako skôr túžba po bohatstve je tým hlbším dôvodom mnohých politických, ideologických, náboženských a vojenských rozbrojov, nepokojov a búrok sprevádzajúcich nielen jeho 16. storočie, ale dejiny ľudstva vôbec.\n\nPráve panovník by podľa neho mal byť tým, kto dokáže spravodlivo posúdiť a rozriešiť  tieto  problémy.  V prvom  rade  podľa  Rakovského  má  panovník  byť  ochrancom všetkých čestných a spravodlivých občanov štátu. Má reprezentovať najmä spravodlivosť a moc.  Už  tu  sa  u Rakovského  objavuje  náznak  toho,  že  začína  formulovať  predstavu ideálneho  panovníka  obdareného  základnou  cnosťou,  t.  j.  spravodlivosťou.  No  v tejto práci len naznačil, čo všetko by sme mali očakávať a požadovať od panovníka. Uvedomoval si  však,  že  veľmi  často  sa  vyskytujú  opačné  príklady  panovníkov,  o akých  písal Machiavelli, ktorí v záujme získania a zachovania moci dokážu byť ukrutní, ľstiví, vraždiť, podvádzať, klamať atď. Machiavelli to veľmi dobre opísal, no Rakovský nevidí riešenie v tom, že by sa takýmito prostriedkami mala získať a udržiavať moc v štáte. Práve naopak, je to podľa jeho názoru dôvod na to, aby sa týraní a prenasledovaní zbavili takejto vrchnosti ([16], 170 - 174).\n\nOdpor proti tyranom a nimi páchaným ukrutnostiam nájdeme už v antike, ale v reformačnom  humanizme  získava  nové  ospravedlnenie  zdôvodnením  vyplývajúcim  z porušenia božieho mandátu svetskej moci. Hoci pôvodne podľa Luthera 'každá duša poddaná buď nadriadeným vrchnostiam. Lebo nieto vrchnosti, ak len nie od Boha; a tie, čo sú, Bohom zriadené sú. Kto sa teda vrchnosti protiví, Božiemu zriadeniu sa protiví; a tí, čo sa protivia, priťahujú si súd' ([8], 195). Človek môže podľa neho odporovať vrchnosti jedine v otázkach viery, keď ho nútia konať proti jeho svedomiu a presvedčeniu. Vtedy má podľa Luthera človek protestovať proti tyranstvu. V ostatných prípadoch ide podľa neho len o maličkosti, preto '... nestojí za to, aby sme sa pre nejaké jej (svetskej moci V. G.) prechmaty alebo krivdy hneď búrili, boli neposlušní a nesvorní' ([9], 108). Lutherov vzťah k svetskej moci v tejto fáze možno teda charakterizovať ako snahu o 'demokratickosť'  a  'ústavnosť'  jeho  stanoviska,  pretože  takmer  odmieta  možnosť  ozbrojeného odporu proti vrchnosti a kladie do popredia povinnosť poslúchať svetskú vrchnosť. Lut-\n\n5 Pod bezbožnosťou tu mal na mysli extrémnu nespravodlivosť protikladnú božím zámerom.\n\nher  však  postupne  prešiel  určitým  názorovým  vývojom,  týkajúcim  sa  jeho  hodnotenia svetskej vrchnosti. Neskôr pripustil aj možnosť ozbrojeného odporu proti vrchnosti, ktorá je  na  strane  regnum diaboli a celkom prestala trestať zlých a chrániť dobrých. V takom prípade vrchnosť prestáva byť vrchnosťou, lebo sa sama zmenila na 'lúpežníka'. Vtedy je možný aj ozbrojený odpor a povstanie ([5], 327).\n\nV podobnom duchu reformačného humanizmu možno interpretovať aj Rakovského postoj  k nespravodlivej  a tyranskej  vrchnosti.  Podľa  neho  možno  morálne  ospravedlniť odpor  k nespravodlivej  a krutej  vrchnosti,  ktorá  namiesto  ochrany  životov  a majetkov občanov ich práve naopak ničí a lúpi. 'Potom, keď do takej miery sa rozrastie zločinná bujnosť,  že  už  nijakú  mieru  útrapy  nebudú  mať,  ranená  trpezlivosť  sa  premení  v nesmiernu divosť; do zbrane podnety dáva bolesť tu, inde zas strach. Mohli však ináč? Aj týrané zvieratá povolia žlči, majú tiež svoje zbrane ktoré im Stvoriteľ dal. Čoskoro siahne sa  k sile  a všetci  volajú:  Poďme  vydobyť  slobodu!,  vediac,  že  ide  o dobrú  vec'  ([16], 170). 6\n\nPre  Luthera  a reformáciu  vôbec  je  príznačné  podrobenie  cirkevnej  moci  svetskej vrchnosti v otázkach politického a sociálneho života, na druhej strane je zase charakteristické prepojenie svetskej a cirkevnej moci aj v cirkvi, čo sa prejavilo v demokratizácii jej vnútorného života, t. j. svetská vrchnosť sa podieľala na spravovaní cirkevných záležitostí. Reformáciou vznikol nový druh prepojenia svetskej a cirkevnej moci, v ktorom dominovala svetská moc, no na druhej strane do značnej miery sa aj svetská moc identifikovala s náboženskými cieľmi, a to najmä v podobe ich používania pri riadení štátu a spoločenského života. Znamenalo to, že najmä v 16. storočí s nástupom reformácie dochádza k reformácii  nielen  cirkvi,  náboženstva,  ale  aj  spoločnosti  a štátu.  Nastupuje  v živote  štátu a spoločnosti snaha o radikálnu očistu každodenného života od nánosov stredoveku, ide o jeho morálnu očistu. 'Ranný moderný štát usiloval v spojení s cirkvami o zásadné zlepšenie mravov svojich poddaných... Cieľom tejto morálnej politiky bol pracovitý, poslušný,  mravný  a šetrný  poddaný,  pričom  bol  vyhlásený  boj  akejkoľvek  záhaľke,  násilnostiam,  nerestiam a márnotratnosti. Aby dosiahol podriadenie sa mravným princípom, používal  raný  moderný  štát  najrozličnejšie  prostriedky.  Jednak  verejne  zakazoval  každé nemorálne správanie v kresťanskom zmysle. Ďalej zakazoval každú neviazanosť v jedle a pití,  v návštevách kúpeľov a nevestincov, ako aj každú nemiernosť pri verejných a rodinných oslavách. Raný moderný štát sa prejavoval ako dozorca a mravokárca' ([1], 272).\n\nPodobnú myšlienku nájdeme u Rakovského, hoci vyjadrenú inými slovami, pretože zdôrazňoval božský pôvod vrchnosti: Celá vrchnosť podľa neho má slúžiť šíreniu dobra a  riadeniu  spoločného  štátu,  aby  desila  bezuzdných  ľudí,  šírila  pravdu  a  česť,  trestala zločiny,  nútila  poslúchať  zákony  všemohúceho,  ako  aj  ľudské  zákony.  Vrchnosť  má v jeho ponímaní chrániť mier, ktorý je požehnaním pre ľud, a chrániť aj silou počestných\n\n6 Musíme tu polemizovať s názorom Stanislava Sousedíka, ktorý vo svojej práci Filosofie v českých zemích mezi středověkem a osvícenstvím v súvislosti so spisom Jána Jessenia Pro vindiciis contra tyranos napísal,  že  názor  o  možnosti  odstránenia  tyranov  cestou  ozbrojeného  násilia  bol  v jeho  dobu zriedkavý a ďalej uviedol, že Luther zastával stanovisko odmietajúce ozbrojený odpor proti nespravodlivej vrchnosti ([17], 88). Ako vidíme, u Luthera nájdeme v rozličných obdobiach jeho života dve odlišné stanoviská.  Rakovského  postoj  aj  pod  vplyvom  Luthera  možno  teda  považovať  za  príklad  toho,  že v stredoeurópskom  priestore  Jessenius  nebol  prvý  a  jediný,  kto  v danej  dobe  morálne  ospravedlňoval a zdôvodňoval možnosť použitia ozbrojeného násilia proti tyranskej moci.\n\nľudí,  dávať  odmeny  a  stimuly  cnosti  tým,  čo  sú  toho  hodní  ([15],  260).  Vrchnosť  má chrániť a reprezentovať také cnosti, akú sú vernosť, stud, mier, zbožnosť, múdrosť, aby pravda  a  právo  mali  najvyššiu  cenu  a  česť.  Náboženský  charakter  doby  a Rakovského evidentné  zakotvenie  v náboženstve  sa  prejavilo  aj  v tom,  že  odmieta  akékoľvek úvahy o možnosti nenáboženského pôvodu svetskej moci, resp. vrchnosti. Dochádza k jej opätovnému posväteniu, ale v protestantskom duchu. Boh je prameňom každého dobra, otcom pravdy a dobra,    žriedlom  i  pôvodcom  cnosti  ([15],  263).  Znamená  to,  že  svetská vrchnosť s božím mandátom musí byť v súlade s jej určením, musí reprezentovať všetky cnosti  žiaduce  pri  správnom riadení štátu i zabezpečení pokojného života občanov. Významná  úloha  pripadá  aj  rozumu,  ktorý  však  musí  pôsobiť  v zhode  s týmito  cnosťami, a potom je to na prospech celku a ľudí žijúcich v krajine. Pokojné spolunažívanie v napĺňaní cnosti je podľa neho cestou k blaženosti.\n\nPre naplnenie týchto cieľov je podľa Rakovského najdôležitejšia spravodlivosť. Veľký význam pripisoval tiež rozumnosti, vďaka ktorej rozoznáme dobro od zla, osožné od škodlivých a nečestných vecí. Z pekného rozum volí to krajšie a zo ziel volí to menšie, z osožných zase to, čo osoží viac. Práve rozumnosť a spravodlivosť sa má potom prejavovať v tom, že ideálny panovník dokáže ich uplatňovať pri riadení štátu, pretože všade tam,  kde  nie  je  dobro  odmeňované  a  zlo  trestané,  všade  tam  sa  v  národoch  prejavuje ohavný jed zrady, bitiek a vrážd ([15], 312 - 316). Naznačuje, že napriek úsiliu formulovať  všetky  žiaduce  cnosti  ideálneho  panovníka,  zabezpečujúce  mu  úspech  pri  vládnutí, bol si vedomý nebezpečenstva vyplývajúceho z politických postupov a praktík, ktoré vo svojej knihe radil Machiavelli vladárovi a ktoré boli veľmi časté nielen v Taliansku, ale aj v zaalpských krajinách. Podľa Machiavelliho má vladár v prípade potreby využiť všetky svoje neresti vrátane ukrutností, a to pokiaľ možno rýchlo a naraz. Má sa zbaviť svojich nepriateľov, potrestať urážky tak, aby sa mu už nemohli pomstiť ([11], 13, 19, 24, 25, 28 atď.).\n\nZatiaľ čo Rakovského panovník má byť druhom vladára uplatňujúceho antické cnosti  doplnené  o kresťanskú  zbožnosť  s ohľadom  na  podmienky  doby  druhej  polovice  16. storočia,  Machiavelliho  vladár  je  typom  panovníka  používajúceho  cnosti  na  vzbudenie zdania svojej dobroty, prípadne vtedy, keď sa mu to hodí na dosiahnutie cieľov. Žiadna neresť  nie  je  pre  Machiavelliho  vladára  zakázaná,  pokiaľ  mu  poslúži  pri  získaní  alebo udržaní  moci  v štáte.  Má  byť  zároveň  líškou  i levom,  v prípade  potreby  porušiť  slovo skôr, ako by ho mohli porušiť iní ([11], 41, 44 - 45, 49 atď.). Machiavelli povýšil záujem celku, spoločné dobro nad všetko ostatné, podriadil im aj prostriedky na ich dosiahnutie, osobné cnosti neboli podmienkou realizácie cieľa. Rakovského panovník mal byť práve naopak  symbiózou  osobných  cností  (vrátane  zbožnosti)  a úsilia  o spoločné  dobro  všetkých občanov.\n\nNapriek tomu, že cieľom protestantizmu bolo dosiahnutie mravnej očisty jednotlivca a spoločnosti,  Rakovský  si  uvedomoval,  že  nemožno  potlačiť  ľudskú  prirodzenosť,  nemožno človeka zbaviť vášní. No priam v duchu novovekého racionalizmu žiadal, aby sme dokázali vášne, resp. rozkoše ovládať rozumom, ktorý by mal slúžiť ako kantár pre naše túžby.  V jeho  vyjadreniach  zaznievajú  dokonca  až  anticipácie  osvietenského  chápania rozumu, t. j. viera v silu a schopnosť rozumu viesť nás vždy správne. Podľa neho to, čo povie rozum, musí byť pre nás večné, a pred ním musí ustúpiť všetko ostatné. Kam ukáže rozum, tam treba ísť napriek všetkému. O čo je čistejší rozum, o to je bližšie k nebeským\n\nbohom a tým viac ho musíme poslúchať ([15], 320 - 321). Zodpovedal tomu aj jeho apel na láskavosť a primeranú zhovievavosť pri trestaní, pretože bez viny nie je nikto. Veľkosť panovníka nie je podľa jeho názoru v neobmedzenej prísnosti a trestaní všetkého. Práve v duchu  reformačného  humanizmu  vyzýval  panovníkov,  aby  prejavili  svoju  rozumnú umiernenosť prejavujúcu sa v tom, že nebudú všetko odpúšťať, ale nebudú ani neprimerane trestať, pretože tým sa nestanú veľkými a silnými ([15], 335). Na Rakovského postoji  možno oceniť realistické videnie sveta a jeho problémov, ale aj ľudskej psychiky. Podobne možno vnímať aj jeho zdôrazňovanie úlohy rozumu, čím sa podstatne líšil od Luthera. Rovnako treba pozitívne hodnotiť, že nevidí svet ako čierno-biely, teda na jednej strane sú dobrí, a na druhej strane zase všetci ostatní - zlí. Je to značne protikladné morálnemu rigorizmu a puritánstvu doby reformácie. 'Ideál kresťanského človeka už nestelesňoval stredoveký mních, ktorý žil svojím kontemplatívnym spôsobom života na okraji sveta, ale aktívny asketický kresťan, ktorý sa svetu stavia vedome čelom, prekonáva jeho zmyslovosť  a zvody  a svet  sám  reformuje.  Nebolo  to  úsilie  o  lepší,  šťastnejší  svet,  ale ideál  viac-menej  puritánskeho  kresťanského  života,  ktorý  dynamizoval  stavovský obraz človeka až hlboko do doby osvietenstva' ([2], 121).\n\nZáver. Na Rakovského názoroch a jeho diele možno určite pozitívne hodnotiť realizmus  vo  vzťahu  k  svetu  vrátane  chápania  ľudských  chýb,  nedostatkov  a slabostí.  Napriek svojmu náboženskému zakotveniu v luteranizme nemožno mu vyčítať, že interpretuje  pozemský svet a politiku v eschatologicko-teologických pojmoch, teda ako boj dobra a zla,  kde  dobro  je  len  v spáse.  Práve  naopak,  treba  oceniť  jeho  konštruktívny  prístup k politike.  Ide  mu  v porovnaní  s vtedajšími pomermi o zmenu k lepšiemu. Možnosť nápravy  vidí  ideálne  v  osobe  panovníka,  ale  to  zodpovedalo  súdobým  názorom  o  úlohe osobnosti v dejinách. Osoba panovníka bola rozhodujúca pre charakter politických pomerov v krajine a spôsoby vlády, resp. pre dosahovanie spoločného dobra občanov a krajiny. Napriek tomu, že sa usiluje o formulovanie ideálu panovníka, nestavia pred neho nereálne ciele;  uvedomujúc  si  ľudské  slabosti  a nedostatky,  pripúšťa  napríklad  aj  možnosť  voliť menšie zlo a považuje to za postup v súlade s rozumnosťou. Vyústilo to do pozoruhodného konštatovania, že nehľadá dokonalého hrdinu, ktorý by bol bez najmenšej chybičky. Cesta cnosti je podľa neho priama, ale z každej strany vedie cez rôzne chyby chodníček do pekelného kraja ([15], 304). Je to veľmi múdre a sympatické vyjadrenie, odrážajúce skôr renesančný ako reformačný humanizmus postoja Martina Rakovského k svetu a človeku v ňom.\n\nAlbert Pražák konštatoval, že Rakovský nadviazal aj na niektoré názory Machiavelliho ([14],  273), čo však Okál odmieta, pretože podľa jeho názoru Pražák svoje tvrdenie ničím  nedoložil,  a poukazuje  na  protikladnosť  názorov  Machiavelliho  a Rakovského ([13], 142 - 144). Na základe doterajšieho skúmania Rakovského diela si predsa len myslím, že jeho etiku politiky možno charakterizovať ako vymedzovanie sa medzi Machiavellim  a  Lutherom.  Znamená  to,  že  na  jednej  strane  realisticky  vnímal  súdobé  politické a spoločenské pomery, v čom možno nájsť dosť podstatnú zhodu s Machiavellim, čo však neznamenalo skepsu a pesimizmus, s akým sa stretávame u Machiavelliho (a stotožnenie sa s jeho vymedzením toho, čo je), ale snahu o hľadanie formy vlády, ktorá by bola na prospech všetkých občanov, a odsúdenie akejkoľvek nespravodlivosti v politike a pri riadení štátu. Šťastie občanov, prosperitu krajiny možno podľa neho dosiahnuť len vtedy, ak\n\nv krajine  vládne  cnostný  panovník,  chrániaci  život  a majetok  ľudí,  odmeňujúci  dobro a trestajúci zlo, brániaci mier a uplatňujúci spravodlivosť. Určite je to krédo ďaleko presahujúce dobu svojho vzniku a malo by mať svoje miesto aj v súčasnej politike, nielen v etike  politiky.  Napriek  tomu,  že  bol  čiastočne  determinovaný  svojím  náboženským presvedčením, v žiadnom prípade to nevyústilo do náboženského a morálneho rigorizmu a nemožno ho teda identifikovať ani s Lutherovým chápaním toho, čo má byť.\n\n## LITERATÚRA\n\n- [1]   DÜLMEN, R. VAN: Kultura a každodenní život v raném novověku II: Vesnice a město . Praha: Argo 2006.\n- [2]   DÜLMEN, R. VAN: Kultura a každodenní život v raném novověku III: Náboženství, magie, osvícenství . Praha: Argo 2006.\n- [3]   GARIN, E.: Renesanční člověk. In: E. Garin (ed.): Renesanční člověk . Praha: Vyšehrad 2003, s. 9 - 18.\n- [4]   GLUCHMAN, V.: Angažovanosť, solidarita, zodpovednosť . Prešov: Universum 1994.\n- [5]   KIŠŠ, I.: Sociálna etika . Bratislava: UK 2006.\n- [6] KRAYE, J.: Moral Philosophy. In: Ch. B. Schmitt - Q. Skinner - E. Kessler (eds.): The Cambridge History of Renaissance Philosophy . Cambridge: Cambridge University Press 1988, pp. 303 - 386.\n- [7]   KRISTELLER, P. O.: Renaissance Thought and its Sources . New York: Columbia University Press 1979.\n- [8]   LUTHER, M.: Malý katechizmus Dr. Martina Luthera. In: O. Vízner (ed.): Symbolické knihy . Liptovský Mikuláš: Tranoscius 1992, s. 185 - 196.\n- [9]   LUTHER, M.: O dobrých skutcích . Praha: Kalich 1987.\n- [10]  MACINTYRE, A.: A Short History of Ethics . London: Routledge 1998.\n- [11]   MACHIAVELLI, N.: Vladár . Bratislava: Tatran 1968.\n- [12]  OKÁL M.: Život a dielo Martina Rakovského I . Martin: Matica slovenská 1979.\n- [13]   OKÁL M.: Život a dielo Martina Rakovského II . Martin: Matica slovenská 1983.\n- [14]   PRAŽÁK, A.: Bratří Rakovští z Rakova . Bratislava, vl. n. 1934.\n- [15]   RAKOVSKÝ, M.: O svetskej vrchnosti. In: M. Rakovský: Zobrané spisy . Bratislava: Veda 1974, s. 247 - 357.\n- [16]   RAKOVSKÝ, M.: O rozvrstvení obyvateľstva a príčinách štátnych prevratov, zväčša podľa Aristotela. In: M. Rakovský: Zobrané spisy . Bratislava: Veda 1974, s. 155 - 204.\n- [17]   SOUSEDÍK, S.: Filosofie v českých zemích mezi středověkem a osvícenstvím . Praha: Vyšehrad 1997.\n\n\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\n\nPríspevok vznikol ako súčasť riešenia grantovej úlohy VEGA 1/0329/08 Dejiny etického myslenia na Slovensku .\n\n\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\n\nprof. PhDr. Vasil Gluchman, CSc. Inštitút filozofie a etiky FF PU ul. 17. novembra 1 080 78 Prešov SR\n\ne-mail: gluchman@unipo.sk",
+    "responses": [
+      {
+        "source": "gpt-4o-2024-11-20",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"ADU1\": {\n      \"text\": \"The writings of Martin Rakovský can be seen as a reflection of the problems, including political ones, of his time.\",\n      \"label\": \"claim\"\n    },\n    \"ADU2\": {\n      \"text\": \"His aim was also to offer an idea of a perfect ruler, who would bring peoples the peace and calm down the stormy events of the 16th century.\",\n      \"label\": \"claim\"\n    },\n    \"ADU3\": {\n      \"text\": \"Given Rakovský's religious attitude he can be regarded as a reformation humanist standing between Machiavelli and Luther.\",\n      \"label\": \"claim\"\n    },\n    \"ADU4\": {\n      \"text\": \"Zatiaľ čo prvá kniha, ktorá vyšla v slovenskom preklade pod názvom O rozvrstvení obyvateľstva a príčinách štátnych prevratov, zväčša podľa Aristotela, je do značnej miery kritikou súdobých pomerov v spoločnosti, kniha O svetskej vrchnosti je pokusom formulovať víziu ideálneho panovníka a fungovania politickej moci v štáte, a to predovšetkým na základe morálnych hodnôt, resp. cností.\",\n      \"label\": \"premise\"\n    },\n    \"ADU5\": {\n      \"text\": \"Práve panovník by podľa neho mal byť tým, kto dokáže spravodlivo posúdiť a rozriešiť tieto problémy.\",\n      \"label\": \"claim\"\n    },\n    \"ADU6\": {\n      \"text\": \"V prvom rade podľa Rakovského má panovník byť ochrancom všetkých čestných a spravodlivých občanov štátu.\",\n      \"label\": \"premise\"\n    },\n    \"ADU7\": {\n      \"text\": \"Má reprezentovať najmä spravodlivosť a moc.\",\n      \"label\": \"premise\"\n    },\n    \"ADU8\": {\n      \"text\": \"Rakovského panovník mal byť práve naopak symbiózou osobných cností (vrátane zbožnosti) a úsilia o spoločné dobro všetkých občanov.\",\n      \"label\": \"claim\"\n    },\n    \"ADU9\": {\n      \"text\": \"Šťastie občanov, prosperitu krajiny možno podľa neho dosiahnuť len vtedy, ak v krajine vládne cnostný panovník, chrániaci život a majetok ľudí, odmeňujúci dobro a trestajúci zlo, brániaci mier a uplatňujúci spravodlivosť.\",\n      \"label\": \"claim\"\n    },\n    \"ADU10\": {\n      \"text\": \"Na Rakovského názoroch a jeho diele možno určite pozitívne hodnotiť realizmus vo vzťahu k svetu vrátane chápania ľudských chýb, nedostatkov a slabostí.\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"ADU1\",\n      \"target\": \"ADU2\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU3\",\n      \"target\": \"ADU4\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU5\",\n      \"target\": \"ADU6\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU5\",\n      \"target\": \"ADU7\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU8\",\n      \"target\": \"ADU9\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU9\",\n      \"target\": \"ADU10\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "ADU1": {
+              "text": "The writings of Martin Rakovský can be seen as a reflection of the problems, including political ones, of his time.",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "His aim was also to offer an idea of a perfect ruler, who would bring peoples the peace and calm down the stormy events of the 16th century.",
+              "label": "claim"
+            },
+            "ADU3": {
+              "text": "Given Rakovský's religious attitude he can be regarded as a reformation humanist standing between Machiavelli and Luther.",
+              "label": "claim"
+            },
+            "ADU4": {
+              "text": "Zatiaľ čo prvá kniha, ktorá vyšla v slovenskom preklade pod názvom O rozvrstvení obyvateľstva a príčinách štátnych prevratov, zväčša podľa Aristotela, je do značnej miery kritikou súdobých pomerov v spoločnosti, kniha O svetskej vrchnosti je pokusom formulovať víziu ideálneho panovníka a fungovania politickej moci v štáte, a to predovšetkým na základe morálnych hodnôt, resp. cností.",
+              "label": "premise"
+            },
+            "ADU5": {
+              "text": "Práve panovník by podľa neho mal byť tým, kto dokáže spravodlivo posúdiť a rozriešiť tieto problémy.",
+              "label": "claim"
+            },
+            "ADU6": {
+              "text": "V prvom rade podľa Rakovského má panovník byť ochrancom všetkých čestných a spravodlivých občanov štátu.",
+              "label": "premise"
+            },
+            "ADU7": {
+              "text": "Má reprezentovať najmä spravodlivosť a moc.",
+              "label": "premise"
+            },
+            "ADU8": {
+              "text": "Rakovského panovník mal byť práve naopak symbiózou osobných cností (vrátane zbožnosti) a úsilia o spoločné dobro všetkých občanov.",
+              "label": "claim"
+            },
+            "ADU9": {
+              "text": "Šťastie občanov, prosperitu krajiny možno podľa neho dosiahnuť len vtedy, ak v krajine vládne cnostný panovník, chrániaci život a majetok ľudí, odmeňujúci dobro a trestajúci zlo, brániaci mier a uplatňujúci spravodlivosť.",
+              "label": "claim"
+            },
+            "ADU10": {
+              "text": "Na Rakovského názoroch a jeho diele možno určite pozitívne hodnotiť realizmus vo vzťahu k svetu vrátane chápania ľudských chýb, nedostatkov a slabostí.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU1",
+              "target": "ADU2",
+              "type": "support"
+            },
+            {
+              "source": "ADU3",
+              "target": "ADU4",
+              "type": "support"
+            },
+            {
+              "source": "ADU5",
+              "target": "ADU6",
+              "type": "support"
+            },
+            {
+              "source": "ADU5",
+              "target": "ADU7",
+              "type": "support"
+            },
+            {
+              "source": "ADU8",
+              "target": "ADU9",
+              "type": "support"
+            },
+            {
+              "source": "ADU9",
+              "target": "ADU10",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "ADU1": {
+              "text": "The writings of Martin Rakovský can be seen as a reflection of the problems, including political ones, of his time.",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "His aim was also to offer an idea of a perfect ruler, who would bring peoples the peace and calm down the stormy events of the 16th century.",
+              "label": "claim"
+            },
+            "ADU3": {
+              "text": "Given Rakovský's religious attitude he can be regarded as a reformation humanist standing between Machiavelli and Luther.",
+              "label": "claim"
+            },
+            "ADU4": {
+              "text": "Zatiaľ čo prvá kniha, ktorá vyšla v slovenskom preklade pod názvom O rozvrstvení obyvateľstva a príčinách štátnych prevratov, zväčša podľa Aristotela, je do značnej miery kritikou súdobých pomerov v spoločnosti, kniha O svetskej vrchnosti je pokusom formulovať víziu ideálneho panovníka a fungovania politickej moci v štáte, a to predovšetkým na základe morálnych hodnôt, resp. cností.",
+              "label": "premise"
+            },
+            "ADU5": {
+              "text": "Práve panovník by podľa neho mal byť tým, kto dokáže spravodlivo posúdiť a rozriešiť tieto problémy.",
+              "label": "claim"
+            },
+            "ADU6": {
+              "text": "V prvom rade podľa Rakovského má panovník byť ochrancom všetkých čestných a spravodlivých občanov štátu.",
+              "label": "premise"
+            },
+            "ADU7": {
+              "text": "Má reprezentovať najmä spravodlivosť a moc.",
+              "label": "premise"
+            },
+            "ADU8": {
+              "text": "Rakovského panovník mal byť práve naopak symbiózou osobných cností (vrátane zbožnosti) a úsilia o spoločné dobro všetkých občanov.",
+              "label": "claim"
+            },
+            "ADU9": {
+              "text": "Šťastie občanov, prosperitu krajiny možno podľa neho dosiahnuť len vtedy, ak v krajine vládne cnostný panovník, chrániaci život a majetok ľudí, odmeňujúci dobro a trestajúci zlo, brániaci mier a uplatňujúci spravodlivosť.",
+              "label": "claim"
+            },
+            "ADU10": {
+              "text": "Na Rakovského názoroch a jeho diele možno určite pozitívne hodnotiť realizmus vo vzťahu k svetu vrátane chápania ľudských chýb, nedostatkov a slabostí.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU1",
+              "target": "ADU2",
+              "type": "support"
+            },
+            {
+              "source": "ADU3",
+              "target": "ADU4",
+              "type": "support"
+            },
+            {
+              "source": "ADU5",
+              "target": "ADU6",
+              "type": "support"
+            },
+            {
+              "source": "ADU5",
+              "target": "ADU7",
+              "type": "support"
+            },
+            {
+              "source": "ADU8",
+              "target": "ADU9",
+              "type": "support"
+            },
+            {
+              "source": "ADU9",
+              "target": "ADU10",
+              "type": "support"
+            }
+          ]
+        }
+      },
+      {
+        "source": "claude-3-5-sonnet-20241022",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"1\": {\n      \"text\": \"Paul  Oskar  Kristeller  tvrdí,  že  renesančný  humanizmus  bol  viac  kultúrnym a vzdelávacím programom ako filozofickou tendenciou alebo systémom. Centrom pozornosti nebola klasika a filozofia, ale najmä literatúra.\",\n      \"label\": \"premise\"\n    },\n    \"2\": {\n      \"text\": \"K podstatným aspektom renesančného humanizmu patril podľa jeho názoru dôraz na človeka, viera v hodnotu človeka, jeho dôstojnosť a privilegované miesto v univerze\",\n      \"label\": \"premise\"\n    },\n    \"3\": {\n      \"text\": \"Podstatne iná situácia však bola v rámci tzv. zaalpského renesančného humanizmu, ktorý sa začal rozvíjať až v období úpadku tohto hnutia v Taliansku, prepuknutia  krízy  katolíckej  cirkvi,  vzniku  reformácie  a mnohých  náboženských,  politických, ale aj ozbrojených bojov sprevádzajúcich Európu v 16. storočí.\",\n      \"label\": \"claim\"\n    },\n    \"4\": {\n      \"text\": \"Práve  pod  silnejúcim  vplyvom  reformácie  a protestantizmu  v tzv.  zaalpských  krajinách možno  skôr  hovoriť  o reformačnom  humanizme  hľadajúcom  symbiózu  medzi  antickou učenosťou a múdrosťou na jednej strane a dobou 16. storočia na strane druhej.\",\n      \"label\": \"claim\"\n    },\n    \"5\": {\n      \"text\": \"Zatiaľ čo permanentná politická kríza talianskych mestských štátov ho viedla k pesimistickým záverom a k opisu reálneho fungovania politika a politiky vo vtedajších pomeroch, mnohých reformačných humanistov (aj pod vplyvom protestantského náboženstva) politická, náboženská a duchovná kríza, sprevádzajúca 16. storočie, viedla práve naopak k hľadaniu odpovedí na otázku, aká by mala byť ideálna forma vlády a aký by mal byť ideálny panovník prinášajúci upokojenie rozbúrených politických, náboženských, kultúrnych a duchovných pomerov vo vtedajšej Európe.\",\n      \"label\": \"claim\"\n    },\n    \"6\": {\n      \"text\": \"Na rozdiel  od  Machiavelliho  opisujúceho,  ako  to  je,  oni  u antických  vzorov,  ako  boli  Platón, Aristoteles,  Cicero  a ďalší,  hľadali  odpoveď  na  otázku,  ako  by  to  malo  byť.\",\n      \"label\": \"claim\"\n    },\n    \"7\": {\n      \"text\": \"Preto  do značnej  miery  ignorovali  Machiavelliho,  keďže  jeho  navrhované  spôsoby  fungovania politiky a riešenia súdobých politických problémov boli priamo protikladné ich zámerom a sotva mohli napomôcť upokojeniu situácie v rozbúrenej Európe, skôr naopak.\",\n      \"label\": \"premise\"\n    },\n    \"8\": {\n      \"text\": \"Zatiaľ čo Rakovského panovník má byť druhom vladára uplatňujúceho antické cnosti  doplnené  o kresťanskú  zbožnosť  s ohľadom  na  podmienky  doby  druhej  polovice  16. storočia,  Machiavelliho  vladár  je  typom  panovníka  používajúceho  cnosti  na  vzbudenie zdania svojej dobroty, prípadne vtedy, keď sa mu to hodí na dosiahnutie cieľov.\",\n      \"label\": \"claim\"\n    },\n    \"9\": {\n      \"text\": \"Na základe doterajšieho skúmania Rakovského diela si predsa len myslím, že jeho etiku politiky možno charakterizovať ako vymedzovanie sa medzi Machiavellim  a  Lutherom.\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"1\",\n      \"target\": \"3\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"2\", \n      \"target\": \"3\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"3\",\n      \"target\": \"4\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"5\",\n      \"target\": \"6\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"7\",\n      \"target\": \"6\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"6\",\n      \"target\": \"8\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"8\",\n      \"target\": \"9\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "1": {
+              "text": "Paul  Oskar  Kristeller  tvrdí,  že  renesančný  humanizmus  bol  viac  kultúrnym a vzdelávacím programom ako filozofickou tendenciou alebo systémom. Centrom pozornosti nebola klasika a filozofia, ale najmä literatúra.",
+              "label": "premise"
+            },
+            "2": {
+              "text": "K podstatným aspektom renesančného humanizmu patril podľa jeho názoru dôraz na človeka, viera v hodnotu človeka, jeho dôstojnosť a privilegované miesto v univerze",
+              "label": "premise"
+            },
+            "3": {
+              "text": "Podstatne iná situácia však bola v rámci tzv. zaalpského renesančného humanizmu, ktorý sa začal rozvíjať až v období úpadku tohto hnutia v Taliansku, prepuknutia  krízy  katolíckej  cirkvi,  vzniku  reformácie  a mnohých  náboženských,  politických, ale aj ozbrojených bojov sprevádzajúcich Európu v 16. storočí.",
+              "label": "claim"
+            },
+            "4": {
+              "text": "Práve  pod  silnejúcim  vplyvom  reformácie  a protestantizmu  v tzv.  zaalpských  krajinách možno  skôr  hovoriť  o reformačnom  humanizme  hľadajúcom  symbiózu  medzi  antickou učenosťou a múdrosťou na jednej strane a dobou 16. storočia na strane druhej.",
+              "label": "claim"
+            },
+            "5": {
+              "text": "Zatiaľ čo permanentná politická kríza talianskych mestských štátov ho viedla k pesimistickým záverom a k opisu reálneho fungovania politika a politiky vo vtedajších pomeroch, mnohých reformačných humanistov (aj pod vplyvom protestantského náboženstva) politická, náboženská a duchovná kríza, sprevádzajúca 16. storočie, viedla práve naopak k hľadaniu odpovedí na otázku, aká by mala byť ideálna forma vlády a aký by mal byť ideálny panovník prinášajúci upokojenie rozbúrených politických, náboženských, kultúrnych a duchovných pomerov vo vtedajšej Európe.",
+              "label": "claim"
+            },
+            "6": {
+              "text": "Na rozdiel  od  Machiavelliho  opisujúceho,  ako  to  je,  oni  u antických  vzorov,  ako  boli  Platón, Aristoteles,  Cicero  a ďalší,  hľadali  odpoveď  na  otázku,  ako  by  to  malo  byť.",
+              "label": "claim"
+            },
+            "7": {
+              "text": "Preto  do značnej  miery  ignorovali  Machiavelliho,  keďže  jeho  navrhované  spôsoby  fungovania politiky a riešenia súdobých politických problémov boli priamo protikladné ich zámerom a sotva mohli napomôcť upokojeniu situácie v rozbúrenej Európe, skôr naopak.",
+              "label": "premise"
+            },
+            "8": {
+              "text": "Zatiaľ čo Rakovského panovník má byť druhom vladára uplatňujúceho antické cnosti  doplnené  o kresťanskú  zbožnosť  s ohľadom  na  podmienky  doby  druhej  polovice  16. storočia,  Machiavelliho  vladár  je  typom  panovníka  používajúceho  cnosti  na  vzbudenie zdania svojej dobroty, prípadne vtedy, keď sa mu to hodí na dosiahnutie cieľov.",
+              "label": "claim"
+            },
+            "9": {
+              "text": "Na základe doterajšieho skúmania Rakovského diela si predsa len myslím, že jeho etiku politiky možno charakterizovať ako vymedzovanie sa medzi Machiavellim  a  Lutherom.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "1",
+              "target": "3",
+              "type": "support"
+            },
+            {
+              "source": "2",
+              "target": "3",
+              "type": "support"
+            },
+            {
+              "source": "3",
+              "target": "4",
+              "type": "support"
+            },
+            {
+              "source": "5",
+              "target": "6",
+              "type": "support"
+            },
+            {
+              "source": "7",
+              "target": "6",
+              "type": "support"
+            },
+            {
+              "source": "6",
+              "target": "8",
+              "type": "support"
+            },
+            {
+              "source": "8",
+              "target": "9",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "1": {
+              "text": "Paul  Oskar  Kristeller  tvrdí,  že  renesančný  humanizmus  bol  viac  kultúrnym a vzdelávacím programom ako filozofickou tendenciou alebo systémom. Centrom pozornosti nebola klasika a filozofia, ale najmä literatúra.",
+              "label": "premise"
+            },
+            "2": {
+              "text": "K podstatným aspektom renesančného humanizmu patril podľa jeho názoru dôraz na človeka, viera v hodnotu človeka, jeho dôstojnosť a privilegované miesto v univerze",
+              "label": "premise"
+            },
+            "3": {
+              "text": "Podstatne iná situácia však bola v rámci tzv. zaalpského renesančného humanizmu, ktorý sa začal rozvíjať až v období úpadku tohto hnutia v Taliansku, prepuknutia  krízy  katolíckej  cirkvi,  vzniku  reformácie  a mnohých  náboženských,  politických, ale aj ozbrojených bojov sprevádzajúcich Európu v 16. storočí.",
+              "label": "claim"
+            },
+            "4": {
+              "text": "Práve  pod  silnejúcim  vplyvom  reformácie  a protestantizmu  v tzv.  zaalpských  krajinách možno  skôr  hovoriť  o reformačnom  humanizme  hľadajúcom  symbiózu  medzi  antickou učenosťou a múdrosťou na jednej strane a dobou 16. storočia na strane druhej.",
+              "label": "claim"
+            },
+            "5": {
+              "text": "Zatiaľ čo permanentná politická kríza talianskych mestských štátov ho viedla k pesimistickým záverom a k opisu reálneho fungovania politika a politiky vo vtedajších pomeroch, mnohých reformačných humanistov (aj pod vplyvom protestantského náboženstva) politická, náboženská a duchovná kríza, sprevádzajúca 16. storočie, viedla práve naopak k hľadaniu odpovedí na otázku, aká by mala byť ideálna forma vlády a aký by mal byť ideálny panovník prinášajúci upokojenie rozbúrených politických, náboženských, kultúrnych a duchovných pomerov vo vtedajšej Európe.",
+              "label": "claim"
+            },
+            "6": {
+              "text": "Na rozdiel  od  Machiavelliho  opisujúceho,  ako  to  je,  oni  u antických  vzorov,  ako  boli  Platón, Aristoteles,  Cicero  a ďalší,  hľadali  odpoveď  na  otázku,  ako  by  to  malo  byť.",
+              "label": "claim"
+            },
+            "7": {
+              "text": "Preto  do značnej  miery  ignorovali  Machiavelliho,  keďže  jeho  navrhované  spôsoby  fungovania politiky a riešenia súdobých politických problémov boli priamo protikladné ich zámerom a sotva mohli napomôcť upokojeniu situácie v rozbúrenej Európe, skôr naopak.",
+              "label": "premise"
+            },
+            "8": {
+              "text": "Zatiaľ čo Rakovského panovník má byť druhom vladára uplatňujúceho antické cnosti  doplnené  o kresťanskú  zbožnosť  s ohľadom  na  podmienky  doby  druhej  polovice  16. storočia,  Machiavelliho  vladár  je  typom  panovníka  používajúceho  cnosti  na  vzbudenie zdania svojej dobroty, prípadne vtedy, keď sa mu to hodí na dosiahnutie cieľov.",
+              "label": "claim"
+            },
+            "9": {
+              "text": "Na základe doterajšieho skúmania Rakovského diela si predsa len myslím, že jeho etiku politiky možno charakterizovať ako vymedzovanie sa medzi Machiavellim  a  Lutherom.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "1",
+              "target": "3",
+              "type": "support"
+            },
+            {
+              "source": "2",
+              "target": "3",
+              "type": "support"
+            },
+            {
+              "source": "3",
+              "target": "4",
+              "type": "support"
+            },
+            {
+              "source": "5",
+              "target": "6",
+              "type": "support"
+            },
+            {
+              "source": "7",
+              "target": "6",
+              "type": "support"
+            },
+            {
+              "source": "6",
+              "target": "8",
+              "type": "support"
+            },
+            {
+              "source": "8",
+              "target": "9",
+              "type": "support"
+            }
+          ]
+        }
+      }
+    ],
+    "timestamp": 1752753582.6427565
+  }
+]

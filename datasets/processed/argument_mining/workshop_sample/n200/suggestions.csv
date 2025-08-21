@@ -1,0 +1,47 @@
+identifier,cluster|year|category,suggestion_reason
+KOSMSA,43|Q2|Endurance,valid_from_cluster_43
+SCHRTL-4,43|Q3|Philosophy of Religion,valid_from_cluster_43
+HARIAT,43|Q1|Aesthetic Evaluation,valid_from_cluster_43
+COSSAT-7,"43|Q2|Global Metaphysical Theories, Misc",valid_from_cluster_43
+UMBPAR,43|Q2|General Relativity,valid_from_cluster_43
+ARNCOM,43|Q1|nan,valid_from_cluster_43
+NOLTUE,8|Q2|Ontology of Mathematics,valid_from_cluster_8
+TUCADO,"8|Q2|Theories of Emotion, Misc",valid_from_cluster_8
+GOLHBN,8|Q3|Political Theory,valid_from_cluster_8
+KHOEOC-2,"8|Q3|Issues in the Philosophy of Economics, Misc",valid_from_cluster_8
+FORACO,8|Q1|The Secular Problem of Evil,valid_from_cluster_8
+JDINTO,8|Q4|nan,valid_from_cluster_8
+NALROT-3,8|Q4|Education,valid_from_cluster_8
+GLUROE,8|Q1|Poetry,valid_from_cluster_8
+WILGTB-2,8|Q2|Autonomy in Applied Ethics,valid_from_cluster_8
+SCHAOD-12,8|Q3|Conscious Thought,valid_from_cluster_8
+ARCSAA-5,8|Q1|Philosophy of Social Science,valid_from_cluster_8
+NEEGRT-3,8|Q3|The Explanatory Gap,valid_from_cluster_8
+PRODIN,8|Q2|Epicurus,valid_from_cluster_8
+BRIVEI,"8|Q2|The Nature of Perceptual Experience, Misc",valid_from_cluster_8
+MAJALI,"8|Q4|Science, Logic, and Mathematics",valid_from_cluster_8
+ZAMTAS,8|Q3|Other Academic Areas,valid_from_cluster_8
+VANBII-5,29|Q1|Phenomenology,valid_from_cluster_29
+EBRDAI,29|Q3|Classical Greek Philosophy,valid_from_cluster_29
+SALICA-3,"29|Q1|Phenomenology, Misc",valid_from_cluster_29
+HTTPIB,"29|Q2|Dispositions and Powers, Misc",valid_from_cluster_29
+CROSEC,"84|Q3|Supervenience, General",valid_from_cluster_84
+POLTRD,84|Q1|Aristotelian Logic,valid_from_cluster_84
+SOMPIO,71|Q1|nan,valid_from_cluster_71
+LAWMAF-2,71|Q2|Computer Science,valid_from_cluster_71
+SUII,17|Q2|nan,valid_from_cluster_17
+BESITS,17|Q2|Informal Logic,valid_from_cluster_17
+KRIDML,45|Q3|Scope,valid_from_cluster_45
+YANPOM,45|Q4|Philosophy of Film,valid_from_cluster_45
+MELSPP,63|Q1|Literature,valid_from_cluster_63
+BOGCAP-2,63|Q1|Philosophy of Law,valid_from_cluster_63
+KJAWCA,4|Q3|nan,valid_from_cluster_4
+XIARRI,4|Q1|Chinese Philosophy,valid_from_cluster_4
+PURUAD,52|Q4|Moral Psychology,valid_from_cluster_52
+ALTTSO-7,"52|Q3|Death and Dying, Misc",valid_from_cluster_52
+ALFEWR,55|Q3|Epistemology of Religion,valid_from_cluster_55
+WAEBTI,55|Q2|nan,valid_from_cluster_55
+CRECOF,23|Q1|Physics,valid_from_cluster_23
+STEQHA,23|Q3|Happiness,valid_from_cluster_23
+KATTWE,88|Q4|Metaphilosophy,valid_from_cluster_88
+YEOHAA,88|Q1|Causal Theory of Action,valid_from_cluster_88

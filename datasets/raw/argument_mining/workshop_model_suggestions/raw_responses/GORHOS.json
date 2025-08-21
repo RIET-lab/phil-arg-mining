@@ -1,0 +1,440 @@
+[
+  {
+    "identifier": "GORHOS",
+    "system_prompt": "## GOAL\nArgument‑mine the following paper to extract its comprehensive argumentative structure.\n\n## DEFINITIONS\n1. **Argument**: A set of propositions, including some number of premises and a conclusion. The premises should logically entail the conclusion.\n2. **Claim**: A proposition that asserts something to be true or false, typically requiring justification or evidence.\n3. **Premise**: A proposition that provides evidence, justification, or logical support for a claim or conclusion.\n\n## CRITICAL REQUIREMENTS\n1. **VERBATIM EXTRACTION ONLY**: Each ADU text must be copied EXACTLY from the paper with no modifications, paraphrasing, or combining of separate sentences.\n2. **NO HALLUCINATION**: Do not create, modify, or invent text that does not appear exactly in the source.\n3. **EXACT MATCHING**: Every word, punctuation mark, and spacing must match the original precisely.\n\n## DIRECTIONS\n1. **Identify Argumentative Discourse Units (ADUs)**  \n   - ADU = any contiguous text span functioning as a claim or a premise in the reasoning structure.\n   - **BE HIGHLY SELECTIVE**: Only include ADUs that are crucial to the overarching argument structure.\n   - Focus on significant claims and premises that contribute meaningfully to the argumentative flow.\n   - **AVOID NOISE**: Skip ADUs that are merely descriptive, tangential, or do not substantially advance the argument.\n   - Prioritize quality over quantity - fewer accurate, important ADUs are better than many insignificant ones.\n   - **EXTRACT ONLY**: Copy text spans exactly as they appear, without any modifications.\n2. **Classify each ADU**  \n   - Label = either `\"claim\"` or `\"premise\"`.  \n3. **Detect directed relations**  \n   - Relation = `\"support\"` or `\"attack\"`, from one ADU (source) to another (target).\n   - Map how ADUs connect to form reasoning chains.\n   - Focus on relationships between the most significant ADUs.\n   - Include relationships between premises that strengthen or weaken each other.\n4. **Verbatim spans**  \n   - Each `\"text\"` value must be copied EXACTLY from the paper with zero modifications.\n   - Do not paraphrase, summarize, or combine separate sentences.\n   - Do not add, remove, or change any words, punctuation, or spacing.\n   - If unsure about exact wording, skip that ADU rather than guess.\n\n## WHAT TO CAPTURE\n**INCLUDE ONLY:**\n- Main argumentative threads that are central to the paper's contribution\n- Core claims that represent the paper's primary arguments or findings\n- Key premises that provide essential support for major claims\n- Critical counterarguments and their refutations\n- Reasoning chains that demonstrate how main conclusions are derived\n\n**EXCLUDE (AVOID NOISE):**\n- Minor details, examples, or descriptive content that don't advance the argument\n- Tangential points or side discussions\n- Pure background information or literature review content\n- Methodological details unless they constitute argumentative claims\n- Obvious statements or commonly accepted facts\n- Redundant or repetitive argumentative content\n\n**GUIDING PRINCIPLE**: If removing an ADU would not significantly impact understanding of the paper's argumentative structure, it should be excluded.\n\n## QUALITY CONTROL\n- Before finalizing each ADU, verify the text exists exactly in the source\n- Prefer fewer, accurate ADUs over many potentially modified ones\n- When in doubt about exact wording, omit the ADU\n\n## OUTPUT FORMAT\nReturn **only** a single valid JSON object matching this schema.  \nDo **not** output any extra text, markdown, or explanations.\n\nRESPOND WITH ONLY:\n```json\n{\n  \"ADUs\": {\n    \"<ADU_ID>\": {\n      \"text\": \"<exact span from paper>\",\n      \"label\": \"claim\" | \"premise\"\n    }\n    ...\n  },\n  \"relations\": [\n    {\n      \"source\": \"<ADU_ID>\",\n      \"target\": \"<ADU_ID>\",\n      \"type\": \"support\" | \"attack\"\n    }\n  ]\n}\n```",
+    "user_content": "## HUGH OF ST. VICTOR\n\nMichael Gorman\n\nTo appear in The Blackwell Companion to Philosophy in the Middle Ages\n\nHugh of St. Victor (b. ca. 1097-1101; d. 1141) was a canon regular who entered the Abbey of St. Victor in Paris.  Probably a student of William of Champeaux, he became a leading master in the abbey's school.\n\nHis writings encompass a wide range of commentaries, treatises, and mystical works. The two most important are De sacramentis christianae fidei , the first theological summa , and Didascalicon , which proposed an influential framework for scientific inquiry and biblical interpretation.  Hugh's works (along with some inauthentic works) can be found in Migne (P.L. 175-77) and are being critically edited at the Hugo von Sankt Viktor-Institut in the Philosophisch-Theologische Hochschule Sankt Georgen in Frankfurt.\n\nHugh was a master in a school and counts as a scholastic author, even though he comes before the rise of university scholasticism and before the Latin West's rediscovery of the integral Aristotle.  A careful thinker, he often pauses to indicate which things are known, which things are matters for speculation, and which things cannot be settled.  The greatest testimony to the breadth of his mind is that of Bonaventure in the De reductione artium ad theologiam (n. 5, ed. Quar. V 321b).  According to Bonaventure (who introduces Hugh in Paradisio XII.133), the three branches of theology are doctrine, morals, and mysticism; their best practitioners were Augustine, Gregory, and Dionysius, and they were succeeded by Anselm, Bernard, and Richard on account of their reason, preaching, and contemplation; 'but Hugh had all of these.'\n\nLike most medieval authors, Hugh is more a theologian than a philosopher.  His main categories and concerns are determined by the Christian faith, he appeals to revelation freely, and he seldom engages in independent philosophical inquiries.  At the same time, however, he does distinguish philosophy from theology, and he sees a real (if secondary) role for reason acting without special guidance from faith in an attempt to grasp the works of institution (see below); we can, therefore, speak truly of his philosophical views.  This article will focus on them, but not\n\nMichael Gorman - Hugh of St. Victor\n\nwithout giving due attention to his overall theological vision and some of his theological positions.\n\n## Hugh's overall vision\n\nAt some risk of oversimplification, we can identify three principles at work in Hugh's thought.  The first is the chronological distinction between institution and restoration.  Institution is God's work of creating everything in its original state; restoration refers to God's subsequent work of bringing everything back from evil to even greater good ( De sacr I.prol.; see also I.6.10). Attention to this chronological scheme is important for understanding Hugh's views on various topics, most importantly human nature, which is in a different state before and after the fall.  The second principle is semiotic. For Hugh, all creatures are signs of God, and man is an especially good sign of God; further, certain creatures are used by God as signs, above all in Scripture.  This semiotic network ties reality together in a way that allows man's knowledge to mount from creature to creator.  The third principle is causal.  For Hugh, all things are bound up in causal networks.  All things are caused by God and exist according to his will, and part of what he wills is that there be hierarchical causal relations among creatures as well ( De sacr I.2.2).\n\nOf these three principles, the causal is the most basic.  All creation is as it is, and develops as it develops, as a result of God's creative will; within God's arrangement of things, creatures exert causal powers on each other.  The chronological principle explains the pattern according to which God's works unfold.  The semiotic principle explains how man comes to know all this.  (For a somewhat different view of Hugo's system, see Hofmeier, 297-302.)\n\n## Sources\n\nMichael Gorman - Hugh of St. Victor Hugh knew many Patristic authors, both Eastern and Western, but he had little or no direct knowledge of Plato or Aristotle.  That he wrote over a century before the re-discovery of the full Aristotelian corpus naturally put him at a handicap in comparison with 13th-century authors, but it is well to remember how much material of philosophical interest is to be found in the Church Fathers, much of it introduced in the course of debates over the trinity, the\n\nincarnation, and the Pelagian controversy.  Hugh thus draws on a tradition of reflection on topics such as substance, person, nature, relation, causation, and moral psychology.  As for more immediate sources, Hugh is familiar with the works of other early scholastic authors and sometimes is at odds with them; Abelard in particular comes in for criticism.\n\n## Division of the sciences\n\nHugh's division of the sciences reflects his respect for the whole range of human intellectual endeavor. 'The arts' or 'philosophy' has four divisions:  theoretical, practical, mechanical (including this is a Hugonian innovation), and logical ( Didasc . II).  At the first level of subdivision, theoretical philosophy is divided into theology, physics, and mathematics; practical is divided into solitary, private, and public; mechanical is divided into fabric-making, armament, commerce, agriculture, hunting, medicine, and theatrics; logic is divided into grammar and argument.\n\n## Biblical interpretation\n\nBeyond the study of such topics is, of course, the study of Scripture.  Everything in the Bible is to be interpreted either literally (historically), allegorically, or tropologically (morally); many but not all passages in scripture have two or even three of these meanings ( Didasc . 5.2).  Hugh is careful to add that not only Biblical words but also the things referred to by Biblical words have meaning; for example, in 1 Pet 5.8, 'lion' means a lion, and the lion means the devil.  The Didascalicon explains the place of scriptural study in the whole of human inquiry and tells how to study the Bible; the De sacramentis provides the theological understanding without which the reader of the Bible is bound to go astray ( De sacr I, prol.).\n\n## God\n\nMichael Gorman - Hugh of St. Victor For Hugh, God is neither wholly known by us nor wholly unknown ( De sacr. I.3.2). We know about God in two basic ways, reason and revelation; each of these is subdivided into external and internal indications of God's existence ( De sacr. I.3.3).  Hence we can know of God\n\nthrough reason by reflecting on external creatures ( De sacr. I.3.10; I.2.12; I.3.28) or by reflecting on our own minds ( De sacr. I.3.6-9; I.2.13); likewise, we can know about God through external teaching or internal inspiration ( De sacr. I.3.3).  All these ways find their unity in the fact that it is the one God who makes himself known through them all, an example of how philosophy finds its place in the broader context of faith (see Schutz, 286-304).\n\nHugh reduces the basic divine attributes to power, will (goodness), and wisdom ( De sacr. I.2.6; I.3.29), and he does not seem to feel the need to reduce them to one trait, such as infinity or perfection.  Throughout, Hugh shows an awareness of what will later be called analogy, i.e., he is aware that God's attributes are both similar and dissimilar to the corresponding attributes found in creation ( De sacr. I.3.28; I.2.13).\n\nIn his trinitarian theory, Hugh discusses appropriation of common names, argues that the trinity is reflected in creation but not in such a way that we could have discovered it without revelation, and presents the view that the trinitarian persons are united in nature and distinguished by opposed relations ( De sacr. I.3; II.1.4).  Hugh's trinitarian theory is not particularly original, but it steers an orthodox path through some of the controversies of his time.\n\n## Creation\n\nHugh follows Augustine in holding that time began with creation ( De sacr. I.1.6).  He also holds that the world began in a relatively unformed state and was later given (more) form by God ( De sacr. I.1.6).  He holds that evil is privation ( De sacr. I.1.10) and that God could have created the world differently ( De sacr. I.1.3). He discusses the angels in De Sacr I.5 and also in his commentary on Pseudo-Dionysius's Celestial Hierarchy , emphasizing their inequality.  He seems to be steering clear of the view that angels have spiritual matter, which anticipates a debate in the later middle ages ( De sacr. I.1.4-6; I.5.7).\n\n## Providence and evil\n\nMichael Gorman - Hugh of St. Victor Not surprisingly, Hugh holds that God governs all of creation.  This raises difficulties that call on much of his skill.  In De sacr . I.2.14-22, Hugh notes that God has foreknowledge of all\n\nthings. It seems, however, that if God knows infallibly all that will happen, then (a) things must turn out the way he foresees their turning out, which makes all events necessary, and (b) the truth of his knowledge depends on their turning out that way, which makes God posterior to creatures. The heart of Hugh's solution is a distinction between foreknowledge and providence; one can have foreknowledge of things over which one has no control, whereas one can have providence only of things over which one has control.  God's knowledge is not merely foreknowledge but providential foreknowledge. The source of the difficulty was that how things turn out and God's knowledge of how they turn out co-vary; if God knows that it will rain, it will rain, and if it will rain, God knows that it will rain.  If that is all we say, then there is no way to tell which is causally prior, the rain or God's knowledge thereof.  But once we see that God's knowledge is providential, i.e., that it concerns what he has control over, we can see the direction of causation: things happen the way they do because God has providential knowledge that they will so happen, not vice versa. This solves both problems. God is not posterior to created happenings, and that his knowledge is providential ensures that in fact the opposite is the case.  As for created happenings, they are contingent, because God could have willed them to happen otherwise; in that contrary-to-fact case, his providential foreknowledge would have been other than it was.\n\nAnother problem concerning providence is the problem of evil.  For Hugh the issue is not whether the existence of evil counts against the existence of God but how both God and evil can exist ( De sacr I.4.1-8).  He distinguishes what God permits (his permissive will) from what God brings about (his operative will).  Second, he distinguishes something's being good (or evil) in itself from something's being such that it is good (or evil) for it to exist.  This yields four logical possibilities and allows Hugh to account for the existence of evil.  Some things are evil in themselves, but nonetheless it is good for them to exist; the death of an animal, which is evil in itself but provides food, might be a good example.  Such evils God does not create, but he does permit them, as it is better for there to be not only the kinds of good that arise from good things whose existence is good, but also the kinds of good that arise from evil things whose existence is good.\n\nMichael Gorman - Hugh of St. Victor So what God does and what he permits both reveal his will.  But a further problem arises\n\nwhen we consider his commands and prohibitions, many of which are disobeyed ( De sacr I.4.925; cf. I.5.30-32).   If they are disobeyed, does this not mean that God's will is thwarted?  If not, if God's commands are disobeyed only in accordance with his will, how are they not deceptive signs of that will, at least in those cases in which God's will is for them not to be obeyed?  Hugh argues that God's commands tell us what we should do, what would benefit us; some choose evil, however, and God permits this when the evils chosen are things such that it is good (for others' benefit) for them to be.  Thus, as Hugh explains, God does not cause evil, but he orders it for the sake of good ( De sacr I.5.32).\n\n## Human nature and ethics\n\nHugh has a strong doctrine of man as the image of God ( De sacr. I.6.2; I.5.3).  He sees man as including both soul and body, but he has a strong tendency to identify man with the soul alone ( De sacr . I.6.1-3); a tendency to think of form as accidental ( De sacr. I.3.15) may be preventing him from seeing the soul as the body's form.  He thus emphasizes the division between body and spirit, with the latter commanding the former and the former (ideally) obeying. He seems to associate man's natural good with bodily good and his supernatural good with spiritual good, without leaving much room for any natural perfections of the mind.\n\n## Salvation\n\nThe work of restoration is spread out over a long expanse of time, starting right after the fall, even before the first revelation to the Jews.  All of it is the work of Christ, whom Hugh compares to the captain of an army, some of whose soldiers go on before him and some of whom come behind ( De sacr . I prol. 2).  Nothing but the best is good enough for man ( De sacr. I.6.6), and his end state after redemption is higher than it was before the fall ( De sacr. I.6.10).\n\nHugh's Christology is basically orthodox; he shows good mastery of the basic patristic teachings on person and nature, although his zeal to overcome certain heterodox tendencies of his day led him to exaggerate Christ's human knowledge ( De sacr II.1.6; cf. Poppenberg, 112.)\n\nMichael Gorman - Hugh of St. Victor Very noteworthy is Hugh's teaching on the sacraments.  It was he who made the decisive\n\ncontribution to Christian theology of characterizing a sacrament in the full sense as not just a sign but a sign instituted by Christ for the purpose of conveying what it signifies ( De sacr. I.9.2). Sacraments in this sense are found not only within Christianity but throughout all salvation history, and in them we find united the main principles of Hugh's thought: sacraments both signify the restorative work of God and bring it about.\n\nHugh understands the Church ( De sacr. II.2) on the basis of St Paul's metaphor of the body of Christ, whose animating spirit is the Holy Spirit and each of whose members of has its own function to fulfill for the sake of the whole. The two 'sides' of this body are the clergy and the laity; the clergy are devoted to spiritual matters and the laity are devoted to the things of this life.  This spiritual-temporal distinction is not a distinction between the Church and the world, at least not in the Christendom Hugh knew; it is in a sense a distinction within the Church, as both secular and spiritual power are under Christ's authority.  The secular is subordinated to the spiritual ( De sacr . II.2.4), but the secular power's sphere has to be respected by the spiritual, which qualifies the sense in which the spiritual power can possess material things ( De sacr . II.2.7).\n\n## Spiritual teachings\n\nFor Hugh, the central spiritual problem is the restlessness of the human heart, which pursues the many changing things of this changing world.  This restlessness is an effect of the fall, which robbed man of the loving contemplation by which he was aware of God's presence in a way that unified his thoughts and actions and made them good.  In the next life we hope to attain the beatific vision, which goes even beyond that pre-lapsarian contemplation; in this life we can only strive, with the help of supernatural grace, to recover loving contemplation ( De arca Noe morali I, prol.).  Using the image of Noah's Ark, Hugh describes how one should float above the changing waters of the world in the ark of the recollected soul, in a life of contemplation where thought and action are directed to God ( De arca Noe morali , II, 2-5).\n\n## Influence and importance\n\nMichael Gorman - Hugh of St. Victor\n\nHugh had a great influence over the members of his own school, Richard of St. Victor above all. In an even more long-lasting way, he influenced Peter Lombard, whose impact on later scholastic thought is hard to overstate; this gives Hugh a tremendous if indirect influence over the entire course of scholastic thought.  As for direct influence, this tended to wane after the 12 th century, although he was certainly read and appreciated by later authors, such as Bonaventure, Aquinas, and others, especially on specific points, such as his definition of sacraments.\n\nIf Hugh sometimes lacks the great sophistication of later scholastic thinkers, at the same time the relative lack of complexity of his thought makes it easier for him to achieve and expound an overall vision without getting distracted by technical issues.  His caution and prudence are attractive, and when he does go into details, his discussions are often quite interesting and instructive.  He balances concern for the natural with a concern to place it in the greater supernatural context.  Finally, his appropriation of the tradition of the Church Fathers and what he has of Greek philosophy is an example of how much can be accomplished by someone who is more interested in learning and passing on the truth than in being original (cf. De sacr . I.2.22)\n\n## Primary sources\n\nOpera Omnia Hugonis de S. Victore . Patrologia Latina , vol. 175-77.\n\nOn the Sacraments of the Christian Faith , trans. Roy. J. Deferrari.  Cambridge, MA:  The Medieval Academy of America, 1951.  (This translation is not altogether reliable.)\n\nThe Didascalicon of Hugo of St. Victor , trans. with introduction by Jerome Taylor.  New York: Columbia University Press, 1961.\n\nHugh of Saint-Victor:  Selected Spiritual Writings .  Trans. by a religious of C. S. M. V.  New York:  Harper and Row, 1962.\n\nMichael Gorman - Hugh of St. Victor\n\n## Secondary sources\n\nBonaventure. De reductione artium ad theologiam , as found in Doctoris seraphici S. Bonaventurae, Opera omnia , vol. V.  Quaracchi: Ex Typographia Collegii S. Bonaventurae, 1882-1902.\n\nHofmeier, Johann. Die Trinitätslehere des Hugo von St. Viktor .  München:  Max Hueber Verlag, 1963.\n\nIllich, Ivan. In the Vineyard of the Text:  A Commentary to Hugh's Didascalicon .  Chicago: University of Chicago Press, 1993.\n\nPoppenberg, P. Everhard. Die Christologie des Hugo von St. Victor .  Münster : Herz Jesumissionshaus Hiltrup, 1937\n\nSchütz, Christian. Deus Absconditus, Deus Manifestus:  Die Lehre Hugos von St. Viktor über die Offenbarung Gottes .  Rome:  Libreria Herder, 1967.\n\nF. Vernet.  \"Hugues de Saint-Victor.\" Dictionnaire de théologie catholique , vol. 7, no. 1, pp. 240-307.  Ed. A. Vacant, E. Mangenot, E. Amann.  Paris:  Librairie Letouzey et Ané 1927.",
+    "responses": [
+      {
+        "source": "gpt-4o-2024-11-20",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"ADU1\": {\n      \"text\": \"Hugh of St. Victor (b. ca. 1097-1101; d. 1141) was a canon regular who entered the Abbey of St. Victor in Paris.\",\n      \"label\": \"claim\"\n    },\n    \"ADU2\": {\n      \"text\": \"Probably a student of William of Champeaux, he became a leading master in the abbey's school.\",\n      \"label\": \"premise\"\n    },\n    \"ADU3\": {\n      \"text\": \"The two most important are De sacramentis christianae fidei, the first theological summa, and Didascalicon, which proposed an influential framework for scientific inquiry and biblical interpretation.\",\n      \"label\": \"claim\"\n    },\n    \"ADU4\": {\n      \"text\": \"Hugh was a master in a school and counts as a scholastic author, even though he comes before the rise of university scholasticism and before the Latin West's rediscovery of the integral Aristotle.\",\n      \"label\": \"claim\"\n    },\n    \"ADU5\": {\n      \"text\": \"Like most medieval authors, Hugh is more a theologian than a philosopher.\",\n      \"label\": \"claim\"\n    },\n    \"ADU6\": {\n      \"text\": \"At some risk of oversimplification, we can identify three principles at work in Hugh's thought.\",\n      \"label\": \"claim\"\n    },\n    \"ADU7\": {\n      \"text\": \"The first is the chronological distinction between institution and restoration.\",\n      \"label\": \"premise\"\n    },\n    \"ADU8\": {\n      \"text\": \"Institution is God's work of creating everything in its original state; restoration refers to God's subsequent work of bringing everything back from evil to even greater good.\",\n      \"label\": \"premise\"\n    },\n    \"ADU9\": {\n      \"text\": \"The second principle is semiotic.\",\n      \"label\": \"premise\"\n    },\n    \"ADU10\": {\n      \"text\": \"For Hugh, all creatures are signs of God, and man is an especially good sign of God; further, certain creatures are used by God as signs, above all in Scripture.\",\n      \"label\": \"premise\"\n    },\n    \"ADU11\": {\n      \"text\": \"The third principle is causal.\",\n      \"label\": \"premise\"\n    },\n    \"ADU12\": {\n      \"text\": \"For Hugh, all things are bound up in causal networks.\",\n      \"label\": \"premise\"\n    },\n    \"ADU13\": {\n      \"text\": \"Of these three principles, the causal is the most basic.\",\n      \"label\": \"claim\"\n    },\n    \"ADU14\": {\n      \"text\": \"Hugh's division of the sciences reflects his respect for the whole range of human intellectual endeavor.\",\n      \"label\": \"claim\"\n    },\n    \"ADU15\": {\n      \"text\": \"'The arts' or 'philosophy' has four divisions: theoretical, practical, mechanical (including this is a Hugonian innovation), and logical.\",\n      \"label\": \"premise\"\n    },\n    \"ADU16\": {\n      \"text\": \"Hugh reduces the basic divine attributes to power, will (goodness), and wisdom.\",\n      \"label\": \"claim\"\n    },\n    \"ADU17\": {\n      \"text\": \"Hugh follows Augustine in holding that time began with creation.\",\n      \"label\": \"claim\"\n    },\n    \"ADU18\": {\n      \"text\": \"He also holds that the world began in a relatively unformed state and was later given (more) form by God.\",\n      \"label\": \"premise\"\n    },\n    \"ADU19\": {\n      \"text\": \"Hugh holds that God governs all of creation.\",\n      \"label\": \"claim\"\n    },\n    \"ADU20\": {\n      \"text\": \"This raises difficulties that call on much of his skill.\",\n      \"label\": \"premise\"\n    },\n    \"ADU21\": {\n      \"text\": \"Hugh has a strong doctrine of man as the image of God.\",\n      \"label\": \"claim\"\n    },\n    \"ADU22\": {\n      \"text\": \"He sees man as including both soul and body, but he has a strong tendency to identify man with the soul alone.\",\n      \"label\": \"premise\"\n    },\n    \"ADU23\": {\n      \"text\": \"The work of restoration is spread out over a long expanse of time, starting right after the fall, even before the first revelation to the Jews.\",\n      \"label\": \"claim\"\n    },\n    \"ADU24\": {\n      \"text\": \"Hugh's Christology is basically orthodox; he shows good mastery of the basic patristic teachings on person and nature.\",\n      \"label\": \"claim\"\n    },\n    \"ADU25\": {\n      \"text\": \"It was he who made the decisive contribution to Christian theology of characterizing a sacrament in the full sense as not just a sign but a sign instituted by Christ for the purpose of conveying what it signifies.\",\n      \"label\": \"claim\"\n    },\n    \"ADU26\": {\n      \"text\": \"Hugh had a great influence over the members of his own school, Richard of St. Victor above all.\",\n      \"label\": \"claim\"\n    },\n    \"ADU27\": {\n      \"text\": \"In an even more long-lasting way, he influenced Peter Lombard, whose impact on later scholastic thought is hard to overstate.\",\n      \"label\": \"premise\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"ADU2\",\n      \"target\": \"ADU1\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU7\",\n      \"target\": \"ADU6\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU8\",\n      \"target\": \"ADU7\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU9\",\n      \"target\": \"ADU6\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU10\",\n      \"target\": \"ADU9\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU11\",\n      \"target\": \"ADU6\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU12\",\n      \"target\": \"ADU11\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU13\",\n      \"target\": \"ADU6\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU15\",\n      \"target\": \"ADU14\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU18\",\n      \"target\": \"ADU17\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU20\",\n      \"target\": \"ADU19\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU22\",\n      \"target\": \"ADU21\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU27\",\n      \"target\": \"ADU26\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "ADU1": {
+              "text": "Hugh of St. Victor (b. ca. 1097-1101; d. 1141) was a canon regular who entered the Abbey of St. Victor in Paris.",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "Probably a student of William of Champeaux, he became a leading master in the abbey's school.",
+              "label": "premise"
+            },
+            "ADU3": {
+              "text": "The two most important are De sacramentis christianae fidei, the first theological summa, and Didascalicon, which proposed an influential framework for scientific inquiry and biblical interpretation.",
+              "label": "claim"
+            },
+            "ADU4": {
+              "text": "Hugh was a master in a school and counts as a scholastic author, even though he comes before the rise of university scholasticism and before the Latin West's rediscovery of the integral Aristotle.",
+              "label": "claim"
+            },
+            "ADU5": {
+              "text": "Like most medieval authors, Hugh is more a theologian than a philosopher.",
+              "label": "claim"
+            },
+            "ADU6": {
+              "text": "At some risk of oversimplification, we can identify three principles at work in Hugh's thought.",
+              "label": "claim"
+            },
+            "ADU7": {
+              "text": "The first is the chronological distinction between institution and restoration.",
+              "label": "premise"
+            },
+            "ADU8": {
+              "text": "Institution is God's work of creating everything in its original state; restoration refers to God's subsequent work of bringing everything back from evil to even greater good.",
+              "label": "premise"
+            },
+            "ADU9": {
+              "text": "The second principle is semiotic.",
+              "label": "premise"
+            },
+            "ADU10": {
+              "text": "For Hugh, all creatures are signs of God, and man is an especially good sign of God; further, certain creatures are used by God as signs, above all in Scripture.",
+              "label": "premise"
+            },
+            "ADU11": {
+              "text": "The third principle is causal.",
+              "label": "premise"
+            },
+            "ADU12": {
+              "text": "For Hugh, all things are bound up in causal networks.",
+              "label": "premise"
+            },
+            "ADU13": {
+              "text": "Of these three principles, the causal is the most basic.",
+              "label": "claim"
+            },
+            "ADU14": {
+              "text": "Hugh's division of the sciences reflects his respect for the whole range of human intellectual endeavor.",
+              "label": "claim"
+            },
+            "ADU15": {
+              "text": "'The arts' or 'philosophy' has four divisions: theoretical, practical, mechanical (including this is a Hugonian innovation), and logical.",
+              "label": "premise"
+            },
+            "ADU16": {
+              "text": "Hugh reduces the basic divine attributes to power, will (goodness), and wisdom.",
+              "label": "claim"
+            },
+            "ADU17": {
+              "text": "Hugh follows Augustine in holding that time began with creation.",
+              "label": "claim"
+            },
+            "ADU18": {
+              "text": "He also holds that the world began in a relatively unformed state and was later given (more) form by God.",
+              "label": "premise"
+            },
+            "ADU19": {
+              "text": "Hugh holds that God governs all of creation.",
+              "label": "claim"
+            },
+            "ADU20": {
+              "text": "This raises difficulties that call on much of his skill.",
+              "label": "premise"
+            },
+            "ADU21": {
+              "text": "Hugh has a strong doctrine of man as the image of God.",
+              "label": "claim"
+            },
+            "ADU22": {
+              "text": "He sees man as including both soul and body, but he has a strong tendency to identify man with the soul alone.",
+              "label": "premise"
+            },
+            "ADU23": {
+              "text": "The work of restoration is spread out over a long expanse of time, starting right after the fall, even before the first revelation to the Jews.",
+              "label": "claim"
+            },
+            "ADU24": {
+              "text": "Hugh's Christology is basically orthodox; he shows good mastery of the basic patristic teachings on person and nature.",
+              "label": "claim"
+            },
+            "ADU25": {
+              "text": "It was he who made the decisive contribution to Christian theology of characterizing a sacrament in the full sense as not just a sign but a sign instituted by Christ for the purpose of conveying what it signifies.",
+              "label": "claim"
+            },
+            "ADU26": {
+              "text": "Hugh had a great influence over the members of his own school, Richard of St. Victor above all.",
+              "label": "claim"
+            },
+            "ADU27": {
+              "text": "In an even more long-lasting way, he influenced Peter Lombard, whose impact on later scholastic thought is hard to overstate.",
+              "label": "premise"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU2",
+              "target": "ADU1",
+              "type": "support"
+            },
+            {
+              "source": "ADU7",
+              "target": "ADU6",
+              "type": "support"
+            },
+            {
+              "source": "ADU8",
+              "target": "ADU7",
+              "type": "support"
+            },
+            {
+              "source": "ADU9",
+              "target": "ADU6",
+              "type": "support"
+            },
+            {
+              "source": "ADU10",
+              "target": "ADU9",
+              "type": "support"
+            },
+            {
+              "source": "ADU11",
+              "target": "ADU6",
+              "type": "support"
+            },
+            {
+              "source": "ADU12",
+              "target": "ADU11",
+              "type": "support"
+            },
+            {
+              "source": "ADU13",
+              "target": "ADU6",
+              "type": "support"
+            },
+            {
+              "source": "ADU15",
+              "target": "ADU14",
+              "type": "support"
+            },
+            {
+              "source": "ADU18",
+              "target": "ADU17",
+              "type": "support"
+            },
+            {
+              "source": "ADU20",
+              "target": "ADU19",
+              "type": "support"
+            },
+            {
+              "source": "ADU22",
+              "target": "ADU21",
+              "type": "support"
+            },
+            {
+              "source": "ADU27",
+              "target": "ADU26",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "ADU1": {
+              "text": "Hugh of St. Victor (b. ca. 1097-1101; d. 1141) was a canon regular who entered the Abbey of St. Victor in Paris.",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "Probably a student of William of Champeaux, he became a leading master in the abbey's school.",
+              "label": "premise"
+            },
+            "ADU4": {
+              "text": "Hugh was a master in a school and counts as a scholastic author, even though he comes before the rise of university scholasticism and before the Latin West's rediscovery of the integral Aristotle.",
+              "label": "claim"
+            },
+            "ADU5": {
+              "text": "Like most medieval authors, Hugh is more a theologian than a philosopher.",
+              "label": "claim"
+            },
+            "ADU6": {
+              "text": "At some risk of oversimplification, we can identify three principles at work in Hugh's thought.",
+              "label": "claim"
+            },
+            "ADU7": {
+              "text": "The first is the chronological distinction between institution and restoration.",
+              "label": "premise"
+            },
+            "ADU9": {
+              "text": "The second principle is semiotic.",
+              "label": "premise"
+            },
+            "ADU10": {
+              "text": "For Hugh, all creatures are signs of God, and man is an especially good sign of God; further, certain creatures are used by God as signs, above all in Scripture.",
+              "label": "premise"
+            },
+            "ADU11": {
+              "text": "The third principle is causal.",
+              "label": "premise"
+            },
+            "ADU12": {
+              "text": "For Hugh, all things are bound up in causal networks.",
+              "label": "premise"
+            },
+            "ADU13": {
+              "text": "Of these three principles, the causal is the most basic.",
+              "label": "claim"
+            },
+            "ADU14": {
+              "text": "Hugh's division of the sciences reflects his respect for the whole range of human intellectual endeavor.",
+              "label": "claim"
+            },
+            "ADU19": {
+              "text": "Hugh holds that God governs all of creation.",
+              "label": "claim"
+            },
+            "ADU20": {
+              "text": "This raises difficulties that call on much of his skill.",
+              "label": "premise"
+            },
+            "ADU23": {
+              "text": "The work of restoration is spread out over a long expanse of time, starting right after the fall, even before the first revelation to the Jews.",
+              "label": "claim"
+            },
+            "ADU26": {
+              "text": "Hugh had a great influence over the members of his own school, Richard of St. Victor above all.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU2",
+              "target": "ADU1",
+              "type": "support"
+            },
+            {
+              "source": "ADU7",
+              "target": "ADU6",
+              "type": "support"
+            },
+            {
+              "source": "ADU9",
+              "target": "ADU6",
+              "type": "support"
+            },
+            {
+              "source": "ADU10",
+              "target": "ADU9",
+              "type": "support"
+            },
+            {
+              "source": "ADU11",
+              "target": "ADU6",
+              "type": "support"
+            },
+            {
+              "source": "ADU12",
+              "target": "ADU11",
+              "type": "support"
+            },
+            {
+              "source": "ADU13",
+              "target": "ADU6",
+              "type": "support"
+            },
+            {
+              "source": "ADU20",
+              "target": "ADU19",
+              "type": "support"
+            }
+          ]
+        }
+      },
+      {
+        "source": "claude-3-5-sonnet-20241022",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"1\": {\n      \"text\": \"Hugh of St. Victor (b. ca. 1097-1101; d. 1141) was a canon regular who entered the Abbey of St. Victor in Paris.\",\n      \"label\": \"premise\"\n    },\n    \"2\": {\n      \"text\": \"His writings encompass a wide range of commentaries, treatises, and mystical works. The two most important are De sacramentis christianae fidei, the first theological summa, and Didascalicon, which proposed an influential framework for scientific inquiry and biblical interpretation.\",\n      \"label\": \"premise\"\n    },\n    \"3\": {\n      \"text\": \"Hugh was a master in a school and counts as a scholastic author, even though he comes before the rise of university scholasticism and before the Latin West's rediscovery of the integral Aristotle.\",\n      \"label\": \"claim\"\n    },\n    \"4\": {\n      \"text\": \"Like most medieval authors, Hugh is more a theologian than a philosopher. His main categories and concerns are determined by the Christian faith, he appeals to revelation freely, and he seldom engages in independent philosophical inquiries.\",\n      \"label\": \"claim\"\n    },\n    \"5\": {\n      \"text\": \"At the same time, however, he does distinguish philosophy from theology, and he sees a real (if secondary) role for reason acting without special guidance from faith in an attempt to grasp the works of institution\",\n      \"label\": \"claim\"\n    },\n    \"6\": {\n      \"text\": \"For Hugh, God is neither wholly known by us nor wholly unknown\",\n      \"label\": \"claim\"\n    },\n    \"7\": {\n      \"text\": \"We know about God in two basic ways, reason and revelation; each of these is subdivided into external and internal indications of God's existence\",\n      \"label\": \"premise\"\n    },\n    \"8\": {\n      \"text\": \"If Hugh sometimes lacks the great sophistication of later scholastic thinkers, at the same time the relative lack of complexity of his thought makes it easier for him to achieve and expound an overall vision without getting distracted by technical issues.\",\n      \"label\": \"claim\"\n    },\n    \"9\": {\n      \"text\": \"He balances concern for the natural with a concern to place it in the greater supernatural context.\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"1\",\n      \"target\": \"3\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"2\", \n      \"target\": \"3\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"4\",\n      \"target\": \"5\",\n      \"type\": \"attack\"\n    },\n    {\n      \"source\": \"7\",\n      \"target\": \"6\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"8\",\n      \"target\": \"9\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "1": {
+              "text": "Hugh of St. Victor (b. ca. 1097-1101; d. 1141) was a canon regular who entered the Abbey of St. Victor in Paris.",
+              "label": "premise"
+            },
+            "2": {
+              "text": "His writings encompass a wide range of commentaries, treatises, and mystical works. The two most important are De sacramentis christianae fidei, the first theological summa, and Didascalicon, which proposed an influential framework for scientific inquiry and biblical interpretation.",
+              "label": "premise"
+            },
+            "3": {
+              "text": "Hugh was a master in a school and counts as a scholastic author, even though he comes before the rise of university scholasticism and before the Latin West's rediscovery of the integral Aristotle.",
+              "label": "claim"
+            },
+            "4": {
+              "text": "Like most medieval authors, Hugh is more a theologian than a philosopher. His main categories and concerns are determined by the Christian faith, he appeals to revelation freely, and he seldom engages in independent philosophical inquiries.",
+              "label": "claim"
+            },
+            "5": {
+              "text": "At the same time, however, he does distinguish philosophy from theology, and he sees a real (if secondary) role for reason acting without special guidance from faith in an attempt to grasp the works of institution",
+              "label": "claim"
+            },
+            "6": {
+              "text": "For Hugh, God is neither wholly known by us nor wholly unknown",
+              "label": "claim"
+            },
+            "7": {
+              "text": "We know about God in two basic ways, reason and revelation; each of these is subdivided into external and internal indications of God's existence",
+              "label": "premise"
+            },
+            "8": {
+              "text": "If Hugh sometimes lacks the great sophistication of later scholastic thinkers, at the same time the relative lack of complexity of his thought makes it easier for him to achieve and expound an overall vision without getting distracted by technical issues.",
+              "label": "claim"
+            },
+            "9": {
+              "text": "He balances concern for the natural with a concern to place it in the greater supernatural context.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "1",
+              "target": "3",
+              "type": "support"
+            },
+            {
+              "source": "2",
+              "target": "3",
+              "type": "support"
+            },
+            {
+              "source": "4",
+              "target": "5",
+              "type": "attack"
+            },
+            {
+              "source": "7",
+              "target": "6",
+              "type": "support"
+            },
+            {
+              "source": "8",
+              "target": "9",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "1": {
+              "text": "Hugh of St. Victor (b. ca. 1097-1101; d. 1141) was a canon regular who entered the Abbey of St. Victor in Paris.",
+              "label": "premise"
+            },
+            "3": {
+              "text": "Hugh was a master in a school and counts as a scholastic author, even though he comes before the rise of university scholasticism and before the Latin West's rediscovery of the integral Aristotle.",
+              "label": "claim"
+            },
+            "4": {
+              "text": "Like most medieval authors, Hugh is more a theologian than a philosopher. His main categories and concerns are determined by the Christian faith, he appeals to revelation freely, and he seldom engages in independent philosophical inquiries.",
+              "label": "claim"
+            },
+            "5": {
+              "text": "At the same time, however, he does distinguish philosophy from theology, and he sees a real (if secondary) role for reason acting without special guidance from faith in an attempt to grasp the works of institution",
+              "label": "claim"
+            },
+            "6": {
+              "text": "For Hugh, God is neither wholly known by us nor wholly unknown",
+              "label": "claim"
+            },
+            "7": {
+              "text": "We know about God in two basic ways, reason and revelation; each of these is subdivided into external and internal indications of God's existence",
+              "label": "premise"
+            },
+            "8": {
+              "text": "If Hugh sometimes lacks the great sophistication of later scholastic thinkers, at the same time the relative lack of complexity of his thought makes it easier for him to achieve and expound an overall vision without getting distracted by technical issues.",
+              "label": "claim"
+            },
+            "9": {
+              "text": "He balances concern for the natural with a concern to place it in the greater supernatural context.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "1",
+              "target": "3",
+              "type": "support"
+            },
+            {
+              "source": "4",
+              "target": "5",
+              "type": "attack"
+            },
+            {
+              "source": "7",
+              "target": "6",
+              "type": "support"
+            },
+            {
+              "source": "8",
+              "target": "9",
+              "type": "support"
+            }
+          ]
+        }
+      }
+    ],
+    "timestamp": 1752747349.2546694
+  }
+]

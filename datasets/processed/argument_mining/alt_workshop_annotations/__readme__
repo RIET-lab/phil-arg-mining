@@ -1,0 +1,17 @@
+## Purpose
+This folder is similar to the workshop_annotations folder, but with both argdown and json files.
+
+The argdown files are copied from the "Argmap Quality Rubric" shared document, where all workshop annotations have been split into "Large", "Small", or "Removed" categories, and at least some have probably also been edited for quality.
+
+I have also removed the annotation for MEIJBT from this "large" folder, despite its presence in the workshop_annotations/large folder, since it is an annotation of a book review.
+
+## Meaning and Usage
+The file suffixes currently (As of 8/15/2025) have the following meanings, though they should be named and sorted more intuitively soon: 
+
+FILE-ID.argdown -> The argdown for the paper with that identifier, copied directly from the text in the Argmap Quality Rubric document (as it exists at 8/15/2025).
+
+FILE-ID_converted.argdown -> The argdown with "-" converted to "+" and followed with inline yaml to indicate an implicit claim, since the normal argdown syntax uses "-" to indicate an attack relationship instead.
+
+FILE-ID.json -> The argdown-CLI-generated json version of the argdown file. Note that while this should usually correspond to the converted argdown file, both this json file and the converted argdown file are created by the same script (which takes the original FILE-ID.argdown file as its input). If the converted argdown file is edited and then the script is rerun, this json won't change -- the converted argdown file will.
+
+FILE-ID_converted.json -> The json version of the argument, now in our argmining.json template format. This was created by running a conversion script on the FILE-ID.json version.

@@ -1,0 +1,482 @@
+[
+  {
+    "identifier": "GOLHBN",
+    "system_prompt": "## GOAL\nArgument‑mine the following paper to extract its comprehensive argumentative structure.\n\n## DEFINITIONS\n1. **Argument**: A set of propositions, including some number of premises and a conclusion. The premises should logically entail the conclusion.\n2. **Claim**: A proposition that asserts something to be true or false, typically requiring justification or evidence.\n3. **Premise**: A proposition that provides evidence, justification, or logical support for a claim or conclusion.\n\n## CRITICAL REQUIREMENTS\n1. **VERBATIM EXTRACTION ONLY**: Each ADU text must be copied EXACTLY from the paper with no modifications, paraphrasing, or combining of separate sentences.\n2. **NO HALLUCINATION**: Do not create, modify, or invent text that does not appear exactly in the source.\n3. **EXACT MATCHING**: Every word, punctuation mark, and spacing must match the original precisely.\n\n## DIRECTIONS\n1. **Identify Argumentative Discourse Units (ADUs)**  \n   - ADU = any contiguous text span functioning as a claim or a premise in the reasoning structure.\n   - **BE HIGHLY SELECTIVE**: Only include ADUs that are crucial to the overarching argument structure.\n   - Focus on significant claims and premises that contribute meaningfully to the argumentative flow.\n   - **AVOID NOISE**: Skip ADUs that are merely descriptive, tangential, or do not substantially advance the argument.\n   - Prioritize quality over quantity - fewer accurate, important ADUs are better than many insignificant ones.\n   - **EXTRACT ONLY**: Copy text spans exactly as they appear, without any modifications.\n2. **Classify each ADU**  \n   - Label = either `\"claim\"` or `\"premise\"`.  \n3. **Detect directed relations**  \n   - Relation = `\"support\"` or `\"attack\"`, from one ADU (source) to another (target).\n   - Map how ADUs connect to form reasoning chains.\n   - Focus on relationships between the most significant ADUs.\n   - Include relationships between premises that strengthen or weaken each other.\n4. **Verbatim spans**  \n   - Each `\"text\"` value must be copied EXACTLY from the paper with zero modifications.\n   - Do not paraphrase, summarize, or combine separate sentences.\n   - Do not add, remove, or change any words, punctuation, or spacing.\n   - If unsure about exact wording, skip that ADU rather than guess.\n\n## WHAT TO CAPTURE\n**INCLUDE ONLY:**\n- Main argumentative threads that are central to the paper's contribution\n- Core claims that represent the paper's primary arguments or findings\n- Key premises that provide essential support for major claims\n- Critical counterarguments and their refutations\n- Reasoning chains that demonstrate how main conclusions are derived\n\n**EXCLUDE (AVOID NOISE):**\n- Minor details, examples, or descriptive content that don't advance the argument\n- Tangential points or side discussions\n- Pure background information or literature review content\n- Methodological details unless they constitute argumentative claims\n- Obvious statements or commonly accepted facts\n- Redundant or repetitive argumentative content\n\n**GUIDING PRINCIPLE**: If removing an ADU would not significantly impact understanding of the paper's argumentative structure, it should be excluded.\n\n## QUALITY CONTROL\n- Before finalizing each ADU, verify the text exists exactly in the source\n- Prefer fewer, accurate ADUs over many potentially modified ones\n- When in doubt about exact wording, omit the ADU\n\n## OUTPUT FORMAT\nReturn **only** a single valid JSON object matching this schema.  \nDo **not** output any extra text, markdown, or explanations.\nDo **not** add comments.\n**RESPOND WITH ONLY**:\n```json\n{\n  \"ADUs\": {\n    \"<ADU_ID>\": {\n      \"text\": \"<exact span from paper>\",\n      \"label\": \"claim\" | \"premise\"\n    }\n    ...\n  },\n  \"relations\": [\n    {\n      \"source\": \"<ADU_ID>\",\n      \"target\": \"<ADU_ID>\",\n      \"type\": \"support\" | \"attack\"\n    }\n  ]\n}\n```",
+    "user_content": "## Heidegger and The Occlusion of the Political\n\n## By\n\n## SACHA GOLOB (King's College London)\n\n## Forthcoming in\n\nGeschichte, Politik, Ideologie: Heideggers ,Schwarze Hefte' im Kontext , Espinet, Figal, Keiling and Mirkovic (eds.), Mohr Siebeck.\n\n## Penultimate Draft - Please Cite the Published Version\n\n## Abstract\n\nThis paper aims to advance our understanding of Heidegger's politics as it is laid bare within the ' Schwarze Hefte '. Yet my interest is not in Heidegger's first order political views, but rather in his conception of the political sphere per se . Beginning from a close analysis of the earliest volume of the notebooks, Gesamtausgabe Bd.94, I suggest that the dominant characterisation of the political space within Heidegger's text is as a threat - to philosophy and to ontology. Underlying that characterisation, however, it is simultaneously possible to identify another pattern, one on which the political is itself gradually suppressed or occluded by the ontological. This tacit occlusion has, I suggest, a number of deeply problematic consequences. I close by indicating how the argument might be extended to the question of a Heideggerian ethics.\n\nMy aim in this paper is to advance our understanding of Heidegger's politics as it is laid bare within the so-called ' Schwarze Hefte '. But my interest is not in his first order political views nor in his prejudices, which seem to me as predictable as they are repulsive. Rather, my interest is in his conception of the political sphere per se , and in his understanding of the relationship between philosophy and politics as two fields of discourse or action. I want to approach the topic with the help of a figure that is, I hope, useful, although provocative.\n\nFigure A\n\n<!-- image -->\n\nI am going to use this diagram to think through the relationship between the concepts located at each corner. 1 The figure is provocative because the diagram is obviously utterly vague one's immediate response is to ask what is meant by the terms listed. But that is also why the figure is helpful - it triggers a demand for clarification within a context orientated around the interaction of the three points. For all its crudity, such a diagram thus serves to highlight a philosophically vital dimension. Consider, for example, the case of Kant. The Kantian system employs a number of highly sophisticated devices to manage the interaction between the triangle's points. At the macro-level, there is the distinction between theoretical and practical reason, which is designed to mediate the interaction of (I) and (III). 2 There is also the ceaselessly rearticulated distinction between virtue and right - this is designed to simultaneously separate and yet connect (II) and (III), and one of the distinctive features of the Metaphysics of Morals is its continual, non-equivalent, attempts to spell this out. 3 At the micro-level, the interaction of the points is handled by projects such as Kant's idiosyncratic manual for pedagogy, with its complex choreography of question and silence. 4 In the case of\n\n1 The very geometry of this figure is, of course, an almost intolerable echo of the history at stake in this debate; but that is a discussion for another paper.\n\n2 IMMANUEL KANT, Kritik der reinenVernunft. Kants gesammelte Schriften, Akademieausgabe (hereinafter:\n\nAK) Bd.3, Berlin 1911, Bix-x. Throughout all translations are my own unless otherwise noted.\n\n3 IMMANUEL KANT, Die Metaphysik der Sitten. Kants gesammelte Schriften, AK6, Berlin 1914, pp. 218-221; 380-1; 390; 406-7.\n\n4 IMMANUEL KANT, Die Metaphysik der Sitten, AK6, p. 479.\n\nother thinkers, different aspects of the triangle and its intra-relations will come centre stage. For example, consider the tradition running from Hegel through Foucault which seeks to rethink the conjunction or disjunction at (III), and to go on from that to transform the connections between (II) and (III). Here the issues will in part be those of translation in the deepest sense: how, for example, does the distinction between ' Moralität ' and ' Sittlichkeit ' map to one between ' la morale ' and ' l'éthique '?\n\nMy purpose in this essay is to use first volume of the so called ' Schwarze Hefte ', published as Gesamtausgabe Bd.94 and covering 1931-1938, to shed some light on how Heidegger himself understood this triangle. I confine my analysis to this single volume for two reasons. First, it covers the period of his most overt political involvement, the Rectorship. Second, I want to pay close attention to the dynamics of Heidegger's text - to include the later volumes of the notebooks, I would need not only to dilute that focus but also to digress into discussion of the broader changes within Heidegger's philosophy during the 1930s and 1940s. So my focus will be largely on GA94. My aim is to use that text in order to analyse Heidegger's conception of the political and his understanding of how the political interacts with ontology and with ethics. In other words, how does point (II) of my diagram relate to points (I) and (III)? Once that is done, I will close by discussing briefly the relationship between points (I) and (III) themselves.\n\nThree remarks on scope and definitions before proceeding. First, as in the paragraph preceding this, I will talk of 'ethics' rather than 'morality' when discussing (III) in a Heideggerian context. By 'ethics' I mean those general normative considerations, whatever they may be, that define the good life; I prefer this to 'morality' since the latter term often calls to mind specifically deontological or rule-based normative systems. 5 Second, whilst any examination of Heidegger's conception of the political ultimately needs to be embedded within a broader treatment of Sein und Zeit 's views on ' Öffentlichkeit ' or ' Das Man ', a direct engagement with that text is beyond this piece. 6 Third, I will use 'ontology' broadly to mean any philosophical reflection on appropriate and inappropriate views of being. I will mark Heidegger's own distinctive take on being, whether that be ' Sein ' or ' Seyn ', by use of an initial capital letter: 'Being'. I am not going to discuss exactly how Heidegger tries to cash the relevant notions of 'the appropriate' or 'inappropriate' in this period; that would\n\n5 I began by including the reference to 'morality' in order to allow me to discuss Kant, a thinker who provides a useful illustration of the triangle's importance.\n\n6 For my own views on those concepts, please see SACHA GOLOB, Heidegger on Concepts, Freedom and Normativity, Cambridge, 2014, Ch. 6.\n\nrequire close analysis of concepts such ' Ereignis ' and ' Anfang '. My interest is rather in how Heidegger construes the relation between an appropriate stance on Being - whatever exactly that should be - and the question of politics. As I will discuss, Heidegger also often uses '' Ontologie '' in scare quotes to mark misguided views on the topic.\n\n## (1) Politics as a Threat to Ontology within GA94\n\nThe question I want to begin with is a deceptively simple one: 'what is the political?'. 7 As noted, my concern is not with Heidegger's first order politics, but with his understanding of the political sphere per se . What if anything, for example, marks the boundary between a political conversation and a philosophical one? I will now argue that GA94 primarily characterises the political in terms of threat. This can be seen at both a general and a more specific level, and I will take each in turn.\n\nWhatever else it may be, the political sphere is necessarily a public sphere - one can then gloss that public sphere in terms of power, management of competing interests, giving and exchanging reasons, and so on depending upon one's further views. What is immediately striking in GA94, however, is its repeated focus on the negative dynamics of the public sphere, and on the attendant problems facing action or discourse within it. In short, Heidegger's view of the basic architecture of the political in GA94 is a negative one. His worries are articulated simultaneously along aesthetic, epistemological and sociological lines: the public sphere is noisy, 8 quick and busy, 9 posturing [ Getue ], 10 superficial and deceptive, a place of figleaves and veneers [ Deckmantel;Anstrich ] 11 , misled and stubborn, 12 and characterised by the consumerist logic of the marketplace. 13 These predicates are, of course, in large part simply the reverse image of those which Heidegger himself valorises: contemporary politics is defined by the 'loudspeaker', whereas Heidegger himself valorises silence. 14 The result is a discourse on politics that interweaves first order cultural gripes with\n\n7 MARTIN HEIDEGGER, Überlegungen II-VI (Schwarze Hefte 1931-1938), Gesamtausgabe (hereinafter GA) Bd.\n\n94, Frankfurt am Main, 2014, p. 58.\n\n8 HEIDEGGER, Schwarze Hefte 1931-1938, GA94, pp. 163-4; 245.\n\n9 HEIDEGGER, Schwarze Hefte 1931-1938, GA94, p. 122; 159-160; 170.\n\n10 HEIDEGGER, Schwarze Hefte 1931-1938, GA94, p. 146.\n\n11 HEIDEGGER, Schwarze Hefte 1931-1938, GA94, p. 147; 133.\n\n12 HEIDEGGER, Schwarze Hefte 1931-1938, GA94, p. 174.\n\n13 HEIDEGGER, Schwarze Hefte 1931-1938, GA94, p. 140.\n\n14 HEIDEGGER, Schwarze Hefte 1931-1938, GA94, p. 245. Compare MARTIN HEIEGGER, Sein und Zeit,\n\nTübingen, 1957, p. 273.\n\nHeidegger's own systematic, philosophical, concerns. So, for example, whilst he is excited by the energy with which students have engaged in the 'new politics', he is worried than his own ability to guide debate, will be blocked by a political climate that privileges youth and that demands rapidly implementable policies when genuine progress takes decades or even centuries. 15 The temporal dynamics and rhythms of the political sphere are thus inherently at odds, he suggests, with those of philosophy. This same worry is clearly visible even at the zenith of his own political intervention, in the Rekoratsrede\n\nBut if the Greeks took three centuries just to put the question of what knowledge is upon the right basis and on a secure path, we have no right to presume that the elucidation and unfolding of the essence of the German university could take place in the current or in the coming semester. 16\n\nHeidegger's basically negative presentation of the political sphere in GA94 is further articulated along three axes, and it is to these I now want to turn. First, he identifies a series of sites and institutions which sustain and concentrate the problematic tendencies just sketched. Many of these are the standard targets of the period, such as democratic decisionmaking bodies or newspapers. 17 Journalism, for example, figures as both driving the degeneration of philosophy and as an endpoint to which philosophy risks being reduced. 18\n\nSecond, the public sphere is in an important sense incorrigible: it absorbs and redirects any attempt to correct it. Within GA94, this underlying worry, building on Heidegger's early work on 'idle talk' [ Gerede ], becomes enmeshed with the problematic reception of his own thought. Whatever philosophical innovation is introduced, public discourse simply appropriates it, sloganizes it and thus robs it of significance and power to change the status quo . Heidegger gives as examples of this trend everything from current discussions of ' Existenzphilosophie ' to '' Ontologie '' (note the scare quote as mentioned above). 19 To introduce a biological metaphor that will prove important later, Heidegger sees the public sphere and the political acts and discourses that take place within it as both diseased and yet as protected by a perverse immunity: all attempts at a cure are simply coopted by the target.\n\n15 HEIDEGGER, Schwarze Hefte 1931-1938, GA94, p. 158; 122.\n\n16 MARTIN HEIDEGGER, The Self-Assertion of the German University, translated by Karsten Harries in: The Review of Metaphysics 38/3 (1985), pp. 467-502, here p. 478.\n\n17 HEIDEGGER, Schwarze Hefte 1931-1938, GA94, p. 151; 22-3.\n\n18 HEIDEGGER, Schwarze Hefte 1931-1938, GA94, pp. 222-3; 380.\n\n19 HEIDEGGER, Schwarze Hefte 1931-1938, GA94, p. 19; 22; 10; 44 .\n\nThe third axis shaping Heidegger's discussion concerns the scope of his misgivings. Whilst many philosophers assume some form of distinction between what the early moderns called the 'vulgar' and the 'learned', Heidegger sees the same negative political dynamics at play in the academy as in the public square. So, for example, he views scholarly exegesis of Sein und Zeit 's links to Kierkegaard as a derailment device, a form of the perverse immunity just sketched by which academics serve to distract both themselves and the public from the book's real import. 20 Again, this reflects a longstanding trend within Heidegger's thought GA20, the lecture course from 1925 entitled ' Geschichte des Zeitbegriffs ', presents academic conferences per se as devices for 'covering up' ideas through parroting them out. 21\n\nMy aim so far has been to outline the structurally negative view of the public sphere, and thus of politics, which characterises the first volume of the ' Schwarze Hefte '. I want now to introduce the more specific dimensions of the threat Heidegger sees politics as posing. In doing so, I am going to begin to introduce the question of the relationship between ontology and politics, points (I) and (II) of the diagram with which I began.\n\nThroughout GA94, Heidegger worries about the relationship between the contemporary political scene and the demands of philosophy. The danger comes from 'the ceaseless 'politicization' of all 'sciences''. 22 Elsewhere, he talks of the pernicious 'new 'slogan'' that science must be practical, rather than 'mere talk', and he links this with the broader programme pushed by the Party. 23 The threat is that politics will increasingly reconfigure philosophy in terms of its own agenda; this will take place, Heidegger suspects, under the banner of promoting ' lebensnaher ' research. 24 Within such a framework, philosophy would be reduced to 'a mere tool' [ Werkzeug ], to be measured by its ability to generate socio-economic 'impact' [ Wirkung ] . 25 In short, such politics risks 'a blind infantilization of the university' and the 'destruction of every genuine knowing'. 26 It is a 'path to barbarism'. 27\n\n20 HEIDEGGER, Schwarze Hefte 1931-1938, GA94, p. 74; see similarly p. 39.\n\n21 MARTIN HEIDEGGER, Prolegomena zur Geschichte des Zeitbegriffs, GA20, Frankfurt am Main, 1994, p. 376.\n\n22 HEIDEGGER, Schwarze Hefte 1931-1938, GA94, p. 302 [' die restlose &lt;Politisierung&gt; aller &lt;Wissenschaften&gt; ]'.\n\n23 HEIDEGGER, Schwarze Hefte 1931-1938, GA94, p. 175; 188.\n\n24 HEIDEGGER, Schwarze Hefte 1931-1938, GA94, p. 222; 183.\n\n25 HEIDEGGER, Schwarze Hefte 1931-1938, GA94, p. 222; 64.\n\n26 HEIDEGGER, Schwarze Hefte 1931-1938, GA94, p. 183. As one can clearly see from the remainder of this passage, Heidegger is using Wissen and Wissenschaft here as positive terms - they alone support the right relationship to ' Seyn '.\n\n27 HEIDEGGER, Schwarze Hefte 1931-1938, GA94, p. 116.\n\nFor Heidegger this specific threat is ultimately a symptom of the broader trend towards technologization, and the construal of everything as a potential resource. 28 But it is striking how vividly the political comes to symbolise this underlying current. Consider, for example, the way he returns to newspapers, one of the key sites of the problematic political discourse. Within a technological framework, GA65 suggests:\n\nThe historical human sciences become newspaper science. The natural sciences become machine science. 'Newspaper' and 'machine' are meant essentially as the dominant ways of ultimate objectification. 29\n\nJournalism thus both enacts and exemplifies the process of objectification.\n\nI have focussed so far on the threat posed by the political to philosophy. But what exactly is it that is so under threat? What special role fulfilled by philosophy stands at risk? This is a question which Heidegger explicitly thematises throughout GA94. The issue is quite simply: '[w]hy is philosophy necessary and what are its limits?'. 30 Heidegger's answer is absolutely clear - the fundamental task of philosophy is to sustain, articulate and empower [ ermächtigen ] a distinctive relationship to Being [' Sein ' or ' Seyn ']. 31 At its proper end, exactly as at its beginning, philosophy remains 'the question of the truth of being [ Wahrheit des Seyns ]. 32 By extension, humanity must become the 'guardian of the truth of Being' [ der Mensch der Wahrer der Wahrheit des Seyns werden muss ]. 33 There are, of course, numerous changes over the period from 1931 to 1938 in how exactly Heidegger thinks about Being. Many of these are exemplified in the switches between the modern and the archaic spellings of the term: for the reasons which I gave in the introduction I cannot trace them here. Furthermore, he is undoubtedly suspicious of 'ontology' in at least some senses of that term, and of the way ontology has been tied to a certain kind of theory: as noted, he typically marks the point by using scare quotes to talk of '' Ontologie ''. But I think that if one is willing to allow, as Heidegger himself has done since the early 1920s, a certain breadth to the term 'ontology' we can now make an important point. The fundamental characterisation of the political in GA94 is as a threat; a threat manifest at both a general and a specific level. What it threatens is the distinctive role of philosophy, a role which centres on philosophy's connection to Being. This point holds irrespective of the changing details of how exactly\n\n28 HEIDEGGER, Schwarze Hefte 1931-1938, GA94, p. 295; 472.\n\n29 MARTIN HEIDEGGER, Beiträge zur Philosophie (Vom Ereignis), GA65, Frankfurt am Main, 2003, p. 158\n\n30 HEIDEGGER, Schwarze Hefte 1931-1938, GA94, p. 221.\n\n31 HEIDEGGER, Schwarze Hefte 1931-1938, GA94, p. 29; 31; 36; 39; 54; 92; 221; 232; 272; 332.\n\n32 HEIDEGGER, Schwarze Hefte 1931-1938, GA94, p. 119.\n\n33 HEIDEGGER, Schwarze Hefte 1931-1938, GA94, p. 332.\n\nHeidegger construes this connection: for example in terms of Seinsgeschehnis or Ereignis . 34 To return to our diagram, philosophy is aligned with ontology, at least that is ontology properly practised, and politics is treated as a threat to such ontology. We have, in short, an initial account of the relationship between points (I) and (II).\n\n## (2) Heidegger's Response to the Threat of the Political\n\nI argued above that the dominant presentation of the political within GA94 is as a threat - at both a general and a specific level, Heidegger presents the political as threatening philosophy, and the unique relationship to Being which philosophy sustains. Before developing this point, I want to briefly sketch the three strategies employed by GA94 to deal with the danger posed by the political\n\nThe first strategy is one of disengagement from the public sphere. Perhaps, Heidegger muses, 'thinking within another beginning' simply cannot occur in a public space regulated by the type of self-immunising banality I sketched above. 35 After all, given what he sees as the utterly blinkered reception of his own earlier work, its typecasting simply as '' Existenzphilosophie '', it may be 'time to withdraw from the public sphere'. 36 This mood also finds expression in his attempts to valorise the 'uselessness' of philosophy, its utter inutility for the type of quantitative 'resource-calculus' that he opposes. 37\n\nThe second tactic is more aggressive. Here Heidegger uses the hermeneutic methodology articulated in Sein und Zeit to go on the offensive against the ideology behind the political fantasy of a '' lebensnah '' ' or '' wirklichkeitsnah '' philosophy: his point is that the advocates of such an approach have failed to think through the ideas of life or impact which their rhetoric assumes. 38 The result is these ideas are crudely inchoate: he talks mockingly of a ' Jedermannswirklichkeit '. 39 Furthermore, the politician's emphasis on practice, rather than theory, does not mean that his position is free of philosophical\n\n34 HEIDEGGER, Schwarze Hefte 1931-1938, GA94, p. 29; 217.\n\n35 HEIDEGGER, Schwarze Hefte 1931-1938, GA94, p. 429.\n\n36 HEIDEGGER, Schwarze Hefte 1931-1938, GA94, p. 398.\n\n37 HEIDEGGER, Schwarze Hefte 1931-1938, GA94, p. 277; compare pp. 43-4.\n\n38 HEIDEGGER, Schwarze Hefte 1931-1938, GA94, p. 44; 64; 302.\n\n39 HEIDEGGER, Schwarze Hefte 1931-1938, GA94, p. 450.\n\nassumptions; it simply means that these assumptions are allowed to go unarticulated and unquestioned. In this sense, such practice is 'indeed the purest and worst 'theory''. 40\n\nHeidegger's third, and most infamous, strategy for dealing with the threat posed by the political is to try to co-opt it, to relocate it within his own metaphysical framework. Within GA94, the text that is the focus of this article, this is manifest in several ways. There are, particularly in the period immediately before the Rectoral appointment, excited remarks in which he reimagines his own place in the political order: with the advent of the Führer , 'the literary existence is at an end'. 41 He also tries to redescribe the political in a way more in tune with his own system. At the aesthetic level, he seeks to align National Socialism with the reticent silence stylised in Sein und Zeit . 42 Likewise, he attempts to embed concepts like Volk within his preferred apparatus: just as authentic Dasein required individualization [ Vereinzelung ] so now does the Volk . 43 Similarly, new terms, such as the 'mass' [ Masse ] are introduced to bear the negative features which Heidegger associates with the public, thus allowing Volk to acquire a positive valence, representing at least the possibility for a profound and yet still public relationship to Being. 44 By extension, the true measure of a people is, in line with his privileging of ontology, the establishment and cultivation of the right relationship to Being. 45\n\n## (3) The Occlusion of the Political in GA94\n\nWe now have two elements in play. One is Heidegger's presentation of the political as a threat to philosophy and to ontology - this was covered in section (1). The other is an overview of the strategies he uses to negotiate the interaction between the political and philosophy - this was covered in section (2). I now want to press the issue of the relation between philosophy and politics further. I am going to argue that, in important sense, Heidegger presides over an occlusion or suppression of the political, a development which has deeply problematic consequences.\n\n40 HEIDEGGER, Schwarze Hefte 1931-1938, GA94, p. 117; similarly p.134.\n\n41 HEIDEGGER, Schwarze Hefte 1931-1938, GA94, p. 111; similarly p. 116; 124.\n\n42 HEIDEGGER, Schwarze Hefte 1931-1938, GA94, p. 114.\n\n43 HEIDEGGER, Schwarze Hefte 1931-1938, GA94, p. 98. On Sein und Zeit see HEIEGGER, Sein und Zeit,\n\nTübingen, 1957, p. 266.\n\n44 HEIDEGGER, Schwarze Hefte 1931-1938, GA94, p. 114. Compare HEIDEGGER Beiträge zur Philosophie (Vom Ereignis), GA65, p. 279.\n\n45 HEIDEGGER, Schwarze Hefte 1931-1938, GA94, p. 136.\n\nIn the Parmenides lectures of 1942, published as GA54, Heidegger makes the following remark.\n\nBecause the Greeks are the utterly apolitical people [ das schlechthin unpolitische Volk ], apolitical by essence, because their humanity is primordially and exclusively determined from Being itself, i.e. from ἀλήθεια , therefore only the Greeks could, and precisely had to, found the πόλις , found abodes for the gathering and conservation of ἀλήθεια . (GA54:142)\n\nTwo things are immediately striking here. First, the Greeks are presented as 'utterly apolitical'. What allows Heidegger to make this extraordinary claim is his belief that the πόλις is best understood in ontological terms. As he puts it a few pages earlier:\n\nThe πόλις is neither city nor state and definitely not the fatal mixture of those two inappropriate characterisations…The πόλις is the abode, gathered in to itself, of the unconcealedness of beings. (GA54:133)\n\nThe Greeks are thus apolitical because what might seem to be a contribution, perhaps the contribution, to political theory is really an ontological structure: the site of unconcealedness. Second, it is because the Greeks are utterly apolitical that they are able to exhibit what is, if not an ideal relationship to Being, certainly a better one than Heidegger thinks modern society possesses. We thus see here first a suppression of the political and second the valorisation of this suppression. Within GA94, Heidegger is happy to project these lessons directly onto the contemporary political landscape. Thus National Socialism must submit to philosophy and to the higher task of sustaining a new stance on Being. 46 By extension, the Party's attempt to promote a 'politicized science' is to 'put the cart before the horse': it is science, construed in its most primal form as philosophy, which must determine politics. 47\n\nTaken by themselves, these remarks call to mind views familiar since Plato, on which philosophers are somehow uniquely equipped to guide the state. But the reality of Heidegger's position is more complex. The view manifest in both GA54 and GA94 is not one on which philosophy should direct politics, but more one on which philosophy eclipses it or occludes it. Indeed, it is a view on which the political collapses into the ontological. Let me explain.\n\nGA94 is a work written by Heidegger at the height of his public political involvement. It is also, as shown in (1), a work fretfully concerned with the dangers of contemporary\n\n46 HEIDEGGER, Schwarze Hefte 1931-1938, GA94, p. 190.\n\n47 HEIDEGGER, Schwarze Hefte 1931-1938, GA94, p. 191.\n\npolitics. Yet what is perhaps most striking about it is the utter lack of any sustained reflection on the political. Whilst, as in other texts such as the transcripts of his 1933-4 Hegel seminars, Heidegger clearly sympathises with a rudimentary authoritarian political philosophy, he is stunningly disinterested in the key questions that in a period as febrile as the 1930s will shape society. 48 What form of government should be in place? Which economic structures? Who should control the security forces? What legal restrictions on individual speech or choice should there be? What guarantees should individuals have against state action? Is political authority in any sense dependent on consent? To what degree should the state intervene in markets? What role, if any, do non-state bodies such as trade unions have? Who controls the press and how? Who sets wages and how? None of these questions or any like them are in any way visible. In this sense, what I want to highlight in GA94 is an absence as much as anything. 49 It is not so much that Heidegger subjugates political choice to philosophical wisdom, as in the familiar Platonic paradigm. Rather, it is that the distinctive questions which the political should raise are not there. Presciently writing long before the availability of texts such as GA94, de Beistegui makes a similar point - here he is discussing the economic example and the Rektoratsrede in particular.\n\nAs for labour, Heidegger had a no less idealized and partial view of what he failed to recognize as a complex and multifaceted phenomenon, a view that was informed by Jünger's Der Arbeiter more than by Marx's Das Kapital . Idealized, first of all, to the extent that Heidegger saw in labor an 'obligation' and a 'service,' not a reality with a logic and a law of its own (the law of Capital), a reality that is itself productive of ideologies; second, partial insofar as labor is seen as a power of political unification disconnected from its concrete material and economic conditions of existence, and transcending the boundaries of class and the imperatives of production. This raises the question regarding the possibility of taking any political responsibility, or making any political choice, without linking, from the very start, politics with a concrete situation, one which is as economically and materially mediated as it is historically decisive. 50\n\nIt is this failure to recognise the economic and indeed the political more broadly as 'a reality with a logic and laws of its own' that I want to highlight. This failure is important because\n\n48 MARTIN HEIDEGGER, Über Wesen und Begriff von Nature, Geschichte und Staat. Übung aus dem Wintersemester 1933/34 in: Alfred Denker and Holger Zaborowski (eds.), Heidegger-Jahrbuch 4, Freiburg, 2010, pp.53-88.\n\n49 Page 113 of GA94 contains a few lines on the recognisably political issue of authority and legitimate power, but these remarks are as brief as they are unusual.\n\n50 MIGUEL DE BEISTEGUI, Heidegger and the Political, London, 1998 p. 56.\n\nthat logic will often prove disruptive to the conceptual scheme within which Heidegger instead operates. To take the most pointedly specific of the possible questions which I listed, any sustained reflection on wages, on the labour market, and on its attendant power relations, whether from a capitalist, Marxist or other standpoint, would automatically call into question the use of binary concepts like Volk .\n\nWe need, however to go further: it would not be correct simply to speak of a gap or emptiness, an absence of the political. One important step in challenging Heidegger, I think, is to try to disrupt the metaphorical chains which characterise and bind together his work. So, drawing on both the biological metaphors I introduced above and on Heidegger's own preference for images of opening and closure, we might call the phenomenon in play in GA94 an 'occlusion' of the political. This occlusion has two dimensions to it. On the one hand, because, the political is cast primarily as a threat, Heidegger is reluctant to even engage with its categories and questions: how, for example, can he grapple with the intersection of economics and power without entering into the supposedly technological conceptual frameworks that he opposes? Thus, as with the remarks from the Parmenides course, ontological purity requires the suppression of the political, just as the Greeks were able to establish an abode for Being only because they were 'utterly apolitical'. On the other hand, within the vacuum created by the lack of any sustained interest in political questions, individual concepts float free from their natural context and are drawn into the gravitational field of Heidegger's ontological apparatus. So, for example, what defines a Volk is a certain relation to Being. 51 The most important aspect of this process is normative . For Heidegger, humanity's fundamental goal is an ontological one in the broad sense of ontology I used above: the task is to preserve the truth of Being. 52 So if we now turn back to the triangle with which I began, the conclusion is clear. Prima facie, the political figures in GA94 both as a threat to the practice of a philosophical relationship with Being and as an opportunity which might be appropriated by that practice. But as the point is pressed, what becomes more striking is the fact that there are few concepts, no questions and no legitimate norms which derive directly from the political sphere in GA94. Instead, it is philosophy and ontology which frame the discourse, the conceptual palette and the acceptable goals. In that sense, I would suggest we need to speak of the collapse of point (II) into point (I), of a dominance of ontology over politics. To introduce, quite deliberately another metaphorical chain and one\n\n51 HEIDEGGER, Schwarze Hefte 1931-1938, GA94, p. 318.\n\n52 HEIDEGGER, Schwarze Hefte 1931-1938, GA94, p. 59; 322.\n\nwhich Heidegger would have abhorred, we might say that the political functions only as distribution channel [ Vertriebskanal ] for the ontological.\n\nI want now to consider three objections to the reading advanced.\n\nFirst, one might object that I have said nothing about how Heidegger's prejudices, for example the anti-Semitism clearly visible in the other notebooks and indeed in Heidegger's personal correspondence more broadly. This is problematic, the objection continues, because those prejudices feed into and partly determine his ontology: consider for example, his rhetoric, surrounding Bodenlosigkeit , simultaneously a technical term in his epistemology and yet plugged into the same ancient rhetorical circuits that depict Jews as rootless parasites. 53 I think there is undoubtedly an important and exegetically highly complex story to be told about the interaction between Heidegger's personal bigotries and his philosophy. Yet my position is entirely neutral on how that story plays out. This is because my concern is not with prejudice, but with politics; and the former is not sufficient for the later. 54 An exact formulation of the point would require a discussion of prejudice beyond the scope of this piece, but the basic idea is best seen if we operate with the standard 'negative' picture of prejudice. 55 Consider a misogynist who has a violent prejudice, framed in sexual terms, against women. As a result, the world is manifest to him in the familiar categories of this type of bigotry: he sees those around him as 'whores' etc. This prejudice may be kept simmering beneath the surface or it may become openly manifest in the public sphere; and depending partly on how widespread the prejudice is, it may require political action to alleviate it. But none of that is enough to make the prejudice itself political in the sense which is relevant here. Rather, the internal logic, language and drive of the prejudice, how it hangs together, what scenes spark it, what symbols, words, images and categories it uses to interpret the world - these are all sexual: indeed, part of the problem is that salient political categories such as 'citizen' are continually overwritten in favour of a taxonomy derived from the language of sexual slurs. 56 The case of Heidegger is similar in that what we see is the absence of those concepts, terms, and norms which are necessary if one is to see things in political\n\n53 For an excellent discussion of these issues and of autochthony in Heidegger's work more broadly see CHARLES BAMBACH¸ Heidegger's Roots, Ithaca, New York 2003.\n\n54 Depending on how one thinks about prejudice, for example whether within a broadly Gadamerian framework, it may or may not be necessary.\n\n55 Within a Gadamerian framework emphasising the inescapability and potentially positive role of prejudice, the point would need to be framed slightly differently: there the omnipresence of prejudice in all cognitive domains would mean that it cannot be sufficient to render something political.\n\n56 Another way to put the point. The prejudice may be manifest in the public sphere; but the public sphere, whilst necessary for the political as argued above, is not equivalent to it.\n\nterms. The result, within texts like GA94, is that the political is construed using the concepts and values of ontology. The result, within the later 'black notebooks', will be that Heidegger's own prejudices become framed in the same terms: the Jews, not as racial threats, but ontological ones. In this sense I largely agree with Trawny's view that we are dealing with a ' seinsgeschichtlicher Antisemitismus '. 57 What I have tried to show is the structural roots of that - how one ends up with that form of prejudice as opposed, say to, the sexuoracial anti-Semitism of someone like Julius Streicher.\n\nSecond, one might object that Heidegger was simply not a political philosopher, and thus that it is unfair or tendentious to make such play out of his lack of interest in detailed political questions. This is a useful objection because it highlights the complex interplay of explanatory levels and evasions within Heidegger's text. As I see it, the claim that he was not a political philosopher is in one sense wrong and in another right. It is wrong because the question of the political, of how to understand it, how to protect philosophy from it, how to control it, is the dominant question of texts such as GA94. If one reflects on the analysis of section (1), it becomes untenable to claim that GA94 is simply disengaged from political issues, in the way that a treatise on pure mathematics might be. Yet, on the other hand, the explanatory apparatus which which Heidegger approaches the political is essentially drawn from ontology. To put it paradoxically, GA94 is an non-political book about politics, one which relentlessly raises political issues only to then thematise them using values and concepts drawn from ontology. Thus, Heidegger is a political thinker insofar as he is discussing politics; yet the hermeneutic situation out of which he does so is articulated in a radically non-political vocabulary. It is this delicate balance that I want to mark by talking of the 'occlusion' of the political.\n\nThird, one might raise the concern that I end as an apologist for Heidegger; by stressing the ontological base of his theory, am I guilty of downplaying his culpability for its political consequences? I think the answer here should is simply 'no'. Heidegger is culpable for the standard hermeneutic and moral reasons: he is engaging in discourse about a topic, politics, where he has failed utterly to think through his assumptions. Furthermore, it seems to me no accident that, deprived of any systematic reflection on the political per se , his thought lacked any corrective to either his own prejudices or to the crude and inflexible\n\n57 PETER TRAWNY, Heidegger und der Mythos der jüdischen Weltverschwörung. Frankfurt am Main, 2014, p.\n\n11.\n\nvision of society that resulted from a myopically ontological focus. I spoke above about the serious consequences of the occlusion I have sketched; this is the most weighty of them.\n\nI want to bring the results together. I have claimed that there is significant sense in which Heidegger collapses point (II) of the triangle, the political, into point (I), the ontological. This is a highly distinctive move. Consider again the example of Kant whom I used when introducing the diagram at the start of this article: it would be untenable to make the same move within a Kantian framework, since that would be precisely to breach, or at least to unacceptably blur, the distinction between theoretical and practical philosophy. Alternately, take the other case I mentioned: Foucault. One can imagine a reading of Foucault on which the ontological is reduced to the political, but is hard to see how the converse could be conceivable. Of course, Heidegger, Kant and Foucault are very different thinkers - and it is precisely that which I want to stress, the distinctiveness of the strategy visible in Heidegger's case, a strategy in which the political is systematically suppressed or occluded in favour of the ontological.\n\n## (4) Beyond Politics: Ethics and Ontology\n\nI now want to say something about the broader application of these claims by bringing in the third point of the triangle. As mentioned at the start, I will talk about this in terms of 'ethics' in order to avoid the narrower deontological associations of 'morality': my concern is very broadly with the issue of the good life.\n\nPerhaps the most direct way to approach the point is via Heidegger's own remarks in the 1946 letter to Beaufret. One of the main aims of that text is to displace the triangular geometry I have used in favour of some deeper structure. Thus he claims that 'the thinking that inquires into the truth of Being…is neither ethical nor ontological'. 58 This is the culmination of a long-held conviction that he has identified a set of originary structures prior to such distinctions. Thus GA26, the 1928 course on Leibniz talks of identifying 'common root' of both 'theoretical' and 'practical' intentionality. 59 But to what degree can we take these remarks at face value? The issue is a complicated one, closely tied to developments\n\n58 MARTIN HEIDEGGER, Wegmarken, GA9, Frankfurt am Main, 2004, p. 357.\n\n59\n\nMARTIN HEIDEGGER, Metaphysische Anfangsgründe der Logik im Ausgang von Leibniz, GA26, Frankfurt am Main, 2007, pop. 236-7. Similarly; HEIEGGER, Sein und Zeit, Tübingen, 1957, p. 193; 358.\n\nwithin Heidegger's thought during over the 1930s, and I cannot address it fully here. But a few remarks may be helpful in the context of what has gone above. 60\n\nThere are very good grounds on which to argue that, just as Heidegger reduced politics to ontology, he does the same with ethics. Take, for example, his early work on authenticity: why does Heidegger regard authenticity, as he plainly does, as a valuable state? Crudely put, why ought one to be authentic? Within both Sein und Zeit itself and in its subsequent reworking in the lecture courses of the late 1920s and early 1930s, two answers emerge. The first is a form of perfectionism: only in authenticity does Dasein fully realise or 'liberate' its own essence.\n\nThe most extreme demand [ Zumutung ] must be announced to man, not some arbitrary demand, not this or that one, but the demand pure and simple that is made upon man. And what is that? It is that Dasein as such is demanded of man … To what therefore does Dasein have to resolutely disclose itself? To first creating for itself once again a genuine knowing concerning that wherein whatever properly makes Dasein itself possible consists … to liberate the humanity in man, i.e. the essence of man, to let the Dasein in him become essential . 61\n\nAs Sein und Zeit puts it, one thereby 'becomes 'essentially' Dasein in that authentic existence' so fulfilling the ancient injunction to 'become what you are'. 62 The same idea is clearly present in the opening pages of GA94 itself with its injunction that ' Der Mensch soll zu sich selbst kommen '. 63 Furthermore Heidegger returns to it throughout, in particular to the possibility of a 'future man' who in fully realising his ontologico-historical essence will be unrecognisable when compared to current caricatures of man as subject. 64\n\nBut this, of course, simply postpones the issue - why is such a self-realisation important? After all, there is panoply of other goods: why should I pay particular heed to the demands of authenticity as opposed to power or desire? The worry here is one that Heidegger would have been well aware; it is precisely this concern that motivates thinkers like Kant to\n\n60 I discuss these issues in more depth elsewhere: see SACHA GOLOB, Martin Heidegger: Ethics, Freedom, Ontology in Sacha Golob and Jens Timmermann (eds.), The Cambridge History of Moral Philosophy, Cambridge, 2017.\n\n61 MARTIN HEIDEGGER Die Grundbegriffe der Metaphysik, GA29/30, Frankfurt am Main, 2004, pp. 246-8 (original emphasis); similarly pp. 254-5.\n\n62 HEIDEGGER, Sein und Zeit, p. 323; 145. As I read it, the single inverted commas around ' wesentlich ' in the first remark cited reflect Heidegger's long-standing suspicions about that term and the ideas traditionally connected to it; I do not think that they indicate any hedging on the basically perfectionist approach to which Heidegger subscribes.\n\n63 HEIDEGGER, Schwarze Hefte 1931-1938, GA94, p. 2; 45.\n\n64 HEIDEGGER, Schwarze Hefte 1931-1938, GA94, p. 334; 481; 491.\n\nreject perfectionism as heterogeneous. 65 This brings me to the second answer which Heidegger offers, namely that authenticity is uniquely valuable because personal authenticity is a necessary condition on doing good philosophy. 66 This is because authenticity alone 'guarantees that we are coining the appropriate existential concepts', that we have not been misled by the prejudices and misconstruals fostered by 'the one'. 67 As Heidegger himself puts it in 1928:\n\nOnly he can philosophise who is already resolved to grant free dignity to Dasein in its most radical and universal-essential possibilities. 68\n\nOr in 1929:\n\nWhat philosophy deals with only manifests itself at all within and from out of a transformation of human Dasein . 69\n\nBut one might worry that the question is still being begged. If authenticity is valuable as a necessary condition on doing philosophy, that simply postpones the difficulty - why should I care about doing philosophy, as opposed to seeking any of the other goods available?\n\nHeidegger's answer is as clear as is it is revealing: philosophy is an activity in which we are all inescapably involved. As GA27 puts it:\n\nTo be a human means already to philosophise. Already and according to its essence, not opportunely or inopportunely, the human Dasein as such stands in philosophy. 70 In short, 'to exist means to philosophise' (GA27: 214). Of course, Heidegger's conception of what exactly philosophy is is subject to frequent and complex changes. But the one dominating strand is the need to maintain an appropriate relationship to Being, be it Sein or Seyn - this underlying assumption endures, as tracked in section (1), even as the definition of precisely what is 'appropriate' changes radically from texts such Sein und Zeit through to the Beiträge and beyond. Bringing these points together, I want to make the following suggestion: Heidegger's treatment of authenticity exemplifies a process whereby what are loosely ethical norms, norms on the good life, become gradually reinterpreted as ontological norms, norms which are a function of our relationship to Being and of our ability to sustain a philosophy that cultivates that relationship. This is because insofar as Sein und Zeit offers a picture of the good life, it is surely through authenticity. Yet as we have pressed on the value\n\n65 IMMANUEL KANT, Grundlegung zur Metaphysik der Sitten. AK4, Berlin 1911, p. 443.\n\n66 HEIDEGGER, Sein und Zeit, Tübingen, 1957, pp. 232-3.\n\n67 HEIDEGGER, Sein und Zeit, Tübingen, 1957, p. 316, 178.\n\n68 HEIDEGGER Metaphysische Anfangsgründe der Logik im Ausgang von Leibniz, GA26, p. 22.\n\n69 HEIDEGGER Die Grundbegriffe der Metaphysik, GA29/30, p.423, original emphasis).\n\n70 MARTIN HEIDEGGER Die Einleitung in die Philosophie, Frankfurt am Main, 2001. GA27, p. 3.\n\nof that goal, it has become clear that the whole chain of justifications which lies behind authenticity gradually and systematically elides it with ontology - to be authentic is both to liberate our own essence and to enable a philosophy properly orientated towards Being. In short, the triangle with which I began is becoming eclipsed, as, beneath the surface of the text, points (II) and (III) collapse into point (I).\n\nAt this juncture, there are several ways to continue the line of thought. First, my suspicion is that one could easily add other points to the diagram with which I began and watch as they too are simultaneously suppressed and co-opted in favour of the ontological. Consider, for example, the status of the empirical sciences. At times the privileging of philosophico-ontology over them is straightforward: 'the sciences first get their ground, dignity, and entitlements from philosophy'. 71 At others it is more subtle: for example, GA41 effectively argues that Galilean physics has failed to map entities properly, instead tacitly imposing an unquestioned and unverified quantificational framework which leads it to 'skip over the facts'. 72 What is striking here is the assumption that the best index for the 'facts' is not experimental replication or predictive power, but the deliverances of Heideggerian ontology: as GA94 puts it, '[p]hilosophy is the science'. 73 This may sound unproblematic if watered down to platitudes such as the importance of thinking through the conceptual framework used in a science, rather than simply blindly experimenting away. 74 Yet, of course, science as actually practiced frequently does that. What makes Heidegger's claim controversial and interesting is the assumption that he, despite his non-empirical method of inquiry, is better suited to do that, and even to evaluate the accuracy of those conceptual frameworks, than the scientists themselves. It is worth stressing that I do not think this aspect of Heidegger's work is entirely problematic. Consider the familiar charge, stemming from Tugendhat, that Heidegger fails maintain a distinction between correct and incorrect access to entities . 75 On my account this criticism is fundamentally misplaced. This is because I think that Heidegger has an elaborate and subtle account of how to draw this distinction; the\n\n71 MARTIN HEIDEGGER, Vom Wesen der Wahrheit, Frankfurt am Main, 1997, p. 60. Compare HEIDEGGER, Schwarze Hefte 1931-1938, GA94, p. 17; 33; 71.\n\n72 MARTIN HEIDEGGER, Die Frage nach dem Ding, Frankfurt am Main, 1984, GA41, p.93.\n\n73 HEIDEGGER, Schwarze Hefte 1931-1938, GA94, p.33 (original emphasis).\n\n74 Heidegger himself sometimes suggests this picture - see HEIDEGGER, Schwarze Hefte 1931-1938, GA94, p. 252\n\n75 ERNST TUGENDHAT Heidegger's Idea of Truth', in B.R. Wachterhauser (ed.) Hermeneutics and Truth . Evanston, Illinois, 1994.\n\nproblem is rather that it is framed entirely using the methods and vocabulary of ontology as he understands it. 76\n\nSecond, one could look at how the taxonomy I have used - ethical, ontological, political - lines up with some of the other taxonomies in play in Heidegger's discussion, such as that between theory and practice. The complexities of Heidegger's account of 'theory' in particular lie beyond this piece. Here I want simply to stress that I am not claiming that Heideggerian ontology will necessarily be theoretical - even if you think, with obvious justification, that philosophy for Heidegger is in an important sense lived, my concern remains over the framing of that lived sphere in terms of concepts drawn from ontology, rather than from other sources such as politics.\n\nThese are potential lines for development. But I want to close by briefly making a different, more modest point. The point is this. As noted above, Heidegger returns to these issues, in particular the relation between philosophy, ontology and ethics, in 1946 in the Letter on Humanism. What is striking is that collectively the Schwarze Hefte serve to undermine the closest thing he offers there to a response to the charge that he allows ontology to occlude ethics and politics. In the Letter, Heidegger suggest that thinking rightly has priority over other forms of action since it 'it cares for the light', for the clearing within which all other behaviour become possible. 77 The idea here is that thinking on Being - a lived philosophical ontology - has explanatory priority because it concerns those conditions under which entities can show up in the first place, and thus under which activities such as politics can get started. But the problem with this type of transcendental move is that if a given state is really a transcendental condition of this type, it is hard to make sense of the idea that some agents lack it. Thus, Kant was unable to understand the possibility that Spinoza's statements on religion genuinely reflected his beliefs- after all, they seemed to diverge radically from the practical postulates whose transcendental necessity Kant had just defended. 78 Yet one of the recurring themes of Heidegger's notebooks is that certain groups, such as the Jews, do in a very important sense lack the relations to Being which thought supposedly makes possible. 79 The result is that the privileging of ontological relations - being a ' Wahrer der Wahrheit des Seyns ' - cannot, by his own logic, be a function of a\n\n76 For details see GOLOB, Heidegger on Concepts, Freedom, and Normativity, pp. 184-88.\n\n77 HEIDEGGER, Wegmarken, GA9, p.361.\n\n78 IMMANUEL KANT, Kritik der Urteilskraft, AK5, Berlin 1913, pp. 452-3. The authority of these postulates within the Critical system is of course different from that of the categories. But the point stands: they should not be as easily disposable as a Spinoza seems to find them.\n\n79 MARTIN HEIDEGGER, Überlegungen XII-XV (Schwarze Hefte 1939-1941), GA96, Frankfurt am Main, p. 243.\n\ntranscendental argument insofar as there are groups whom he presents as essentially incapable of participating in those relations, and yet who can nevertheless clearly participate in politics. One option here - the one I suspect Kant would apply at least to Hume, if not also to Spinoza - is to claim that at some level his opponents do and must have the relevant beliefs: they are simply deluded about this. But that surely is not Heidegger's position; one cannot be a guardian of Being whilst caring not a jot about it. Another option, with a more obviously Heideggerian pedigree, is to claim that some basic relation to Being is a transcendental condition on all experience, and that even those he despises have this. But if that is the case, then the privileging of the very sophisticated and specific relation to Being which thought alone offers cannot itself have any transcendental necessity. I have argued that GA94 sees an occlusion of the political by the ontological; ironically, it is Heidegger's antiSemitism that makes that occlusion all the more visible, by depriving him of any prospect of a transcendental justification for it. 80\n\n80 I am very grateful to Günter Figal, Tobias Keiling, Denis McManus, Nikola Mirkovic, Dieter Thomae, Morten Thaning and to all the participants at the 2016 Freiburg Conference for their comments and suggestions on earlier versions of this paper.",
+    "responses": [
+      {
+        "source": "gpt-4o-2024-11-20",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"ADU1\": {\n      \"text\": \"This paper aims to advance our understanding of Heidegger's politics as it is laid bare within the ' Schwarze Hefte '.\",\n      \"label\": \"claim\"\n    },\n    \"ADU2\": {\n      \"text\": \"Yet my interest is not in Heidegger's first order political views, but rather in his conception of the political sphere per se.\",\n      \"label\": \"claim\"\n    },\n    \"ADU3\": {\n      \"text\": \"I suggest that the dominant characterisation of the political space within Heidegger's text is as a threat - to philosophy and to ontology.\",\n      \"label\": \"claim\"\n    },\n    \"ADU4\": {\n      \"text\": \"Underlying that characterisation, however, it is simultaneously possible to identify another pattern, one on which the political is itself gradually suppressed or occluded by the ontological.\",\n      \"label\": \"claim\"\n    },\n    \"ADU5\": {\n      \"text\": \"This tacit occlusion has, I suggest, a number of deeply problematic consequences.\",\n      \"label\": \"claim\"\n    },\n    \"ADU6\": {\n      \"text\": \"I will now argue that GA94 primarily characterises the political in terms of threat.\",\n      \"label\": \"claim\"\n    },\n    \"ADU7\": {\n      \"text\": \"Heidegger's view of the basic architecture of the political in GA94 is a negative one.\",\n      \"label\": \"claim\"\n    },\n    \"ADU8\": {\n      \"text\": \"The temporal dynamics and rhythms of the political sphere are thus inherently at odds, he suggests, with those of philosophy.\",\n      \"label\": \"claim\"\n    },\n    \"ADU9\": {\n      \"text\": \"The danger comes from 'the ceaseless 'politicization' of all 'sciences'.\",\n      \"label\": \"claim\"\n    },\n    \"ADU10\": {\n      \"text\": \"The threat is that politics will increasingly reconfigure philosophy in terms of its own agenda.\",\n      \"label\": \"claim\"\n    },\n    \"ADU11\": {\n      \"text\": \"For Heidegger this specific threat is ultimately a symptom of the broader trend towards technologization, and the construal of everything as a potential resource.\",\n      \"label\": \"claim\"\n    },\n    \"ADU12\": {\n      \"text\": \"The fundamental task of philosophy is to sustain, articulate and empower [ ermächtigen ] a distinctive relationship to Being [' Sein ' or ' Seyn '].\",\n      \"label\": \"claim\"\n    },\n    \"ADU13\": {\n      \"text\": \"I argued above that the dominant presentation of the political within GA94 is as a threat - at both a general and a specific level, Heidegger presents the political as threatening philosophy, and the unique relationship to Being which philosophy sustains.\",\n      \"label\": \"claim\"\n    },\n    \"ADU14\": {\n      \"text\": \"The first strategy is one of disengagement from the public sphere.\",\n      \"label\": \"claim\"\n    },\n    \"ADU15\": {\n      \"text\": \"The second tactic is more aggressive.\",\n      \"label\": \"claim\"\n    },\n    \"ADU16\": {\n      \"text\": \"Heidegger's third, and most infamous, strategy for dealing with the threat posed by the political is to try to co-opt it, to relocate it within his own metaphysical framework.\",\n      \"label\": \"claim\"\n    },\n    \"ADU17\": {\n      \"text\": \"I am going to argue that, in important sense, Heidegger presides over an occlusion or suppression of the political, a development which has deeply problematic consequences.\",\n      \"label\": \"claim\"\n    },\n    \"ADU18\": {\n      \"text\": \"The view manifest in both GA54 and GA94 is not one on which philosophy should direct politics, but more one on which philosophy eclipses it or occludes it.\",\n      \"label\": \"claim\"\n    },\n    \"ADU19\": {\n      \"text\": \"It is this failure to recognise the economic and indeed the political more broadly as 'a reality with a logic and laws of its own' that I want to highlight.\",\n      \"label\": \"claim\"\n    },\n    \"ADU20\": {\n      \"text\": \"The result, within texts like GA94, is that the political is construed using the concepts and values of ontology.\",\n      \"label\": \"claim\"\n    },\n    \"ADU21\": {\n      \"text\": \"I have claimed that there is significant sense in which Heidegger collapses point (II) of the triangle, the political, into point (I), the ontological.\",\n      \"label\": \"claim\"\n    },\n    \"ADU22\": {\n      \"text\": \"There are very good grounds on which to argue that, just as Heidegger reduced politics to ontology, he does the same with ethics.\",\n      \"label\": \"claim\"\n    },\n    \"ADU23\": {\n      \"text\": \"Heidegger's treatment of authenticity exemplifies a process whereby what are loosely ethical norms, norms on the good life, become gradually reinterpreted as ontological norms, norms which are a function of our relationship to Being and of our ability to sustain a philosophy that cultivates that relationship.\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"ADU1\",\n      \"target\": \"ADU3\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU3\",\n      \"target\": \"ADU4\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU4\",\n      \"target\": \"ADU5\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU6\",\n      \"target\": \"ADU7\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU7\",\n      \"target\": \"ADU8\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU9\",\n      \"target\": \"ADU10\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU10\",\n      \"target\": \"ADU11\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU12\",\n      \"target\": \"ADU13\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU13\",\n      \"target\": \"ADU14\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU13\",\n      \"target\": \"ADU15\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU13\",\n      \"target\": \"ADU16\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU17\",\n      \"target\": \"ADU18\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU18\",\n      \"target\": \"ADU19\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU19\",\n      \"target\": \"ADU20\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU21\",\n      \"target\": \"ADU22\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU22\",\n      \"target\": \"ADU23\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "ADU1": {
+              "text": "This paper aims to advance our understanding of Heidegger's politics as it is laid bare within the ' Schwarze Hefte '.",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "Yet my interest is not in Heidegger's first order political views, but rather in his conception of the political sphere per se.",
+              "label": "claim"
+            },
+            "ADU3": {
+              "text": "I suggest that the dominant characterisation of the political space within Heidegger's text is as a threat - to philosophy and to ontology.",
+              "label": "claim"
+            },
+            "ADU4": {
+              "text": "Underlying that characterisation, however, it is simultaneously possible to identify another pattern, one on which the political is itself gradually suppressed or occluded by the ontological.",
+              "label": "claim"
+            },
+            "ADU5": {
+              "text": "This tacit occlusion has, I suggest, a number of deeply problematic consequences.",
+              "label": "claim"
+            },
+            "ADU6": {
+              "text": "I will now argue that GA94 primarily characterises the political in terms of threat.",
+              "label": "claim"
+            },
+            "ADU7": {
+              "text": "Heidegger's view of the basic architecture of the political in GA94 is a negative one.",
+              "label": "claim"
+            },
+            "ADU8": {
+              "text": "The temporal dynamics and rhythms of the political sphere are thus inherently at odds, he suggests, with those of philosophy.",
+              "label": "claim"
+            },
+            "ADU9": {
+              "text": "The danger comes from 'the ceaseless 'politicization' of all 'sciences'.",
+              "label": "claim"
+            },
+            "ADU10": {
+              "text": "The threat is that politics will increasingly reconfigure philosophy in terms of its own agenda.",
+              "label": "claim"
+            },
+            "ADU11": {
+              "text": "For Heidegger this specific threat is ultimately a symptom of the broader trend towards technologization, and the construal of everything as a potential resource.",
+              "label": "claim"
+            },
+            "ADU12": {
+              "text": "The fundamental task of philosophy is to sustain, articulate and empower [ ermächtigen ] a distinctive relationship to Being [' Sein ' or ' Seyn '].",
+              "label": "claim"
+            },
+            "ADU13": {
+              "text": "I argued above that the dominant presentation of the political within GA94 is as a threat - at both a general and a specific level, Heidegger presents the political as threatening philosophy, and the unique relationship to Being which philosophy sustains.",
+              "label": "claim"
+            },
+            "ADU14": {
+              "text": "The first strategy is one of disengagement from the public sphere.",
+              "label": "claim"
+            },
+            "ADU15": {
+              "text": "The second tactic is more aggressive.",
+              "label": "claim"
+            },
+            "ADU16": {
+              "text": "Heidegger's third, and most infamous, strategy for dealing with the threat posed by the political is to try to co-opt it, to relocate it within his own metaphysical framework.",
+              "label": "claim"
+            },
+            "ADU17": {
+              "text": "I am going to argue that, in important sense, Heidegger presides over an occlusion or suppression of the political, a development which has deeply problematic consequences.",
+              "label": "claim"
+            },
+            "ADU18": {
+              "text": "The view manifest in both GA54 and GA94 is not one on which philosophy should direct politics, but more one on which philosophy eclipses it or occludes it.",
+              "label": "claim"
+            },
+            "ADU19": {
+              "text": "It is this failure to recognise the economic and indeed the political more broadly as 'a reality with a logic and laws of its own' that I want to highlight.",
+              "label": "claim"
+            },
+            "ADU20": {
+              "text": "The result, within texts like GA94, is that the political is construed using the concepts and values of ontology.",
+              "label": "claim"
+            },
+            "ADU21": {
+              "text": "I have claimed that there is significant sense in which Heidegger collapses point (II) of the triangle, the political, into point (I), the ontological.",
+              "label": "claim"
+            },
+            "ADU22": {
+              "text": "There are very good grounds on which to argue that, just as Heidegger reduced politics to ontology, he does the same with ethics.",
+              "label": "claim"
+            },
+            "ADU23": {
+              "text": "Heidegger's treatment of authenticity exemplifies a process whereby what are loosely ethical norms, norms on the good life, become gradually reinterpreted as ontological norms, norms which are a function of our relationship to Being and of our ability to sustain a philosophy that cultivates that relationship.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU1",
+              "target": "ADU3",
+              "type": "support"
+            },
+            {
+              "source": "ADU3",
+              "target": "ADU4",
+              "type": "support"
+            },
+            {
+              "source": "ADU4",
+              "target": "ADU5",
+              "type": "support"
+            },
+            {
+              "source": "ADU6",
+              "target": "ADU7",
+              "type": "support"
+            },
+            {
+              "source": "ADU7",
+              "target": "ADU8",
+              "type": "support"
+            },
+            {
+              "source": "ADU9",
+              "target": "ADU10",
+              "type": "support"
+            },
+            {
+              "source": "ADU10",
+              "target": "ADU11",
+              "type": "support"
+            },
+            {
+              "source": "ADU12",
+              "target": "ADU13",
+              "type": "support"
+            },
+            {
+              "source": "ADU13",
+              "target": "ADU14",
+              "type": "support"
+            },
+            {
+              "source": "ADU13",
+              "target": "ADU15",
+              "type": "support"
+            },
+            {
+              "source": "ADU13",
+              "target": "ADU16",
+              "type": "support"
+            },
+            {
+              "source": "ADU17",
+              "target": "ADU18",
+              "type": "support"
+            },
+            {
+              "source": "ADU18",
+              "target": "ADU19",
+              "type": "support"
+            },
+            {
+              "source": "ADU19",
+              "target": "ADU20",
+              "type": "support"
+            },
+            {
+              "source": "ADU21",
+              "target": "ADU22",
+              "type": "support"
+            },
+            {
+              "source": "ADU22",
+              "target": "ADU23",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "ADU1": {
+              "text": "This paper aims to advance our understanding of Heidegger's politics as it is laid bare within the ' Schwarze Hefte '.",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "Yet my interest is not in Heidegger's first order political views, but rather in his conception of the political sphere per se.",
+              "label": "claim"
+            },
+            "ADU3": {
+              "text": "I suggest that the dominant characterisation of the political space within Heidegger's text is as a threat - to philosophy and to ontology.",
+              "label": "claim"
+            },
+            "ADU4": {
+              "text": "Underlying that characterisation, however, it is simultaneously possible to identify another pattern, one on which the political is itself gradually suppressed or occluded by the ontological.",
+              "label": "claim"
+            },
+            "ADU5": {
+              "text": "This tacit occlusion has, I suggest, a number of deeply problematic consequences.",
+              "label": "claim"
+            },
+            "ADU6": {
+              "text": "I will now argue that GA94 primarily characterises the political in terms of threat.",
+              "label": "claim"
+            },
+            "ADU7": {
+              "text": "Heidegger's view of the basic architecture of the political in GA94 is a negative one.",
+              "label": "claim"
+            },
+            "ADU8": {
+              "text": "The temporal dynamics and rhythms of the political sphere are thus inherently at odds, he suggests, with those of philosophy.",
+              "label": "claim"
+            },
+            "ADU11": {
+              "text": "For Heidegger this specific threat is ultimately a symptom of the broader trend towards technologization, and the construal of everything as a potential resource.",
+              "label": "claim"
+            },
+            "ADU12": {
+              "text": "The fundamental task of philosophy is to sustain, articulate and empower [ ermächtigen ] a distinctive relationship to Being [' Sein ' or ' Seyn '].",
+              "label": "claim"
+            },
+            "ADU13": {
+              "text": "I argued above that the dominant presentation of the political within GA94 is as a threat - at both a general and a specific level, Heidegger presents the political as threatening philosophy, and the unique relationship to Being which philosophy sustains.",
+              "label": "claim"
+            },
+            "ADU14": {
+              "text": "The first strategy is one of disengagement from the public sphere.",
+              "label": "claim"
+            },
+            "ADU15": {
+              "text": "The second tactic is more aggressive.",
+              "label": "claim"
+            },
+            "ADU16": {
+              "text": "Heidegger's third, and most infamous, strategy for dealing with the threat posed by the political is to try to co-opt it, to relocate it within his own metaphysical framework.",
+              "label": "claim"
+            },
+            "ADU17": {
+              "text": "I am going to argue that, in important sense, Heidegger presides over an occlusion or suppression of the political, a development which has deeply problematic consequences.",
+              "label": "claim"
+            },
+            "ADU18": {
+              "text": "The view manifest in both GA54 and GA94 is not one on which philosophy should direct politics, but more one on which philosophy eclipses it or occludes it.",
+              "label": "claim"
+            },
+            "ADU19": {
+              "text": "It is this failure to recognise the economic and indeed the political more broadly as 'a reality with a logic and laws of its own' that I want to highlight.",
+              "label": "claim"
+            },
+            "ADU20": {
+              "text": "The result, within texts like GA94, is that the political is construed using the concepts and values of ontology.",
+              "label": "claim"
+            },
+            "ADU21": {
+              "text": "I have claimed that there is significant sense in which Heidegger collapses point (II) of the triangle, the political, into point (I), the ontological.",
+              "label": "claim"
+            },
+            "ADU22": {
+              "text": "There are very good grounds on which to argue that, just as Heidegger reduced politics to ontology, he does the same with ethics.",
+              "label": "claim"
+            },
+            "ADU23": {
+              "text": "Heidegger's treatment of authenticity exemplifies a process whereby what are loosely ethical norms, norms on the good life, become gradually reinterpreted as ontological norms, norms which are a function of our relationship to Being and of our ability to sustain a philosophy that cultivates that relationship.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU1",
+              "target": "ADU3",
+              "type": "support"
+            },
+            {
+              "source": "ADU3",
+              "target": "ADU4",
+              "type": "support"
+            },
+            {
+              "source": "ADU4",
+              "target": "ADU5",
+              "type": "support"
+            },
+            {
+              "source": "ADU6",
+              "target": "ADU7",
+              "type": "support"
+            },
+            {
+              "source": "ADU7",
+              "target": "ADU8",
+              "type": "support"
+            },
+            {
+              "source": "ADU12",
+              "target": "ADU13",
+              "type": "support"
+            },
+            {
+              "source": "ADU13",
+              "target": "ADU14",
+              "type": "support"
+            },
+            {
+              "source": "ADU13",
+              "target": "ADU15",
+              "type": "support"
+            },
+            {
+              "source": "ADU13",
+              "target": "ADU16",
+              "type": "support"
+            },
+            {
+              "source": "ADU17",
+              "target": "ADU18",
+              "type": "support"
+            },
+            {
+              "source": "ADU18",
+              "target": "ADU19",
+              "type": "support"
+            },
+            {
+              "source": "ADU19",
+              "target": "ADU20",
+              "type": "support"
+            },
+            {
+              "source": "ADU21",
+              "target": "ADU22",
+              "type": "support"
+            },
+            {
+              "source": "ADU22",
+              "target": "ADU23",
+              "type": "support"
+            }
+          ]
+        }
+      },
+      {
+        "source": "claude-3-5-sonnet-20241022",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"1\": {\n      \"text\": \"My aim in this paper is to advance our understanding of Heidegger's politics as it is laid bare within the so-called 'Schwarze Hefte'. But my interest is not in his first order political views nor in his prejudices, which seem to me as predictable as they are repulsive. Rather, my interest is in his conception of the political sphere per se, and in his understanding of the relationship between philosophy and politics as two fields of discourse or action.\",\n      \"label\": \"claim\"\n    },\n    \"2\": {\n      \"text\": \"Throughout GA94, Heidegger worries about the relationship between the contemporary political scene and the demands of philosophy. The danger comes from 'the ceaseless 'politicization' of all 'sciences''.\",\n      \"label\": \"premise\"\n    },\n    \"3\": {\n      \"text\": \"The threat is that politics will increasingly reconfigure philosophy in terms of its own agenda; this will take place, Heidegger suspects, under the banner of promoting 'lebensnaher' research.\",\n      \"label\": \"premise\"\n    },\n    \"4\": {\n      \"text\": \"The fundamental task of philosophy is to sustain, articulate and empower [ermächtigen] a distinctive relationship to Being ['Sein' or 'Seyn'].\",\n      \"label\": \"claim\"\n    },\n    \"5\": {\n      \"text\": \"The fundamental characterisation of the political in GA94 is as a threat; a threat manifest at both a general and a specific level. What it threatens is the distinctive role of philosophy, a role which centres on philosophy's connection to Being.\",\n      \"label\": \"claim\"\n    },\n    \"6\": {\n      \"text\": \"What is perhaps most striking about it is the utter lack of any sustained reflection on the political. Whilst, as in other texts such as the transcripts of his 1933-4 Hegel seminars, Heidegger clearly sympathises with a rudimentary authoritarian political philosophy, he is stunningly disinterested in the key questions that in a period as febrile as the 1930s will shape society.\",\n      \"label\": \"claim\"\n    },\n    \"7\": {\n      \"text\": \"It is not so much that Heidegger subjugates political choice to philosophical wisdom, as in the familiar Platonic paradigm. Rather, it is that the distinctive questions which the political should raise are not there.\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"2\",\n      \"target\": \"5\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"3\",\n      \"target\": \"5\", \n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"4\",\n      \"target\": \"5\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"6\",\n      \"target\": \"7\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"5\",\n      \"target\": \"7\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "1": {
+              "text": "My aim in this paper is to advance our understanding of Heidegger's politics as it is laid bare within the so-called 'Schwarze Hefte'. But my interest is not in his first order political views nor in his prejudices, which seem to me as predictable as they are repulsive. Rather, my interest is in his conception of the political sphere per se, and in his understanding of the relationship between philosophy and politics as two fields of discourse or action.",
+              "label": "claim"
+            },
+            "2": {
+              "text": "Throughout GA94, Heidegger worries about the relationship between the contemporary political scene and the demands of philosophy. The danger comes from 'the ceaseless 'politicization' of all 'sciences''.",
+              "label": "premise"
+            },
+            "3": {
+              "text": "The threat is that politics will increasingly reconfigure philosophy in terms of its own agenda; this will take place, Heidegger suspects, under the banner of promoting 'lebensnaher' research.",
+              "label": "premise"
+            },
+            "4": {
+              "text": "The fundamental task of philosophy is to sustain, articulate and empower [ermächtigen] a distinctive relationship to Being ['Sein' or 'Seyn'].",
+              "label": "claim"
+            },
+            "5": {
+              "text": "The fundamental characterisation of the political in GA94 is as a threat; a threat manifest at both a general and a specific level. What it threatens is the distinctive role of philosophy, a role which centres on philosophy's connection to Being.",
+              "label": "claim"
+            },
+            "6": {
+              "text": "What is perhaps most striking about it is the utter lack of any sustained reflection on the political. Whilst, as in other texts such as the transcripts of his 1933-4 Hegel seminars, Heidegger clearly sympathises with a rudimentary authoritarian political philosophy, he is stunningly disinterested in the key questions that in a period as febrile as the 1930s will shape society.",
+              "label": "claim"
+            },
+            "7": {
+              "text": "It is not so much that Heidegger subjugates political choice to philosophical wisdom, as in the familiar Platonic paradigm. Rather, it is that the distinctive questions which the political should raise are not there.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "2",
+              "target": "5",
+              "type": "support"
+            },
+            {
+              "source": "3",
+              "target": "5",
+              "type": "support"
+            },
+            {
+              "source": "4",
+              "target": "5",
+              "type": "support"
+            },
+            {
+              "source": "6",
+              "target": "7",
+              "type": "support"
+            },
+            {
+              "source": "5",
+              "target": "7",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "1": {
+              "text": "My aim in this paper is to advance our understanding of Heidegger's politics as it is laid bare within the so-called 'Schwarze Hefte'. But my interest is not in his first order political views nor in his prejudices, which seem to me as predictable as they are repulsive. Rather, my interest is in his conception of the political sphere per se, and in his understanding of the relationship between philosophy and politics as two fields of discourse or action.",
+              "label": "claim"
+            },
+            "2": {
+              "text": "Throughout GA94, Heidegger worries about the relationship between the contemporary political scene and the demands of philosophy. The danger comes from 'the ceaseless 'politicization' of all 'sciences''.",
+              "label": "premise"
+            },
+            "3": {
+              "text": "The threat is that politics will increasingly reconfigure philosophy in terms of its own agenda; this will take place, Heidegger suspects, under the banner of promoting 'lebensnaher' research.",
+              "label": "premise"
+            },
+            "4": {
+              "text": "The fundamental task of philosophy is to sustain, articulate and empower [ermächtigen] a distinctive relationship to Being ['Sein' or 'Seyn'].",
+              "label": "claim"
+            },
+            "5": {
+              "text": "The fundamental characterisation of the political in GA94 is as a threat; a threat manifest at both a general and a specific level. What it threatens is the distinctive role of philosophy, a role which centres on philosophy's connection to Being.",
+              "label": "claim"
+            },
+            "6": {
+              "text": "What is perhaps most striking about it is the utter lack of any sustained reflection on the political. Whilst, as in other texts such as the transcripts of his 1933-4 Hegel seminars, Heidegger clearly sympathises with a rudimentary authoritarian political philosophy, he is stunningly disinterested in the key questions that in a period as febrile as the 1930s will shape society.",
+              "label": "claim"
+            },
+            "7": {
+              "text": "It is not so much that Heidegger subjugates political choice to philosophical wisdom, as in the familiar Platonic paradigm. Rather, it is that the distinctive questions which the political should raise are not there.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "2",
+              "target": "5",
+              "type": "support"
+            },
+            {
+              "source": "3",
+              "target": "5",
+              "type": "support"
+            },
+            {
+              "source": "4",
+              "target": "5",
+              "type": "support"
+            },
+            {
+              "source": "6",
+              "target": "7",
+              "type": "support"
+            },
+            {
+              "source": "5",
+              "target": "7",
+              "type": "support"
+            }
+          ]
+        }
+      }
+    ],
+    "timestamp": 1752757887.3889778
+  }
+]

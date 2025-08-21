@@ -1,0 +1,411 @@
+[
+  {
+    "identifier": "SPAPAO",
+    "system_prompt": "## GOAL\nArgument‑mine the following paper to extract its comprehensive argumentative structure.\n\n## DEFINITIONS\n1. **Argument**: A set of propositions, including some number of premises and a conclusion. The premises should logically entail the conclusion.\n2. **Claim**: A proposition that asserts something to be true or false, typically requiring justification or evidence.\n3. **Premise**: A proposition that provides evidence, justification, or logical support for a claim or conclusion.\n\n## CRITICAL REQUIREMENTS\n1. **VERBATIM EXTRACTION ONLY**: Each ADU text must be copied EXACTLY from the paper with no modifications, paraphrasing, or combining of separate sentences.\n2. **NO HALLUCINATION**: Do not create, modify, or invent text that does not appear exactly in the source.\n3. **EXACT MATCHING**: Every word, punctuation mark, and spacing must match the original precisely.\n\n## DIRECTIONS\n1. **Identify Argumentative Discourse Units (ADUs)**  \n   - ADU = any contiguous text span functioning as a claim or a premise in the reasoning structure.\n   - **BE HIGHLY SELECTIVE**: Only include ADUs that are crucial to the overarching argument structure.\n   - Focus on significant claims and premises that contribute meaningfully to the argumentative flow.\n   - **AVOID NOISE**: Skip ADUs that are merely descriptive, tangential, or do not substantially advance the argument.\n   - Prioritize quality over quantity - fewer accurate, important ADUs are better than many insignificant ones.\n   - **EXTRACT ONLY**: Copy text spans exactly as they appear, without any modifications.\n2. **Classify each ADU**  \n   - Label = either `\"claim\"` or `\"premise\"`.  \n3. **Detect directed relations**  \n   - Relation = `\"support\"` or `\"attack\"`, from one ADU (source) to another (target).\n   - Map how ADUs connect to form reasoning chains.\n   - Focus on relationships between the most significant ADUs.\n   - Include relationships between premises that strengthen or weaken each other.\n4. **Verbatim spans**  \n   - Each `\"text\"` value must be copied EXACTLY from the paper with zero modifications.\n   - Do not paraphrase, summarize, or combine separate sentences.\n   - Do not add, remove, or change any words, punctuation, or spacing.\n   - If unsure about exact wording, skip that ADU rather than guess.\n\n## WHAT TO CAPTURE\n**INCLUDE ONLY:**\n- Main argumentative threads that are central to the paper's contribution\n- Core claims that represent the paper's primary arguments or findings\n- Key premises that provide essential support for major claims\n- Critical counterarguments and their refutations\n- Reasoning chains that demonstrate how main conclusions are derived\n\n**EXCLUDE (AVOID NOISE):**\n- Minor details, examples, or descriptive content that don't advance the argument\n- Tangential points or side discussions\n- Pure background information or literature review content\n- Methodological details unless they constitute argumentative claims\n- Obvious statements or commonly accepted facts\n- Redundant or repetitive argumentative content\n\n**GUIDING PRINCIPLE**: If removing an ADU would not significantly impact understanding of the paper's argumentative structure, it should be excluded.\n\n## QUALITY CONTROL\n- Before finalizing each ADU, verify the text exists exactly in the source\n- Prefer fewer, accurate ADUs over many potentially modified ones\n- When in doubt about exact wording, omit the ADU\n\n## OUTPUT FORMAT\nReturn **only** a single valid JSON object matching this schema.  \nDo **not** output any extra text, markdown, or explanations.\n\nRESPOND WITH ONLY:\n```json\n{\n  \"ADUs\": {\n    \"<ADU_ID>\": {\n      \"text\": \"<exact span from paper>\",\n      \"label\": \"claim\" | \"premise\"\n    }\n    ...\n  },\n  \"relations\": [\n    {\n      \"source\": \"<ADU_ID>\",\n      \"target\": \"<ADU_ID>\",\n      \"type\": \"support\" | \"attack\"\n    }\n  ]\n}\n```",
+    "user_content": "## Physics and Optics in Dante's Divine Comedy\n\n## Amelia Carolina Sparavigna 1\n\n1 - Department of Applied Science and Technology, Politecnico di Torino, Italy\n\n<!-- image -->\n\nDOI 10.13140/RG.2.1.3509.0965\n\nABSTRACT. The  Divine  Comedy  is  a  poem  of  Dante  Alighieri  representing,  allegorically,  the  journey  of  a  soul towards God, in the framework of Dante's metaphysics of the divine light. However, besides metaphysics, we can find in the poem several passages concerning the natural phenomena. Here we discuss some them, in order to investigate Dante's knowledge of Physics and, in particular, of Optics.\n\nKeywords : Medieval Science, History of Science, History of Optics\n\n1. Introduction. Dante Alighieri was one of the most educated persons of his time. He knew deeply the  logic,  physics  and  metaphysics  of  Aristotle.  The  theology  came  to  him  from  the  thought  of Albert the Great and Thomas Aquinas, that Dante, in his Divine Comedy poem, places among the \"Wise Spirits\" in the Heaven of the Sun [1]. He also knew very well the classic literature and the Neoplatonic  thought. As  Thomas  Aquinas,  Dante  aimed  that  his  listeners  were  practicing philosophy, but the poet was teaching through a poetry in Vulgar, rather than through a prose in Latin. Dante's philosophy, which is present in his poem, the Divine Comedy, was supported by a metaphysics, that we can define as a metaphysics of the Light of Divine Love [2]. In such a manner, when Dante in his allegorical journey comes to the Empyreum, a region beyond physical existence, the  highest  place  of  his  medieval  cosmology,  the  Comedy  presents  its  'sense  of  a  complete harmonization of divine light, divine love, and divine life' [3]. Besides metaphysics, we can find in Dante's poem several passages concerning the natural phenomena. Here we discuss some of them, in  order  to  investigate  Dante's  knowledge  of  Physics  and,  in  particular,  of  Optics.  Reference  [4] helps us in investigating the Divine Comedy to evidence these points.\n2.  The journey in the realms of afterlife. The Divine Comedy, Divina Commedia, is the poem written  by  Dante  Alighieri,  from  approximately  1308  and  his  death  in  1321.  This  poem  is  an allegorical journey in the realms of afterlife, based on the vision of the world of medieval Western Europe.  In  the  poem  written  in  the  first  person,  Dante  describes  his  journey  through  Hell  and Purgatory,  and  then  his  rise  through  Heavens,  up  to  the  Empyreum  and  the  vision  of  God.  This travel is representing allegorically a soul's journey towards the Divine Love of God.\n\nThe Comedy is composed of 14,233 lines, divided into three Cantiche: Inferno (Hell), Purgatorio (Purgatory), and Paradiso (Paradise). In the first canto, the prologue of the poem, Dante is in a dark wood, where he meets the Roman poet Virgilio. In the third canto, Dante and Virgilio enter the Hell. Virgilio guides Dante through Hell and Purgatory; Beatrice, Dante's ideal woman, is leading him through the Paradise.\n\nThe structure of the three realms is given in a numerical pattern of 9 plus 1, for a total of 10. There are nine circles of Inferno, and Lucifer is contained at its bottom, which is the center of the Earth. We have nine rings around the Mount Purgatory, and the Garden of Eden at its top. Then, Dante finds the 9 'cieli' (heavens), the nine celestial spheres of Paradise, crowned with the Empyreum, and God, the radiating point of Light. In each of the circles, rings and spheres, Dante and his Guides meet different characters, because each of these places is concerning a different sin or virtue. Here in the Figure 1 a sketch of Dante's world.\n\nFig. 1. The world of Divine Comedy, as shown by Michelangelo Caetani, duca di Sermoneta, in his book 'La materia della Divina commedia di Dante Alighieri dichiarata in VI tavole', Passerini G.L. editor, 1921.\n\n<!-- image -->\n\n3.  Gravitation, motion and time. In  a  previous  paper [5],  we have discussed some of medieval physics concerning gravitation and the form of the world. Except for a few isolated cases, dictated by a religious aversion to the ancient philosophy, to the medieval Europe, the world was a sphere. But there was a problem that arose some discussions, and this was the existence of Antipodes. Do they exist? Are they inhabited? Can we reach them?\n\nThis issue was considered by Dante Alighieri in depicting the realms of afterlife. The Earth is a sphere having at its center Lucifer, who dug the Hell with his fall. Dante and his guide Virgil, go down following the 'gironi' of Hell, reaching the center of the Earth, and then rise to the Earth surface at  the  Antipodes  where  they  find  the  Mountain  of  Purgatory.  When  Dante  is  passing  the center of the Earth, Virgil tells him that this is 'l punto al qual si traggon d'ogni parte i pesi', 'the point  to  which  things  heavy  draw  from  every  side',  (Inferno,  Canto  XXXIV). To  Dante,  the gravitation was a power applied to any mass, of which he knew, given its spherical symmetry, the direction towards the center of the Earth, that was also the center of the Universe. Therefore, the gravitation was the principle that constrained the Medieval model of universe, composed of many spheres, to rotate about the center of the world.\n\nUsing this simple theory of gravitation, Dante was able to solve another quite relevant question of his time. In 1320, in the church of St. Helena in Verona, Dante discussed the question about the two elements of water and earth; with geometric, hydraulic and cosmographic reasons, he showed that the circumference of water is not larger than that of earth, according to the nature of gravity [4]. Let us stress that the medieval scholars had not the concept of force and then could not formulate a law such  as  that  of  the  universal  gravitation,  first  proposed  by  Newton  in  the  Philosophiæ  Naturalis\n\nPrincipia  Mathematica,  published  in  1687.  Dante's  cosmology  was  a  medieval  cosmology,  with nine  heavens  having  the  earth  as  their  common  center.  Above  the  starry  heaven,  there  is  the crystalline  heaven  of  Primum  Mobile,  the  'first  moved',  linking  God  and  the  universe.  The existence of the Primo Mobile depends on nothing else than light and love of God.\n\n- 'La natura del mondo, che quieta / il mezzo e tutto l'altro move, / quindi comincia come da sua meta; / e questo cielo non ha altro dove / che la mente divina, in che s'accende / l'amor che il volge e la virtù ch'ei piove.' (Paradiso, XXVIII, 106-111).\n- 'The nature of that motion, which keeps quiet / The centre and all the rest about it moves, / From hence begins as from its starting point. /And in this heaven there is no other Where / Than in the Mind Divine, wherein is kindled / The love that turns it, and the power it  rains.' (Longfellow's translation)\n\nTime has its origin from the motion of this heaven, as Beatrice tells to Dante:\n\n- 'E come il tempo tegna in cotal testo / Le sue radici e ne li altri le fronde, / omai a te può esser manifesto.' (Paradiso, XXVIII, 118-120).\n- 'And in what manner time in such a pot / May have its roots, and in the rest its leaves, / Now unto thee can manifest be made.' (Longfellow's translation)\n4.  Astronomical  passages. In  the  Divine  Comedy,  Dante  was  often  referring  to  astronomical phenomena, to mark the time of his journey in the afterlife's realms. And then, in the poem, there are many passages about astronomy [6]: let us remember just two of them. One is the reference to the polar stars: in the Hell, Dante encounters Ulysses. The Greek hero describes to Dante his last voyage, undertaken by him and his old comrades, beyond the Pillars of Hercules. Ulysses is heading towards the Southern Hemisphere. He sees the stars of the other hemisphere and those of the Boreal pole  that  no  more  rise  above  the  horizon.  He  sailed  for  five  lunar  months  and  then  he  saw  a mountain, indistinct for the distance. This is the Antipodean mountain: Ulysses, however, does not get it because a strong whirlwind does sink the ship. The sea closed over him and his companions.\n- 'Tutte le stelle già de l'altro polo / vedea la notte, e 'l nostro tanto basso, / che non surgea fuor del marin suolo. / Cinque volte racceso e tante casso / lo lume era di sotto da la luna, / poi che 'ntrati eravam nell'alto passo, / quando n'apparve una montagna, bruna / per la distanza, e parvemi alta tanto / quanto veduta non avea alcuna.' (Inferno, XXVI, 127-135).\n- 'Already all the stars of the other pole / the night beheld, and ours so very low / it did not rise above  the  ocean  floor.  /  Five  times  rekindled  and  as  many  quenched  /  had  been  the  splendour underneath the moon, /  since we had entered into the deep pass, /  when there appeared to us a mountain,  dim  /  from  distance,  and  it  seemed  to  me  so  high  /  as  I  had  never  any  one  beheld.' (Longfellow's translation)\n\nHowever, Dante is on a very different journey, and therefore he arrives to the conical mountain of Purgatory, made by terraces that rise to the Earthly Paradise.\n\nIn  the  Eleventh  Canto  of  Purgatory,  Dante  alludes  to  the  precession  of  the  equinoxes  in  the following manner.\n\n'Che voce avrai tu più, se vecchia scindi / da te la carne, che se fossi morto / anzi che tu lasciassi il 'pappo' e 'l 'dindi', / pria che passin mill'anni? ch'è più corto / spazio a l'etterno, ch'un muover di ciglia / al cerchio che più tardi in cielo è torto.' (Purgatorio, XI, 103-108).\n\n'What fame shalt thou have more, if old peel off / from thee thy flesh, than if thou hadst been dead / before thou left the 'pappo' and the 'dindi,' / ere pass a thousand years? which is a shorter / space to the eterne, than twinkling of an eye / unto the circle that in heaven wheels slowest.' (Longfellow's translation)\n\n5.  Dante's  Physics. Astronomy  was  one  of  the  arts  of  the  Quadrivium  and  then  had  a  very important part in medieval culture. And then, it is not surprising to find it in Dante's works. Physics was a part of the philosophy of Nature. We can ask ourselves if Dante is also referring to it in his Comedy; the answer is positive. For our investigation of Dante's physics, we find a huge help in a book written in 1804 by Giovanni Bottagisio [4]. Bottagisio was a landowner with a passion for Dante's works that led him to write a work on the scientific aspects of the Divine Comedy. Among physics, Giovanni Bottagisio considers optics and atmospheric phenomena, but also the behavior of animals and human biology.\n\nAs Bottagisio tells in his introduction [4], \"To my best knowledge, no one had considered so far to make an 'anatomy' of Dante's poem, to learn about the physics that he discussed in very gentle and seemly  way.  Only  Benedetto  Varchi,  in  a  lecture  about  the  generation  of  the  human  body,  had reviewed  a  corresponding  passage  (Purgatory,  XXV)'.  The  mathematician  and  poet  Giuseppe Torelli in a letter to Abbot Clemente Sibiliati, professor at the University of Padova, exhibited and explained a physical passage (Purgatory, XV) on the reflection of the light that strikes the surface of water, or a mirror. Besides these two examples, no one preceded Bottagisio. He picked up from the three  poems  of  the  Comedy,  twenty  or  more  passages,  regarding  physical  things,  omitting  those concerning astronomy, already discussed by other scholars, in order to understand the physics that Dante was knowing.\n\nAccording to Bottagisio, Dante was a theologian, a metaphysician and a moralist; but he was also a 'poet  of  physics'  ,  who  described  in  verse  some  natural  and  scientific  phenomena  in  a  graceful manner. Following Giovanni Boccaccio, Bottagisio tells us that Dante had Brunetto Latini as his teacher of physics. Dante studied and disputed in public about physical phenomena even in Paris, where he went after his exile from Florence. Let us see some passages that Bottagisio had discussed in his book.\n\n6. Optics. Let us start with geometrical optics. In the Purgatory, Dante uses a similitude from the reflection of light.\n2. 'Come quando dall'acqua o dallo specchio / salta lo raggio all'opposita parte, / salendo su, per lo modo parecchio / a quel che scende, e tanto si diparte, / dal cader della pietra, in igual tratta, / si come mostra esperienza e arte: / cosi mi parve da luce rifratta / ivi dinanzi a me esser percosso. (Purgatorio, XV, 16-23).\n3. 'As when from off the water, or a mirror, / the sunbeam leaps unto the opposite side, / ascending upward in the selfsame measure / that it descends, and deviates as far / from falling of a stone in line direct, / as demonstrate experiment and art, / so it appeared to me that by a light / refracted there before me I was smitten.' (Longfellow's translation)\n\nDante is telling that the light of an angel, who appeared to him, hits him in the face as the ray of light, descending from the sun, hits the surface of water, or a mirror, and is reflected to the other\n\nside.  It  is  coming  out  on  the  same  way  that  it  went  down,  that  is,  forming  equal  angles  on  both sides.  Therefore,  the  reflected  ray  departs  with  an  angle  equal  to  the  incidence  angle,  'dal  cader della  pietra',  from  the  'falling  of  a  stone',  that  is,  from  the  line  perpendicular  to  the  reflecting surface, 'as experience and art are demonstrating'. The perpendicular line is called the 'falling of a stone' by the ancient scholars; Bottagisio tells that this metaphor was used by Albertus Magnus.\n\nDante  tells  that  the  law  of  reflection  was  proved  by  'experience'  and  'art',  and  then  we  can imagine,  as  Bottagisio  is  telling,  that  Dante  had  saw  some  instruments  designed  to  make experiments of geometrical optics. Let us note that the 'refracted light' in this Dante's passage is actually a 'reflected light'; Dante was using the language of ancient physics, which was not using two different terms for reflection and refraction. We can find the same use of term 'refraction' in Robert  Grosseteste's  works  on  optics  [7,8].  According  to  the  Poet,  to  prove  the  laws  of  optics, besides the experience, the Latin 'experimentum', we need also the 'art', which at Dante's time was known as 'catottrica' [9] .\n\nIt remains to establish the scientific sources that Dante knew and used in the Comedy and also in his Convivio.  According  to  [10],  the  scientific  observations  were  often  derived  from  encyclopedic compilations.  For  his  astrological  knowledge,  Dante  used  the  Liber  de  aggregatione  scientiae stellarum of Alfraganus and the Sphera written by John Sacrobosco. Moreover, the interest of Dante for  optics  and  physics  and for the metaphysics  of light may indicate a  possible relationship with Bartholomew  of  Bologna  [10],  who  was  influenced  by  Robert  Grosseteste.  Bartholomew  of Bologna, who died about 1294, was an Italian Franciscan scholastic philosopher, follower of John Pecham [11]. Among his works we find the Tractatus de Luce, on optics and the metaphysics of light.  Already  about  1290,  several  chapters  of  the  Tractatus  de  Luce  were  reported  by  the Franciscan  Servasanto  da  Faenza,  in  his  work  De  Exemplis  naturalium  [12].  In  Bartholemew's work, we can find an Oxonian origin of his luministic theory. In the Tractatus de Luce, this theory appears as a natural aesthetic legacy, an aesthetic legacy that in Dante is quite clear. The Tractatus de  Luce  gives  evidence  of  the  Oxonian  influence  either  through  explicit  references  to  Robert Grosseteste's work, readable in it, either through the clear symptoms of a lesson entirely absorbed by Dante and rendered in his Convivio [12-14].\n\n7.  In  the  light  of  the  Moon. Dante's  Paradiso  begins  at  the  top  of  Mount  Purgatory.  After ascending through the sphere of fire, believed to exist in the earth's upper atmosphere (Canto I), Beatrice  leads  Dante  through  the  nine  celestial  spheres  of  Heavens,  to  the  Empyreum.  The  nine spheres are concentric, as in the standard medieval geocentric model of cosmology, derived from Ptolemy.  The  Empyreum  is  immaterial.  In  the  Canto  II  of  Paradiso,  Dante  is  in  the  sphere,  or heaven, of the Moon.\n\nIn the heaven of the Moon, Dante finds a wonderful place that attracts all his attention. Beatrice, that can read his mind, summons the poet to direct his mind to God in gratitude for having reached the  heaven  of  the  Moon.  Then  Dante  describes  his  feelings:  he  seems  to  be  wrapped  in  a  cloud which is  shining  like  a  diamond  hit  by  the  sun.  The  moon  welcomes  Beatrice  and  Dante  within herself,  without opening, like the surface of the water when it is receiving a ray of light. On the Earth, tells Dante, we cannot understand how a solid body can penetrate into another solid body, without suffering any change.\n\n'Pareva a me che nube ne coprisse / lucida, spessa, solida e pulita, / quasi adamante che lo sol ferisse.  /  Per  entro  se'  l'eterna  margherita  /  ne  ricevette,  com'acqua  recepe  /  raggio  di  luce, permeando  unita.  /  S'io  era  corpo,  e  qui  non  si  concepe  /  com'una  dimensione  altra  patio,  / ch'essere convien se corpo in corpo repe, / accender ne dovria più il disio / di veder quella essenza in che si vede / come nostra natura e Dio s'unio.' (Paradiso, Canto II, 30-42).\n\n'It seemed to me a cloud encompassed us, / luminous, dense, consolidate and bright / as adamant on  which  the  sun  is  striking.  /  Into  itself  did  the  eternal  pearl  /  receive  us,  even  as  water  doth receive / a ray of light, remaining still unbroken. / If I was body, and we here conceive not / how one dimension tolerates another, / which needs must be if body enter body, / more the desire should be enkindled in us / that essence to behold, wherein is seen / how God and our own nature were united.' (Longfellow's translation)\n\nWhat is the nature of the light, material or immaterial? I think this was the question that Dante was considering, when he was writing these words on a ray of light passing through a medium.\n\nThis light further increases the desire for reaching the highest Heaven. After thanking God, Dante asks Beatrice to explain the phenomenon of the dark spots of the Moon. He believes that these spots depend on the different  density of this celestial  body.  But  Beatrice confutes his argument, by an experiment. The experiment is on the role of distance, between an observed and surfaces reflecting the light. We can take three mirrors, placed at unequal distances from a light source; we will see them equally resplendent.\n\n'Da questa instanza può deliberarti / esperienza, se giammai la provi, / ch'essere suol fonte ai rivi di  vostra  arti.  /  Tre  specchi  prenderai;  e  due  rimovi  /  da  te  d'un  modo,  e  l'altro  più  rimosso  / tr'ambo li primi gli occhi tuoi ritrovi. / Rivolto ad essi fa, che dopo il dosso / ti stea un lume, che i tre specchi accenda, / e torni a te da tutti ripercosso. / Benché nel quanto tanto non si stenda / la vista più lontana, li vedrai / come convien, ch'egualmente risplenda.' (Paradiso II, v. 89-105).\n\n'From this reply experiment will free thee / if e'er thou try it, which is wont to be / the fountain to the rivers of your arts. / Three mirrors shalt thou take, and two remove / alike from thee, the other more remote / between the former two shall meet thine eyes. / Turned towards these, cause that behind thy back / be placed a light, illuming the three mirrors / and coming back to thee by all reflected. / Though in its quantity be not so ample / the image most remote, there shalt thou see / how it perforce is equally resplendent.' (Longfellow's translation).\n\nBottagisio explains that the distance is not changing the quality of the light reflected by the three mirrors. Ottavio Fabrizio Mossotti (Italian physicist, 1791-1863, known for the Clausius-Mossotti relation),  in  a  letter  to  the  Editor  of  Bottagisio's  book,  has  a  relevant  observation  about  this experiment [15]. 'It seems to me that Dante, by the experiment of the three mirrors, wanted to point out the principle that flat surfaces, which emit or are illuminated in equal degree, appear to have the same brightness at any distance they are placed. This happens because the size of their image and the amount of light that receives the eye from each point are both decreasing as the inverse of the square  of  the  distance.  Therefore,  there  is  a  compensation,  and  each  element  of  equal  apparent extension of the image is always represented by the same amount of light reaching the eye at any distance you observe the surface. ... (The light source must be supposed to be at a large distance, comparatively to that at which the mirrors are between them). ... The theoretical principle of Dante is right, and for that time had to be a sublime truth and not common knowledge'.\n\nMossotti's brightness is the ratio of the light  reaching  the  eye  to  the  apparent  size  of  the  object. These both diminish with the square of the distance, so the brightness remains constant.\n\nAfter  proposing  the  experiment  with  the  three  mirrors,  Beatrice  continues  with  her  explanation, which  becomes  more  metaphysical:  the  brightness  of  the  celestial  bodies  varies  as  the  force  of virtue varies from star to star. This virtue is the heavenly power, that we can find in Grosseteste's metaphysics of light too [16].\n\nThe motion and the influence of the spheres depend on angelic intelligences, as the ability of using the hammer depends on the mind of the blacksmith; like in the human body where we have a soul, which is one, but manifests itself in the different organs to perform different functions, we have the angelic intelligence from the eight heaven that unfolds from heaven to heaven and is manifested in different forms, merging with the different matter of the various stars. From this reason, it comes the change in brightness from star to star and then also the spots of the Moon.\n\nBottagisio is also remarking that the Pythagoreans, and also the mathematician Christian Wolff in his Elements of Astronomy, have considered the spots of the Moon being seas, lakes and ponds, which reverberate the rays they receive from the sun, most of them being absorbed. Let us note that Dante, through Beatrice's words, is summoning the use of an 'experimentum'. The same we can find, for example, in the works of Robert Grosseteste (1175-1253), considered the founder of the scientific  thought  in  the  medieval  Oxford.  The  Grosseteste's  'experimentum'  of  his  medieval physics, like that of Dante, was obviously different from an experiment of modern physics; it was referring  to  a  thought  experiment  (Gedankenexperiment)  or  the  experience  of  a  related  natural phenomenon.\n\n8.  The rainbow. Robert Grosseteste wrote on reflection and refraction in his treatise entitled De Iride  (on  Rainbow)  [7,  8],  where,  after  a  discussion  on  the  propagation  of  light  he  proposed  his explanation of such natural phenomenon. Then, the rainbow was a subject of physics. In the Divine Comedy, we find the rainbow too:\n2. 'E come l'aere, quand'è ben piorno, / Per l'altrui raggio, che 'n sé si riflette, / Di diversi color si mostra adorno.' (Purgatorio XXV, v. 91-93).\n3. 'And even as the air,  when full  of  rain,  /  By  alien  rays  that  are  therein  reflected,  /  With  divers colours shows itself adorned.' (Longfellow's translation).\n\nIn fact, if we imagine that the meaning of Dante's reflection was that of a refraction, it seems that the poet was in agreement to Grosseteste, who told that it is 'necessary that the rainbow is created by  the  refraction  of  the  sun's  rays  by  the  humidity  carried  by  the  cloud'  in  its  convexity  [7]. 'Necesse est  ergo,  quod  iris  fiat  per  fractionem  radiorum  solis  in  roratione  nubis  convexae'  [8]. Also  the  double  rainbow  is  present  in  the  Dante's  Comedy,  with  the  second  rainbow  being  the image of the first reflected by the cloud.\n\n- 'Come  si  volgon,  per  tenera  nube,  /  Du'  archi  paralleli  e  concolori,  /  Quando  Giunone  a  sua ancella jube, / Nascendo di quel d'entro quel di fuori.' (Paradiso, XII, 10-13).\n- 'And as are spanned athwart a tender cloud / Two rainbows parallel and like in colour, / When Juno to her handmaid gives command, / The one without born of the one within.'  (Longfellow's translation).\n\nThese Dante's passages on rainbow are reinforcing what we have previously told on the scientific treatises that he knew. May be, he had not a direct knowledge of Grosseteste's works, but in the Divine Comedy we can see some of the Oxonian theory of light rendered in poetry.\n\n## References\n\n- [1] Lansing, R. (2011). The Dante Encyclopedia, Routledge. ISBN 1136849726, 9781136849725\n- [2]  Sparavigna,  A.  C.  (2014).  Using  Time  Series  and  Graphs  in  the  Analysis  of  Dante's  Divine Comedy. International Journal of Sciences, 3(12), 33-40. DOI: 10.18483/ijSci.605\n- [3] Bainbridge Webster, J., &amp; Torrance, I. (2007). The Oxford Handbook of Systematic Theology, OUP Oxford.\n- [4] Bottagisio, G. (1894). Osservazioni sopra la fisica del poema di Dante, Nuova edizione del testo del 1807, a cura di G.L. Passerini, Città di Castello, S. Lapi.\n- [5]  Sparavigna,  A.  C.  (2013).  From  Rome  to  the  Antipodes:  The  Medieval  Form  of  the  World. International Journal of Literature and Arts, 1(2), 16-25. DOI: 10.11648/j.ijla.20130102.11\n- [6] Orr, M.A. (1913). Dante and the Early Astronomers, London: Gall and Inglis.\n- [7]  Sparavigna,  A.C.  (2013).  On  the  Rainbow,  a  Robert  Grosseteste's  Treatise  on  Optics. International Journal of Sciences, 2(9), 108-113. DOI: 10.18483/ijSci.296\n- [8]  Sparavigna,  A.C.  (2012).  Translation  and  discussion  of  the  De  Iride,  a  treatise  on  optics  by Robert Grosseteste. arXiv preprint arXiv:1211.5961.\n- [9] Dante Alighieri. La Divina Commedia, col commento di G. Biagioli, Napoli, Puzziello Libraio Editore, 1838. Vol.2, Pagina 202.\n- [10] Vasoli, C. (2012). Dante Alighieri, in 'Il Contributo italiano alla storia del Pensiero: Filosofia', Istituto dell' Enciclopedia Italiana, www.treccani.it\n- [11] Vv. Aa. (2016). Bartholomew of Bologna, Wikipedia.\n- [12]  Guidubaldi,  E.  (1970).  Bartolomeo  da  Bologna,  1970,  in  VV.AA.  Enciclopedia  Dantesca, vol.1, Istituto della Enciclopedia Italiana, Roma, pp.526-527.\n- [13] Olschki, L. (1933). Il Canto XXX del Paradiso, Il Giornale Dantesco, XXXVI.\n- [14]  Mocan,  M.  (2007)  La  trasparenza  e  il  riflesso:  sull'alta  fantasia  in  Dante  e  nel  pensiero medievale, Pearson Italia S.p.a.\n- [15]  Mossotti,  G.F.  (1894).  Illustrazioni  astronomiche  a  tre  luoghi  della  Divina  Commedia, Collezione di Opuscoli danteschi inediti e rari, diretta da G.L. Passerini, Volume Settimo, Città di castello, S. Lapi Tipografo-Editore.\n- [16]  Sparavigna,  A.C.  (2014).  Robert  Grosseteste's  Thought  on  Light  and  Form  of  the  World, International Journal of Sciences, 3(4):54-62 DOI: 10.18483/ijSci.486",
+    "responses": [
+      {
+        "source": "gpt-4o-2024-11-20",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"ADU1\": {\n      \"text\": \"The Divine Comedy is a poem of Dante Alighieri representing, allegorically, the journey of a soul towards God, in the framework of Dante's metaphysics of the divine light.\",\n      \"label\": \"claim\"\n    },\n    \"ADU2\": {\n      \"text\": \"However, besides metaphysics, we can find in the poem several passages concerning the natural phenomena.\",\n      \"label\": \"claim\"\n    },\n    \"ADU3\": {\n      \"text\": \"Here we discuss some of them, in order to investigate Dante's knowledge of Physics and, in particular, of Optics.\",\n      \"label\": \"claim\"\n    },\n    \"ADU4\": {\n      \"text\": \"Dante Alighieri was one of the most educated persons of his time.\",\n      \"label\": \"premise\"\n    },\n    \"ADU5\": {\n      \"text\": \"He knew deeply the logic, physics and metaphysics of Aristotle.\",\n      \"label\": \"premise\"\n    },\n    \"ADU6\": {\n      \"text\": \"Dante's philosophy, which is present in his poem, the Divine Comedy, was supported by a metaphysics, that we can define as a metaphysics of the Light of Divine Love.\",\n      \"label\": \"claim\"\n    },\n    \"ADU7\": {\n      \"text\": \"Besides metaphysics, we can find in Dante's poem several passages concerning the natural phenomena.\",\n      \"label\": \"claim\"\n    },\n    \"ADU8\": {\n      \"text\": \"The Divine Comedy, Divina Commedia, is the poem written by Dante Alighieri, from approximately 1308 and his death in 1321.\",\n      \"label\": \"premise\"\n    },\n    \"ADU9\": {\n      \"text\": \"This poem is an allegorical journey in the realms of afterlife, based on the vision of the world of medieval Western Europe.\",\n      \"label\": \"claim\"\n    },\n    \"ADU10\": {\n      \"text\": \"Dante describes his journey through Hell and Purgatory, and then his rise through Heavens, up to the Empyreum and the vision of God.\",\n      \"label\": \"premise\"\n    },\n    \"ADU11\": {\n      \"text\": \"This travel is representing allegorically a soul's journey towards the Divine Love of God.\",\n      \"label\": \"claim\"\n    },\n    \"ADU12\": {\n      \"text\": \"The structure of the three realms is given in a numerical pattern of 9 plus 1, for a total of 10.\",\n      \"label\": \"premise\"\n    },\n    \"ADU13\": {\n      \"text\": \"Using this simple theory of gravitation, Dante was able to solve another quite relevant question of his time.\",\n      \"label\": \"claim\"\n    },\n    \"ADU14\": {\n      \"text\": \"Dante's cosmology was a medieval cosmology, with nine heavens having the earth as their common center.\",\n      \"label\": \"claim\"\n    },\n    \"ADU15\": {\n      \"text\": \"The existence of the Primo Mobile depends on nothing else than light and love of God.\",\n      \"label\": \"claim\"\n    },\n    \"ADU16\": {\n      \"text\": \"Astronomy was one of the arts of the Quadrivium and then had a very important part in medieval culture.\",\n      \"label\": \"premise\"\n    },\n    \"ADU17\": {\n      \"text\": \"Physics was a part of the philosophy of Nature.\",\n      \"label\": \"premise\"\n    },\n    \"ADU18\": {\n      \"text\": \"According to Bottagisio, Dante was a theologian, a metaphysician and a moralist; but he was also a 'poet of physics', who described in verse some natural and scientific phenomena in a graceful manner.\",\n      \"label\": \"claim\"\n    },\n    \"ADU19\": {\n      \"text\": \"Dante tells that the law of reflection was proved by 'experience' and 'art', and then we can imagine, as Bottagisio is telling, that Dante had saw some instruments designed to make experiments of geometrical optics.\",\n      \"label\": \"claim\"\n    },\n    \"ADU20\": {\n      \"text\": \"The motion and the influence of the spheres depend on angelic intelligences, as the ability of using the hammer depends on the mind of the blacksmith.\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"ADU1\",\n      \"target\": \"ADU2\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU2\",\n      \"target\": \"ADU3\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU4\",\n      \"target\": \"ADU5\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU5\",\n      \"target\": \"ADU6\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU7\",\n      \"target\": \"ADU3\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU8\",\n      \"target\": \"ADU9\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU9\",\n      \"target\": \"ADU11\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU10\",\n      \"target\": \"ADU11\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU12\",\n      \"target\": \"ADU14\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU13\",\n      \"target\": \"ADU14\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU14\",\n      \"target\": \"ADU15\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU16\",\n      \"target\": \"ADU18\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU17\",\n      \"target\": \"ADU18\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU18\",\n      \"target\": \"ADU19\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU15\",\n      \"target\": \"ADU20\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "ADU1": {
+              "text": "The Divine Comedy is a poem of Dante Alighieri representing, allegorically, the journey of a soul towards God, in the framework of Dante's metaphysics of the divine light.",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "However, besides metaphysics, we can find in the poem several passages concerning the natural phenomena.",
+              "label": "claim"
+            },
+            "ADU3": {
+              "text": "Here we discuss some of them, in order to investigate Dante's knowledge of Physics and, in particular, of Optics.",
+              "label": "claim"
+            },
+            "ADU4": {
+              "text": "Dante Alighieri was one of the most educated persons of his time.",
+              "label": "premise"
+            },
+            "ADU5": {
+              "text": "He knew deeply the logic, physics and metaphysics of Aristotle.",
+              "label": "premise"
+            },
+            "ADU6": {
+              "text": "Dante's philosophy, which is present in his poem, the Divine Comedy, was supported by a metaphysics, that we can define as a metaphysics of the Light of Divine Love.",
+              "label": "claim"
+            },
+            "ADU7": {
+              "text": "Besides metaphysics, we can find in Dante's poem several passages concerning the natural phenomena.",
+              "label": "claim"
+            },
+            "ADU8": {
+              "text": "The Divine Comedy, Divina Commedia, is the poem written by Dante Alighieri, from approximately 1308 and his death in 1321.",
+              "label": "premise"
+            },
+            "ADU9": {
+              "text": "This poem is an allegorical journey in the realms of afterlife, based on the vision of the world of medieval Western Europe.",
+              "label": "claim"
+            },
+            "ADU10": {
+              "text": "Dante describes his journey through Hell and Purgatory, and then his rise through Heavens, up to the Empyreum and the vision of God.",
+              "label": "premise"
+            },
+            "ADU11": {
+              "text": "This travel is representing allegorically a soul's journey towards the Divine Love of God.",
+              "label": "claim"
+            },
+            "ADU12": {
+              "text": "The structure of the three realms is given in a numerical pattern of 9 plus 1, for a total of 10.",
+              "label": "premise"
+            },
+            "ADU13": {
+              "text": "Using this simple theory of gravitation, Dante was able to solve another quite relevant question of his time.",
+              "label": "claim"
+            },
+            "ADU14": {
+              "text": "Dante's cosmology was a medieval cosmology, with nine heavens having the earth as their common center.",
+              "label": "claim"
+            },
+            "ADU15": {
+              "text": "The existence of the Primo Mobile depends on nothing else than light and love of God.",
+              "label": "claim"
+            },
+            "ADU16": {
+              "text": "Astronomy was one of the arts of the Quadrivium and then had a very important part in medieval culture.",
+              "label": "premise"
+            },
+            "ADU17": {
+              "text": "Physics was a part of the philosophy of Nature.",
+              "label": "premise"
+            },
+            "ADU18": {
+              "text": "According to Bottagisio, Dante was a theologian, a metaphysician and a moralist; but he was also a 'poet of physics', who described in verse some natural and scientific phenomena in a graceful manner.",
+              "label": "claim"
+            },
+            "ADU19": {
+              "text": "Dante tells that the law of reflection was proved by 'experience' and 'art', and then we can imagine, as Bottagisio is telling, that Dante had saw some instruments designed to make experiments of geometrical optics.",
+              "label": "claim"
+            },
+            "ADU20": {
+              "text": "The motion and the influence of the spheres depend on angelic intelligences, as the ability of using the hammer depends on the mind of the blacksmith.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU1",
+              "target": "ADU2",
+              "type": "support"
+            },
+            {
+              "source": "ADU2",
+              "target": "ADU3",
+              "type": "support"
+            },
+            {
+              "source": "ADU4",
+              "target": "ADU5",
+              "type": "support"
+            },
+            {
+              "source": "ADU5",
+              "target": "ADU6",
+              "type": "support"
+            },
+            {
+              "source": "ADU7",
+              "target": "ADU3",
+              "type": "support"
+            },
+            {
+              "source": "ADU8",
+              "target": "ADU9",
+              "type": "support"
+            },
+            {
+              "source": "ADU9",
+              "target": "ADU11",
+              "type": "support"
+            },
+            {
+              "source": "ADU10",
+              "target": "ADU11",
+              "type": "support"
+            },
+            {
+              "source": "ADU12",
+              "target": "ADU14",
+              "type": "support"
+            },
+            {
+              "source": "ADU13",
+              "target": "ADU14",
+              "type": "support"
+            },
+            {
+              "source": "ADU14",
+              "target": "ADU15",
+              "type": "support"
+            },
+            {
+              "source": "ADU16",
+              "target": "ADU18",
+              "type": "support"
+            },
+            {
+              "source": "ADU17",
+              "target": "ADU18",
+              "type": "support"
+            },
+            {
+              "source": "ADU18",
+              "target": "ADU19",
+              "type": "support"
+            },
+            {
+              "source": "ADU15",
+              "target": "ADU20",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "ADU1": {
+              "text": "The Divine Comedy is a poem of Dante Alighieri representing, allegorically, the journey of a soul towards God, in the framework of Dante's metaphysics of the divine light.",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "However, besides metaphysics, we can find in the poem several passages concerning the natural phenomena.",
+              "label": "claim"
+            },
+            "ADU3": {
+              "text": "Here we discuss some of them, in order to investigate Dante's knowledge of Physics and, in particular, of Optics.",
+              "label": "claim"
+            },
+            "ADU4": {
+              "text": "Dante Alighieri was one of the most educated persons of his time.",
+              "label": "premise"
+            },
+            "ADU5": {
+              "text": "He knew deeply the logic, physics and metaphysics of Aristotle.",
+              "label": "premise"
+            },
+            "ADU7": {
+              "text": "Besides metaphysics, we can find in Dante's poem several passages concerning the natural phenomena.",
+              "label": "claim"
+            },
+            "ADU8": {
+              "text": "The Divine Comedy, Divina Commedia, is the poem written by Dante Alighieri, from approximately 1308 and his death in 1321.",
+              "label": "premise"
+            },
+            "ADU9": {
+              "text": "This poem is an allegorical journey in the realms of afterlife, based on the vision of the world of medieval Western Europe.",
+              "label": "claim"
+            },
+            "ADU10": {
+              "text": "Dante describes his journey through Hell and Purgatory, and then his rise through Heavens, up to the Empyreum and the vision of God.",
+              "label": "premise"
+            },
+            "ADU11": {
+              "text": "This travel is representing allegorically a soul's journey towards the Divine Love of God.",
+              "label": "claim"
+            },
+            "ADU12": {
+              "text": "The structure of the three realms is given in a numerical pattern of 9 plus 1, for a total of 10.",
+              "label": "premise"
+            },
+            "ADU13": {
+              "text": "Using this simple theory of gravitation, Dante was able to solve another quite relevant question of his time.",
+              "label": "claim"
+            },
+            "ADU14": {
+              "text": "Dante's cosmology was a medieval cosmology, with nine heavens having the earth as their common center.",
+              "label": "claim"
+            },
+            "ADU15": {
+              "text": "The existence of the Primo Mobile depends on nothing else than light and love of God.",
+              "label": "claim"
+            },
+            "ADU16": {
+              "text": "Astronomy was one of the arts of the Quadrivium and then had a very important part in medieval culture.",
+              "label": "premise"
+            },
+            "ADU17": {
+              "text": "Physics was a part of the philosophy of Nature.",
+              "label": "premise"
+            },
+            "ADU19": {
+              "text": "Dante tells that the law of reflection was proved by 'experience' and 'art', and then we can imagine, as Bottagisio is telling, that Dante had saw some instruments designed to make experiments of geometrical optics.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU1",
+              "target": "ADU2",
+              "type": "support"
+            },
+            {
+              "source": "ADU2",
+              "target": "ADU3",
+              "type": "support"
+            },
+            {
+              "source": "ADU4",
+              "target": "ADU5",
+              "type": "support"
+            },
+            {
+              "source": "ADU7",
+              "target": "ADU3",
+              "type": "support"
+            },
+            {
+              "source": "ADU8",
+              "target": "ADU9",
+              "type": "support"
+            },
+            {
+              "source": "ADU9",
+              "target": "ADU11",
+              "type": "support"
+            },
+            {
+              "source": "ADU10",
+              "target": "ADU11",
+              "type": "support"
+            },
+            {
+              "source": "ADU12",
+              "target": "ADU14",
+              "type": "support"
+            },
+            {
+              "source": "ADU13",
+              "target": "ADU14",
+              "type": "support"
+            },
+            {
+              "source": "ADU14",
+              "target": "ADU15",
+              "type": "support"
+            }
+          ]
+        }
+      },
+      {
+        "source": "claude-3-5-sonnet-20241022",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"A1\": {\n      \"text\": \"The Divine Comedy is a poem of Dante Alighieri representing, allegorically, the journey of a soul towards God, in the framework of Dante's metaphysics of the divine light.\",\n      \"label\": \"claim\"\n    },\n    \"A2\": {\n      \"text\": \"Besides metaphysics, we can find in the poem several passages concerning the natural phenomena.\",\n      \"label\": \"claim\"\n    },\n    \"A3\": {\n      \"text\": \"Dante was a theologian, a metaphysician and a moralist; but he was also a 'poet of physics' , who described in verse some natural and scientific phenomena in a graceful manner.\",\n      \"label\": \"claim\"\n    },\n    \"A4\": {\n      \"text\": \"Dante had Brunetto Latini as his teacher of physics. Dante studied and disputed in public about physical phenomena even in Paris, where he went after his exile from Florence.\",\n      \"label\": \"premise\"\n    },\n    \"A5\": {\n      \"text\": \"According to the Poet, to prove the laws of optics, besides the experience, the Latin 'experimentum', we need also the 'art', which at Dante's time was known as 'catottrica'\",\n      \"label\": \"claim\"\n    },\n    \"A6\": {\n      \"text\": \"The interest of Dante for optics and physics and for the metaphysics of light may indicate a possible relationship with Bartholomew of Bologna, who was influenced by Robert Grosseteste.\",\n      \"label\": \"claim\"\n    },\n    \"A7\": {\n      \"text\": \"The Grosseteste's 'experimentum' of his medieval physics, like that of Dante, was obviously different from an experiment of modern physics; it was referring to a thought experiment (Gedankenexperiment) or the experience of a related natural phenomenon.\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"A4\",\n      \"target\": \"A3\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A2\",\n      \"target\": \"A3\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A5\",\n      \"target\": \"A3\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A6\",\n      \"target\": \"A3\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A7\",\n      \"target\": \"A5\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "A1": {
+              "text": "The Divine Comedy is a poem of Dante Alighieri representing, allegorically, the journey of a soul towards God, in the framework of Dante's metaphysics of the divine light.",
+              "label": "claim"
+            },
+            "A2": {
+              "text": "Besides metaphysics, we can find in the poem several passages concerning the natural phenomena.",
+              "label": "claim"
+            },
+            "A3": {
+              "text": "Dante was a theologian, a metaphysician and a moralist; but he was also a 'poet of physics' , who described in verse some natural and scientific phenomena in a graceful manner.",
+              "label": "claim"
+            },
+            "A4": {
+              "text": "Dante had Brunetto Latini as his teacher of physics. Dante studied and disputed in public about physical phenomena even in Paris, where he went after his exile from Florence.",
+              "label": "premise"
+            },
+            "A5": {
+              "text": "According to the Poet, to prove the laws of optics, besides the experience, the Latin 'experimentum', we need also the 'art', which at Dante's time was known as 'catottrica'",
+              "label": "claim"
+            },
+            "A6": {
+              "text": "The interest of Dante for optics and physics and for the metaphysics of light may indicate a possible relationship with Bartholomew of Bologna, who was influenced by Robert Grosseteste.",
+              "label": "claim"
+            },
+            "A7": {
+              "text": "The Grosseteste's 'experimentum' of his medieval physics, like that of Dante, was obviously different from an experiment of modern physics; it was referring to a thought experiment (Gedankenexperiment) or the experience of a related natural phenomenon.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "A4",
+              "target": "A3",
+              "type": "support"
+            },
+            {
+              "source": "A2",
+              "target": "A3",
+              "type": "support"
+            },
+            {
+              "source": "A5",
+              "target": "A3",
+              "type": "support"
+            },
+            {
+              "source": "A6",
+              "target": "A3",
+              "type": "support"
+            },
+            {
+              "source": "A7",
+              "target": "A5",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "A1": {
+              "text": "The Divine Comedy is a poem of Dante Alighieri representing, allegorically, the journey of a soul towards God, in the framework of Dante's metaphysics of the divine light.",
+              "label": "claim"
+            },
+            "A3": {
+              "text": "Dante was a theologian, a metaphysician and a moralist; but he was also a 'poet of physics' , who described in verse some natural and scientific phenomena in a graceful manner.",
+              "label": "claim"
+            },
+            "A4": {
+              "text": "Dante had Brunetto Latini as his teacher of physics. Dante studied and disputed in public about physical phenomena even in Paris, where he went after his exile from Florence.",
+              "label": "premise"
+            },
+            "A5": {
+              "text": "According to the Poet, to prove the laws of optics, besides the experience, the Latin 'experimentum', we need also the 'art', which at Dante's time was known as 'catottrica'",
+              "label": "claim"
+            },
+            "A7": {
+              "text": "The Grosseteste's 'experimentum' of his medieval physics, like that of Dante, was obviously different from an experiment of modern physics; it was referring to a thought experiment (Gedankenexperiment) or the experience of a related natural phenomenon.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "A4",
+              "target": "A3",
+              "type": "support"
+            },
+            {
+              "source": "A5",
+              "target": "A3",
+              "type": "support"
+            },
+            {
+              "source": "A7",
+              "target": "A5",
+              "type": "support"
+            }
+          ]
+        }
+      }
+    ],
+    "timestamp": 1752750553.951287
+  }
+]

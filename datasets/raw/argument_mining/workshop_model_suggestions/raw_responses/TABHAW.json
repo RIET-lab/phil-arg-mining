@@ -1,0 +1,590 @@
+[
+  {
+    "identifier": "TABHAW",
+    "system_prompt": "## GOAL\nArgument‑mine the following paper to extract its comprehensive argumentative structure.\n\n## DEFINITIONS\n1. **Argument**: A set of propositions, including some number of premises and a conclusion. The premises should logically entail the conclusion.\n2. **Claim**: A proposition that asserts something to be true or false, typically requiring justification or evidence.\n3. **Premise**: A proposition that provides evidence, justification, or logical support for a claim or conclusion.\n\n## CRITICAL REQUIREMENTS\n1. **VERBATIM EXTRACTION ONLY**: Each ADU text must be copied EXACTLY from the paper with no modifications, paraphrasing, or combining of separate sentences.\n2. **NO HALLUCINATION**: Do not create, modify, or invent text that does not appear exactly in the source.\n3. **EXACT MATCHING**: Every word, punctuation mark, and spacing must match the original precisely.\n\n## DIRECTIONS\n1. **Identify Argumentative Discourse Units (ADUs)**  \n   - ADU = any contiguous text span functioning as a claim or a premise in the reasoning structure.\n   - **BE HIGHLY SELECTIVE**: Only include ADUs that are crucial to the overarching argument structure.\n   - Focus on significant claims and premises that contribute meaningfully to the argumentative flow.\n   - **AVOID NOISE**: Skip ADUs that are merely descriptive, tangential, or do not substantially advance the argument.\n   - Prioritize quality over quantity - fewer accurate, important ADUs are better than many insignificant ones.\n   - **EXTRACT ONLY**: Copy text spans exactly as they appear, without any modifications.\n2. **Classify each ADU**  \n   - Label = either `\"claim\"` or `\"premise\"`.  \n3. **Detect directed relations**  \n   - Relation = `\"support\"` or `\"attack\"`, from one ADU (source) to another (target).\n   - Map how ADUs connect to form reasoning chains.\n   - Focus on relationships between the most significant ADUs.\n   - Include relationships between premises that strengthen or weaken each other.\n4. **Verbatim spans**  \n   - Each `\"text\"` value must be copied EXACTLY from the paper with zero modifications.\n   - Do not paraphrase, summarize, or combine separate sentences.\n   - Do not add, remove, or change any words, punctuation, or spacing.\n   - If unsure about exact wording, skip that ADU rather than guess.\n\n## WHAT TO CAPTURE\n**INCLUDE ONLY:**\n- Main argumentative threads that are central to the paper's contribution\n- Core claims that represent the paper's primary arguments or findings\n- Key premises that provide essential support for major claims\n- Critical counterarguments and their refutations\n- Reasoning chains that demonstrate how main conclusions are derived\n\n**EXCLUDE (AVOID NOISE):**\n- Minor details, examples, or descriptive content that don't advance the argument\n- Tangential points or side discussions\n- Pure background information or literature review content\n- Methodological details unless they constitute argumentative claims\n- Obvious statements or commonly accepted facts\n- Redundant or repetitive argumentative content\n\n**GUIDING PRINCIPLE**: If removing an ADU would not significantly impact understanding of the paper's argumentative structure, it should be excluded.\n\n## QUALITY CONTROL\n- Before finalizing each ADU, verify the text exists exactly in the source\n- Prefer fewer, accurate ADUs over many potentially modified ones\n- When in doubt about exact wording, omit the ADU\n\n## OUTPUT FORMAT\nReturn **only** a single valid JSON object matching this schema.  \nDo **not** output any extra text, markdown, or explanations.\nDo **not** add comments.\n**RESPOND WITH ONLY**:\n```json\n{\n  \"ADUs\": {\n    \"<ADU_ID>\": {\n      \"text\": \"<exact span from paper>\",\n      \"label\": \"claim\" | \"premise\"\n    }\n    ...\n  },\n  \"relations\": [\n    {\n      \"source\": \"<ADU_ID>\",\n      \"target\": \"<ADU_ID>\",\n      \"type\": \"support\" | \"attack\"\n    }\n  ]\n}\n```",
+    "user_content": "This is an Accepted Manuscript of an article published by Taylor &amp; Francis Group in Theology and Science in May 2013, available online:\n\nhttp://www.tandfonline.com/doi/full/10.1080/14746700.2013.780432#abstract.\n\n## Hegel and Whitehead: In Search of Sources of the Contemporary Versions of Panentheism in the Science/Theology Dialogue\n\nMariusz Tabaczek, O.P.\n\n## Abstract\n\nPanentheism  has  recently  become  a  widely  accepted  and  appreciated  concept  among scholars  in  the  science-theology  dialogue,  and  its  theological  repercussions  have  been discussed to great extent. Yet, there remains to be studied in more detail the notion of the philosophical  foundations  of  the  term.  A  prominent  gap  in  our  understanding  of  these foundations is the potential similarity between the metaphysics of Hegel and Whitehead, their  understanding  of  the  transcendence  and  immanence  of  God,  and  their  respective versions  of  panentheism.  In  this  article,  I  present  a  critical  reflection  on  the  possible resemblance between process thought and Hegelian metaphysics and philosophy of God. In  the  last  section  I  refer  to  those  who  use  panentheism  within  the  science-theology dialogue.  I  try  to  specify  which  of  the  two  versions  of  panentheism,  that  of  Hegel  or Whitehead, is more popular among those scholars.\n\n## Keywords\n\nPanentheism, Hegel, Whitehead, Transcendence, Immanence\n\n## Introduction\n\nThat  'panentheism'  has  recently  become  a  widely  accepted  and  appreciated concept  among  scholars  who  committed  themselves  to  the  science/theology  debate within the Anglo-American context is clear and undeniable. Ian Barbour, Philip Clayton, Paul Davies, Arthur Peacocke, and Keith Ward are some key figures supporting the claim that it is the concept of the world being 'in' God ( pan-en-Theos ),  who at the same time surpasses it, that enables us to find a third way between classical theism and pantheism. They  all  use  panentheism  to  depict  and  explain  a  new  model  of  divine  action  and  a theological  understanding  of  the  processes  and  interactions  occurring  in  the  world described by natural sciences.\n\nBecause of its  reference  to  the  God-world  relationship,  panentheism  tends  to  be regarded a purely theological concept. But it is not. Its origins are in philosophy and go back to Plato and Neoplatonism. Transmitted by Pseudo-Dionysius, John Scotus Eriugena and  Nicholas  of  Cusa,  panentheism  found  new  expression  in  German  Idealism.  It  was within this philosophical tradition that the very term 'panentheism' ( Allingottlehre )  was coined  (K.C.F.  Krause)  and  the  metaphysical  shift  from  substance  to  subject  found  its culmination  (G.W.  Hegel). 1 God  expressing  or unfolding  himself in the  world is understood  as  the  Creator  who  remains  in  a  dynamic  reciprocity  with  creation.  This expressivist version of philosophical  panentheism  became  a  source  of theological panentheistic propositions presented in the contemporary science/theology debate. 2\n\nBut  there  is  one  more  crucial  point  of  reference  for  many  of  those  who  adopt philosophical panentheism, namely Whitehead's philosophy of process. Built within the Whitehedian process framework, Charles Hartshorne's concept of a dipolar  God\n\n1 To find more about the historical panentheism and its representatives go to John W. Cooper, Panentheism. The  Other  God  of  the  Philosophers (Grand  Rapids,  Michigan:  Baker  Academic,  2006).  The  roots  of  the contemporary version of panentheism are also described by Michael W. Brierley in his article 'Naming a Quiet Revolution: The Panentheistic Turn in Modern Theology,' in In Whom We Live and Move and Have Our Being. Panentheistic Reflections on God's Presence in a Scientific World, edited by Philip Clayton and Arthur  Peacocke  (Grand  Rapids,  Michigan/Cambridge,  U.K.:  William  B.  Eerdmans  Publishing  Company, 2004), 13.\n\n2 See Philip Clayton, God and Contemporary Science (Grand Rapids: Eerdmans Publishing Company, 1997), 94,245; Philip Clayton, 'Panentheism in Metaphysical and Scientific Perspective,' in In Whom We Live and Move and Have Our Being ,  79-81; Keith Ward, 'The World as the Body of God,' in In Whom We Live and Move and Have Our Being , 64-7.\n\ninfluenced not only John Cobb and David Griffin who applied it to postmodern theology and  social  justice  issues.  It  turned  out  to  be  inspiring  also  for  those  trying  to  bridge science and religion. Barbour, Clayton and Ward make a clear reference to the philosophy of  process. 3 Although  Peacocke  distances  himself  from  this  tradition,  his  concept  of transcendence-in-immanence and his understanding of the God-world relation resemble the theology proposed by Hartshorne as well. 4\n\nAfter we have named two main philosophical sources of contemporary panentheism,  the  question should  be  asked  whether  they  are  complementary  or distinctive. Does the Whitehedian dipolar notion of God resemble expressivist Hegelian Panentheism? Is there a relation between these two synoptic thinkers in the tradition of western philosophy? The case is problematic. There are thinkers, who - following Robert Ellis - claim, that we should not treat Whitehead as 'a sort of Melchizedek of twentiethcentury philosophy - arriving on the scene to bless Abrahams and slay other warriors without ancestry and obvious philosophical lineage.' 5 For them Whithehead's dependence on  German  and  British  Idealism  is  undeniable.  On  the  other  hand,  however,  there  are scholars who tend to support the opposite position expressed by Victor Lowe who says: 'Only  in  his  metaphysics  -  particularly  in  his  doctrine  of  coherence  -  is  a  Hegelian influence notable. Had there never been a Hegel, (…) Whitehead would still have been led to that [doctrine] by his instinctive acknowledgement that the truth is complex, and that different thinkers have got hold of contrasting aspects of it.' 6 This position appears to be in agreement with Whitehead himself, who said at one point: 'I have never been able to read Hegel: I initiated my attempt by studying some remarks of his on mathematics which struck me as complete nonsense. It was foolish of me, but I am not writing to explain my good sense.' 7\n\n3 See Ian G. Barbour, Religion and Science. Historical and Contemporary Issues, (New York: Harper Collins Publishers,  1997),  chapters  11:  Process  Thought,  and  12:  God  and  Nature;  Philip  Clayton, God  and Contemporary Science , 94; Keith Ward, The World as the Body of God , 67-71.\n\n5 Robert Ellis, 'From Hegel to Whitehead,' Journal of Religion 61, no. 4 (Oct. 1981), 403.\n\n4 See Robert John Russell, 'The theological-scientific vision of Arthur Peacocke,' Zygon 26, no. 4 (December 1991), 512.\n\n6 Victor Lowe, Understanding Whitehead (Baltimore: The Johns Hopkins Press, 1966), 257.\n\n7 Alfred North Whitehead, Essays in Science and Philosophy (London: Rider &amp; Co., 1948), 10.\n\nAs one can see, different scholars seem to support opposite positions, which shows the need for clarifying the problem. The first part of this article is a critical appraisal of the debate on similarities and possible relations between Hegel and Whitehead's philosophical  method  and  metaphysics.  In  the  second  part  I  compare  their  respective versions of panentheism. Finally, in the last chapter, I refer to those who use panentheism within the framework of the science/theology dialogue in the Anglo-American context. I investigate the question to see which of those two sources of panentheism is more popular among those scholars.\n\n## 1. Similarities and differences\n\nIt appears to me that George Lucas is right when he says that comparing Hegel and Whitehead one can discover and name a deep difference and division between European and Anglo-American philosophy. Those who practice the analytic and critical method in the  Anglo-American  context  tend  to  be  in  a  sharp  contrast  with  advocates  of  a  more systematic, synoptic and speculative European tradition. 8 However, there is a whole group of thinkers (including Lucas) who claim that the Whitehedian metaphysical perspective appears  Hegelian  in  many  respects.  In  what  follows  I  examine  critically  some  major similarities between the two philosophers in terms of their method and metaphysics.\n\n## 1.1. System Builders\n\nThe first characteristic that can be regarded as a common feature of Hegel's and Whitehead's philosophy is their attempt to build a philosophical system. They are both interested in 'organic wholeness'. For many contemporary philosophers, such an endeavor is  a  sign  of  arrogance  and  boldness.  Any  pretense  of  finality  and  totality  is  rather disregarded at the time when new theories are expected and accepted only within narrow and  specialist  branches  of  knowledge  of  any  kind.  On  the  other  hand,  however,  such holistic attitude in philosophy seems to be more legitimate in the age of science, which -\n\n8 George R. Lucas, 'Hegel, Whitehead, and the Status of Systematic Philosophy,' in Hegel and Whitehead. Contemporary  Perspectives  on  Systematic  Philosophy ,  edited  by  George  R.  Lucas,  JR  (New  York:  State University of New York Press, 1986), 3.\n\nalthough specialized - still tends to present physical and biological theories that would explain the structure of the whole universe and all living organisms on the earth. 9\n\nHegel's metaphysics is rooted in the concept of Idea (Spirit, God) unfolding itself in creation, Nature and human beings. For him, totality as a matter of interrelatedness is a function of the infinite Spirit. An outline of Hegel's dialectic proposed by Sprigge helps us to  realize  that  the  Hegelian  metaphysical  project  is  applicable  to  an  understanding  of history,  politics,  culture,  sociology,  psychology,  anthropology,  epistemology,  aesthetics, ethics  and  religion.  The  explanatory  power  of  Hegelian  dialectic  is  remarkable.  Thus Hegel himself can be regarded a system builder. 10\n\nWhitehead's approach appears to be radically different from Hegel's, at least at the first  sight.  For  one  would  expect  that  any  notion  of  finality  or  totality  should  rather  be rejected  by  any  proponent  of  the  philosophy  of  process,  which  presupposes  a  ceaseless flux  of  changes.  Indeed,  in  the  preface  to Process  and  Reality Whitehead  says:  'In philosophical discussion, the merest hint of dogmatic certainty as to finality of statement is an exhibition of folly.' 11 But the truth is that Whitehead's intentions are by no means as humble as he assures  us.  In  the  same  preface  he  claims  that  his  purpose  is  to 'state  a condensed scheme of cosmological ideas, to develop their meaning by confrontation with the various topics of experience, and finally to elaborate an adequate cosmology in terms of  which  all  particular  topics  find  their  interconnections.' 12 This  statement  can  be regarded  as  an  aspiration  to  totality.  Whitehead's  philosophy  is  the  'philosophy  of organism'. He may not refer to other fields of human knowledge and self-understanding. But it is clear that for him all that is and can be known is a part of one organism which is in  the  state  of  permanent  growth  and  development.  This  notion  permeates  the  whole Process and Reality .\n\n9 See Errol E. Harris, 'The Contemporary Significance of Hegel and Whitehead,' in Hegel and Whitehead , 17; George L. Kline, 'Concept and Concrescence: An Essay in Hegelian-Whitehedian Ontology,' in Hegel and Whitehead , 133.\n\n11 Alfred North, Whitehead, Process and Reality (New York: The Free Press, 1985), xiv.\n\n10 T. L. S. Sprigge, The God of Metaphysics (Oxford: Clarendon Press, 2006), 114-55. See also Michael Forster, 'Hegel's  Dialectical  Method,'  in The Cambridge Companion to Hegel, edited  by  Frederick  C.  Beiser  (New York, Cambridge: Cambridge University Press, 1993), 130-70.\n\n12 Ibid., xii.\n\nThat is why I claim that Whitehead's attempt to construct a cosmological system is similar to Hegel's dialectic project with its wide scope of explanatory power. At this point I side with Van der Veken who classifies Whiteheadian speculative philosophy as a more humble  form  of  Hegelianism.  I  also  agree  with  Welker  when  he  says  that  both philosophers  are  similar  to  each  other  in  their  effort  to  construct  universal  ''contact theories' designed to mediate between heterogeneous realms of cultural experience.' 13\n\n## 1.2. Metaphysical Principle\n\nAfter this general statement about the systematic character of Hegel and Whitehead's philosophy, we should now turn our reflection to the most crucial question in every metaphysics. What is the basic metaphysical principle of the universe? What is reality made of? It seems that answering this question Hegel and Whitehead might share some common ideas.\n\nTrying to understand Hegel's concept of the organization of reality, one must go back  to  the  history  of  Spinozism.  It  is  inevitable,  because  Hegel  -  pursuing  another attempt  to  overcome  the  mind/body  (subjective/objective)  dualism  -  proposes  an idealistic metaphysics of substance, and thus places himself, along with Schelling, among the heirs of Spinoza's idea of One Substance. However, this common starting point would eventually bring those two close friends to a profound disagreement. Schelling's Absolute, understood  as  a  unifying  principle,  seems  to  be  conceived  as  the  indifference  of  the subjective  and  the  objective.  Yet  Hegel's  idea  of  the  Spirit  unfolding  itself  through  the dialectical juxtaposition can also bring the unity between the subjective and the objective, but it  is possible only through the emphasis on the disparity between the two. 14\n\nIt  was  at  this  point  that  Hegel  rejected  the  static  notion  of  Spinoza's  One Substance, replaced it by 'Subject', and thus offered a new answer to the question of the\n\n13 Michael Welker, 'Hegel and Whitehead: Why Develop a Universal Theory?,' in Hegel and Whitehead , 12728; Jan Van der Veken, 'A Plea for an Open, Humble Hegelianism,' in Hegel and Whitehead , 109-10.\n\n14 Hegel's critique of Spinoza is to be found in Lectures on the History of Philosophy Vol. III , translated by E. S. Haldane and Frances H. Simson. London, (Routledge &amp; Kegan Paul LTD, 1955), 263-64, 280-83, 287-88; Logic ,  translated  by  William  Wallace  (Oxford:  Clarendon  Press,  1894),  89-90,  236-7,  317.  See  also  HansChristian Lucas, 'Spinoza, Hegel, Whitehead: Substance, Subject, and Superject,' in Hegel and Whitehead , 41-2.\n\nmetaphysical  principle  of  the  universe.  The  Hegelian  Substance  (Idea,  Spirit,  God)  is  a duality of sameness and otherness (subjectivity and objectivity). It is singular and plural (universal) at once, and for this reason it is not isolated from individual beings. Reality is an expression of the Absolute Spirit which unfolds itself in the perpetual flux of dialectical process.  The  hiatus  between  One  Substance  and  its  modes  in  Spinoza's  metaphysics  is overcome. Substantiality is developed into subjectivity. 15\n\nSimilar  to  Hegel,  Whitehead  is  also  aware  that  his  organic  doctrine  is  'close  to Spinoza; but - as he says - Spinoza bases his philosophy upon the monistic substance, of which the actual occasions are inferior modes. The philosophy of organism inverts this point of view.' 16 Whitehead appreciates Spinoza for beginning with one substance (unlike Descartes), but at the same time emphasizes an advance of his own metaphysic in which the ''substance-quality' concept is avoided, (…) morphological description is replaced by description of dynamic process, (…) Spinoza's 'modes' now become the sheer actualities.' 17 For Whitehead, reality is a process of becoming of actual entities which he describes as basic units, 'puffs of existence'. They become objectified in other actual entities through prehension.  Thus  relatedness  is  one  of  the  main  characteristics  of  the  philosophy  of organism. 18\n\nThis  analysis  shows  some  important  similarities  between  the  two  philosophers. They perceive reality as a process of becoming and transcend substance into the dynamic subject.  Lucas  rightly  points  out  that  for  both  of  them  Spinoza's  concept  of causa  sui becomes a useful  category  in  describing  the  'ontological  principle'.  Hegel's  dialectic,  in which 'substance-subject'  releases  attributes  out  of  itself,  resembles  Whitehead's  actual entity which 'is at once the product of the efficient past, and is also, in Spinoza's phrase,\n\n15 In  the Preface to The Phenomenology of the Mind Hegel says that 'everything depends on grasping and expressing  the  ultimate  truth  not  as  Substance  but  as  Subject  as  well.'  See  Georg  Wilhelm  Hegel, The Phenomenology of Mind ,  translated by J.B. Baillie (London: George Allen &amp; Unwin LTD, 1931), 80. See also Hans-Christian Lucas, Spinoza, Hegel, Whitehead , 40-6.\n\n17 Ibid., 7.\n\n16 Whitehead, Process and Reality , 81.\n\n18 Lucas, Spinoza, Hegel, Whitehead , 46-9.\n\ncausa sui .' 19 It  means  that  each  actual  occasion  is  a  cause  of  the  final  stage  of  its  own concrescence.\n\nOn  the  other  hand,  however,  one  should  not  ignore  some  major  differences between Hegel and Whitehead in their reinterpretation of Spinozism, and their shaping new  metaphysical  propositions.  Though  unfolding  dialectically  into  many  entities,  the Hegelian  Subject  (Spirit)  is  one,  and  his  metaphysics  can  be  classified  as  idealistic monism. Contrary to this concept, Whiteheadian actual entities are many. Although they remain in the unity of relatedness, Whitehead's metaphysics is an example of pluralism. It can be also classified as another version of atomism, but this time it is an atomism that is balanced  with  continuity.  Whitehead  explains  that  the  contradiction  between  the  two terms is solved in a way similar to the physical description of both the corpuscular and the wave nature of light. 20\n\nThe  other difference between  Hegel  and  Whitehead  refers to finality  and purposefulness. While Hegel regarded his dialectical unfolding of the Spirit in nature a purposive  activity  heading  toward  the  finality  of  existing  'Real',  Whitehead's  process  of concrescence has neither finality nor purpose other than the enjoyment of each particular actual occasion and God (the chief exemplification of actual occasions).\n\n## 1.3. Dialectic and Process\n\nForegoing the comparison of Hegel and Whitehead's understanding of ontological principle of the universe remains incomplete and poses another crucial question. It refers to  the  very  heart  of  their  metaphysical  systems,  namely,  the  mechanics  of  Hegelian dialectics  and  Whitehedian  process.  Are  they  equivalent  descriptions  of  the  same 'mechanism'?\n\nSome experts find a deep resemblance between Hegel's dialectic and Whitehead's process,  and  their  claims  seem  to  be  justified.  R.  Whittemore  says  that,  although  not synonymous,  both  terms  are  deeply  related. 21 E.  Harris,  beginning  with  the  analysis  of\n\n19 Whitehead, Process and Reality , 150; Lucas, Spinoza, Hegel, Whitehead , 45, 48.\n\n21 Robert  C. Whittemore, 'Hegel's 'Science' and Whitehead's 'Modern World',' Philosophy 31,  no.  116  (Jan. 1956), 44-5.\n\n20 Whitehead, Process and Reality , 36.\n\nWhitehead's  process  of  concrescence  within  the  individual  actual  entity,  extends  its mechanism to the prehension by the whole generation of actual occasions, and lists its phases: dative ingression, conformal physical feeling, conceptual feeling and comparative feeling.  According  to  his  view,  the  first  two  phases  merge  into  one,  and  the  whole mechanism resembles the Hegelian dialectical triad: immediacy, distinction and differentiation,  and  articulated  synthesis. 22 He  says  that  although  'Whitehead  nowhere gives as explicit an account of the method of process as does Hegel, (…) in what he does say about it we can recognize most of the important features of dialectic'. The key one consists in the fact that 'process is one of self-realisation of subjective unity.' 23\n\nI  find  Harris'  argument  questionable.  For  the  difference  between  Hegel  and Whitehead  in  their  understanding  of  'subjective  unity'  is  considerable.  The  former develops a 'macro' ontology of the universal subjective unity (Spirit), whereas the latter builds  a  'micro'  ontology  made  of  atoms  of  subjective  unity  (actual  occasions).  The Hegelian Spirit posits itself in Nature and Human. Proceeding from unity to plurality, it eventually  reverts  to  the  unity  of  the  finitely  existing  'Real'.  It  is  questionable  that Whitehead's process is based on the same mechanics. One may say that in the process of prehension actual occasions pass from unity to plurality just as the Hegelian Spirit. The process of concrescence begins with their reference to past actual occasions and lures of novelty  presented  to  them  in  'eternal  objects'.  But  this  assertion  brings  to  discussion another  important  issue,  namely,  the  role  and  character  of  negation  in  dialectic  and process.\n\nIt  appears  that  there  are  three  possible  definitions  of  what  we  could  regard  an equivalent  of  Hegel's  dialectical  antithesis  in  Whitehead's  philosophy  of  organism.  The first  one  has  been  already  described  above.  In  this  view,  an  actual  occasion  is  a  thesis, prehension an antithesis, the final stage of concrescence a synthesis. Negation consists of an actual occasion's reference to all past occasions and future possibilities given in eternal objects. But does prehension really resemble dialectical negation? The Hegelian antithesis is not a random reference to past or future beings. Thesis and antithesis must be somehow\n\n22 Harris, The Contemporary Significance , 24.\n\n23 Ibid., 23.\n\nrelated  (e.g.  a  negation  of  intuition  is  a  sensual  representation,  instinctive  desire  is opposed  to  self-conscious  recognition).  Whitehead's  prehension  does  not  meet  this requirement (actual occasion can prehend all kinds of data given in past occasions and various eternal objects).\n\nThe  second  possible  interpretation  of  negation  in  Whitehead's  philosophy  is problematic  for  the  same  reasons.  Harris  claims  that  it  is  not  prehension  but  rather 'negative prehension' that serves as dialectical negation in the process of concrescence of an actual occasion. 'Negative prehension' is a 'definite exclusion of [a certain] item from the positive contribution to the subject's own real internal construction.' 24 But again, is the excluded 'item' related to prehending actual occasion? Or is it chosen randomly? 25\n\nThe third attempt to clarify the sense of negativity in Whitehead's metaphysics was presented by Gregory Vlastos, who distinguishes homogenous (logical) and heterogeneous dialectic. The former one is found in Hegel for whom all three stages of the dialectical triad 'are ontologically homogeneous . Thesis, antithesis, and synthesis are all of the nature of Idea.' 26 Unlike that of Hegel, Whitehead's dialectic is heterogeneous. Vlastos says that in the philosophy of organism thesis is material (physical), whereas antithesis is ideal (conceptual). Because of this heterogeneity neither the second dialectical stage can be generated from the first, nor the third from the second. Thus in this version of dialectic there is no space for an internal contradiction which is essential for homogenous dialectic. Vlastos  concludes  that  although  it  follows  that  in  Whitehead's  system  dialectic  can  no longer be used as a heuristic principle, 'it does not follow that it cannot be used at all. In so far as Whitehead makes use of the concept of internal relatedness, he must conserve a certain part of it: the dynamic fusion of polar opposites, the process from the abstract to the concrete. This is best shown in his basic metaphysical unit, the actual entity. Without the  dialectic  the  actual  entity  can  only  appear  (…)  self-contradictory.' 27 This  third\n\n24 Whitehead, Process and Reality , 41.\n\n26 Gregory Vlastos, 'Organic Categories in Whitehead,' The Journal in Philosophy 35, no. 10 (May 1937), 25354.\n\n25 Harris, The Contemporary Significance , 19-20. See also A. P. Ushenko, 'Negative Prehension,' The Journal in Philosophy 35, no. 10 (May 1937), 263-267.\n\n27 Vlastos, Organic Categories in  Whitehead ,  254.  See  also  Kline, Concept and Concrescence ,  141-42;  Klaus Hartmann, 'Types of Explanation in Hegel and Whitehead.' In Hegel and Whitehead , 79-80.\n\nexplanation, presented by Vlastos, is the most convincing one, although the distinction he proposes still does not eliminate some important dissimilarities between Hegel's dialectic and Whitehead's process.\n\nTo  sum  up,  one  should  have  no  doubt  that  there  is  some  basic  resemblance between  the Hegelian dialectic and  the Whitehedian  process. However,  a closer examination  of  this  issue  shows  how  many  important  nuances  and  differences  emerge when the mechanics of both systems are compared. For this reason, one should be rather cautious in bringing them too easily to a common ground.\n\n## 1.4. Whitehead and the British Idealism\n\nAt the end of this critical analysis of possible similarities between the Hegelian and Whitehedian  metaphysics,  I  should  refer  one  more  time  to  Whitehead's  own  words quoted in the introduction. Is it right and useful at all to search for similarities between the two philosophers when one of them admits that he has never read the works of the other? Is it true that Whitehead did not know Hegel at all?\n\nIt is a fact that Whitehead hardly ever refers to Hegel in his major works. However, it  has  been  acknowledged  that  he  was  influenced  by  those  who  represented  Hegel's Absolute Idealism in  Great  Britain.  One  of  key  figures  within  this  tradition  -  to  whom Whitehead does refer in Process and Reality - is F. H. Bradley. Though he still sides with those  who  approve  the  idea  of  one  Subject  (Absolute),  Bradley  certainly  makes  a  step toward the philosophy of organism with his emphasis on the primacy of feeling. For him reality  is  one,  and  it  is  the  Absolute,  which  dialectically  posits  itself  in  appearances: 'Reality  without  appearances  would  be  nothing,  for  there  certainly  is  nothing  outside appearances.' 28 Ellis  adds  that  for  Bradley  'all  things  are  related,  and  a  concept  of  true reality  must  include  all  things  which  are  abstractions  if  not  put  in  the  context  of  the whole.' 29 It  all  naturally  resembles  Hegel.  The  originality  of  Bradley  consists  of  his emphasis on the role of experience. The Absolute experiences (feels) the whole. Following Metz, Ellis calls Bradley's Absolutism the 'Absolutism of experience', as he refers to the\n\n28 F. H. Bradley, Appearance and Reality , (London: Swan Sonnenschein &amp; Co., 1902), 487.\n\n29 Ellis, From Hegel to Whitehead , 409.\n\nquote from Bradley: 'Nothing in the end is real, but what is felt, and for me nothing in the end is real but that which I feel.' 30 The primacy of feeling will become the crucial point of Whitehead's metaphysics.\n\nAccording to Ellis, the trajectory from Hegel, through Bradley to Whitehead has at least one more transitory stage, namely Samuel Alexander's emphasis on the inseparability of mind and things experienced. 31 Making this observation Alexander goes further  and  suggests  that  instead  of  one  Mind  (the  Absolute)  we  should  now  think  of many minds in a democracy of things. It is possible because 'Space-Time takes for us the place which is called the Absolute in idealistic systems. It is an experimental Absolute. All finite being complexes of space-time are incomplete. They are not the sum of reality. But their  absorption  into  One  does  not  destroy  their  relative  reality.' 32 This  plurality  of subjectivity is interwoven  in  Point-Instances  (spatial points in temporal  instants). Closeness to Whitehead's actual occasions is apparent and clear. 33\n\nIn  the  preface  to Process  and  Reality Whitehead says that although he disagrees with  Bradley  on  many  points,  the  final  outcome  of  his  philosophy  does  not  differ significantly from Bradley's. 34 The influence of Alexander on Whitehead (who mentions Alexander only twice) seems to be justified as well. If this is true, then we may agree with Ellis who says that 'even if it looks as though we have come a million miles in coming to Whitehead from Hegel, this  line  of  descent  at  least  achieves  Hegel's  intent.' 35 In  other words,  I  think  that  despite  all  problems,  nuances  and  incongruences  between  the Hegelian dialectic and the Whitehedian process that I described in this chapter, the claim\n\n30 Ibid., 409-10. Thus for Bradley the three steps of dialectic are: 1)undifferentiated feeling, 2) awareness that appearances are not real, 3) the realm of reality, the Absolute in which previous levels are reconstructed in higher synthesis.\n\n31 Samuel Alexander, Space, Time and Deity , 2 volumes, (London: Macmillan Co., 1920), http://books.google.com/books?id=OdbUxdAghF4C&amp;pg=PA1&amp;hl=pl&amp;source=gbs\\_toc\\_r&amp;cad=4#v=onepage&amp; q&amp;f=false,  (access  06-11-2012),  6-8;  Ellis, From  Hegel  to  Whitehead ,  412.  Ellis  refers  also  to  Alexander's argument that we should abolish the terms Idealism and Realism. He says that no philosopher ever chooses just one of them, but rather stays in the middle. That would refer to Whitehead too.\n\nAlexander, Space, Time and Deity , vol. 1, 346, I quote after Ellis, From Hegel to Whitehead , 413.\n\n34 Whitehead, Process and Reality , xiii.\n\n32 33 Ellis, From Hegel to Whitehead , 413-14.\n\n35 Ellis, From Hegel to Whitehead , 418.\n\nabout  Whitehead  being  influenced  by  Hegelian  metaphysics  is  legitimate,  at  least  to  a certain extent. 36\n\nBut does this similarity refer to the notion of God and his relation to the world in Hegel and Whitehead as well? That is the main point in the second chapter of this article.\n\n## 2. Two Versions of Panentheism\n\nIt is not difficult to indicate the main point of difference between classical theism (in Aquinas' exposition in particular) on the one side, and the Hegelian and Whitehedian understanding  of  God  on  the  other.  The  demarcation  line  is  the  concept  of  God's simplicity, which serves as a ground for all key attributes described in the first part of the Summa  Theologiae .  For  God's  supreme  perfection,  goodness,  eternity,  immutability, omniscience  and  omnipotence,  are  all  rooted  in  Aquinas'  basic  assertion  that  God  is simple, that is free from any metaphysical compositions (form and matter, substance and accidents, essence and existence). Thus understood the concept of God's transcendence and  independence  of  the  world  is  complementary  in Summa  Theologiae with  God's immanence, defined as his existence in everything 'as an agent is present to that in which its action is taking place.' According to Aquinas God is everywhere and 'fills all places by giving existence to everything occupying those places.' 37\n\nThis understanding of God's nature was challenged by both Hegel and Whitehead. Although they want to preserve the dynamics of transcendence and immanence in God, nevertheless,  they  unanimously  deny  God's  simplicity.  The  Hegelian  Spirit  unfolding  in time  and  positing  itself  in  Nature  and  Human  Beings  resembles  the  Whitehedian  God dependent  in  his  consequent  nature  on  non-divine  actual  occasions.  Implicit  in  their philosophy  is  the  idea  of  God  including  the  world  in  his  being.  Thus  they  embrace  -\n\n36 In  order  to  make  this  comparison  between  Hegelian and Whitehedian metaphysic more complete one should study two more issues: 1) the influence of British Romantic poetry of Coleridge and Wordsworth on Whitehead, and 2) a critical analysis of Whitehead's references to other philosophers, especially Locke and Hume. The first problem has been analyzed by Antoon Braeckman in 'Whitehead and German Idealism: A Poetic Heritage,' Process Studies 14, no. 4 (Winter 1985), 265-286; and mentioned by Ellis in From Hegel to Whitehead , 418. These problems require further study.\n\n37 Thomas Aquinas, Summa Theologiae. Vol. 2: Existence and nature of God (Ia, 2-11), translated by Timothy McDermott O.P. (London: Blackfriars, 1964), Ia, Q. 8, a. 1, resp.; Ia, Q. 8, a. 2, resp.\n\nalthough  none  of  them  explicitly  -  a  panentheistic  notion  of  God-world  relation. 38 However,  there  are  some  important  nuances  and  differences  between  them  which  are often lost in the application of their metaphysics to theology. We should try to bring them into discussion.\n\n## 2.1. Hegel as Panentheist\n\nTrying to present Hegel's concept of God, we begin usually with the reference to his Idea or Spirit which posits itself in Nature and Human Beings. This dialectical process, progressively realized in history, is for Hegel a necessary condition of God's full actuality. 39 It  is  all  true  about  the  Hegelian  God  and  gives  us  the  right  to  regard  him  a  father  of contemporary proliferation of different versions of panentheism. However, that is not all that Hegel  has  to say  about  the  God-world  relation.  There  are  some  important characteristics of Hegelian philosophy of God that make his panentheism exceptional in comparison with other versions of this position.\n\nIn  order  to  prove  that  the  Spirit  is  dialectical  in  its  nature,  Hegel  refers  to  the Christian doctrine of the Trinity, which becomes 'the pictorialization of the first person of the Hegelian primary triad' in his all-embracing scheme. 40 That his understanding of the Trinity  is  far  from  Christian  orthodoxy,  however,  is  unquestionable.  McTaggart  is  right when he says that in Hegel 'the Holy Ghost is the sole reality of the Trinity. In so far as\n\n38 Panentheism  ('pan'  =  all,  'en'  =  in,  'Theos'  =  God),  anticipated  in  Egyptian  and  Indian  thought,  was developed  in  philosophical  and  theological  traditions  throughout  the  centuries  (Plato,  Neoplatonism, Pseudo-Dionysius, Nicholas of Cusa). In 1828 panentheism was proposed and defined in its modern version by Karl Krause. He coined the term Allingottlehre , which is based on the assertion that everything is in God, who at  the  same  time  surpasses  all  that  he  created.  Proponents  of  panentheism  emphasize  God's  active presence in the world and place themselves in an opposition to the traditional theism, which they find as isolating  God  from  the  world.  They  reformulate  understanding  of  classic  attributes  of  God,  such  as omnipotence,  omniscience,  immutability,  eternity  and  impassibility.  Panentheism  finds  many  followers among theologians and philosophers of God. Those who remain critical about panentheistic position refer usually to the problem of precise understanding of the preposition 'in' in the definition of panentheism, and the  problem  of  God's  immanence  that  seems  to  be  overrated  by  panentheists  at  the  expense  of  his transcendence.  See  John  Culp,  \"Panentheism\", The  Stanford  Encyclopedia  of  Philosophy  (Summer  2009 Edition) ,  Edward  N.  Zalta (ed.),  http://plato.stanford.edu/archives/sum2009/entries/panentheism/,  (access 06-11-2012).\n\n40 Robert C. Whittemore, 'Hegel as Panentheist,' Tulane Studies in Philosophy IX (1960), 149.\n\n39 Brian Leftow, 'God and the World in Hegel and Whitehead,' in Hegel and Whitehead , 261.\n\nthe  Father  and  the  Son  are  real,  they  are  moments  in  the  nature  of  the  Holy  Ghost.' 41 Hegel refuses to acknowledge the precedence of the Father. The life and death of Jesus are merely an illustration of the incarnation which is realized not only in Christ, but in all that is finite. A fully true divinity for Hegel is the Spirit. 42\n\nNevertheless, far as he is from orthodox Christianity, Hegel begins his meditation on the Trinity with the description of the  Kingdom  of  the Father, which  is a representation  of  God  as  the  eternal  Idea,  a  manifestation  of  God  who  'is,  so  to  speak, outside of or before the creation of the world.' 43 This  eternal Idea obviously must posit itself  in  creation.  Thus  God  is  for  Hegel  strongly  dependent  on  the  existence  of  some world (only weakly dependent on the existence of this particular world). 44 What is crucial for us, however, is that there is still in Hegel the notion of God in eternity, before creation. Consequently,  we  may  say  that  in  Hegel's  metaphysics  God  is  still  the  Creator  of  the universe. 45\n\nThis  observation  becomes  an  important  argument  in  the  discussion  about  the proper exposition of  God's transcendence and immanence in panentheism. I think that Hegel's  denial  of  God's  simplicity  makes  it  impossible  for  him  to  embrace  a  real ontological  difference  between  God  and  creatures,  which  is  for  me  the  only  proper expression of God's transcendence. Nonetheless, the notion of God before the creation is an important proof of his otherness in Hegelian philosophy of God. That justifies Leftow's interpretation of Hegel in which he says that Hegelian 'idea is in a way common to God, and to the world as distinct from God, though only God can perceive this commonality. (…) Only divine or absolute experience perceives the fully actual Idea  - for only in the attaining  of  such  experience  is  the  Idea  fully  real.  Only  divine  or  absolute  experience\n\n41 John  M.  E.  McTaggert, Studies  in  Hegelian  Cosmology, (Cambridge:  University  Press,  1918),  204.  I  am indebted  to  Whittemore's  presentation  of  McTaggert's  interpretation  of  Hegelian  thought  in Hegel  as Panentheist , 150.\n\n43 G.  W. Hegel, Lectures on the Philosophy of Religion (3 vols.), translated by E. B. Spiers, J. B. Sanderson, (London: Kegan Paul, 1895), III, 7.\n\n42 Thus  Hegel  departs  from  classical  Christian  paradox  of  the  tri-unity  of  three  co-equal  Persons. Whittemore  presents  a  careful  investigation  of  Hegelian  Trinitarian  triad  based  on  his Lectures  on  the Philosophy of Religion . See Hegel as Panentheist , 147-162\n\n44 Leftow, God and the World in Hegel and Whitehead , 262.\n\n45 Cooper, Panentheism. The Other God of the Philosophers , 114.\n\nperceives  the  world  as  fully  one  -  for  the  world  is  fully  one  only  in  the  existence  of Absolute Spirit, and this existence is constituted by the having of experiences of the world as thus unified.' 46\n\nThis line of argumentation can be enriched and complemented by John Cooper's emphasis on the importance of divine freedom in Hegel. In his Philosophy of Right Hegel says that freedom is 'the absolute end and aim of the world.' 47 Although Cooper agrees that in Hegelian metaphysics not having a world is not an option for God, he argues that Hegel holds a 'compatibilist' view of God's freedom. It is his dialectic that enables Hegel to attribute to God both determination and freedom - two sides of the same coin. 48 Cooper's assertion  can  serve  as  another  argument  for  God's  transcendence  in  Hegel.  It  is  also complementary with Leftow who once again comments on the Hegelian position and says that 'if the world is for the sake of God, there is a strong though nonformal sense in which God's  necessary  properties  are  prior  to,  determine  and  render  strongly  dependent  the world's necessary properties, and so its very existence.' 49\n\nTo  sum  up,  I  claim  that  Hegel  is  rightly  regarded  a  founder  of  contemporary panentheism.  In  his  dynamic  metaphysics  the  whole  universe  is  an  incarnation  of  the Spirit.  Thus  Hegel  realizes  the  first  part  of  the  basic  panentheistic  assertion  which  says that  the  world  is  in  God.  In  my  analysis  I  tried  to  explain  the  way  in  which  Hegelian metaphysics  also  strives  to  meet  the  other  requirement  of  panentheism,  that  is  its emphasis on God's otherness from the universe. Nevertheless, I claim that the Hegelian concept of God-world relation - although departing significantly from classical theism - is still  relatively  close  to  the  Thomistic  understanding  of  divine  causality.  As  we  shall  see, this position will prove to be somehow different in comparison with the one presented by Whitehead.\n\n## 2.2. Whitehead as Panentheist\n\n46 Leftow, God and the World in Hegel and Whitehead , 261-62.\n\nG. W. Hegel, Philosophy of Right , translated by T. M. Knox (Oxford: Clarendon, 1942), section 129.\n\n49 Leftow, God and the World in Hegel and Whitehead , 262-63.\n\n47 48 Ibid.\n\nStudying  the  idea  of  the  God-world  relation  in  Hegel  and  Whitehead,  one  may think  that  it  is  exactly  at  this  point  that  their  metaphysical  systems  get  as  close  as possible.  For  is  not  the  Whitehedian  concept  of  the  primordial,  consequent  and superjective nature of God, a clear reference to the Hegelian dialectical triadic nature of God? Having this parallel in mind Leftow brings together metaphysical concepts proposed by  both  philosophers  and  says  that  'in  each  new  phase  of  divine  experience,  God  does (according to Whitehead) what (according to Hegel) God does over the course of world history: unify the concrete world with 'the nature of God before the world.' For both Hegel and Whitehead, the world becomes one in God's experiencing it.' 50 I find this statement questionable  and  far  too  optimistic.  In  what  follows  I  will  try  to  show  some  unique features of the Whitehedian concept of God which make his panentheism exceptional and different from the Hegel's.\n\nFollowing  his  own  general  rule  which  says  that  'God  is  not  to  be  treated  as  an exception to all metaphysical principles, (…) He is their chief exemplification,' Whitehead places  God  among  other  actual  entities.  What  distinguishes  him  is  his  non-temporal nature in which God prehends all eternal objects and does not perish. Thus God becomes the Ground of all possibilities in the world. This is the primordial, conceptual nature of God  in  which  he  has  a  subjective  aim,  that  is  to  constitute  eternal  objects  through concrescence into relevant lures of feeling (propositions of future novelty for prehending actual occasions). Thus understood, God is the 'unlimited conceptual realization of the absolute  wealth  of  potentiality.' 51 However,  all  these  characteristics  of  the  primordial nature  of  God  do  not  make  him  a  transcendent  Creator  of  the  universe.  According  to Whitehead  'He  is  not before all  creation,  but with all  creation.'  Moreover,  in  his primordial  nature  God  is  deficiently  actual.  Therefore  we  'must  ascribe  to  him  neither fullness of feeling, nor consciousness.' 52\n\n50 Ibid. 263.\n\n52 Ibid., 343-44.\n\n51 Whitehead, Process and Reality , 87-8, 343.\n\nThis lack of perfection in God is fulfilled in his consequent nature which is 'the physical prehension by God of the actualities of the evolving universe.' 53 That is the way in  which  the  world  is  objectified  in  God  who  is  now  fully  conscious. 54 Thus,  in  a  way similar to actual entities, God's nature is dipolar. But that is not all. Both primordial and consequent natures of God are finally sublated to the superjective nature of God which is 'the character of the pragmatic value of his specific satisfaction qualifying the transcendent creativity in the various temporal instances.' 55 In  order to understand this obscure definition one should refer to the concept of 'creativity' in Whitehead. God has satisfaction  from  qualifying  the  creativity.  It  turns  out  that  creativity  is  the  most  basic category  of  the  universe,  conforming  everything,  including  God.  It  is  'the  ultimate principle  of  novelty, 56 (…)  another  rendering  of  the  Aristotelian  'matter',  and  of  the modern  'neutral  stuff.'  But  it  is  divested  of  the  notion  of  passive  receptivity,  either  of 'form,'  or  of  external  relations.' 57 Although  creativity  is  'conditioned  by  the  objective immortality of the actual world', that is conditioned by God in whom all actual entities are objectified, 'in the philosophy of organism the ultimate is termed 'creativity'; and God is its primordial, non-temporal accident.' 58\n\nAll this helps us to understand Whitehedian panentheism in which God seems to be  devoid  of  almost  all  of  transcendence.  Because  actual  entities  share  with  God  the characteristic of self-causation, they can also transcend all other actual entities, including God. 59 We read in Process and Reality that God is merely 'the outcome of creativity, the foundation of order, and the goad towards novelty.' 60 Since  actual  entities  constructing reality have the power of self-actualization (they decide themselves what they prehend), God ceases to be the Creator of the universe which itself is everlasting. All he can do is propose which eternal objects each actual entity should prehend in the future, and give to\n\n53 Ibid, 88.\n\n55 Ibid., 88.\n\n54 Ibid., 345.\n\n56 Ibid., 21.\n\n58 Ibid., 7, 31.\n\n57 Ibid., 31.\n\n59 Ibid., 222.\n\n60 Ibid., 88.\n\nit  an  objective  immortality  in  his  consequent  nature. 61 This  Witehedian  version  of panentheism  can  be  summarized  with  the  famous  quote  from Process  and  Reality in which he says that 'God does not create the world, he saves it: or, more accurately, he is the poet of the world, with tender patience leading it by his vision of truth, beauty, and goodness.' 62\n\n## 2.3. The Hegelian and the Whitehedian Panentheisms compared\n\nIn  the  conclusion  of  this  chapter  I  will  now  compare  the  two  versions  of panentheism described above. I will start with the differences, as they are more evident. They refer mainly to the crucial issue for panentheism in its dispute with classical theism, that is the relation between God's transcendence and immanence.\n\nLike  all  panentheists,  both  Hegel  and  Whitehead  struggle  to  defend  God's otherness.  From  what  has  been  said  one  can  see  that  the  Hegelian  God  is  more transcendent.  He  is  still  the  Creator  who  can  be  conceived  before  the  existence  of  the world. We also saw that Hegel's dialectic helps to save God's freedom. On the contrary, the  Whitehedian God is less  free,  as  he  has  to  necessarily  prehend  and  objectify  in  his consequent nature all actual occasions. He is not a creator anymore, but rather a part of the atomistic system of the universe. There is no creatio ex nihilo . This limitation of God's role in his relation to the world is well-described by Leftow who says: 'While in Hegel the world is for God and God is for nothing beyond Himself, in Whitehead God and the world are for the sake of each other, and both are 'instruments' of Creativity.' 63 Gregerson goes even further and says that '[o]n this point there is hardly a mediation possible between Hartshorne and the understanding of divine causality in the Abrahamic tradition, which was also  presupposed  by  Hegel.  The  point  of  demarcation  is  whether  creativity  derives from God the creator or belongs to the everlasting world.' 64\n\n61 This is the way in which Whitehedian philosophy of God becomes panentheistic (all is in God).\n\n63 Leftow, God and the World in Hegel and Whitehead , 264.\n\n62 Whitehead, Process and Reality , 345.\n\n64 Niels Henrik Gregersen, 'Three Varieties of Panentheism,' in In Whom We Live and Move and Have Our Being , 33.\n\nThe  limitation  of  God's  transcendence  in  Whitehead's  philosophy  finds  another expression in the fact that God can only provide the stimulus for actual activities prior to their act of prehension, and absorb worldly events after their occurrence. He cannot be present  simultaneously  with  actual  entities  in  the  act  of  their  concrescence.  In  other words, not only does Whitehead reject creatio ex nihilo , but his understanding of creatio continua departs from the one offered in classical theism as well. 65 However, I do not want to claim that the  Whitehedian God is not transcendent at all. William Christian presents a  whole  set  of  arguments  explaining  how  God  transcends  the  world  in  Whitehead.  He argues  that  in  spite  of  everything  being  in  process  God  is  free,  has  his  own  subjective immediacy and is perfect in scope, quality and intensity of his experience. 66 I do not agree with the first argument he presents, but I concur that there are ways in which it is possible to defend God's transcendence in the philosophy of organism. Nevertheless, one is sure, that  Whitehead is further away than Hegel from the classical theistic understanding of God  and  his  relation  to  the  world,  and  that  his  God  is  less  transcendent  than  that  of Hegel.\n\nBut  there  are  also  some  points  of  convergence  between  these  two  versions  of panentheism.  After  all,  as  we  have  seen,  there  are  many  important  similarities  and influences of Hegelian  metaphysics on the Whitehedian  philosophy  of organism. Therefore,  if  God  (the  Spirit)  and  his  subjectivity  is  the  basic  metaphysical  category  in Hegel, he cannot be neglected and marginalized in Whitehead. In his system each actual occasion embodies God and is embodied in God. That obviously resembles the Hegelian idea  of  the  Absolute  unfolding  itself  in  the  world.  The  three  natures  of  God  in  the philosophy  of  process  are  somehow  related  to  Hegel's  dialectic  as  well.  Finally,  the objectification  of  the  world  in  God  in  Whitehead's  thought  can  be  compared  with  the synthesis  in  God's  dialectic  triad  in  Hegel.  God  posits  himself  in  the  world  which  is eventually sublated to the ultimate 'Real'. Being a part of this 'ultimate reality' gives the Hegelian world what Whitehead would call an objective immortality.\n\n65\n\n'To the mind of God, actual occasions remain black boxes.' - says Gregersen referring to William Reese and his The Philosophy of Hartshorne . See Niels Henrik Gregersen, Three Varieties of Panentheism , 33. 66 William A. Christian, An Interpretation of Whitehead's Metaphysics ,  (New Haven: Yale University Press, 1959), chapter 18: 'God and the World: Transcendence and immanence.'\n\nThis comparison of the two versions of panentheism shows how many aspects one should take into account when choosing this position as a basis for theological endeavor. Here I side with Gregersen when he says that 'anyone who wants to describe himself or herself as a panentheist should from the outset make clear what kind of panentheism he or she is endorsing.' 67 That brings us to the last chapter of this article.\n\n## 3. Panentheism in the Science-Theology Dialogue\n\nKnowing  the  points of  convergence  and  divergence  between  Hegelian  and Whitehedian panentheism as described above, I will now try to trace the presence of these two philosophical traditions within the framework of the science/theology dialogue in the Anglo-American context. I will refer to Barbour, Peacocke, and Clayton.\n\n## 3.1. Ian Barbour\n\nFocusing his research on the philosophical and  theological implications of quantum mechanics, the theory of relativity,  the  big  bang  theory,  evolutionary  biology and  genetics,  Ian  Barbour  criticizes  classical  theism  and  accepts  the  proposition  of panentheism. Significantly, Barbour does not refer to the Hegelian roots of this concept in its  contemporary  versions.  On  the  other  hand,  he  willingly  accepts  the  Whitehedian tradition and uses it to shape his own understanding of the God-world relation. But the way  Barbour  applies  process  thought  in  his  own  research  is  very  specific.  His  writings show that along with the reference to Whitehead himself, Barbour finds a philosophical continuation  of  his  thought  presented  by  Hartshorne  very  important,  along  with  some theological interpretations of Whitehead presented by Cobb and Griffin.\n\nNaturally,  Barbour  begins  with  reference  to  basic  concepts  of  the  philosophy  of organism such as: the primacy of time, the interconnection of events, reality understood as organic process, the self-creation of every entity. 68 Consequently, in his description of God's  nature,  Barbour  is  first  rooted  in  Whitehead's  analysis  of  the  primordial  and consequent nature of God. But it is the idea of God's relatedness and his being influenced by events taking place in the world, elaborated by Hartshorne, that became the first point\n\n67 Gregersen, Three Varieties of Panentheism , 34\n\n68 Barbour, Religion and Science , 285-87.\n\nof  emphasis  for  Barbour  and  influenced  him  the  most.  For  it  was  in  close  reference  to Hartshorne's Divine Relativity that Barbour said of God in his Religion and Science : 'God is not merely influenced by the world; God is 'infinitely sensitive' and 'ideally responsive.' Divine love is supremely sympathetic participation in the world of process.' 69 Barbour also embraces the concept of the dipolar God which again - introduced by Whitehead 70 - was elaborated by Hartshorne. 71\n\nI think that Barbour, attracted by the idea of divine relativity and the reformulation of God's attributes in Hartshorne, does not pay enough attention to some crucial issues challenging the Whitehedian tradition of philosophy of God. Although he mentions the problem of God's transcendence in process thought 72 ,  he defends Whitehead and claims that the transcendent part of God's nature is still strongly represented in his philosophy. He  seems  to  accept  at  the  same  time  the  idea  of  God  being  merely  one  factor  among others, and Whitehead's rejection of creatio ex nihilo . 73 That these issues are problematic in Whithehead not only in reference to the classical theism but also in comparison with other versions of panentheism, I tried to show above.\n\nI  also  believe  that  Barbour  is  wrong  when,  in  defense  of  God's  transcendence  in Whitehead,  he  claims  that  'Whitehead  attributes  to  God  the  all-decisive  role  in  the creation  of  each  new  occasion,  namely  provision  of  its  initial  aim.' 74 The  notion  of 'creativity' as the ultimate category in Whitehead and his idea of God being an 'outcome of  creativity',  although  primordial  and  non-temporal  -  but  still  merely  an  'accident,' shows that God cannot have a decisive role in the becoming of the world in Whitehead's system. 75 I  believe  that  the  comparison  of  the  Hegelian  and  Whitehedian  metaphysics\n\n69 Ibid.,  294;  Charles  Hartshorne, The  Divine  Relativity ,  (New  Haven  and  London:  Yale  University  Press, 1964), chapter 2: 'God as Absolute, Yet Related to All,' 60-94.\n\n71 Hartshorne, The Divine Relativity , chapter 3: 'The Divine Attributes as Types of Social Relationship,' 11658.\n\n70 Whitehead, Process and Reality , 348.\n\n72 Barbour, Religion and Science , 326.\n\n74 Ibid., 296.\n\n73 Ibid., 295.\n\n75 Gene  Reeves  lists  four  formative  elements  in  the  creation  of  actual  occasions  in  Whitehead:  past occasions, eternal objects, creativity and God. He refers to Cobb arguing that God has always the decisive reason that each new occasion becomes. Barbour's position is likewise. Reeves raises the same objection that I presented above. If creativity is 'the ultimate' in Whitehead, the claim that God is still the decisive factor is\n\nsheds a new light on the problem of God's transcendence in panentheism, and it might be helpful in redefining Barbour's application of Whitehedian panentheism in his science/theology discussion. I think it may be possible for Barbour to keep the notion of God's  relativity  and  return  to  a  more  traditional  (perhaps  Hegelian)  understanding  of God's  nature  and  creativity.  This  may  enable  him  to  better  defend  the  notion  of  God transcendence in his version of panentheism.\n\n## 3.2. Arthur Peacocke\n\nThe method presented by Arthur Peacocke in his writings on theology and science raises  some  important  questions.  Like  other  authors  in  the  field,  Peacocke  shaped  his theology  with  respect  to  the  knowledge  of  the  world  that  is  given  in  natural  sciences. Being a biochemist, he perceived the world as a complex and dynamic system of countless interactions inside and between different levels of organization of matter. He emphasized the  importance  of  the  emergence  of  complexity,  the  role  of  necessity  and  chance,  and both  top-down  and  bottom-up  causation.  Similar  to  others  he  also  claimed  that  this notion of the world provided by natural sciences challenges our faith. Thus, he opted for a radical reformulation of God's attributes and the concept of his relation to the world. 76\n\nWhat  is  exceptional  about  Peacocke's  theology  is  that  in  order  to  reshape  our concept of God, he embraces panentheism, but at the same time distances himself from any philosophical framework for this position. Knowing that his theology is regarded as being close to the process tradition of thought, Peacocke claims that panentheism as such is  'not at all dependent on that particular metaphysical system.' 77 At the same time, he does not offer any other philosophical point of reference or source for his panentheism.\n\nI find the position presented by Peacocke highly debatable. In my opinion it is hard to  ignore  the  whole  philosophical  analysis  and  discussion  of  God's  transcendence  and\n\nsimply  contradictory.  See  Gene  Reeves,  'God  and  Creativity,'  in Explorations  in  Whitehead's  Philosophy , edited by Lewis S. Ford and George L. Kline,  (New York: Fordham University Press, 1983), 239-51.\n\n77 Peacocke, Theology for a Scientific Age , footnote no. 75, page 371-2.\n\n76 A.  Peacocke, Theology  for  a  Scientific  Age.  Being  and  Becoming  -  Natural,  Divine,  and  Human, (Minneapolis: Fortress Press, 1990), the second part of the book. See also chapters: 3 (The world as it is) and 4 (The world in process) in: A. Peacocke, Paths From Science Towards God, (Oxford: Oneworld, 2001), 39-90; and the first part (The World of Science) of the article: A. Peacocke, 'Articulating God's Presence in and to the World Unveiled by the Sciences,' in In Whom We Live and Move and Have Our Being , 138-43.\n\nimmanence in  the  context  of  the  philosophical  notion  of  panentheism.  After  all,  these problems  are  at  the  very  heart  of  the  definition  of  panentheism  and  are  crucial  for  its application in theology.\n\n## 3.3. Philip Clayton\n\nThe position presented by Philip Clayton is very interesting. As a philosopher he knows and elaborates quite well on the whole trajectory in modern thought leading to the philosophy  of  subject  and  panentheism  in  German  Idealism. 78 He  also  knows  the Whitehedian philosophy of process and his version of panentheism. It seems that Clayton wants to bring these two traditions together, and he does it in a very specific way.\n\nClayton  values  the  long  tradition  of  continental  philosophy.  That  is  why,  when embracing  panentheism,  he  refers  first  to  German  Idealism.  But  surprisingly,  it  is  not Hegel that would become for Clayton the main point of reference. In the last chapter of The Problem of God in Modern Thought he expresses his commitment to Shelling and his idea of a personal God, choosing freely to create and thus self-manifesting himself, having history and destiny, growing and developing in time. 79 Clayton finds Hegel too close to the  Aristotelian  tradition,  especially  the  idea  of  the  first  principle,  which  conditions  all entities  without  being  conditioned  by  them. 80 He  says  that  this  is  a  typical  position accepted by different philosophers of the Absolute, such as Hegel. 81 What he disapproves of in Hegelian metaphysics is the necessity with which the Absolute has to posit itself in creation, a requirement of the system of which the Absolute is an indispensable part. He goes on to say that being close to this tradition Hegel 'fails to preserve the contingency and  the  mystery  of  the  decision  to  create.' 82 That  is  why  Clayton  prefers  Schelling's personal notion of God and his focus on freedom. 83 Clayton's distancing himself from the Aristotelian tradition is symptomatic and explains the next step he takes.\n\n78 Clayton, Panentheism in Metaphysical and Scientific Perspective , 77-81.\n\n80 See point 2.1.\n\n79 Philip Clayton, The Problem of God in Modern Thought , (Grand Rapids: Eerdmans, 2000), 467-505. Cooper names Clayton's theology a 'neo-Schellingian emergent personalist panentheism (Cooper, 314).\n\n81 Clayton, The Problem of God in Modern Thought , 370.\n\n83 Ibid., 498-505\n\n82 Ibid., 235, 210.\n\nIn  his  search  for  a  notion  of  God  more  personal  then  Hegel's  Absolute,  Clayton sides not only with Shelling. In God and Contemporary Science he refers to the philosophy of organism. I think he does it mainly because of the emphasis on God's affectivity and reciprocity in process thought. This notion matches his stressing the personal character of God's nature. 84 He also sides with the process concept of dipolar God which he finds first present in Schelling's idealism. 85 However, Clayton mentions the philosophy of organism only  occasionally  and  does  not  address  the  whole  problem  of  God's  transcendence  and immanence in Whitehead, of which he must be aware as a philosopher. Nor does he go deeper  into  an  analysis  of  differences  between  Whitehead  and  those  who  further developed his thought. These are important shortcomings of his position. Nevertheless, it is  significant  that  Clayton,  when  choosing  panentheism,  refers  to  both  philosophical traditions analyzed in this article. Moreover, his position shows that there are some subtle differences  and  nuances  among  various  versions  of  panentheism,  not  only  in  the comparison  of  dialectical  and  process  thought,  but  also  within  German  Idealism  itself (Hegel contra Schelling).\n\n## Conclusion\n\nThe aim of this article was threefold. In the first part I presented a critical analysis of  possible  similarities  and  differences  between  Hegel's  metaphysic  of  dialectic  and Whitehead's  philosophy  of  organism.  I  think  that  as  builders  of  philosophical  systems, departing from substance to subject, and emphasizing the dynamic character of reality, they both can be regarded as proponents of philosophical concepts that are similar to a certain extent. Although the comparison of the mechanism of dialectic and process raises some critical questions, it seems possible that the Hegelian metaphysics, transmitted and transformed  by  British  Idealists,  reached  Whitehead  and  influenced  his  philosophy  of organism. I claim that the notion of this trajectory is of a great importance for those who accept the philosophy and theology of process.\n\n84 Clayton, God and Contemporary Science , 94.\n\n85 Clayton, The Problem of God in Modern Thought , 483-86; God and Contemporary Science , 93-6.\n\nThe second part of the article was dedicated to philosophical panentheism in its two  versions  presented  by  Hegel  and  Whitehead.  I  tried  to  show  particular  nuances, divergences and convergences between these two philosophers. The level at which Hegel and  Whitehead  differ  in  their  departure  from  the  classical  Thomistic  understanding  of divine causality and the God-world relation is significant. It has a great influence on the understanding of God's transcendence and immanence in their philosophical systems. I think that all this cannot be ignored by those who embrace the panentheistic position as a metaphysical background for their theological work.\n\nThe final part of the article, brought to discussion three main authors referring to panentheism  in  the  contemporary  science/theology  debate  in  the  Anglo-American context. I found the process version of panentheism to be more popular in these circles. Barbour embraces it wholeheartedly. Clayton introduces it as a point of reference in his analysis based on Shelling's metaphysics. Peacocke - although he distances himself from Whitehead and his successors - seems to be close to the philosophy of organism as well. The notion of Hegel's panentheism is much less present in the thought of those involved in the science/theology dialogue. What  I found particularly missing among  the participants  of  this  debate  was  a  deeper  study  and  analysis  of  possible  similarities  and dissimilarities  between  Hegel  and  Whitehead.  This  lacuna  is  especially  noticeable regarding the problem of God's transcendence and immanence, which seems to be crucial for every panentheist.\n\nI  tried  to  show  in  this  article  that  there  is  an  important  level  of  resemblance between process and Hegelian metaphysics. I hope that the awareness of this fact will be helpful  for  those  who  choose  panentheism  as  the  philosophical  ground  for  their understanding of God and his relation to the world.\n\n## BIBLIOGRAPHY\n\n## Primary Sources\n\nAlexander,  Samuel, Space,  Time  and  Deity ,  2  volumes.  London:  Macmillan  Co.,  1920, http://books.google.com/books?id=OdbUxdAghF4C&amp;pg=PA1&amp;hl=pl&amp;source=gbs\\_toc\\_r&amp;c ad=4#v=onepage&amp;q&amp;f=false, (access 06-11-2012).\n\nAquinas,  Thomas, Summa  Theologiae.  Vol.  2:  Existence  and  nature  of  God  (Ia,  2-11), translated by Timothy McDermott O.P. London: Blackfriars, 1964.\n\nBarbour,  Ian  G., Religion  and  Science.  Historical  and  Contemporary  Issues. New  York: HarperCollins Publishers, 1997.\n\nBradley, F. H., Appearance and Reality . London: Swan Sonnenschein &amp; Co., 1902.\n\nClayton,  Philip,  'Panentheism  in  Metaphysical  and  Scientific  Perspective.'  In In  Whom We Live and Move and Have Our Being. Panentheistic Reflections on God's Presence in a Scientific  World, edited  by  Philip  Clayton  and  Arthur  Peacocke,  73-91.  Grand  Rapids, Michigan/Cambridge, U.K.: William B. Eerdmans Publishing Company, 2004.\n\nClayton,  Philip, God  and  Contemporary  Science .  Grand  Rapids:  Eerdmans  Publishing Company, 1997.\n\nClayton, Philip, The Problem of God in Modern Thought . Grand Rapids: Eerdmans, 2000.\n\nHartshorne, Charles, The Divine Relativity . New Haven and London: Yale University Press, 1964.\n\nHegel, Georg Wilhelm, Lectures on the History of Philosophy Vol. III ,  translated by E. S. Haldane and Frances H. Simson. London: Routledge &amp; Kegan Paul LTD, 1955\n\nHegel, Georg Wilhelm, Lectures on the Philosophy of Religion (3 vols.), translated by E. B. Spiers, J. B. Sanderson. London: Kegan Paul, 1895.\n\nHegel,  Georg  Wilhelm, Logic ,  translated  by  William  Wallace.  Oxford:  Clarendon  Press, 1894.\n\nHegel, Georg Wilhelm, Philosophy of Right , translated by T. M. Knox (Oxford: Clarendon, 1942)\n\nHegel,  Georg  Wilhelm, The  Phenomenology  of  Mind ,  translated  by  J.B.  Baillie.  London: George Allen &amp; Unwin LTD, 1931.\n\nPeacocke,  Arthur,  'Articulating  God's  Presence  in  and  to  the  World  Unveiled  by  the Sciences.' In In Whom We Live and Move and Have Our Being. Panentheistic Reflections on God's Presence in a Scientific World, edited by Philip Clayton and Arthur Peacocke, 137-54. Grand  Rapids,  Michigan/Cambridge,  U.K.:  William  B.  Eerdmans  Publishing  Company, 2004.\n\nPeacocke, Arthur, Paths From Science Towards God. Oxford: Oneworld, 2001.\n\nPeacocke, Arthur, Theology for a Scientific Age. Being and Becoming - Natural, Divine, and Human. Minneapolis: Fortress Press, 1990.\n\nWhitehead, Alfred North, Process and Reality . New York: The Free Press, 1985.\n\nWhitehead, Alfred North, Essays in Science and Philosophy , (London: Rider &amp; Co., 1948).\n\n## Secondary Sources\n\nBraeckman,  Antoon,  'Whitehead  and  German  Idealism:  A  Poetic  Heritage,' Process Studies 14, no. 4 (Winter 1985): 265-286.\n\nBrierley,  Michael  W.,  'Naming  a  Quiet  Revolution:  The  Panentheistoc  Turn  in  Modern Theology.' In In Whom We Live and Move and Have Our Being. Panentheistic Reflections on God's Presence in a Scientific World, edited by Philip Clayton and Arthur Peacocke, 1-15. Grand  Rapids,  Michigan/Cambridge,  U.K.:  William  B.  Eerdmans  Publishing  Company, 2004.\n\nChristian  A.,  Williams, An Interpretation  of  Whitehead's  Metaphysics .  New  Haven:  Yale University Press, 1959.\n\nCooper,  John  W., Panentheism.  The  Other  God  of  the  Philosophers. Grand  Rapids, Michigan: Baker Academic, 2006.\n\nCulp,  John,  \"Panentheism\", The  Stanford  Encyclopedia  of  Philosophy  (Summer  2009 Edition) , Edward N. Zalta (ed.), http://plato.stanford.edu/archives/sum2009/entries/panentheism/, (access 06-11-2012).\n\nEllis, Robert, 'From Hegel to Whitehead,' Journal of Religion 61, no. 4 (Oct. 1981): 403-421.\n\nForster,  Michael,  'Hegel's  Dialectical  Method.'  In The  Cambridge  Companion  to  Hegel, edited by Frederick C. Beiser, 130-170. New York, Cambridge: Cambridge University Press, 1993.\n\nGregersen, Niels Henrik, 'Three Varieties of Panentheism.' In In Whom We Live and Move and  Have  Our  Being.  Panentheistic  Reflections  on  God's  Presence  in  a  Scientific  World, edited by Philip Clayton and Arthur Peacocke, 19-35. Grand Rapids, Michigan/Cambridge, U.K.: William B. Eerdmans Publishing Company, 2004.\n\nHarris, Errol E., 'The Contemporary Significance of Hegel and Whitehead.' In Hegel and Whitehead.  Contemporary  Perspectives  on  Systematic  Philosophy ,  edited  by  George  R. Lucas, JR. New York: State University of New York Press, 1986.\n\nHartmann,  Klaus,  'Types  of  Explanation  in  Hegel  and  Whitehead.'  In Hegel  and Whitehead.  Contemporary  Perspectives  on  Systematic  Philosophy ,  edited  by  George  R. Lucas. New York: State University of New York Press, 1986.\n\nKline,  George  L.,  'Concept  and  Concrescence:  An  Essay  in  Hegelian-Whitehedian Ontology.' In Hegel and Whitehead. Contemporary Perspectives on Systematic Philosophy , edited by George R. Lucas. New York: State University of New York Press, 1986.\n\nLeftow,  Brian  'God  and  the  World  in  Hegel  and  Whitehead.'  In Hegel  and  Whitehead. Contemporary  Perspectives  on  Systematic  Philosophy ,  edited  by  George  R.  Lucas.  New York: State University of New York Press, 1986.\n\nLowe, Victor, Understanding Whitehead . Baltimore: The Johns Hopkins Press, 1966.\n\nLucas, George R., 'Hegel, Whitehead, and the Status of Systematic Philosophy.' In Hegel and Whitehead. Contemporary Perspectives on Systematic Philosophy , edited by George R. Lucas, JR. New York: State University of New York Press, 1986.\n\nLucas, Hans-Christian, 'Spinoza, Hegel, Whitehead: Substance, Subject, and Superject.' In Hegel  and  Whitehead.  Contemporary  Perspectives  on  Systematic  Philosophy ,  edited  by George R. Lucas. New York: State University of New York Press, 1986.\n\nReeves, Gene, 'God and Creativity.' In Explorations in Whitehead's Philosophy ,  edited by Lewis S. Ford and George L. Kline.  New York: Fordham University Press, 1983.\n\nRussel, Robert John, 'The theological-scientific vision of Arthur Peacocke,' Zygon 26, no. 4 (December 1991): 505-17.\n\nSprigge T. L. S., The God of Metaphysics. Oxford: Clarendon Press, 2006.\n\nMcTaggert, John M. E., Studies in Hegelian Cosmology . Cambridge: University Press, 1918.\n\nUshenko, A. P., 'Negative Prehension,' The Journal in Philosophy 35,  no.  10  (May  1937): 263-267.\n\nVeken, Jan Van der, 'A Plea for an Open, Humble Hegelianism.' In Hegel and Whitehead. Contemporary  Perspectives  on  Systematic  Philosophy ,  edited  by  George  R.  Lucas.  New York: State University of New York Press, 1986.\n\nWelker, Michael, 'Hegel and Whitehead: Why Develop a Universal Theory?' In Hegel and Whitehead.  Contemporary  Perspectives  on  Systematic  Philosophy ,  edited  by  George  R. Lucas. New York: State University of New York Press, 1986.\n\nWard, Keith, 'The World as the Body of God.' In In Whom We Live and Move and Have Our  Being.  Panentheistic  Reflections  on  God's  Presence  in  a  Scientific  World, edited  by Philip  Clayton  and  Arthur  Peacocke,  62-72.  Grand  Rapids,  Michigan/Cambridge,  U.K.: William B. Eerdmans Publishing Company, 2004.\n\nWhittemore, Robert C.,  'Hegel  as  Panentheist,' Tulane  Studies  in  Philosophy IX  (1960): 134-64.\n\nWhittemore, Robert C., 'Hegel's 'Science' and Whitehead's 'Modern World',' Philosophy 31, no. 116 (Jan. 1956): 36-54.",
+    "responses": [
+      {
+        "source": "gpt-4o-2024-11-20",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"ADU1\": {\n      \"text\": \"Panentheism has recently become a widely accepted and appreciated concept among scholars in the science-theology dialogue, and its theological repercussions have been discussed to great extent.\",\n      \"label\": \"claim\"\n    },\n    \"ADU2\": {\n      \"text\": \"Yet, there remains to be studied in more detail the notion of the philosophical foundations of the term.\",\n      \"label\": \"claim\"\n    },\n    \"ADU3\": {\n      \"text\": \"A prominent gap in our understanding of these foundations is the potential similarity between the metaphysics of Hegel and Whitehead, their understanding of the transcendence and immanence of God, and their respective versions of panentheism.\",\n      \"label\": \"claim\"\n    },\n    \"ADU4\": {\n      \"text\": \"In this article, I present a critical reflection on the possible resemblance between process thought and Hegelian metaphysics and philosophy of God.\",\n      \"label\": \"claim\"\n    },\n    \"ADU5\": {\n      \"text\": \"In the last section I refer to those who use panentheism within the science-theology dialogue.\",\n      \"label\": \"claim\"\n    },\n    \"ADU6\": {\n      \"text\": \"I try to specify which of the two versions of panentheism, that of Hegel or Whitehead, is more popular among those scholars.\",\n      \"label\": \"claim\"\n    },\n    \"ADU7\": {\n      \"text\": \"Because of its reference to the God-world relationship, panentheism tends to be regarded a purely theological concept.\",\n      \"label\": \"claim\"\n    },\n    \"ADU8\": {\n      \"text\": \"But it is not.\",\n      \"label\": \"claim\"\n    },\n    \"ADU9\": {\n      \"text\": \"Its origins are in philosophy and go back to Plato and Neoplatonism.\",\n      \"label\": \"premise\"\n    },\n    \"ADU10\": {\n      \"text\": \"Transmitted by Pseudo-Dionysius, John Scotus Eriugena and Nicholas of Cusa, panentheism found new expression in German Idealism.\",\n      \"label\": \"premise\"\n    },\n    \"ADU11\": {\n      \"text\": \"It was within this philosophical tradition that the very term 'panentheism' (Allingottlehre) was coined (K.C.F. Krause) and the metaphysical shift from substance to subject found its culmination (G.W. Hegel).\",\n      \"label\": \"premise\"\n    },\n    \"ADU12\": {\n      \"text\": \"God expressing or unfolding himself in the world is understood as the Creator who remains in a dynamic reciprocity with creation.\",\n      \"label\": \"premise\"\n    },\n    \"ADU13\": {\n      \"text\": \"This expressivist version of philosophical panentheism became a source of theological panentheistic propositions presented in the contemporary science/theology debate.\",\n      \"label\": \"claim\"\n    },\n    \"ADU14\": {\n      \"text\": \"But there is one more crucial point of reference for many of those who adopt philosophical panentheism, namely Whitehead's philosophy of process.\",\n      \"label\": \"claim\"\n    },\n    \"ADU15\": {\n      \"text\": \"Built within the Whitehedian process framework, Charles Hartshorne's concept of a dipolar God influenced not only John Cobb and David Griffin who applied it to postmodern theology and social justice issues.\",\n      \"label\": \"premise\"\n    },\n    \"ADU16\": {\n      \"text\": \"It turned out to be inspiring also for those trying to bridge science and religion.\",\n      \"label\": \"premise\"\n    },\n    \"ADU17\": {\n      \"text\": \"Barbour, Clayton and Ward make a clear reference to the philosophy of process.\",\n      \"label\": \"premise\"\n    },\n    \"ADU18\": {\n      \"text\": \"Although Peacocke distances himself from this tradition, his concept of transcendence-in-immanence and his understanding of the God-world relation resemble the theology proposed by Hartshorne as well.\",\n      \"label\": \"premise\"\n    },\n    \"ADU19\": {\n      \"text\": \"After we have named two main philosophical sources of contemporary panentheism, the question should be asked whether they are complementary or distinctive.\",\n      \"label\": \"claim\"\n    },\n    \"ADU20\": {\n      \"text\": \"Does the Whitehedian dipolar notion of God resemble expressivist Hegelian Panentheism?\",\n      \"label\": \"claim\"\n    },\n    \"ADU21\": {\n      \"text\": \"Is there a relation between these two synoptic thinkers in the tradition of western philosophy?\",\n      \"label\": \"claim\"\n    },\n    \"ADU22\": {\n      \"text\": \"The case is problematic.\",\n      \"label\": \"claim\"\n    },\n    \"ADU23\": {\n      \"text\": \"There are thinkers, who - following Robert Ellis - claim, that we should not treat Whitehead as 'a sort of Melchizedek of twentieth-century philosophy - arriving on the scene to bless Abrahams and slay other warriors without ancestry and obvious philosophical lineage.'\",\n      \"label\": \"premise\"\n    },\n    \"ADU24\": {\n      \"text\": \"For them Whithehead's dependence on German and British Idealism is undeniable.\",\n      \"label\": \"premise\"\n    },\n    \"ADU25\": {\n      \"text\": \"On the other hand, however, there are scholars who tend to support the opposite position expressed by Victor Lowe who says: 'Only in his metaphysics - particularly in his doctrine of coherence - is a Hegelian influence notable.\",\n      \"label\": \"premise\"\n    },\n    \"ADU26\": {\n      \"text\": \"Had there never been a Hegel, (…) Whitehead would still have been led to that [doctrine] by his instinctive acknowledgement that the truth is complex, and that different thinkers have got hold of contrasting aspects of it.'\",\n      \"label\": \"premise\"\n    },\n    \"ADU27\": {\n      \"text\": \"This position appears to be in agreement with Whitehead himself, who said at one point: 'I have never been able to read Hegel: I initiated my attempt by studying some remarks of his on mathematics which struck me as complete nonsense.\",\n      \"label\": \"premise\"\n    },\n    \"ADU28\": {\n      \"text\": \"It was foolish of me, but I am not writing to explain my good sense.'\",\n      \"label\": \"premise\"\n    },\n    \"ADU29\": {\n      \"text\": \"As one can see, different scholars seem to support opposite positions, which shows the need for clarifying the problem.\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"ADU1\",\n      \"target\": \"ADU2\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU3\",\n      \"target\": \"ADU4\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU7\",\n      \"target\": \"ADU8\",\n      \"type\": \"attack\"\n    },\n    {\n      \"source\": \"ADU9\",\n      \"target\": \"ADU8\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU10\",\n      \"target\": \"ADU8\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU11\",\n      \"target\": \"ADU8\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU12\",\n      \"target\": \"ADU13\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU14\",\n      \"target\": \"ADU13\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU15\",\n      \"target\": \"ADU14\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU16\",\n      \"target\": \"ADU14\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU17\",\n      \"target\": \"ADU14\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU18\",\n      \"target\": \"ADU14\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU19\",\n      \"target\": \"ADU20\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU19\",\n      \"target\": \"ADU21\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU22\",\n      \"target\": \"ADU19\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU23\",\n      \"target\": \"ADU22\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU24\",\n      \"target\": \"ADU23\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU25\",\n      \"target\": \"ADU22\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU26\",\n      \"target\": \"ADU25\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU27\",\n      \"target\": \"ADU22\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU28\",\n      \"target\": \"ADU27\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU29\",\n      \"target\": \"ADU22\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "ADU1": {
+              "text": "Panentheism has recently become a widely accepted and appreciated concept among scholars in the science-theology dialogue, and its theological repercussions have been discussed to great extent.",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "Yet, there remains to be studied in more detail the notion of the philosophical foundations of the term.",
+              "label": "claim"
+            },
+            "ADU3": {
+              "text": "A prominent gap in our understanding of these foundations is the potential similarity between the metaphysics of Hegel and Whitehead, their understanding of the transcendence and immanence of God, and their respective versions of panentheism.",
+              "label": "claim"
+            },
+            "ADU4": {
+              "text": "In this article, I present a critical reflection on the possible resemblance between process thought and Hegelian metaphysics and philosophy of God.",
+              "label": "claim"
+            },
+            "ADU5": {
+              "text": "In the last section I refer to those who use panentheism within the science-theology dialogue.",
+              "label": "claim"
+            },
+            "ADU6": {
+              "text": "I try to specify which of the two versions of panentheism, that of Hegel or Whitehead, is more popular among those scholars.",
+              "label": "claim"
+            },
+            "ADU7": {
+              "text": "Because of its reference to the God-world relationship, panentheism tends to be regarded a purely theological concept.",
+              "label": "claim"
+            },
+            "ADU8": {
+              "text": "But it is not.",
+              "label": "claim"
+            },
+            "ADU9": {
+              "text": "Its origins are in philosophy and go back to Plato and Neoplatonism.",
+              "label": "premise"
+            },
+            "ADU10": {
+              "text": "Transmitted by Pseudo-Dionysius, John Scotus Eriugena and Nicholas of Cusa, panentheism found new expression in German Idealism.",
+              "label": "premise"
+            },
+            "ADU11": {
+              "text": "It was within this philosophical tradition that the very term 'panentheism' (Allingottlehre) was coined (K.C.F. Krause) and the metaphysical shift from substance to subject found its culmination (G.W. Hegel).",
+              "label": "premise"
+            },
+            "ADU12": {
+              "text": "God expressing or unfolding himself in the world is understood as the Creator who remains in a dynamic reciprocity with creation.",
+              "label": "premise"
+            },
+            "ADU13": {
+              "text": "This expressivist version of philosophical panentheism became a source of theological panentheistic propositions presented in the contemporary science/theology debate.",
+              "label": "claim"
+            },
+            "ADU14": {
+              "text": "But there is one more crucial point of reference for many of those who adopt philosophical panentheism, namely Whitehead's philosophy of process.",
+              "label": "claim"
+            },
+            "ADU15": {
+              "text": "Built within the Whitehedian process framework, Charles Hartshorne's concept of a dipolar God influenced not only John Cobb and David Griffin who applied it to postmodern theology and social justice issues.",
+              "label": "premise"
+            },
+            "ADU16": {
+              "text": "It turned out to be inspiring also for those trying to bridge science and religion.",
+              "label": "premise"
+            },
+            "ADU17": {
+              "text": "Barbour, Clayton and Ward make a clear reference to the philosophy of process.",
+              "label": "premise"
+            },
+            "ADU18": {
+              "text": "Although Peacocke distances himself from this tradition, his concept of transcendence-in-immanence and his understanding of the God-world relation resemble the theology proposed by Hartshorne as well.",
+              "label": "premise"
+            },
+            "ADU19": {
+              "text": "After we have named two main philosophical sources of contemporary panentheism, the question should be asked whether they are complementary or distinctive.",
+              "label": "claim"
+            },
+            "ADU20": {
+              "text": "Does the Whitehedian dipolar notion of God resemble expressivist Hegelian Panentheism?",
+              "label": "claim"
+            },
+            "ADU21": {
+              "text": "Is there a relation between these two synoptic thinkers in the tradition of western philosophy?",
+              "label": "claim"
+            },
+            "ADU22": {
+              "text": "The case is problematic.",
+              "label": "claim"
+            },
+            "ADU23": {
+              "text": "There are thinkers, who - following Robert Ellis - claim, that we should not treat Whitehead as 'a sort of Melchizedek of twentieth-century philosophy - arriving on the scene to bless Abrahams and slay other warriors without ancestry and obvious philosophical lineage.'",
+              "label": "premise"
+            },
+            "ADU24": {
+              "text": "For them Whithehead's dependence on German and British Idealism is undeniable.",
+              "label": "premise"
+            },
+            "ADU25": {
+              "text": "On the other hand, however, there are scholars who tend to support the opposite position expressed by Victor Lowe who says: 'Only in his metaphysics - particularly in his doctrine of coherence - is a Hegelian influence notable.",
+              "label": "premise"
+            },
+            "ADU26": {
+              "text": "Had there never been a Hegel, (…) Whitehead would still have been led to that [doctrine] by his instinctive acknowledgement that the truth is complex, and that different thinkers have got hold of contrasting aspects of it.'",
+              "label": "premise"
+            },
+            "ADU27": {
+              "text": "This position appears to be in agreement with Whitehead himself, who said at one point: 'I have never been able to read Hegel: I initiated my attempt by studying some remarks of his on mathematics which struck me as complete nonsense.",
+              "label": "premise"
+            },
+            "ADU28": {
+              "text": "It was foolish of me, but I am not writing to explain my good sense.'",
+              "label": "premise"
+            },
+            "ADU29": {
+              "text": "As one can see, different scholars seem to support opposite positions, which shows the need for clarifying the problem.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU1",
+              "target": "ADU2",
+              "type": "support"
+            },
+            {
+              "source": "ADU3",
+              "target": "ADU4",
+              "type": "support"
+            },
+            {
+              "source": "ADU7",
+              "target": "ADU8",
+              "type": "attack"
+            },
+            {
+              "source": "ADU9",
+              "target": "ADU8",
+              "type": "support"
+            },
+            {
+              "source": "ADU10",
+              "target": "ADU8",
+              "type": "support"
+            },
+            {
+              "source": "ADU11",
+              "target": "ADU8",
+              "type": "support"
+            },
+            {
+              "source": "ADU12",
+              "target": "ADU13",
+              "type": "support"
+            },
+            {
+              "source": "ADU14",
+              "target": "ADU13",
+              "type": "support"
+            },
+            {
+              "source": "ADU15",
+              "target": "ADU14",
+              "type": "support"
+            },
+            {
+              "source": "ADU16",
+              "target": "ADU14",
+              "type": "support"
+            },
+            {
+              "source": "ADU17",
+              "target": "ADU14",
+              "type": "support"
+            },
+            {
+              "source": "ADU18",
+              "target": "ADU14",
+              "type": "support"
+            },
+            {
+              "source": "ADU19",
+              "target": "ADU20",
+              "type": "support"
+            },
+            {
+              "source": "ADU19",
+              "target": "ADU21",
+              "type": "support"
+            },
+            {
+              "source": "ADU22",
+              "target": "ADU19",
+              "type": "support"
+            },
+            {
+              "source": "ADU23",
+              "target": "ADU22",
+              "type": "support"
+            },
+            {
+              "source": "ADU24",
+              "target": "ADU23",
+              "type": "support"
+            },
+            {
+              "source": "ADU25",
+              "target": "ADU22",
+              "type": "support"
+            },
+            {
+              "source": "ADU26",
+              "target": "ADU25",
+              "type": "support"
+            },
+            {
+              "source": "ADU27",
+              "target": "ADU22",
+              "type": "support"
+            },
+            {
+              "source": "ADU28",
+              "target": "ADU27",
+              "type": "support"
+            },
+            {
+              "source": "ADU29",
+              "target": "ADU22",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "ADU1": {
+              "text": "Panentheism has recently become a widely accepted and appreciated concept among scholars in the science-theology dialogue, and its theological repercussions have been discussed to great extent.",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "Yet, there remains to be studied in more detail the notion of the philosophical foundations of the term.",
+              "label": "claim"
+            },
+            "ADU3": {
+              "text": "A prominent gap in our understanding of these foundations is the potential similarity between the metaphysics of Hegel and Whitehead, their understanding of the transcendence and immanence of God, and their respective versions of panentheism.",
+              "label": "claim"
+            },
+            "ADU4": {
+              "text": "In this article, I present a critical reflection on the possible resemblance between process thought and Hegelian metaphysics and philosophy of God.",
+              "label": "claim"
+            },
+            "ADU5": {
+              "text": "In the last section I refer to those who use panentheism within the science-theology dialogue.",
+              "label": "claim"
+            },
+            "ADU6": {
+              "text": "I try to specify which of the two versions of panentheism, that of Hegel or Whitehead, is more popular among those scholars.",
+              "label": "claim"
+            },
+            "ADU7": {
+              "text": "Because of its reference to the God-world relationship, panentheism tends to be regarded a purely theological concept.",
+              "label": "claim"
+            },
+            "ADU8": {
+              "text": "But it is not.",
+              "label": "claim"
+            },
+            "ADU9": {
+              "text": "Its origins are in philosophy and go back to Plato and Neoplatonism.",
+              "label": "premise"
+            },
+            "ADU10": {
+              "text": "Transmitted by Pseudo-Dionysius, John Scotus Eriugena and Nicholas of Cusa, panentheism found new expression in German Idealism.",
+              "label": "premise"
+            },
+            "ADU11": {
+              "text": "It was within this philosophical tradition that the very term 'panentheism' (Allingottlehre) was coined (K.C.F. Krause) and the metaphysical shift from substance to subject found its culmination (G.W. Hegel).",
+              "label": "premise"
+            },
+            "ADU12": {
+              "text": "God expressing or unfolding himself in the world is understood as the Creator who remains in a dynamic reciprocity with creation.",
+              "label": "premise"
+            },
+            "ADU13": {
+              "text": "This expressivist version of philosophical panentheism became a source of theological panentheistic propositions presented in the contemporary science/theology debate.",
+              "label": "claim"
+            },
+            "ADU14": {
+              "text": "But there is one more crucial point of reference for many of those who adopt philosophical panentheism, namely Whitehead's philosophy of process.",
+              "label": "claim"
+            },
+            "ADU16": {
+              "text": "It turned out to be inspiring also for those trying to bridge science and religion.",
+              "label": "premise"
+            },
+            "ADU17": {
+              "text": "Barbour, Clayton and Ward make a clear reference to the philosophy of process.",
+              "label": "premise"
+            },
+            "ADU18": {
+              "text": "Although Peacocke distances himself from this tradition, his concept of transcendence-in-immanence and his understanding of the God-world relation resemble the theology proposed by Hartshorne as well.",
+              "label": "premise"
+            },
+            "ADU19": {
+              "text": "After we have named two main philosophical sources of contemporary panentheism, the question should be asked whether they are complementary or distinctive.",
+              "label": "claim"
+            },
+            "ADU20": {
+              "text": "Does the Whitehedian dipolar notion of God resemble expressivist Hegelian Panentheism?",
+              "label": "claim"
+            },
+            "ADU21": {
+              "text": "Is there a relation between these two synoptic thinkers in the tradition of western philosophy?",
+              "label": "claim"
+            },
+            "ADU22": {
+              "text": "The case is problematic.",
+              "label": "claim"
+            },
+            "ADU24": {
+              "text": "For them Whithehead's dependence on German and British Idealism is undeniable.",
+              "label": "premise"
+            },
+            "ADU25": {
+              "text": "On the other hand, however, there are scholars who tend to support the opposite position expressed by Victor Lowe who says: 'Only in his metaphysics - particularly in his doctrine of coherence - is a Hegelian influence notable.",
+              "label": "premise"
+            },
+            "ADU26": {
+              "text": "Had there never been a Hegel, (…) Whitehead would still have been led to that [doctrine] by his instinctive acknowledgement that the truth is complex, and that different thinkers have got hold of contrasting aspects of it.'",
+              "label": "premise"
+            },
+            "ADU27": {
+              "text": "This position appears to be in agreement with Whitehead himself, who said at one point: 'I have never been able to read Hegel: I initiated my attempt by studying some remarks of his on mathematics which struck me as complete nonsense.",
+              "label": "premise"
+            },
+            "ADU28": {
+              "text": "It was foolish of me, but I am not writing to explain my good sense.'",
+              "label": "premise"
+            },
+            "ADU29": {
+              "text": "As one can see, different scholars seem to support opposite positions, which shows the need for clarifying the problem.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU1",
+              "target": "ADU2",
+              "type": "support"
+            },
+            {
+              "source": "ADU3",
+              "target": "ADU4",
+              "type": "support"
+            },
+            {
+              "source": "ADU7",
+              "target": "ADU8",
+              "type": "attack"
+            },
+            {
+              "source": "ADU9",
+              "target": "ADU8",
+              "type": "support"
+            },
+            {
+              "source": "ADU10",
+              "target": "ADU8",
+              "type": "support"
+            },
+            {
+              "source": "ADU11",
+              "target": "ADU8",
+              "type": "support"
+            },
+            {
+              "source": "ADU12",
+              "target": "ADU13",
+              "type": "support"
+            },
+            {
+              "source": "ADU14",
+              "target": "ADU13",
+              "type": "support"
+            },
+            {
+              "source": "ADU16",
+              "target": "ADU14",
+              "type": "support"
+            },
+            {
+              "source": "ADU17",
+              "target": "ADU14",
+              "type": "support"
+            },
+            {
+              "source": "ADU18",
+              "target": "ADU14",
+              "type": "support"
+            },
+            {
+              "source": "ADU19",
+              "target": "ADU20",
+              "type": "support"
+            },
+            {
+              "source": "ADU19",
+              "target": "ADU21",
+              "type": "support"
+            },
+            {
+              "source": "ADU22",
+              "target": "ADU19",
+              "type": "support"
+            },
+            {
+              "source": "ADU25",
+              "target": "ADU22",
+              "type": "support"
+            },
+            {
+              "source": "ADU26",
+              "target": "ADU25",
+              "type": "support"
+            },
+            {
+              "source": "ADU27",
+              "target": "ADU22",
+              "type": "support"
+            },
+            {
+              "source": "ADU28",
+              "target": "ADU27",
+              "type": "support"
+            },
+            {
+              "source": "ADU29",
+              "target": "ADU22",
+              "type": "support"
+            }
+          ]
+        }
+      },
+      {
+        "source": "claude-3-5-sonnet-20241022",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"1\": {\n      \"text\": \"That 'panentheism' has recently become a widely accepted and appreciated concept among scholars who committed themselves to the science/theology debate within the Anglo-American context is clear and undeniable.\",\n      \"label\": \"claim\"\n    },\n    \"2\": {\n      \"text\": \"Ian Barbour, Philip Clayton, Paul Davies, Arthur Peacocke, and Keith Ward are some key figures supporting the claim that it is the concept of the world being 'in' God ( pan-en-Theos ), who at the same time surpasses it, that enables us to find a third way between classical theism and pantheism.\",\n      \"label\": \"premise\"\n    },\n    \"3\": {\n      \"text\": \"Because of its reference to the God-world relationship, panentheism tends to be regarded a purely theological concept. But it is not. Its origins are in philosophy and go back to Plato and Neoplatonism.\",\n      \"label\": \"claim\"\n    },\n    \"4\": {\n      \"text\": \"But there is one more crucial point of reference for many of those who adopt philosophical panentheism, namely Whitehead's philosophy of process.\",\n      \"label\": \"claim\"\n    },\n    \"5\": {\n      \"text\": \"After we have named two main philosophical sources of contemporary panentheism, the question should be asked whether they are complementary or distinctive. Does the Whitehedian dipolar notion of God resemble expressivist Hegelian Panentheism? Is there a relation between these two synoptic thinkers in the tradition of western philosophy?\",\n      \"label\": \"claim\"\n    },\n    \"6\": {\n      \"text\": \"The first characteristic that can be regarded as a common feature of Hegel's and Whitehead's philosophy is their attempt to build a philosophical system. They are both interested in 'organic wholeness'.\",\n      \"label\": \"claim\"\n    },\n    \"7\": {\n      \"text\": \"Similar to Hegel, Whitehead is also aware that his organic doctrine is 'close to Spinoza; but - as he says - Spinoza bases his philosophy upon the monistic substance, of which the actual occasions are inferior modes. The philosophy of organism inverts this point of view.'\",\n      \"label\": \"premise\"\n    },\n    \"8\": {\n      \"text\": \"Though unfolding dialectically into many entities, the Hegelian Subject (Spirit) is one, and his metaphysics can be classified as idealistic monism. Contrary to this concept, Whitehedian actual entities are many.\",\n      \"label\": \"claim\"\n    },\n    \"9\": {\n      \"text\": \"Like all panentheists, both Hegel and Whitehead struggle to defend God's otherness. From what has been said one can see that the Hegelian God is more transcendent. He is still the Creator who can be conceived before the existence of the world.\",\n      \"label\": \"claim\"\n    },\n    \"10\": {\n      \"text\": \"The Whitehedian God is less free, as he has to necessarily prehend and objectify in his consequent nature all actual occasions. He is not a creator anymore, but rather a part of the atomistic system of the universe.\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"2\",\n      \"target\": \"1\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"7\",\n      \"target\": \"6\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"8\",\n      \"target\": \"5\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"10\",\n      \"target\": \"9\",\n      \"type\": \"attack\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "1": {
+              "text": "That 'panentheism' has recently become a widely accepted and appreciated concept among scholars who committed themselves to the science/theology debate within the Anglo-American context is clear and undeniable.",
+              "label": "claim"
+            },
+            "2": {
+              "text": "Ian Barbour, Philip Clayton, Paul Davies, Arthur Peacocke, and Keith Ward are some key figures supporting the claim that it is the concept of the world being 'in' God ( pan-en-Theos ), who at the same time surpasses it, that enables us to find a third way between classical theism and pantheism.",
+              "label": "premise"
+            },
+            "3": {
+              "text": "Because of its reference to the God-world relationship, panentheism tends to be regarded a purely theological concept. But it is not. Its origins are in philosophy and go back to Plato and Neoplatonism.",
+              "label": "claim"
+            },
+            "4": {
+              "text": "But there is one more crucial point of reference for many of those who adopt philosophical panentheism, namely Whitehead's philosophy of process.",
+              "label": "claim"
+            },
+            "5": {
+              "text": "After we have named two main philosophical sources of contemporary panentheism, the question should be asked whether they are complementary or distinctive. Does the Whitehedian dipolar notion of God resemble expressivist Hegelian Panentheism? Is there a relation between these two synoptic thinkers in the tradition of western philosophy?",
+              "label": "claim"
+            },
+            "6": {
+              "text": "The first characteristic that can be regarded as a common feature of Hegel's and Whitehead's philosophy is their attempt to build a philosophical system. They are both interested in 'organic wholeness'.",
+              "label": "claim"
+            },
+            "7": {
+              "text": "Similar to Hegel, Whitehead is also aware that his organic doctrine is 'close to Spinoza; but - as he says - Spinoza bases his philosophy upon the monistic substance, of which the actual occasions are inferior modes. The philosophy of organism inverts this point of view.'",
+              "label": "premise"
+            },
+            "8": {
+              "text": "Though unfolding dialectically into many entities, the Hegelian Subject (Spirit) is one, and his metaphysics can be classified as idealistic monism. Contrary to this concept, Whitehedian actual entities are many.",
+              "label": "claim"
+            },
+            "9": {
+              "text": "Like all panentheists, both Hegel and Whitehead struggle to defend God's otherness. From what has been said one can see that the Hegelian God is more transcendent. He is still the Creator who can be conceived before the existence of the world.",
+              "label": "claim"
+            },
+            "10": {
+              "text": "The Whitehedian God is less free, as he has to necessarily prehend and objectify in his consequent nature all actual occasions. He is not a creator anymore, but rather a part of the atomistic system of the universe.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "2",
+              "target": "1",
+              "type": "support"
+            },
+            {
+              "source": "7",
+              "target": "6",
+              "type": "support"
+            },
+            {
+              "source": "8",
+              "target": "5",
+              "type": "support"
+            },
+            {
+              "source": "10",
+              "target": "9",
+              "type": "attack"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "1": {
+              "text": "That 'panentheism' has recently become a widely accepted and appreciated concept among scholars who committed themselves to the science/theology debate within the Anglo-American context is clear and undeniable.",
+              "label": "claim"
+            },
+            "2": {
+              "text": "Ian Barbour, Philip Clayton, Paul Davies, Arthur Peacocke, and Keith Ward are some key figures supporting the claim that it is the concept of the world being 'in' God ( pan-en-Theos ), who at the same time surpasses it, that enables us to find a third way between classical theism and pantheism.",
+              "label": "premise"
+            },
+            "3": {
+              "text": "Because of its reference to the God-world relationship, panentheism tends to be regarded a purely theological concept. But it is not. Its origins are in philosophy and go back to Plato and Neoplatonism.",
+              "label": "claim"
+            },
+            "4": {
+              "text": "But there is one more crucial point of reference for many of those who adopt philosophical panentheism, namely Whitehead's philosophy of process.",
+              "label": "claim"
+            },
+            "5": {
+              "text": "After we have named two main philosophical sources of contemporary panentheism, the question should be asked whether they are complementary or distinctive. Does the Whitehedian dipolar notion of God resemble expressivist Hegelian Panentheism? Is there a relation between these two synoptic thinkers in the tradition of western philosophy?",
+              "label": "claim"
+            },
+            "6": {
+              "text": "The first characteristic that can be regarded as a common feature of Hegel's and Whitehead's philosophy is their attempt to build a philosophical system. They are both interested in 'organic wholeness'.",
+              "label": "claim"
+            },
+            "7": {
+              "text": "Similar to Hegel, Whitehead is also aware that his organic doctrine is 'close to Spinoza; but - as he says - Spinoza bases his philosophy upon the monistic substance, of which the actual occasions are inferior modes. The philosophy of organism inverts this point of view.'",
+              "label": "premise"
+            },
+            "9": {
+              "text": "Like all panentheists, both Hegel and Whitehead struggle to defend God's otherness. From what has been said one can see that the Hegelian God is more transcendent. He is still the Creator who can be conceived before the existence of the world.",
+              "label": "claim"
+            },
+            "10": {
+              "text": "The Whitehedian God is less free, as he has to necessarily prehend and objectify in his consequent nature all actual occasions. He is not a creator anymore, but rather a part of the atomistic system of the universe.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "2",
+              "target": "1",
+              "type": "support"
+            },
+            {
+              "source": "7",
+              "target": "6",
+              "type": "support"
+            },
+            {
+              "source": "10",
+              "target": "9",
+              "type": "attack"
+            }
+          ]
+        }
+      }
+    ],
+    "timestamp": 1752753539.434676
+  }
+]

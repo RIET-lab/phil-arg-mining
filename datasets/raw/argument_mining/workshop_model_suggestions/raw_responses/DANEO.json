@@ -1,0 +1,311 @@
+[
+  {
+    "identifier": "DANEO",
+    "system_prompt": "## GOAL\nArgument‑mine the following paper to extract its comprehensive argumentative structure.\n\n## DEFINITIONS\n1. **Argument**: A set of propositions, including some number of premises and a conclusion. The premises should logically entail the conclusion.\n2. **Claim**: A proposition that asserts something to be true or false, typically requiring justification or evidence.\n3. **Premise**: A proposition that provides evidence, justification, or logical support for a claim or conclusion.\n\n## CRITICAL REQUIREMENTS\n1. **VERBATIM EXTRACTION ONLY**: Each ADU text must be copied EXACTLY from the paper with no modifications, paraphrasing, or combining of separate sentences.\n2. **NO HALLUCINATION**: Do not create, modify, or invent text that does not appear exactly in the source.\n3. **EXACT MATCHING**: Every word, punctuation mark, and spacing must match the original precisely.\n\n## DIRECTIONS\n1. **Identify Argumentative Discourse Units (ADUs)**  \n   - ADU = any contiguous text span functioning as a claim or a premise in the reasoning structure.\n   - **BE HIGHLY SELECTIVE**: Only include ADUs that are crucial to the overarching argument structure.\n   - Focus on significant claims and premises that contribute meaningfully to the argumentative flow.\n   - **AVOID NOISE**: Skip ADUs that are merely descriptive, tangential, or do not substantially advance the argument.\n   - Prioritize quality over quantity - fewer accurate, important ADUs are better than many insignificant ones.\n   - **EXTRACT ONLY**: Copy text spans exactly as they appear, without any modifications.\n2. **Classify each ADU**  \n   - Label = either `\"claim\"` or `\"premise\"`.  \n3. **Detect directed relations**  \n   - Relation = `\"support\"` or `\"attack\"`, from one ADU (source) to another (target).\n   - Map how ADUs connect to form reasoning chains.\n   - Focus on relationships between the most significant ADUs.\n   - Include relationships between premises that strengthen or weaken each other.\n4. **Verbatim spans**  \n   - Each `\"text\"` value must be copied EXACTLY from the paper with zero modifications.\n   - Do not paraphrase, summarize, or combine separate sentences.\n   - Do not add, remove, or change any words, punctuation, or spacing.\n   - If unsure about exact wording, skip that ADU rather than guess.\n\n## WHAT TO CAPTURE\n**INCLUDE ONLY:**\n- Main argumentative threads that are central to the paper's contribution\n- Core claims that represent the paper's primary arguments or findings\n- Key premises that provide essential support for major claims\n- Critical counterarguments and their refutations\n- Reasoning chains that demonstrate how main conclusions are derived\n\n**EXCLUDE (AVOID NOISE):**\n- Minor details, examples, or descriptive content that don't advance the argument\n- Tangential points or side discussions\n- Pure background information or literature review content\n- Methodological details unless they constitute argumentative claims\n- Obvious statements or commonly accepted facts\n- Redundant or repetitive argumentative content\n\n**GUIDING PRINCIPLE**: If removing an ADU would not significantly impact understanding of the paper's argumentative structure, it should be excluded.\n\n## QUALITY CONTROL\n- Before finalizing each ADU, verify the text exists exactly in the source\n- Prefer fewer, accurate ADUs over many potentially modified ones\n- When in doubt about exact wording, omit the ADU\n\n## OUTPUT FORMAT\nReturn **only** a single valid JSON object matching this schema.  \nDo **not** output any extra text, markdown, or explanations.\n\nRESPOND WITH ONLY:\n```json\n{\n  \"ADUs\": {\n    \"<ADU_ID>\": {\n      \"text\": \"<exact span from paper>\",\n      \"label\": \"claim\" | \"premise\"\n    }\n    ...\n  },\n  \"relations\": [\n    {\n      \"source\": \"<ADU_ID>\",\n      \"target\": \"<ADU_ID>\",\n      \"type\": \"support\" | \"attack\"\n    }\n  ]\n}\n```",
+    "user_content": "## Jonathan Edwards as Contemporary\n\nEssays in Honor of Hyun Lee Sang\n\nEDITED BY Don Schweitzer\n\n<!-- image -->\n\nPETER LANG Ncw York Washington; DCJBaltimore Bcrn Fanklurt Berlin Brussels Vicnna Oxford\n\n## One\n\n## Edwards' Occasionalism\n\nStephen H. Daniel\n\nThis essay focuses on the   thorny issue of how God's   sovereignty is compatible  with human freedom.  It could have taken as its the way in which Edwards ' doctrines draw on, and are thus clarified by comparison with, Malebranche's distinction between assent to truth (as an intellectual act) and consent to goodness (as an act of will). Both thinkers treat forms of consent as expressions of will and freedom; both distinguish the general (i.e , God) and particular goods; and both characterize sin as allowing natural objects to dominate our  lives rather than recognizing God as the unifying principle of all existence. key good\n\nInstead of emphasizing the Malebranche-Edwards connection; however; focus on how Edwards version of occasionalism identifies finite minds and their acts as particular expressions of God's will. In this account; finite minds an existence apart  from Gods  will that there be coordinated (though   limited)   perceptions   and acts of will. moment to moment differentiation and association of bodies occurs simultaneously with the determination of the minds that perceive them\\_ In this sense, Edwards occasionalism entails idealism; in that God can create no determinate object without also creating the infinite terms of which that object is cognized. Likewise; no particular mind can be abstracted from the   activity by which its objects are identified . By acknowledging the essentially idealist character of his occasionalism Edwards   proposes that Gods communication of ideas to created minds is more properly understood as the com-unification of ideas as created minds. as as the things   we perceive. And if we perceive the connections of as God intends see all things in God then we know well things being\"\n\n## Gods Constant Re-creation\n\nThe issue of whether Edwards is an occasionalist turns on what it means for God to create a mind or, even more fundamentally, what it means for God to be a mind. Unfortunately, the typical debate regarding occasionalism focuses either on how bodies affect (or fail to affect) other bodies or on how minds and bodies affect one another. say this is unfortunate because this (Malebranchean) way of setting up the problem addresses only obliquely the more pertinent   question  of how  individual bodies Or minds are initially differentiated. To assume from the start that God simply creates minds and then \"communicates perceptions (e.g-, as resistance or solidity ) to them is already to undermine any chance of making sense of Edwards '` interest in causal effects on one another depends on exactly what is meant by a body or mind.\n\nEdwards linki of occasionalism and idealism allows him to shift the discussion of what it means to be a substance away from a framework in which the autonomy of finite spiritual substances is a problem.  For if the essence of a spiritual  substance is defined by its acts of will, and if the perception of objects by mind expresses its particular to thinking of those the freedom of that   mind consists in its able to perceive things in nature as consistent  with its own interests (i.e., to do as it wills). ing being\n\nIn his metaphysics; Malebranche does not recognize how the identification of bodies depends on mind for their specified as this or that   existence And by not explaining what makes body this or that he does not provide a means for explaining how ~it is involved in causal interactions. For if it turns out as Edwards claims that bodies are identified and related to one another in virtue of their being cognized; then the central insight of occasionalism (viz , that only God is a true cause) cannot be dissociated from idealism. being thing.\n\nTo readers of Edwards Freedom of the Will, this compatibilist view is hardly news. But introducing the question of the ontological status of finite spiritual substances into the debate about how or whether he is an occasionalist re-focuses our   attention two issues   that  have concerned Edwards scholars namely, the extent to which he agrees with Malebranche. and the extent to which Edwards' version of occasionalism allows the world to have (in Sang Hyun Lee's phrase) \"an abiding reality' distinguishable powers impenetrability ) gives them some metaphysical  independence from God: Edwards' immaterialism; however, blocks that option; for in his view what it means for a substance to exist with such powers depends on its willed by God to be perceived as that object by some mind. So to explain his   position; we need either more thoroughgoing  occasionalism than Malebranche s or a strategy that grants God's immanent causal efficacy to have activity . (e.g being\n\nFor some,  this contrast between thinking of God as a cause whose actions are   mediated by laws of nature versus might seem insignificant.  But it is at the core of thedebate  about how Edwards reconciles divine sovereignty with the possibility of human freedom. The   question of whether Edwards can be understood as an occasionalist that is, someone who believes not only that God is the only cause  but   also that   the decisions   and   actions are only occasions for God's activity\\_highlights  the importance of understanding how Edwards appropriates themes that can be considered Malebranchean: human from moment-to-moment and still not be   charged with bringing into existence all of the world's moral evil. As Oliver it, \"I is difficult to see how [Edwards' occasionalism] does not destroy moral responsibility for created since God is the sole cause of all that takes place, creatures merely the 'occasions Lee and Fiering indicate; how we interpret Edwards on this is affected So to say that Edwards is or is not an occasionalist or a Malebranchean hardly resolves the matter. being beings Crisp puts beings, being point\n\nBy emphasizing how Edwards extends Malebranchean insights regarding the intrinsic connection between human and divine ideas, Norman Fiering indicates to pursue the first  alternative. By emphasizing how God's creation is organized in terms of patterns or laws that give nature a \"virtual\" reality , Lee out the   second (LPT 7, 107 251,256). Both approaches   are intended to distance  Edwards   from a Lockean relegates God to the periphery of discussions about knowledge and existence. But where Lee attempts to carve out place for natural   autonomy by discerning   in Edwards an ontology   in which   the existence of   creatures consists in tendencies or dispositions to behave in determinate ways, Fiering describes those   patterns of behavior as the   direct   expressions of   divine activity. how Sang spells\n\nNonetheless. Malebranche as the foil for   such a discussion provides a good start for understanding Edwards ` position: In Fiering 's view, for example, Edwards clearly endorses Malebranche's occasionalism when he describes an effect as \"the consequence of another which is perhaps rather an occasion than a cause, most properly speaking\" (I: 181): using thing.\n\ncauses of the effects. but only occasions God produces all effects: but yet he ties natural events to the operation of such means. or causes them to be consequent on such mcans according to fixed; determinate   andunchangeable   rules. which arc called the laws of nature. (\"Misc. 629. 18: 157: FMT 90. 283-85. 308: CSL 10-13. 18)\n\nThis indicates that God s immediate causal involvement in the existence of everything in the world is expressed in the regular patterns of the laws of nature. no substantial causal efficacy apart from the sole regularity of God s activity (FRF 77-86). Even when understood as momentary   embodiments of those laws. natural are never more than antecedents arbitrarily connected to consequents (1: 181, 397-98), because nothing persists from one moment to event can affect or effect another. As Edwards insists. 666 Tis  certain with me that the world exists anew every moment , that the existence of things every moment ceases and every moment is renewed\" nothing every moment\" (6: 241), because there is nothing that has an identity apart from its given one by God's specification of it in relation to all else. The existence of all natural thus depends on that which gives them their \"substance and that; Edwards maintains; is the arbitrary will of God. things prior being things\n\nIn Crisp's view, this strong way to understand Edwards occasionalism removes all real secondary causes (CSL 11-15), because the very identification of   objects Or the worlds inhabit   depends on God s continuous re-creation. Instead of emphasizing how or worlds depend on God's discrete re-creative acts, though; Lee notes that the continuity of God s activity establishes the permanence and regularity of the natural laws in terms of which the world and its objects have their abiding (albeit virtual) reality (LPT 63, 107). This, Lee argues, amounts to a \"modified\" form of occasionalism; one in which God does not create ex nihilo in a simple sense because ~the divinely established general laws are given a permanence, and they things pasts; even though such temporal   predication not apply to God s activity . In terms of one another, objects and their worlds exhibit enough regularities in the patterns of their relations to reveal how God s continuous re-creation of in nature is far from completely arbitrary . does things\n\nThis way of reading Edwards assumes, however; that we can (as it were) compare objects or worlds to one another without acknowledging that their very identification as those objects or worlds cannot be thought apart from the timeless acts by which are differentiated and associated temporally in terms of patterns or habits. By arguing that Edwards adopts a dispositional ontology, Lee reads the tendencies or regularities found in nature back into the divine activity by which are initially   established. In so, he extends the dispositional explanation of Edwards account of God's nature ad intra (LPT 183-201) they they doing should that result in the creation of the world? To respond that, for Edwards, excellence requires the plurality of consent, or that God creates as a result of his ~fullness, is to indicate how Edwards answers these questions but not why. What we need is not a dispositional description of how exist but rather an ontology that explains why exist as things they they\n\nThe way to avoid both the Malebranchean  and dispositional strategies consists; then, simply in noting how the unperceived by created minds have no existence apart from God s willing the pattern or course of relations what kind of existence they' have in God's mind or as dispositions enacted in natural laws is things\n\nTo model God's nature on the dispositions or habits of created things and then explain those dispositions in terms of God's nature is thus obviously circular.  Edwards avoids this circularity  by distinguishing between nature understood as the creative activity by which the order of is established and the course of thus   created . ~It should be remembered . he remarks, \"what nature is, in created and what the established course of nature is; that, as has been observed already, it is nothing separate from the agency of God\" (I: 400). This does not mean that the laws of nature provide a \"sort of   exteriority and independence\" needed to allow for unperceived objects. Nor does it mean that   unperceived  objects   exist in the objects of divine and human minds into one another (LPT 57-60). Rather; it simply exists   apart from God's  pattern of differentiating and associating created in terms of one another . things things things: thing things\n\nin a network   of objects of created consciousness can be identified. they\n\nLike Malebranche, Edwards   believes   that   the existence of objects of knowledgedepends on not distinctfrom God s will that there be a determinate object perceived in a particular set of relations (FRF 73-79). Unlike Malebranche, Edwards insists that the very possibility of identifying an object depends on God's creation of it as an object for a spiritual substance that perceives it, for 'corporeal things (6: 342). In createdconsciousness; corporeal substance is thus   nothing other than the recognition of its differentiation from; and association with, other corporeal substances.\n\nAccordingly , the role of   created consciousness is not to bestow temporal   existence on divine mind, for that would mean that our perceptions are identical to God s. It is rather to be the identification of this or that in a set of relations. In this   sense, \"we have a hand in bringing about the existence of specific objects of perception to the extent that \"they\" are our objects. But that in no way means that we contribute as efficient causes to the existence of those objects. Furthermore, because we are nothing other than the consciousness of those objects in those relations, cannot  claim to be the substances on which objects depend for their existence; for that would mean that we would be the principles of our own differentiation (and thus the causes our specific existence). thing we can properly be called a that themselves do not exist prior to that divine volition (6: 215,341, 344-45, 398; DEP 166-67) By restricting the proper meaning of \"substance\" to God alone, Edwards reinforces his doctrines that God s constant will underlies all existence and that we   should not be misled into   thinking   that   talk of corporeal or spiritual substances implies that have any sort of autonomy or existence apart from God's activity: they\n\nif [philosophers] must needs apply that word [substance] to something else that does really and properly subsist by itself and supports all properties, they must apply it to the divine or power itself. the substance at last becomes either nothing. or nothing but the Deity acting in that particular manner in those parts of space where he thinks fit (6: 215: LPT 53-54. 251) Being\n\n## Edwards ' Occasionalism\n\nJust as the properties of a substance solidity, resistance) are nothing other than the \"immediate exercise of God' s power\" (6: so also created substances are nothing other than particular expressions of God's activity . (e.g 215)\n\nIn coming to this conclusion; though, overlooks how such a view parallels Lee's Regardless of whether we locate the identity of a created substance in   the   regularity behaviors regularity of God's creation of it, the effect is the same: the substance of a becomes precisely that which defines its distinctive existence. It would follow;   then; that   there is no distinction between the essence and the existence of a or between a substance and its attributes or properties, because its identity cannot be distinguished (other than in a purely derivative way) from the activity whereby \"it\" is conceived. Crisp thing thing;\n\nAs Lee reads this, God's constancy in acting makes the Aristotelian or Lockean   distinction between substances   and their properties   unnecessary\\_ because we now can replace substance talk with an ontology of governed sets of dispositions (LPT 245-46). But counters that properties cannot exist apart from the substances of which are properties, for without able to assume a distinction between a substance and its properties; we could not identify  anything as the samefrom momentto moment  due to God's constant re-creation of the world. So instead of dispensing with the concept of substance, for Edwards reinforces it by locating it in God's will. lawCrisp they being fails to recognize this, for he sees no problem with the \"commonplace\" belief that substances can have 'accidental qualities\" (ie. non-constitutive   attributes). Otherwise, he says, we are led to think   of substances   simply as   Humean a unifying substratum (CSL 2-5). And if that is the case, then we will not be able to think of substances as the subjects about which dispositions are predicated. His worry about Lee's account boils down; then; to Lee's failure to adopt a subject-attribute way of thinking: Crisp\n\ntendency of something   and perhaps this is what Lee means, although he does not always so (CSL /7) say\n\nOf course, this is exactly what Lee does not mean, because for him Edwards' insight   consists in   replacing the traditional view that   substances have dispositions with a new view that substances are dispositions or at least are what they are precisely because of their constitutive dispositions (LPT 53-54,\n\n245; LGR 59). For Lee (as opposed to a disposition is not a property or attribute that a substance exemplifies (cf: CSL 17). Rather, it is that in terms of which a substance is intelligible as that substance. To know what a substance is. we have to know what it does and how that differentiates it from and relates it to the activities of other substances. Without appealing to such knowledge; no discussion of substances or dispositions is possible. Crisp)\n\n## The Inherently Idealist Character of Edwards Occasionalism\n\nAs [ have indicated; the key to understanding Edwards doctrine of substance (which is at the heart of the debate between Lee and lies in seeing how his idealism informs his occasionalism.  This means recognizing how God's exercise of power in creating bodies is always simultaneously an exercise of solidity is perceived. By focusing claims that things can be said to exist even when are not perceived by any created mind as as are 'supposed\" by God in his other actions (LPT 57-58). According to Lee, this indicates that the laws of nature have an \"ontological priority' to actual events of perception; and that minds would perceive unperceived objects in the appropriate circumstances because God has ordered all things in a harmonious way (LPT 64-65,252). Crisp) they long they\n\nHowever; the fact that events of perception exhibit a determinate pattern does not entail that the pattern is (even ontologically) to the existence of those No doubt, the existence of any particular requires that it be differentiated from and related to all other in the specific ways that laws of nature summarize. But this indicates that in creating any one God creates all for a s identity ~including its place in space and time   and its   effects on everything  else will to differentiate harmoniously . In this sense. \"there is not one leaf of a tree. nor spire of grass, but what has effects all over the universe, and will have to the end of eternity' (6: 204) The  perceived temporal  and spatial properties of a along with all of its other characteristics; identify it specifically as that also specify the characteristics by means of which all else is known and in terms of which all else exists prior thing things. things things. thing' things thing; thing: They\n\nTo think with Lee that the pattern of such relations embodies a virtual reality   composed of habits dispositions   ontologically perception (LPT 251-52) would be to assume that those habits or dispositions exist prior to their perceived by created minds for example, in God's prior being\n\nLPT 58). But Edwards insists that even unperceived are intelligible only as if \"had actually existed in such a series in some created mind, and as if created minds had comprehended all perfectly\" (6: 354). God does not first have an idea of a and then will that it be perceived by a created mind, for that would assume that minds have identities (even if only conceptually) apart from the ideas differentiate. Nor does God rely on a pattern on which the \"communication\" of ideas to minds is based, for apart from of that created minds actually differentiate or would have had to differentiate to complete the \"course and succession of existences by which all individuals are made determinate ~as if were in actual idea; no particular is intelligible (6: 355-57, 385). things they things thing they things they thing\n\nSeen from another perspective; God's activity ad extra (i.e , in space and time) does not fluctuate from moment to moment because his own existence ad intra (ie. in the Persons of the Trinity) can be described in the same dispositional terms as natural However, this strategy superimposes a doctrine meant to explain the continuity of discrete entities onto the principle by which those entities are initially differentiated. Its effect thinking of a dilference that essence is things being an\n\nLike misses this point; and assumes that immaterial created substances are conceivable apart from  the objects of their consciousness. Unlike he thinks that created minds are different  from the bundle of activities or attributes that define them. ~There are, he says; ~immaterial substances in addition to such attribute bundles; which are somehow more fundamental than these attribute bundles' (CSL 6, 13). Remarking (as does) that this position is like Berkeley 's hardly clarifies what is meant by more fundamental   than  its   attributes. Nonetheless, 's comments focus attention on how Edwards occasionalism seems to preclude any continuity of created substances or the existence of dispositions from one moment to the next; for only God s will to act in a fixed way can guarantee truth claims about unperceived objects (CSL 12, 19) If   God's will is such continuity. If we say (with Lee) that God has embedded those guarantees in the harmonious regularity of natural laws, then we ignore Gods immediacy in creation: But emphasizing that immediacy threatens the intelligibility of unperceived objects which is exactly what 's account tries to protect by allowing nature a sort of reality \"distinguishable from humanity  and God\" (LPT 250) Lee. Crisp Lee, Crisp Crisp` Lee\n\neternally  actual disposition (LPT 246). An eternally  actualized disposition; though; is no \"disposition' at all. for  God (unlike natural has no tendency or inclination to be or do anything other than what he is or does. God's actions ad extra might seem to be different from his eternal existence ad intra, but that is only because we think of them as already differentiated from one another. Since God is the principle of differentiation itself, he has no \"other. To ask. then; why God creates as if one is asking a question like why   natural act as do is to assume   mistakenly   that God s activity is distinguishable from his essence. things) things they\n\nSuch a characterization of disposition misconstrues Lee's point, because it fails to recognize how a created mind is defined by inherently temporal patterns of behavior.   Crisp   recognizes this   possibility but dismisses it because, he argues; if occasionalism is true, then the dispositions in terms of which natural are intelligible cannot exist across time (CSL 5, 19) But according to that is precisely the because \"dispositions' always beyond themselves, are not (as thinks) bundles of timeless properties arbitrarily united by God: No doubt, a reader like Crisp might the   impression that   Edwards   endorses bundle theory of mind   when he describes spirit as \"nothing but a composition and series of perceptions, or a universe of   coexistinp and successive perceptions   connected by such Inws\" (6 398) things point: Lee, Crisp they point get\n\nWe can avoid the  problem of divine  arbitrariness; however; without having to minimize Edwards ` occasionalism simply by recognizing how his idealism requires us to interpret God s \"communication of ideas' to created minds as the creation of those minds.' Both Lee and note in passing the importance of Edwards' idealism (LPT 57-58, 250; CSL 2, 13-14); and both acknowledge that;, for Edwards; the constancy of God's activity equally to both corporeal and spiritual (6: 391). In Lee 's view, though, claim that a souls essence ~consists in powers and habits (\"Misc. 241, 13: 358; LGR 60) reveals how a mind is not substance (LPT 246) but rather the continuity discernable in mental activities. As Edwards remarks, memory, in mental principles; habits and inclinations, there is something really abiding in the mind when there are no acts or exercises of them; much in the same manner as there is a chair in this room when no mortal perceives it\" (13: 385; LPT 245). To this replies that what really abides in the mind, like what really abides in the chair, is (as Edwards puts it) nothing other than \"the sovereign will and agency of God\" (3: 399; CEC 6975). And if created substances do not exist over time; then neither do their dispositions (CSL 12) Crisp applies things ~In Crisp would ignore perceptions always occur in a specific divinely determined sequence that expresses an internally coordinated totality. To the extent that our perceptions   express such coordination; we how\n\nNote; however; that this consent is less something we do than something we are. That is, in consenting to God's will, we literally sense the objects of experience as constituting a unity (ie., a 'universe The temporal sent\" or \"con-science\" of, such a unity varies from moment to moment, so from our perspective it seems that God wills from moment to moment that there be a new specific consciousness of how all things are to be related. As God will that there be a specific representation or consensus of the relations of all but he also reveals how that consent to particular points beyond them to the in general (SAT 1.2.2, pp. 8-9; ESAT 547-49, 55455; FMT 75-76, 114, 135). On this point;  Edwards  follows  Malebranche; pointing out that the mere recognition of (or \"assent\" to) the order of is not identical to \"excellence, the consent of to (6: 336). This latter consent requires thinking of natural as objects of moral beauty because express God's will that all be understood in terms other than themselves (DPE 175-87). Conscience that is, ~a sense of the general beauty   and harmony  of things' all created are always conceivable for the better. In this sense Edwards occasionalism is an accommodation to the idealist requirements of temporal differentiation. ~Conthings; goods good things being being things things they things\n\n## Concluding Remarks\n\nLee's insight is that Edwards adopts an ontology in which the identities of things   are inherently  relational. That   is, itdoes not assume that relations depend on the   prior existence of   things   that are related, or that the characteristics or activities of   things   depend on the   ontologically existence of the substances of which those characteristics or activities are predicated. In this way, Lee shows how Edwards offers an alternative to the traditional   substanceattribute model, parts   of which still wants to relain; But  Lee provides   only a description of how Edwards   frames   his ontolopy, not an that all (even God) are defined dispositionally is not to explain why start in the right direction) prior Crisp Ihings\n\nA more   fundamental   reconfiguration of how we understand Edwards requires that we focus on things come to exist as those and that means describing those things and their   dispositions always as the suppositions of God. However. just as created are defined by dispositions that do not merely have but rather are. so God is defined as the supposition of all else. That is why God's existence is supposed by the existence of   everything else. But this is not simply to restate the cosmological   argument for God's existence; for as Hume and others have shown; that argument can easily be undermined by highlighting our role in making such supposition: Instead, important (even new) argument shifts away from thinking of supposition as something we do to what we are. Just as our existence supposes God's existence as an other in terms of which our existence is intelligible, so also God s own existence ad intra is intelligible only in terms of an internally-related other: that is why a Trinitarian account of God is essential for Edwards. how things; things they or goodness   would necessarily result in the production of an other. The same can ontology, because that account describes existence  in terms   of dispositions   without   explaining for Edwards, no other account could capture what it means for something (even God) to exist. Like Lee. 1 have indicated how the dispositions of created beings consist in the patterned suppositions of God.  Unlike though, my account of Edwards does not assume that those suppositions are things that God does: are rather expressions of what God is. explain not why . Lee. they\n\nFor the unregenerate, the   dispositions of created appear as patterns of regularity expressed in the laws of nature. As Lee recognizes, those patterns can be used to provide the continuity missing in unperceived objects and consistency among different   perceivers. But thinking of dispositions   from the perspective of the unregenerate doesnot offer much insight into why should be central in the explanation of existence itself. For that; we have to combine Edwards ' idealism (ie , that all things depend mind) with his claim that God creates the world (includinp linite minds) beings they\n\nIn say that we are Edwards is a pantheist or a Spinozist; for that would treat the expressions of substance as features of yet another determinate substance but would ignore how the substance of everything is not itself determinate Edwards, God is not   just another   existent, but   the   principle of   all   determination, the supposition of the intelligibility of all else. ing For anew moment to moment. The saint just this in all in God. But   unlike Malebranche who material substances and minds somehow exist apart from God s communication of ideas Edwards  shows how the saint's recognition of God s simultaneous creation of minds and their ideas opens up the way to achieve immediate access to God does ~seeing things\n\n## Notes\n\n- Cf. Alfred Aristotelianism and the   Case   against   Secondary Causation in Nature . in Divine and Human Action. ed. Thomas V Morris (Ithaca: Cornell University Press; 1988) 74-118, especially 97-111 [hereafter: FMA]\n- 3 After Truth. trans. and ed Thomas M. Lennon and Paul Olscamp (New  York:\n- 2 Sce Hyun The Philosophical Theology of Jonathan Edwards. expanded edition (Princeton: Princeton University Press; 2000), 54, 63 [hereafter: LPT] Sang Lec.\n- Sce Norman Fiering. Jonathan Edward's Moral Thought and Its British Context (Chapel Hill: University of North Carolina Press, 1981) [hereafter: FMT]: idem \"The Rationalist Foundations of Jonathan Edwards' Metaphysics in Jonathan Edwards and the American 1988) 73-101 [hereafter: FRF]\n- Sce also Hyun Lce. God s Relation to the World. in The Princeton Companion to Jonathan Edwards. ed Hyun Lee (Princeton: Princeton University Press. 2005) 5971 [hereafter: LGR] Sang Sang\n- Reason  and the Life of the Mind Midwest Studies in Philosophy 28 (2004). 3-10; and 211.335-36.\n- 7 Oliver D Jonathan Edwards Ontology: A Critique of Hyun Lee $ Dispositional Account  of Edwardsian   Metaphysics Religious  Studies 46 (2010) 11. Illercafter: See Jonathan Edwards and the Metaphysics (Aldershot: Ashgate. 2005). 131-32 Crisp. Sang\n- 102-29 [herealter: DPE] Thcre indicate   how   traditional   strategies for interpreting Fdwards fail when simply assume the propriety of speaking about God, the Persons without first rccognizing the ontology whereby crcated rclationally . but it does not provide the logic underlying such an account; My book Was intended to correct the tendency in Edwards  scholarship t0 ignore the Ramist insights on which Edwards relies that challenge the fundamental  assumptions of his modern contemporarics. To clcar space invoked some conlemporary thcorists in my introductory comments and first chapter. That; they things things\n\n'postmodern reading\" of Edwards (LPT 3n) He is not  alone: see reviews of the book by  Gerald McDermott [William and Quarterly 53 (1996): 658-60] and Michael McClymond [Journal of Religion 76 (1996): 121-22]: McClymond's Encounters with God (New York: Oxford University Press, 1998). 115-16. 125; and Crisp (CSL 1. 16). For a treatment that (1 hope) will nol be misconstrued . my Edwards as Philosopher in The Cambridge Companion to Jonathan Edwards. ed. Stephen J. Stein (New York: Cambridge University Press. 2007). 162-80 [hercafter: DEP] Mary\n\n- 9 Cf.  Stephen R. Holmes. Dispositional   Ontology? Response to Hyun Lee. in Jonathan Edwards: Philosophical Theologian. ed. Paul Helm and 105-109. Holmes invitation to understand the Trinity  in traditional\" necessarily trinitarian. That is what / have done in my chapter \"The Trinity and Creation DPE 102-129. Sang explain\n10. Edwards '  idealist   version of occasionalism is not  therefore. simply subsequently rejected. Cf. Anri Morimoto. Jonathan Edwards and the Catholic Vision of Salvation (University Park: Pennsylvania State University Press, 1995). 56-59.",
+    "responses": [
+      {
+        "source": "gpt-4o-2024-11-20",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"ADU1\": {\n      \"text\": \"This essay focuses on the thorny issue of how God's sovereignty is compatible with human freedom.\",\n      \"label\": \"claim\"\n    },\n    \"ADU2\": {\n      \"text\": \"Instead of emphasizing the Malebranche-Edwards connection; however; focus on how Edwards version of occasionalism identifies finite minds and their acts as particular expressions of God's will.\",\n      \"label\": \"claim\"\n    },\n    \"ADU3\": {\n      \"text\": \"In this account; finite minds an existence apart from Gods will that there be coordinated (though limited) perceptions and acts of will.\",\n      \"label\": \"premise\"\n    },\n    \"ADU4\": {\n      \"text\": \"Edwards linki of occasionalism and idealism allows him to shift the discussion of what it means to be a substance away from a framework in which the autonomy of finite spiritual substances is a problem.\",\n      \"label\": \"claim\"\n    },\n    \"ADU5\": {\n      \"text\": \"For if the essence of a spiritual substance is defined by its acts of will, and if the perception of objects by mind expresses its particular to thinking of those the freedom of that mind consists in its able to perceive things in nature as consistent with its own interests (i.e., to do as it wills).\",\n      \"label\": \"premise\"\n    },\n    \"ADU6\": {\n      \"text\": \"To readers of Edwards Freedom of the Will, this compatibilist view is hardly news.\",\n      \"label\": \"claim\"\n    },\n    \"ADU7\": {\n      \"text\": \"Edwards' immaterialism; however, blocks that option; for in his view what it means for a substance to exist with such powers depends on its willed by God to be perceived as that object by some mind.\",\n      \"label\": \"premise\"\n    },\n    \"ADU8\": {\n      \"text\": \"This indicates that God s immediate causal involvement in the existence of everything in the world is expressed in the regular patterns of the laws of nature.\",\n      \"label\": \"claim\"\n    },\n    \"ADU9\": {\n      \"text\": \"As Edwards insists. 666 Tis certain with me that the world exists anew every moment , that the existence of things every moment ceases and every moment is renewed\\\" nothing every moment\\\" (6: 241), because there is nothing that has an identity apart from its given one by God's specification of it in relation to all else.\",\n      \"label\": \"premise\"\n    },\n    \"ADU10\": {\n      \"text\": \"Instead of emphasizing how or worlds depend on God's discrete re-creative acts, though; Lee notes that the continuity of God s activity establishes the permanence and regularity of the natural laws in terms of which the world and its objects have their abiding (albeit virtual) reality (LPT 63, 107).\",\n      \"label\": \"claim\"\n    },\n    \"ADU11\": {\n      \"text\": \"To model God's nature on the dispositions or habits of created things and then explain those dispositions in terms of God's nature is thus obviously circular.\",\n      \"label\": \"claim\"\n    },\n    \"ADU12\": {\n      \"text\": \"Edwards avoids this circularity by distinguishing between nature understood as the creative activity by which the order of is established and the course of thus created.\",\n      \"label\": \"premise\"\n    },\n    \"ADU13\": {\n      \"text\": \"Like Malebranche, Edwards believes that the existence of objects of knowledge depends on not distinct from God s will that there be a determinate object perceived in a particular set of relations (FRF 73-79).\",\n      \"label\": \"claim\"\n    },\n    \"ADU14\": {\n      \"text\": \"Accordingly , the role of created consciousness is not to bestow temporal existence on divine mind, for that would mean that our perceptions are identical to God s.\",\n      \"label\": \"premise\"\n    },\n    \"ADU15\": {\n      \"text\": \"Just as the properties of a substance solidity, resistance) are nothing other than the \\\"immediate exercise of God' s power\\\" (6: so also created substances are nothing other than particular expressions of God's activity . (e.g 215)\",\n      \"label\": \"claim\"\n    },\n    \"ADU16\": {\n      \"text\": \"As [ have indicated; the key to understanding Edwards doctrine of substance (which is at the heart of the debate between Lee and lies in seeing how his idealism informs his occasionalism.\",\n      \"label\": \"claim\"\n    },\n    \"ADU17\": {\n      \"text\": \"This means recognizing how God's exercise of power in creating bodies is always simultaneously an exercise of solidity is perceived.\",\n      \"label\": \"premise\"\n    },\n    \"ADU18\": {\n      \"text\": \"Lee's insight is that Edwards adopts an ontology in which the identities of things are inherently relational.\",\n      \"label\": \"claim\"\n    },\n    \"ADU19\": {\n      \"text\": \"That is, it does not assume that relations depend on the prior existence of things that are related, or that the characteristics or activities of things depend on the ontologically existence of the substances of which those characteristics or activities are predicated.\",\n      \"label\": \"premise\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"ADU2\",\n      \"target\": \"ADU3\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU4\",\n      \"target\": \"ADU5\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU6\",\n      \"target\": \"ADU7\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU8\",\n      \"target\": \"ADU9\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU11\",\n      \"target\": \"ADU12\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU13\",\n      \"target\": \"ADU14\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU16\",\n      \"target\": \"ADU17\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU18\",\n      \"target\": \"ADU19\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "ADU1": {
+              "text": "This essay focuses on the thorny issue of how God's sovereignty is compatible with human freedom.",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "Instead of emphasizing the Malebranche-Edwards connection; however; focus on how Edwards version of occasionalism identifies finite minds and their acts as particular expressions of God's will.",
+              "label": "claim"
+            },
+            "ADU3": {
+              "text": "In this account; finite minds an existence apart from Gods will that there be coordinated (though limited) perceptions and acts of will.",
+              "label": "premise"
+            },
+            "ADU4": {
+              "text": "Edwards linki of occasionalism and idealism allows him to shift the discussion of what it means to be a substance away from a framework in which the autonomy of finite spiritual substances is a problem.",
+              "label": "claim"
+            },
+            "ADU5": {
+              "text": "For if the essence of a spiritual substance is defined by its acts of will, and if the perception of objects by mind expresses its particular to thinking of those the freedom of that mind consists in its able to perceive things in nature as consistent with its own interests (i.e., to do as it wills).",
+              "label": "premise"
+            },
+            "ADU6": {
+              "text": "To readers of Edwards Freedom of the Will, this compatibilist view is hardly news.",
+              "label": "claim"
+            },
+            "ADU7": {
+              "text": "Edwards' immaterialism; however, blocks that option; for in his view what it means for a substance to exist with such powers depends on its willed by God to be perceived as that object by some mind.",
+              "label": "premise"
+            },
+            "ADU8": {
+              "text": "This indicates that God s immediate causal involvement in the existence of everything in the world is expressed in the regular patterns of the laws of nature.",
+              "label": "claim"
+            },
+            "ADU9": {
+              "text": "As Edwards insists. 666 Tis certain with me that the world exists anew every moment , that the existence of things every moment ceases and every moment is renewed\" nothing every moment\" (6: 241), because there is nothing that has an identity apart from its given one by God's specification of it in relation to all else.",
+              "label": "premise"
+            },
+            "ADU10": {
+              "text": "Instead of emphasizing how or worlds depend on God's discrete re-creative acts, though; Lee notes that the continuity of God s activity establishes the permanence and regularity of the natural laws in terms of which the world and its objects have their abiding (albeit virtual) reality (LPT 63, 107).",
+              "label": "claim"
+            },
+            "ADU11": {
+              "text": "To model God's nature on the dispositions or habits of created things and then explain those dispositions in terms of God's nature is thus obviously circular.",
+              "label": "claim"
+            },
+            "ADU12": {
+              "text": "Edwards avoids this circularity by distinguishing between nature understood as the creative activity by which the order of is established and the course of thus created.",
+              "label": "premise"
+            },
+            "ADU13": {
+              "text": "Like Malebranche, Edwards believes that the existence of objects of knowledge depends on not distinct from God s will that there be a determinate object perceived in a particular set of relations (FRF 73-79).",
+              "label": "claim"
+            },
+            "ADU14": {
+              "text": "Accordingly , the role of created consciousness is not to bestow temporal existence on divine mind, for that would mean that our perceptions are identical to God s.",
+              "label": "premise"
+            },
+            "ADU15": {
+              "text": "Just as the properties of a substance solidity, resistance) are nothing other than the \"immediate exercise of God' s power\" (6: so also created substances are nothing other than particular expressions of God's activity . (e.g 215)",
+              "label": "claim"
+            },
+            "ADU16": {
+              "text": "As [ have indicated; the key to understanding Edwards doctrine of substance (which is at the heart of the debate between Lee and lies in seeing how his idealism informs his occasionalism.",
+              "label": "claim"
+            },
+            "ADU17": {
+              "text": "This means recognizing how God's exercise of power in creating bodies is always simultaneously an exercise of solidity is perceived.",
+              "label": "premise"
+            },
+            "ADU18": {
+              "text": "Lee's insight is that Edwards adopts an ontology in which the identities of things are inherently relational.",
+              "label": "claim"
+            },
+            "ADU19": {
+              "text": "That is, it does not assume that relations depend on the prior existence of things that are related, or that the characteristics or activities of things depend on the ontologically existence of the substances of which those characteristics or activities are predicated.",
+              "label": "premise"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU2",
+              "target": "ADU3",
+              "type": "support"
+            },
+            {
+              "source": "ADU4",
+              "target": "ADU5",
+              "type": "support"
+            },
+            {
+              "source": "ADU6",
+              "target": "ADU7",
+              "type": "support"
+            },
+            {
+              "source": "ADU8",
+              "target": "ADU9",
+              "type": "support"
+            },
+            {
+              "source": "ADU11",
+              "target": "ADU12",
+              "type": "support"
+            },
+            {
+              "source": "ADU13",
+              "target": "ADU14",
+              "type": "support"
+            },
+            {
+              "source": "ADU16",
+              "target": "ADU17",
+              "type": "support"
+            },
+            {
+              "source": "ADU18",
+              "target": "ADU19",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "ADU1": {
+              "text": "This essay focuses on the thorny issue of how God's sovereignty is compatible with human freedom.",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "Instead of emphasizing the Malebranche-Edwards connection; however; focus on how Edwards version of occasionalism identifies finite minds and their acts as particular expressions of God's will.",
+              "label": "claim"
+            },
+            "ADU3": {
+              "text": "In this account; finite minds an existence apart from Gods will that there be coordinated (though limited) perceptions and acts of will.",
+              "label": "premise"
+            },
+            "ADU4": {
+              "text": "Edwards linki of occasionalism and idealism allows him to shift the discussion of what it means to be a substance away from a framework in which the autonomy of finite spiritual substances is a problem.",
+              "label": "claim"
+            },
+            "ADU5": {
+              "text": "For if the essence of a spiritual substance is defined by its acts of will, and if the perception of objects by mind expresses its particular to thinking of those the freedom of that mind consists in its able to perceive things in nature as consistent with its own interests (i.e., to do as it wills).",
+              "label": "premise"
+            },
+            "ADU6": {
+              "text": "To readers of Edwards Freedom of the Will, this compatibilist view is hardly news.",
+              "label": "claim"
+            },
+            "ADU7": {
+              "text": "Edwards' immaterialism; however, blocks that option; for in his view what it means for a substance to exist with such powers depends on its willed by God to be perceived as that object by some mind.",
+              "label": "premise"
+            },
+            "ADU8": {
+              "text": "This indicates that God s immediate causal involvement in the existence of everything in the world is expressed in the regular patterns of the laws of nature.",
+              "label": "claim"
+            },
+            "ADU9": {
+              "text": "As Edwards insists. 666 Tis certain with me that the world exists anew every moment , that the existence of things every moment ceases and every moment is renewed\" nothing every moment\" (6: 241), because there is nothing that has an identity apart from its given one by God's specification of it in relation to all else.",
+              "label": "premise"
+            },
+            "ADU10": {
+              "text": "Instead of emphasizing how or worlds depend on God's discrete re-creative acts, though; Lee notes that the continuity of God s activity establishes the permanence and regularity of the natural laws in terms of which the world and its objects have their abiding (albeit virtual) reality (LPT 63, 107).",
+              "label": "claim"
+            },
+            "ADU11": {
+              "text": "To model God's nature on the dispositions or habits of created things and then explain those dispositions in terms of God's nature is thus obviously circular.",
+              "label": "claim"
+            },
+            "ADU14": {
+              "text": "Accordingly , the role of created consciousness is not to bestow temporal existence on divine mind, for that would mean that our perceptions are identical to God s.",
+              "label": "premise"
+            },
+            "ADU15": {
+              "text": "Just as the properties of a substance solidity, resistance) are nothing other than the \"immediate exercise of God' s power\" (6: so also created substances are nothing other than particular expressions of God's activity . (e.g 215)",
+              "label": "claim"
+            },
+            "ADU16": {
+              "text": "As [ have indicated; the key to understanding Edwards doctrine of substance (which is at the heart of the debate between Lee and lies in seeing how his idealism informs his occasionalism.",
+              "label": "claim"
+            },
+            "ADU17": {
+              "text": "This means recognizing how God's exercise of power in creating bodies is always simultaneously an exercise of solidity is perceived.",
+              "label": "premise"
+            },
+            "ADU18": {
+              "text": "Lee's insight is that Edwards adopts an ontology in which the identities of things are inherently relational.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU2",
+              "target": "ADU3",
+              "type": "support"
+            },
+            {
+              "source": "ADU4",
+              "target": "ADU5",
+              "type": "support"
+            },
+            {
+              "source": "ADU6",
+              "target": "ADU7",
+              "type": "support"
+            },
+            {
+              "source": "ADU8",
+              "target": "ADU9",
+              "type": "support"
+            },
+            {
+              "source": "ADU16",
+              "target": "ADU17",
+              "type": "support"
+            }
+          ]
+        }
+      },
+      {
+        "source": "claude-3-5-sonnet-20241022",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"A1\": {\n      \"text\": \"Edwards' occasionalism entails idealism, in that God can create no determinate object without also creating the infinite terms of which that object is cognized.\",\n      \"label\": \"claim\"\n    },\n    \"A2\": {\n      \"text\": \"Tis certain with me that the world exists anew every moment, that the existence of things every moment ceases and every moment is renewed\",\n      \"label\": \"claim\"\n    },\n    \"A3\": {\n      \"text\": \"it should be remembered what nature is, in created things and what the established course of nature is; that, as has been observed already, it is nothing separate from the agency of God\",\n      \"label\": \"claim\"\n    },\n    \"A4\": {\n      \"text\": \"corporeal substance is thus nothing other than the recognition of its differentiation from, and association with, other corporeal substances\",\n      \"label\": \"claim\"\n    },\n    \"A5\": {\n      \"text\": \"if [philosophers] must needs apply that word [substance] to something else that does really and properly subsist by itself and supports all properties, they must apply it to the divine Being or power itself\",\n      \"label\": \"claim\"\n    },\n    \"A6\": {\n      \"text\": \"there is not one leaf of a tree, nor spire of grass, but what has effects all over the universe, and will have to the end of eternity\",\n      \"label\": \"premise\"\n    },\n    \"A7\": {\n      \"text\": \"God does not first have an idea of a thing and then will that it be perceived by a created mind, for that would assume that minds have identities (even if only conceptually) apart from the ideas they differentiate\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"A2\",\n      \"target\": \"A1\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A3\",\n      \"target\": \"A1\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A4\",\n      \"target\": \"A1\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A5\",\n      \"target\": \"A1\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A6\",\n      \"target\": \"A4\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A7\",\n      \"target\": \"A1\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "A1": {
+              "text": "Edwards' occasionalism entails idealism, in that God can create no determinate object without also creating the infinite terms of which that object is cognized.",
+              "label": "claim"
+            },
+            "A2": {
+              "text": "Tis certain with me that the world exists anew every moment, that the existence of things every moment ceases and every moment is renewed",
+              "label": "claim"
+            },
+            "A3": {
+              "text": "it should be remembered what nature is, in created things and what the established course of nature is; that, as has been observed already, it is nothing separate from the agency of God",
+              "label": "claim"
+            },
+            "A4": {
+              "text": "corporeal substance is thus nothing other than the recognition of its differentiation from, and association with, other corporeal substances",
+              "label": "claim"
+            },
+            "A5": {
+              "text": "if [philosophers] must needs apply that word [substance] to something else that does really and properly subsist by itself and supports all properties, they must apply it to the divine Being or power itself",
+              "label": "claim"
+            },
+            "A6": {
+              "text": "there is not one leaf of a tree, nor spire of grass, but what has effects all over the universe, and will have to the end of eternity",
+              "label": "premise"
+            },
+            "A7": {
+              "text": "God does not first have an idea of a thing and then will that it be perceived by a created mind, for that would assume that minds have identities (even if only conceptually) apart from the ideas they differentiate",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "A2",
+              "target": "A1",
+              "type": "support"
+            },
+            {
+              "source": "A3",
+              "target": "A1",
+              "type": "support"
+            },
+            {
+              "source": "A4",
+              "target": "A1",
+              "type": "support"
+            },
+            {
+              "source": "A5",
+              "target": "A1",
+              "type": "support"
+            },
+            {
+              "source": "A6",
+              "target": "A4",
+              "type": "support"
+            },
+            {
+              "source": "A7",
+              "target": "A1",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {},
+          "relations": []
+        }
+      }
+    ],
+    "timestamp": 1752747761.068259
+  }
+]

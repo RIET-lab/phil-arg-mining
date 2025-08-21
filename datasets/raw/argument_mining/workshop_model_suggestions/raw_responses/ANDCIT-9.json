@@ -1,0 +1,492 @@
+[
+  {
+    "identifier": "ANDCIT-9",
+    "system_prompt": "## GOAL\nArgument‑mine the following paper to extract its comprehensive argumentative structure.\n\n## DEFINITIONS\n1. **Argument**: A set of propositions, including some number of premises and a conclusion. The premises should logically entail the conclusion.\n2. **Claim**: A proposition that asserts something to be true or false, typically requiring justification or evidence.\n3. **Premise**: A proposition that provides evidence, justification, or logical support for a claim or conclusion.\n\n## CRITICAL REQUIREMENTS\n1. **VERBATIM EXTRACTION ONLY**: Each ADU text must be copied EXACTLY from the paper with no modifications, paraphrasing, or combining of separate sentences.\n2. **NO HALLUCINATION**: Do not create, modify, or invent text that does not appear exactly in the source.\n3. **EXACT MATCHING**: Every word, punctuation mark, and spacing must match the original precisely.\n\n## DIRECTIONS\n1. **Identify Argumentative Discourse Units (ADUs)**  \n   - ADU = any contiguous text span functioning as a claim or a premise in the reasoning structure.\n   - **BE HIGHLY SELECTIVE**: Only include ADUs that are crucial to the overarching argument structure.\n   - Focus on significant claims and premises that contribute meaningfully to the argumentative flow.\n   - **AVOID NOISE**: Skip ADUs that are merely descriptive, tangential, or do not substantially advance the argument.\n   - Prioritize quality over quantity - fewer accurate, important ADUs are better than many insignificant ones.\n   - **EXTRACT ONLY**: Copy text spans exactly as they appear, without any modifications.\n2. **Classify each ADU**  \n   - Label = either `\"claim\"` or `\"premise\"`.  \n3. **Detect directed relations**  \n   - Relation = `\"support\"` or `\"attack\"`, from one ADU (source) to another (target).\n   - Map how ADUs connect to form reasoning chains.\n   - Focus on relationships between the most significant ADUs.\n   - Include relationships between premises that strengthen or weaken each other.\n4. **Verbatim spans**  \n   - Each `\"text\"` value must be copied EXACTLY from the paper with zero modifications.\n   - Do not paraphrase, summarize, or combine separate sentences.\n   - Do not add, remove, or change any words, punctuation, or spacing.\n   - If unsure about exact wording, skip that ADU rather than guess.\n\n## WHAT TO CAPTURE\n**INCLUDE ONLY:**\n- Main argumentative threads that are central to the paper's contribution\n- Core claims that represent the paper's primary arguments or findings\n- Key premises that provide essential support for major claims\n- Critical counterarguments and their refutations\n- Reasoning chains that demonstrate how main conclusions are derived\n\n**EXCLUDE (AVOID NOISE):**\n- Minor details, examples, or descriptive content that don't advance the argument\n- Tangential points or side discussions\n- Pure background information or literature review content\n- Methodological details unless they constitute argumentative claims\n- Obvious statements or commonly accepted facts\n- Redundant or repetitive argumentative content\n\n**GUIDING PRINCIPLE**: If removing an ADU would not significantly impact understanding of the paper's argumentative structure, it should be excluded.\n\n## QUALITY CONTROL\n- Before finalizing each ADU, verify the text exists exactly in the source\n- Prefer fewer, accurate ADUs over many potentially modified ones\n- When in doubt about exact wording, omit the ADU\n\n## OUTPUT FORMAT\nReturn **only** a single valid JSON object matching this schema.  \nDo **not** output any extra text, markdown, or explanations.\nDo **not** add comments.\n**RESPOND WITH ONLY**:\n```json\n{\n  \"ADUs\": {\n    \"<ADU_ID>\": {\n      \"text\": \"<exact span from paper>\",\n      \"label\": \"claim\" | \"premise\"\n    }\n    ...\n  },\n  \"relations\": [\n    {\n      \"source\": \"<ADU_ID>\",\n      \"target\": \"<ADU_ID>\",\n      \"type\": \"support\" | \"attack\"\n    }\n  ]\n}\n```",
+    "user_content": "## Andree Hahmann and Michael Vazquez\n\n## 18 Cicero in the German Enlightenment\n\n## 1 Introduction\n\nCicero played an outsized and underappreciated role in the development of the German Enlightenment -or so we argue in this chapter.¹ The case for Cicero ' s importance in this period of intellectual history is more difficult to establish than its Anglophone counterpart. One reason for this is that the Enlightenment in Germany took a different form than it did in the English-speaking world. In the Englishspeaking world, the Enlightenment was conducted almost exclusively by non-professional philosophical writers (i.e., by intellectuals who were not firmly embedded within institutions of higher learning). In Germany, on the other hand, the Enlightenment, at least initially, was propelled mainly by university-based philosophers -largely in the Wolffian tradition. Admittedly, there are many points of contact between Cicero and Wolff, especially in his ethics and practical philosophy. In addition, a strong Stoic influence is generally detectable in Wolff, so it is reasonable to assume that this influence was at least partly mediated by Cicero. However, direct references to or discussions of Cicero and his works are generally absent in this era of German school philosophy. It was, after all, primarily shaped by the Aristotelian scholasticism of earlier centuries.\n\nAnd yet, as some have emphasized, the displacement of Wolffian philosophy by Kant is only one aspect of the history of German philosophy in the eighteenth century.² In fact, the character of the German Enlightenment changed significantly towards the middle of the century. In part due to the influence of English works translated into German, prevailing philosophical trends slowly moved away from Christian Wolff and his strict style. Wolffian philosophy was supplanted by a popular and syncretistic conception of philosophy that was more akin to Renaissance humanism than it was to systematic school philosophy. This phase of the German Enlightenment shared features with the Anglophone Enlightenment that\n\n1 To date, there has been little research on Cicero ' s impact on eighteenth-century German philosophy, in contrast to his well-documented influence in the English-speaking world (see, for instance, Fox 2013 and Stuart-Buttle 2019) and on the French Philosophes (see Sharpe 2015). This is all the more astonishing because, according to the almost unanimous opinion of scholars, Cicero had an enormous impact on the development of what is commonly called ' popular philosophy '-the philosophical movement that gained prominence in the period following Wolff and that exerted considerable influence on the development of the German Enlightenment up to Kant.\n\n2 van der Zande 1995, 419.\n\nmade the latter amenable to Ciceronian influence. One of Cicero ' s many guises throughout history, and especially in this periods, was as a secular, public, and popularizing philosopher who addressed the great moral, political, and religious questions of his day.\n\nThat Cicero played a vital role for the representatives of so-called ' popular philosophy ' has already been suggested by some scholars.³ However, the details of Cicero ' s influence on this philosophical movement remain under researched. In the following we aim to contribute to closing this gap. Focusing on a central theme in German philosophy in the second half of the eighteenth century -the human vocation ( Bestimmung des Menschen ) -we illustrate in concrete terms the monumental influence Cicero had on the trajectory of the German Enlightenment. Our case centers on two philosophers who are not only among the most important representatives of popular philosophy, but whose ideas were pivotal for the development of Immanuel Kant ' s mature moral philosophy. As we shall see, Cicero is very much at the center of this story.\n\nWe begin by setting the scene about the question of human vocation in eighteenth-century German philosophy. We then turn to the first of our two examples, the theologian and philosopher Johann Joachim Spalding. Spalding is remembered for his translations of English philosophical works, especially those of Shaftesbury, but also notably for a short essay on the human vocation ( Betrachtung über die Bestimmung des Menschen , 1748). Spalding himself placed this work in direct conversation with antiquity by referring to the ancient authors Persius and Horace at the beginning of his work and to Cicero at the end. We provide a concrete textual argument for Cicero ' s impact on Spalding that draws on De legibus, which is the work from which Spalding quoted in his epilogue. We then turn to our second example, Christian Garve -a contemporary of Spalding and an important influence on Kant. Garve not only wrote one of the most impactful ethical treatises of eighteenth-century Germany, but also drew explicitly on Cicero in his discussion of the human vocation. In Spalding and Garve, then, we have two noteworthy examples of how Cicero exerted at least as great an influence on the German Enlightenment as he did in the Anglosphere, albeit in subtler ways.\n\n## 2 From Christian Wolff to the Human Vocation\n\nThe impact of Christian Wolff ' s philosophy on the development of the German Enlightenment can hardly be overstated. The Enlightenment ethos of Wolff ' s oeuvre\n\n3 See especially van der Zande 1995 and Holzhey 1989.\n\n-with its exacting methodological rigor, its universal scope, its clarity of language -explains its attractiveness and wide dissemination. Wolffian thought was positively received, especially at the universities, where it was even used and adapted by other disciplines. Wolff ' s philosophy, even after it was publicly attacked by theologians, soon began its triumphal procession within the German university. When discussions of Wolff ' s philosophy gradually died down in the mid-1730s, a considerable number of professors at Protestant universities were ' Wolffians ' . Schoolbuilding persisted as the legacy of Wolffianism well into the twentieth century, a fact that shaped the historiography of eighteenth-century German philosophy in important ways. One influential narrative about this period is that it was only Kant, with his radical and new-fangled critical philosophy, who brought an end to Wolffian philosophy in Germany. ⁴ This perspective on the development of German Enlightenment philosophy has been shown to be too simple and reductive by a number of studies in recent decades. Recent work has demonstrated the importance of British empiricism and the introduction of anthropological and materialistic perspectives into the philosophy faculties of German-speaking countries. ⁵ In this context, however, one philosophical current stands out, which was called ' popular philosophy ' by its later opponents. ⁶\n\nPopular philosophy as a philosophical movement in Germany is notoriously elusive, in part because its defining feature is its distance from systematic philosophy. However, it is not traditional philosophical content that was rejected, but its recent scholastic mode of presentation. Above all else, popular philosophy placed knowledge on the foundation of ' common sense ' or ' sound reason. '⁷ It viewed philosophy as a mode of inquiry addressed not only to scholars in the ivory tower, but to all people, focusing on issues with real-world implications. In this context, a theme later sloganized as the ' human vocation ' ( Bestimmung des Menschen ) gained particular importance. ⁸\n\nIn 1748 the theologian Johann Joachim Spalding published his short essay ' On the Human Vocation ' (anonymously, at first). ⁹ Spalding ' s phrase became a ' Stan-\n\n4 This is aptly captured by the avowed Wolffian Moses Mendelssohn, who coined the term ' allcrushing Kant ' ( ' Alleszermalmer[ … ] Kant ' ).\n\n5 See Kuehn 1987 , Kuehn 1996, de Boer/Prunea-Bretonnet 2021, and Thiel 2022.\n\n6 The label can be traced back to Eberhard who used it to discredit Wolff ' s philosophical successors. According to Ansel (2007 , 222), the term goes back to Reinhold. For Reinhold, ' popular ' is a synonym for shallow and trivial.\n\n7 Eberstein 1794, vol. 1, 338 and 336.\n\n8 See Holzhey 1989.\n\n9 ' Bestimmung ' has a wide semantic range, connoting in English ' destination, ' ' vocation, ' and ' determination. ' The first two capture the theological echoes in German that are perceived but\n\ndardformel ' of the German Enlightenment.¹ ⁰ The text was published in at least eleven authorized editions and in multiple translations during his lifetime, and Spalding revised the text several times. The result is that the last edition differs considerably from the first.¹¹ Over the years, Spalding took up new ideas, criticisms, and suggestions and incorporated them into the text.¹² This is especially evident in the later editions, which came after Spalding ' s consequential encounter with Kant ' s critical philosophy.¹³ But the influence did not only go in one direction. The question of the human vocation also plays a special role in Kant ' s critical philosophy and in his writings on history and anthropology. The function that the question of the human vocation assumes in his critical philosophy has so far received little attention from Kant scholarship.¹ ⁴ And yet, in the Doctrine of Method of the Critique of Pure Reason , Kant declares the ' whole Bestimmung of man ' to be the ultimate ground of the systematic unity of reason and thus the ultimate purpose of critical philosophy ( CPR , A840/B868).¹ ⁵\n\nThe importance of this topic for this period of intellectual history is undisputed. It has formed the basis of an entire Bestimmungsliterature among scholars. Its historical roots, however, are less clear. While its connection to antiquity is obvious -not least because of Spalding ' s direct references -scholars have so far tended to make vague references to Stoic influence.¹ ⁶ In the next section, we examine this presumed Stoic origin while also giving serious consideration to Spalding ' s explicit reference to Cicero ' s De legibus. In so doing we aim to demonstrate that Cicero provided an impetus and stimulus for Spalding ' s own reflections on the human voca-\n\nnot the central meaning of the term. Whereas ' determination ' fails to capture the temporal and developmental aspect of the term.\n\n10 Hinske 1994, 141.\n\n- 11 As D ' Alessandro (1999, 22) claims ' die letzte Auflage ist ein ganz anderes Buch als die erste. ' Accordingly, one can also see the effects of the intellectual debate that the essay triggered. Hinske (1994) shows how various contemporary influences were incorporated into each of the distinct editions, such that phases in the development of the German Enlightenment are captured in the revisions of this work.\n- 12 The publication of the seventh edition achieved a special status because it led to the dispute between Thomas Abbt and Moses Mendelssohn. See Schwaiger 1999, 8.\n- 13 As a result, Spalding even adopted Kantian terminology in his presentation. For example, Spalding refers to the ' moral law ' ( Sittengesetz ) in 1794, 59. Of course, we do not claim to provide a conclusive account of Spalding ' s intellectual development.\n- 14 See, however, Hinske 1994 and Brandt 2007 .\n- 15 The question acquires greater significance when one considers its proximity to another systematic point in Kant ' s philosophy, namely the question of the highest good. In some places Kant even calls the highest good the vocation of the human being.\n- 16 See, e.g., Hinske 1999 and Brandt 2007 , 139 -178.\n\ntion. By extension, Cicero also played a crucial role in the development of German philosophy in the second half of the eighteenth century.\n\n## 3 Spalding and Cicero\n\nAs mentioned above, the only three authors Spalding explicitly refers to in the first edition of his text all hail from the ancient Roman world: Horace, Persius, and Cicero. One connection between this otherwise unlikely trio stands out: each of the three is connected in a prominent way with a Hellenistic philosophical school. Horace was generally sympathetic to Epicureanism and Persius was inclined towards Stoicism.¹ ⁷ Cicero was an Academic skeptic whose policy was not to tie himself to the mast of any single authority. While he was at liberty to ' approve ' any view that struck him as probabile or veri simile, determining which views Cicero found persuasive is not a straightforward business. We cannot, without further argument, simply infer the historical Cicero ' s views from what a character named Cicero in a dialogue says or even from what is written in the preface of a dialogue. Even so, for our purposes it suffices that Cicero ' s ethical commitments have appeared to many readers throughout history to be especially consonant with Stoic and Antiochean (i.e., Old Academic-Peripatetic) traditions of philosophy.¹ ⁸ This is particularly evident in the syncretizing work from which Spalding quoted at the end of his essay, De legibus (1.28):\n\nSed omnium quae in hominum doctorum disputatione uersantur, nihil est profecto praestabilius, quam plane intellegi, nos ad iustitiam esse natos, neque opinione sed natura constitutum esse ius.\n\nBut of all the things which are a subject of philosophical debate there is nothing more worthwhile than clearly to understand that we are born for justice and that justice is established not by opinion but by nature.¹ ⁹\n\nIn this passage, Cicero emphasizes with the Stoic and Peripatetic traditions that humans are sociable creatures born for fellowship and community. The teleological and developmental character of this claim is accurately reflected in the German term ' Bestimmung ' . ² ⁰ As Brandt has made clear, the term ' Bestimmung ' is a neolo-\n\n17 Persius ' works were published, after his early death, by the Stoic philosopher Cornutus.\n\n18 Our focus is on what later figures like Spalding took away from reading Cicero, often without engaging in close exegesis of his works.\n\n19 All translations of this work are drawn from Zetzel 1999.\n\n20 Garve later takes up this connection and makes it explicit, as we explain below.\n\ngism that developed in Germany in the middle of the eighteenth century.²¹ The idea behind it differs from the use of ' bestimmen ' that had been common until then. The common usage until then coincided with the Latin determinare , in the sense of necessarily bringing about. However, the meaning of ' Bestimmung ' goes beyond this and connotes the idea of an end or goal. From this point of view, the locution ' ad … esse natos ' used by Cicero fits very well with the German idea of ' Bestimmung ' .\n\nUpon closer examination, one lengthy passage in De legibus seems to anticipate many of the points that Spalding makes in his essay. It reads, as it were, like an invitation from Cicero to Spalding to inquire into the true nature and vocation of the human person. Despite its length, we quote it in full because we believe it places Spalding ' s seemingly marginal reference to Cicero in an entirely new light:\n\nThe person who knows himself will first recognize that (1) he has something divine and will think that his own reason within himself is a sort of consecrated image of the divine. (2) He will always do and think things worthy of this great gift of the gods; and when he has studied and made a complete examination of himself, (3) he will understand how he came into life fitted out by nature, and what tools he has for getting and possessing wisdom, (4) since in the beginning he formed the first sketchy conceptions of all things in his mind; (5) and when light has been cast on them under the guidance of wisdom he recognizes that he is a good man and for that reason he perceives that he will be blessed. (6) For when the mind, through the knowledge and perception of virtue, has departed from obedience to and indulgence of the body, and has conquered pleasure like some blot of disgrace, and has escaped all fear of death and pain, (7) and has entered the bond of affection with his own -and has recognized as his own all those who are linked with him by nature -and has taken up the worship of the gods and pure religion, and has sharpened the gaze of his mind, like that of the eyes, for the selection of good things and the rejection of the opposite, the virtue which is called '' prudence '' from the capacity to see ahead, -what can be said or thought to be more blessed than he? (8) And when he has studied the heaven, lands, seas, and the nature of all things, and has seen where they come from and where they are going and when and how they will perish, what in them is mortal and bound to die, what is divine and eternal; and when he has (so to speak) got a grip on the god who guides and rules these things and (9) has recognized that he is not bound by human walls as the citizen of one particular spot but a citizen of the whole world as if it were a single city [ … ]. ²²\n\nIn this excerpt many familiar themes -predominantly, but by no means exclusively, from Stoic ethics -are taken up and methodically connected with the Delphic\n\n21 Brandt 2007 , 62; see also 57 -60.\n\n22 Cic. Leg. 1.59 -61. For ease of exposition, we numbered each of the claims in the passage from Cicero.\n\ninjunction of self-examination.²³ It is particularly noteworthy that Spalding ' s essay mirrors the ring composition of this passage from Cicero: introspection and selfknowledge are ultimately connected, after a series of stages, with awareness of cosmic order and divine providence. More generally, we might reasonably assume that the anti-Epicurean tenor and Stoicizing anthropology and theology of Cicero ' s dialogue -that is, its big-tent approach to natural law ethics that draws upon the Old Academy and the Stoa alike (see esp. Leg. 1.37 -39) -made a lasting impression on Spalding.\n\nWe can begin with Cicero ' s first claim that human beings have a share of the divine reason ( logos ) -their distinctive and characteristic capacity. Spalding ' s selfexamination reveals that he too ' belong[s] in a much higher order of things. ' (2023, 29) and that he must understand himself as ' a part of the whole …' (2023, 37).² ⁴ Once he has raised himself up to the mind of God, he sees that ' he animates me, he works within me! What would I be without him? ' (2023, 43). Spalding concludes later: ' It is hence a divine voice, it is the voice of eternal truth that speaks within me. ' (2023, 45) Spalding thus assigns special significance to his conscience, to which he attributes a divine origin (2023, 45); for this reason, he resolves to render special obedience to it.\n\n(2) In the central passage, Cicero articulates a normative account of human thought and action. In the Stoicizing framework of De legibus , self-perfection consists in discerning the will of Zeus or Providence, living in accordance with the natural law, and to that extent, becoming like God.² ⁵ This ancient injunction is taken up directly by Spalding, in a typically Stoic way, when he emphasizes that what matters most is to emulate the divine order of things in one ' s actions:\n\nbut I am … certain that the unwavering honesty I display in this is the correct way to emulate that model of order according to my capacities and to please him. Apart from my inner rectitude, there is nothing … that can make me accord with the most primary constitution of my nature and with the intentions of the supreme government. (2023, 45 -47)\n\n23 In his commentary on De legibus , Andrew Dyck speculates that ' the meditation on knowing oneself was inspired by Cicero ' s Academic studies. ' Dyck 2004, 223. See also 226: ' The project of ' knowing oneself ' connects the conclusion of this Book with the Phaedrus passage that served as the model for the opening dialogue on the problem of mythopoetic and actual truth: in the Phaedrus Socrates explains that he has not the leisure to deal with the truth-value of myths since he is still occupied with the project of knowing himself (229e). -' Knowing oneself ' similarly comes down to knowing one ' s soul and its divine nature at Pl. Alc . 1 129a ff., esp. 130e and 133c; cf. also Tusc. 5.70 …'\n\n24 Unless otherwise indicated, our quotations from Spalding ' s 1748 edition are drawn from and follow the pagination of the translation provided in Pollok &amp; Fugate 2023.\n\nSee, e.g., Leg. 2.11: ' Therefore, just as that divine mind is the highest law, so too when in a\n\n25 human being it is brought to maturity, &lt;it resides&gt; in the mind of wise men. '\n\nIt is striking that Spalding conceives of God as an intellect or reason that ' thinks for the whole ' and arranges and steers it (2023, 43). He emphasizes that this all-embracing intellect is providential in nature: ' With this, I now also know undoubtedly that this intellect that governs all could have no other intention than that all things may be good in their own kinds and in the whole. ' (2023, 45)\n\n(3) Cicero ' s normative account of human development is rooted in mankind ' s natural dispositions. This is why he looks to our primary and uncorrupted impulses at birth -to the cradle -for an account of the human telos. Cicero also emphasizes that nature has outfitted us for perfection by providing us with the seeds of wisdom and tools for its acquisition. These assumptions are present in both the Stoic and Antiochean accounts of oikei ō sis offered in De finibus , and they are found almost unchanged in Spalding, who emphasizes that ' [a]ll laws that he placed into them are directed toward this. The movements of bodies and the original drives of intelligent beings aim at it ' (2023, 45). Rational perfection occupies a central place in the human vocation: ' I bring together all, I make use of all, to make my spirit more perfect. ' (2023, 29) This claim connects with the idea, already indicated above, that the rational part of the soul assimilates the human person to God Himself.\n\n(4) The development of our first concepts is of special importance for Cicero, since they show us that we possess not only natural instincts but also a faculty of reason. The same is emphasized by Spalding: ' Even more gratifying to me are the merits and powers of my spirit when I get to know them and see them grow. As the manifold faculty of which I am aware increases, I find that I am so improved that I belong in a much higher order of things. ' (2023, 29) Spalding further claims that the perfection of the mind is based on the clarification of one ' s concepts and the enrichment of one ' s memory -that is, a process of spiritual enlightenment.\n\n(5) For Cicero, the foregoing reveals our moral vocation. With spiritual enlightenment and self-perfection comes the recognition that our telos is not narrowly egoistic, but something that transcends the self. The same idea is expressed by Spalding, when he acknowledges that ' [a]ll of this accords with my nature, but it is not yet enough. ' The recognition of nature ' s intrinsic order prompts him to consider his fellow human beings:\n\nDo these all exist for my sake? Do they have no other end than what is best for me? Does there exist no other relationship between them and me than that I may draw them to myself as if to the center of things? Am I not indebted to all things and to all other beings themselves? And do I have no other natural end, no other natural desire in my soul, than my own benefit? (2023, 31)\n\nHere we see a clear reflection of the pro-social dimensions of Stoic and Antiochean oikei ō sis (perhaps, especially, of Stoic cosmopolitanism) that many have seen as fixtures of Cicero ' s moral philosophy.\n\n(6) This realization helps Spalding master his natural instincts and, ultimately, direct them to their proper end:\n\nI find this principle to be of such power that it often makes itself master over my entire soul, that it, so to say, consumes all other sentiments and alone fills me with either pleasure or agony. When I cast an eye inwardly and perceive rectitude in my sentiments, order in my desires, harmony in my actions; when I see that everything is true in my mind, that everything in it is determined in accordance with the essential relations of things, then this sight awakens in me an ecstasy that triumphs over all sensuous displeasure. (2023, 35)\n\n(7) For Cicero, the transition to pro-sociality and human fellowship is an essential step on man ' s path to becoming like God. The worship of God plays a special role here, since the natural order can be traced back to the divine will and its providence. Cicero further suggests that human fellowship and religion are crucial aspects of moral choice or the virtue of prudence. When Spalding reflects on human sociability, he finds within himself a superior order of things: ' sensations of goodness and of order, which my mere will has not created and which my mere will also cannot destroy; original and independent drives of my soul toward what is suitable, toward what is decent, magnanimous and fair, toward beauty, harmony, and perfection as such, and especially toward the operations of intelligent and freely-acting beings. ' (2023, 33; cf. Cic. Off . 1.14 -15) He finds his own happiness in the ' [t]he happiness of the human race, which stirs [him] so agreeably. ' Spalding notes that the happiness of others ' shall invariably be an object of [his] most earnest endeavors, and [his] own happiness ' (37).\n\n(8) For Cicero, study of the natural world facilitates knowledge of what is mortal and immortal and provides some insight ( paene prenderit ) into the god who guides and rules ( moderantem et regentem ) it. Spalding, too, marvels at the majesty of the natural world, querying the source of its existence, harmony, and regularity:\n\nBeings that are so beautiful already within their limitations; worlds that have so much rectitude in their parts and in their combination; a whole full of order, from the tiniest particle of dust to the immeasurable expanse, full of regularity in all its laws, in bodies as well as in spirits; a whole that is so manifold and yet, by means of the most precise connection, is one; this provides me with the representation of a model of perfections, of an original beauty, of a first and universal source of order. -What a thought! -Is there then something upon which depends everything that I have so far admired? Is there then something from which all parts of nature receive their agreements, their relations, and their charm? An intellect that thinks for the whole, that arranges and steers the whole? A spirit that communicates existence, duration, powers, and beauty to all things through its incomprehensible emanations? (2023, 43)\n\nIt is eminently plausible that Spalding ' s awe-filled reflection was shaped by the Stoicizing framework of natural theology that Cicero frequently employs and adapts, and which is featured in our central passage.\n\n(9) Spalding ultimately trusts that the world community is governed by ' the unchangeable rules of fairness ' (2023, 49).² ⁶ And yet, he recognizes that in this life the evidence seems to point in the other direction. Even though ' inner rectitude ' is its own reward, he sees ' innocence and right … condemned. ' He observes that virtue is frequently afflicted with ' hunger and privation and contempt ' and ' find[s] its final reward in pains and tortures at the hands of a cruel executioner and the order of a still crueler tyrant. ' Conversely, ' treachery and bloodthirstiness … deviate from what is eternally right and to revolt against the laws of the universal government ' (2023, 49). Spalding takes comfort in the fact that, in due time, ' everyone receives his due, ' and that the present disharmony will one day ' resolve itself into a perfect harmony. ' (2023, 51)² ⁷ Importantly, though, this final step in Spalding ' s argument moves beyond its pagan sources and relies upon explicitly Christian premises. Even so, we can see the lasting impression of Cicero. We see it in Spalding ' s Platonizing language of immortality and transcendence, as well as the Stoicizing language of divine providence noted earlier.² ⁸ It is evident also in the language Spalding uses to reflect upon the rewards of virtue (here one thinks especially of De officiis ), even though he parts ways with Cicero on whether they can be reliably attained in this life. And, more to the point about De legibus, it is likely that Spalding was impressed by Cicero ' s appropriation of Stoic natural law and Antiochean anthropology. In particular, Cicero took a Stoic idea and gave it\n\n26 Compare to Cicero ' s use of ' regula ' as a standard by which justice and injustice are measured at Leg. 1.19: ' the beginning of justice is to be sought in law: law is a power of nature, it is the mind and reason of the prudent man, it distinguishes justice and injustice. ' ( … a lege ducendum est iuris exordium. Ea est enim naturae vis, ea mens ratioque prudentis, ea iuris atque iniuriae regula). He proceeds to describe it as ' that highest law , which was born aeons before any law was written or indeed before any state was established. ' Furthermore, in key passages Cicero describes this moral community as encompassing all humans (not just the wise, as orthodox Stoic doctrine would have it). See, e.g., Leg . 1.23: '… reason forms the first bond between human and god. And those who share reason also share right reason; and since that is law, we humans must be considered to be closely allied to gods by law . Furthermore, those who share law also share the procedures of justice; and those who have these things in common must be considered members of the same state, all the more so if they obey the same commands and authorities. '\n\n27 See also: ' I therefore confidently expect a distant series of times that will be the full harvest of the seed of the present and, by means of a universal, rightful recompense, will justify the wisdom that administers the whole. ' (2023, 51).\n\n28 See, for example: ' I sense capacities within me, which are capable of a growth reaching into the infinite and which can also express themselves no less outside the connection with this body ' (2023, 51).\n\nuniversal scope: all humans in virtue of their potential for perfect rationality are members of the moral community, not only those who have already perfected their rationality (see, for example, the universalizing claims at Leg. 1.30 and 1.33). Virtue ' s (this-worldly) rewards and injunctions are available to all.\n\nThis brief and non-exhaustive discussion of direct and indirect allusions to Cicero supports our contention that he was an important source for Spalding. Here it helps to recall that in the eighteenth century Cicero enjoyed unparalleled esteem not only in Germany, but also in the English and French speaking worlds. In this way, Spalding ' s appeal to Ciceronian themes can be seen as a literary conceit that would have contributed to the success of his essay. Of course, it should also be clear that the composition of Spalding ' s essay is hardly limited in its debt to Cicero ' s De legibus , but likely extends also to works such as De natura deorum, De finibus, and De officiis. ² ⁹ It is therefore not surprising that Christian Garve also found direct inspiration for his inquiry into the human vocation in the latter two of these Ciceronian works.\n\n## 4 Garve and the Question of the Human Vocation\n\nChristian Garve was one of the most influential philosophers in Germany in the second half of the eighteenth century. Garve, who was also in close contact with Spalding, pursued a project making the philosophical ideas of the Enlightenment accessible to a wider audience in a popularizing form. In pursuit of this end Garve translated and commented in detail on well-known and esteemed works of philosophy. Particularly successful in this regard is his edition of Cicero ' s De officiis , first published in 1783 and appearing in three editions until Garve ' s early death in 1798 -with four more to follow.³ ⁰ As is also well known, Kant was more than passingly familiar with Garve ' s translation project; in fact, it played a special role in the eventual composition of the Groundwork. The latter was even said to be initially conceived as an Anti-Garve. ³¹ The reason for this is that\n\n29 Elsewhere we argue that Spalding ' s essay closely follows the argumentative structure of Cicero ' s De finibus ( ' Cicero and the Human Vocation, ' unpublished manuscript). 30 van der Zande 1998, 78 -9.\n\n31 This is evident from a letter of Hamann to Scheffner from February 18, 1784. See Malter 1990, 251. For an account of Kant ' s anti-Garve project that emphasizes Cicero ' s mediating role, see Hahmann &amp; Vazquez 2022. For an account of Kant ' s rejection of Stoic eudaimonism in which Garve looms large, see Vazquez (forthcoming).\n\nGarve, through somewhat unfortunate circumstances, incurred Kant ' s resentment with a critical review of the Critique of Pure Reason. ³² However, Kant also appreciated and respected his younger contemporary for his widely esteemed translations.\n\nThe Philosophical Remarks and Treatises that Garve added in three volumes to his translation of De officiis were crucial for the success of the whole work. What is important for our purposes is that it is evident from Garve ' s notes that he read the philosophical positions presented by Cicero in light of the question of the human vocation. Garve notes that Cicero follows the Greeks in separating ' the doctrine de finibus , or of the human vocation, from the doctrine de officiis , or of social duties ' (1783, vol. 2, 21). He also interprets Cicero ' s phrase, ' ad … esse natos ' ( Leg. 1.28), which was quoted by Spalding, as follows:\n\nFor to be born to something is only another way of expressing an original and perpetual tendency of nature to a certain thing ( um eine ursprüngliche und immerwährende Tendenz der Natur zu einer gewissen Sache ). If I have previously inferred the correspondence of advantage to duty from the fact that virtue is natural to us: I change the words, not the ground of proof, when I infer this very thing from our innate vocation ( angebohrnen Bestimmung ). (1783, vol. 3, 45 -46)\n\nImportantly, Garve takes himself to be offering an account of Cicero ' s own moral philosophy.³³ As Cicero ' s own programmatic remarks make clear, his text on duties ( officia ) does not directly address the question of the human telos (see Off. 1.7). Instead, his discussion takes for granted a broadly Stoic and Peripatetic view of the human telos, which is debated in greater detail in the appropriately titled De finibus. When it comes to the doctrine of the highest good, all ancient schools, despite their fundamental disagreements, make the same methodological assumption discussed earlier. They all assume that we can discover the human telos, or in other words the human Bestimmung, by examining our uncorrupted and natural impulses early in life. Although Garve, like Cicero, agrees in principle with the Stoic approach, he, like Spalding, attaches particular importance to our bodily existence. Garve ' s conclusion, like Spalding ' s, not only unifies humanity ' s rational and sensual natures but also echoes the ancient assertion that our true vocation is to emulate the divine:\n\n32 For a detailed discussion of the events related to the Garve-Feder review, see Förster 2012, 48 -53. See also Buchenau 2021 and Hüning 2021.\n\n33 Garve 1783, vol. 1, 7 . This is not to say that he overlooks its Stoic origin. Thus Garve emphasizes that Cicero in large part agrees with the Stoics (see Garve 1783, vol. 1, 12; 14).\n\n̈\n\nIt is certain, however, that only through the union of these two considerations do the rights of virtue receive their full strength and their power over the human heart. It is precisely this, that the very qualities, the very actions, which make us nobler, better, more like God ( Gott ähnlicher ), find at the same time those which lead to health, pleasure, and the most pleasant life ( angenehmsten Leben ); that they themselves best grant what the desires of the selfish or sensual man seek, on the whole, and in most cases, if the other circumstances are the same: This, combined with the idea that a supreme and perfectly moral being is the author of this arrangement of nature, and has just thereby declared his will; that therefore the nature of things, our nature, and the will of the Creator here come together in one point: this gives to moral principles the highest degree of certainty of which invisible objects are capable. It shows at least that if anything can serve as a guide on the dark path of life, it is the conviction that the human person has no other vocation ( Bestimmung ) than to show the inner goodness ( die innre Gu te ) that God has put into his nature by his free actions, and to develop and form it by his deeds.³ ⁴\n\nHere, Garve has used Cicero ' s text as an occasion to articulate his own views, which overlap considerably with Spalding ' s.\n\nThere are other points of convergence between Garve and Spalding, such as the idea that the realization of the human vocation requires the immortality of the soul. More specifically, Garve offers his qualified endorsement of what Cicero presents as the core elements of Stoic ethics:\n\nIf I imagine man as an ever-lasting, ever higher rising being ( als ein immer dauerndes, immer höhersteigendes Wesen ), this system is perfect, and without exception, true. If I imagine him to be a mortal creature, destined only for the period in which we see it, it suffers many limitations. For it is evident that in the time of our existence, which is between birth and death, human happiness cannot be completely independent of external circumstances, of the influence of the external world, or of other people.³ ⁵\n\n34 Garve 1783, vol. 3, 261 -2.\n\n35 Garve 1783, vol. 1, 15. See also Cic. Tusc. 5.70 -71: ' To the soul occupied night and day in these meditations there comes the knowledge enjoined by the god at Delphi, that the mind should know its own self and feel its union with the divine mind, the source of the fulness of joy unquenchable. For meditation upon the power and nature of the gods of itself kindles the desire of attaining an immortality that resembles theirs, nor does the soul think that it is limited to this short span of life, when it sees that the causes of things are linked one to another in an inevitable chain, and nevertheless their succession from eternity to eternity is governed by reason and intelligence. As the wise man gazes upon this spectacle and looks upward or rather looks round upon all the parts and regions of the universe, with what calmness of soul he turns again to reflect upon what is in man and touches him more nearly! Hence comes his knowledge of virtue; the kinds and species of the virtues break into blossom, discovery is made of what nature regards as the end in what is good and the last extremity in what is evil, the object of our duties and the rule for the conduct of life that must be chosen. And by the exploration of these and sim-\n\nThis point illustrates very well Garve ' s (and Spalding ' s) constructive approach to ancient ethical theory. Garve claims that, for creatures like us, external circumstances greatly influence our chances of achieving perfection and happiness.³ ⁶ So, he maintains that the truth of the Stoic thesis about happiness hinges on the truth of the immortality of the soul -something the Stoics no doubt rejected, but which Cicero may have found plausible, or at least hoped to be true.³ ⁷\n\nThe closeness between Spalding, Garve, and Cicero is wonderfully illustrated by Garve ' s closing comments. There, Garve praises the form of inner soliloquy, which is the same form that Cicero ' s thoughts took in Spalding ' s essay. Garve ' s hope is that his words will move the reader ' s heart to accept Cicero ' s moral teachings on something more than an intellectual basis. Garve concludes by suggesting that his approach was true to the Ciceronian spirit of philosophy: ' How happy Cicero would be if, after eighteen centuries, he had once more brought this about in my readers, through his own ideas or through those he has caused in me! ' ³ ⁸ We can compare this fruitfully with Cicero ' s frequent attention to eloquence and efficacy. At De finibus 4.7 , the accusation of ' petty little syllogisms ' and ' pin-pricks ' is used to show that ' even those who accept the [Stoics ' ] conclusions are not converted in their hearts ( nihil commutantur animo ) and leave in the same state as when\n\nilar problems the chief conclusion of all attained is the aim of this discussion of ours, that virtue is self-sufficient for leading a happy life. '\n\n36 Garve 1783, vol. 1, 16: ' So to claim that we can be perfectly happy, and only by ourselves, is proud pretense, not truth. '\n\n37 In Garve ' s words (vol. 2, 58): ' These contradictions will be lifted if we are allowed to extend into infinity the path along which good men already proceed here; if we are allowed to infer from the direction which a virtuous soul takes here a distant goal ( entferntes Ziel ) toward which it is ever approaching ( immerfort annähert ). ' Van der Zande (1998, 86) observes that Garve varied a thought of Lessing ( Erziehung des Menschen ) or Ferguson ( Idea for a Philosophy of the History of Humankind ). The latter is a true Stoic for Garve.\n\n38 Garve 1783, vol. 3, 262 -3: ' But all that can be said about this are only words for those to whom their feelings have not already said the same thing, at least darkly. The moralist can only make attempts to see whether he can lead his readers back to their inner being ( auf ihr Inneres ) through his ideas, and make it easier for them to hear the quiet desires and intuitions of their own nature ( die leisen Wünsche und Ahndungen ihrer eignen Natur zu vernehmen ). Even for those who grasp his principles and recognize them as true, they will remain entirely without use if they do not emerge anew ( von neuem hervorkommen ), as it were, from their own source of heart and experience. This source is present in every human being ( Diese Quelle ist bey jedem Menschen vorhanden ), but it is not rich and powerful enough to open itself in all of them. True philosophy ( die wahre Philosophie ), which is the stream flowing from a similar source, can sometimes help. How happy Cicero would be ( Wie glücklich wäre Cicero ) if, after eighteen centuries, he had once more effected this in my readers, by his own ideas or by those he effected in me ( durch seine eignen Ideen, oder durch die welche er bey mir veranlaßt hat )! '\n\nthey came. ' Cicero elsewhere concedes that Stoic ethical theory might be correct , but that he remains dissatisfied because philosophy should ' change our lives, our plans and our wills. ' ³ ⁹\n\n## 5 Conclusion\n\nIt has been known for some time that Cicero was an important model for the popular philosophy movement, which exerted considerable influence on the development of German philosophy in the second half of the eighteenth century. The exact nature of this influence, however, has up to this point remained obscure. In this chapter we have shown in concrete terms how Cicero ' s legacy is reflected in two prominent popular philosophers and in a central question of the time, namely the question of the human vocation.\n\nThe fact that Cicero -and through him the Hellenistic schools to which he refers -plays a special role is no mere historical coincidence, but corresponds to the historical Zeitgeist. Spalding and Garve emulated Cicero ' s methodology in key respects. As Popularphilosophen with common sense as their guide, they were eager to preserve the wisdom and truth contained in all philosophical systems of the past. For example, Spalding began his essay with specifically Epicurean ideas, some of which are retained in the position he ultimately ends up with, rather than being discarded entirely. Garve, too, in many ways aimed to harmonize the basic insights of the Stoics and Epicureans on the highest good, thereby overcoming the deficiencies of each. Spalding and Garve are not unlike Cicero in this respect. In the Tusculanae disputationes, for example, Cicero marshals even the Epicureans to his side in defense of the sufficiency of virtue for happiness. This is not eclecticism in the pejorative sense, but a commitment to drawing upon collective human wisdom to formulate a view about morality that people can actually live by. It could be shown, furthermore, that Cicero indirectly but significantly shaped Kantian and post-Kantian philosophy as well. For although Cicero ' s reputation suffered with the decline of popular philosophy in Germany, his ideas and writings continued to influence even those who openly rejected him. But that story can only be told in a future paper.\n\n## Bibliography\n\nAltman, A. 1973. Moses Mendelssohn. A Biographical Study. Alabama: The University of Alabama Press. Ansel, M. 2017. ' Ernst Platner und die Popularphilosophie. ' Aufklärung 19: 221 -242.\n\nBourel, D. 2000. ' Spalding, Johann Joachim (1714 -1804). ' In Theologische Realenzyklopädie , edited by\n\nH. Balzm, J. K. Cameron et al., 607 -610. Boston: De Gruyter. Die Bestimmung des Menschen bei Kant.\n\nBrandt, R. 2007. Hamburg: Felix Meiner Verlag. Buchenau, St. 2021. ' Menschewürde. Die Kontroverse zwischen Garve und Kant. ' In Christian Garve (1742 -1798). Philosoph und Philologe der Aufklärung , edited by U. Roth and G. Stiening, 101 -126. Berlin, Boston: De Gruyter.\n\nD ' Alessandro, G. 1999. ' Die Wiederkehr eines Leitworts: Die ' Bestimmung des Menschen ' als theologische, anthropologische und geschichtsphilosophische Frage der deutschen Spätaufklärung. ' Aufklärung 11 (1): 20 -47.\n\nde Boer, K. and Prunea-Bretonnet, T., eds. 2021. The Experiential Turn in Eighteenth-Century German Philosophy. London: Routledge.\n\nDyck, A. R. 2004. A Commentary on Cicero, De Legibus. Ann Arbor: University of Michigan Press. Förster, E. 2012. The Twenty-Five Years of Philosophy. Cambridge Mass., London: Harvard University Press.\n\nFox, M. 2013. ' Cicero during the Enlightenment. ' In The Cambridge Companion to Cicero , edited by C. Steel, 318 -36. Cambridge: Cambridge University Press.\n\nGarve, Ch. 1783, vol. 1. Abhandlung über die menschlichen Pflichten, aus dem Lateinischen des Marcus Tullius Cicero. Anmerkungen zu dem ersten Buche. Breslau: Korn.\n\nGarve, Ch. 1783, vol. 2. Abhandlung über die menschlichen Pflichten, aus dem Lateinischen des Marcus Tullius Cicero. Anmerkungen zu dem zweyten Buche. Breslau: Korn.\n\nGarve, Ch. 1783, vol. 3. Abhandlung über die menschlichen Pflichten, aus dem Lateinischen des Marcus Tullius Cicero. Anmerkungen zu dem zweyten Buche. Breslau: Korn.\n\nHahmann, A. and Vazquez, M. 2022. ' Ciceronian Officium and Kantian Duty. ' The Review of Metaphysics 75 (4): 667 -706.\n\nHahmann, A. and Vazquez, M. Unpublished Manuscript. ' Cicero and the Human Vocation. ' Hinske, N. 1994. ' Das stillschweigende Gespräch. Prinzipien der Anthropologie und,\n\nGeschichtsphilosophie bei Mendelssohn und Kant. ' In Moses Mendelssohn und die Kreise seiner Wirksamkeit , edited by M. Albrecht, E. J. Engel, and N. Hinske, 135 -156. Berlin, Boston: Max Niemeyer Verlag.\n\nHinske, N. 1999. ' Eine antike Katechismusfrage: Zu einer Basisidee der deutschen Aufklärung. ' Aufklärung 11 (1): 3 -6.\n\nHolzhey, H. 1989. ' Popularphilosophie. ' In Historisches Wörterbuch der Philosophie , VII, edited by J. Ritter and K. Gründer, 1093 -1100, Basel: Schwabe &amp; Co. Verlag.\n\n̈\n\nHüning, D. 2021. '' Diese Einwu rfe sind also nichts als Mißverständnisse ' Kants Garve-Kritik im Gemeinspruchaufsatz. ' In Christian Garve (1742 -1798). Philosoph und Philologe der Aufklärung , edited by U. Roth and G. Stiening, 207 -224. Berlin, Boston: De Gruyter.\n\nKuehn, M. 1987. Scottish Common Sense in Germany, 1768 -1800. Kingston, Montreal: McGill -Queen ' s University Press.\n\nKuehn, M. 1996. ' The German Aufklärung and British Philosophy. ' In British Philosophy and the Age of Enlightenment , edited by St. Brown, 309 -31. London: Routledge.\n\nKuehn, M. ' Reason as a species characteristic. ' In Kant ' s Idea for a Universal History with a Cosmopolitan Aim. A Critical Guide , edited by A.O. Rorty and J. Schmidt, 68 -94. Cambridge: Cambridge University Press.\n\nMalter, R., ed. 1990. Immanuel Kant in Rede und Gespräch. Hamburg: Meiner Verlag. Pollok, A. and Fugate, C.D, eds. and trans. 2023. The Human Vocation in German Philosophy. London:\n\nBloomsbury Academic.\n\nNewman, R. J. 1989. ' Cotidie meditare. Theory and Practice of the meditatio in Imperial Stoicism. ' In Aufstieg und Niedergang der römischen Welt (ANRW) II.36.3. Philosophie, Wissenschaften,\n\nTechnik. Philosophie (Stoizismus) , edited by W. Haase, 1473 -1517. Berlin, Boston: De Gruyter. Schollmeier, J., ed. 1967. Johann Joachim Spalding (author). Ein Beitrag zur Theologie der Aufklärung. Gu tersloh: Gütersloher Verlagshaus G. Mohn.\n\n̈\n\nSchwaiger, C. 1999. ' Zur Frage nach den Quellen von Spaldings Bestimmung des Menschen. Ein ungelöstes Rätsel der Aufklärungsforschung. ' Aufklärung 11 (1): 7 -19.\n\nSharpe, Matthew. 2015. ' Cicero, Voltaire, and the Philosophes in the French Enlightenment. ' In B rill ' s\n\nCompanion to the Reception of Cicero , edited by W.H.F. Altman, 329 -356. Leiden: Brill. Spalding, J. J. 1804. Johann Joachim Spalding ' s Lebensbeschreibung von ihm selbst aufgesetzt und herausgegeben mit einem Zusatze von dessen Sohne Georg Ludewig Spalding. Halle: In der Buchhandlung des Waisenhauses.\n\nStuart-Buttle, T. 2019. From Moral Theology to Moral Philosophy: Cicero and Visions of Humanity from Locke to Hume. Oxford: Oxford University Press.\n\nThiel, U. 2022. ' Locke in Göttingen. ' Studi lockiani. Ricerche sull ' età moderna 3: 151 -177. van der Zande, J. 1998. ' The Microscope of Experience: Christian Garve ' s Translation of Cicero ' s De Officiis (1783). ' Journal of the History of Ideas 59: 75 -94.\n\nvon Eberstein, W. L. G. 1794. Versuch einer Geschichte der Logik und Metaphysik bey den Deutschen von Leibniz bis auf die gegenwärtige Zeit , 2 vols. Halle: Johann Gottfried Ruff.\n\nVazquez, M. forthcoming. ' Kant ' s Rejection of Stoic Eudaimonism. ' In Kant and Stoic Ethics , edited by M. Merritt. Cambridge: Cambridge University Press.\n\nZetzel, J.E.G., ed. and trans. 1999. Cicero: On the Commonwealth and On the Laws. Cambridge University Press.",
+    "responses": [
+      {
+        "source": "gpt-4o-2024-11-20",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"ADU1\": {\n      \"text\": \"Cicero played an outsized and underappreciated role in the development of the German Enlightenment -or so we argue in this chapter.\",\n      \"label\": \"claim\"\n    },\n    \"ADU2\": {\n      \"text\": \"The case for Cicero ' s importance in this period of intellectual history is more difficult to establish than its Anglophone counterpart.\",\n      \"label\": \"premise\"\n    },\n    \"ADU3\": {\n      \"text\": \"One reason for this is that the Enlightenment in Germany took a different form than it did in the English-speaking world.\",\n      \"label\": \"premise\"\n    },\n    \"ADU4\": {\n      \"text\": \"In Germany, on the other hand, the Enlightenment, at least initially, was propelled mainly by university-based philosophers -largely in the Wolffian tradition.\",\n      \"label\": \"premise\"\n    },\n    \"ADU5\": {\n      \"text\": \"However, direct references to or discussions of Cicero and his works are generally absent in this era of German school philosophy.\",\n      \"label\": \"premise\"\n    },\n    \"ADU6\": {\n      \"text\": \"That Cicero played a vital role for the representatives of so-called ' popular philosophy ' has already been suggested by some scholars.\",\n      \"label\": \"claim\"\n    },\n    \"ADU7\": {\n      \"text\": \"Focusing on a central theme in German philosophy in the second half of the eighteenth century -the human vocation ( Bestimmung des Menschen ) -we illustrate in concrete terms the monumental influence Cicero had on the trajectory of the German Enlightenment.\",\n      \"label\": \"claim\"\n    },\n    \"ADU8\": {\n      \"text\": \"The impact of Christian Wolff ' s philosophy on the development of the German Enlightenment can hardly be overstated.\",\n      \"label\": \"claim\"\n    },\n    \"ADU9\": {\n      \"text\": \"Popular philosophy as a philosophical movement in Germany is notoriously elusive, in part because its defining feature is its distance from systematic philosophy.\",\n      \"label\": \"premise\"\n    },\n    \"ADU10\": {\n      \"text\": \"Above all else, popular philosophy placed knowledge on the foundation of ' common sense ' or ' sound reason. '\",\n      \"label\": \"premise\"\n    },\n    \"ADU11\": {\n      \"text\": \"In this context, a theme later sloganized as the ' human vocation ' ( Bestimmung des Menschen ) gained particular importance.\",\n      \"label\": \"claim\"\n    },\n    \"ADU12\": {\n      \"text\": \"The importance of this topic for this period of intellectual history is undisputed.\",\n      \"label\": \"claim\"\n    },\n    \"ADU13\": {\n      \"text\": \"Its historical roots, however, are less clear.\",\n      \"label\": \"premise\"\n    },\n    \"ADU14\": {\n      \"text\": \"While its connection to antiquity is obvious -not least because of Spalding ' s direct references -scholars have so far tended to make vague references to Stoic influence.\",\n      \"label\": \"premise\"\n    },\n    \"ADU15\": {\n      \"text\": \"In the next section, we examine this presumed Stoic origin while also giving serious consideration to Spalding ' s explicit reference to Cicero ' s De legibus.\",\n      \"label\": \"claim\"\n    },\n    \"ADU16\": {\n      \"text\": \"In so doing we aim to demonstrate that Cicero provided an impetus and stimulus for Spalding ' s own reflections on the human vocation.\",\n      \"label\": \"claim\"\n    },\n    \"ADU17\": {\n      \"text\": \"By extension, Cicero also played a crucial role in the development of German philosophy in the second half of the eighteenth century.\",\n      \"label\": \"claim\"\n    },\n    \"ADU18\": {\n      \"text\": \"As mentioned above, the only three authors Spalding explicitly refers to in the first edition of his text all hail from the ancient Roman world: Horace, Persius, and Cicero.\",\n      \"label\": \"premise\"\n    },\n    \"ADU19\": {\n      \"text\": \"One connection between this otherwise unlikely trio stands out: each of the three is connected in a prominent way with a Hellenistic philosophical school.\",\n      \"label\": \"premise\"\n    },\n    \"ADU20\": {\n      \"text\": \"It is particularly noteworthy that Spalding ' s essay mirrors the ring composition of this passage from Cicero: introspection and self-knowledge are ultimately connected, after a series of stages, with awareness of cosmic order and divine providence.\",\n      \"label\": \"claim\"\n    },\n    \"ADU21\": {\n      \"text\": \"Christian Garve was one of the most influential philosophers in Germany in the second half of the eighteenth century.\",\n      \"label\": \"claim\"\n    },\n    \"ADU22\": {\n      \"text\": \"Garve, who was also in close contact with Spalding, pursued a project making the philosophical ideas of the Enlightenment accessible to a wider audience in a popularizing form.\",\n      \"label\": \"premise\"\n    },\n    \"ADU23\": {\n      \"text\": \"In pursuit of this end Garve translated and commented in detail on well-known and esteemed works of philosophy.\",\n      \"label\": \"premise\"\n    },\n    \"ADU24\": {\n      \"text\": \"It has been known for some time that Cicero was an important model for the popular philosophy movement, which exerted considerable influence on the development of German philosophy in the second half of the eighteenth century.\",\n      \"label\": \"claim\"\n    },\n    \"ADU25\": {\n      \"text\": \"The exact nature of this influence, however, has up to this point remained obscure.\",\n      \"label\": \"premise\"\n    },\n    \"ADU26\": {\n      \"text\": \"In this chapter we have shown in concrete terms how Cicero ' s legacy is reflected in two prominent popular philosophers and in a central question of the time, namely the question of the human vocation.\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"ADU2\",\n      \"target\": \"ADU1\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU3\",\n      \"target\": \"ADU2\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU4\",\n      \"target\": \"ADU3\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU5\",\n      \"target\": \"ADU1\",\n      \"type\": \"attack\"\n    },\n    {\n      \"source\": \"ADU7\",\n      \"target\": \"ADU6\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU10\",\n      \"target\": \"ADU9\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU11\",\n      \"target\": \"ADU9\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU13\",\n      \"target\": \"ADU12\",\n      \"type\": \"attack\"\n    },\n    {\n      \"source\": \"ADU14\",\n      \"target\": \"ADU13\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU16\",\n      \"target\": \"ADU15\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU17\",\n      \"target\": \"ADU16\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU19\",\n      \"target\": \"ADU18\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU20\",\n      \"target\": \"ADU16\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU22\",\n      \"target\": \"ADU21\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU23\",\n      \"target\": \"ADU22\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU25\",\n      \"target\": \"ADU24\",\n      \"type\": \"attack\"\n    },\n    {\n      \"source\": \"ADU26\",\n      \"target\": \"ADU24\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "ADU1": {
+              "text": "Cicero played an outsized and underappreciated role in the development of the German Enlightenment -or so we argue in this chapter.",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "The case for Cicero ' s importance in this period of intellectual history is more difficult to establish than its Anglophone counterpart.",
+              "label": "premise"
+            },
+            "ADU3": {
+              "text": "One reason for this is that the Enlightenment in Germany took a different form than it did in the English-speaking world.",
+              "label": "premise"
+            },
+            "ADU4": {
+              "text": "In Germany, on the other hand, the Enlightenment, at least initially, was propelled mainly by university-based philosophers -largely in the Wolffian tradition.",
+              "label": "premise"
+            },
+            "ADU5": {
+              "text": "However, direct references to or discussions of Cicero and his works are generally absent in this era of German school philosophy.",
+              "label": "premise"
+            },
+            "ADU6": {
+              "text": "That Cicero played a vital role for the representatives of so-called ' popular philosophy ' has already been suggested by some scholars.",
+              "label": "claim"
+            },
+            "ADU7": {
+              "text": "Focusing on a central theme in German philosophy in the second half of the eighteenth century -the human vocation ( Bestimmung des Menschen ) -we illustrate in concrete terms the monumental influence Cicero had on the trajectory of the German Enlightenment.",
+              "label": "claim"
+            },
+            "ADU8": {
+              "text": "The impact of Christian Wolff ' s philosophy on the development of the German Enlightenment can hardly be overstated.",
+              "label": "claim"
+            },
+            "ADU9": {
+              "text": "Popular philosophy as a philosophical movement in Germany is notoriously elusive, in part because its defining feature is its distance from systematic philosophy.",
+              "label": "premise"
+            },
+            "ADU10": {
+              "text": "Above all else, popular philosophy placed knowledge on the foundation of ' common sense ' or ' sound reason. '",
+              "label": "premise"
+            },
+            "ADU11": {
+              "text": "In this context, a theme later sloganized as the ' human vocation ' ( Bestimmung des Menschen ) gained particular importance.",
+              "label": "claim"
+            },
+            "ADU12": {
+              "text": "The importance of this topic for this period of intellectual history is undisputed.",
+              "label": "claim"
+            },
+            "ADU13": {
+              "text": "Its historical roots, however, are less clear.",
+              "label": "premise"
+            },
+            "ADU14": {
+              "text": "While its connection to antiquity is obvious -not least because of Spalding ' s direct references -scholars have so far tended to make vague references to Stoic influence.",
+              "label": "premise"
+            },
+            "ADU15": {
+              "text": "In the next section, we examine this presumed Stoic origin while also giving serious consideration to Spalding ' s explicit reference to Cicero ' s De legibus.",
+              "label": "claim"
+            },
+            "ADU16": {
+              "text": "In so doing we aim to demonstrate that Cicero provided an impetus and stimulus for Spalding ' s own reflections on the human vocation.",
+              "label": "claim"
+            },
+            "ADU17": {
+              "text": "By extension, Cicero also played a crucial role in the development of German philosophy in the second half of the eighteenth century.",
+              "label": "claim"
+            },
+            "ADU18": {
+              "text": "As mentioned above, the only three authors Spalding explicitly refers to in the first edition of his text all hail from the ancient Roman world: Horace, Persius, and Cicero.",
+              "label": "premise"
+            },
+            "ADU19": {
+              "text": "One connection between this otherwise unlikely trio stands out: each of the three is connected in a prominent way with a Hellenistic philosophical school.",
+              "label": "premise"
+            },
+            "ADU20": {
+              "text": "It is particularly noteworthy that Spalding ' s essay mirrors the ring composition of this passage from Cicero: introspection and self-knowledge are ultimately connected, after a series of stages, with awareness of cosmic order and divine providence.",
+              "label": "claim"
+            },
+            "ADU21": {
+              "text": "Christian Garve was one of the most influential philosophers in Germany in the second half of the eighteenth century.",
+              "label": "claim"
+            },
+            "ADU22": {
+              "text": "Garve, who was also in close contact with Spalding, pursued a project making the philosophical ideas of the Enlightenment accessible to a wider audience in a popularizing form.",
+              "label": "premise"
+            },
+            "ADU23": {
+              "text": "In pursuit of this end Garve translated and commented in detail on well-known and esteemed works of philosophy.",
+              "label": "premise"
+            },
+            "ADU24": {
+              "text": "It has been known for some time that Cicero was an important model for the popular philosophy movement, which exerted considerable influence on the development of German philosophy in the second half of the eighteenth century.",
+              "label": "claim"
+            },
+            "ADU25": {
+              "text": "The exact nature of this influence, however, has up to this point remained obscure.",
+              "label": "premise"
+            },
+            "ADU26": {
+              "text": "In this chapter we have shown in concrete terms how Cicero ' s legacy is reflected in two prominent popular philosophers and in a central question of the time, namely the question of the human vocation.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU2",
+              "target": "ADU1",
+              "type": "support"
+            },
+            {
+              "source": "ADU3",
+              "target": "ADU2",
+              "type": "support"
+            },
+            {
+              "source": "ADU4",
+              "target": "ADU3",
+              "type": "support"
+            },
+            {
+              "source": "ADU5",
+              "target": "ADU1",
+              "type": "attack"
+            },
+            {
+              "source": "ADU7",
+              "target": "ADU6",
+              "type": "support"
+            },
+            {
+              "source": "ADU10",
+              "target": "ADU9",
+              "type": "support"
+            },
+            {
+              "source": "ADU11",
+              "target": "ADU9",
+              "type": "support"
+            },
+            {
+              "source": "ADU13",
+              "target": "ADU12",
+              "type": "attack"
+            },
+            {
+              "source": "ADU14",
+              "target": "ADU13",
+              "type": "support"
+            },
+            {
+              "source": "ADU16",
+              "target": "ADU15",
+              "type": "support"
+            },
+            {
+              "source": "ADU17",
+              "target": "ADU16",
+              "type": "support"
+            },
+            {
+              "source": "ADU19",
+              "target": "ADU18",
+              "type": "support"
+            },
+            {
+              "source": "ADU20",
+              "target": "ADU16",
+              "type": "support"
+            },
+            {
+              "source": "ADU22",
+              "target": "ADU21",
+              "type": "support"
+            },
+            {
+              "source": "ADU23",
+              "target": "ADU22",
+              "type": "support"
+            },
+            {
+              "source": "ADU25",
+              "target": "ADU24",
+              "type": "attack"
+            },
+            {
+              "source": "ADU26",
+              "target": "ADU24",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "ADU1": {
+              "text": "Cicero played an outsized and underappreciated role in the development of the German Enlightenment -or so we argue in this chapter.",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "The case for Cicero ' s importance in this period of intellectual history is more difficult to establish than its Anglophone counterpart.",
+              "label": "premise"
+            },
+            "ADU3": {
+              "text": "One reason for this is that the Enlightenment in Germany took a different form than it did in the English-speaking world.",
+              "label": "premise"
+            },
+            "ADU4": {
+              "text": "In Germany, on the other hand, the Enlightenment, at least initially, was propelled mainly by university-based philosophers -largely in the Wolffian tradition.",
+              "label": "premise"
+            },
+            "ADU5": {
+              "text": "However, direct references to or discussions of Cicero and his works are generally absent in this era of German school philosophy.",
+              "label": "premise"
+            },
+            "ADU6": {
+              "text": "That Cicero played a vital role for the representatives of so-called ' popular philosophy ' has already been suggested by some scholars.",
+              "label": "claim"
+            },
+            "ADU7": {
+              "text": "Focusing on a central theme in German philosophy in the second half of the eighteenth century -the human vocation ( Bestimmung des Menschen ) -we illustrate in concrete terms the monumental influence Cicero had on the trajectory of the German Enlightenment.",
+              "label": "claim"
+            },
+            "ADU8": {
+              "text": "The impact of Christian Wolff ' s philosophy on the development of the German Enlightenment can hardly be overstated.",
+              "label": "claim"
+            },
+            "ADU9": {
+              "text": "Popular philosophy as a philosophical movement in Germany is notoriously elusive, in part because its defining feature is its distance from systematic philosophy.",
+              "label": "premise"
+            },
+            "ADU10": {
+              "text": "Above all else, popular philosophy placed knowledge on the foundation of ' common sense ' or ' sound reason. '",
+              "label": "premise"
+            },
+            "ADU11": {
+              "text": "In this context, a theme later sloganized as the ' human vocation ' ( Bestimmung des Menschen ) gained particular importance.",
+              "label": "claim"
+            },
+            "ADU12": {
+              "text": "The importance of this topic for this period of intellectual history is undisputed.",
+              "label": "claim"
+            },
+            "ADU13": {
+              "text": "Its historical roots, however, are less clear.",
+              "label": "premise"
+            },
+            "ADU14": {
+              "text": "While its connection to antiquity is obvious -not least because of Spalding ' s direct references -scholars have so far tended to make vague references to Stoic influence.",
+              "label": "premise"
+            },
+            "ADU15": {
+              "text": "In the next section, we examine this presumed Stoic origin while also giving serious consideration to Spalding ' s explicit reference to Cicero ' s De legibus.",
+              "label": "claim"
+            },
+            "ADU17": {
+              "text": "By extension, Cicero also played a crucial role in the development of German philosophy in the second half of the eighteenth century.",
+              "label": "claim"
+            },
+            "ADU18": {
+              "text": "As mentioned above, the only three authors Spalding explicitly refers to in the first edition of his text all hail from the ancient Roman world: Horace, Persius, and Cicero.",
+              "label": "premise"
+            },
+            "ADU19": {
+              "text": "One connection between this otherwise unlikely trio stands out: each of the three is connected in a prominent way with a Hellenistic philosophical school.",
+              "label": "premise"
+            },
+            "ADU21": {
+              "text": "Christian Garve was one of the most influential philosophers in Germany in the second half of the eighteenth century.",
+              "label": "claim"
+            },
+            "ADU22": {
+              "text": "Garve, who was also in close contact with Spalding, pursued a project making the philosophical ideas of the Enlightenment accessible to a wider audience in a popularizing form.",
+              "label": "premise"
+            },
+            "ADU23": {
+              "text": "In pursuit of this end Garve translated and commented in detail on well-known and esteemed works of philosophy.",
+              "label": "premise"
+            },
+            "ADU24": {
+              "text": "It has been known for some time that Cicero was an important model for the popular philosophy movement, which exerted considerable influence on the development of German philosophy in the second half of the eighteenth century.",
+              "label": "claim"
+            },
+            "ADU25": {
+              "text": "The exact nature of this influence, however, has up to this point remained obscure.",
+              "label": "premise"
+            },
+            "ADU26": {
+              "text": "In this chapter we have shown in concrete terms how Cicero ' s legacy is reflected in two prominent popular philosophers and in a central question of the time, namely the question of the human vocation.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU2",
+              "target": "ADU1",
+              "type": "support"
+            },
+            {
+              "source": "ADU3",
+              "target": "ADU2",
+              "type": "support"
+            },
+            {
+              "source": "ADU4",
+              "target": "ADU3",
+              "type": "support"
+            },
+            {
+              "source": "ADU5",
+              "target": "ADU1",
+              "type": "attack"
+            },
+            {
+              "source": "ADU7",
+              "target": "ADU6",
+              "type": "support"
+            },
+            {
+              "source": "ADU10",
+              "target": "ADU9",
+              "type": "support"
+            },
+            {
+              "source": "ADU11",
+              "target": "ADU9",
+              "type": "support"
+            },
+            {
+              "source": "ADU13",
+              "target": "ADU12",
+              "type": "attack"
+            },
+            {
+              "source": "ADU14",
+              "target": "ADU13",
+              "type": "support"
+            },
+            {
+              "source": "ADU19",
+              "target": "ADU18",
+              "type": "support"
+            },
+            {
+              "source": "ADU22",
+              "target": "ADU21",
+              "type": "support"
+            },
+            {
+              "source": "ADU23",
+              "target": "ADU22",
+              "type": "support"
+            },
+            {
+              "source": "ADU25",
+              "target": "ADU24",
+              "type": "attack"
+            },
+            {
+              "source": "ADU26",
+              "target": "ADU24",
+              "type": "support"
+            }
+          ]
+        }
+      },
+      {
+        "source": "claude-3-5-sonnet-20241022",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"A1\": {\n      \"text\": \"Cicero played an outsized and underappreciated role in the development of the German Enlightenment -or so we argue in this chapter.\",\n      \"label\": \"claim\"\n    },\n    \"A2\": {\n      \"text\": \"The case for Cicero's importance in this period of intellectual history is more difficult to establish than its Anglophone counterpart.\",\n      \"label\": \"claim\"\n    },\n    \"A3\": {\n      \"text\": \"In the English-speaking world, the Enlightenment was conducted almost exclusively by non-professional philosophical writers (i.e., by intellectuals who were not firmly embedded within institutions of higher learning). In Germany, on the other hand, the Enlightenment, at least initially, was propelled mainly by university-based philosophers -largely in the Wolffian tradition.\",\n      \"label\": \"premise\"\n    },\n    \"A4\": {\n      \"text\": \"That Cicero played a vital role for the representatives of so-called 'popular philosophy' has already been suggested by some scholars.\",\n      \"label\": \"premise\"\n    },\n    \"A5\": {\n      \"text\": \"Popular philosophy as a philosophical movement in Germany is notoriously elusive, in part because its defining feature is its distance from systematic philosophy. However, it is not traditional philosophical content that was rejected, but its recent scholastic mode of presentation. Above all else, popular philosophy placed knowledge on the foundation of 'common sense' or 'sound reason.'\",\n      \"label\": \"claim\"\n    },\n    \"A6\": {\n      \"text\": \"The exact nature of this influence, however, has up to this point remained obscure.\",\n      \"label\": \"premise\"\n    },\n    \"A7\": {\n      \"text\": \"As Popularphilosophen with common sense as their guide, they were eager to preserve the wisdom and truth contained in all philosophical systems of the past.\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"A3\",\n      \"target\": \"A2\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A4\",\n      \"target\": \"A1\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A6\",\n      \"target\": \"A1\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A5\",\n      \"target\": \"A7\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "A1": {
+              "text": "Cicero played an outsized and underappreciated role in the development of the German Enlightenment -or so we argue in this chapter.",
+              "label": "claim"
+            },
+            "A2": {
+              "text": "The case for Cicero's importance in this period of intellectual history is more difficult to establish than its Anglophone counterpart.",
+              "label": "claim"
+            },
+            "A3": {
+              "text": "In the English-speaking world, the Enlightenment was conducted almost exclusively by non-professional philosophical writers (i.e., by intellectuals who were not firmly embedded within institutions of higher learning). In Germany, on the other hand, the Enlightenment, at least initially, was propelled mainly by university-based philosophers -largely in the Wolffian tradition.",
+              "label": "premise"
+            },
+            "A4": {
+              "text": "That Cicero played a vital role for the representatives of so-called 'popular philosophy' has already been suggested by some scholars.",
+              "label": "premise"
+            },
+            "A5": {
+              "text": "Popular philosophy as a philosophical movement in Germany is notoriously elusive, in part because its defining feature is its distance from systematic philosophy. However, it is not traditional philosophical content that was rejected, but its recent scholastic mode of presentation. Above all else, popular philosophy placed knowledge on the foundation of 'common sense' or 'sound reason.'",
+              "label": "claim"
+            },
+            "A6": {
+              "text": "The exact nature of this influence, however, has up to this point remained obscure.",
+              "label": "premise"
+            },
+            "A7": {
+              "text": "As Popularphilosophen with common sense as their guide, they were eager to preserve the wisdom and truth contained in all philosophical systems of the past.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "A3",
+              "target": "A2",
+              "type": "support"
+            },
+            {
+              "source": "A4",
+              "target": "A1",
+              "type": "support"
+            },
+            {
+              "source": "A6",
+              "target": "A1",
+              "type": "support"
+            },
+            {
+              "source": "A5",
+              "target": "A7",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "A1": {
+              "text": "Cicero played an outsized and underappreciated role in the development of the German Enlightenment -or so we argue in this chapter.",
+              "label": "claim"
+            },
+            "A2": {
+              "text": "The case for Cicero's importance in this period of intellectual history is more difficult to establish than its Anglophone counterpart.",
+              "label": "claim"
+            },
+            "A4": {
+              "text": "That Cicero played a vital role for the representatives of so-called 'popular philosophy' has already been suggested by some scholars.",
+              "label": "premise"
+            },
+            "A5": {
+              "text": "Popular philosophy as a philosophical movement in Germany is notoriously elusive, in part because its defining feature is its distance from systematic philosophy. However, it is not traditional philosophical content that was rejected, but its recent scholastic mode of presentation. Above all else, popular philosophy placed knowledge on the foundation of 'common sense' or 'sound reason.'",
+              "label": "claim"
+            },
+            "A6": {
+              "text": "The exact nature of this influence, however, has up to this point remained obscure.",
+              "label": "premise"
+            },
+            "A7": {
+              "text": "As Popularphilosophen with common sense as their guide, they were eager to preserve the wisdom and truth contained in all philosophical systems of the past.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "A4",
+              "target": "A1",
+              "type": "support"
+            },
+            {
+              "source": "A6",
+              "target": "A1",
+              "type": "support"
+            },
+            {
+              "source": "A5",
+              "target": "A7",
+              "type": "support"
+            }
+          ]
+        }
+      }
+    ],
+    "timestamp": 1752751304.4198143
+  }
+]

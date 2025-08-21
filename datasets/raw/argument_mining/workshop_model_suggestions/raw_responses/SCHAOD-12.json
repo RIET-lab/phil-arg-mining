@@ -1,0 +1,477 @@
+[
+  {
+    "identifier": "SCHAOD-12",
+    "system_prompt": "## GOAL\nArgument‑mine the following paper to extract its comprehensive argumentative structure.\n\n## DEFINITIONS\n1. **Argument**: A set of propositions, including some number of premises and a conclusion. The premises should logically entail the conclusion.\n2. **Claim**: A proposition that asserts something to be true or false, typically requiring justification or evidence.\n3. **Premise**: A proposition that provides evidence, justification, or logical support for a claim or conclusion.\n\n## CRITICAL REQUIREMENTS\n1. **VERBATIM EXTRACTION ONLY**: Each ADU text must be copied EXACTLY from the paper with no modifications, paraphrasing, or combining of separate sentences.\n2. **NO HALLUCINATION**: Do not create, modify, or invent text that does not appear exactly in the source.\n3. **EXACT MATCHING**: Every word, punctuation mark, and spacing must match the original precisely.\n\n## DIRECTIONS\n1. **Identify Argumentative Discourse Units (ADUs)**  \n   - ADU = any contiguous text span functioning as a claim or a premise in the reasoning structure.\n   - **BE HIGHLY SELECTIVE**: Only include ADUs that are crucial to the overarching argument structure.\n   - Focus on significant claims and premises that contribute meaningfully to the argumentative flow.\n   - **AVOID NOISE**: Skip ADUs that are merely descriptive, tangential, or do not substantially advance the argument.\n   - Prioritize quality over quantity - fewer accurate, important ADUs are better than many insignificant ones.\n   - **EXTRACT ONLY**: Copy text spans exactly as they appear, without any modifications.\n2. **Classify each ADU**  \n   - Label = either `\"claim\"` or `\"premise\"`.  \n3. **Detect directed relations**  \n   - Relation = `\"support\"` or `\"attack\"`, from one ADU (source) to another (target).\n   - Map how ADUs connect to form reasoning chains.\n   - Focus on relationships between the most significant ADUs.\n   - Include relationships between premises that strengthen or weaken each other.\n4. **Verbatim spans**  \n   - Each `\"text\"` value must be copied EXACTLY from the paper with zero modifications.\n   - Do not paraphrase, summarize, or combine separate sentences.\n   - Do not add, remove, or change any words, punctuation, or spacing.\n   - If unsure about exact wording, skip that ADU rather than guess.\n\n## WHAT TO CAPTURE\n**INCLUDE ONLY:**\n- Main argumentative threads that are central to the paper's contribution\n- Core claims that represent the paper's primary arguments or findings\n- Key premises that provide essential support for major claims\n- Critical counterarguments and their refutations\n- Reasoning chains that demonstrate how main conclusions are derived\n\n**EXCLUDE (AVOID NOISE):**\n- Minor details, examples, or descriptive content that don't advance the argument\n- Tangential points or side discussions\n- Pure background information or literature review content\n- Methodological details unless they constitute argumentative claims\n- Obvious statements or commonly accepted facts\n- Redundant or repetitive argumentative content\n\n**GUIDING PRINCIPLE**: If removing an ADU would not significantly impact understanding of the paper's argumentative structure, it should be excluded.\n\n## QUALITY CONTROL\n- Before finalizing each ADU, verify the text exists exactly in the source\n- Prefer fewer, accurate ADUs over many potentially modified ones\n- When in doubt about exact wording, omit the ADU\n\n## OUTPUT FORMAT\nReturn **only** a single valid JSON object matching this schema.  \nDo **not** output any extra text, markdown, or explanations.\nDo **not** add comments.\n**RESPOND WITH ONLY**:\n```json\n{\n  \"ADUs\": {\n    \"<ADU_ID>\": {\n      \"text\": \"<exact span from paper>\",\n      \"label\": \"claim\" | \"premise\"\n    }\n    ...\n  },\n  \"relations\": [\n    {\n      \"source\": \"<ADU_ID>\",\n      \"target\": \"<ADU_ID>\",\n      \"type\": \"support\" | \"attack\"\n    }\n  ]\n}\n```",
+    "user_content": "## Acts of Desire *\n\n## Henry Ian Schiller\n\n(forthcoming in Inquiry)\n\nAbstract Act-based theories of content hold that propositions are identical to acts of predication that we perform in thought and talk. To undergo an occurrent thought with a particular content just is to perform the act of predication that individuates that content. But identifying the content of a thought with the performance of an act of predication makes it difficult to explain the intentionality of bouletic mental activity, like wanting and desiring. In this paper, I argue that this difficulty is insurmountable: the contents of occurrent desires cannot be determined by acts of predication.\n\nKeywords: occurrent attitudes; desire; propositions; act theory; intentionality; mental representation\n\n## 1 Introduction\n\nMy aim in this paper is to show that a plausible account of how thoughts get their contents (a solution to the problem of 'cognitive contact') cannot explain how desires get their contents. 1 The account in question says that to have an occurrent thought is to perform an act of predication, and that thoughts have the contents they do because we perform acts of predication that individuate those contents. I argue that\n\n* Thanks to Ray Buchanan, Bryce Dalbey, Maegan Fairchild, Cory Juhl, Alex Rausch, and Mark Sainsbury.\n\n1 Here and throughout I use 'thought' to refer to an occurrent, representational mental event, rather than the content of that event.\n\nperforming an act of predication is not a necessary condition on having an occurrent desire, and that having an occurrent desire is not an act of predication.\n\nAt the very least this raises a question about how such attitudes make contact with propositions. This also makes significant trouble for the act theory of content, which holds that propositions are types of activities we perform when we speak and think. Act-theoretic accounts of content hold that propositions are structured entities whose constituents are cognitive acts that individuate objects and properties (acts of referring to objects and expressing properties). 2 Act theories have recently been defended by Peter Hanks (2011, 2015) and Scott Soames (2013, 2014, 2015, 2016). 3\n\nThough their views differ in several crucial respects, both Hanks and Soames agree that propositions are identical to acts of predication , whereby an agent combines reference to an object and expression of a property. 4 The proposition that a is F is identical to the act of predicating Fness of a (Soames 2015, p. 16). Stephen Schiffer nicely articulates the explanatory aims of the act theory of content:\n\n[R]ather than take the disastrous course of locating the source of intentionality in the propositions agents entertain when they predicate a property F of a thing o and then explaining an agent's predicating\n\n2 In this paper, 'mental content', 'content', and 'propositions' are used interchangeably. However, these things are distinguished wherever possible from truth conditional mental content, content, and propositions. This will not matter a whole lot for our purposes, but it reflects an idiosyncracy of Hanks' view.\n\n3 See also Recanati 2019, Reiland 2012. Ancestors of this view can be found in the work of Searle (1969) and Strawson (1950) on performance based conceptions of meaning and expressive accounts of reference, respectively.\n\n4 As we will see in the next section, even this is a bit quick; it would be more appropriate to say that both agree that propositions are identical to acts of reference and expression performed under some 'mode of combination' (Hanks 2015, p. 26), such as predicating.\n\nF of o in terms of her entertaining a proposition that predicates F of o, we should instead reverse the direction of explanation and locate the source of intentionality in the agent's predicating F of o and then explain how the proposition she entertains can predicate F of o in terms of the agent's predicating F of o (Schiffer 2016, p. 8).\n\nThinking is a kind of doing, and what you do in a particular instance of thinking (episode of thought) determines the content of your thought.\n\nTaking propositions to be cognitive acts means holding that our basic cognitive contact with propositions comes via a particular type of occurrent mental activity. This gives us a compelling answer to the question of how our thoughts come to have the propositional contents that they do. In order to think that p , an agent has to perform an act of predication that individuates p . 5\n\nThe act theory of content is thus able to tell a satisfying story about how contents figure into cognition, narrowly construed to cover doxastic attitudes. These include intentional states (like believing that p ) as well as intentional activities (like judging that p or wondering whether p ). 6\n\nIn what follows, I argue that an act theory of content in particular - but also anyone who endorses the view that cognitive contact is a matter of predication will have significant difficulty explaining the intentionality of bouletic attitudes, like desiring, hoping, and wanting. The reason for this is that an agent can undergo such attitudes without any particular act of predication being performed. This paper\n\n5 This idea - that mental activity is what determines the content of a thought - can be adopted by those who reject the stronger claim that the content is identical to that activity (Reiland 2012).\n\n6 I follow Crane (2013) in drawing a distinction between occurrent thoughts, which are like events, and non-occurrent attitudes, which are states.\n\nproceeds as follows. In Section 2 I give a more detailed explanation of act theories of content, and in Section 3 I explain how act theories of content propose to analyze the intentionality of occurrent attitudes. In Section 4 I argue that bouletic attitudes like desire cannot be traced to acts of predication, even when they clearly involve specifiable propositional contents. I conclude the paper by saying some things about why we might think that desires are less intimately cognitively connected with propositional contents than their doxastic counterparts; I suggest a way forward for cognitive conceptions of content (Section 5).\n\n## 2 Act Theories of Content\n\nConsider a sentence expressing a proposition about my pet parrot, Rodrigo: 7\n\n## (1) Rodrigo is red.\n\nThe act theory of content holds that ((1)) is identical to the type of act: predicating the property of being red of Rodrigo. Following Hanks (2011), we can represent this as follows:\n\n## (2) Q <; Rodrigo , RED >;\n\nQ is a placeholder for the attitude type under which the act is performed; Rodrigo is a type of action we perform in referring to Rodrigo; RED is a type of action we perform in expressing the property of redness (Hanks 2011, p. 13). But in thinking\n\n7 I take it that what it is for a structured proposition to be 'about' an object is for it to either have that object - or a concept of that object (Sainsbury 2018), or act of reference to that object (Hanks 2011) - as a constituent (a singular proposition), or for it to denote that object by generalizing over it (a general proposition).\n\nthat Rodrigo is red, it is not as though I identify each of these things (Rodrigo, RED) separately and then combine them: I identify Rodrigo as red. Predicating redness of Rodrigo is thus a type of act that combines an expression of the property of redness with referring to Rodrigo. This type of act can be performed by anyone with the ability to refer to Rodrigo, and the ability to express the property of redness. 8\n\nProposition-individuating cognitive acts can be performed under a number of different representational modalities (presumably any modality under which someone can refer to an object and express a property). For example, someone could perform the proposition that Rodrigo is red by visualizing Rodrigo as red, or through nonvisual imagination, perception, speech, and perhaps even non-conscious cognition. 9 No modality under which we perform an act that individuates the proposition that Rodrigo is red is more fundamental than any other. These are 'different ways of predicating, not different doings in addition to predicating' (Soames 2015, p. 22).\n\nThis still does not tell us anything about what the relevant sense is of combining a property with an object in thought. It is here - on the question of the nature of the combinatorial act Q - where Soames and Hanks disagree. To explain how Q is a\n\n- 8 'Referring' and 'expressing' are, of course, expressions with a lot of their own baggage. We might think of these as acts whereby someone identifies an object or property. This could mean narrowing one's focus to that object (Dickie 2015), tracking that object (Millikan 1984), or directing one's attention, where this is mediated by some sort of an epistemic connection. This is something we do in language, thought, and behavior. Hanks (2015) notes the remarkable case of wasps who are trained to detect TNT; these creatures can 'identify' landmines, and as a result are able to perform the behavioral analogue of something we do in thought.\n- 9 Though Soames holds that occurrent thought can be non-conscious (Soames 2015, p. 21) this is not uncontroversial. Arguments to the contrary can be found in Crane 2013, Mendelovici 2010, and recent work on cognitive phenomenology and phenomenal intentionality. Hanks (2015) suggests that content-individuating cognitive acts are necessarily intentional.\n\nplaceholder for the type of attitude under which an act of predication is performed requires first explaining a distinction between committal (Hanks 2011, 2015) and noncommittal (Soames 2015, 2016) notions of predication.\n\n## 2.1 Committal Predication - Hanks\n\nHanks holds that all proposition-individuating acts of predication are judgments , which involve making a commitment to the truth of that proposition. 10 Hanks takes predication to be a manifestation of our ability to sort objects by their properties - an activity which, on the face of it, appears to commit us to something. Hanks (2011) represent judgments with a ' glyph[turnstileleft] ' operator:\n\n## (3) glyph[turnstileleft] <; Rodrigo , RED >;\n\nAccording to Hanks, the committal force of a judgment is cancelled when, for example, a proposition occurs in the antecedent of a conditional.\n\nHanks holds that there are other proposition-individuating acts besides committal judgment (though in Hanks' idiolect these will not be acts of 'predication'). However, these propositions will have other sorts of satisfaction-conditions besides truthconditions. For example, we might represent acts of inquiring and commanding as follows:\n\n## (4) ? <; Rodrigo , RED >;\n\n10 The notion that all acts of entertaining an object a as F carry a belief-like commitment is somewhat unintutive, but not mplausible. On the 'Spinozan Theory' defended by Mandelbaum (2014), people 'do not have the ability to contemplate propositions that arise in the mind, whether through perception or imagination, before believing them' (p. 61; see also Spinoza 1677). Spinoza's view seems to be exactly what Hanks has in mind, though as far as I know these views have not been compared.\n\n## (5) ! <; Rodrigo , RED >;\n\nWondering whether a is F or hoping that a is F are, for Hanks, ways of combining objects and properties - in speech, thought, and behavior - that do not involve forming a judgment. Forming a judgment that Rodrigo is red is the only way of performing (1). Wondering whether Rodrigo is red and commanding Rodrigo to be red are not ways of performing (1), but they are ways of performing propositions with identical constituents to (1) - those constituents being: an act of referring to Rodrigo and an expression of redness - and with satisfaction conditions that are identical to the truth conditions of (1).\n\n## 2.2 Non-Committal Predication - Soames\n\nSoames, on the other hand, treats predication as a non-committal activity. Soames holds that judgments, questions, and imperatives are each different ways we can perform an act of predication that individuates a proposition. Soames posits a noncommital core component for all of the attitudes - he calls it entertaining - which he describes as 'an act that is performed in various ways by agents who bear any of the more specialized attitudes, in something like the way in which traveling from point A to point B is something one does when one walks, jogs, runs, crawls, or in general moves from A to B' (Soames 2015, p. 223-224). We can represent Soames' non-committal act of predication as follows:\n\n## (6) | <; Rodrigo , RED >;\n\nAccording to Soames, acts of predication can be committal (judgments), but they can be non-committal as well, such as when one merely imagines, or visualizes\n\nsomething. Acts of predication can also be things that do not seem truth-evaluable at all: inquisitive acts like wondering or questioning, and bouletic acts like desiring or wanting. However, Soames holds that the acts of entertaining performed by these atttitude types still individuate truth-conditional contents. 11\n\nSoames is a bit less upfront than Hanks about what predication is meant to be. As Schiffer (2016) notes:\n\nTo perform a cognitive proposition one 'identifies' an object o, 'identifies' a property f , and then one predicates f of o, but 'these actions needn't be either ones we intentionally perform or ones of which we're consciously aware ... Soames doesn't define what it is to 'identify' an object or a property, and he doesn't define what it is for an agent to predicate a property of a thing' (S3)\n\nThus, the predication of redness of Rodrigo is simply that thing which is common to all the different ways in which we might have a thought with the propositional content that Rodrigo is red (i.e., a thought that represents Rodrigo as red). On Soames' picture we might think of predicating as a kind of thinking about something\n\n11 At first pass it might seem like what Soames calls 'judge' Hanks calls 'predicate', and what Hanks thinks of as 'combining a property with an object' (2015; p. 25), Soames calls 'predicate'. Note that this does not settle the main difference between Hanks and Soames, which is that Soames holds that there are force-neutral acts of mere entertaining, and Hanks holds that even these are judgments. (Even this does not quite get to the heart of things. For Soames a judgment can be thought of as a distinctive event of predicating and an evaluation of that event, whereas for Hanks this position is incoherent. However, Soames also notes that he is inclined towards a view on which judgments are simply a special way of entertaining - a position he seems to double down on in Soames 2016 - in which case his and Hanks' disagreement is over the existence of a certain kind of thought: entertaining.)\n\nas something; an act whereby an agent represents an object as possessing some property, either to herself or to someone else. Drawing Rodrigo with a red crayon, commanding Rodrigo 'Be red!', asking if Rodrigo is red, are all ways of representing Rodrigo as red, and thus ways of predicating redness of Rodrigo (and thus ways of performing (1)).\n\n## 3 Occurrent Attitudes and Standing States\n\nPropositions play two different roles in a theory of mental representation: they are the objects of standing mental states and also the objects of occurrent attitudes . Standing mental states persist in an individual regardless of her current mental activity. As Crane (2013) puts it, a standing mental state 'persists beyond its manifestations' (p. 10). A person can be truthfully ascribed with the belief that there is cake in the fridge regardless of whether she is currently thinking about cake or the fridge. The ascription can even be true when the subject is asleep.\n\nThe act theory of content holds that propositions are individuated by occurrent mental activity. As such, the act theory of content is first and foremost a theory of the intentionality of occurrent mental events. We come into cognitive contact with propositions by performing the attitudes that individuate those propositions.\n\nOccurrent attitudes are temporally extended manifestations of standing mental states. They are events with a start and finish; occurrences with a temporal location. 12 Occurrent attitudes are active , where this is to be understood in the following way: a\n\n12 Bartlett (2017) notes that philosophers have often tried to characterize occurrent attitudes by the fact that they are attitudes which are conscious to the agent undergoing them, whereas standing mental states are not (Crane 2013, Gertler 2011, Kriegel 2011). Soames (2015) explicitly rejects this distinction (see also Bartlett 2017, Tye &; Wright 2011).\n\nthought's being active is a necessary condition on its affecting rational action. An attitude is active if it plays some role in deliberation or rational action (Bartlett 2017, Goldman 1970). Goldman states that 'an occurrent want is a mental event or mental process' (Goldman 1970, 86) that underwrites an agent's rational behavior.\n\nThe picture of occurrent cognitive attitudes we end up with will be slightly different depending on which version of the act theory you endorse. Below is what each version of the theory says about occurrent attitudes with truth-conditional contents.\n\n- Noncommittal (Soames): Truth-conditional contents can be individuated by acts of predication with different attitudinal components. 13 Every occurrent attitude just is an act of predication (entertaining a as F ) that individuates a proposition.\n- Committal (Hanks): Truth-conditional contents can only be individuated by judgments (occurrent attitudes which commit us to a combination of object and property); other occurrent attitudes with truth-conditional contents are different ways of expressing judgments. Other occurrent attitudes may have non-truth-conditional contents, and these may be individuated differently.\n\nFor Soames, having a desire that p (where p is a truth-conditional content) will involve a non-committal act of predication. To desire that Rodrigo be blue just is to perform the following act of predication in a particular way:\n\n- (7) | <; Rodrigo , BLUE >;\n\n13 I borrow the notion of an 'attitudinal component' from (Crane 2013).\n\nFor Hanks, desiring that p will involve a committal act of predication, the commitment of which is then cancelled. Thus, the desire that Rodrigo be blue involves the performance of:\n\n## (8) glyph[turnstileleft] <; Rodrigo , BLUE >;\n\nBefore moving on, it is worth noting that Hanks (2015) suggests (albeit briefly) an alternative picture of desiring, which I think brings his view a lot closer to Soames'. Hanks suggests that desiring involves mentally performing an imperative. To desire that Rodrigo be blue is to perform:\n\n## (9) ! <; Rodrigo , BLUE >;\n\nThat is: it is to mentally direct Rodrigo to be blue. 14 Whatever performing a mental imperative is, it must involve 'combining a property with an object' in thought. Thus, we can treat this as an instance (albeit a very specific one) of Soames' notion of noncommittal predication. The only difference will be that Hanks takes the activity in (10) to individuate a proposition with satisfaction conditions but not truth-conditions.\n\nNevertheless, to refute Soames' claim that occurrent desire involves entertaining an object a as F is also to refute Hanks' claim that occurrent desire involves 'combining' a and F in thought. On either view, cognitive contact with propositions comes via occurrent attitudes, and on either view occurrent attitudes involve the combination in thought of object and property. 15\n\n14 This suggestion bears some resemblance to recent work connecting pain with imperatival content;\n\nsee (Klein 2015) or, for an even more recent piece, see (Barlassina &; Hayward forthcoming).\n\n15 Much of the discussion surrounding mental representation is focused on standing mental states (especially belief). Other theorists have appealed to a notion of basic cognitive contact which they\n\n## 4 Underspecified Desires\n\nOne of the central claims of the act theory of content is that intentional mental activity has the content it does in virtue of an act of predication (where one combines object and property in thought) being performed. But not all intentional mental activity with propositional content seems to involve combining objects with properties in thought.\n\nThe theory of cognitive contact provided by the act theory must extend to bouletic attitudes ; these are attitudes - like hope, want, desire - which are aimed at the obtainment of an object or the realization of a state of affairs (Anscombe 1963). To undergo an occurrent desire is to undergo mental activity with a particular intentionality. To undergo an occurrent desire that p is to undergo mental activity with the intentionality p , and thus for the act theorist it is to perform an act of predication which individuates p .\n\nIn this section I argue that the act theory of propositions cannot explain how occurrent desires have propositional content: it is possible to come up with cases of occurrent desire which are such that it is clear that the occurrent desire has a content, but it is not clear how this can be explained by an act of predication. If a desire has a call 'entertaining', but which they do not treat as an occurrent activity (see, for example, (Bach 1997, Goodman forthcoming, Kamp 1990, Rattan 2016)). That is to say: it is standing mental states, not occurrent attitudes, which have generally been the focus of discussion about intentionality (though this is not without exception; see (Audi 1994, Bartlett 2017, Crane 2013, Goldman 1970)). The act theory of content treats standing mental states as dispositions to undergo occurrent attitudes (Soames 2015, 2016). This version of what has been called 'dispositionalism' about mental states has some general appeal in the philosophy of mind, especially among proponents of phenomenal intentionality (see, for example, (Bourget 2010, Kriegel 2011, Searle 1983); see (Schiller forthcoming) for a recent argument against this version of dispositionalism).\n\ncontent p but p is not performed by the agent undergoing that desire, then cognitive contact does not come throught he performace of p . Again: this is a big deal for anyone hoping to locate the source of the intentionality of mental states in occurrent episodes of thinking.\n\nFirst, I will give a case where the content of the desire and what it seems plausible that an agent is predicating do not match. I will argue that the desiring something can figure into an explanation of an agent's rational action regardles of whether they perform the proposition or not. Second, I will give a case where any number of propositions seem to plausibly characterize an agent's manifest desire, but it is implausible that each of these represents a distinct cognitive act she is undergoing.\n\n## 4.1 Mismatch Case\n\nThe act theory holds that occurrently desiring that a is F must involve an act of predicating Fness of a (either in some committal sense, such as when we assert that a is F , or some non-committal sense, such as when we merely entertain the thought that a is F ). At the very least, each of these involves an act of mentally referring to a in combination with an expression of Fness . I do not deny that when we desire something, we often consider that thing in one of the above ways. That is, I do not deny that we often form a representation of that thing in an active thought. But I hope to show that this is not constitutive of desire in the way that it is of forming a judgment; these acts of mental combination are the expression of a desire that is already manifest.\n\nLet us start by looking at a very simple example in which someone has a conscious occurrent desire that forms the basis of their acting in a certain way, but where we cannot locate an associated act of predication.\n\nCold Room: Imagine that I am lying in bed, but it is too cold in the room for me to fall asleep. I struggle to determine what is preventing me from falling asleep, and eventually realize that it is the fact that I am so cold. I notice that the window is open, and so I get up and close the window.\n\nIt seems like the following is true: in this case I can be correctly attributed with the occurrent desire that the window be closed, and the occurrent desire that I be warm. If I acted on the belief that I was cold, and with the intention of closing the window, then these are the most plausible candidates for the desires I acted on. The desire that the window be closed and the desire that I be warm are desires that I become consciously aware of, and they are active in the sense that they affect my actions (I get up and close the window).\n\nBut what reason is there for thinking that what makes it true that I desire that the window be closed is the fact that I predicate being closed of the window (i.e., have an occurrent thought about the window being closed)? It seems perfectly plausible to say that I judge the window to be open, and judge myself to be cold, and further that I judge the openness of the window to be the cause of my coldness. Because being cold is incredibly uncomfortable for me, and this discomfort is something of which I am aware, these judgments suffice - in combination with my affective state - for making manifest my desire. Further, the states of affairs that these judgments represent are in direct conflict with the satisfaction conditions of my desires.\n\nBut it does not seem plausible that I must perform an act of predication (either committal or noncommittal) where I consider the window as closed, or myself as\n\nwarm, and thereby manifest the desire. 16 If we hold that an act of predication must be conscious, or characterized by phenomenological properties, then it is clear why this will be a compelling argument against the act theorist. What is consciously present to the agent is that she is cold and that the window is open, and not the content of her desire.\n\nNevertheless, an obvious response to 'Cold Room' is to point out that if an act of predication can be non-conscious (as Soames claims), then perhaps the agent non-consciously considers herself as warm after first judging herself as cold. First, I think that this somewhat misses the point, which is that the representation of the window as open, combined with the belief that it brings about a discomfort (being cold while in bed) seems to be sufficient to manifest the occurrent desire. Second, If we subtract an (unconscious) act of predication of warmth from the case, does this change anything? The feeling of discomfort and a belief that the open window is its source would still give rise to an active desire, in that these things would be enough for an agent to act on.\n\nWhat does it take for me to undergo an occurrent desire with the (representational) content that the window is closed? It does not take predication involving that proposition. If I believe that the window is open, and I believe that this state of affiars is the cause of my being cold, and being cold feels bad to me, then this seems to suffice. Any consideration of what I want - via an act of predication - seems necessarily to be manifesting, in thought, a consideration of my already present desire (more on this in the next subsection).\n\n16 It might be argued that I perform such an act, and that my manifest desire is is an evaluation of that act. But this threatens regress: how could an evaluation of a state of affairs as something I want be identical to - or be prior to - my wanting it?\n\nOften when we undergo a desire we do produce a thought of the thing desired. And though this may reinforce the desire in some way, it is usually produced as a result of the desire. The thought does not provide any motivational force for the agent. It is pretty clear why thinking something is involved in believing it: thinking (in the way we have described it) is a matter of displaying information to yourself in much the same way as it is displayed to you in perception and speech. Predicating is, in a way, mimicking the way that a property adheres to an object 'in the world'.\n\nThe real issue here is that no act of combining object and property in thought can itself serve to motivate action in the way that a desire does. To the extent that judgments, commands, and considerations provide motivation for action, it is only insofar as they serve to facilitate our achieving what we desire. A judgment that a is F does not motivate in the way that desire does. I may entertain (or judge) a as F and decide that this is something I desire, but then the desiring seems to be something in addition to the entertaining / judging.\n\nBut considering what one desires - if this is taken to be an act of predication - cannot itself serve as the fundamental motivating activity. An act of desire is motivational - it motivates action. And an act of desire must motivate in the way that it does because it represents as it does. An act of considering what one desires does not motivate, except insofar as it might reinforce motivation that is already present.\n\nWhat this case shows is that there is no act of predication (Soames' entertaining / Hanks' judging) in which the desire consists. Desiring something does not require us to combine the aims of our actions in thought: I do not need to have a thought about the window's being closed or a thought about myself being warm. If I do have such thoughts, it seems clear that they do not constitute the desire. 17\n\n17 If anything, they seem to act as a kind of immediate relief (or create a feedback loop).\n\nOne might respond that I have raised an issue for propositionalism in general: that this case shows that there is some issue for thinking a desire that a is F involves representing the proposition that a is F. But this is not so. We might hold that the occurrent desire in this case gets its content from an affective state (my discomfort) interacting in a particular way with my cognitive system, which relates beliefs to that affective state (it is caused by the window's being open, etc.). Why not think that this is sufficient for representation? There are many different ways that one can get linked up to a proposition. All I have shown is that in order for a desire to have the motivational force that it does, this requires that we get linked up to a proposition via something other than an act of predication.\n\nRejecting the claim that desires relate us to propositions is a big bullet to bite. 18 Desires often figure into our psychological explanations by virtue of relating to the same kinds of objects as beliefs. As Sinhababu (2015) notes: 19\n\nAttributing desires is a good way to explain action, feeling, and thought. Since the point of attributing mental states is to provide psychological explanations, that two mental states play the same explanatory role may cause us to treat them as the same in our mental-state attributions. If this is right, propositionalism's success in fitting our same-desire attributions is grounded in its success in providing good psychological explanations (Sinhababu 2015, 172).\n\n18 Arguments have been raised that desires are not always propositional (Grzankowski 2014, Montague 2007). However such arguments (a) represent a minority position, and (b) typically advocate a treatment of desire (as relating to objects rather than contents) that an act theory of content would have no less trouble handling.\n\n19 See also (Lewis 1979, Sinhababu 2013).\n\nI have raised an issue for the claim that our cognitive contact with propositions always comes via an act of predication; i.e., combining object and property in thought. On behalf of the propositionalist, I have also pointed out that cognitive contact can be a manifestation of our affective as well as our cognitive capacities. This does not require us to perform an act whereby we mentally combine the object and property.\n\nThere are also ways of showing that the act theory has a problem explaining the intentionality of bouletic attitudes which do not require appeal to a conscious or affective notion of occurrent desire. Often a desire that p is made manifest in an attempt to bring it about that p . 20 A natural way to explain how we make desires manifest, then, is to say that desiring that a is F involves making the F ness of a the aim of possible action. 21\n\nBut performing an act which makes the F ness of a part of your goals (and makes manifest a desire) does not need to involve any sort of predication at all. Imagine that I want to communicate to you the proposition that Rodrigo is red. One of my aims - one of the desires that I act on - is that you understand Rodrigo to be red. On many plausible accounts of communication, such a desire will be a constitutive part of meaning something. 22 When I utter 'Rodrigo is red', I have made it a part of my goal in doing so that you entertain the proposition that Rodrigo is red, and I\n\n20 Intending to F is often thought of as simply the combination of a desire that p and a belief that F ing will bring p about (Anscombe 1963).\n\n21 According to Soames's account of the process of undergoing an occurrent belief, manifesting a belief involves accepting the F ness of a as a 'basis for possible action' (Soames 2015, 18); so this seems to be a natural fit for his position.\n\n22 (Grice 1957) is the locus classicus for this position. Even those who reject such intentions as a necessary condition on meaning can accept that these intentions often accompany successful speech acts.\n\nact on a non-conscious, non-affective (but manifest and occurrent) desire that you understand this proposition as being what I meant.\n\nIn performing this speech act, I have made manifest a desire for you to understand what I have said (by making it a part of my goal in speaking). Nevertheless, it seems incorrect to say that I mentally predicate, of you, that you understand or even entertain what I say. Performing utterances are acts which individuate contents utterances are vehicles for predication (Hanks 2011). But to perform a meaningful speech act does not require that a speaker predicate of her audience the property of entertaining a content. 23\n\n## 4.2 Indeterminacy Case\n\nAnother problem arises when we consider cases in which someone has a general desire, with multiple propositions plausibly serving as its content. 24\n\nCrab Cakes: I am waiting for the bus on a snowy day, planning on taking the bus to a lunch party at a friend's house. My friend has said that she will be making her famous vegan crab cakes. Crab cakes are my favorite thing to eat, and my friend's vegan crab cakes taste exactly like the real thing. As I stand at the bus stop I think about the mouthwatering taste of the crab cakes, their crispy texture as you bite into them, and the heaps of tartar sauce I will slather them in.\n\n23 As Hanks (2015) notes, we predicate behaviorally as well as linguistically and mentally. Perhaps this serves as a case of behavioral predication, because my behavior aims at getting you to understand that Rodrigo is red. But without an associated mental activity, behavioral predication seems like a trivial notion.\n\n24 This is similar to an issue raised for linguistic attitudes in (Buchanan 2010).\n\nIn this example, I am clearly undergoing an occurrent desire. There is something that I want, and this motivational state shapes the nature of my imagining lunch. But it seems like we could specify the contents of my desire in any of the following ways: 25\n\n- (10) a. I desire that I have vegan crab cakes for lunch.\n- b. I desire that my friend serve vegan crab cakes.\n- c. I desire vegan crab cakes.\n- d. I desire that I taste a vegan crab cake.\n- e. I desire that I taste a regular crab cake.\n- f. ...\n\nThere is something that I am looking forward to: a particular state of affairs that will obtain when I get to my friend's house. The anticipation of this state of affairs might be thought of as a manifestation of my desire. But imagining and anticipating the state of affairs is not my desiring it; on the contrary, these are things that I do because I desire as I do. My desiring is a mental activity relating me to the state of affairs. And this activity can be characterized in a number of different, truth-conditionally non-equivalent ways.\n\n25 One might respond that it is a general feature of the context-sensitivity of attitude ascriptions that they do not always express a relation of cognitive contact (though see (Hawthorne &; Manley 2012) for some reason to reject this view). So, regardless of the agent's actual desire (i.e. the actual relation of cognitive contact she bears to a content), a multitude of different ascriptions will be felicitous. That is, all of the desire ascriptions in (10) could be felicitous, but this does not mean that any of them expresses the relation of cognitive contact she bears. I argue elsewhere that it is hard to come up with a context such that first-person attitude ascriptions - like these - do not express relations of cognitive contact (Schiller 2019).\n\nIt is likely that there is no 'best' way of specifying my desire in this case. 26 That is, any of these different propositions seems like a perfectly good way of specifying my desire. But the only act of predication I perform in relation to any of these comes when I ascribe the desire of myself.\n\nOne option for the proponent of the act theory is to say that these are all discrete desires that I perform. But consider my self-ascription that I want to have vegan crab cakes for lunch. What makes this ascription true? The ascription is not made true by the fact that I realize its contents in my head or say it out loud; it is made true by the fact that I am undergoing some kind of affective process, in combination with the fact that various of my beliefs relate me to the affective process in a particular way.\n\nWhat seems to be going on is that I have a particular feeling I want to satisfy (such as hunger, or a craving for something salty and crabby) and I believe that eating vegan crab cakes for lunch will satisfy this particular feeling. As a result, what I desire qua my undergoing a particular affective process and what someone with different beliefs from me desires qua their undergoing an type-identical affective process might be different. 27 But this act of desire does not seem to be aimed at one particular proposition: it would just as easily have been satisfied by my eating a regular crab cake, for example.\n\nAs with the last case, we initially think that this case raises a problem for the view that desires have propositional contents. Once again, this is not so. Each of the contents in (10) is a truth-conditionally non-equivalent way of describing an occurrent mental process I am undergoing. Now we ask: what is the content of the desire itself, such that it admits of all of these different classifications?\n\n26 Fara (2013) raises similar issues about desire.\n\n27 This should not be controversial for anyone who thinks, for instance, that the contents of our thoughts can depend in part on something going on external to those thoughts.\n\nI think there are many things that can be said here, but a natural thought is just that this is a kind of derivative representation. I have a system of beliefs which represent on the basis of my performing (or being disposed to perform) acts of predication. These acts, in combination with whatever occurrent affective attitude I undergo, connect me with propositional contents (like those in 11-15). It is in this way that the occurrent desire represents; the attitude I undergo here motivates in the way that it does because I represent as I do .\n\n## 5 Conclusion\n\nI do not think that the issues I have raised for the act theory - or any theory that treats cognitive activity as the source of intentionality - necessarily outweigh the gains such a theory makes in terms of explaining our cognitive contact with propositions. 28 If not, then any theory of content which hopes to identify contents with cognitive activity needs to address the fact that the kind of cognitive activity associated with our attitudes can vary significantly across attitudes.\n\nI will end by noting two ways in which the argument presented in this paper might be seen to have more general implications. 29 First, we might wonder if the arguments given in the last section could be extended to a general argument against act theories of standing mental content (rather than specifically targeting occurrent desire). While I do not wish to rule something like this out, I do think that such an extension would be difficult. As far as standing mental states are concerned, the act theorist may simply appeal to a dispositional view of the content of these states if\n\n28 See Collins 2018 and Speaks 2016a,b for other problems raised for act theories of content, to which I can offer no simple solution.\n\n29 Both of these points were raised to me by an anonymous reviewer.\n\nissues like the above can be raised for those states. Such an appeal is not available when discussing occurrent attitudes. So this gap, at least, would need to be bridged.\n\nSecond, we might wonder if the issues raised here could be seen as issues for a structured view of content in general. In § 4.2, for example, could the example given perhaps be used to argue that structured propositions are not the right sort of thing to play the role of the object of our occurrent attitudes? 30 I think there may be some compelling reason to think that this is so - intuitively, it does not seem to me as though the agent in the case in § 4.2 has a propositional attitude at all.\n\nIf this is the case, then what does this mean for the act theory? The act theorist might say that these are true reports that don't really characterize. That that clauses do not need to give us relata for cognitive verbs like desiring / wanting. If this is the case then propositional content plays a limited roll in our cognitive lives. It is an activity we perform, but not the only kind of activity that is representational.\n\nIn a way, this may undercut some of the motivation for the view, which is to explain what representation is. Even if desires are non-propositional, they still represent. Thus, while our representational capacities may involve the performance of intentional activities, these performances will not be constitutive of mental representation. They may explain how content gets its structure - an important achievement, if so - but further explanation is needed.\n\n## References\n\nAnscombe, G.E.M. 1963. Intention . Oxford: Blackwell 2nd edn.\n\nAudi, Robert. 1994. Dispositional beliefs and dispositions to believe. Noûs 28(4).\n\n30 As noted earlier, a similar worry has been raised by Buchanan (2010) with respect to the content of meaningful assertions.\n\nBach, Kent. 1997. Do belief reports report beliefs? Pacific Philosophical Quarterly . Barlassina, Luca &; Max Khan Hayward. forthcoming. More of me! less of me!: Reflexive imperativism about affective phenomenal character. Mind fzz035.\n\nhttp://dx.doi.org/10.1093/mind/fzz035.\n\nBartlett, Gary. 2017. Occurrent states. Canadian Journal of Philosophy 0(0). 1-17. Bourget, David. 2010. Consciousness is underived intentionality. Noûs 44(1). 44(2).\n\nBuchanan, Ray. 2010. A puzzle about meaning and communication. Noûs 340-371.\n\nCollins, John. 2018. The redundancy of the act. Synthese\n\n195(8). 3519-3545.\n\nCrane, Tim. 2013. Unconscious belief and conscious thought. In Uriah Kriegel (ed.), Phenomenal intentionality , Oxford University Press.\n\nDickie, Imogen. 2015. Fixing reference . Oxford University Press.\n\nFara, Delia Graff. 2013. Specifying desires. Noûs 47(2). 250-272.\n\nGertler, Brie. 2011. Self-knowledge . New York: Routledge.\n\nGoldman, Alvin. 1970. A theory of human action . Englewood Cliffs, NJ: PrenticeHall.\n\nGoodman, Rachel. forthcoming. Do acquaintance theorists have an attitude problem? Austrailasian Journal of Philosophy Published online: 28 Mar 2017.\n\nGrice, Paul. 1957. Meaning. The Philosophical Review 66. 377-388.\n\nGrzankowski, Alex. 2014. Attitudes towards objects. Noûs 00(0). 1-15.\n\nHanks, Peter. 2011. Structured propositions as types. Mind 120(477).\n\nHanks, Peter. 2015. Propositional content . Oxford University Press.\n\nHawthorne, John &; David Manley. 2012. The reference book . New York: Oxford University Press.\n\nKamp, Hans. 1990. Prolegomena to a structural account of belief and other attitudes. In C.A. Anderson &; J. Owens (eds.), Propositional attitudes: the role of content in logic, language, and mind , 27-90. Stanford, CA: CSLI Publications.\n\nKlein, Colin. 2015. What the body commands: the imperative theory of pain . MIT\n\nPress.\n\nKriegel, Uriah. 2011. The sources of intentionality . Oxford University Press. Lewis, David. 1979. Attitudes de dicto and de se. Philosophical Review 513-543. http://dx.doi.org/10.2307/2184843.\n\n88(4).\n\nMandelbaum, Eric. 2014. Thinking is believing. Inquiry: An Interdisciplinary Journal of Philosophy 57(1). 55-96. http://dx.doi.org/10.1080/0020174X.2014. 858417.\n\nMendelovici, Angela. 2010. Mental representation and closely conflated topics : Princeton University dissertation.\n\nMillikan, Ruth G. 1984. Language, thought and other biological categories . MIT Press.\n\nMontague, Michelle. 2007. Against propositionalism. Noûs 41(3). 503-518. Rattan, Gupreet. 2016. Are propositions mere measures of mind? Philosophy and Phenomenological Research .\n\nRecanati, François. 2019. Force cancellation. Synthese 196(4). 1403-1424. http: //dx.doi.org/10.1007/s11229-016-1223-9.\n\nReiland, Indrek. 2012. Propositional attitudes and mental acts. Thought: A Journal of Philosophy 1(3). 239-245. http://dx.doi.org/10.1002/tht3.42.\n\nSainsbury, Mark. 2018. Thinking about things\n\nSchiffer, Stephen. 2016. Cognitive propositions. Philosophical Studies\n\n. Oxford University Press. .\n\nSchiller, Henry Ian. 2019. Acquaintance and first-person attitude reports. Analysis 79(2). 251-259. http://dx.doi.org/10.1093/analys/any054.\n\nSchiller, Henry Ian. forthcoming. Phenomenal dispositions. Synthese 1-12. http: //dx.doi.org/10.1007/s11229-018-01909-9.\n\nSearle, John. 1983. Intentionality: An essay in the philosophy of mind . Cambridge University Press.\n\nSearle, John R. 1969. Speech acts: An essay in the philosophy of language. Philosophical Quarterly 20(79). 172-179. http://dx.doi.org/10.2307/2218090.\n\nSinhababu, Neil. 2013. The desire-belief account of intention explains everything. Noûs 47.\n\nSinhababu, Neil. 2015. Advantages of propositionalism. Pacific Philosophical Quarterly 96(1). 165-180. http://dx.doi.org/10.1111/papq.12070.\n\nSoames, Scott. 2013. Cognitive propositions. Philosophical Perspectives\n\n27(1).\n\nSoames, Scott. 2014. Cognitive propositions. In Jeffrey King, Scott Soames &; Jeff Speaks (eds.), New thinking about propositions , Oxford University Press.\n\nSoames, Scott. 2015. Rethinking language, mind, and meaning . Oxford University Press.\n\nSoames, Scott. 2016. Propositions as cognitive acts. Synthese forthcoming.\n\nSpeaks, Jeff. 2016a. Act theories and the attitudes. Synthese .\n\nSpeaks, Jeff. 2016b. Complex acts and the unity of the proposition. Draft of June\n\n24, 2016.\n\nSpinoza, Baruch. 1677. Ethics . Hackett.\n\nStrawson, P.F. 1950. On referring. Mind 59(235).\n\nTye, Michael &; Briggs Wright. 2011. Is there a phenomenology of thought? In Tim Bayne &; Michelle Montague (eds.), Cognitive phenomenology , Oxford\n\nUniversity Press.",
+    "responses": [
+      {
+        "source": "gpt-4o-2024-11-20",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"ADU1\": {\n      \"text\": \"My aim in this paper is to show that a plausible account of how thoughts get their contents (a solution to the problem of 'cognitive contact') cannot explain how desires get their contents.\",\n      \"label\": \"claim\"\n    },\n    \"ADU2\": {\n      \"text\": \"The account in question says that to have an occurrent thought is to perform an act of predication, and that thoughts have the contents they do because we perform acts of predication that individuate those contents.\",\n      \"label\": \"premise\"\n    },\n    \"ADU3\": {\n      \"text\": \"I argue that performing an act of predication is not a necessary condition on having an occurrent desire, and that having an occurrent desire is not an act of predication.\",\n      \"label\": \"claim\"\n    },\n    \"ADU4\": {\n      \"text\": \"At the very least this raises a question about how such attitudes make contact with propositions.\",\n      \"label\": \"premise\"\n    },\n    \"ADU5\": {\n      \"text\": \"This also makes significant trouble for the act theory of content, which holds that propositions are types of activities we perform when we speak and think.\",\n      \"label\": \"claim\"\n    },\n    \"ADU6\": {\n      \"text\": \"Act-theoretic accounts of content hold that propositions are structured entities whose constituents are cognitive acts that individuate objects and properties (acts of referring to objects and expressing properties).\",\n      \"label\": \"premise\"\n    },\n    \"ADU7\": {\n      \"text\": \"Though their views differ in several crucial respects, both Hanks and Soames agree that propositions are identical to acts of predication, whereby an agent combines reference to an object and expression of a property.\",\n      \"label\": \"premise\"\n    },\n    \"ADU8\": {\n      \"text\": \"Taking propositions to be cognitive acts means holding that our basic cognitive contact with propositions comes via a particular type of occurrent mental activity.\",\n      \"label\": \"premise\"\n    },\n    \"ADU9\": {\n      \"text\": \"In what follows, I argue that an act theory of content in particular - but also anyone who endorses the view that cognitive contact is a matter of predication will have significant difficulty explaining the intentionality of bouletic attitudes, like desiring, hoping, and wanting.\",\n      \"label\": \"claim\"\n    },\n    \"ADU10\": {\n      \"text\": \"The reason for this is that an agent can undergo such attitudes without any particular act of predication being performed.\",\n      \"label\": \"premise\"\n    },\n    \"ADU11\": {\n      \"text\": \"One of the central claims of the act theory of content is that intentional mental activity has the content it does in virtue of an act of predication (where one combines object and property in thought) being performed.\",\n      \"label\": \"premise\"\n    },\n    \"ADU12\": {\n      \"text\": \"But not all intentional mental activity with propositional content seems to involve combining objects with properties in thought.\",\n      \"label\": \"claim\"\n    },\n    \"ADU13\": {\n      \"text\": \"To undergo an occurrent desire is to undergo mental activity with a particular intentionality.\",\n      \"label\": \"premise\"\n    },\n    \"ADU14\": {\n      \"text\": \"To undergo an occurrent desire that p is to undergo mental activity with the intentionality p, and thus for the act theorist it is to perform an act of predication which individuates p.\",\n      \"label\": \"premise\"\n    },\n    \"ADU15\": {\n      \"text\": \"In this section I argue that the act theory of propositions cannot explain how occurrent desires have propositional content: it is possible to come up with cases of occurrent desire which are such that it is clear that the occurrent desire has a content, but it is not clear how this can be explained by an act of predication.\",\n      \"label\": \"claim\"\n    },\n    \"ADU16\": {\n      \"text\": \"If a desire has a content p but p is not performed by the agent undergoing that desire, then cognitive contact does not come through the performance of p.\",\n      \"label\": \"premise\"\n    },\n    \"ADU17\": {\n      \"text\": \"What does it take for me to undergo an occurrent desire with the (representational) content that the window is closed? It does not take predication involving that proposition.\",\n      \"label\": \"claim\"\n    },\n    \"ADU18\": {\n      \"text\": \"If I believe that the window is open, and I believe that this state of affairs is the cause of my being cold, and being cold feels bad to me, then this seems to suffice.\",\n      \"label\": \"premise\"\n    },\n    \"ADU19\": {\n      \"text\": \"Any consideration of what I want - via an act of predication - seems necessarily to be manifesting, in thought, a consideration of my already present desire.\",\n      \"label\": \"claim\"\n    },\n    \"ADU20\": {\n      \"text\": \"What this case shows is that there is no act of predication (Soames' entertaining / Hanks' judging) in which the desire consists.\",\n      \"label\": \"claim\"\n    },\n    \"ADU21\": {\n      \"text\": \"Desiring something does not require us to combine the aims of our actions in thought: I do not need to have a thought about the window's being closed or a thought about myself being warm.\",\n      \"label\": \"claim\"\n    },\n    \"ADU22\": {\n      \"text\": \"If I do have such thoughts, it seems clear that they do not constitute the desire.\",\n      \"label\": \"premise\"\n    },\n    \"ADU23\": {\n      \"text\": \"I have raised an issue for the claim that our cognitive contact with propositions always comes via an act of predication; i.e., combining object and property in thought.\",\n      \"label\": \"claim\"\n    },\n    \"ADU24\": {\n      \"text\": \"On behalf of the propositionalist, I have also pointed out that cognitive contact can be a manifestation of our affective as well as our cognitive capacities.\",\n      \"label\": \"premise\"\n    },\n    \"ADU25\": {\n      \"text\": \"This does not require us to perform an act whereby we mentally combine the object and property.\",\n      \"label\": \"premise\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"ADU2\",\n      \"target\": \"ADU1\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU3\",\n      \"target\": \"ADU1\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU4\",\n      \"target\": \"ADU3\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU5\",\n      \"target\": \"ADU3\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU6\",\n      \"target\": \"ADU5\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU7\",\n      \"target\": \"ADU6\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU8\",\n      \"target\": \"ADU6\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU10\",\n      \"target\": \"ADU9\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU12\",\n      \"target\": \"ADU11\",\n      \"type\": \"attack\"\n    },\n    {\n      \"source\": \"ADU15\",\n      \"target\": \"ADU12\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU16\",\n      \"target\": \"ADU15\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU18\",\n      \"target\": \"ADU17\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU19\",\n      \"target\": \"ADU17\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU20\",\n      \"target\": \"ADU19\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU21\",\n      \"target\": \"ADU20\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU22\",\n      \"target\": \"ADU21\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU24\",\n      \"target\": \"ADU23\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU25\",\n      \"target\": \"ADU24\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "ADU1": {
+              "text": "My aim in this paper is to show that a plausible account of how thoughts get their contents (a solution to the problem of 'cognitive contact') cannot explain how desires get their contents.",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "The account in question says that to have an occurrent thought is to perform an act of predication, and that thoughts have the contents they do because we perform acts of predication that individuate those contents.",
+              "label": "premise"
+            },
+            "ADU3": {
+              "text": "I argue that performing an act of predication is not a necessary condition on having an occurrent desire, and that having an occurrent desire is not an act of predication.",
+              "label": "claim"
+            },
+            "ADU4": {
+              "text": "At the very least this raises a question about how such attitudes make contact with propositions.",
+              "label": "premise"
+            },
+            "ADU5": {
+              "text": "This also makes significant trouble for the act theory of content, which holds that propositions are types of activities we perform when we speak and think.",
+              "label": "claim"
+            },
+            "ADU6": {
+              "text": "Act-theoretic accounts of content hold that propositions are structured entities whose constituents are cognitive acts that individuate objects and properties (acts of referring to objects and expressing properties).",
+              "label": "premise"
+            },
+            "ADU7": {
+              "text": "Though their views differ in several crucial respects, both Hanks and Soames agree that propositions are identical to acts of predication, whereby an agent combines reference to an object and expression of a property.",
+              "label": "premise"
+            },
+            "ADU8": {
+              "text": "Taking propositions to be cognitive acts means holding that our basic cognitive contact with propositions comes via a particular type of occurrent mental activity.",
+              "label": "premise"
+            },
+            "ADU9": {
+              "text": "In what follows, I argue that an act theory of content in particular - but also anyone who endorses the view that cognitive contact is a matter of predication will have significant difficulty explaining the intentionality of bouletic attitudes, like desiring, hoping, and wanting.",
+              "label": "claim"
+            },
+            "ADU10": {
+              "text": "The reason for this is that an agent can undergo such attitudes without any particular act of predication being performed.",
+              "label": "premise"
+            },
+            "ADU11": {
+              "text": "One of the central claims of the act theory of content is that intentional mental activity has the content it does in virtue of an act of predication (where one combines object and property in thought) being performed.",
+              "label": "premise"
+            },
+            "ADU12": {
+              "text": "But not all intentional mental activity with propositional content seems to involve combining objects with properties in thought.",
+              "label": "claim"
+            },
+            "ADU13": {
+              "text": "To undergo an occurrent desire is to undergo mental activity with a particular intentionality.",
+              "label": "premise"
+            },
+            "ADU14": {
+              "text": "To undergo an occurrent desire that p is to undergo mental activity with the intentionality p, and thus for the act theorist it is to perform an act of predication which individuates p.",
+              "label": "premise"
+            },
+            "ADU15": {
+              "text": "In this section I argue that the act theory of propositions cannot explain how occurrent desires have propositional content: it is possible to come up with cases of occurrent desire which are such that it is clear that the occurrent desire has a content, but it is not clear how this can be explained by an act of predication.",
+              "label": "claim"
+            },
+            "ADU16": {
+              "text": "If a desire has a content p but p is not performed by the agent undergoing that desire, then cognitive contact does not come through the performance of p.",
+              "label": "premise"
+            },
+            "ADU17": {
+              "text": "What does it take for me to undergo an occurrent desire with the (representational) content that the window is closed? It does not take predication involving that proposition.",
+              "label": "claim"
+            },
+            "ADU18": {
+              "text": "If I believe that the window is open, and I believe that this state of affairs is the cause of my being cold, and being cold feels bad to me, then this seems to suffice.",
+              "label": "premise"
+            },
+            "ADU19": {
+              "text": "Any consideration of what I want - via an act of predication - seems necessarily to be manifesting, in thought, a consideration of my already present desire.",
+              "label": "claim"
+            },
+            "ADU20": {
+              "text": "What this case shows is that there is no act of predication (Soames' entertaining / Hanks' judging) in which the desire consists.",
+              "label": "claim"
+            },
+            "ADU21": {
+              "text": "Desiring something does not require us to combine the aims of our actions in thought: I do not need to have a thought about the window's being closed or a thought about myself being warm.",
+              "label": "claim"
+            },
+            "ADU22": {
+              "text": "If I do have such thoughts, it seems clear that they do not constitute the desire.",
+              "label": "premise"
+            },
+            "ADU23": {
+              "text": "I have raised an issue for the claim that our cognitive contact with propositions always comes via an act of predication; i.e., combining object and property in thought.",
+              "label": "claim"
+            },
+            "ADU24": {
+              "text": "On behalf of the propositionalist, I have also pointed out that cognitive contact can be a manifestation of our affective as well as our cognitive capacities.",
+              "label": "premise"
+            },
+            "ADU25": {
+              "text": "This does not require us to perform an act whereby we mentally combine the object and property.",
+              "label": "premise"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU2",
+              "target": "ADU1",
+              "type": "support"
+            },
+            {
+              "source": "ADU3",
+              "target": "ADU1",
+              "type": "support"
+            },
+            {
+              "source": "ADU4",
+              "target": "ADU3",
+              "type": "support"
+            },
+            {
+              "source": "ADU5",
+              "target": "ADU3",
+              "type": "support"
+            },
+            {
+              "source": "ADU6",
+              "target": "ADU5",
+              "type": "support"
+            },
+            {
+              "source": "ADU7",
+              "target": "ADU6",
+              "type": "support"
+            },
+            {
+              "source": "ADU8",
+              "target": "ADU6",
+              "type": "support"
+            },
+            {
+              "source": "ADU10",
+              "target": "ADU9",
+              "type": "support"
+            },
+            {
+              "source": "ADU12",
+              "target": "ADU11",
+              "type": "attack"
+            },
+            {
+              "source": "ADU15",
+              "target": "ADU12",
+              "type": "support"
+            },
+            {
+              "source": "ADU16",
+              "target": "ADU15",
+              "type": "support"
+            },
+            {
+              "source": "ADU18",
+              "target": "ADU17",
+              "type": "support"
+            },
+            {
+              "source": "ADU19",
+              "target": "ADU17",
+              "type": "support"
+            },
+            {
+              "source": "ADU20",
+              "target": "ADU19",
+              "type": "support"
+            },
+            {
+              "source": "ADU21",
+              "target": "ADU20",
+              "type": "support"
+            },
+            {
+              "source": "ADU22",
+              "target": "ADU21",
+              "type": "support"
+            },
+            {
+              "source": "ADU24",
+              "target": "ADU23",
+              "type": "support"
+            },
+            {
+              "source": "ADU25",
+              "target": "ADU24",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "ADU1": {
+              "text": "My aim in this paper is to show that a plausible account of how thoughts get their contents (a solution to the problem of 'cognitive contact') cannot explain how desires get their contents.",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "The account in question says that to have an occurrent thought is to perform an act of predication, and that thoughts have the contents they do because we perform acts of predication that individuate those contents.",
+              "label": "premise"
+            },
+            "ADU4": {
+              "text": "At the very least this raises a question about how such attitudes make contact with propositions.",
+              "label": "premise"
+            },
+            "ADU5": {
+              "text": "This also makes significant trouble for the act theory of content, which holds that propositions are types of activities we perform when we speak and think.",
+              "label": "claim"
+            },
+            "ADU6": {
+              "text": "Act-theoretic accounts of content hold that propositions are structured entities whose constituents are cognitive acts that individuate objects and properties (acts of referring to objects and expressing properties).",
+              "label": "premise"
+            },
+            "ADU7": {
+              "text": "Though their views differ in several crucial respects, both Hanks and Soames agree that propositions are identical to acts of predication, whereby an agent combines reference to an object and expression of a property.",
+              "label": "premise"
+            },
+            "ADU8": {
+              "text": "Taking propositions to be cognitive acts means holding that our basic cognitive contact with propositions comes via a particular type of occurrent mental activity.",
+              "label": "premise"
+            },
+            "ADU9": {
+              "text": "In what follows, I argue that an act theory of content in particular - but also anyone who endorses the view that cognitive contact is a matter of predication will have significant difficulty explaining the intentionality of bouletic attitudes, like desiring, hoping, and wanting.",
+              "label": "claim"
+            },
+            "ADU10": {
+              "text": "The reason for this is that an agent can undergo such attitudes without any particular act of predication being performed.",
+              "label": "premise"
+            },
+            "ADU11": {
+              "text": "One of the central claims of the act theory of content is that intentional mental activity has the content it does in virtue of an act of predication (where one combines object and property in thought) being performed.",
+              "label": "premise"
+            },
+            "ADU12": {
+              "text": "But not all intentional mental activity with propositional content seems to involve combining objects with properties in thought.",
+              "label": "claim"
+            },
+            "ADU13": {
+              "text": "To undergo an occurrent desire is to undergo mental activity with a particular intentionality.",
+              "label": "premise"
+            },
+            "ADU14": {
+              "text": "To undergo an occurrent desire that p is to undergo mental activity with the intentionality p, and thus for the act theorist it is to perform an act of predication which individuates p.",
+              "label": "premise"
+            },
+            "ADU15": {
+              "text": "In this section I argue that the act theory of propositions cannot explain how occurrent desires have propositional content: it is possible to come up with cases of occurrent desire which are such that it is clear that the occurrent desire has a content, but it is not clear how this can be explained by an act of predication.",
+              "label": "claim"
+            },
+            "ADU17": {
+              "text": "What does it take for me to undergo an occurrent desire with the (representational) content that the window is closed? It does not take predication involving that proposition.",
+              "label": "claim"
+            },
+            "ADU20": {
+              "text": "What this case shows is that there is no act of predication (Soames' entertaining / Hanks' judging) in which the desire consists.",
+              "label": "claim"
+            },
+            "ADU21": {
+              "text": "Desiring something does not require us to combine the aims of our actions in thought: I do not need to have a thought about the window's being closed or a thought about myself being warm.",
+              "label": "claim"
+            },
+            "ADU22": {
+              "text": "If I do have such thoughts, it seems clear that they do not constitute the desire.",
+              "label": "premise"
+            },
+            "ADU23": {
+              "text": "I have raised an issue for the claim that our cognitive contact with propositions always comes via an act of predication; i.e., combining object and property in thought.",
+              "label": "claim"
+            },
+            "ADU24": {
+              "text": "On behalf of the propositionalist, I have also pointed out that cognitive contact can be a manifestation of our affective as well as our cognitive capacities.",
+              "label": "premise"
+            },
+            "ADU25": {
+              "text": "This does not require us to perform an act whereby we mentally combine the object and property.",
+              "label": "premise"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU2",
+              "target": "ADU1",
+              "type": "support"
+            },
+            {
+              "source": "ADU6",
+              "target": "ADU5",
+              "type": "support"
+            },
+            {
+              "source": "ADU7",
+              "target": "ADU6",
+              "type": "support"
+            },
+            {
+              "source": "ADU8",
+              "target": "ADU6",
+              "type": "support"
+            },
+            {
+              "source": "ADU10",
+              "target": "ADU9",
+              "type": "support"
+            },
+            {
+              "source": "ADU12",
+              "target": "ADU11",
+              "type": "attack"
+            },
+            {
+              "source": "ADU15",
+              "target": "ADU12",
+              "type": "support"
+            },
+            {
+              "source": "ADU21",
+              "target": "ADU20",
+              "type": "support"
+            },
+            {
+              "source": "ADU22",
+              "target": "ADU21",
+              "type": "support"
+            },
+            {
+              "source": "ADU24",
+              "target": "ADU23",
+              "type": "support"
+            },
+            {
+              "source": "ADU25",
+              "target": "ADU24",
+              "type": "support"
+            }
+          ]
+        }
+      },
+      {
+        "source": "claude-3-5-sonnet-20241022",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"1\": {\n      \"text\": \"Act-based theories of content hold that propositions are identical to acts of predication that we perform in thought and talk. To undergo an occurrent thought with a particular content just is to perform the act of predication that individuates that content.\",\n      \"label\": \"claim\"\n    },\n    \"2\": {\n      \"text\": \"But identifying the content of a thought with the performance of an act of predication makes it difficult to explain the intentionality of bouletic mental activity, like wanting and desiring.\",\n      \"label\": \"claim\"\n    },\n    \"3\": {\n      \"text\": \"In this paper, I argue that this difficulty is insurmountable: the contents of occurrent desires cannot be determined by acts of predication.\",\n      \"label\": \"claim\"\n    },\n    \"4\": {\n      \"text\": \"performing an act of predication is not a necessary condition on having an occurrent desire, and that having an occurrent desire is not an act of predication.\",\n      \"label\": \"claim\"\n    },\n    \"5\": {\n      \"text\": \"no act of predication (Soames' entertaining / Hanks' judging) in which the desire consists. Desiring something does not require us to combine the aims of our actions in thought\",\n      \"label\": \"claim\"\n    },\n    \"6\": {\n      \"text\": \"no act of combining object and property in thought can itself serve to motivate action in the way that a desire does. To the extent that judgments, commands, and considerations provide motivation for action, it is only insofar as they serve to facilitate our achieving what we desire.\",\n      \"label\": \"premise\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"2\",\n      \"target\": \"1\",\n      \"type\": \"attack\"\n    },\n    {\n      \"source\": \"3\",\n      \"target\": \"1\", \n      \"type\": \"attack\"\n    },\n    {\n      \"source\": \"4\",\n      \"target\": \"1\",\n      \"type\": \"attack\"\n    },\n    {\n      \"source\": \"6\",\n      \"target\": \"5\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"5\",\n      \"target\": \"3\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "1": {
+              "text": "Act-based theories of content hold that propositions are identical to acts of predication that we perform in thought and talk. To undergo an occurrent thought with a particular content just is to perform the act of predication that individuates that content.",
+              "label": "claim"
+            },
+            "2": {
+              "text": "But identifying the content of a thought with the performance of an act of predication makes it difficult to explain the intentionality of bouletic mental activity, like wanting and desiring.",
+              "label": "claim"
+            },
+            "3": {
+              "text": "In this paper, I argue that this difficulty is insurmountable: the contents of occurrent desires cannot be determined by acts of predication.",
+              "label": "claim"
+            },
+            "4": {
+              "text": "performing an act of predication is not a necessary condition on having an occurrent desire, and that having an occurrent desire is not an act of predication.",
+              "label": "claim"
+            },
+            "5": {
+              "text": "no act of predication (Soames' entertaining / Hanks' judging) in which the desire consists. Desiring something does not require us to combine the aims of our actions in thought",
+              "label": "claim"
+            },
+            "6": {
+              "text": "no act of combining object and property in thought can itself serve to motivate action in the way that a desire does. To the extent that judgments, commands, and considerations provide motivation for action, it is only insofar as they serve to facilitate our achieving what we desire.",
+              "label": "premise"
+            }
+          },
+          "relations": [
+            {
+              "source": "2",
+              "target": "1",
+              "type": "attack"
+            },
+            {
+              "source": "3",
+              "target": "1",
+              "type": "attack"
+            },
+            {
+              "source": "4",
+              "target": "1",
+              "type": "attack"
+            },
+            {
+              "source": "6",
+              "target": "5",
+              "type": "support"
+            },
+            {
+              "source": "5",
+              "target": "3",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "1": {
+              "text": "Act-based theories of content hold that propositions are identical to acts of predication that we perform in thought and talk. To undergo an occurrent thought with a particular content just is to perform the act of predication that individuates that content.",
+              "label": "claim"
+            },
+            "2": {
+              "text": "But identifying the content of a thought with the performance of an act of predication makes it difficult to explain the intentionality of bouletic mental activity, like wanting and desiring.",
+              "label": "claim"
+            },
+            "3": {
+              "text": "In this paper, I argue that this difficulty is insurmountable: the contents of occurrent desires cannot be determined by acts of predication.",
+              "label": "claim"
+            },
+            "4": {
+              "text": "performing an act of predication is not a necessary condition on having an occurrent desire, and that having an occurrent desire is not an act of predication.",
+              "label": "claim"
+            },
+            "5": {
+              "text": "no act of predication (Soames' entertaining / Hanks' judging) in which the desire consists. Desiring something does not require us to combine the aims of our actions in thought",
+              "label": "claim"
+            },
+            "6": {
+              "text": "no act of combining object and property in thought can itself serve to motivate action in the way that a desire does. To the extent that judgments, commands, and considerations provide motivation for action, it is only insofar as they serve to facilitate our achieving what we desire.",
+              "label": "premise"
+            }
+          },
+          "relations": [
+            {
+              "source": "2",
+              "target": "1",
+              "type": "attack"
+            },
+            {
+              "source": "3",
+              "target": "1",
+              "type": "attack"
+            },
+            {
+              "source": "4",
+              "target": "1",
+              "type": "attack"
+            },
+            {
+              "source": "6",
+              "target": "5",
+              "type": "support"
+            },
+            {
+              "source": "5",
+              "target": "3",
+              "type": "support"
+            }
+          ]
+        }
+      }
+    ],
+    "timestamp": 1752758190.108087
+  }
+]

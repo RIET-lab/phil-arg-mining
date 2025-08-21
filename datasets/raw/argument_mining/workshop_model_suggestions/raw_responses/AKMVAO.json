@@ -1,0 +1,408 @@
+[
+  {
+    "identifier": "AKMVAO",
+    "system_prompt": "## GOAL\nArgument‑mine the following paper to extract its comprehensive argumentative structure.\n\n## DEFINITIONS\n1. **Argument**: A set of propositions, including some number of premises and a conclusion. The premises should logically entail the conclusion.\n2. **Claim**: A proposition that asserts something to be true or false, typically requiring justification or evidence.\n3. **Premise**: A proposition that provides evidence, justification, or logical support for a claim or conclusion.\n\n## CRITICAL REQUIREMENTS\n1. **VERBATIM EXTRACTION ONLY**: Each ADU text must be copied EXACTLY from the paper with no modifications, paraphrasing, or combining of separate sentences.\n2. **NO HALLUCINATION**: Do not create, modify, or invent text that does not appear exactly in the source.\n3. **EXACT MATCHING**: Every word, punctuation mark, and spacing must match the original precisely.\n\n## DIRECTIONS\n1. **Identify Argumentative Discourse Units (ADUs)**  \n   - ADU = any contiguous text span functioning as a claim or a premise in the reasoning structure.\n   - **BE HIGHLY SELECTIVE**: Only include ADUs that are crucial to the overarching argument structure.\n   - Focus on significant claims and premises that contribute meaningfully to the argumentative flow.\n   - **AVOID NOISE**: Skip ADUs that are merely descriptive, tangential, or do not substantially advance the argument.\n   - Prioritize quality over quantity - fewer accurate, important ADUs are better than many insignificant ones.\n   - **EXTRACT ONLY**: Copy text spans exactly as they appear, without any modifications.\n2. **Classify each ADU**  \n   - Label = either `\"claim\"` or `\"premise\"`.  \n3. **Detect directed relations**  \n   - Relation = `\"support\"` or `\"attack\"`, from one ADU (source) to another (target).\n   - Map how ADUs connect to form reasoning chains.\n   - Focus on relationships between the most significant ADUs.\n   - Include relationships between premises that strengthen or weaken each other.\n4. **Verbatim spans**  \n   - Each `\"text\"` value must be copied EXACTLY from the paper with zero modifications.\n   - Do not paraphrase, summarize, or combine separate sentences.\n   - Do not add, remove, or change any words, punctuation, or spacing.\n   - If unsure about exact wording, skip that ADU rather than guess.\n\n## WHAT TO CAPTURE\n**INCLUDE ONLY:**\n- Main argumentative threads that are central to the paper's contribution\n- Core claims that represent the paper's primary arguments or findings\n- Key premises that provide essential support for major claims\n- Critical counterarguments and their refutations\n- Reasoning chains that demonstrate how main conclusions are derived\n\n**EXCLUDE (AVOID NOISE):**\n- Minor details, examples, or descriptive content that don't advance the argument\n- Tangential points or side discussions\n- Pure background information or literature review content\n- Methodological details unless they constitute argumentative claims\n- Obvious statements or commonly accepted facts\n- Redundant or repetitive argumentative content\n\n**GUIDING PRINCIPLE**: If removing an ADU would not significantly impact understanding of the paper's argumentative structure, it should be excluded.\n\n## QUALITY CONTROL\n- Before finalizing each ADU, verify the text exists exactly in the source\n- Prefer fewer, accurate ADUs over many potentially modified ones\n- When in doubt about exact wording, omit the ADU\n\n## OUTPUT FORMAT\nReturn **only** a single valid JSON object matching this schema.  \nDo **not** output any extra text, markdown, or explanations.\nDo **not** add comments.\n**RESPOND WITH ONLY**:\n```json\n{\n  \"ADUs\": {\n    \"<ADU_ID>\": {\n      \"text\": \"<exact span from paper>\",\n      \"label\": \"claim\" | \"premise\"\n    }\n    ...\n  },\n  \"relations\": [\n    {\n      \"source\": \"<ADU_ID>\",\n      \"target\": \"<ADU_ID>\",\n      \"type\": \"support\" | \"attack\"\n    }\n  ]\n}\n```",
+    "user_content": "42\n\n## Varol Akman\n\n## letter from …\n\n<!-- image -->\n\n## Varol Akman on the Turkish war against mediocrity and cliché\n\n'I t' s so hard to be a saint in the city,' sings Bruce Springsteen in a ballad released 35 years ago. Judging from the national popular sentiment about the matter, he could have been talking about the complexity of being a philosopher in Turkey.\n\nyou'd be advised not to use the p-word at all' in the UK either.\n\nThe troubles start with -what else? -a naming problem. Philosophers in Turkey would prefer to state that they are philosophy-ists ( felsefeci in Turkish) rather than philosophers ( filozof ). For the latter description evokes in the mind of the average citizen a bizarre figure who is probably bearded, shoddily dressed, and halfcrazy, and who watches the heavens for fun in his spare time.\n\nThe typical feeling is expressed well by a popular tune -the kind that finds the most listeners in underprivileged and uneducated segments of society - with a punch line that goes: 'Do not philosophise!' (And prior to that line it warns: 'Keep your views to yourself.') Sound advice, eh? Then again, it is mildly consoling to hear, from none other than the editor of this magazine, that 'if you want to be taken seriously,\n\nVarol Akman is chair of the department of philosophy at Bilkent University, Ankara\n\nThis surely looks like a bleak picture. However, the situation is fortunately brighter than this depressing anecdote suggests. For all practical purposes the history of philosophy in modern Turkey should start with the adoption of the Latin alphabet exactly 80 years ago, one of the colossal contributions of Atatürk, the founder of modern Turkey. As the Encyclopedia Britannica observes, 'Education benefited from this reform, as the youth of Turkey, cut off from the past with its emphasis on religion, were encouraged to take advantage of new educational opportunities that gave access to the Western scientific and humanistic traditions.' Atatürk himself made his truth-seeking stance plain when he said: 'I am not leaving a legacy of dogmas, unchangeable petrified directives. My legacy is science and reason. If those people who wish to follow me after I am gone take science and reason as their guides they will be my true spiritual heirs.'\n\nHasan Âli Yücel, who became the Minister of Education immediately after Atatürk's death, set off another key reform when he initiated the translation of Western classics into Turkish. He formed a translation society and hired the finest\n\n<!-- image -->\n\ntranslators. This period saw the translation of almost 500 books in all, including signposts of Western philosophy. Upon his death in 1961, The Times wrote: 'Deeply read in both Eastern and Western literature, Yücel was one of those who, in a true sense, could form a link between two civilizations. The rapid spread of Western ideas in Turkey during the past 20 years is largely due to his work and it can be said that he did much to carry forward Atatürk's ideal of making Turkey into a Western nation.'\n\nphilosophy majors via the aforementioned university entrance exam.\n\nThat ideal is still in the making. Several (private) universities have recently started up new-fangled philosophy programs. My university (founded in 1984) broke new ground in this regard. (The name Bilkent is an acronym for bilim kenti -Turkish for 'city of science and knowledge.') Bilkent's philosophy program was initiated in 2003 and for some years almost 80% of the students admitted had full scholarships awarded by the university.\n\nThis year's full scholarship students came from the top 1.5 percent of the more than 1.5 million applicants. Similar scholarship programs exist in other private institutions such as Koç University or Yeditepe University. Esteemed state schools like Bogaziçi University and Middle East Technical University also admit competent\n\nThe Bilkent philosophy curriculum is broadbased in that the students are required to complete courses in a number of academic fields in addition to philosophy, in addition to English which is the language of instruction throughout the university. Since the curriculum provides each student with a substantive grounding in sciences and humanities, the student is able to confront the way they are practiced with some understand ing. In philosophy courses, it is required that students come to terms with the texts themselves (such as The Republic , Leviathan , Second Treatise of Government , Groundwork of the Metaphysics of Morals ), rather than commentaries. Discussionbased class work, tutorials, and essay-based assessment are essential and are applied without making any concessions.\n\nA large number of philosophy books are published in Turkey every year. Most of these are translations of European bestsellers with a clear bias towards continental and post-modern philosophy. One does not spot many Freges, Russells, Quines, Davidsons, Fodors out there but lots of Foucaults, Derridas, Adornos, Žižeks. Visitors to Bilkent have included Donald Davidson, Bernard Williams, Tim Williamson,\n\n&gt;\n\n&gt;\n\n&gt;&gt;\n\n&gt;&gt;\n\n43\n\n44\n\nRoy  Sorensen,  Jonathan  Dancy,  Jerry  Cohen, Sarah  Broadie,  and  Keith  Lehrer,  but  overall analytic  philosophy  does  not  appear  to  be fashionable in Turkey, at least judging from what publishers offer.\n\nA good proportion of Turkish high school and university  students  have  always  been  deeply interested in politics (especially topics like freedom,  discrimination,  inequality,  secularism) and  economics  (especially  topics  like  globalism, multinationals,  distribution  and  public  welfare) and at  least  for  a  while  -  in  the  sixties  and  the seventies  -  their  views  were  shaped  by  Marxist works. Thus, during my college years (1974-1979) a  'classic'  that  every  university  student  was supposed to endure was Elementary Principles of Philosophy by  one  Monsieur  Georges  Politzer. (That reminds me of a line from the renowned Craig Raine poem 'A Martian Sends a Postcard Home':  'Only  the  young  are  allowed  to  suffer openly.')\n\nEven  when  one  somehow  came  close  to  a correct  philosophical  fountainhead,  it  was  still easy  to  go  astray.  When  I  was  a  senior  in  high school I happened to acquire a Turkish translation of Russell's War Crimes in Vietnam . Stunned by it,  I  wrote  in  broken  but  intense  English  to  the peace organisation he founded and asked for the relevant brochures - which I duly received, to my great surprise and delight. It simply did not occur to me for another couple of years that the great man had countless other, much more substantial and influential philosophy books.\n\nFinally, a fleeting overview of the philosophical scene. Few people would remember  that  John  Dewey  visited  Turkey  in 1925  and  prepared  a  report,  which  offered valuable  advice  on  a  course  of  action  towards setting  up  a  fresh  educational  system.  On  the other  hand,  several  philosophers  who  visited Bilkent  knew,  to  my  enchantment,  that  Hans Reichenbach  lectured  in  Turkey  from  1933  to 1938. (He was escaping the alarming atmosphere of pre-war Germany.) He worked at the University of Istanbul and published his landmark Wahrscheinlichkeitslehre (The Theory of Probability)  in  1935.  Today  Turkish  philosopher Teo Grünberg, through his technically accomplished  work  in  logic  and  philosophy  of science - and encouraged by none other than the late W.V .O. Quine - is still producing state-of-theart output in the precise spirit of Reichenbach.\n\nBrilliant philosophers like Berent Enç (19382003),  Arda  Denkel  (1949-2000),  and  /.notdef lham Dilman  (1930-2003)  were  also  able  to  raise central and critical questions, and leave a precious heritage  behind.  It  is  reassuring  to  know  that versatile young philosophers like Güven Güzeldere  and  Murat  Aydede  are  creating influential works  with  a  distinctive analytic flavour.\n\nTo  the  best  of  my  knowledge,  the  earliest piece  of  writing  by  a  Turkish  philosopher  to  be published  in  the  respected  quarterly Mind was the 1964 paper 'What is a philosophical question?' by Nermi  Uygur. Uygur's chief purpose in that paper was to describe the salient characteristics that define a philosophical question; he wished to throw some light on what is contained in such a question. Surely, his was an analytic  research  model:  'a  paradigm  in  which numerous  individual  researchers  make  small contributions to the solution of a set of generally recognised problems,' as Brian Leiter observes. Today the goal of many Turkish philosophers and their aspiring students remains the same.",
+    "responses": [
+      {
+        "source": "gpt-4o-2024-11-20",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"1\": {\n      \"text\": \"Philosophers in Turkey would prefer to state that they are philosophy-ists (felsefeci in Turkish) rather than philosophers (filozof).\",\n      \"label\": \"claim\"\n    },\n    \"2\": {\n      \"text\": \"For the latter description evokes in the mind of the average citizen a bizarre figure who is probably bearded, shoddily dressed, and half-crazy, and who watches the heavens for fun in his spare time.\",\n      \"label\": \"premise\"\n    },\n    \"3\": {\n      \"text\": \"For all practical purposes the history of philosophy in modern Turkey should start with the adoption of the Latin alphabet exactly 80 years ago, one of the colossal contributions of Atatürk, the founder of modern Turkey.\",\n      \"label\": \"claim\"\n    },\n    \"4\": {\n      \"text\": \"As the Encyclopedia Britannica observes, 'Education benefited from this reform, as the youth of Turkey, cut off from the past with its emphasis on religion, were encouraged to take advantage of new educational opportunities that gave access to the Western scientific and humanistic traditions.'\",\n      \"label\": \"premise\"\n    },\n    \"5\": {\n      \"text\": \"Atatürk himself made his truth-seeking stance plain when he said: 'I am not leaving a legacy of dogmas, unchangeable petrified directives. My legacy is science and reason. If those people who wish to follow me after I am gone take science and reason as their guides they will be my true spiritual heirs.'\",\n      \"label\": \"premise\"\n    },\n    \"6\": {\n      \"text\": \"Hasan Âli Yücel, who became the Minister of Education immediately after Atatürk's death, set off another key reform when he initiated the translation of Western classics into Turkish.\",\n      \"label\": \"claim\"\n    },\n    \"7\": {\n      \"text\": \"He formed a translation society and hired the finest translators.\",\n      \"label\": \"premise\"\n    },\n    \"8\": {\n      \"text\": \"This period saw the translation of almost 500 books in all, including signposts of Western philosophy.\",\n      \"label\": \"premise\"\n    },\n    \"9\": {\n      \"text\": \"The rapid spread of Western ideas in Turkey during the past 20 years is largely due to his work and it can be said that he did much to carry forward Atatürk's ideal of making Turkey into a Western nation.\",\n      \"label\": \"claim\"\n    },\n    \"10\": {\n      \"text\": \"Several (private) universities have recently started up new-fangled philosophy programs.\",\n      \"label\": \"claim\"\n    },\n    \"11\": {\n      \"text\": \"My university (founded in 1984) broke new ground in this regard.\",\n      \"label\": \"premise\"\n    },\n    \"12\": {\n      \"text\": \"Bilkent's philosophy program was initiated in 2003 and for some years almost 80% of the students admitted had full scholarships awarded by the university.\",\n      \"label\": \"premise\"\n    },\n    \"13\": {\n      \"text\": \"The Bilkent philosophy curriculum is broad-based in that the students are required to complete courses in a number of academic fields in addition to philosophy, in addition to English which is the language of instruction throughout the university.\",\n      \"label\": \"claim\"\n    },\n    \"14\": {\n      \"text\": \"Since the curriculum provides each student with a substantive grounding in sciences and humanities, the student is able to confront the way they are practiced with some understanding.\",\n      \"label\": \"premise\"\n    },\n    \"15\": {\n      \"text\": \"In philosophy courses, it is required that students come to terms with the texts themselves (such as The Republic, Leviathan, Second Treatise of Government, Groundwork of the Metaphysics of Morals), rather than commentaries.\",\n      \"label\": \"premise\"\n    },\n    \"16\": {\n      \"text\": \"Discussion-based class work, tutorials, and essay-based assessment are essential and are applied without making any concessions.\",\n      \"label\": \"premise\"\n    },\n    \"17\": {\n      \"text\": \"A large number of philosophy books are published in Turkey every year.\",\n      \"label\": \"claim\"\n    },\n    \"18\": {\n      \"text\": \"Most of these are translations of European bestsellers with a clear bias towards continental and post-modern philosophy.\",\n      \"label\": \"premise\"\n    },\n    \"19\": {\n      \"text\": \"Few people would remember that John Dewey visited Turkey in 1925 and prepared a report, which offered valuable advice on a course of action towards setting up a fresh educational system.\",\n      \"label\": \"claim\"\n    },\n    \"20\": {\n      \"text\": \"Several philosophers who visited Bilkent knew, to my enchantment, that Hans Reichenbach lectured in Turkey from 1933 to 1938.\",\n      \"label\": \"claim\"\n    },\n    \"21\": {\n      \"text\": \"He worked at the University of Istanbul and published his landmark Wahrscheinlichkeitslehre (The Theory of Probability) in 1935.\",\n      \"label\": \"premise\"\n    },\n    \"22\": {\n      \"text\": \"Brilliant philosophers like Berent Enç (1938-2003), Arda Denkel (1949-2000), and İlhami Dilman (1930-2003) were also able to raise central and critical questions, and leave a precious heritage behind.\",\n      \"label\": \"claim\"\n    },\n    \"23\": {\n      \"text\": \"It is reassuring to know that versatile young philosophers like Güven Güzeldere and Murat Aydede are creating influential works with a distinctive analytic flavour.\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"2\",\n      \"target\": \"1\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"4\",\n      \"target\": \"3\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"5\",\n      \"target\": \"3\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"7\",\n      \"target\": \"6\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"8\",\n      \"target\": \"6\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"9\",\n      \"target\": \"6\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"11\",\n      \"target\": \"10\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"12\",\n      \"target\": \"10\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"14\",\n      \"target\": \"13\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"15\",\n      \"target\": \"13\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"16\",\n      \"target\": \"13\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"18\",\n      \"target\": \"17\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"21\",\n      \"target\": \"20\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "1": {
+              "text": "Philosophers in Turkey would prefer to state that they are philosophy-ists (felsefeci in Turkish) rather than philosophers (filozof).",
+              "label": "claim"
+            },
+            "2": {
+              "text": "For the latter description evokes in the mind of the average citizen a bizarre figure who is probably bearded, shoddily dressed, and half-crazy, and who watches the heavens for fun in his spare time.",
+              "label": "premise"
+            },
+            "3": {
+              "text": "For all practical purposes the history of philosophy in modern Turkey should start with the adoption of the Latin alphabet exactly 80 years ago, one of the colossal contributions of Atatürk, the founder of modern Turkey.",
+              "label": "claim"
+            },
+            "4": {
+              "text": "As the Encyclopedia Britannica observes, 'Education benefited from this reform, as the youth of Turkey, cut off from the past with its emphasis on religion, were encouraged to take advantage of new educational opportunities that gave access to the Western scientific and humanistic traditions.'",
+              "label": "premise"
+            },
+            "5": {
+              "text": "Atatürk himself made his truth-seeking stance plain when he said: 'I am not leaving a legacy of dogmas, unchangeable petrified directives. My legacy is science and reason. If those people who wish to follow me after I am gone take science and reason as their guides they will be my true spiritual heirs.'",
+              "label": "premise"
+            },
+            "6": {
+              "text": "Hasan Âli Yücel, who became the Minister of Education immediately after Atatürk's death, set off another key reform when he initiated the translation of Western classics into Turkish.",
+              "label": "claim"
+            },
+            "7": {
+              "text": "He formed a translation society and hired the finest translators.",
+              "label": "premise"
+            },
+            "8": {
+              "text": "This period saw the translation of almost 500 books in all, including signposts of Western philosophy.",
+              "label": "premise"
+            },
+            "9": {
+              "text": "The rapid spread of Western ideas in Turkey during the past 20 years is largely due to his work and it can be said that he did much to carry forward Atatürk's ideal of making Turkey into a Western nation.",
+              "label": "claim"
+            },
+            "10": {
+              "text": "Several (private) universities have recently started up new-fangled philosophy programs.",
+              "label": "claim"
+            },
+            "11": {
+              "text": "My university (founded in 1984) broke new ground in this regard.",
+              "label": "premise"
+            },
+            "12": {
+              "text": "Bilkent's philosophy program was initiated in 2003 and for some years almost 80% of the students admitted had full scholarships awarded by the university.",
+              "label": "premise"
+            },
+            "13": {
+              "text": "The Bilkent philosophy curriculum is broad-based in that the students are required to complete courses in a number of academic fields in addition to philosophy, in addition to English which is the language of instruction throughout the university.",
+              "label": "claim"
+            },
+            "14": {
+              "text": "Since the curriculum provides each student with a substantive grounding in sciences and humanities, the student is able to confront the way they are practiced with some understanding.",
+              "label": "premise"
+            },
+            "15": {
+              "text": "In philosophy courses, it is required that students come to terms with the texts themselves (such as The Republic, Leviathan, Second Treatise of Government, Groundwork of the Metaphysics of Morals), rather than commentaries.",
+              "label": "premise"
+            },
+            "16": {
+              "text": "Discussion-based class work, tutorials, and essay-based assessment are essential and are applied without making any concessions.",
+              "label": "premise"
+            },
+            "17": {
+              "text": "A large number of philosophy books are published in Turkey every year.",
+              "label": "claim"
+            },
+            "18": {
+              "text": "Most of these are translations of European bestsellers with a clear bias towards continental and post-modern philosophy.",
+              "label": "premise"
+            },
+            "19": {
+              "text": "Few people would remember that John Dewey visited Turkey in 1925 and prepared a report, which offered valuable advice on a course of action towards setting up a fresh educational system.",
+              "label": "claim"
+            },
+            "20": {
+              "text": "Several philosophers who visited Bilkent knew, to my enchantment, that Hans Reichenbach lectured in Turkey from 1933 to 1938.",
+              "label": "claim"
+            },
+            "21": {
+              "text": "He worked at the University of Istanbul and published his landmark Wahrscheinlichkeitslehre (The Theory of Probability) in 1935.",
+              "label": "premise"
+            },
+            "22": {
+              "text": "Brilliant philosophers like Berent Enç (1938-2003), Arda Denkel (1949-2000), and İlhami Dilman (1930-2003) were also able to raise central and critical questions, and leave a precious heritage behind.",
+              "label": "claim"
+            },
+            "23": {
+              "text": "It is reassuring to know that versatile young philosophers like Güven Güzeldere and Murat Aydede are creating influential works with a distinctive analytic flavour.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "2",
+              "target": "1",
+              "type": "support"
+            },
+            {
+              "source": "4",
+              "target": "3",
+              "type": "support"
+            },
+            {
+              "source": "5",
+              "target": "3",
+              "type": "support"
+            },
+            {
+              "source": "7",
+              "target": "6",
+              "type": "support"
+            },
+            {
+              "source": "8",
+              "target": "6",
+              "type": "support"
+            },
+            {
+              "source": "9",
+              "target": "6",
+              "type": "support"
+            },
+            {
+              "source": "11",
+              "target": "10",
+              "type": "support"
+            },
+            {
+              "source": "12",
+              "target": "10",
+              "type": "support"
+            },
+            {
+              "source": "14",
+              "target": "13",
+              "type": "support"
+            },
+            {
+              "source": "15",
+              "target": "13",
+              "type": "support"
+            },
+            {
+              "source": "16",
+              "target": "13",
+              "type": "support"
+            },
+            {
+              "source": "18",
+              "target": "17",
+              "type": "support"
+            },
+            {
+              "source": "21",
+              "target": "20",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "1": {
+              "text": "Philosophers in Turkey would prefer to state that they are philosophy-ists (felsefeci in Turkish) rather than philosophers (filozof).",
+              "label": "claim"
+            },
+            "3": {
+              "text": "For all practical purposes the history of philosophy in modern Turkey should start with the adoption of the Latin alphabet exactly 80 years ago, one of the colossal contributions of Atatürk, the founder of modern Turkey.",
+              "label": "claim"
+            },
+            "4": {
+              "text": "As the Encyclopedia Britannica observes, 'Education benefited from this reform, as the youth of Turkey, cut off from the past with its emphasis on religion, were encouraged to take advantage of new educational opportunities that gave access to the Western scientific and humanistic traditions.'",
+              "label": "premise"
+            },
+            "5": {
+              "text": "Atatürk himself made his truth-seeking stance plain when he said: 'I am not leaving a legacy of dogmas, unchangeable petrified directives. My legacy is science and reason. If those people who wish to follow me after I am gone take science and reason as their guides they will be my true spiritual heirs.'",
+              "label": "premise"
+            },
+            "6": {
+              "text": "Hasan Âli Yücel, who became the Minister of Education immediately after Atatürk's death, set off another key reform when he initiated the translation of Western classics into Turkish.",
+              "label": "claim"
+            },
+            "8": {
+              "text": "This period saw the translation of almost 500 books in all, including signposts of Western philosophy.",
+              "label": "premise"
+            },
+            "9": {
+              "text": "The rapid spread of Western ideas in Turkey during the past 20 years is largely due to his work and it can be said that he did much to carry forward Atatürk's ideal of making Turkey into a Western nation.",
+              "label": "claim"
+            },
+            "10": {
+              "text": "Several (private) universities have recently started up new-fangled philosophy programs.",
+              "label": "claim"
+            },
+            "11": {
+              "text": "My university (founded in 1984) broke new ground in this regard.",
+              "label": "premise"
+            },
+            "12": {
+              "text": "Bilkent's philosophy program was initiated in 2003 and for some years almost 80% of the students admitted had full scholarships awarded by the university.",
+              "label": "premise"
+            },
+            "14": {
+              "text": "Since the curriculum provides each student with a substantive grounding in sciences and humanities, the student is able to confront the way they are practiced with some understanding.",
+              "label": "premise"
+            },
+            "15": {
+              "text": "In philosophy courses, it is required that students come to terms with the texts themselves (such as The Republic, Leviathan, Second Treatise of Government, Groundwork of the Metaphysics of Morals), rather than commentaries.",
+              "label": "premise"
+            },
+            "17": {
+              "text": "A large number of philosophy books are published in Turkey every year.",
+              "label": "claim"
+            },
+            "18": {
+              "text": "Most of these are translations of European bestsellers with a clear bias towards continental and post-modern philosophy.",
+              "label": "premise"
+            },
+            "19": {
+              "text": "Few people would remember that John Dewey visited Turkey in 1925 and prepared a report, which offered valuable advice on a course of action towards setting up a fresh educational system.",
+              "label": "claim"
+            },
+            "20": {
+              "text": "Several philosophers who visited Bilkent knew, to my enchantment, that Hans Reichenbach lectured in Turkey from 1933 to 1938.",
+              "label": "claim"
+            },
+            "21": {
+              "text": "He worked at the University of Istanbul and published his landmark Wahrscheinlichkeitslehre (The Theory of Probability) in 1935.",
+              "label": "premise"
+            },
+            "23": {
+              "text": "It is reassuring to know that versatile young philosophers like Güven Güzeldere and Murat Aydede are creating influential works with a distinctive analytic flavour.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "4",
+              "target": "3",
+              "type": "support"
+            },
+            {
+              "source": "5",
+              "target": "3",
+              "type": "support"
+            },
+            {
+              "source": "8",
+              "target": "6",
+              "type": "support"
+            },
+            {
+              "source": "9",
+              "target": "6",
+              "type": "support"
+            },
+            {
+              "source": "11",
+              "target": "10",
+              "type": "support"
+            },
+            {
+              "source": "12",
+              "target": "10",
+              "type": "support"
+            },
+            {
+              "source": "18",
+              "target": "17",
+              "type": "support"
+            },
+            {
+              "source": "21",
+              "target": "20",
+              "type": "support"
+            }
+          ]
+        }
+      },
+      {
+        "source": "claude-3-5-sonnet-20241022",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"A1\": {\n      \"text\": \"For all practical purposes the history of philosophy in modern Turkey should start with the adoption of the Latin alphabet exactly 80 years ago, one of the colossal contributions of Atatürk, the founder of modern Turkey.\",\n      \"label\": \"claim\"\n    },\n    \"A2\": {\n      \"text\": \"Education benefited from this reform, as the youth of Turkey, cut off from the past with its emphasis on religion, were encouraged to take advantage of new educational opportunities that gave access to the Western scientific and humanistic traditions.\",\n      \"label\": \"premise\"\n    },\n    \"A3\": {\n      \"text\": \"I am not leaving a legacy of dogmas, unchangeable petrified directives. My legacy is science and reason. If those people who wish to follow me after I am gone take science and reason as their guides they will be my true spiritual heirs.\",\n      \"label\": \"claim\"\n    },\n    \"A4\": {\n      \"text\": \"The rapid spread of Western ideas in Turkey during the past 20 years is largely due to his work and it can be said that he did much to carry forward Atatürk's ideal of making Turkey into a Western nation.\",\n      \"label\": \"claim\"\n    },\n    \"A5\": {\n      \"text\": \"In philosophy courses, it is required that students come to terms with the texts themselves (such as The Republic, Leviathan, Second Treatise of Government, Groundwork of the Metaphysics of Morals), rather than commentaries.\",\n      \"label\": \"premise\"\n    },\n    \"A6\": {\n      \"text\": \"Discussion-based class work, tutorials, and essay-based assessment are essential and are applied without making any concessions.\",\n      \"label\": \"premise\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"A2\",\n      \"target\": \"A1\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A3\",\n      \"target\": \"A1\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A4\",\n      \"target\": \"A1\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A5\",\n      \"target\": \"A4\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A6\",\n      \"target\": \"A4\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "A1": {
+              "text": "For all practical purposes the history of philosophy in modern Turkey should start with the adoption of the Latin alphabet exactly 80 years ago, one of the colossal contributions of Atatürk, the founder of modern Turkey.",
+              "label": "claim"
+            },
+            "A2": {
+              "text": "Education benefited from this reform, as the youth of Turkey, cut off from the past with its emphasis on religion, were encouraged to take advantage of new educational opportunities that gave access to the Western scientific and humanistic traditions.",
+              "label": "premise"
+            },
+            "A3": {
+              "text": "I am not leaving a legacy of dogmas, unchangeable petrified directives. My legacy is science and reason. If those people who wish to follow me after I am gone take science and reason as their guides they will be my true spiritual heirs.",
+              "label": "claim"
+            },
+            "A4": {
+              "text": "The rapid spread of Western ideas in Turkey during the past 20 years is largely due to his work and it can be said that he did much to carry forward Atatürk's ideal of making Turkey into a Western nation.",
+              "label": "claim"
+            },
+            "A5": {
+              "text": "In philosophy courses, it is required that students come to terms with the texts themselves (such as The Republic, Leviathan, Second Treatise of Government, Groundwork of the Metaphysics of Morals), rather than commentaries.",
+              "label": "premise"
+            },
+            "A6": {
+              "text": "Discussion-based class work, tutorials, and essay-based assessment are essential and are applied without making any concessions.",
+              "label": "premise"
+            }
+          },
+          "relations": [
+            {
+              "source": "A2",
+              "target": "A1",
+              "type": "support"
+            },
+            {
+              "source": "A3",
+              "target": "A1",
+              "type": "support"
+            },
+            {
+              "source": "A4",
+              "target": "A1",
+              "type": "support"
+            },
+            {
+              "source": "A5",
+              "target": "A4",
+              "type": "support"
+            },
+            {
+              "source": "A6",
+              "target": "A4",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "A1": {
+              "text": "For all practical purposes the history of philosophy in modern Turkey should start with the adoption of the Latin alphabet exactly 80 years ago, one of the colossal contributions of Atatürk, the founder of modern Turkey.",
+              "label": "claim"
+            },
+            "A2": {
+              "text": "Education benefited from this reform, as the youth of Turkey, cut off from the past with its emphasis on religion, were encouraged to take advantage of new educational opportunities that gave access to the Western scientific and humanistic traditions.",
+              "label": "premise"
+            },
+            "A3": {
+              "text": "I am not leaving a legacy of dogmas, unchangeable petrified directives. My legacy is science and reason. If those people who wish to follow me after I am gone take science and reason as their guides they will be my true spiritual heirs.",
+              "label": "claim"
+            },
+            "A4": {
+              "text": "The rapid spread of Western ideas in Turkey during the past 20 years is largely due to his work and it can be said that he did much to carry forward Atatürk's ideal of making Turkey into a Western nation.",
+              "label": "claim"
+            },
+            "A5": {
+              "text": "In philosophy courses, it is required that students come to terms with the texts themselves (such as The Republic, Leviathan, Second Treatise of Government, Groundwork of the Metaphysics of Morals), rather than commentaries.",
+              "label": "premise"
+            }
+          },
+          "relations": [
+            {
+              "source": "A2",
+              "target": "A1",
+              "type": "support"
+            },
+            {
+              "source": "A3",
+              "target": "A1",
+              "type": "support"
+            },
+            {
+              "source": "A4",
+              "target": "A1",
+              "type": "support"
+            },
+            {
+              "source": "A5",
+              "target": "A4",
+              "type": "support"
+            }
+          ]
+        }
+      }
+    ],
+    "timestamp": 1752755360.6220694
+  }
+]

@@ -1,0 +1,5 @@
+Snowball sampling datasets
+
+- Phase 1: test split and pipeline outputs against human annotations.
+- Phase 2: large unlabeled sample used for model weighting and selection.
+- See `config.yaml` under `paths.snowball.*` for locations.

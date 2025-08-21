@@ -1,0 +1,16 @@
+{
+  "I argue that the major problems for statistical algorithmic fairness criteria stem from an incorrect understanding of their nature.": "gpt-4o-2024-11-20",
+  "I argue that we should instead understand fairness criteria as merely providing evidence of fairness.": "gpt-4o-2024-11-20",
+  "This evidence account of fairness conditions provides guidance for recognizing both the appropriate uses and the limitations of fairness criteria.": "gpt-4o-2024-11-20",
+  "However, these ways of understanding the fairness criteria-as necessary conditions, sufficient conditions, or definitions-have led to difficulties.": "gpt-4o-2024-11-20",
+  "I will argue that we should understand statistical fairness criteria as providing evidence of fairness, and their violation as evidence of unfairness.": "gpt-4o-2024-11-20",
+  "Understanding these criteria as evidence of fairness avoids the problems posed for the other conceptions of fairness criteria by incompatibility and counterexamples.": "gpt-4o-2024-11-20",
+  "There are two primary problems for treating fairness criteria as either necessary or sufficient conditions (or as definitions) for fairness.": "gpt-4o-2024-11-20",
+  "The evidence account offers a different explanation for why statistical fairness criteria like FPR parity and group calibration have seemed important for determining whether an algorithmic decision-making process is fair.": "gpt-4o-2024-11-20",
+  "The evidence account is neutral between various theories of evidence, as it requires only a few weak and widely accepted assumptions regarding the nature of evidence.": "gpt-4o-2024-11-20",
+  "The evidence account offers several advantages.": "gpt-4o-2024-11-20",
+  "Statistical fairness criteria are primarily used for two purposes. First, they are used to evaluate the output of algorithmic systems for fairness and bias, even in cases where the internal operation of the system is opaque. For evaluation purposes, the criteria are treated as necessary conditions for fairness. In other words, when practitioners use a criterion for evaluation, they assume that if the system is operating fairly, then the criterion will be satisfied": "claude-3-5-sonnet-20241022",
+  "these ways of understanding the fairness criteria-as necessary conditions, sufficient conditions, or definitions-have led to difficulties": "claude-3-5-sonnet-20241022",
+  "we should understand statistical fairness criteria as providing evidence of fairness, and their violation as evidence of unfairness": "claude-3-5-sonnet-20241022",
+  "Understanding these criteria as evidence of fairness avoids the problems posed for the other conceptions of fairness criteria by incompatibility and counterexamples": "claude-3-5-sonnet-20241022"
+}

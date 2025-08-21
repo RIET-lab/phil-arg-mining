@@ -1,0 +1,341 @@
+[
+  {
+    "identifier": "HEII-27",
+    "system_prompt": "## GOAL\nArgument‑mine the following paper to extract its comprehensive argumentative structure.\n\n## DEFINITIONS\n1. **Argument**: A set of propositions, including some number of premises and a conclusion. The premises should logically entail the conclusion.\n2. **Claim**: A proposition that asserts something to be true or false, typically requiring justification or evidence.\n3. **Premise**: A proposition that provides evidence, justification, or logical support for a claim or conclusion.\n\n## CRITICAL REQUIREMENTS\n1. **VERBATIM EXTRACTION ONLY**: Each ADU text must be copied EXACTLY from the paper with no modifications, paraphrasing, or combining of separate sentences.\n2. **NO HALLUCINATION**: Do not create, modify, or invent text that does not appear exactly in the source.\n3. **EXACT MATCHING**: Every word, punctuation mark, and spacing must match the original precisely.\n\n## DIRECTIONS\n1. **Identify Argumentative Discourse Units (ADUs)**  \n   - ADU = any contiguous text span functioning as a claim or a premise in the reasoning structure.\n   - **BE HIGHLY SELECTIVE**: Only include ADUs that are crucial to the overarching argument structure.\n   - Focus on significant claims and premises that contribute meaningfully to the argumentative flow.\n   - **AVOID NOISE**: Skip ADUs that are merely descriptive, tangential, or do not substantially advance the argument.\n   - Prioritize quality over quantity - fewer accurate, important ADUs are better than many insignificant ones.\n   - **EXTRACT ONLY**: Copy text spans exactly as they appear, without any modifications.\n2. **Classify each ADU**  \n   - Label = either `\"claim\"` or `\"premise\"`.  \n3. **Detect directed relations**  \n   - Relation = `\"support\"` or `\"attack\"`, from one ADU (source) to another (target).\n   - Map how ADUs connect to form reasoning chains.\n   - Focus on relationships between the most significant ADUs.\n   - Include relationships between premises that strengthen or weaken each other.\n4. **Verbatim spans**  \n   - Each `\"text\"` value must be copied EXACTLY from the paper with zero modifications.\n   - Do not paraphrase, summarize, or combine separate sentences.\n   - Do not add, remove, or change any words, punctuation, or spacing.\n   - If unsure about exact wording, skip that ADU rather than guess.\n\n## WHAT TO CAPTURE\n**INCLUDE ONLY:**\n- Main argumentative threads that are central to the paper's contribution\n- Core claims that represent the paper's primary arguments or findings\n- Key premises that provide essential support for major claims\n- Critical counterarguments and their refutations\n- Reasoning chains that demonstrate how main conclusions are derived\n\n**EXCLUDE (AVOID NOISE):**\n- Minor details, examples, or descriptive content that don't advance the argument\n- Tangential points or side discussions\n- Pure background information or literature review content\n- Methodological details unless they constitute argumentative claims\n- Obvious statements or commonly accepted facts\n- Redundant or repetitive argumentative content\n\n**GUIDING PRINCIPLE**: If removing an ADU would not significantly impact understanding of the paper's argumentative structure, it should be excluded.\n\n## QUALITY CONTROL\n- Before finalizing each ADU, verify the text exists exactly in the source\n- Prefer fewer, accurate ADUs over many potentially modified ones\n- When in doubt about exact wording, omit the ADU\n\n## OUTPUT FORMAT\nReturn **only** a single valid JSON object matching this schema.  \nDo **not** output any extra text, markdown, or explanations.\nDo **not** add comments.\n**RESPOND WITH ONLY**:\n```json\n{\n  \"ADUs\": {\n    \"<ADU_ID>\": {\n      \"text\": \"<exact span from paper>\",\n      \"label\": \"claim\" | \"premise\"\n    }\n    ...\n  },\n  \"relations\": [\n    {\n      \"source\": \"<ADU_ID>\",\n      \"target\": \"<ADU_ID>\",\n      \"type\": \"support\" | \"attack\"\n    }\n  ]\n}\n```",
+    "user_content": "| VIII                                                                                                                                 |   Contents |\n|--------------------------------------------------------------------------------------------------------------------------------------|------------|\n| Gad Freudenthal Instrumentalism and \"Realism\" as Categories in the History of Astronomy: Duhem vs. Popper, Maimonides vs. Gersonides |        269 |\n| Andreas Bartels Hypotheticity and Realism Duhem; Popper and Scientific Realism                                                       |        295 |\n| Alfred Nordmann The Hypothesis of Reality and the Reality of Hypotheses                                                              |        313 |\n| Michael Esfeld Hypothetical Metaphysics of Nature                                                                                    |        341 |\n| Contributors                                                                                                                         |        365 |\n|                                                                                                                                      |        371 |\n\n## Introduction\n\n## Heidelberger and Schiemann Gregor\n\nSince early modern times, the significance of hypothesis in natural sci ence has been judged in widely different ways  and has become the source of controversies. The purpose of this volume is to illumi nate somne general lines of development of those debates by treating cases from the history of science and philosophy. The case studies presented  here deal   especially with physics, astronomy, mechanics   and chemistry as well as with problems for mathematical theories of natural science in many posed general.\n\nIf we focus, though, on contemporary discussions; the concept of hypothesis seems to be taken almost as univocal. Historians and philos as well as scientists themselves seem more or less to agree on its meaning: A hypothesis is normally taken as conjecture that is expedient for the is accompanied by the conviction that the truth value of a hypothesis will   finally be   established with further   research. We also find the view, however, that the hypothetical character of certain propositions 66 will never be eliminated . These we can call metaphysical hypotheses Not only single propositions  are called hypotheses, but also theories, clusters of them or even the whole of scientific knowledge. It is almost common sense in the philosophy of science to generally attribute a pothetical character to empirical theories. According to this view, conjectures are not only useful for the production of knowledge, but scien tific theories are nothing but a collection of conjectures. There are powerful and acknowledged arguments for this, both of a systematic and his ophers gain hy -\n\nTaken together; these cases show that the role hypothesis played and plays   for natural  science is of central importance for the manner in which science conceives of itself and its own methodology. Accord ingly, different concepts of science entail different attitudes towards pothesis; both in the history of science and in the discourses of the losophy of science. The significance attributed to hypothesis is; s0 to say, a kind of a litmus-paper for the changing and diverging conceptions of science of the scientific actors themselves, as well as of the philosophers who reflect upon the sciences. phi -\n\ntorical nature. In a systematic sense, the hypothetical nature of scientific theories relates to the insolubility of the problem of induction The truth of general propositions a theory comprises can never be deduced from experience; the famous opposite opinions of Newton and Ampère notwithstanding: Yet experience and cannot be separated sharply from each other and their inseparability is a further reason for their in secure make-up. It seems to be impossible to identify the culprit for an error in the entangled net of experience and theory . This circumstance is in agreement with the historical claim that theories hardly ever lost their validity as a result of conclusively refuted, but rather because their followers died out in the course of time this another support for the conclusion that the claim of scientific propositions to truth cannot be resolved theory being being\n\nIt is now exactly this common sense in to the hypothetical character of science that can go with very different evaluations of its nificance. It seems that the different views can be grouped in at least three ideal types. The first one takes the hypotheticity of science as of highest significance. The conjectural character of scientific theories is taken as their hallmark. It follows that a true theory is impossible and that science must live with the perpetual susceptibility to error, and thus with permanent revision and a forever undecided truth-value. The high esteem of the provisional character of science leads to a revaluation of ignorance and uncertainty. The second type of evaluating hypothet to be distinguished from the first takes hypotheticity for an impor tant and inevitable mark of science as well. Yet this type does not infer that we should renounce any claim to truth, but, on the contrary, to en it. According to this view, hypotheses can always come closer to the truth. The certainty of propositions can be improved, their domain can be increased and their grip on reality can become tighter. The position of the third type does not doubt the fundamental hypotheticity of science either, but denies its relevance. Science has not to be judged marily according to its epistemic values but through its practical advantages. According to this view, science is taken as a context of action that aims to change the world in order to meet human needs. Theories can be helpful in reaching this goal, but this is not necessarily so Their hy pothetical status is therefore of importance. regard sig being icity dorse pri lesser\n\nA closer look reveals that the present debate about the significance of the hypothetical is not only controversial, but also somewhat confus The different positions cannot be categorized in the suggest ed ways and show some overlap. Yet the major fundamental positions ing; always remain visible. This is also exemplified by the case studies of this volume that refer to the present debate of the problem   Those positions that practical  dimension of science, like pragmatism in the follow-up of Charles Sanders Peirce or Bruno Latours view, lead to kind of downplay of the hypothetical   aspect  of scientific theories (third Hypotheses loose their immediate relevance for questions of truth and turn into productive anticipations of reálity (Alfred Nord mann) . If, however, one keeps to the epistemological attributes of the ories; the hypothetical nature of science in general comes to the fore (second type). Two case studies discuss the retention of claims to the truth. The first deals with the relation between hypotheticity and scien tific realism. The recognition of hypotheticity does not automatically exclude a realist of view, provided it implies the possibility of ap proximate truth the contrary, such a view can even be based on hypotheticity if scientific realism is conceived as an theory itself (Andreas Bartels) The other case study considers the metaphysics of nature as dependent on scientific hypotheses. One can understand metaphysics as as hypothetical as the scientific theories fom which it ultimately derives (Michael Esfeld) . The esteem of hypotheticity can, however; also lead to a justification of the limited validity of scientific knowledge (first type). A further case study that can be counted as belonging to this position does not refer directly to the debate at present. The notion of a 'closed theory' developed by Werner Heisenberg in the context of his quantum mechanics sees the reach of scientific theories as limited through concepts and denies the possibility of a continuous progress of knowledge (Gregor Schiemann) . type) . point on empirical being being\n\nThe different types of significance of the hypothetical in s sci ences have developed from specific historical constellations starting in the early modern era. The common origin is still present in the shared view that, in contrast to pre-modern conceptions from antiquity, pothesis has a legitimate place and function in the process of knowledge. In Aristotelian science, which dominated the scene until the early modern period, the status of hypotheses is problematic. This is shown in case study that deals with the development of astronomy of the middle-ages (Gad Freudenthal) . One can even say that rejecting this aspect of Aristotelian science and incorporating hypothetical elements into the presuppositions and methods of modern science is among the decisive hallmarks of the Scientific Revolution (Ernan McMullin) . That does not mean, of course; that this is enough for characterizing the funda mentals of modern science; suffice it to say that their changing relations today'\n\nto theology and religion as well as its new relevance for technology have to be taken into account.\n\nIn the century , another process of change took place whose reverberations can still be noticed in the first and third view on the significance of hypothesis. This was the growing conviction that all claims to final validity of scientific assertions about the world are thetical and with it all scientific theories. Instead of playing the role of useful and necessary conjectures on the way to truth that are finally overcome, hypotheses   increasingly undermined the for which were designed.  In respect to considerations of validity, the traditional understanding of science began to change and was finally turned down: Instead of constituting irrefutable knowledge, science was increasingly seen as representing indemonstrable hypotheses. Science's immutable certainty was more and more disputed and taken over by refutability as a criterion of science; the trust in sciences truth started to give way to a permanently effective suspicion of its possible failure. This development inaugurated a turn to a concept of science that eventually renounces any claim to truth and represents the first type of hypothesis as described above. 19t today hypo goal they upside\n\nModern science's way of dealing with experience   did not  only imply the necessity of making room for hypotheses in science but also for limitations of scientific knowledge. There are reasons to suppose that even empiricist thinkers like Locke could not ground these limits exclusively in   experience, but also in metaphysical   presuppositions (Rainer Specht) . All the new hypothetical elements notwithstanding, modern science still upheld truth as the of science in a largely comparable way as its predecessor. The second ideal type of significance of hypothesis that plays a role in the present debate originates from this his torical constellation and is related to it with several different lines of de velopment.  One line is represented by the concept of induction that played a dominating role until into the century (Laura Snyder; McMullin's section on Newton) . Among the cases treated in this collection; Heinrich Hertz's hypothetico-deductivism provides an interesting further conception of the intricate and fragile balance of hypothesis and truth in science (Andreas Hüttemann) . goal 19t deep\n\nAs in the Scientific Revolution, this process of change occurring in cial functions of science. Industrial development was based increasingly on scientifically produced technology (dye industry, electrical industry) . Scientific results were now systematically incorporated into the produc - tion process of Professional education in science and technology increasingly fell into the responsibility of the state which could in turn secure its influence by providing financial support for experimental re search. State institutions had to watch over the implementation of scale technology in science and industry . Developments like these; con nected as are with the applicational dimension of science; help to understand the course of increasing hypotheticity. In short; one can say that a insight in the 19\" century was the discovery that science can be socially useful even if epistemological questions, which had pre viously held priority, were left unanswered. Demand for the ity of science overruled questions about its exact epistemic status. goods. large they key\n\nBoth in Jacobi and Neumann as well as in Boutroux, one can dis cern considerations that come very close to the outlook on the founda tions of mathematics and physics that was developed by Henri Poincaré at the turn to the 20t century . Poincaré's conventionalism can be reas one of the first and most effective formulations of a hypothet ical conception of science: His epistemological analysis included a com prehensive classification of different meanings of hypothesis that are in use in mathematics (especially geometry) , as well as in physics (Gerhard Heinzmann) . To regard theories as hypotheses gives more possibilities in choice than if one remains wedded to traditional conception that identifies science with truth and truth-seeking: One can decide only by convention between different theories of an object realm that are incompatible with each other but equally justified. This was one garded theory\n\nThe contributions of this volume do not deal with these more external relations of science to society but concentrate the philosoph ical discussions that accompanied the developments described here and asked for the claim to truth. With the work of the mathematicians Carl G. J. Jacobi and Carl Neumann; the idea of axiomatic thought; to base knowledge of a field on self-evident assumptions, eroded abovei The process of hypothesizing first principles likewise seized mathematics and mechanics (Helmut Pulte) . The French philosopher of nature and science; Émile Boutroux, reached a hypothetical view of mathematics and science by making assumptions \"from below ie. by admitting an irreducible variability and spontaneity the micro-level of physical reality . The possibility of genuine novelty in nature as well as the hier archical ordering of science into irreducible disciplines that build upon each other led to an insurmountable element of 'contingency' in nat ural laws (Michael Heidelberger) . on \"from on\n\nof the factors that made Poincaré to Galileo's conception of space time Albert Einstein's alternative (Scott Walter) . keep against\n\nPoincaré's concept of hypothesis has interesting similarities with, but also differences Hans Vaihinger' concept of fiction. According to Vaihinger; a fiction is idea that is blatantly false but nevertheless use ful for dealing with reality. Together with hypotheses; fictions act as a basis for a pragmatic conception of science (Christophe Bouriau). To abstain from claims to truth concerning scientific assertions leads not only to new appraisal of hypothesis, but also to a revaluation of the practical applications of science. The latter development is bound to ad vance the significance of hypothesis one step further and to completely cut the bond of hypothesis with its early modern origin. to, an\n\n## Hypothesis in Early Modern Science Ernan McMullin\n\n## Abstract:\n\nMy contention is that hypothesis gradually emerged from the shadows of natural inquiry in the between Copernicus and Newton. Indeed, it might be that one per spicuous way to define the scientific revolution (an admittedly contentious term !) would be to detach just one theme, the conception of the sort of knowledge that constitutes the \"science\" of nature; and to note the profound shift in it that took place roughly between 1600 and 1700. Where the Aristotelian ideal of demonstration of a deductive sort from prem ises ultimately seen to be true in their own right could still claim wide authority among natural philosophers as the sixteenth century ended, it would have found little support among those pursuing systematic inquiry into the physical world a century later, And central to that profound change was the increasing visibility %f hypothesis, both in the firstorder role it played in the day-to-day activity %f astronomers and natural philosophers and in the second-order way in which that role came to be discussed by them. What makes it worthwhile, I to address in short space as broad a topic as this is to make this argued period good hope,\n\nTracing the role of hypothesis in early modern science could prompt two different sorts of questions; what I will call first-order and sec ond-order questions. One might investigate the methods, the strategies and the forms of reasoning implicit in the work of natural philosophers of the period from Copernicus to Newton with a view to determining to what extent and in what sort of contexts had actually relied on hypothesis in their work. This first-order inquiry responds to a contem porary understanding of the two terms in my title: Hypothesis in science. But there is second-order kind of inquiry which is also relevant: in their own reflective discussions of how sys tematic inquiry into the natural world should be carried on, what we might call their philosophy of science, what role did hypothesis play for the practitioners? [ intend to ask both sorts of question and to note in some cases striking dissonance between the answers. To do this necessitates, of course, careful attention to a third kind of question: quite they key",
+    "responses": [
+      {
+        "source": "gpt-4o-2024-11-20",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"ADU1\": {\n      \"text\": \"Since early modern times, the significance of hypothesis in natural science has been judged in widely different ways and has become the source of controversies.\",\n      \"label\": \"claim\"\n    },\n    \"ADU2\": {\n      \"text\": \"The purpose of this volume is to illuminate some general lines of development of those debates by treating cases from the history of science and philosophy.\",\n      \"label\": \"claim\"\n    },\n    \"ADU3\": {\n      \"text\": \"Taken together; these cases show that the role hypothesis played and plays for natural science is of central importance for the manner in which science conceives of itself and its own methodology.\",\n      \"label\": \"claim\"\n    },\n    \"ADU4\": {\n      \"text\": \"The truth of general propositions a theory comprises can never be deduced from experience; the famous opposite opinions of Newton and Ampère notwithstanding.\",\n      \"label\": \"premise\"\n    },\n    \"ADU5\": {\n      \"text\": \"It seems to be impossible to identify the culprit for an error in the entangled net of experience and theory.\",\n      \"label\": \"premise\"\n    },\n    \"ADU6\": {\n      \"text\": \"The first one takes the hypotheticity of science as of highest significance.\",\n      \"label\": \"claim\"\n    },\n    \"ADU7\": {\n      \"text\": \"The conjectural character of scientific theories is taken as their hallmark.\",\n      \"label\": \"premise\"\n    },\n    \"ADU8\": {\n      \"text\": \"It follows that a true theory is impossible and that science must live with the perpetual susceptibility to error, and thus with permanent revision and a forever undecided truth-value.\",\n      \"label\": \"claim\"\n    },\n    \"ADU9\": {\n      \"text\": \"The second type of evaluating hypotheticity to be distinguished from the first takes hypotheticity for an important and inevitable mark of science as well.\",\n      \"label\": \"claim\"\n    },\n    \"ADU10\": {\n      \"text\": \"Yet this type does not infer that we should renounce any claim to truth, but, on the contrary, to endorse it.\",\n      \"label\": \"claim\"\n    },\n    \"ADU11\": {\n      \"text\": \"According to this view, hypotheses can always come closer to the truth.\",\n      \"label\": \"premise\"\n    },\n    \"ADU12\": {\n      \"text\": \"The position of the third type does not doubt the fundamental hypotheticity of science either, but denies its relevance.\",\n      \"label\": \"claim\"\n    },\n    \"ADU13\": {\n      \"text\": \"Science has not to be judged primarily according to its epistemic values but through its practical advantages.\",\n      \"label\": \"premise\"\n    },\n    \"ADU14\": {\n      \"text\": \"Theories can be helpful in reaching this goal, but this is not necessarily so.\",\n      \"label\": \"premise\"\n    },\n    \"ADU15\": {\n      \"text\": \"The common origin is still present in the shared view that, in contrast to pre-modern conceptions from antiquity, hypothesis has a legitimate place and function in the process of knowledge.\",\n      \"label\": \"claim\"\n    },\n    \"ADU16\": {\n      \"text\": \"One can even say that rejecting this aspect of Aristotelian science and incorporating hypothetical elements into the presuppositions and methods of modern science is among the decisive hallmarks of the Scientific Revolution.\",\n      \"label\": \"claim\"\n    },\n    \"ADU17\": {\n      \"text\": \"Instead of constituting irrefutable knowledge, science was increasingly seen as representing indemonstrable hypotheses.\",\n      \"label\": \"claim\"\n    },\n    \"ADU18\": {\n      \"text\": \"Science's immutable certainty was more and more disputed and taken over by refutability as a criterion of science.\",\n      \"label\": \"claim\"\n    },\n    \"ADU19\": {\n      \"text\": \"Modern science's way of dealing with experience did not only imply the necessity of making room for hypotheses in science but also for limitations of scientific knowledge.\",\n      \"label\": \"claim\"\n    },\n    \"ADU20\": {\n      \"text\": \"To regard theories as hypotheses gives more possibilities in choice than if one remains wedded to traditional conception that identifies science with truth and truth-seeking.\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"ADU1\",\n      \"target\": \"ADU2\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU3\",\n      \"target\": \"ADU4\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU3\",\n      \"target\": \"ADU5\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU6\",\n      \"target\": \"ADU7\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU6\",\n      \"target\": \"ADU8\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU9\",\n      \"target\": \"ADU10\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU10\",\n      \"target\": \"ADU11\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU12\",\n      \"target\": \"ADU13\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU12\",\n      \"target\": \"ADU14\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU15\",\n      \"target\": \"ADU16\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU17\",\n      \"target\": \"ADU18\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU19\",\n      \"target\": \"ADU20\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "ADU1": {
+              "text": "Since early modern times, the significance of hypothesis in natural science has been judged in widely different ways and has become the source of controversies.",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "The purpose of this volume is to illuminate some general lines of development of those debates by treating cases from the history of science and philosophy.",
+              "label": "claim"
+            },
+            "ADU3": {
+              "text": "Taken together; these cases show that the role hypothesis played and plays for natural science is of central importance for the manner in which science conceives of itself and its own methodology.",
+              "label": "claim"
+            },
+            "ADU4": {
+              "text": "The truth of general propositions a theory comprises can never be deduced from experience; the famous opposite opinions of Newton and Ampère notwithstanding.",
+              "label": "premise"
+            },
+            "ADU5": {
+              "text": "It seems to be impossible to identify the culprit for an error in the entangled net of experience and theory.",
+              "label": "premise"
+            },
+            "ADU6": {
+              "text": "The first one takes the hypotheticity of science as of highest significance.",
+              "label": "claim"
+            },
+            "ADU7": {
+              "text": "The conjectural character of scientific theories is taken as their hallmark.",
+              "label": "premise"
+            },
+            "ADU8": {
+              "text": "It follows that a true theory is impossible and that science must live with the perpetual susceptibility to error, and thus with permanent revision and a forever undecided truth-value.",
+              "label": "claim"
+            },
+            "ADU9": {
+              "text": "The second type of evaluating hypotheticity to be distinguished from the first takes hypotheticity for an important and inevitable mark of science as well.",
+              "label": "claim"
+            },
+            "ADU10": {
+              "text": "Yet this type does not infer that we should renounce any claim to truth, but, on the contrary, to endorse it.",
+              "label": "claim"
+            },
+            "ADU11": {
+              "text": "According to this view, hypotheses can always come closer to the truth.",
+              "label": "premise"
+            },
+            "ADU12": {
+              "text": "The position of the third type does not doubt the fundamental hypotheticity of science either, but denies its relevance.",
+              "label": "claim"
+            },
+            "ADU13": {
+              "text": "Science has not to be judged primarily according to its epistemic values but through its practical advantages.",
+              "label": "premise"
+            },
+            "ADU14": {
+              "text": "Theories can be helpful in reaching this goal, but this is not necessarily so.",
+              "label": "premise"
+            },
+            "ADU15": {
+              "text": "The common origin is still present in the shared view that, in contrast to pre-modern conceptions from antiquity, hypothesis has a legitimate place and function in the process of knowledge.",
+              "label": "claim"
+            },
+            "ADU16": {
+              "text": "One can even say that rejecting this aspect of Aristotelian science and incorporating hypothetical elements into the presuppositions and methods of modern science is among the decisive hallmarks of the Scientific Revolution.",
+              "label": "claim"
+            },
+            "ADU17": {
+              "text": "Instead of constituting irrefutable knowledge, science was increasingly seen as representing indemonstrable hypotheses.",
+              "label": "claim"
+            },
+            "ADU18": {
+              "text": "Science's immutable certainty was more and more disputed and taken over by refutability as a criterion of science.",
+              "label": "claim"
+            },
+            "ADU19": {
+              "text": "Modern science's way of dealing with experience did not only imply the necessity of making room for hypotheses in science but also for limitations of scientific knowledge.",
+              "label": "claim"
+            },
+            "ADU20": {
+              "text": "To regard theories as hypotheses gives more possibilities in choice than if one remains wedded to traditional conception that identifies science with truth and truth-seeking.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU1",
+              "target": "ADU2",
+              "type": "support"
+            },
+            {
+              "source": "ADU3",
+              "target": "ADU4",
+              "type": "support"
+            },
+            {
+              "source": "ADU3",
+              "target": "ADU5",
+              "type": "support"
+            },
+            {
+              "source": "ADU6",
+              "target": "ADU7",
+              "type": "support"
+            },
+            {
+              "source": "ADU6",
+              "target": "ADU8",
+              "type": "support"
+            },
+            {
+              "source": "ADU9",
+              "target": "ADU10",
+              "type": "support"
+            },
+            {
+              "source": "ADU10",
+              "target": "ADU11",
+              "type": "support"
+            },
+            {
+              "source": "ADU12",
+              "target": "ADU13",
+              "type": "support"
+            },
+            {
+              "source": "ADU12",
+              "target": "ADU14",
+              "type": "support"
+            },
+            {
+              "source": "ADU15",
+              "target": "ADU16",
+              "type": "support"
+            },
+            {
+              "source": "ADU17",
+              "target": "ADU18",
+              "type": "support"
+            },
+            {
+              "source": "ADU19",
+              "target": "ADU20",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "ADU1": {
+              "text": "Since early modern times, the significance of hypothesis in natural science has been judged in widely different ways and has become the source of controversies.",
+              "label": "claim"
+            },
+            "ADU3": {
+              "text": "Taken together; these cases show that the role hypothesis played and plays for natural science is of central importance for the manner in which science conceives of itself and its own methodology.",
+              "label": "claim"
+            },
+            "ADU5": {
+              "text": "It seems to be impossible to identify the culprit for an error in the entangled net of experience and theory.",
+              "label": "premise"
+            },
+            "ADU6": {
+              "text": "The first one takes the hypotheticity of science as of highest significance.",
+              "label": "claim"
+            },
+            "ADU7": {
+              "text": "The conjectural character of scientific theories is taken as their hallmark.",
+              "label": "premise"
+            },
+            "ADU8": {
+              "text": "It follows that a true theory is impossible and that science must live with the perpetual susceptibility to error, and thus with permanent revision and a forever undecided truth-value.",
+              "label": "claim"
+            },
+            "ADU11": {
+              "text": "According to this view, hypotheses can always come closer to the truth.",
+              "label": "premise"
+            },
+            "ADU12": {
+              "text": "The position of the third type does not doubt the fundamental hypotheticity of science either, but denies its relevance.",
+              "label": "claim"
+            },
+            "ADU17": {
+              "text": "Instead of constituting irrefutable knowledge, science was increasingly seen as representing indemonstrable hypotheses.",
+              "label": "claim"
+            },
+            "ADU19": {
+              "text": "Modern science's way of dealing with experience did not only imply the necessity of making room for hypotheses in science but also for limitations of scientific knowledge.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU3",
+              "target": "ADU5",
+              "type": "support"
+            },
+            {
+              "source": "ADU6",
+              "target": "ADU7",
+              "type": "support"
+            },
+            {
+              "source": "ADU6",
+              "target": "ADU8",
+              "type": "support"
+            }
+          ]
+        }
+      },
+      {
+        "source": "claude-3-5-sonnet-20241022",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"A1\": {\n      \"text\": \"Since early modern times, the significance of hypothesis in natural sci ence has been judged in widely different ways and has become the source of controversies.\",\n      \"label\": \"claim\"\n    },\n    \"A2\": {\n      \"text\": \"A hypothesis is normally taken as conjecture that is expedient for the is accompanied by the conviction that the truth value of a hypothesis will finally be established with further research.\",\n      \"label\": \"claim\"\n    },\n    \"A3\": {\n      \"text\": \"It is almost common sense in the philosophy of science to generally attribute a pothetical character to empirical theories.\",\n      \"label\": \"claim\"\n    },\n    \"A4\": {\n      \"text\": \"The significance attributed to hypothesis is; s0 to say, a kind of a litmus-paper for the changing and diverging conceptions of science of the scientific actors themselves, as well as of the philosophers who reflect upon the sciences.\",\n      \"label\": \"claim\"\n    },\n    \"A5\": {\n      \"text\": \"The truth of general propositions a theory comprises can never be deduced from experience\",\n      \"label\": \"premise\"\n    },\n    \"A6\": {\n      \"text\": \"It seems to be impossible to identify the culprit for an error in the entangled net of experience and theory\",\n      \"label\": \"premise\"\n    },\n    \"A7\": {\n      \"text\": \"theories hardly ever lost their validity as a result of conclusively refuted, but rather because their followers died out in the course of time\",\n      \"label\": \"premise\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"A5\",\n      \"target\": \"A3\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A6\",\n      \"target\": \"A3\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A7\",\n      \"target\": \"A3\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A3\",\n      \"target\": \"A4\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "A1": {
+              "text": "Since early modern times, the significance of hypothesis in natural sci ence has been judged in widely different ways and has become the source of controversies.",
+              "label": "claim"
+            },
+            "A2": {
+              "text": "A hypothesis is normally taken as conjecture that is expedient for the is accompanied by the conviction that the truth value of a hypothesis will finally be established with further research.",
+              "label": "claim"
+            },
+            "A3": {
+              "text": "It is almost common sense in the philosophy of science to generally attribute a pothetical character to empirical theories.",
+              "label": "claim"
+            },
+            "A4": {
+              "text": "The significance attributed to hypothesis is; s0 to say, a kind of a litmus-paper for the changing and diverging conceptions of science of the scientific actors themselves, as well as of the philosophers who reflect upon the sciences.",
+              "label": "claim"
+            },
+            "A5": {
+              "text": "The truth of general propositions a theory comprises can never be deduced from experience",
+              "label": "premise"
+            },
+            "A6": {
+              "text": "It seems to be impossible to identify the culprit for an error in the entangled net of experience and theory",
+              "label": "premise"
+            },
+            "A7": {
+              "text": "theories hardly ever lost their validity as a result of conclusively refuted, but rather because their followers died out in the course of time",
+              "label": "premise"
+            }
+          },
+          "relations": [
+            {
+              "source": "A5",
+              "target": "A3",
+              "type": "support"
+            },
+            {
+              "source": "A6",
+              "target": "A3",
+              "type": "support"
+            },
+            {
+              "source": "A7",
+              "target": "A3",
+              "type": "support"
+            },
+            {
+              "source": "A3",
+              "target": "A4",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "A1": {
+              "text": "Since early modern times, the significance of hypothesis in natural sci ence has been judged in widely different ways and has become the source of controversies.",
+              "label": "claim"
+            },
+            "A2": {
+              "text": "A hypothesis is normally taken as conjecture that is expedient for the is accompanied by the conviction that the truth value of a hypothesis will finally be established with further research.",
+              "label": "claim"
+            },
+            "A3": {
+              "text": "It is almost common sense in the philosophy of science to generally attribute a pothetical character to empirical theories.",
+              "label": "claim"
+            },
+            "A4": {
+              "text": "The significance attributed to hypothesis is; s0 to say, a kind of a litmus-paper for the changing and diverging conceptions of science of the scientific actors themselves, as well as of the philosophers who reflect upon the sciences.",
+              "label": "claim"
+            },
+            "A5": {
+              "text": "The truth of general propositions a theory comprises can never be deduced from experience",
+              "label": "premise"
+            },
+            "A6": {
+              "text": "It seems to be impossible to identify the culprit for an error in the entangled net of experience and theory",
+              "label": "premise"
+            },
+            "A7": {
+              "text": "theories hardly ever lost their validity as a result of conclusively refuted, but rather because their followers died out in the course of time",
+              "label": "premise"
+            }
+          },
+          "relations": [
+            {
+              "source": "A5",
+              "target": "A3",
+              "type": "support"
+            },
+            {
+              "source": "A6",
+              "target": "A3",
+              "type": "support"
+            },
+            {
+              "source": "A7",
+              "target": "A3",
+              "type": "support"
+            },
+            {
+              "source": "A3",
+              "target": "A4",
+              "type": "support"
+            }
+          ]
+        }
+      }
+    ],
+    "timestamp": 1752753461.8065145
+  }
+]

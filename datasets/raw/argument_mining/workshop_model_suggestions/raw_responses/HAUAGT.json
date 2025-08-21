@@ -1,0 +1,655 @@
+[
+  {
+    "identifier": "HAUAGT",
+    "system_prompt": "## GOAL\nArgument‑mine the following paper to extract its comprehensive argumentative structure.\n\n## DEFINITIONS\n1. **Argument**: A set of propositions, including some number of premises and a conclusion. The premises should logically entail the conclusion.\n2. **Claim**: A proposition that asserts something to be true or false, typically requiring justification or evidence.\n3. **Premise**: A proposition that provides evidence, justification, or logical support for a claim or conclusion.\n\n## CRITICAL REQUIREMENTS\n1. **VERBATIM EXTRACTION ONLY**: Each ADU text must be copied EXACTLY from the paper with no modifications, paraphrasing, or combining of separate sentences.\n2. **NO HALLUCINATION**: Do not create, modify, or invent text that does not appear exactly in the source.\n3. **EXACT MATCHING**: Every word, punctuation mark, and spacing must match the original precisely.\n\n## DIRECTIONS\n1. **Identify Argumentative Discourse Units (ADUs)**  \n   - ADU = any contiguous text span functioning as a claim or a premise in the reasoning structure.\n   - **BE HIGHLY SELECTIVE**: Only include ADUs that are crucial to the overarching argument structure.\n   - Focus on significant claims and premises that contribute meaningfully to the argumentative flow.\n   - **AVOID NOISE**: Skip ADUs that are merely descriptive, tangential, or do not substantially advance the argument.\n   - Prioritize quality over quantity - fewer accurate, important ADUs are better than many insignificant ones.\n   - **EXTRACT ONLY**: Copy text spans exactly as they appear, without any modifications.\n2. **Classify each ADU**  \n   - Label = either `\"claim\"` or `\"premise\"`.  \n3. **Detect directed relations**  \n   - Relation = `\"support\"` or `\"attack\"`, from one ADU (source) to another (target).\n   - Map how ADUs connect to form reasoning chains.\n   - Focus on relationships between the most significant ADUs.\n   - Include relationships between premises that strengthen or weaken each other.\n4. **Verbatim spans**  \n   - Each `\"text\"` value must be copied EXACTLY from the paper with zero modifications.\n   - Do not paraphrase, summarize, or combine separate sentences.\n   - Do not add, remove, or change any words, punctuation, or spacing.\n   - If unsure about exact wording, skip that ADU rather than guess.\n\n## WHAT TO CAPTURE\n**INCLUDE ONLY:**\n- Main argumentative threads that are central to the paper's contribution\n- Core claims that represent the paper's primary arguments or findings\n- Key premises that provide essential support for major claims\n- Critical counterarguments and their refutations\n- Reasoning chains that demonstrate how main conclusions are derived\n\n**EXCLUDE (AVOID NOISE):**\n- Minor details, examples, or descriptive content that don't advance the argument\n- Tangential points or side discussions\n- Pure background information or literature review content\n- Methodological details unless they constitute argumentative claims\n- Obvious statements or commonly accepted facts\n- Redundant or repetitive argumentative content\n\n**GUIDING PRINCIPLE**: If removing an ADU would not significantly impact understanding of the paper's argumentative structure, it should be excluded.\n\n## QUALITY CONTROL\n- Before finalizing each ADU, verify the text exists exactly in the source\n- Prefer fewer, accurate ADUs over many potentially modified ones\n- When in doubt about exact wording, omit the ADU\n\n## OUTPUT FORMAT\nReturn **only** a single valid JSON object matching this schema.  \nDo **not** output any extra text, markdown, or explanations.\n\nRESPOND WITH ONLY:\n```json\n{\n  \"ADUs\": {\n    \"<ADU_ID>\": {\n      \"text\": \"<exact span from paper>\",\n      \"label\": \"claim\" | \"premise\"\n    }\n    ...\n  },\n  \"relations\": [\n    {\n      \"source\": \"<ADU_ID>\",\n      \"target\": \"<ADU_ID>\",\n      \"type\": \"support\" | \"attack\"\n    }\n  ]\n}\n```",
+    "user_content": "Michael Hauskeller is Professor of Philosophy at the University of Liverpool and author of several books, most recently *The Meaning of Life and Death. Ten Classic Thinkers on the Ultimate Question* , which was just published by Bloomsbury and from which “All Good Things Laugh” has been adapted.\n\n**All Good Things Laugh**\n\n**Nietzsche on the Death of God and the Birth of the Superhuman**\n\n*Michael Hauskeller*\n\nTowards the end of the 19th century the dominant world view in Western Europe was materialist and humanist. Many scientists no longer believed that they needed God to explain how the world worked. All that was needed were the laws of nature: of physics, chemistry, biology, and indeed human society. Educated people may still have paid lip service to the Christian religion, but to many of them religion no longer mattered much, if it mattered at all. For all practical intents and purposes God no longer existed in their lives. This did not happen overnight, but slowly, gradually, over the course of the previous two centuries. Because the change occurred slowly, it was hardly noticed. People had stopped believing in God without quite realizing it.\n\nIt was the German philosopher Friedrich Nietzsche who put an end to this complacency by demanding that we be honest to ourselves, acknowledge the fact that we live in a godless universe, and face the consequences of this new reality. God is dead, he declared, brutally, in *The Gay Science* (1882), and we have killed him. We have killed him by no longer believing in his existence. Whether that was a conscious decision or not, it is definitely our own doing and we finally need to own up to it. The disappearance of God from our lives is, after all, not a trivial matter. It cannot simply be ignored, because it changes everything. The world has now become a different place entirely: without God there is no certainty, no clarity, and no guarantees about anything. With our belief in God we have also lost our trust in the world. We don’t know what is going on anymore. We have lost all direction, all sense of purpose. We no longer know why we are here and where we are going. We no longer stand firmly on the ground, but find ourselves in free fall. Nothing is in the right place anymore, because we have learned that there are no right places for things (or, for that matter, wrong places). We wander “through an infinite nothingness”; we are surrounded by empty space. The world has become colder and darker. In other words, by killing God we have created quite a mess for ourselves.\n\nThose who understood the significance of what had happened were prone to think that, after the loss of God and of all the security that our belief in him gave us, there is nothing left for us to do than to despair. A godless universe is a horrible thing, and the only proper reaction to it is to fall into a great depression, to decry everything as empty, indifferent, and past. For those who feel that way there is nothing left to live for, and indeed nothing left to die for. The secularization of Western societies has created a race of people who find themselves unable to live, but also “too tired to die”, so what they do is carry on living, but as if in tombs. That is understandable, perhaps. After all, “if you gaze long into an abyss, the abyss will also gaze into you.” However, it does not have to be like that. There are other, healthier and more forward-looking ways to respond to the godlessness of the universe than by embracing nihilism. We can shake off our sadness and feel the loss of God not as a new darkness that has come over the world, but on the contrary as an opening that has left the world brighter than it was before, as if a dark cloud had dispersed that used to hang over our lives. The death of God signals the ending of something, but every ending is also a beginning, and this particular ending may actually be beneficial to us. The death of God, far from making life meaningless, can be understood as the dawn of a new day, as something liberating, bringing with it a new lightness, full of opportunity and expectation: “finally the horizon appears clear again, even if it is not bright, finally our ships are free to sail again, to face any danger; every adventure of knowing is permitted again, the sea, *our* sea, lies open again, perhaps there never was a sea so open.”\n\nSo even though we may have killed God, by doing so we have actually done ourselves and those who come after us a great service. Perhaps the world is not as valuable as we thought it was, but that doesn’t mean it is now any *less* valuable, only that it is not valuable in quite the same way. From the death of God new values emerge, which need to replace the old ones, values that are not malformed and tainted by religious beliefs and the worship of an entirely fictional One that is complete, unmoving, and eternal: new values that are less hostile to humanity, less hostile to life; values that do not reflect the false conviction that death is an evil, but a full appreciation of the fact that without death there is no life, that the emergence of the new requires the perishing of the old, that in order to create we must also destroy. The death of God has given us the chance to reinvent ourselves, to truly come to life as a higher form of human. God’s death can be our resurrection, but only if we prove ourselves worthy of the great deed, which the killing of God no doubt is, by becoming gods ourselves, which is to say, free spirits who no longer need to be told what to do in order to do it and who no longer desire certainty; souls who don’t need a safety net, who only require possibilities, delighting in their freedom and their power of self-determination; free, cheerful souls who know how to dance, no matter what life brings them, even at the edge of an abyss.\n\nNietzsche unfurls this new anti-pessimistic, anti-nihilistic free-soul philosophy of life in his most unusual and most enigmatic work, *Thus Spoke Zarathustra* (1883-85). Speaking to us in the guise of the Persian prophet Zarathustra, he acknowledges the uncanniness and apparent meaninglessness of human existence, only to insist that this meaninglessness is largely owed to our own decadent attitude towards life. What we call life is in fact a long, slow suicide. Some of us may still have “a little chaos” in us, which is necessary to “give birth to a dancing star” – which Nietzsche thinks is a very desirable thing to do – but it won’t be long before that has passed too and the “last humans” will reign supreme. The last humans will no longer be capable of giving birth to stars. They are the most despicable of all humans because they have forgotten how to despise themselves. This is not what humans should be like, nor is it necessarily what we have always been. Nietzsche suggests that there may well have been periods in the history of humanity in which we were different, ages more heroic and more passionate than ours, when the giving birth to stars was still possible. But these times are gone. We don’t even understand the words anymore that remind us of the possibility of such ages and modes of life. “‘What is love? What is creation? What is longing? What is star?’ – thus asks the last human and blinks. Then Earth has become small, and on it bounces the last human, who makes everything small. His lineage is ineradicable like the flea beetle; the last human lives longest. ‘We have found happiness’ speak the last humans and blink.” Nietzsche strongly implies that the last human’s happiness is not worth having. It lacks depth. It lacks greatness. The last humans all want the same, and what they want does not amount to much. They also all want to *be* the same, and those who feel differently have little choice but to commit themselves to a lunatic asylum.\n\nThis is how things will be if nothing changes. This is how things almost are already. Yet they don’t *have* to be that way. A change of direction is still possible. What we need in order to avoid the miserable, all-too-happy life of the last humans is someone who can shake things up and show us the way, someone like Zarathustra, someone like Nietzsche. Zarathustra’s role is to help Nietzsche teach us the meaning of our existence. That meaning, Zarathustra reveals, is “the superhuman”. The superhuman is the meaning of our existence in the sense that we are meant to be more than what we commonly manage to be. There is a potential in human existence that we have not yet realized, or have forgotten how to realize. The superhuman is what we could be if we changed the way we look at the world and at ourselves. That is our destiny. It is that what we are here for and what is meant to happen: “The superhuman is the meaning of the earth.” We are currently in the middle of a trajectory that leads from the animal we once were to the superhuman we may one day be. Nietzsche calls this intermediary state the “great noon”. For the superhuman to become real, we need to positively welcome what must come next, namely humanity’s evening and night, leading up to the arrival of a new dawn. For the superhuman to become real, the human in us must be overcome. The human in us is everything in us that has no true value – which is most of what we think is valuable. Just as, today, we laugh at monkeys and are embarrassed by them, we should learn (or relearn) to laugh at ourselves. The human must become a joke and an embarrassment to the superhuman, or more precisely the human should become a joke and an embarrassment to us, because if that happens we are already en route to becoming superhuman. We need to learn to despise everything that is commonly held dear: reason, and virtue, and most of all our so-called happiness, because none of this is of any importance or value. Our purpose is to pave the way towards our own overcoming. “Man is a rope tied between animal and superhuman – a rope over an abyss.” Man is a bridge, a transition, an ending, not an end in itself. Our task, our historic mission, is to sacrifice ourselves to the earth and to “build a house for the superhuman”, which is to say, make all necessary preparations for the superhuman’s arrival. In teaching the superhuman, Zarathustra teaches a new pride and a new resolve: to “no longer bury one’s head in the sand of heavenly things, but to bear it freely, an earth-head, which gives meaning to the earth.”\n\nFor a long time we tried to satisfy ourselves with heavenly things, tried to construct a meaning for our existence out of the belief in a non-existent God. That seemed to work for a while, but since the whole construction was based on a lie, it had to give way eventually. We finally have to acknowledge that we cannot create God. However, what we *can* create is the superhuman. God’s death and our acceptance of it have not doomed us to cosmic insignificance. On the contrary, they have restored hope to humanity, finally enabling us to pursue our own destiny: “All gods are dead; now we want the superhuman to live.”\n\nIt is easy to misunderstand the idea of the superhuman. These days we may be tempted to interpret the superhuman as a version of the radically enhanced human or posthuman that transhumanists and others wish to see emerge from certain technological interventions into our nature. Nietzsche did indeed toy with eugenic ideas, even envisaging a future “party of life”, whose task it would be to take care of the upbreeding of humanity and the “pitiless extermination of all degenerates and parasites”. This is certainly disturbing. However, on the whole, Nietzsche’s conception of the superhuman appears to be attitudinal rather than biological. His superhuman does not have any superhuman abilities, like super-strength, vastly improved cognitive abilities, or a much longer life span. What distinguishes the superhuman from the human is mostly the way they understand life and themselves, as well as their moral outlook. Superhuman is what we will become if we manage to discard the whole set of (Christian) values that most of us have been trained to unquestioningly adhere to and that, in Nietzsche’s view, mostly serves to hold us back and prevent us from living life to the full. It is the successful “transvaluation of all values” that makes the superhuman. Accordingly, it is problematic to understand the superhuman as a *better* kind of human or an embodiment of the human ideal because the superhuman is not even *good* in the usual sense of the word. The superhuman is not half saint, half genius. As Nietzsche gleefully points out, the ruthless, power-hungry Cesare Borgia was in fact more superhuman than Wagner’s holy fool: the chaste and compassionate Parsifal, whom Nietzsche detested.\n\nYet even though Nietzsche sometimes talks as if the superhuman that he envisages is pretty much a ruthless killer, what marks the superhuman more than anything else is not their potential ruthlessness, but their ability not to take things too seriously, which entails being utterly unconcerned about what other people think or want (and especially what they want you to do), but also not being overly concerned with themselves. Perhaps more than anything else, Nietzsche wants to restore a certain lightness of being that we have lost somewhere along the way. We need to learn how to *dance* when we approach our goals: dance with light feet over the mud as if it were ice. What makes all things fall, he says, is the “spirit of heaviness”, and it is that spirit that we need to kill. The devil is a very serious person, and that is not how we should aspire to be. Real gods, on the other hand, know how to laugh and to dance. A god like this would actually be worth believing in. It would be a god that perhaps even Nietzsche himself would be happy to believe in. Like this god, we should be cheerful, in acknowledgement of the fact that the world is full of possibilities and full of perfect little things. We should surround ourselves with those things and learn to laugh about ourselves, because “all good things laugh”. Nietzsche even suggests ranking philosophers not in accordance with the quality of their writings, but in accordance with the quality of their laughter. The best ones are those that laugh best, those that are capable of “golden laughter”.\n\nWe tend to see life as a tragedy, and looking at life this way has not been altogether bad for us because it has at least encouraged us to attach some value to life. However, it is still misguided. What we have to realize is that life is in fact a comedy, something to laugh about, something that can only be properly captured by a “gay science”, which encourages us to explore life with a certain amused detachment. Art can help us do that because it distances us from ourselves. As an aesthetic phenomenon the world is still bearable, and art helps us turn not only the world, but also ourselves into an aesthetic phenomenon. It teaches us to look at ourselves from afar and above, to laugh and cry *about* us, to discover the hero and the fool that is hiding in our passion for knowledge, especially the fool. We need art “so we don’t lose that freedom over the things”, which also allows us to stand (or more precisely to float and play) above morality. Life, which is essentially will to power, should be lived joyfully, as a learning experiment and not as a duty, a fate, or a fraud. We don’t need the kingdom of heaven to find meaning in life. All we want and need is the “kingdom of earth”, which, as Nietzsche teaches us, is a kingdom well worth living in.",
+    "responses": [
+      {
+        "source": "gpt-4o-2024-11-20",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"ADU1\": {\n      \"text\": \"God is dead, he declared, brutally, in The Gay Science (1882), and we have killed him.\",\n      \"label\": \"claim\"\n    },\n    \"ADU2\": {\n      \"text\": \"We have killed him by no longer believing in his existence.\",\n      \"label\": \"premise\"\n    },\n    \"ADU3\": {\n      \"text\": \"The disappearance of God from our lives is, after all, not a trivial matter.\",\n      \"label\": \"claim\"\n    },\n    \"ADU4\": {\n      \"text\": \"It cannot simply be ignored, because it changes everything.\",\n      \"label\": \"premise\"\n    },\n    \"ADU5\": {\n      \"text\": \"The world has now become a different place entirely: without God there is no certainty, no clarity, and no guarantees about anything.\",\n      \"label\": \"premise\"\n    },\n    \"ADU6\": {\n      \"text\": \"With our belief in God we have also lost our trust in the world.\",\n      \"label\": \"premise\"\n    },\n    \"ADU7\": {\n      \"text\": \"We don’t know what is going on anymore.\",\n      \"label\": \"premise\"\n    },\n    \"ADU8\": {\n      \"text\": \"We have lost all direction, all sense of purpose.\",\n      \"label\": \"premise\"\n    },\n    \"ADU9\": {\n      \"text\": \"We no longer know why we are here and where we are going.\",\n      \"label\": \"premise\"\n    },\n    \"ADU10\": {\n      \"text\": \"We no longer stand firmly on the ground, but find ourselves in free fall.\",\n      \"label\": \"premise\"\n    },\n    \"ADU11\": {\n      \"text\": \"Nothing is in the right place anymore, because we have learned that there are no right places for things (or, for that matter, wrong places).\",\n      \"label\": \"premise\"\n    },\n    \"ADU12\": {\n      \"text\": \"We wander “through an infinite nothingness”; we are surrounded by empty space.\",\n      \"label\": \"premise\"\n    },\n    \"ADU13\": {\n      \"text\": \"The world has become colder and darker.\",\n      \"label\": \"premise\"\n    },\n    \"ADU14\": {\n      \"text\": \"By killing God we have created quite a mess for ourselves.\",\n      \"label\": \"claim\"\n    },\n    \"ADU15\": {\n      \"text\": \"There are other, healthier and more forward-looking ways to respond to the godlessness of the universe than by embracing nihilism.\",\n      \"label\": \"claim\"\n    },\n    \"ADU16\": {\n      \"text\": \"The death of God signals the ending of something, but every ending is also a beginning, and this particular ending may actually be beneficial to us.\",\n      \"label\": \"claim\"\n    },\n    \"ADU17\": {\n      \"text\": \"The death of God, far from making life meaningless, can be understood as the dawn of a new day, as something liberating, bringing with it a new lightness, full of opportunity and expectation.\",\n      \"label\": \"claim\"\n    },\n    \"ADU18\": {\n      \"text\": \"From the death of God new values emerge, which need to replace the old ones, values that are not malformed and tainted by religious beliefs and the worship of an entirely fictional One that is complete, unmoving, and eternal.\",\n      \"label\": \"claim\"\n    },\n    \"ADU19\": {\n      \"text\": \"The death of God has given us the chance to reinvent ourselves, to truly come to life as a higher form of human.\",\n      \"label\": \"claim\"\n    },\n    \"ADU20\": {\n      \"text\": \"God’s death can be our resurrection, but only if we prove ourselves worthy of the great deed, which the killing of God no doubt is, by becoming gods ourselves.\",\n      \"label\": \"claim\"\n    },\n    \"ADU21\": {\n      \"text\": \"The superhuman is the meaning of our existence in the sense that we are meant to be more than what we commonly manage to be.\",\n      \"label\": \"claim\"\n    },\n    \"ADU22\": {\n      \"text\": \"There is a potential in human existence that we have not yet realized, or have forgotten how to realize.\",\n      \"label\": \"premise\"\n    },\n    \"ADU23\": {\n      \"text\": \"The superhuman is what we could be if we changed the way we look at the world and at ourselves.\",\n      \"label\": \"claim\"\n    },\n    \"ADU24\": {\n      \"text\": \"For the superhuman to become real, the human in us must be overcome.\",\n      \"label\": \"claim\"\n    },\n    \"ADU25\": {\n      \"text\": \"Man is a rope tied between animal and superhuman – a rope over an abyss.\",\n      \"label\": \"claim\"\n    },\n    \"ADU26\": {\n      \"text\": \"Our task, our historic mission, is to sacrifice ourselves to the earth and to “build a house for the superhuman”, which is to say, make all necessary preparations for the superhuman’s arrival.\",\n      \"label\": \"claim\"\n    },\n    \"ADU27\": {\n      \"text\": \"All gods are dead; now we want the superhuman to live.\",\n      \"label\": \"claim\"\n    },\n    \"ADU28\": {\n      \"text\": \"What distinguishes the superhuman from the human is mostly the way they understand life and themselves, as well as their moral outlook.\",\n      \"label\": \"claim\"\n    },\n    \"ADU29\": {\n      \"text\": \"Superhuman is what we will become if we manage to discard the whole set of (Christian) values that most of us have been trained to unquestioningly adhere to and that, in Nietzsche’s view, mostly serves to hold us back and prevent us from living life to the full.\",\n      \"label\": \"claim\"\n    },\n    \"ADU30\": {\n      \"text\": \"We need to learn how to dance when we approach our goals: dance with light feet over the mud as if it were ice.\",\n      \"label\": \"claim\"\n    },\n    \"ADU31\": {\n      \"text\": \"What makes all things fall, he says, is the “spirit of heaviness”, and it is that spirit that we need to kill.\",\n      \"label\": \"claim\"\n    },\n    \"ADU32\": {\n      \"text\": \"Real gods, on the other hand, know how to laugh and to dance.\",\n      \"label\": \"claim\"\n    },\n    \"ADU33\": {\n      \"text\": \"We should surround ourselves with those things and learn to laugh about ourselves, because “all good things laugh”.\",\n      \"label\": \"claim\"\n    },\n    \"ADU34\": {\n      \"text\": \"We tend to see life as a tragedy, and looking at life this way has not been altogether bad for us because it has at least encouraged us to attach some value to life.\",\n      \"label\": \"premise\"\n    },\n    \"ADU35\": {\n      \"text\": \"However, it is still misguided.\",\n      \"label\": \"claim\"\n    },\n    \"ADU36\": {\n      \"text\": \"What we have to realize is that life is in fact a comedy, something to laugh about, something that can only be properly captured by a “gay science”, which encourages us to explore life with a certain amused detachment.\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"ADU2\",\n      \"target\": \"ADU1\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU4\",\n      \"target\": \"ADU3\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU5\",\n      \"target\": \"ADU3\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU6\",\n      \"target\": \"ADU3\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU7\",\n      \"target\": \"ADU3\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU8\",\n      \"target\": \"ADU3\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU9\",\n      \"target\": \"ADU3\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU10\",\n      \"target\": \"ADU3\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU11\",\n      \"target\": \"ADU3\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU12\",\n      \"target\": \"ADU3\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU13\",\n      \"target\": \"ADU3\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU14\",\n      \"target\": \"ADU3\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU16\",\n      \"target\": \"ADU15\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU17\",\n      \"target\": \"ADU15\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU19\",\n      \"target\": \"ADU18\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU20\",\n      \"target\": \"ADU19\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU22\",\n      \"target\": \"ADU21\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU23\",\n      \"target\": \"ADU21\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU24\",\n      \"target\": \"ADU23\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU26\",\n      \"target\": \"ADU25\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU27\",\n      \"target\": \"ADU26\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU29\",\n      \"target\": \"ADU28\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU31\",\n      \"target\": \"ADU30\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU32\",\n      \"target\": \"ADU30\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU33\",\n      \"target\": \"ADU30\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU34\",\n      \"target\": \"ADU35\",\n      \"type\": \"attack\"\n    },\n    {\n      \"source\": \"ADU36\",\n      \"target\": \"ADU35\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "ADU1": {
+              "text": "God is dead, he declared, brutally, in The Gay Science (1882), and we have killed him.",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "We have killed him by no longer believing in his existence.",
+              "label": "premise"
+            },
+            "ADU3": {
+              "text": "The disappearance of God from our lives is, after all, not a trivial matter.",
+              "label": "claim"
+            },
+            "ADU4": {
+              "text": "It cannot simply be ignored, because it changes everything.",
+              "label": "premise"
+            },
+            "ADU5": {
+              "text": "The world has now become a different place entirely: without God there is no certainty, no clarity, and no guarantees about anything.",
+              "label": "premise"
+            },
+            "ADU6": {
+              "text": "With our belief in God we have also lost our trust in the world.",
+              "label": "premise"
+            },
+            "ADU7": {
+              "text": "We don’t know what is going on anymore.",
+              "label": "premise"
+            },
+            "ADU8": {
+              "text": "We have lost all direction, all sense of purpose.",
+              "label": "premise"
+            },
+            "ADU9": {
+              "text": "We no longer know why we are here and where we are going.",
+              "label": "premise"
+            },
+            "ADU10": {
+              "text": "We no longer stand firmly on the ground, but find ourselves in free fall.",
+              "label": "premise"
+            },
+            "ADU11": {
+              "text": "Nothing is in the right place anymore, because we have learned that there are no right places for things (or, for that matter, wrong places).",
+              "label": "premise"
+            },
+            "ADU12": {
+              "text": "We wander “through an infinite nothingness”; we are surrounded by empty space.",
+              "label": "premise"
+            },
+            "ADU13": {
+              "text": "The world has become colder and darker.",
+              "label": "premise"
+            },
+            "ADU14": {
+              "text": "By killing God we have created quite a mess for ourselves.",
+              "label": "claim"
+            },
+            "ADU15": {
+              "text": "There are other, healthier and more forward-looking ways to respond to the godlessness of the universe than by embracing nihilism.",
+              "label": "claim"
+            },
+            "ADU16": {
+              "text": "The death of God signals the ending of something, but every ending is also a beginning, and this particular ending may actually be beneficial to us.",
+              "label": "claim"
+            },
+            "ADU17": {
+              "text": "The death of God, far from making life meaningless, can be understood as the dawn of a new day, as something liberating, bringing with it a new lightness, full of opportunity and expectation.",
+              "label": "claim"
+            },
+            "ADU18": {
+              "text": "From the death of God new values emerge, which need to replace the old ones, values that are not malformed and tainted by religious beliefs and the worship of an entirely fictional One that is complete, unmoving, and eternal.",
+              "label": "claim"
+            },
+            "ADU19": {
+              "text": "The death of God has given us the chance to reinvent ourselves, to truly come to life as a higher form of human.",
+              "label": "claim"
+            },
+            "ADU20": {
+              "text": "God’s death can be our resurrection, but only if we prove ourselves worthy of the great deed, which the killing of God no doubt is, by becoming gods ourselves.",
+              "label": "claim"
+            },
+            "ADU21": {
+              "text": "The superhuman is the meaning of our existence in the sense that we are meant to be more than what we commonly manage to be.",
+              "label": "claim"
+            },
+            "ADU22": {
+              "text": "There is a potential in human existence that we have not yet realized, or have forgotten how to realize.",
+              "label": "premise"
+            },
+            "ADU23": {
+              "text": "The superhuman is what we could be if we changed the way we look at the world and at ourselves.",
+              "label": "claim"
+            },
+            "ADU24": {
+              "text": "For the superhuman to become real, the human in us must be overcome.",
+              "label": "claim"
+            },
+            "ADU25": {
+              "text": "Man is a rope tied between animal and superhuman – a rope over an abyss.",
+              "label": "claim"
+            },
+            "ADU26": {
+              "text": "Our task, our historic mission, is to sacrifice ourselves to the earth and to “build a house for the superhuman”, which is to say, make all necessary preparations for the superhuman’s arrival.",
+              "label": "claim"
+            },
+            "ADU27": {
+              "text": "All gods are dead; now we want the superhuman to live.",
+              "label": "claim"
+            },
+            "ADU28": {
+              "text": "What distinguishes the superhuman from the human is mostly the way they understand life and themselves, as well as their moral outlook.",
+              "label": "claim"
+            },
+            "ADU29": {
+              "text": "Superhuman is what we will become if we manage to discard the whole set of (Christian) values that most of us have been trained to unquestioningly adhere to and that, in Nietzsche’s view, mostly serves to hold us back and prevent us from living life to the full.",
+              "label": "claim"
+            },
+            "ADU30": {
+              "text": "We need to learn how to dance when we approach our goals: dance with light feet over the mud as if it were ice.",
+              "label": "claim"
+            },
+            "ADU31": {
+              "text": "What makes all things fall, he says, is the “spirit of heaviness”, and it is that spirit that we need to kill.",
+              "label": "claim"
+            },
+            "ADU32": {
+              "text": "Real gods, on the other hand, know how to laugh and to dance.",
+              "label": "claim"
+            },
+            "ADU33": {
+              "text": "We should surround ourselves with those things and learn to laugh about ourselves, because “all good things laugh”.",
+              "label": "claim"
+            },
+            "ADU34": {
+              "text": "We tend to see life as a tragedy, and looking at life this way has not been altogether bad for us because it has at least encouraged us to attach some value to life.",
+              "label": "premise"
+            },
+            "ADU35": {
+              "text": "However, it is still misguided.",
+              "label": "claim"
+            },
+            "ADU36": {
+              "text": "What we have to realize is that life is in fact a comedy, something to laugh about, something that can only be properly captured by a “gay science”, which encourages us to explore life with a certain amused detachment.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU2",
+              "target": "ADU1",
+              "type": "support"
+            },
+            {
+              "source": "ADU4",
+              "target": "ADU3",
+              "type": "support"
+            },
+            {
+              "source": "ADU5",
+              "target": "ADU3",
+              "type": "support"
+            },
+            {
+              "source": "ADU6",
+              "target": "ADU3",
+              "type": "support"
+            },
+            {
+              "source": "ADU7",
+              "target": "ADU3",
+              "type": "support"
+            },
+            {
+              "source": "ADU8",
+              "target": "ADU3",
+              "type": "support"
+            },
+            {
+              "source": "ADU9",
+              "target": "ADU3",
+              "type": "support"
+            },
+            {
+              "source": "ADU10",
+              "target": "ADU3",
+              "type": "support"
+            },
+            {
+              "source": "ADU11",
+              "target": "ADU3",
+              "type": "support"
+            },
+            {
+              "source": "ADU12",
+              "target": "ADU3",
+              "type": "support"
+            },
+            {
+              "source": "ADU13",
+              "target": "ADU3",
+              "type": "support"
+            },
+            {
+              "source": "ADU14",
+              "target": "ADU3",
+              "type": "support"
+            },
+            {
+              "source": "ADU16",
+              "target": "ADU15",
+              "type": "support"
+            },
+            {
+              "source": "ADU17",
+              "target": "ADU15",
+              "type": "support"
+            },
+            {
+              "source": "ADU19",
+              "target": "ADU18",
+              "type": "support"
+            },
+            {
+              "source": "ADU20",
+              "target": "ADU19",
+              "type": "support"
+            },
+            {
+              "source": "ADU22",
+              "target": "ADU21",
+              "type": "support"
+            },
+            {
+              "source": "ADU23",
+              "target": "ADU21",
+              "type": "support"
+            },
+            {
+              "source": "ADU24",
+              "target": "ADU23",
+              "type": "support"
+            },
+            {
+              "source": "ADU26",
+              "target": "ADU25",
+              "type": "support"
+            },
+            {
+              "source": "ADU27",
+              "target": "ADU26",
+              "type": "support"
+            },
+            {
+              "source": "ADU29",
+              "target": "ADU28",
+              "type": "support"
+            },
+            {
+              "source": "ADU31",
+              "target": "ADU30",
+              "type": "support"
+            },
+            {
+              "source": "ADU32",
+              "target": "ADU30",
+              "type": "support"
+            },
+            {
+              "source": "ADU33",
+              "target": "ADU30",
+              "type": "support"
+            },
+            {
+              "source": "ADU34",
+              "target": "ADU35",
+              "type": "attack"
+            },
+            {
+              "source": "ADU36",
+              "target": "ADU35",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "ADU2": {
+              "text": "We have killed him by no longer believing in his existence.",
+              "label": "premise"
+            },
+            "ADU3": {
+              "text": "The disappearance of God from our lives is, after all, not a trivial matter.",
+              "label": "claim"
+            },
+            "ADU4": {
+              "text": "It cannot simply be ignored, because it changes everything.",
+              "label": "premise"
+            },
+            "ADU5": {
+              "text": "The world has now become a different place entirely: without God there is no certainty, no clarity, and no guarantees about anything.",
+              "label": "premise"
+            },
+            "ADU6": {
+              "text": "With our belief in God we have also lost our trust in the world.",
+              "label": "premise"
+            },
+            "ADU7": {
+              "text": "We don’t know what is going on anymore.",
+              "label": "premise"
+            },
+            "ADU8": {
+              "text": "We have lost all direction, all sense of purpose.",
+              "label": "premise"
+            },
+            "ADU9": {
+              "text": "We no longer know why we are here and where we are going.",
+              "label": "premise"
+            },
+            "ADU10": {
+              "text": "We no longer stand firmly on the ground, but find ourselves in free fall.",
+              "label": "premise"
+            },
+            "ADU11": {
+              "text": "Nothing is in the right place anymore, because we have learned that there are no right places for things (or, for that matter, wrong places).",
+              "label": "premise"
+            },
+            "ADU12": {
+              "text": "We wander “through an infinite nothingness”; we are surrounded by empty space.",
+              "label": "premise"
+            },
+            "ADU13": {
+              "text": "The world has become colder and darker.",
+              "label": "premise"
+            },
+            "ADU15": {
+              "text": "There are other, healthier and more forward-looking ways to respond to the godlessness of the universe than by embracing nihilism.",
+              "label": "claim"
+            },
+            "ADU16": {
+              "text": "The death of God signals the ending of something, but every ending is also a beginning, and this particular ending may actually be beneficial to us.",
+              "label": "claim"
+            },
+            "ADU19": {
+              "text": "The death of God has given us the chance to reinvent ourselves, to truly come to life as a higher form of human.",
+              "label": "claim"
+            },
+            "ADU21": {
+              "text": "The superhuman is the meaning of our existence in the sense that we are meant to be more than what we commonly manage to be.",
+              "label": "claim"
+            },
+            "ADU22": {
+              "text": "There is a potential in human existence that we have not yet realized, or have forgotten how to realize.",
+              "label": "premise"
+            },
+            "ADU23": {
+              "text": "The superhuman is what we could be if we changed the way we look at the world and at ourselves.",
+              "label": "claim"
+            },
+            "ADU24": {
+              "text": "For the superhuman to become real, the human in us must be overcome.",
+              "label": "claim"
+            },
+            "ADU25": {
+              "text": "Man is a rope tied between animal and superhuman – a rope over an abyss.",
+              "label": "claim"
+            },
+            "ADU26": {
+              "text": "Our task, our historic mission, is to sacrifice ourselves to the earth and to “build a house for the superhuman”, which is to say, make all necessary preparations for the superhuman’s arrival.",
+              "label": "claim"
+            },
+            "ADU27": {
+              "text": "All gods are dead; now we want the superhuman to live.",
+              "label": "claim"
+            },
+            "ADU28": {
+              "text": "What distinguishes the superhuman from the human is mostly the way they understand life and themselves, as well as their moral outlook.",
+              "label": "claim"
+            },
+            "ADU29": {
+              "text": "Superhuman is what we will become if we manage to discard the whole set of (Christian) values that most of us have been trained to unquestioningly adhere to and that, in Nietzsche’s view, mostly serves to hold us back and prevent us from living life to the full.",
+              "label": "claim"
+            },
+            "ADU31": {
+              "text": "What makes all things fall, he says, is the “spirit of heaviness”, and it is that spirit that we need to kill.",
+              "label": "claim"
+            },
+            "ADU32": {
+              "text": "Real gods, on the other hand, know how to laugh and to dance.",
+              "label": "claim"
+            },
+            "ADU33": {
+              "text": "We should surround ourselves with those things and learn to laugh about ourselves, because “all good things laugh”.",
+              "label": "claim"
+            },
+            "ADU34": {
+              "text": "We tend to see life as a tragedy, and looking at life this way has not been altogether bad for us because it has at least encouraged us to attach some value to life.",
+              "label": "premise"
+            },
+            "ADU35": {
+              "text": "However, it is still misguided.",
+              "label": "claim"
+            },
+            "ADU36": {
+              "text": "What we have to realize is that life is in fact a comedy, something to laugh about, something that can only be properly captured by a “gay science”, which encourages us to explore life with a certain amused detachment.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU4",
+              "target": "ADU3",
+              "type": "support"
+            },
+            {
+              "source": "ADU5",
+              "target": "ADU3",
+              "type": "support"
+            },
+            {
+              "source": "ADU6",
+              "target": "ADU3",
+              "type": "support"
+            },
+            {
+              "source": "ADU7",
+              "target": "ADU3",
+              "type": "support"
+            },
+            {
+              "source": "ADU8",
+              "target": "ADU3",
+              "type": "support"
+            },
+            {
+              "source": "ADU9",
+              "target": "ADU3",
+              "type": "support"
+            },
+            {
+              "source": "ADU10",
+              "target": "ADU3",
+              "type": "support"
+            },
+            {
+              "source": "ADU11",
+              "target": "ADU3",
+              "type": "support"
+            },
+            {
+              "source": "ADU12",
+              "target": "ADU3",
+              "type": "support"
+            },
+            {
+              "source": "ADU13",
+              "target": "ADU3",
+              "type": "support"
+            },
+            {
+              "source": "ADU16",
+              "target": "ADU15",
+              "type": "support"
+            },
+            {
+              "source": "ADU22",
+              "target": "ADU21",
+              "type": "support"
+            },
+            {
+              "source": "ADU23",
+              "target": "ADU21",
+              "type": "support"
+            },
+            {
+              "source": "ADU24",
+              "target": "ADU23",
+              "type": "support"
+            },
+            {
+              "source": "ADU26",
+              "target": "ADU25",
+              "type": "support"
+            },
+            {
+              "source": "ADU27",
+              "target": "ADU26",
+              "type": "support"
+            },
+            {
+              "source": "ADU29",
+              "target": "ADU28",
+              "type": "support"
+            },
+            {
+              "source": "ADU34",
+              "target": "ADU35",
+              "type": "attack"
+            },
+            {
+              "source": "ADU36",
+              "target": "ADU35",
+              "type": "support"
+            }
+          ]
+        }
+      },
+      {
+        "source": "claude-3-5-sonnet-20241022",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"A1\": {\n      \"text\": \"God is dead, he declared, brutally, in The Gay Science (1882), and we have killed him. We have killed him by no longer believing in his existence.\",\n      \"label\": \"claim\"\n    },\n    \"A2\": {\n      \"text\": \"The disappearance of God from our lives is, after all, not a trivial matter. It cannot simply be ignored, because it changes everything.\",\n      \"label\": \"claim\"\n    },\n    \"A3\": {\n      \"text\": \"The death of God, far from making life meaningless, can be understood as the dawn of a new day, as something liberating, bringing with it a new lightness, full of opportunity and expectation\",\n      \"label\": \"claim\"\n    },\n    \"A4\": {\n      \"text\": \"From the death of God new values emerge, which need to replace the old ones, values that are not malformed and tainted by religious beliefs and the worship of an entirely fictional One that is complete, unmoving, and eternal\",\n      \"label\": \"claim\"\n    },\n    \"A5\": {\n      \"text\": \"The death of God has given us the chance to reinvent ourselves, to truly come to life as a higher form of human.\",\n      \"label\": \"claim\"\n    },\n    \"A6\": {\n      \"text\": \"That meaning, Zarathustra reveals, is 'the superhuman'. The superhuman is the meaning of our existence in the sense that we are meant to be more than what we commonly manage to be.\",\n      \"label\": \"claim\"\n    },\n    \"A7\": {\n      \"text\": \"What distinguishes the superhuman from the human is mostly the way they understand life and themselves, as well as their moral outlook.\",\n      \"label\": \"claim\"\n    },\n    \"A8\": {\n      \"text\": \"Life, which is essentially will to power, should be lived joyfully, as a learning experiment and not as a duty, a fate, or a fraud.\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"A2\",\n      \"target\": \"A1\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A3\",\n      \"target\": \"A2\",\n      \"type\": \"attack\"\n    },\n    {\n      \"source\": \"A4\",\n      \"target\": \"A3\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A5\",\n      \"target\": \"A3\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A6\",\n      \"target\": \"A5\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A7\",\n      \"target\": \"A6\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"A8\",\n      \"target\": \"A7\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "A1": {
+              "text": "God is dead, he declared, brutally, in The Gay Science (1882), and we have killed him. We have killed him by no longer believing in his existence.",
+              "label": "claim"
+            },
+            "A2": {
+              "text": "The disappearance of God from our lives is, after all, not a trivial matter. It cannot simply be ignored, because it changes everything.",
+              "label": "claim"
+            },
+            "A3": {
+              "text": "The death of God, far from making life meaningless, can be understood as the dawn of a new day, as something liberating, bringing with it a new lightness, full of opportunity and expectation",
+              "label": "claim"
+            },
+            "A4": {
+              "text": "From the death of God new values emerge, which need to replace the old ones, values that are not malformed and tainted by religious beliefs and the worship of an entirely fictional One that is complete, unmoving, and eternal",
+              "label": "claim"
+            },
+            "A5": {
+              "text": "The death of God has given us the chance to reinvent ourselves, to truly come to life as a higher form of human.",
+              "label": "claim"
+            },
+            "A6": {
+              "text": "That meaning, Zarathustra reveals, is 'the superhuman'. The superhuman is the meaning of our existence in the sense that we are meant to be more than what we commonly manage to be.",
+              "label": "claim"
+            },
+            "A7": {
+              "text": "What distinguishes the superhuman from the human is mostly the way they understand life and themselves, as well as their moral outlook.",
+              "label": "claim"
+            },
+            "A8": {
+              "text": "Life, which is essentially will to power, should be lived joyfully, as a learning experiment and not as a duty, a fate, or a fraud.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "A2",
+              "target": "A1",
+              "type": "support"
+            },
+            {
+              "source": "A3",
+              "target": "A2",
+              "type": "attack"
+            },
+            {
+              "source": "A4",
+              "target": "A3",
+              "type": "support"
+            },
+            {
+              "source": "A5",
+              "target": "A3",
+              "type": "support"
+            },
+            {
+              "source": "A6",
+              "target": "A5",
+              "type": "support"
+            },
+            {
+              "source": "A7",
+              "target": "A6",
+              "type": "support"
+            },
+            {
+              "source": "A8",
+              "target": "A7",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "A2": {
+              "text": "The disappearance of God from our lives is, after all, not a trivial matter. It cannot simply be ignored, because it changes everything.",
+              "label": "claim"
+            },
+            "A3": {
+              "text": "The death of God, far from making life meaningless, can be understood as the dawn of a new day, as something liberating, bringing with it a new lightness, full of opportunity and expectation",
+              "label": "claim"
+            },
+            "A4": {
+              "text": "From the death of God new values emerge, which need to replace the old ones, values that are not malformed and tainted by religious beliefs and the worship of an entirely fictional One that is complete, unmoving, and eternal",
+              "label": "claim"
+            },
+            "A5": {
+              "text": "The death of God has given us the chance to reinvent ourselves, to truly come to life as a higher form of human.",
+              "label": "claim"
+            },
+            "A7": {
+              "text": "What distinguishes the superhuman from the human is mostly the way they understand life and themselves, as well as their moral outlook.",
+              "label": "claim"
+            },
+            "A8": {
+              "text": "Life, which is essentially will to power, should be lived joyfully, as a learning experiment and not as a duty, a fate, or a fraud.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "A3",
+              "target": "A2",
+              "type": "attack"
+            },
+            {
+              "source": "A4",
+              "target": "A3",
+              "type": "support"
+            },
+            {
+              "source": "A5",
+              "target": "A3",
+              "type": "support"
+            },
+            {
+              "source": "A8",
+              "target": "A7",
+              "type": "support"
+            }
+          ]
+        }
+      }
+    ],
+    "timestamp": 1752748613.6492825
+  }
+]

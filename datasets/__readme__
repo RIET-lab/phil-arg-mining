@@ -1,0 +1,1 @@
+Directory containing the data ingested, processed, and created during the Moralkg dataset creation + annotation processes. `raw` contains unprocessed files, `interim` contains processed files that are not yet ready for ingestion/interaction, and `processed` contains data that is ready.

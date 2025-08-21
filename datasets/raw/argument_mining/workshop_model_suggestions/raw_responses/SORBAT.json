@@ -1,0 +1,317 @@
+[
+  {
+    "identifier": "SORBAT",
+    "system_prompt": "## GOAL\nArgument‑mine the following paper to extract its comprehensive argumentative structure.\n\n## DEFINITIONS\n1. **Argument**: A set of propositions, including some number of premises and a conclusion. The premises should logically entail the conclusion.\n2. **Claim**: A proposition that asserts something to be true or false, typically requiring justification or evidence.\n3. **Premise**: A proposition that provides evidence, justification, or logical support for a claim or conclusion.\n\n## CRITICAL REQUIREMENTS\n1. **VERBATIM EXTRACTION ONLY**: Each ADU text must be copied EXACTLY from the paper with no modifications, paraphrasing, or combining of separate sentences.\n2. **NO HALLUCINATION**: Do not create, modify, or invent text that does not appear exactly in the source.\n3. **EXACT MATCHING**: Every word, punctuation mark, and spacing must match the original precisely.\n\n## DIRECTIONS\n1. **Identify Argumentative Discourse Units (ADUs)**  \n   - ADU = any contiguous text span functioning as a claim or a premise in the reasoning structure.\n   - **BE HIGHLY SELECTIVE**: Only include ADUs that are crucial to the overarching argument structure.\n   - Focus on significant claims and premises that contribute meaningfully to the argumentative flow.\n   - **AVOID NOISE**: Skip ADUs that are merely descriptive, tangential, or do not substantially advance the argument.\n   - Prioritize quality over quantity - fewer accurate, important ADUs are better than many insignificant ones.\n   - **EXTRACT ONLY**: Copy text spans exactly as they appear, without any modifications.\n2. **Classify each ADU**  \n   - Label = either `\"claim\"` or `\"premise\"`.  \n3. **Detect directed relations**  \n   - Relation = `\"support\"` or `\"attack\"`, from one ADU (source) to another (target).\n   - Map how ADUs connect to form reasoning chains.\n   - Focus on relationships between the most significant ADUs.\n   - Include relationships between premises that strengthen or weaken each other.\n4. **Verbatim spans**  \n   - Each `\"text\"` value must be copied EXACTLY from the paper with zero modifications.\n   - Do not paraphrase, summarize, or combine separate sentences.\n   - Do not add, remove, or change any words, punctuation, or spacing.\n   - If unsure about exact wording, skip that ADU rather than guess.\n\n## WHAT TO CAPTURE\n**INCLUDE ONLY:**\n- Main argumentative threads that are central to the paper's contribution\n- Core claims that represent the paper's primary arguments or findings\n- Key premises that provide essential support for major claims\n- Critical counterarguments and their refutations\n- Reasoning chains that demonstrate how main conclusions are derived\n\n**EXCLUDE (AVOID NOISE):**\n- Minor details, examples, or descriptive content that don't advance the argument\n- Tangential points or side discussions\n- Pure background information or literature review content\n- Methodological details unless they constitute argumentative claims\n- Obvious statements or commonly accepted facts\n- Redundant or repetitive argumentative content\n\n**GUIDING PRINCIPLE**: If removing an ADU would not significantly impact understanding of the paper's argumentative structure, it should be excluded.\n\n## QUALITY CONTROL\n- Before finalizing each ADU, verify the text exists exactly in the source\n- Prefer fewer, accurate ADUs over many potentially modified ones\n- When in doubt about exact wording, omit the ADU\n\n## OUTPUT FORMAT\nReturn **only** a single valid JSON object matching this schema.  \nDo **not** output any extra text, markdown, or explanations.\nDo **not** add comments.\n**RESPOND WITH ONLY**:\n```json\n{\n  \"ADUs\": {\n    \"<ADU_ID>\": {\n      \"text\": \"<exact span from paper>\",\n      \"label\": \"claim\" | \"premise\"\n    }\n    ...\n  },\n  \"relations\": [\n    {\n      \"source\": \"<ADU_ID>\",\n      \"target\": \"<ADU_ID>\",\n      \"type\": \"support\" | \"attack\"\n    }\n  ]\n}\n```",
+    "user_content": "## BODIES AND THE SUBJECTS OF ETHICS AND METAPHYSICS\n\nAuthor(s): Tom Sorell\n\nSource: Rivista di Storia della Filosofia (1984-) , 2000, Vol. 55, No. 3 (2000), pp. 373-383 Published by: FrancoAngeli srl\n\nStable URL: https://www.jstor.org/stable/44024268\n\nJSTOR is a not-for-profit service that helps scholars, researchers, and students discover, use, and build upon a wide range of content in a trusted digital archive. We use information technology and tools to increase productivity and facilitate new forms of scholarship. For more information about JSTOR, please contact support@jstor.org.\n\nYour use of the JSTOR archive indicates your acceptance of the Terms &amp; Conditions of Use, available at https://about.jstor.org/terms\n\n<!-- image -->\n\nis collaborating with JSTOR to digitize, preserve and extend access to Rivista di Storia della Filosofia (1984-)\n\n## BODIES AND THE SUBJECTS OF ETHICS AND METAPHYSICS\n\ndi Tom Sorell\n\nThere is a difference between the subject of Descartes's metaphys the subject of Descartes's ethics. The subject of Descartes's metaph is a self that is substantially complete with only a capacity for pure standing; the subject of Descartes's ethics is the living human bei the body-involving capacities of sensation, perception, imagination and tary motion, as well as pure understanding. Both subjects play a rol Descartes's metaphysical writings, which can make it seem as if h two different, even inconsistent, accounts of the metaphysical subj is the impression created by the controversy between writers who thin Descartes was a dualist, and those who think he was a trialist1. But Descartes is not in fact guilty of inconsistency. The subject of Descartes's metaphysics has all and only those capacities required for scientia about the physical world. The subject of ethics has all and only those capacities required for being a self-perfecting, decisive agent with no grounds for practical regret. Some of the capacities required for scientia about the physical world are capacities required for ethics, since the pure understanding and its methods of controlled assent are in play in both cases, but upright practical life requires further capacities besides. Or so I am going to argue. But even if there is no inconsistency in Descartes's conception of the metaphysical subject, it might be thought that Descartes betrays the much- vaunted foundational role of his metaphysics by giving any role in it to the subject of as derivative a science as ethics. I am going to suggest that this thought, too, is mistaken. The subject of ethics is not brought into the metaphysical writings in such a way as to compromise their foundational character.\n\n1. See J. Cottingham, 'Cartesian Trialism' Mind 94 (1985) pp. 218-30; P. Hoffman, 'The Unity of Descartes's Man' Philosophical Review 95 (1986), pp. 339-370. For a more recent discussion, see D. Yandell, 'Did Descartes Abandon Dualism? The Nature of the Union of Mind and Body' British Journal for the History of Philosophy 7 (1999) pp. 199-218.\n\nRivista di storia della filosofia , n. 3, 2000\n\n374 Tom Sorell\n\nI\n\nAs is well known, there are two places in the Meditations where Descartes considers his own nature at some length. Meditation Two is the first of the two. Here Descartes asks what he is, and answers, Meditation Two is the first of\n\nA thing that thinks. What is that? A thing that doubts, understands, affirms, denies, is willing, is unwilling, and also imagines and has sensory perceptions ATVII 28; CSM II 19).\n\nHe goes on immediately to qualify this answer, so as to make his inclusion of imagination and sensory perception under the heading of 'thinking' consistent with what he is allowed to assume while following the method of doubt. The doubt requires him to suppose that he may have no body and no senses; so how can he imagine and have sense perceptions as a thinking thing? The most he can be certain of, he says, is that he seems to imagine and have sense experience. But even after he has added these qualifications, his answer to the question of what his nature is, is still tentative. This is partly because no conclusion reached before the end of Meditation Three is certain beyond the time it is being considered. But another reason why the conclusion in Meditation Two is tentative is that Meditation Six comes at the question of his nature from a different direction\n\nMeditation Six is the second place where Descartes considers his own nature at length. And here he seems to take back the suggestion made in Meditation Two that his nature extends to imagining and having sense perception:\n\nI find in myself faculties for certain special modes of thinking, namely imagination and sensory perception. Now I can clearly and distinctly understand myself as a whole without these faculties; but I cannot, conversely, understand these faculties without me, that is, without an intellectual substance to inhere in (AT VII 78; CSM II 78).\n\nSince I can be clearly and distinctly conceived minus perception and imagination, they do not belong to my nature. On the contrary, Descartes has already said in Meditation Six that imagining is ťnot a necessary constituent of my own essence, that is, of the essence of my mind' (AT VII 73; CSM II 51). Not being a necessary constituent of my essence, the power of imagining doesn't depend on me, but on something else, possibly or probably 'this very body that enables me to imagine corporeal things'. Meditation Six, then, comes close to identifying imagination with a faculty of the embodied human being, not the self. Indeed, Descartes only holds back from asserting this outright because he isn't officially sure yet that there are any bodies, and he needs to prove that. What seems to be beyond doubt is that, strictly speaking, he is not essentially an imagining thing and a sensing\n\nthing, still less a thing that essentally changes position, th of one size now and a different size later, and so on. H a fairly pure, active intellect.\n\nThat could be regarded as Descartes's final or considered his own nature, if it were not for the fact that in his corre even further along in Meditation Six, he seems to retreat understanding of his nature. A source in Descartes's corres an important bearing on the question of how many selves is the letter to Elizabeth for 28 June 1643. In the letter ju this one in his correspondence with Elizabeth, Descartes had are 'two facts about the human soul on which depends all t we can have of its nature. The first is that it thinks, the s being united to the body, it can act and be acted upon 664-5: CSM III 218). Descartes's enlargement on these two f Elizabeth, and in the letter of 28 June, he tried to clear u\n\nYour Highness observes that it is easier to attribute matter and e soul than to attribute to it the capacity to move and be moved by having such matter and extension. I beg her to feel free to attrib and extension to the soul because that is simply to conceive it as body. And once she has formed a proper conception of this and in herself, it will be easy for her to consider that the matter she thought is not thought itself, and the extension of this matter nature from the extension of the thought, because the former ha location, such that it thereby excludes all bodily extension, whic with the latter (AT III 694; CSM III 228).\n\nDescartes here seems to be taking liberties with, and to be encouraging Elizabeth to take liberties with, his theory of the nature of the soul. Whatever sort of sense it might possibly make to attribute extension to a particular human being, or for a particular human being to think to himself or herself 'I am extended', it makes no sense at all, in Descartes' s theory, to attribute extension or matter to the soul, and Descartes is saying in the letter to Elizabeth that this attribution is all right, and that it amounts to conceiving the unity of the mind with the body. The reason 'I am extended' might just make sense is that 'I' can be used to refer prephilosophically to the union of soul and body, or it can be used in its strict philosophical sense, to name only the soul. Only the former of the two uses permits the selfattribution of extension, but in the letter to Elizabeth he seems to be saying that it is allowed by the other use of 'I' as well.\n\nI do not believe that there is a strict reading of Descartes's letter that can clear him of the charge of contradicting his own theory of the soul. But against this must be set the fact that some of the phrases that get him into trouble are uncharacteristic. Descartes speaks in the passage of conceiving the union between soul and body by attributing extension to\n\n376 Tom Sorell the soul, but that experie the union of Descartes would have avoided trouble if he had said, what he sometimes says on other occasions, that the union of mind and body is primarily a matter of experience, paradigmatically the experience of pain ( Principles II, 2: AT VIIIA; CSM I 224), while their distinctness is grasped by the separabability of the conceptions of mind and body, conceptions available not in experience but to reason. Indeed, in the paragraph that comes just before the one just quoted, he had written\n\nI supposed that your Highness still had in mind the arguments proving the distinction between the soul and the body, and I did not want to ask her to put them aside in order to represent to herself the notion of the union which everyone invariably experiences in himself without philosophising. Everyone feels that he is a single person with body and thought so related by nature that the thought can move the body and feel the things which happen to it (AT III 693-4; CSM III 228 my emphasis).\n\nThis does come closer to the more careful formulation that Descartes more characteristically uses. According to this passage the difference be tween the immaterial soul and the 'single person with body and thought' is the relation between the philosophical and prephilosophical conception of the subject. The prephilosophical conception of the self isderived fro feeling; the philosophical one is the result of subtracting everything that is not clear and distinct from this prephilosophical conception.\n\nIn Meditation Six, the transition from the discussion of the real distinction to the phenomenon of union is managed with the help of more than the distinction between reason and feeling. Descartes introduces a notion of nature in general, and, in light of that notion, a notion of his own nature\n\n[T]here is no doubt that everything that I am taught by nature contains some truth. For if nature is considered in its most general aspect, then I understand by the term nothing other than God himself, or the ordered system of created things estab lished by God. And by my own nature in particular I understand nothing other than the totality of things bestowed on me by God (AT VII 80; CSM II 56).\n\nBut this passage seems to multiply senses of 'my own nature' and to introduce inconsistency between the sense that phrase has at the conclusion of the argument for the real distinction and the sense of that phrase further on in Meditation Six. For prima facie , ťthe totality of things bestowed on me by nature' can include my body and my life, and this goes beyond a capacity for thought or existence as an immaterial thing or pure intellect and will. The suspicion that the new understanding of 'my nature' is more inclusive than the old seems to be confirmed in the space of a page. For Descartes says in so many words that some of the things bestowed on me\n\nby God belong to body alone and to the composite of mind and body alone (AT VII 82; CSM II 57). He talks in particular about the «sensory perceptions» given me by nature: this makes the body-involving capacity for sensation part of my nature, though it was subtracted from my nature earlier in Meditation Six.\n\nIs there a way of reconciling the senses of 'my own nature'? There is, if we suppose that the 'my own nature' of the real distinction belongs t metaphysics, and the more inclusive notion belongs to ethics. For the pu poses of metaphysics immateriality alone constitutes one's nature; but f the purposes of ethics one's nature is composite.\n\nII\n\nThe closest Descartes came in his writings to a full-fledged ethical treatise is The Passions of the Soul , though there are indications of an ethical theory in Part Three of the Discourse and in his correspondence with Elizabeth and Queen Christina. The Passions of the Soul is an ethical treatise in the sense that it specifies the nature of an unobvious sort of well-being that human beings can attain, and states schematically the means of attaining it. It is true that the Passions of the Soul is an ethical treatise among other things. It has perhaps a stronger claim to count as systematic classificatory psychology - classification of the passions - along with indications of physiological mechanisms associated with the most basic passions. Whatever the exact proportions of ethics to psychology and physiology in it, however, the treatise has clear implications for the traditional ethical question of the nature of moral conflict and the control of the passions.\n\nDescartes is contemptuous of the ancient theory according to which moral conflict is a struggle between personified higher and lower forces in the individual. The alternative account is entirely subpersonal and heavily dependent on the mind-body distinction. Thus, when someone is torn about what to do and feels base forces pulling him in one direction and higher forces pulling him in another, what is taking place within the agent, according to Descartes, is not some battle between a higher self and a lower self, but rather a movement back and forth of the pineal gland by the body and the soul in turn (Passions § 47: AT XI 365; CSM I 346). It is the bodily-based movements that constitute the base forces - the forces opposed to reason (Ibid.) It is the bodily based forces that produce the passions by moving the pineal gland in such a way as to produce the will or desire to do something in the soul. To the extent that ethics is about the control of the passions - Descartes says that the chief utility of morality is to control the desire produced by the animal spirits (Passions § 144: AT XI 436; CSM I 379) - its subject matter results from the fact of embodiment. There is such a thing as agency apart from embodiment -\n\n378 Tom Sorell acts of judgement, for example - and the soul is able to produce some passions on its own ( Passions § 147), which turn out to be the key to human well-being, or at least the best sort of human well-being (Ibid.) - but love, hatred, desire, joy and sadness, and especially sadness are for the protection and perfection of the embodied being, and a part of ethics is for controlling these passions or removing their defects ( Passions §§ 137-8).\n\nThere is a systematic connection between the subject presupposed by ethics and the inclusive conception of my nature found in Meditation Six. If my nature is the sum total of the goods of body, the goods of mind, and the goods of mind-body union, then ethics is the science of preserving or increasing all of those goods. On the other hand, since Descartes seems to privilege the goods of the soul over other goods, and to gear some of the precepts of ethics to a conception of the subject that seems to identify it with the soul, there is some ground for the suspicion that Descartes has, if not two ethical theories, then one ethics for the higher self, or the self his metaphysics reveals as the true self: namely, the immaterial res cogitans , and another ethics for the embodied self. I shall return to the question of whether Descartes multiplies ethical subjects, and whether, if he does, that can be held against him. But a prior question concerns the embodied subject of ethics. It is one thing for this subject to emerge in The Passions of the Soul , that is, in the context of what is undoubtedly a hybrid science of ethics, one that draws on psychology, physiology and metaphysics. But what is this subject doing in the Meditations ?\n\nThe Meditations is the official statement of Descartes' s metaphysics, and, as everyone knows, metaphysics is supposed to be the foundational subject par excellence . How can it have that status and yet draw elements from the non-foundational branches of science-physics and medicine? It is clear that Meditation Six does contain such non-metaphysical elements, which helps to confirm the suggestion that the self it talks about and the self presupposed by the ethics of the Passions are the same. For example, toward the end of Meditation Six, there is a short account of dropsy ( AT VII 84; CSM II 58), followed by a brief digression on the functioning of the pineal gland in relation to the other parts of the body (AT VII 86-88; CSM II 59-61). Can Descartes legitimately exploit these bits of theory? And what relevance can they or the subject of ethical theory have to the main line of thought of the Meditations' ?\n\nTo take the first question first, there is no tension between the foundational status of metaphysics and the appearance, at the end of Descartes' s main metaphysical treatise, of findings from the extra-metaphysical parts of science. The task that the metaphysics has to discharge is that of showing that human beings are not of such a nature as to be deceived about what seems most evident to them. This task is discharged as soon as Descartes proves, on the basis of the non-deceivingness of God, that, in general, whatever\n\nis clearly and distinctly perceived is true. By the point in at which he introduces the inclusive conception of his ow rule has been established, and, on the strength of it, the nature of matter (extension), the nature of mind (thought) outside the mind of things with both those natures. Wha clear and distinct conclusions from Descartes's physiologi researches he now wants to bring in - and he has many of these, some published some not, he can refer to ad lib without the foundational character of the metaphysics being compromised.\n\nAnother way of putting it is by saying that the foundations of the sciences are laid before the end of Meditation Six. No metaphysical conclusion depends on Descartes's explanation of dropsy, or his theory of the way the functions of the parts of the body are unified by the function of the pineal gland. Instead, the explanations suggest a use for certain kinds of sensory capacity, once metaphysics has shown that sensory capacities, though part of the endowment of a benign God, are no source for conclusions about the natures of things. Descartes's suggestion is that sensory information operates directly and without the intervention of reasoning to make us pursue and avoid things that, normally, it is beneficial for us to pursue and avoid. And by 'beneficial for us to pursue and avoid' Descartes means primarily 'helpful to us in preserving and prolonging life'.\n\nIn understudied sections at the end of Part One of the Principles (§§ 7 Iff), Descartes speculatively reconstructs the natural origin of the misuse of sensory information to tell us about the natures of external things. In early childhood, he tells us, the 'mind was so closely tied to the body that it had no leisure for any thoughts except those by means of which it had sensory awareness of what was happening to the body. What was beneficial or harmful was felt only as pleasure or pain in the body'. (AT VIII A 35; CSM I 218) It is only when the child moves its body and learns to pursue the beneficial and avoid the harmful that it starts to attribute an independent existence to the things outside its body, and to refer the colours, smells, and tastes it experiences, as well as shapes and sizes, to those external things. 'Moreover, since the mind judged everything in terms of its utility to the body in which it was immersed, it assessed the amount of reality in each object by the extent to which it was affected by it'. It is in this way, Descartes says, that we come to think rocks and metals are more substantial or real or material than water or air. The key to seeing the natures of things aright is withdrawal from the body acquiring a capacity for judgement that does not assign natures to external objects in relation to how they can harm or benefit us. Detaching ourselves from the body is partly a matter of seeing that judgements inspired mainly by our involvement with our bodies are uncertain or erroneous. The most extreme and radical form of this detachment is achieved by the radical doubt practised by Descartes in Meditation One.\n\n380 Tom Sorell\n\nIn the Medit from the bo mentions 'th my childhoo extended to air, or that t and the avoidance of what is harmful. The reversion to this side of our nature in Meditation Six does no more than show that what is bad for our understanding of the natures of things - our selves as much as physic objects - can be good for keeping us alive.\n\n## Ill\n\nDescartes is not inconsistent, then, in recognising two natures for us in Meditation Six. Although we are clearly and distinctly conceivable just as thinking things, we are made by God to live as well as to think, and so under the description «part of the creation» the self has a more and less elaborate nature - on the one hand, as the thinking cultivator of the goods of mind, body and mind-body union - the thinking pursuer of human well-being-and, on the other hand, the thinking pursuer of scientia simply.\n\nI have been calling the living, embodied self the self of ethics, but, as indicated earlier, this way of speaking may be questionable. There is a reading of the Passions of the Soul according to which the best sort of well-being is accessible to the soul alone, operating independently of the body. Descartes may even be read as suggesting that the key to ethics is to confine one's aims in life to those whose attainment depends on the soul alone. If this reading is sound, then the self of ethics may turn out to be the self of metaphysics after all. This would give Descartes a neater philosophy than has emerged from my interpretation. The reading seems to me unsound, however. For one thing, it depends on confining the subject matter of ethics to what is involved in acquiring the best sort of well-being, not well-being in general, and there is textual evidence that Descartes took the wider view.\n\nAn important passage in this connection is section 91 of the Passions. This distinguishes between two types of joy - the kind that is constituted by the brain's representing the soul's possession of some good - which is a 'passion' in Descartes's technical sense, and, on the other hand\n\nThe purely intellectual joy that arises in the soul through the action of the soul alone. The latter may be said to be a pleasant emotion which the soul arouses in itself whenever it enjoys a good which the understanding represents to it as its own (AT XI 397; CSM I 361).\n\nIf ethics were primarily ethics for the soul or pure intellect, then one might expect Descartes to give directions for detaching onself from impres-\n\nsions of the good in one's brain and increasing the autono of the soul. What Descartes goes on to say, however, is th joy cannot be enjoyed on its own in this life:\n\n[W]hile the soul is joined to the body, this intellectual joy can scarcely fail to be accompanied by the joy which is a passion (Ibid.)\n\nAnother passage where Descartes could have revealed his ethics to be an ethics for the pure soul or intellect is where Descartes talks about the control of desire. In this passage (section 144: AT IX 436-37; CSM I 379) Descartes begins by saying that the chief utility of morality lies in the control of desire, and that desire is controlled i.e. directed at what it ought to be directed at, only when it conforms to true knowledge, and that it lacks control and needs it when it is informed by error. The main sort of error that informs desire, he says, is error about what goods depend on us, and what goods don't. Goods that depend on us alone are never wrong to pursue or desire, even ardently (Ibid.)\n\nNow if Descartes had intended to give a pointedly metaphysical reading to desires whose satisfaction depends just on us, he would have given examples whose conditions of success were dependent just on our pure intellect and will. But he gives much more down-to-earth examples of ordinary decisions in life. He considers deciding between roads to a destination. When we have chosen a route to a destination on the basis of the principle that the safest route is best, and experience shows that the route we have chosen is safer than others, there is nothing else we should have done but take the chosen route, even if it turns out that, extraordinarily, we are attacked on that route. In the end, all we can do is what we have most reason to do, all things considered. And so our chief practical obligation is to exercise our judgement well and stick to the conclusions we reach by means of it. Everything else is out of our hands. This does not mean, as the example of choosing the safe route should make clear, retreating inwards so that the only choices we make are between which abstract intellectual stance to adopt, as in the thought experiments of the Meditations . It means acting decisively in the real world, within the constraints of imperfect information and limited time. It means not just exercising self-control as a recluse, but actively helping others. Hence the central place given in Descartes' s ethics to the virtue of generosity (AT XI 446-448; CSM I 384-5). It means not just reaching conclusions in thought but acting accordingly. In keeping with this, Descartes has particularly harsh words for the vice of irresolution (AT XI 459; CSM I 390).\n\nThough the matter needs more attention than I can give it here, there is some reason to conclude that Descartes does not outline an ethics only or mainly for an inner or immaterial self. It is closer to the truth to say that he outlines an ethics for an embodied agent, an agent facing the whole range of life's demands, in whom bodily-inspired desires need control by\n\n382 Tom Sorell a higher inn of these desi are base or i soul itself have particular value (AT XI 440-441; CSM I 381), this does not mean that the value they have derives from operating without or independently of the bodily-inspired passions. On the contrary, the internal emotions may come into their own as a means of neutralising or counterbalancing the effect of the bodily-induced passions.\n\nIV\n\nAccording to the interpretation developed so far, the metaphysical self and the ethical self are distinct but related. The ethical self is not simply the metaphysical self plus a body, but rather the set of capacities required for the cultivation of the whole range of goods bestowed on me by God, whereas the metaphysical self is only the set of capacities required for the pursuit of scientia in the face of the possibility that I might be able to make mistakes even about that which is most evident to me. The question with which I should like to conclude is that of how, if at all, metaphysics supplies foundations for ethics in Descartes's philosophical system2.\n\nI shall suggest that there are several ways in which metaphysics prepares the way for ethics, but another way in which it does not, but might have been expected to.\n\nTo begin with, the practice of metaphysics exercises some of the capacities for detachment from the body that ethics requires. In metaphysics one tries to undo the habit of jumping to conclusions on the basis of sense experience. Sceptical hypotheses are supposed to arrest that habit, and gradually the mind is supposed to get used to controlling assent by confining it to matters that are so clear and distinct that they are undeniable. In ethics, another, parallel sort of habit is weakened: the habit of acting automatically to satisfy body-based desires. The more one knows about the generation of those desires, the more one is alive to a sort of distortion that they can introduce. They magnify certain goods, or make things that are not in fact good at all, but pleasurable, seem good. This knowledge about the distorting effect of the body-based desires counterbalances some of their force. And Descartes also has strategies for voluntarily building up associations between bodily based desires and counterbalancing thoughts. If we are overcome by the urges of a glutton we can call up some past experience of disgust and momentarily get the better of the desire to eat; or, if we feel like\n\n2. This question is not asked nearly often enough. For an account different from ine centering on the idea of perfecting human beings, see E. Faye, Philosophie et Perfection de l'Homme: de la Renaissance a Descartes (Vrin, 1998).\n\nrunning at the first sign of danger, we can counteract the feel ing in ourselves thoughts of timidity in others that makes us and transfer this contempt to ourselves in order to make ourse\n\nNone of these strategies could be implemented if we we play things of our desires - if our bodies simply did wha disposed them to do. If we were unable to reflect on our up at will thoughts that are effective against them, we w the means of self-control. Metaphysics and ethics are both control, and of detaching ourselves from the body. When ethics are taken up in the right order, the practices of se are developed by the former can prepare the mind for the Again, the metaphysics gives people a way of grasping th tween the role of the soul in this life and the goods that it in detachment from the body. More indirectly, the content supports the mechanistic theory of the human body and is so important to identifying the mechanism of self-con the motions of the pineal gland, and the way these motions lation of the blood and nervous system.\n\nOne way in which metaphysics does not help, however, much light on the fact that each of us is connected to a for all of our lives. This is one of the facts that Descartes tells Elizabeth is fundamental to knowing about the nature of the soul, but, notoriously Descartes has difficulty producing a conception of that connection, and indeed produces a metaphysics in which the reality of particular bodies as substances - as opposed to particular arrangements of matter - is actually put in doubt. In the case of the human body there is a double problem. Not only does it seem to be underspecified as a certain quantity of matter, but the theory of it depends on concepts for organs that are irreducible to mere parts of bodies with certain sizes and shapes. This means that more than matter as extension is required as material for a scientific theory of the human body. But it is only this abstract conception of matter and only bodies in so far as they have properties registered purely quantitatively that we are assured of the existence of by the Meditations. If ethics really does have a place in a unitary structure of knowledge rooted in metaphysics, then it must derive its concept of the body from more than geometry.",
+    "responses": [
+      {
+        "source": "gpt-4o-2024-11-20",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"ADU1\": {\n      \"text\": \"There is a difference between the subject of Descartes's metaphysics and the subject of Descartes's ethics.\",\n      \"label\": \"claim\"\n    },\n    \"ADU2\": {\n      \"text\": \"The subject of Descartes's metaphysics is a self that is substantially complete with only a capacity for pure understanding; the subject of Descartes's ethics is the living human being with the body-involving capacities of sensation, perception, imagination and voluntary motion, as well as pure understanding.\",\n      \"label\": \"premise\"\n    },\n    \"ADU3\": {\n      \"text\": \"The subject of Descartes's metaphysics has all and only those capacities required for scientia about the physical world.\",\n      \"label\": \"premise\"\n    },\n    \"ADU4\": {\n      \"text\": \"The subject of ethics has all and only those capacities required for being a self-perfecting, decisive agent with no grounds for practical regret.\",\n      \"label\": \"premise\"\n    },\n    \"ADU5\": {\n      \"text\": \"Some of the capacities required for scientia about the physical world are capacities required for ethics, since the pure understanding and its methods of controlled assent are in play in both cases, but upright practical life requires further capacities besides.\",\n      \"label\": \"premise\"\n    },\n    \"ADU6\": {\n      \"text\": \"But even if there is no inconsistency in Descartes's conception of the metaphysical subject, it might be thought that Descartes betrays the much-vaunted foundational role of his metaphysics by giving any role in it to the subject of as derivative a science as ethics.\",\n      \"label\": \"claim\"\n    },\n    \"ADU7\": {\n      \"text\": \"I am going to suggest that this thought, too, is mistaken.\",\n      \"label\": \"claim\"\n    },\n    \"ADU8\": {\n      \"text\": \"The subject of ethics is not brought into the metaphysical writings in such a way as to compromise their foundational character.\",\n      \"label\": \"premise\"\n    },\n    \"ADU9\": {\n      \"text\": \"Meditation Six is the second place where Descartes considers his own nature at length.\",\n      \"label\": \"premise\"\n    },\n    \"ADU10\": {\n      \"text\": \"Since I can be clearly and distinctly conceived minus perception and imagination, they do not belong to my nature.\",\n      \"label\": \"premise\"\n    },\n    \"ADU11\": {\n      \"text\": \"For the purposes of metaphysics immateriality alone constitutes one's nature; but for the purposes of ethics one's nature is composite.\",\n      \"label\": \"claim\"\n    },\n    \"ADU12\": {\n      \"text\": \"The Passions of the Soul is an ethical treatise in the sense that it specifies the nature of an unobvious sort of well-being that human beings can attain, and states schematically the means of attaining it.\",\n      \"label\": \"claim\"\n    },\n    \"ADU13\": {\n      \"text\": \"There is a systematic connection between the subject presupposed by ethics and the inclusive conception of my nature found in Meditation Six.\",\n      \"label\": \"claim\"\n    },\n    \"ADU14\": {\n      \"text\": \"If my nature is the sum total of the goods of body, the goods of mind, and the goods of mind-body union, then ethics is the science of preserving or increasing all of those goods.\",\n      \"label\": \"premise\"\n    },\n    \"ADU15\": {\n      \"text\": \"The task that the metaphysics has to discharge is that of showing that human beings are not of such a nature as to be deceived about what seems most evident to them.\",\n      \"label\": \"premise\"\n    },\n    \"ADU16\": {\n      \"text\": \"Metaphysics and ethics are both about self-control, and of detaching ourselves from the body.\",\n      \"label\": \"claim\"\n    },\n    \"ADU17\": {\n      \"text\": \"The metaphysical self and the ethical self are distinct but related.\",\n      \"label\": \"claim\"\n    },\n    \"ADU18\": {\n      \"text\": \"The ethical self is not simply the metaphysical self plus a body, but rather the set of capacities required for the cultivation of the whole range of goods bestowed on me by God, whereas the metaphysical self is only the set of capacities required for the pursuit of scientia in the face of the possibility that I might be able to make mistakes even about that which is most evident to me.\",\n      \"label\": \"premise\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"ADU2\",\n      \"target\": \"ADU1\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU3\",\n      \"target\": \"ADU1\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU4\",\n      \"target\": \"ADU1\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU5\",\n      \"target\": \"ADU1\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU8\",\n      \"target\": \"ADU7\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU11\",\n      \"target\": \"ADU13\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU14\",\n      \"target\": \"ADU13\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU15\",\n      \"target\": \"ADU16\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU18\",\n      \"target\": \"ADU17\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "ADU1": {
+              "text": "There is a difference between the subject of Descartes's metaphysics and the subject of Descartes's ethics.",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "The subject of Descartes's metaphysics is a self that is substantially complete with only a capacity for pure understanding; the subject of Descartes's ethics is the living human being with the body-involving capacities of sensation, perception, imagination and voluntary motion, as well as pure understanding.",
+              "label": "premise"
+            },
+            "ADU3": {
+              "text": "The subject of Descartes's metaphysics has all and only those capacities required for scientia about the physical world.",
+              "label": "premise"
+            },
+            "ADU4": {
+              "text": "The subject of ethics has all and only those capacities required for being a self-perfecting, decisive agent with no grounds for practical regret.",
+              "label": "premise"
+            },
+            "ADU5": {
+              "text": "Some of the capacities required for scientia about the physical world are capacities required for ethics, since the pure understanding and its methods of controlled assent are in play in both cases, but upright practical life requires further capacities besides.",
+              "label": "premise"
+            },
+            "ADU6": {
+              "text": "But even if there is no inconsistency in Descartes's conception of the metaphysical subject, it might be thought that Descartes betrays the much-vaunted foundational role of his metaphysics by giving any role in it to the subject of as derivative a science as ethics.",
+              "label": "claim"
+            },
+            "ADU7": {
+              "text": "I am going to suggest that this thought, too, is mistaken.",
+              "label": "claim"
+            },
+            "ADU8": {
+              "text": "The subject of ethics is not brought into the metaphysical writings in such a way as to compromise their foundational character.",
+              "label": "premise"
+            },
+            "ADU9": {
+              "text": "Meditation Six is the second place where Descartes considers his own nature at length.",
+              "label": "premise"
+            },
+            "ADU10": {
+              "text": "Since I can be clearly and distinctly conceived minus perception and imagination, they do not belong to my nature.",
+              "label": "premise"
+            },
+            "ADU11": {
+              "text": "For the purposes of metaphysics immateriality alone constitutes one's nature; but for the purposes of ethics one's nature is composite.",
+              "label": "claim"
+            },
+            "ADU12": {
+              "text": "The Passions of the Soul is an ethical treatise in the sense that it specifies the nature of an unobvious sort of well-being that human beings can attain, and states schematically the means of attaining it.",
+              "label": "claim"
+            },
+            "ADU13": {
+              "text": "There is a systematic connection between the subject presupposed by ethics and the inclusive conception of my nature found in Meditation Six.",
+              "label": "claim"
+            },
+            "ADU14": {
+              "text": "If my nature is the sum total of the goods of body, the goods of mind, and the goods of mind-body union, then ethics is the science of preserving or increasing all of those goods.",
+              "label": "premise"
+            },
+            "ADU15": {
+              "text": "The task that the metaphysics has to discharge is that of showing that human beings are not of such a nature as to be deceived about what seems most evident to them.",
+              "label": "premise"
+            },
+            "ADU16": {
+              "text": "Metaphysics and ethics are both about self-control, and of detaching ourselves from the body.",
+              "label": "claim"
+            },
+            "ADU17": {
+              "text": "The metaphysical self and the ethical self are distinct but related.",
+              "label": "claim"
+            },
+            "ADU18": {
+              "text": "The ethical self is not simply the metaphysical self plus a body, but rather the set of capacities required for the cultivation of the whole range of goods bestowed on me by God, whereas the metaphysical self is only the set of capacities required for the pursuit of scientia in the face of the possibility that I might be able to make mistakes even about that which is most evident to me.",
+              "label": "premise"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU2",
+              "target": "ADU1",
+              "type": "support"
+            },
+            {
+              "source": "ADU3",
+              "target": "ADU1",
+              "type": "support"
+            },
+            {
+              "source": "ADU4",
+              "target": "ADU1",
+              "type": "support"
+            },
+            {
+              "source": "ADU5",
+              "target": "ADU1",
+              "type": "support"
+            },
+            {
+              "source": "ADU8",
+              "target": "ADU7",
+              "type": "support"
+            },
+            {
+              "source": "ADU11",
+              "target": "ADU13",
+              "type": "support"
+            },
+            {
+              "source": "ADU14",
+              "target": "ADU13",
+              "type": "support"
+            },
+            {
+              "source": "ADU15",
+              "target": "ADU16",
+              "type": "support"
+            },
+            {
+              "source": "ADU18",
+              "target": "ADU17",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "ADU3": {
+              "text": "The subject of Descartes's metaphysics has all and only those capacities required for scientia about the physical world.",
+              "label": "premise"
+            },
+            "ADU4": {
+              "text": "The subject of ethics has all and only those capacities required for being a self-perfecting, decisive agent with no grounds for practical regret.",
+              "label": "premise"
+            },
+            "ADU5": {
+              "text": "Some of the capacities required for scientia about the physical world are capacities required for ethics, since the pure understanding and its methods of controlled assent are in play in both cases, but upright practical life requires further capacities besides.",
+              "label": "premise"
+            },
+            "ADU6": {
+              "text": "But even if there is no inconsistency in Descartes's conception of the metaphysical subject, it might be thought that Descartes betrays the much-vaunted foundational role of his metaphysics by giving any role in it to the subject of as derivative a science as ethics.",
+              "label": "claim"
+            },
+            "ADU7": {
+              "text": "I am going to suggest that this thought, too, is mistaken.",
+              "label": "claim"
+            },
+            "ADU8": {
+              "text": "The subject of ethics is not brought into the metaphysical writings in such a way as to compromise their foundational character.",
+              "label": "premise"
+            },
+            "ADU9": {
+              "text": "Meditation Six is the second place where Descartes considers his own nature at length.",
+              "label": "premise"
+            },
+            "ADU10": {
+              "text": "Since I can be clearly and distinctly conceived minus perception and imagination, they do not belong to my nature.",
+              "label": "premise"
+            },
+            "ADU12": {
+              "text": "The Passions of the Soul is an ethical treatise in the sense that it specifies the nature of an unobvious sort of well-being that human beings can attain, and states schematically the means of attaining it.",
+              "label": "claim"
+            },
+            "ADU13": {
+              "text": "There is a systematic connection between the subject presupposed by ethics and the inclusive conception of my nature found in Meditation Six.",
+              "label": "claim"
+            },
+            "ADU14": {
+              "text": "If my nature is the sum total of the goods of body, the goods of mind, and the goods of mind-body union, then ethics is the science of preserving or increasing all of those goods.",
+              "label": "premise"
+            },
+            "ADU15": {
+              "text": "The task that the metaphysics has to discharge is that of showing that human beings are not of such a nature as to be deceived about what seems most evident to them.",
+              "label": "premise"
+            },
+            "ADU17": {
+              "text": "The metaphysical self and the ethical self are distinct but related.",
+              "label": "claim"
+            },
+            "ADU18": {
+              "text": "The ethical self is not simply the metaphysical self plus a body, but rather the set of capacities required for the cultivation of the whole range of goods bestowed on me by God, whereas the metaphysical self is only the set of capacities required for the pursuit of scientia in the face of the possibility that I might be able to make mistakes even about that which is most evident to me.",
+              "label": "premise"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU8",
+              "target": "ADU7",
+              "type": "support"
+            },
+            {
+              "source": "ADU14",
+              "target": "ADU13",
+              "type": "support"
+            },
+            {
+              "source": "ADU18",
+              "target": "ADU17",
+              "type": "support"
+            }
+          ]
+        }
+      },
+      {
+        "source": "claude-3-5-sonnet-20241022",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"1\": {\n      \"text\": \"There is a difference between the subject of Descartes's metaphysics and the subject of Descartes's ethics. The subject of Descartes's metaphysics is a self that is substantially complete with only a capacity for pure understanding; the subject of Descartes's ethics is the living human being with the body-involving capacities of sensation, perception, imagination and voluntary motion, as well as pure understanding.\",\n      \"label\": \"claim\"\n    },\n    \"2\": {\n      \"text\": \"The subject of Descartes's metaphysics has all and only those capacities required for scientia about the physical world. The subject of ethics has all and only those capacities required for being a self-perfecting, decisive agent with no grounds for practical regret.\",\n      \"label\": \"claim\"\n    },\n    \"3\": {\n      \"text\": \"Some of the capacities required for scientia about the physical world are capacities required for ethics, since the pure understanding and its methods of controlled assent are in play in both cases, but upright practical life requires further capacities besides.\",\n      \"label\": \"claim\"\n    },\n    \"4\": {\n      \"text\": \"For the purposes of metaphysics immateriality alone constitutes one's nature; but for the purposes of ethics one's nature is composite.\",\n      \"label\": \"claim\"\n    },\n    \"5\": {\n      \"text\": \"Descartes is contemptuous of the ancient theory according to which moral conflict is a struggle between personified higher and lower forces in the individual.\",\n      \"label\": \"premise\"\n    },\n    \"6\": {\n      \"text\": \"To the extent that ethics is about the control of the passions - Descartes says that the chief utility of morality is to control the desire produced by the animal spirits - its subject matter results from the fact of embodiment.\",\n      \"label\": \"claim\"\n    },\n    \"7\": {\n      \"text\": \"If my nature is the sum total of the goods of body, the goods of mind, and the goods of mind-body union, then ethics is the science of preserving or increasing all of those goods.\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"2\",\n      \"target\": \"1\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"3\",\n      \"target\": \"2\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"4\",\n      \"target\": \"1\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"5\",\n      \"target\": \"6\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"6\",\n      \"target\": \"1\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"7\",\n      \"target\": \"6\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "1": {
+              "text": "There is a difference between the subject of Descartes's metaphysics and the subject of Descartes's ethics. The subject of Descartes's metaphysics is a self that is substantially complete with only a capacity for pure understanding; the subject of Descartes's ethics is the living human being with the body-involving capacities of sensation, perception, imagination and voluntary motion, as well as pure understanding.",
+              "label": "claim"
+            },
+            "2": {
+              "text": "The subject of Descartes's metaphysics has all and only those capacities required for scientia about the physical world. The subject of ethics has all and only those capacities required for being a self-perfecting, decisive agent with no grounds for practical regret.",
+              "label": "claim"
+            },
+            "3": {
+              "text": "Some of the capacities required for scientia about the physical world are capacities required for ethics, since the pure understanding and its methods of controlled assent are in play in both cases, but upright practical life requires further capacities besides.",
+              "label": "claim"
+            },
+            "4": {
+              "text": "For the purposes of metaphysics immateriality alone constitutes one's nature; but for the purposes of ethics one's nature is composite.",
+              "label": "claim"
+            },
+            "5": {
+              "text": "Descartes is contemptuous of the ancient theory according to which moral conflict is a struggle between personified higher and lower forces in the individual.",
+              "label": "premise"
+            },
+            "6": {
+              "text": "To the extent that ethics is about the control of the passions - Descartes says that the chief utility of morality is to control the desire produced by the animal spirits - its subject matter results from the fact of embodiment.",
+              "label": "claim"
+            },
+            "7": {
+              "text": "If my nature is the sum total of the goods of body, the goods of mind, and the goods of mind-body union, then ethics is the science of preserving or increasing all of those goods.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "2",
+              "target": "1",
+              "type": "support"
+            },
+            {
+              "source": "3",
+              "target": "2",
+              "type": "support"
+            },
+            {
+              "source": "4",
+              "target": "1",
+              "type": "support"
+            },
+            {
+              "source": "5",
+              "target": "6",
+              "type": "support"
+            },
+            {
+              "source": "6",
+              "target": "1",
+              "type": "support"
+            },
+            {
+              "source": "7",
+              "target": "6",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "2": {
+              "text": "The subject of Descartes's metaphysics has all and only those capacities required for scientia about the physical world. The subject of ethics has all and only those capacities required for being a self-perfecting, decisive agent with no grounds for practical regret.",
+              "label": "claim"
+            },
+            "3": {
+              "text": "Some of the capacities required for scientia about the physical world are capacities required for ethics, since the pure understanding and its methods of controlled assent are in play in both cases, but upright practical life requires further capacities besides.",
+              "label": "claim"
+            },
+            "5": {
+              "text": "Descartes is contemptuous of the ancient theory according to which moral conflict is a struggle between personified higher and lower forces in the individual.",
+              "label": "premise"
+            },
+            "7": {
+              "text": "If my nature is the sum total of the goods of body, the goods of mind, and the goods of mind-body union, then ethics is the science of preserving or increasing all of those goods.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "3",
+              "target": "2",
+              "type": "support"
+            }
+          ]
+        }
+      }
+    ],
+    "timestamp": 1752753036.0274076
+  }
+]

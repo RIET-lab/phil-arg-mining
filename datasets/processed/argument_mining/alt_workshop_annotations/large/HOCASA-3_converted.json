@@ -1,0 +1,138 @@
+{
+  "ADUs": {
+    "Untitled 1": {
+      "type": "Major Claim",
+      "text": "The paper’s main lesson is that an effective theory of analogy integrates both semantic (concept/conceptualist) structure and contextual/judgmental analysis."
+    },
+    "Untitled 2": {
+      "type": "Claim",
+      "text": "Cajetan’s theory of analogy is a central and influential treatment in Thomistic philosophy."
+    },
+    "Untitled 3": {
+      "type": "Claim",
+      "text": "Critics argue that Cajetan’s theory exposes weaknesses in medieval semantic assumptions."
+    },
+    "Untitled 4": {
+      "type": "Claim",
+      "text": "Medieval semantic theory assumes words signify by discrete concepts, and proposition meaning is the sum of word meanings."
+    },
+    "Untitled 5": {
+      "type": "Claim",
+      "text": "This theory, say critics like Ashworth and Ross, cannot capture language’s complexity and variety, especially in analogical cases."
+    },
+    "Untitled 6": {
+      "type": "Claim",
+      "text": "To make sense of analogy, one must look at how words function in sentences and context, not just at their independent semantic features.",
+      "isImplicit": true
+    },
+    "Untitled 7": {
+      "type": "Claim",
+      "text": "Ross claims that the classical theory of analogy is flawed because it relies on conceptualist and compositionalist assumptions."
+    },
+    "Untitled 8": {
+      "type": "Claim",
+      "text": "Maurer and Gilson assert that Cajetan’s approach is too centered on concepts, neglecting the key role of judgment in analogy."
+    },
+    "Untitled 9": {
+      "type": "Claim",
+      "text": "Burrell and others maintain that analogy is best understood at the level of judgment and language use, not abstract concept analysis alone."
+    },
+    "Untitled 10": {
+      "type": "Claim",
+      "text": "Simon emphasizes that analogical unity requires partial abstraction and mental operation rooted in context, not reducible to one abstract feature."
+    },
+    "Untitled 11": {
+      "type": "Claim",
+      "text": "Proper analysis of analogy must consider context and actual use in sentences, not just abstract word-level semantics."
+    },
+    "Untitled 12": {
+      "type": "Claim",
+      "text": "Hochschild contends that Cajetan’s semantic analysis is compatible with attention to context, judgment, and interpretation."
+    },
+    "Untitled 13": {
+      "type": "Claim",
+      "text": "Medieval logic often analyzed terms in the context of complete arguments and inferences, not just as isolated units."
+    },
+    "Untitled 14": {
+      "type": "Claim",
+      "text": "Cajetan, in later chapters, insists that interpreting analogical meaning requires attention to linguistic and argumentative context."
+    },
+    "Untitled 15": {
+      "type": "Claim",
+      "text": "Semantic and contextual/judgment-based analysis are not inherently opposed; their opposition has been overstated by some critics.",
+      "isImplicit": true
+    }
+  },
+  "relations": [
+    {
+      "src": "Untitled 4",
+      "tgt": "Untitled 3",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 6",
+      "tgt": "Untitled 5",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 5",
+      "tgt": "Untitled 3",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 7",
+      "tgt": "Untitled 3",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 9",
+      "tgt": "Untitled 8",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 8",
+      "tgt": "Untitled 3",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 10",
+      "tgt": "Untitled 3",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 3",
+      "tgt": "Untitled 2",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 12",
+      "tgt": "Untitled 11",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 14",
+      "tgt": "Untitled 13",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 13",
+      "tgt": "Untitled 11",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 11",
+      "tgt": "Untitled 2",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 15",
+      "tgt": "Untitled 2",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 2",
+      "tgt": "Untitled 1",
+      "type": "support"
+    }
+  ]
+}

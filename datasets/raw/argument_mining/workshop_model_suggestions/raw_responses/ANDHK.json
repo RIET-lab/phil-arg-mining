@@ -1,0 +1,305 @@
+[
+  {
+    "identifier": "ANDHK",
+    "system_prompt": "## GOAL\nArgument‑mine the following paper to extract its comprehensive argumentative structure.\n\n## DEFINITIONS\n1. **Argument**: A set of propositions, including some number of premises and a conclusion. The premises should logically entail the conclusion.\n2. **Claim**: A proposition that asserts something to be true or false, typically requiring justification or evidence.\n3. **Premise**: A proposition that provides evidence, justification, or logical support for a claim or conclusion.\n\n## CRITICAL REQUIREMENTS\n1. **VERBATIM EXTRACTION ONLY**: Each ADU text must be copied EXACTLY from the paper with no modifications, paraphrasing, or combining of separate sentences.\n2. **NO HALLUCINATION**: Do not create, modify, or invent text that does not appear exactly in the source.\n3. **EXACT MATCHING**: Every word, punctuation mark, and spacing must match the original precisely.\n\n## DIRECTIONS\n1. **Identify Argumentative Discourse Units (ADUs)**  \n   - ADU = any contiguous text span functioning as a claim or a premise in the reasoning structure.\n   - **BE HIGHLY SELECTIVE**: Only include ADUs that are crucial to the overarching argument structure.\n   - Focus on significant claims and premises that contribute meaningfully to the argumentative flow.\n   - **AVOID NOISE**: Skip ADUs that are merely descriptive, tangential, or do not substantially advance the argument.\n   - Prioritize quality over quantity - fewer accurate, important ADUs are better than many insignificant ones.\n   - **EXTRACT ONLY**: Copy text spans exactly as they appear, without any modifications.\n2. **Classify each ADU**  \n   - Label = either `\"claim\"` or `\"premise\"`.  \n3. **Detect directed relations**  \n   - Relation = `\"support\"` or `\"attack\"`, from one ADU (source) to another (target).\n   - Map how ADUs connect to form reasoning chains.\n   - Focus on relationships between the most significant ADUs.\n   - Include relationships between premises that strengthen or weaken each other.\n4. **Verbatim spans**  \n   - Each `\"text\"` value must be copied EXACTLY from the paper with zero modifications.\n   - Do not paraphrase, summarize, or combine separate sentences.\n   - Do not add, remove, or change any words, punctuation, or spacing.\n   - If unsure about exact wording, skip that ADU rather than guess.\n\n## WHAT TO CAPTURE\n**INCLUDE ONLY:**\n- Main argumentative threads that are central to the paper's contribution\n- Core claims that represent the paper's primary arguments or findings\n- Key premises that provide essential support for major claims\n- Critical counterarguments and their refutations\n- Reasoning chains that demonstrate how main conclusions are derived\n\n**EXCLUDE (AVOID NOISE):**\n- Minor details, examples, or descriptive content that don't advance the argument\n- Tangential points or side discussions\n- Pure background information or literature review content\n- Methodological details unless they constitute argumentative claims\n- Obvious statements or commonly accepted facts\n- Redundant or repetitive argumentative content\n\n**GUIDING PRINCIPLE**: If removing an ADU would not significantly impact understanding of the paper's argumentative structure, it should be excluded.\n\n## QUALITY CONTROL\n- Before finalizing each ADU, verify the text exists exactly in the source\n- Prefer fewer, accurate ADUs over many potentially modified ones\n- When in doubt about exact wording, omit the ADU\n\n## OUTPUT FORMAT\nReturn **only** a single valid JSON object matching this schema.  \nDo **not** output any extra text, markdown, or explanations.\n\nRESPOND WITH ONLY:\n```json\n{\n  \"ADUs\": {\n    \"<ADU_ID>\": {\n      \"text\": \"<exact span from paper>\",\n      \"label\": \"claim\" | \"premise\"\n    }\n    ...\n  },\n  \"relations\": [\n    {\n      \"source\": \"<ADU_ID>\",\n      \"target\": \"<ADU_ID>\",\n      \"type\": \"support\" | \"attack\"\n    }\n  ]\n}\n```",
+    "user_content": "## Hegel Knits 1\n\n## Jami L. Anderson\n\nUniversity of Michigan-Flint\n\nIn chapter 4 of my dissertation, I wrote:\n\nAccording to Hegel, activities are not valuable in terms of their efficacy in realizing ends. Rather, their value is  that  they  are  both  constitutive  and  formative  of our personalities. They transform our identities and, consequently, our self-conception. To see Hegel's point, consider how our interests are affected by our actions. Before we act, we have a certain conception of  ourselves-who we are, our evaluation of our personality, and we have a set of goals chosen in light of that self-conception. It is with this self-conception that we act. But the activity undertaken throws new light  on  our  chosen  ends  and,  as  a  result,  on  our self-conception. Suppose I consider myself a fairly modern woman and eschew activities that I regard as traditional womanly pastimes. But a friend of mine, who has no such biases, is an avid knitter and enjoys having an afternoon tea and a chat while knitting. So, for the sake of a friendly conversation and a shared experience, I agree to give knitting a try. At first, I find knitting to be clumsy and strange. I don't 'get it.' It is  not,  simply  put, me .  Nonetheless, I spend many pleasant  afternoons  knitting,  which  necessitates encountering difficulties and frustrations which, in turn, require that I adjust, readjust, and plan anew. As I make (and remake) plans in light of unexpected events, I come to have an entirely new conception of the particular thing I knit, knitting as an activity, and of myself as a knitter. In short, as I knit, I change. 2\n\nThis was the first and (until now) last time I wrote about knitting in a philosophy paper. Although I could say that this is because knitting was not relevant to any of the papers that I have written, if I am honest I should say that the primary reason is because I did not think that knitting would be regarded as an activity worthy of philosophical discussion. Not only is knitting typically regarded as an idle woman's pastime and, therefore, something void of real intellectual significance, it is thought of as an activity most appropriate for elderly women. Therefore, knitting is dismissed as being not only mindless but also obsolete and irrelevant as well. I have come to think of the activity of knitting, if properly undertaken, as neither mindless nor archaic but can be, to return to the Hegelian discussion introduced above, formative of our personality and the knitwear produced a material embodiment of our freedom. Before explaining this claim, I wish to first discuss three common justifications for knitting that I find in knitting books and magazines. The first, which I refer to as 'knitting as useful,' justifies the activity of knitting in terms of it being the most cost-effective way to have access to well-designed necessary knitted clothing. The second justification for knitting, which I refer to as 'knitting as therapy,' justifies knitting for its therapeutic value. Knitting, advocates promise, will soothe and enrich your soul. The final justification, which I refer to as 'knitting as funky,' justifies knitting in terms of its enabling the knitter entry into the latest lifestyle craze. On this account, to fail to knit is to miss out on what everyone hip is doing and, at some level, to fail to be a part of the 'latest thing.' I think all three justifications are, for different reasons, wrong-headed and fail to capture what I think are very important reasons to knit. After briefly examining these accounts, I will lay out my Hegelian analysis of knitting.\n\n## Knitting as Useful\n\nI  spent  my  undergraduate  junior  year  in  Tübingen,  West Germany (as it was known then). Before I went to Tübingen, I had never seen anyone knit. Of course I knew that there was such a thing as knitting. But I had no idea how it worked or what it was about. My grandma always wore tiny booties knit for her by her (very elderly) mother, but they seemed utterly foreign to me: thick, dowdy, and dangerously slippery (a bit like the woman who knit them, except for the slippery part). So to me, knitting was about making things that I did not want. It held no interest for me.\n\nIt did not take me long after arriving in Tübingen to notice that every female of every age was knitting. They knit while waiting at the bus stops, while waiting between university classes, and while chatting in the evenings in our shared student housing kitchen. Then I was really amazed when on the first day of my philosophy seminar I arrived at one of the oldest university buildings in Tübingen. The classroom was tall, with one wall covered with floor-to ceiling windows overlooking the Neckar, and a series of wide, dark oak tables of gently curving semi-circles, leading higher and farther away from the front of the room. The professor, small, elderly, and very frail, was, I was told, lecturing on aesthetics. I could not understand a word he said since I had only arrived a few weeks earlier and my German was terrible. But even if I could, I would have had a hard time concentrating on his lecture because I was so distracted by the sight of the women students knitting during the class. Not one took notes; they just sat and knitted, needles clicking as he spoke.\n\nWhen I got back to the communal kitchen that I shared with German students, I announced, 'They were KNITTING during the lecture!' or, more accurately, conveyed given how ungrammatical my German was. 'So what?' was the response. I think I gaped for more than a few seconds, trying to process what I was hearing. One student, whom I later learned was a very accomplished knitter, patiently explained, 'It makes perfect sense to knit in seminar. I can listen to what the professor is saying and get something accomplished at the same time. What is wrong with that?' There was a general murmuring of agreement from the other German women. 3  It was then that I found out that all the German women with whom I was living knit. Each said she wore only hand knit sweaters. 'Why buy something made by a machine that is not what you really want when you can make exactly what you want yourself?' The logic was so crystal clear to them that they must have thought that I was very simple for never having realized it myself.\n\nAnd so, though I did not know it at the time, I was being introduced to the 'Knitting as Useful' justification. I find this justification featured in many knitting books. Susanne Pagoldh, in her book on the history and techniques of traditional Nordic knitting, states that '[m]achines produce clothes more cheaply and quickly. But machines can't copy human handwork or create one-of-a-kind colors and patterns.' 4  Prior to the industrial revolution, many women and children in Europe knit to earn extra money. Pagoldh tells of Susanna Johansen who, living in Lamba of the Faroe Islands at age seven in 1906, was required to knit her share of rows on a fisherman sweater every day before being allowed to play. 5   Ann  Feitelson  interviewed Shetland women who as young girls in the 1920s knit to earn extra money. One woman said, 'The more you could knit, the more you could eat.' According to another, 'knitters were up half the night and not for the love of it.' A third boasted knitting a  45-inch Fair Isle patterned sweater in three days. 6  Yet the argument Pagoldh is offering contemporary readers is not that knitting is a means to earn a living. Indeed, no contemporary knitting books or magazines present such an argument to their readers because it would strike any experienced knitter as patently absurd. 7  Rather, she is arguing that knitting is the way to have knitwear that is utterly unlike any other, and better than any made by a machine. The value of knitting is its usefulness in  acquiring unique and tailored clothing perfectly suited to one's individual tastes.\n\nAt one level this line of reasoning is plausible. Certainly a knitter can make a sweater longer or shorter, or slimmer or wider than any store bought garment. And one can choose from a wider range of colors and fibers (new ecoyarns include: hemp, bamboo, soy, buffalo, milk, corn, and chitin yarn) than typically found in off-the-rack clothing. Yet, in fact, this argument overstates the openness of knitting. First, unless one farms, spins, and dyes one's own yarn, yarn manufacturers provide a relatively  limited  selection  of  colors,  and  these choices are determined by fashion. Thus, one often finds the yarn selections mirroring the very colors one finds in clothing stores. Yarn manufacturers also change their fiber blends and weights; the knitter may find what she wants but then again she may not. Therefore, selecting yarn for a project is more often an experience in disappointing compromise than wish fulfillment. Second, the skill level required to make the knitwear of one's dreams is extremely high. Although Susanne Pagoldh begins her book with the reassuring claim that 'knitting isn't difficult,' 8 the fact is that it is. It can take years if not decades to develop the skills necessary to knit a wearable item of clothing; even experienced knitters regularly produce products that fall far short of their intentions. If knitting can only be justified in terms of the outcomes produced, then most knitting is not justifiable.\n\n## Knitting as Therapy\n\nKnitting books and magazines regularly declare that knitting soothes, refreshes, and relaxes. We're told that the subtle and repetitive movements ease the mind, and the feel of the silk, alpaca, or merino wool brings comfort to our bodies. Padgoldh writes:\n\nTime slips by, and the knitter forms stitch after stitch, row after row, in colors and patterns as she pleases. A knitter can knit while the world news flashes by or a passionate drama is played out on the TV screen. Knitting can calm you while you wait for your name to be called in the waiting room or airport. As long as the stitch count is correct and the pattern develops regularly, at least one thing is under control. 9\n\nSuch promises are not new. In the early 1900s, Stitches magazine suggested that 'nervous' women knit simple pieces, 'nothing with an elaborate pattern to tax the brain.' Steel needles were suggested since 'the quick movement and the tiny click of the needles have a soothing, hypnotic influence that is restful to the overwrought woman.' 10  Another knitting magazine told their readers that 'Knitting was once every woman's duty. Now it is her pleasure, her relaxation, her nervesmoothing occupation for leisure moments in a busy life.' 11\n\nIt  would be wonderful if inner peace were as near to hand as two needles and a skein of yarn. Yet, in my experience, knitting anything, let alone something intended to be worn in public or to be given to another, is far from serene escapism. First of all, there is the matter of the sticker shock that accompanies any large yarn purchase. Second, designing, swatching (making that sample piece we are told will ensure accurate sizing but in fact never does), keeping track of the pattern, adjusting the pattern to accommodate alterations, ripping out the mistakes, running out of yarn in a dye lot-the whole experience can be fraught with nerve-wracking obstacles and frustrations. Knitting for long stretches can induce or aggravate carpel tunnel syndrome\n\npain and back ache. (Indeed, the necessary posture for knitting, being hunched over one's work, can cause serious back injury.) Suffragist Haryot Cahoon scoffed at the alleged soothing properties of  knitting.  She  wrote,  'Of  all  nerve-destroying occupations knitting takes the lead. The ceaseless click of the needles and the muscular exertion combine to produce an exhaustion equal to the most vigorous exercise.' 12  Finally, I question the value of repetitive and mindless small movements or the implication that women are better off if they calm their 'nervousness' by undertaking mindless busywork. What good am I adding to my life if I eschew taxing my brain and instead mindlessly K1, P2 during my precious 'leisure moments'? Fortunately, I believe knitting, if properly undertaken, is anything but mindless and the more mindfully one knits, the more value there is to the activity.\n\n## Knitting as Funky\n\nApparently knitting is all the rage right now. Debbie Stoller, author  of Stitch  'N  Bitch (the  'essential  guide  for  chicks with sticks'), Stitch 'N Bitch Nation (with fifty 'even funkier' knits), and Son of Stitch 'N Bitch (an 'attitude-packed guide to knitting'), is touted as the 'knitting superstar' of the nation. 13 Knitting has attained a level of popularity so great that it is described as a 'movement' that women are being encouraged to join. ('Everywhere chicks are gathering in groups to get their knit on.' 14 ) And it seems they are: according to a 2000 survey by the Yarn Craft Council, almost one third of all American women knit. And the fastest group of new knitters are aged forty-five and under. 15   This  knitting  wave  may be a part of the larger, recent interest in creating 'zines and blogs, do-it-yourself and craftiness which in turn may be a response to unrest caused by economic and political anxieties. Young women claim that knitting allows them not only to reconcile their low budgets with their desire for high (or at least 'funky') fashion, but it allows them to remain 'girly' while at the same time retaining their feminist individuality. It seems that a variety of seemingly disparate needs are all met by (or, at least, are being sold to consumers as being met by) knitting.\n\nThis is not the first knitting craze to sweep this nation. During the  depression  of  the  1930s  a  knitting  craze  was launched. Knitting magazines encouraged women to knit their own clothes so that they could be economical yet still 'look smart.' 16  Bernat, a leading yarn manufacturer, posed this question to women in their 1933 Winter/Spring Handicrafter magazine: 'What better way is there for you to be in style than wearing a garment that is knitted with your hands and designed in  the  current  fashion?' 17   To  make certain that knitting was completely disassociated from dowdiness or poverty, knitting magazines such as Motion Movie Picture Classic Hand Knit Patterns provided their readers with knitting patterns for outfits worn by actors in popular movies. Movie stars such as Bette Davis, Joan Blondell, Maureen O'Sullivan, Ronald Reagan, and Shirley  Temple were featured in knitting magazines during the '30s. In 1938, the photo of a young and beautiful Katharine Hepburn knitting while on a movie set must have very effectively conveyed the message that knitting was glamorous. The depression may have ended, but the knitting craze did not. Saks Fifth Avenue declared 1941 'The Year of Hand-Knit Fever.' Sixty-odd years later movie stars and celebrities are again being used to market the funkiness of knitting. The best-selling Celebrity Scarves (followed by Celebrity Scarves 2 ) promises to 'give age-old craft twenty-first-century glamour.' 18  Dozens of knitting books published in the past few years promise 'hip,' 'stylish,' 'sexy,' 'sensual,' or 'couture' knit patterns. And for those fed up with the fad and funk of mainstream knitting, there is  available: Punk Knits: 26 Hot New Designs for Anarchistic Souls and Independent Spirits; Pretty in Punk: 25 Punk, Rock and Goth Designs; Domiknitrix and AntiCraft: Knitting, Beading and Stitching for the Slightly Sinister . Each of these promises its readers patterns one can follow to better express one's rejection of mainstream culture.\n\nI have already expressed my skepticism of the claim that most knitters have the skill or experience to produce clothing that is wearable, but to claim that they will produce glamorous knitwear borders on the laughable. Especially absurd is the idea that following their patterns and yarn choices is the means to becoming funky, hip, or anarchistic. Since many knitting books are subsidized by a yarn manufacturer, the reader is often advised to use the yarn they recommend. Warnings against yarn substitutions are common, and stories of the grisly horrors that can occur (incorrect sizing, misshapen monstrosities, pilling, dyes running) when knitters don't use their preferred yarn are included. In some instances the connection between the designer and yarn manufacturer is so close they are one and the same. (The dozens of Debbie Bliss books all recommend using only Debbie Bliss yarns. And both Rowan and Lopi pattern books feature only their own yarn.) Given the high cost of knitting, in terms of both time and money, these threats effectively ensure that many knitters, especially new knitters, support large yarn manufacturer interests. 19\n\nThe unlikelihood of following a pattern or joining the latest craze in order to achieve genuine individuality is obvious. (And is not the essence of funkiness individuality?) Elizabeth Hart, a 1931 Wellesley graduate, writes about her memories of the knitting craze of the 1930s:\n\nBy my Senior year most of us were knitting Brooks sweaters. I made so many of those sweaters, I still don't need to look at the directions. I cast on 232 stitches on a #2 circular needle knit for 3 inches and then changed to #4. Or course, everything we made was exactly the same-just different colors. And we probably all looked the same; but I suppose that was the whole point!' 20\n\nKnitting  may  produce  useful  knitwear,  therapeutic escapism, and funkitude. Then again, it may not. Whatever the outcome, I think there is value to knitting that none of the justifications so far discussed, and most typically found in the hottest selling knitting books and magazines, have touched on.\n\n## Hegelian Knitting\n\nIn  the  quotation at the start of this paper, I wrote that 'as I knit, I change.' Now I want to explain what I mean. To knit anything is to make many thousands of decisions. The first decision may concern the intended object-a scarf, sweater, stuffy,  or  cat  toy.  Then  one  must  decide  which materials to use, a decision which requires confronting the nature of these materials: natural or man-made? If natural, animal or plant fiber (or a blend)? Organic? Fair trade? Manufactured by local growers and spinners? These decisions concern more than aesthetics, and embody one's political and moral commitments. Then there is the matter of design. Although yarn is, in a way, like a one-dimensional Euclidean line, once knitted it can be transformed into a two-dimensional plane or sculpted into any three-dimensional structure. Consideration of the material nature of the fiber is essential since each fiber behaves very differently when knit (every kind of fiber has different stretch and 'tooth'-some are very stretchy, some have no stretch, some are 'toothy,' and some have 'no tooth'.) But within a framework provided by the nature of the fiber, the question to ask is, What characteristics do you want your yarn sculpture (which is what I think of knitted objects to be, whether intended to be worn or not) to have?  Understanding how knitting works\n\ngives the knitter the freedom to make whatever she wills to make. Anna Zilboorg, one of my favorite knitting authors, writes:\n\nIn knitting, more than in many areas, understanding gives us power. Through understanding we become able to control our knitting and make it do what we want. Without understanding, we are doomed to do what we are told. Anarchists generally do not like to do what they are told. 21\n\nZilboorg, a self-professed knitting anarchist, encourages knitters to throw away patterns, discard directions, and instead focus your complete attention on your knitting-the stitches you have made and the movements of your fingers when you make them-for only then will you really be free.\n\nI agree with Zilboorg's claim that the knitter should free herself from imitating another design and blindly following another's set of instructions. But I am also arguing that knitting, when done mindfully, changes the knitter's conceptions of her projects, her abilities, indeed, her very nature. To be mindful is  to  reflect  on  the  nature  of  the  materials  used,  the  means by which those materials were produced and obtained, the moral and political implications of these choices, the design and production of the knitted object and, finally, on the final project and its role in producing and impacting one's selfconceptions.\n\nDave Cole, a multimedia artist, has knit with lead, electric cord, fiberglass, steelwool, license plates cut into spiral strands, and shredded dollar bills. 22   A  giant  fiberglass  teddy  bear, featured in the DeCordova Museum's 2003 Annual Exhibition, was made with 362 rolls of Owens Corning fiber glass, 350 feet of Kraft paper, nine gallons of neoprene rubber contact adhesive, and two gallons of urethane sealant. The gauge was 1 st/2' wide and 2.5' high. Cole knit the bear, wearing protective goggles and a respirator, by using his arms as needles to make the stitches. Cole claims that his sculptures are not about performance or spectacle. Instead, as someone who has spent much of his later childhood and early adult life coming to terms with an earlychildhood diagnosis of ADHD, he grew up regarding himself (based on the claims of others) as incapable of concentrating, or of being productive or creative. As a college student, he began questioning the conceptions of 'productive' and 'creative' that he had so far accepted. Through knitting, Cole realized that, when done on his terms, using atypical materials to create highly unlikely products, he is both creative and productive. In  a  manner, Cole knit himself into being a productive and creative person.\n\nLike the semi-autobiographical person described in the quote with which I began this paper, I began knitting with deeply conflicted feelings. On the one hand, I could not shake the  suspicion  that  knitting  was  antiquated  (and  therefore ridiculous) and anti-feminist (and therefore wrong). Yet, at the same time, I found the science of knitting, the lore that one needed to learn before one could really be in control of one's knitting, intriguing. When I was a beginner knitter, my knitting was clumsy. I was not ashamed of my knitting, but I was always disappointed. Perhaps this is part of the reason I was so secretive about my knitting. Very few people knew I knit and I always downplayed its significance to the few who did. Almost twenty years after learning to knit, when I had children who made an enthusiastic and appreciative (and, admittedly, captive) audience for my quirky experiments, I came to appreciate how much creative and intellectual energy could be explored and expended through knitting. Now I knit not because I want to have an object, but because I want to explore an idea, or determine whether or not I can successfully embody that idea within my knitted objects. 23\n\nI genuinely believe that knitting can play a life-changing part in the creation of a person's self. I am not arguing that knitting should be valued above other activities. But neither should it be dismissed as so much busywork or silliness merely because of its associations with elderly ladies or funky chicks getting their 'knit on.' Knitting can be a genuinely powerful activity, one worthy of respect and admiration.\n\n## Endnotes\n\n1. Writing this has inspired me to toy with the idea of designing a line of knit-wear with Hegelian themes: a scarf with the words 'thesis + antithesis = synthesis' in a repeat pattern of intarsia stitch, an Owl of Minerva shawl, with the owl's body in the middle and the outspread wings creating the sides, and mittens with 'being in itself' knitted on one and 'being for itself' on the other.\n2. 'Annulling Crimes: A Hegelian Theory of Retribution,' Jami L. Anderson, defended August 1995.\n3. In retrospect, I don't remember the German men contributing to this conversation. I was later told that all German boys were taught to knit in school, but the German men I lived with did not show any signs of knitting.\n4. Susanne Pagoldh. Nordic Knitting (Loveland, CO: Interweave Press, 1987), 7.\n5. Ibid ., 24.\n6. Ann Feitelson. The Art of Fair Isle Knitting (Loveland, CO: Interweave Press, 1996), 6, 28.\n7. I  knit half a dozen or so sweaters for my oldest son every winter, each to his specifications. The yarn for each sweater, depending on what kind it is, costs between $50 to $75. I then spend between thirty and forty hours making the sweater. Given the costs of the yarn and the investment of one's time, it would be completely impracticable to hand knit sweaters to earn a living-or even extra spending money.\n8. Pagoldh 1987, 8. She claims that its inherent simplicity lay in the fact that one needs only simple tools to knit, just two needles and some yarn. Indeed, one doesn't even really need needles since, apparently, one can use bicycle spokes instead! I have not tested this claim myself, but my curiosity is piqued.\n9. Pagoldh 1987, 7.\n10. Anne L. Macdonald. No Idle Hands: The Social History of Knitting (New York: Ballatine Books, 1988), 180.\n11. Ibid ., 181.\n12. Ibid .\n13. San Francisco Chronicle review, excerpted on back of Son of Stitch 'N Bitch .\n14. Debbie Stoller. Stitch 'N Bitch Nation (New York: Workman Publishing, 2004), back cover.\n15. Ibid ., 10.\n16. Anne L. Macdonald. No Idle Hands: The Social History of Knitting (New York: Ballantine Books, 1988), chapter 13, 'The Thirties Knitting Craze.'\n17. Ibid ., 260.\n18. Abra Edelman. Celebrity Scarves (New York: Sixth &amp; Spring Books, 2005).\n19. Many yarn stores do their part by packaging up the yarns and needles recommended by a hot-selling book into kits. Knitters therefore do not have to contend with choosing yarn brand, fiber, weight, blend, or color.\n20. Macdonald 1988, 278.\n21. Anna Zilboorg. Knitting for Anarchists (Petaluma, CA: Unicorn Books, 2002), 2.\n22. Sabrina Gschwandtner. KnitKnit (New York: Stewart, Tabori &amp; Chang, 2007), 38-43.\n23. Most happily, I have discovered that I am not alone in thinking that knitting can be a medium through which one can explore and create ideas. My mother-in-law, a very experienced and\n\nknowledgeable knitter, was visiting during the recent winter holidays. She and I have spent hundreds of hours (really!) talking about and knitting together. At one point in her visit, she stopped her knitting and said, 'You know, we are the same, really.' I must have had an enquiring look on my face (contemplating not only the generational difference but the cultural and nationality differences between us) as she continued, 'Because we knit for the same reasons.'",
+    "responses": [
+      {
+        "source": "gpt-4o-2024-11-20",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"ADU1\": {\n      \"text\": \"According to Hegel, activities are not valuable in terms of their efficacy in realizing ends.\",\n      \"label\": \"claim\"\n    },\n    \"ADU2\": {\n      \"text\": \"Rather, their value is that they are both constitutive and formative of our personalities.\",\n      \"label\": \"claim\"\n    },\n    \"ADU3\": {\n      \"text\": \"They transform our identities and, consequently, our self-conception.\",\n      \"label\": \"claim\"\n    },\n    \"ADU4\": {\n      \"text\": \"To knit anything is to make many thousands of decisions.\",\n      \"label\": \"claim\"\n    },\n    \"ADU5\": {\n      \"text\": \"Understanding how knitting works gives the knitter the freedom to make whatever she wills to make.\",\n      \"label\": \"claim\"\n    },\n    \"ADU6\": {\n      \"text\": \"Through understanding we become able to control our knitting and make it do what we want.\",\n      \"label\": \"claim\"\n    },\n    \"ADU7\": {\n      \"text\": \"Without understanding, we are doomed to do what we are told.\",\n      \"label\": \"claim\"\n    },\n    \"ADU8\": {\n      \"text\": \"I am also arguing that knitting, when done mindfully, changes the knitter's conceptions of her projects, her abilities, indeed, her very nature.\",\n      \"label\": \"claim\"\n    },\n    \"ADU9\": {\n      \"text\": \"To be mindful is to reflect on the nature of the materials used, the means by which those materials were produced and obtained, the moral and political implications of these choices, the design and production of the knitted object and, finally, on the final project and its role in producing and impacting one's self-conceptions.\",\n      \"label\": \"premise\"\n    },\n    \"ADU10\": {\n      \"text\": \"I genuinely believe that knitting can play a life-changing part in the creation of a person's self.\",\n      \"label\": \"claim\"\n    },\n    \"ADU11\": {\n      \"text\": \"Knitting can be a genuinely powerful activity, one worthy of respect and admiration.\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"ADU1\",\n      \"target\": \"ADU2\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU2\",\n      \"target\": \"ADU3\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU4\",\n      \"target\": \"ADU8\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU5\",\n      \"target\": \"ADU6\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU6\",\n      \"target\": \"ADU7\",\n      \"type\": \"attack\"\n    },\n    {\n      \"source\": \"ADU8\",\n      \"target\": \"ADU10\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU9\",\n      \"target\": \"ADU8\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"ADU10\",\n      \"target\": \"ADU11\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "ADU1": {
+              "text": "According to Hegel, activities are not valuable in terms of their efficacy in realizing ends.",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "Rather, their value is that they are both constitutive and formative of our personalities.",
+              "label": "claim"
+            },
+            "ADU3": {
+              "text": "They transform our identities and, consequently, our self-conception.",
+              "label": "claim"
+            },
+            "ADU4": {
+              "text": "To knit anything is to make many thousands of decisions.",
+              "label": "claim"
+            },
+            "ADU5": {
+              "text": "Understanding how knitting works gives the knitter the freedom to make whatever she wills to make.",
+              "label": "claim"
+            },
+            "ADU6": {
+              "text": "Through understanding we become able to control our knitting and make it do what we want.",
+              "label": "claim"
+            },
+            "ADU7": {
+              "text": "Without understanding, we are doomed to do what we are told.",
+              "label": "claim"
+            },
+            "ADU8": {
+              "text": "I am also arguing that knitting, when done mindfully, changes the knitter's conceptions of her projects, her abilities, indeed, her very nature.",
+              "label": "claim"
+            },
+            "ADU9": {
+              "text": "To be mindful is to reflect on the nature of the materials used, the means by which those materials were produced and obtained, the moral and political implications of these choices, the design and production of the knitted object and, finally, on the final project and its role in producing and impacting one's self-conceptions.",
+              "label": "premise"
+            },
+            "ADU10": {
+              "text": "I genuinely believe that knitting can play a life-changing part in the creation of a person's self.",
+              "label": "claim"
+            },
+            "ADU11": {
+              "text": "Knitting can be a genuinely powerful activity, one worthy of respect and admiration.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU1",
+              "target": "ADU2",
+              "type": "support"
+            },
+            {
+              "source": "ADU2",
+              "target": "ADU3",
+              "type": "support"
+            },
+            {
+              "source": "ADU4",
+              "target": "ADU8",
+              "type": "support"
+            },
+            {
+              "source": "ADU5",
+              "target": "ADU6",
+              "type": "support"
+            },
+            {
+              "source": "ADU6",
+              "target": "ADU7",
+              "type": "attack"
+            },
+            {
+              "source": "ADU8",
+              "target": "ADU10",
+              "type": "support"
+            },
+            {
+              "source": "ADU9",
+              "target": "ADU8",
+              "type": "support"
+            },
+            {
+              "source": "ADU10",
+              "target": "ADU11",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "ADU1": {
+              "text": "According to Hegel, activities are not valuable in terms of their efficacy in realizing ends.",
+              "label": "claim"
+            },
+            "ADU2": {
+              "text": "Rather, their value is that they are both constitutive and formative of our personalities.",
+              "label": "claim"
+            },
+            "ADU3": {
+              "text": "They transform our identities and, consequently, our self-conception.",
+              "label": "claim"
+            },
+            "ADU4": {
+              "text": "To knit anything is to make many thousands of decisions.",
+              "label": "claim"
+            },
+            "ADU5": {
+              "text": "Understanding how knitting works gives the knitter the freedom to make whatever she wills to make.",
+              "label": "claim"
+            },
+            "ADU6": {
+              "text": "Through understanding we become able to control our knitting and make it do what we want.",
+              "label": "claim"
+            },
+            "ADU7": {
+              "text": "Without understanding, we are doomed to do what we are told.",
+              "label": "claim"
+            },
+            "ADU8": {
+              "text": "I am also arguing that knitting, when done mindfully, changes the knitter's conceptions of her projects, her abilities, indeed, her very nature.",
+              "label": "claim"
+            },
+            "ADU10": {
+              "text": "I genuinely believe that knitting can play a life-changing part in the creation of a person's self.",
+              "label": "claim"
+            },
+            "ADU11": {
+              "text": "Knitting can be a genuinely powerful activity, one worthy of respect and admiration.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "ADU1",
+              "target": "ADU2",
+              "type": "support"
+            },
+            {
+              "source": "ADU2",
+              "target": "ADU3",
+              "type": "support"
+            },
+            {
+              "source": "ADU4",
+              "target": "ADU8",
+              "type": "support"
+            },
+            {
+              "source": "ADU5",
+              "target": "ADU6",
+              "type": "support"
+            },
+            {
+              "source": "ADU6",
+              "target": "ADU7",
+              "type": "attack"
+            },
+            {
+              "source": "ADU8",
+              "target": "ADU10",
+              "type": "support"
+            },
+            {
+              "source": "ADU10",
+              "target": "ADU11",
+              "type": "support"
+            }
+          ]
+        }
+      },
+      {
+        "source": "claude-3-5-sonnet-20241022",
+        "hyperparameters": {
+          "temperature": 0.1,
+          "max_tokens": 4000
+        },
+        "raw_response": "{\n  \"ADUs\": {\n    \"1\": {\n      \"text\": \"According to Hegel, activities are not valuable in terms of their efficacy in realizing ends. Rather, their value is  that  they  are  both  constitutive  and  formative  of our personalities. They transform our identities and, consequently, our self-conception.\",\n      \"label\": \"claim\"\n    },\n    \"2\": {\n      \"text\": \"I have come to think of the activity of knitting, if properly undertaken, as neither mindless nor archaic but can be, to return to the Hegelian discussion introduced above, formative of our personality and the knitwear produced a material embodiment of our freedom.\",\n      \"label\": \"claim\"\n    },\n    \"3\": {\n      \"text\": \"If knitting can only be justified in terms of the outcomes produced, then most knitting is not justifiable.\",\n      \"label\": \"claim\"\n    },\n    \"4\": {\n      \"text\": \"To knit anything is to make many thousands of decisions.\",\n      \"label\": \"premise\"\n    },\n    \"5\": {\n      \"text\": \"These decisions concern more than aesthetics, and embody one's political and moral commitments.\",\n      \"label\": \"claim\"\n    },\n    \"6\": {\n      \"text\": \"Through understanding we become able to control our knitting and make it do what we want. Without understanding, we are doomed to do what we are told.\",\n      \"label\": \"claim\"\n    },\n    \"7\": {\n      \"text\": \"But I am also arguing that knitting, when done mindfully, changes the knitter's conceptions of her projects, her abilities, indeed, her very nature.\",\n      \"label\": \"claim\"\n    }\n  },\n  \"relations\": [\n    {\n      \"source\": \"4\",\n      \"target\": \"5\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"6\",\n      \"target\": \"7\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"1\",\n      \"target\": \"2\",\n      \"type\": \"support\"\n    },\n    {\n      \"source\": \"3\",\n      \"target\": \"2\",\n      \"type\": \"support\"\n    }\n  ]\n}",
+        "parsed_response_unvalidated": {
+          "ADUs": {
+            "1": {
+              "text": "According to Hegel, activities are not valuable in terms of their efficacy in realizing ends. Rather, their value is  that  they  are  both  constitutive  and  formative  of our personalities. They transform our identities and, consequently, our self-conception.",
+              "label": "claim"
+            },
+            "2": {
+              "text": "I have come to think of the activity of knitting, if properly undertaken, as neither mindless nor archaic but can be, to return to the Hegelian discussion introduced above, formative of our personality and the knitwear produced a material embodiment of our freedom.",
+              "label": "claim"
+            },
+            "3": {
+              "text": "If knitting can only be justified in terms of the outcomes produced, then most knitting is not justifiable.",
+              "label": "claim"
+            },
+            "4": {
+              "text": "To knit anything is to make many thousands of decisions.",
+              "label": "premise"
+            },
+            "5": {
+              "text": "These decisions concern more than aesthetics, and embody one's political and moral commitments.",
+              "label": "claim"
+            },
+            "6": {
+              "text": "Through understanding we become able to control our knitting and make it do what we want. Without understanding, we are doomed to do what we are told.",
+              "label": "claim"
+            },
+            "7": {
+              "text": "But I am also arguing that knitting, when done mindfully, changes the knitter's conceptions of her projects, her abilities, indeed, her very nature.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "4",
+              "target": "5",
+              "type": "support"
+            },
+            {
+              "source": "6",
+              "target": "7",
+              "type": "support"
+            },
+            {
+              "source": "1",
+              "target": "2",
+              "type": "support"
+            },
+            {
+              "source": "3",
+              "target": "2",
+              "type": "support"
+            }
+          ]
+        },
+        "parsed_response": {
+          "ADUs": {
+            "1": {
+              "text": "According to Hegel, activities are not valuable in terms of their efficacy in realizing ends. Rather, their value is  that  they  are  both  constitutive  and  formative  of our personalities. They transform our identities and, consequently, our self-conception.",
+              "label": "claim"
+            },
+            "2": {
+              "text": "I have come to think of the activity of knitting, if properly undertaken, as neither mindless nor archaic but can be, to return to the Hegelian discussion introduced above, formative of our personality and the knitwear produced a material embodiment of our freedom.",
+              "label": "claim"
+            },
+            "3": {
+              "text": "If knitting can only be justified in terms of the outcomes produced, then most knitting is not justifiable.",
+              "label": "claim"
+            },
+            "4": {
+              "text": "To knit anything is to make many thousands of decisions.",
+              "label": "premise"
+            },
+            "5": {
+              "text": "These decisions concern more than aesthetics, and embody one's political and moral commitments.",
+              "label": "claim"
+            },
+            "6": {
+              "text": "Through understanding we become able to control our knitting and make it do what we want. Without understanding, we are doomed to do what we are told.",
+              "label": "claim"
+            },
+            "7": {
+              "text": "But I am also arguing that knitting, when done mindfully, changes the knitter's conceptions of her projects, her abilities, indeed, her very nature.",
+              "label": "claim"
+            }
+          },
+          "relations": [
+            {
+              "source": "4",
+              "target": "5",
+              "type": "support"
+            },
+            {
+              "source": "6",
+              "target": "7",
+              "type": "support"
+            },
+            {
+              "source": "1",
+              "target": "2",
+              "type": "support"
+            },
+            {
+              "source": "3",
+              "target": "2",
+              "type": "support"
+            }
+          ]
+        }
+      }
+    ],
+    "timestamp": 1752747887.5869915
+  }
+]
