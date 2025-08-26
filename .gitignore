@@ -33,6 +33,7 @@
 *__pycache__*
 *cache*
 *node_modules*
+*.egg-info*
 
 # Ignore apps with their own repositories
 /apps/mere_workshop/

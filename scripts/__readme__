@@ -1,7 +1,1 @@
-Directory containing entry point scripts like:
-- "Download raw data"
-- "Preprocess raw data"
-- "Run model experiments"
-- "Evaluate model experiment"
-- "Visualize argument maps"
-- etc
+moralkg package entry point scripts for the major processes of the repo.

@@ -1,7 +1,7 @@
 Argument mining APIs and types. Submodules and their roles:
 
 - loaders
-  - Dataset (planned): provides paper metadata/content and optional human annotations; supports splits.
+  - Dataset: provides paper metadata/content and optional human annotations; supports splits.
   - Uses config: paths.philpapers.metadata, paths.philpapers.docling.cleaned, paths.workshop.annotations.{large_maps,small_maps}, workshop.annotations.use, snowball.annotations.holdout.
 
 - models
@@ -22,5 +22,5 @@ How modules interact
 - loaders supplies paper text + (optional) gold maps → models produce raw JSON (or spans/relations) → parsers normalize to ArgumentMap using schemas.
 
 Not yet implemented
-- loaders.Dataset is a stub; vertical/horizontal indexing helpers and robust split utilities are pending.
 - Some glue (e.g., end‑to‑end pipeline wiring) and multi‑GPU scheduling are marked TODO in code.
+- loaders split utilities (iter_split) and enhanced indexing helpers are pending.

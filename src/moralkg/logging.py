@@ -4,6 +4,7 @@ import logging
 import sys
 from pathlib import Path
 from typing import Optional, Union
+from datetime import datetime
 
 import rootutils
 
@@ -45,7 +46,7 @@ def setup(
     """Configure root logging.
 
     If `destination` is a directory path (absolute or relative to repo root),
-    logs are written to `<destination>/moralkg.log`. If `destination` is empty
+    logs are written to `<destination>/YYYYMMDD_HHMMSS.log`. If `destination` is empty
     or equal to "none" (case-insensitive), logs are emitted to stdout.
     """
     resolved_level = _coerce_level(level)
@@ -58,7 +59,8 @@ def setup(
         if not logs_dir.is_absolute():
             logs_dir = _ROOT / logs_dir
         logs_dir.mkdir(parents=True, exist_ok=True)
-        log_file = logs_dir / "moralkg.log"
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        log_file = logs_dir / f"{timestamp}.log"
         handlers = [logging.FileHandler(log_file, encoding="utf-8")]
     else:
         handlers = [logging.StreamHandler(sys.stdout)]
@@ -97,8 +99,11 @@ def _ensure_configured(
     cfg_level = level
     cfg_destination: Optional[str] = None
     if cfg is not None:
-        cfg_level = cfg.get("general.log_level", level)
-        cfg_destination = cfg.get("general.logs", None)
+        logs_value = cfg.get("general.logs", None)
+        cfg_level = logs_value.get("level")
+        dir_value = logs_value.get("dir")
+        cfg_destination = dir_value if isinstance(dir_value, str) else None
+
     setup(
         level=cfg_level,
         fmt=fmt,

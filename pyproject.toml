@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "moralkg"
+version = "0.1.0"
+description = "MoralKG"
+requires-python = ">=3.12.3"
+dependencies = [
+    "rootutils",
+    "langdetect",
+    "langchain",
+    "langchain-core",
+    "pydantic",
+    "numpy",
+    "pandas",
+    "torch",
+    "transformers",
+    "accelerate",
+    "bitsandbytes",
+    "peft",
+    "faiss-cpu",
+    "chromadb",
+    "sentence-transformers",
+    "optuna",
+    "scikit-learn",
+    "evaluate",
+    "tqdm",
+    "PyYAML",
+    "jsonschema",
+    "rapidfuzz",
+    "trl",
+    "datasets",
+    "unsloth"
+
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["moralkg*"]
+exclude = ["tests*"]

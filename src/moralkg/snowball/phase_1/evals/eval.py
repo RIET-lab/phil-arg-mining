@@ -24,7 +24,7 @@ from .retrievers import BaseRetriever, NoopRetriever
 from .prompts import BasePromptBuilder, DefaultPromptBuilder
 from .metrics_modular import BaseMetrics
 from .datasets import BaseDatasetAdapter
-from ..schemas import ArgumentMap
+from ....argmining.schemas import ArgumentMap
 from .metrics import combined_score as legacy_combined_score
 
 

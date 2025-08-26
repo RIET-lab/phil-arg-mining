@@ -3,7 +3,7 @@ from __future__ import annotations
 from abc import ABC, abstractmethod
 from typing import Any, Dict, List, Tuple
 
-from moralkg.argmining.parsers.parser import ModelOutputParser
+from moralkg.argmining.parsers.parser import Parser as ModelOutputParser
 from moralkg.argmining.schemas import ArgumentMap
 from . import metrics as legacy_metrics
 from moralkg.config import Config
@@ -98,7 +98,9 @@ class Phase1Metrics(BaseMetrics):
 
     def _to_argument_map(self, struct: Dict[str, Any], map_id: str, source_text: str | None = None) -> ArgumentMap:
         normalized = self._normalize_struct(struct)
-        return self.parser.parse_dict(normalized, map_id=map_id, source_text=source_text)
+        # Parser.parse_dict signature: (model_output: Dict[str, Any], map_id: str) -> ArgumentMap
+        # source_text is not supported in the current schema; ignoring it here.
+        return self.parser.parse_dict(normalized, map_id)
 
     def compute(
         self,
@@ -116,8 +118,8 @@ class Phase1Metrics(BaseMetrics):
             try:
                 pred_map = self._to_argument_map(pred_json, ex_id)
             except Exception:
-                # On parse failure, use empty prediction
-                pred_map = ArgumentMap(id=ex_id, adus=[], relations=[], source_text=None, source_metadata=None, metadata={})
+                # On parse failure, use empty prediction matching current schema
+                pred_map = ArgumentMap(id=ex_id, adus=[], relations=[], metadata={})
             try:
                 gold_map = self._to_argument_map(gold_json, ex_id)
             except Exception:
