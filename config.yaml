@@ -20,8 +20,10 @@ paths:
   workshop:
     sample: "datasets/processed/argument_mining/workshop_sample/n200" # Local directory used for the workshop sample
     annotations:
-      large_maps: "datasets/processed/argument_mining/workshop_annotations/large" # Local directory to store "large" workshop annotations
-      small_maps: "datasets/processed/argument_mining/workshop_annotations/small" # Local directory to store "small" workshop annotations
+      large_json_maps: "datasets/processed/argument_mining/converted_workshop_annotations/large_json" # Local directory to store "large" workshop annotations in json format
+      small_json_maps: "datasets/processed/argument_mining/converted_workshop_annotations/small_json" # Local directory to store "small" workshop annotations in json format
+      large_argdown_maps: "datasets/processed/argument_mining/converted_workshop_annotations/large_argdown" # Local directory to store "large" workshop annotations in argdown format
+      small_argdown_maps: "datasets/processed/argument_mining/converted_workshop_annotations/small_argdown" # Local directory to store "small" workshop annotations in argdown format
     argilla:
       suggestions:
         raw: "datasets/raw/argument_mining/workshop_model_suggestions/raw_responses" # Local directory to store unparsed LLM argmap output

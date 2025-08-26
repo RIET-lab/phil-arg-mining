@@ -1,6 +1,8 @@
 ## Purpose
 This folder is similar to the workshop_annotations folder, but with both argdown and json files.
 
+Large are the ones we plan to use, small are kept for reference/posterity.
+
 The argdown files are copied from the "Argmap Quality Rubric" shared document, where all workshop annotations have been split into "Large", "Small", or "Removed" categories, and at least some have probably also been edited for quality.
 
 I have also removed the annotation for MEIJBT from this "large" folder, despite its presence in the workshop_annotations/large folder, since it is an annotation of a book review.

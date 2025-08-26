@@ -1,0 +1,47 @@
+{
+  "ADUs": {
+    "Untitled 1": {
+      "type": "Major Claim",
+      "text": "There are two types of pessimisms in the discursive tradition: psychological pessimism and transcendental pessimism."
+    },
+    "Untitled 2": {
+      "type": "Claim",
+      "text": "These types of pessimisms are distinct in kind."
+    },
+    "Untitled 3": {
+      "type": "Claim",
+      "text": "Transcendental pessimism is philosophical in kind."
+    },
+    "Untitled 4": {
+      "type": "Claim",
+      "text": "Psychological pessimism is not philosophical in kind."
+    },
+    "Untitled 5": {
+      "type": "Claim",
+      "text": "We should only adhere to the standards and framework of transcendental pessimism when we attempt pessimistic arguments in philosophical practice.",
+      "isImplicit": true
+    }
+  },
+  "relations": [
+    {
+      "src": "Untitled 2",
+      "tgt": "Untitled 1",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 3",
+      "tgt": "Untitled 1",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 4",
+      "tgt": "Untitled 1",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 5",
+      "tgt": "Untitled 1",
+      "type": "support"
+    }
+  ]
+}

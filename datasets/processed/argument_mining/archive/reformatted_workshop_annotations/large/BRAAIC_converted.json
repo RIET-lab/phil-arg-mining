@@ -1,0 +1,105 @@
+{
+  "ADUs": {
+    "Untitled 1": {
+      "type": "Major Claim",
+      "text": "Letting ourselves become less creative in the age of AI poses a threat to our ability to connect with each other."
+    },
+    "Untitled 2": {
+      "type": "Claim",
+      "text": "Human creativity is especially capable of helping us connect to others in a valuable way"
+    },
+    "Untitled 3": {
+      "type": "Claim",
+      "text": "The widespread availability of generative AI models reduces our incentives to engage in various sorts of creative work in the arts and sciences."
+    },
+    "Untitled 4": {
+      "type": "Claim",
+      "text": "Relying on AI increases our risk of remaining strangers to each other."
+    },
+    "Untitled 5": {
+      "type": "Claim",
+      "text": "The more we foreclose avenues for being seen by others, including pursuing creative projects, the more we subject ourselves to alienation and loneliness."
+    },
+    "Untitled 6": {
+      "type": "Claim",
+      "text": "The self-disclosure that occurs when we are creative makes it possible for others to understand us."
+    },
+    "Untitled 7": {
+      "type": "Claim",
+      "text": "Making it possible for others to understand us is essential for both our interpersonal relationships and a broader sense of human connection."
+    },
+    "Untitled 8": {
+      "type": "Claim",
+      "text": "Relying on AI for certain generative tasks is less self-disclosive than the creative work such technologies supplant"
+    },
+    "Untitled 9": {
+      "type": "Major Claim",
+      "text": "It is imperative that we attend to the social value of creativity."
+    },
+    "Untitled 10": {
+      "type": "Claim",
+      "text": "We are in danger of developing a relationship with AI that leaves us much less connected to each other."
+    },
+    "Untitled 11": {
+      "type": "Claim",
+      "text": "The temptation to outsource our creative work to AI is strong and growing stronger"
+    },
+    "Untitled 12": {
+      "type": "Claim",
+      "text": "In order to become more connected to each other, we should attend to the social value of creativity.",
+      "isImplicit": true
+    }
+  },
+  "relations": [
+    {
+      "src": "Untitled 2",
+      "tgt": "Untitled 1",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 3",
+      "tgt": "Untitled 1",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 5",
+      "tgt": "Untitled 4",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 6",
+      "tgt": "Untitled 4",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 7",
+      "tgt": "Untitled 4",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 8",
+      "tgt": "Untitled 4",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 4",
+      "tgt": "Untitled 1",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 11",
+      "tgt": "Untitled 10",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 10",
+      "tgt": "Untitled 9",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 12",
+      "tgt": "Untitled 9",
+      "type": "support"
+    }
+  ]
+}

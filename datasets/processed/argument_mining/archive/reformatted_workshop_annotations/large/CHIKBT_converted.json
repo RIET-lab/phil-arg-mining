@@ -1,0 +1,91 @@
+{
+  "ADUs": {
+    "Untitled 1": {
+      "type": "Major Claim",
+      "text": "Main thesis: The demise of neo-Kantianism was not a simple philosophical refutation, but emerged from changing institutional, psychological, and political climates; and rather than weakening Kant’s legacy, the interwar period produced a new phase of rigor and accuracy in Kant studies."
+    },
+    "Untitled 2": {
+      "type": "Claim",
+      "text": "Interwar German philosophy was marked by a break with neo-Kantianism, which was blamed for the intellectual and cultural crises of the era."
+    },
+    "Untitled 3": {
+      "type": "Claim",
+      "text": "Movements shifted to Hegel, Marx, positivism, existentialism, and phenomenology, all explicitly departing from neo-Kantian frameworks."
+    },
+    "Untitled 4": {
+      "type": "Claim",
+      "text": "Despite its general disfavor, neo-Kantian philosophy was (philosophically) well-equipped for the Weimar world: it was antimetaphysical, promoted science, and supported social democracy and egalitarian ideals."
+    },
+    "Untitled 5": {
+      "type": "Claim",
+      "text": "Its collapse was due not just to philosophical critique, but to institutional inertia, generational desire for novelty, and especially political circumstances—rising nationalism and anti-Semitism targeted its (often Jewish, left-leaning) leaders."
+    },
+    "Untitled 6": {
+      "type": "Claim",
+      "text": "Ironically, the scientific and pragmatic aspirations of the Vienna Circle, positivism, and logical empiricism owed much to neo-Kantianism, even as they disavowed the label."
+    },
+    "Untitled 7": {
+      "type": "Claim",
+      "text": "The \"\"crisis\"\" and criticism of neo-Kantianism often attacked a strawman: many critiques, especially by Marxists (e.g. Lukács), targeted neo-Kantian distortions more than Kant himself."
+    },
+    "Untitled 8": {
+      "type": "Claim",
+      "text": "Lukács' complaints about systematic rationalism, limits of reason, and freedom are actually closer to Kant’s own self-critique and awareness than to the views of his \"\"school.\"\""
+    },
+    "Untitled 9": {
+      "type": "Claim",
+      "text": "Many in the interwar era called for going “back to Kant,” undertaking careful historical and philosophical scholarship to distinguish Kant’s own views from neo-Kantian figures."
+    },
+    "Untitled 10": {
+      "type": "Claim",
+      "text": "The postwar period was thus marked by a revitalization of Kant research: intensive study, editing, and philology established a lasting legacy that persists into the 21st century."
+    }
+  },
+  "relations": [
+    {
+      "src": "Untitled 3",
+      "tgt": "Untitled 2",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 5",
+      "tgt": "Untitled 4",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 6",
+      "tgt": "Untitled 4",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 4",
+      "tgt": "Untitled 2",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 8",
+      "tgt": "Untitled 7",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 9",
+      "tgt": "Untitled 7",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 7",
+      "tgt": "Untitled 2",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 10",
+      "tgt": "Untitled 2",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 2",
+      "tgt": "Untitled 1",
+      "type": "support"
+    }
+  ]
+}

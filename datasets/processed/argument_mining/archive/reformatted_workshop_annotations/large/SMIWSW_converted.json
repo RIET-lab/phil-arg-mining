@@ -1,0 +1,100 @@
+{
+  "ADUs": {
+    "Untitled 1": {
+      "type": "Major Claim",
+      "text": "Main thesis: We should actively work to make brain plasticity a vehicle for the production of new forms of freedom, resisting its reduction to the ideology of flexibility demanded by contemporary capital and building toward “a world to come.”"
+    },
+    "Untitled 2": {
+      "type": "Claim",
+      "text": "Malabou’s central concern is the paradox of freedom: Why, in a scientific age that recognizes plasticity, openness, and chance in the brain and world, are we still not free?"
+    },
+    "Untitled 3": {
+      "type": "Claim",
+      "text": "Neuroscience depicts the brain as inherently plastic—capable of development, adaptation, learning, and repair—and popular science celebrates this flexibility."
+    },
+    "Untitled 4": {
+      "type": "Claim",
+      "text": "This flexibility, however, is double-edged: it can enable self-transformation, creativity, and new ways of becoming; but it can also reinforce the demand for adaptability by economies and societies, naturalizing precarity, docility, and social conformity."
+    },
+    "Untitled 5": {
+      "type": "Claim",
+      "text": "Economic and corporate structures themselves have become “connectionist” networks, mirroring and invoking the flexible brain as their model and justification."
+    },
+    "Untitled 6": {
+      "type": "Claim",
+      "text": "The new “ideology of flexibility” is not neutral: it frames unemployment and social suffering as pathological inflexibility, to be “treated” (even pharmacologically), rather than understood as products of structural social failures."
+    },
+    "Untitled 7": {
+      "type": "Claim",
+      "text": "The uncritical adoption of connectionist neuroscience thus legitimizes capitalist demands as natural, risking a society where adaptability replaces critical freedom with docile and expendable subjects."
+    },
+    "Untitled 8": {
+      "type": "Claim",
+      "text": "Malabou challenges the assumption that the neuronal (biological brain) and the mental (conscious subject) are continuous, asserting that true freedom requires interruption, resistance, and a rethinking of their relation."
+    },
+    "Untitled 9": {
+      "type": "Claim",
+      "text": "She theorizes a fourth, intermediate form of plasticity—between the proto-self and conscious subject—where creativity, subjectivation, and resistance can emerge."
+    },
+    "Untitled 10": {
+      "type": "Claim",
+      "text": "This space allows for both resistance to mere flexibility and the possibility of genuine individuation, recognition, and liberty."
+    },
+    "Untitled 11": {
+      "type": "Claim",
+      "text": "Malabou draws on Hegel (dialectical negativity), Foucault (resistance/subjectivation), and Deleuze (production of difference via brain “images”) to emphasize transformative, not merely adaptive, freedom."
+    }
+  },
+  "relations": [
+    {
+      "src": "Untitled 3",
+      "tgt": "Untitled 2",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 5",
+      "tgt": "Untitled 4",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 6",
+      "tgt": "Untitled 4",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 4",
+      "tgt": "Untitled 2",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 7",
+      "tgt": "Untitled 2",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 9",
+      "tgt": "Untitled 8",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 10",
+      "tgt": "Untitled 8",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 11",
+      "tgt": "Untitled 8",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 8",
+      "tgt": "Untitled 2",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 2",
+      "tgt": "Untitled 1",
+      "type": "support"
+    }
+  ]
+}

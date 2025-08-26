@@ -1,0 +1,115 @@
+{
+  "ADUs": {
+    "Untitled 1": {
+      "type": "Major Claim",
+      "text": "The debate about cinematic motion should be understood in terms of necessary reception conditions."
+    },
+    "Untitled 2": {
+      "type": "Claim",
+      "text": "Gregory Currie rejects weak illusionism, arguing that cinematic images really move, but in a response-dependent way."
+    },
+    "Untitled 3": {
+      "type": "Claim",
+      "text": "Currie’s rejection of perceptual illusionism is controversial and both illusionists and realists appeal to common intuition about cinematic motion."
+    },
+    "Untitled 4": {
+      "type": "Claim",
+      "text": "Andrew Kania claims that Currie does not provide a sufficient argument for realism, only argues against illusionism."
+    },
+    "Untitled 5": {
+      "type": "Claim",
+      "text": "The possibility of a third position: that we have an illusion of images moving in front of us (implicit in the debate).",
+      "isImplicit": true
+    },
+    "Untitled 6": {
+      "type": "Claim",
+      "text": "Kania argues that cinematic motion is an illusion, since no real objects move onscreen—only a sequence of still images."
+    },
+    "Untitled 7": {
+      "type": "Claim",
+      "text": "Trevor Ponech asserts that cinema contains “singletons” that undergo real, stroboscopic movement and these can be experienced as objects by the audience."
+    },
+    "Untitled 8": {
+      "type": "Claim",
+      "text": "According to Ponech, the stroboscopic displacement of these singletons constitutes real movement, even if not identical to garden-variety motion."
+    },
+    "Untitled 9": {
+      "type": "Claim",
+      "text": "The experience of cinematic motion depends on specific perceptual conditions (e.g., projection at 24 fps, proper lighting)."
+    },
+    "Untitled 10": {
+      "type": "Claim",
+      "text": "Altering these conditions (e.g., slowing down the projector) means one is no longer experiencing the cinematic artwork as intended."
+    },
+    "Untitled 11": {
+      "type": "Claim",
+      "text": "The analogy with music and visual arts supports the idea that proper reception conditions are essential for the intended experience."
+    },
+    "Untitled 12": {
+      "type": "Claim",
+      "text": "The perception of movement in cinema is shaped by how the brain interprets sequences of static images.",
+      "isImplicit": true
+    },
+    "Untitled 13": {
+      "type": "Major Claim",
+      "text": "Currie’s theory is most plausible among the three, recognizing motion in cinema as real (though response-dependent), without fully embracing illusionism."
+    }
+  },
+  "relations": [
+    {
+      "src": "Untitled 3",
+      "tgt": "Untitled 2",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 4",
+      "tgt": "Untitled 2",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 5",
+      "tgt": "Untitled 2",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 6",
+      "tgt": "Untitled 2",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 8",
+      "tgt": "Untitled 7",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 7",
+      "tgt": "Untitled 2",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 2",
+      "tgt": "Untitled 1",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 10",
+      "tgt": "Untitled 9",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 11",
+      "tgt": "Untitled 9",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 12",
+      "tgt": "Untitled 9",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 9",
+      "tgt": "Untitled 1",
+      "type": "support"
+    }
+  ]
+}

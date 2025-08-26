@@ -1,0 +1,28 @@
+{
+  "ADUs": {
+    "Main Thesis BENAAW-2": {
+      "type": "Major Claim",
+      "text": "Some of the most prominent arguments against affirmative action are not sufficient to reject affirmative action."
+    },
+    "Claim 1 BENAAW-2": {
+      "type": "Claim",
+      "text": "Alternative action comes in competitive and non-competitive forms."
+    },
+    "Claim 2 BENAAW-2": {
+      "type": "Claim",
+      "text": "Some of the most prominent objections to affirmative action apply less effectively to non-competitive affirmative action."
+    }
+  },
+  "relations": [
+    {
+      "src": "Claim 1 BENAAW-2",
+      "tgt": "Main Thesis BENAAW-2",
+      "type": "support"
+    },
+    {
+      "src": "Claim 2 BENAAW-2",
+      "tgt": "Main Thesis BENAAW-2",
+      "type": "support"
+    }
+  ]
+}

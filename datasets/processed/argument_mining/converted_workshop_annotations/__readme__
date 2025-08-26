@@ -1,0 +1,13 @@
+## Purpose
+This folder is similar to the workshop_annotations folder, but with both argdown and json files converted to the updated json schema format used in our argument mining setup.
+
+## Meaning and Usage
+The file folders and names are structured as follows:
+
+./large_argdown/FILE-ID.argdown -> The argdown for the paper with that identifier, with "-" converted to "+" and followed with inline yaml to indicate an implicit claim, since the normal argdown syntax uses "-" to indicate an attack relationship instead.
+
+./large_json/FILE-ID.json -> The json version of the argument, now in our argmining.json template format. This was created by running a conversion script on the argdown-CLI-generated json version of the uncoverted argdown file.
+
+./small_argdown/FILE-ID.argdown -> Same as the files in ./large_argdown, but for the smaller argument maps that we're preserving for future reference.
+
+./small_argdown/FILE-ID.json -> Same as the files in ./large_json, but for the smaller argument maps that we're preserving for future reference.

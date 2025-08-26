@@ -210,14 +210,14 @@ class Dataset:
         """Load and parse workshop annotations into ArgumentMap objects.
 
         Directories used depend on `workshop.annotations.use`:
-        - "large": only `paths.workshop.annotations.large_maps`
-        - "both": include `paths.workshop.annotations.small_maps` too
+        - "large": only `paths.workshop.annotations.large_json_maps`
+        - "both": include `paths.workshop.annotations.small_json_maps` too
         """
         use_setting = (self._config.get("workshop.annotations.use") or "large").strip().lower()
         include_small = use_setting == "both"
 
-        large_dir = self._resolve_path(self._config.get("paths.workshop.annotations.large_maps"))
-        small_dir = self._resolve_path(self._config.get("paths.workshop.annotations.small_maps")) if include_small else None
+        large_dir = self._resolve_path(self._config.get("paths.workshop.annotations.large_json_maps"))
+        small_dir = self._resolve_path(self._config.get("paths.workshop.annotations.small_json_maps")) if include_small else None
 
         schema_path = self._resolve_path(self._config.get("argmining.schema"))
         parser = Parser(schema_path=str(schema_path) if schema_path else None)
