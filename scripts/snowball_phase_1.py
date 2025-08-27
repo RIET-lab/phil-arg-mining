@@ -6,7 +6,7 @@ TODO:
  a. End2End model class
     -> Done and tested successfully
  b. ADUR model class + ARE model class
-    -> Not yet finished. Both classes need to load models using paths from config file.
+    -> Not yet finished. Both classes have KeyErrors while loading their pipelines.
 3. For each pipeline, run generate()
 4. Parse results into ArgumentMaps
 5. Load in the phase_1 evals class to compare generated maps to annotation maps
@@ -41,8 +41,10 @@ def main() -> None:
     # Load the model pipelines
     pipelines = {
         "end2end": End2End(), 
-        "adur": ADUR(), # TODO: Implement model selection to choose from ADUR's model_1 and model_2 from the config.yml 
-        "are": ARE() # TODO: Implement model selection to choose from ARE's model_1 and model_2 from the config.yml
+        #"adur_roberta": ADUR(), # TODO: Fix roberta loading, since the pytorch-ie AutoPipeline approach doesn't seem to be compatible with roberta's lack of a taskmodule_config.json
+        #"adur_sciarg": ADUR(use_model_2=True), TODO: The taskmodule for this model, "LabeledSpanExtractionByTokenClassificationTaskModule", is not listed in the regular pytorch-ie package; to recognize it, we'll probably need to import it from pie-modules, which we don't actually seem to be importing yet.
+        #"are_roberta": ARE(), # TODO: Ensure that roberta loading works, since the taskmodule_config.json might be missing
+        #"are_sciarg": ARE(use_model_2=True), TODO: This module has a taskmodule_type KeyError like the Roberta ones, so it might also be missing its config. Or it might be encountering this during the ADUR step.
     }
 
     for name, model in pipelines.items():

@@ -298,20 +298,40 @@ class ADUR:
     """
     def __init__(
         self,
-        model: str | Path | dict,
+        model: str | Path | dict | None = None,
         *,
         extract_major_adus: bool = False,
         extraction_method: str | None = None,
         map: dict | None = None,
+        use_model_2: bool = False,
         **kwargs
     ):
         self.logger = get_logger(__name__)
-        self.model = model
         self.major_only = extract_major_adus
         self.method = extraction_method if extraction_method in ["centroid", "pairwise"] else "centroid"
         # Default label mapping per project docs
         self.map = map or {}
         self.kwargs = kwargs
+
+        # Load model from config if not provided
+        if model is None:
+            cfg = None
+            try:
+                cfg = Config.load()
+            except Exception:
+                cfg = None
+            
+            if cfg is not None:
+                # Choose between model_1 and model_2 based on parameter
+                model_key = "model_2" if use_model_2 else "model_1"
+                model = cfg.get(f"paths.models.adur.{model_key}", None)
+                
+            if model is None:
+                # Fallback to default SAM model if config fails
+                model = {"hf": "ArneBinder/sam-adur-sciarg"}
+                self.logger.warning("Could not load ADUR model from config, using default SAM model")
+
+        self.model = model
 
         # Device selection for pipelines that expect index
         try:
@@ -440,23 +460,55 @@ class ADUR:
             result[v] = result.get(v, 0) + 1
         return result
 
-    """
-    Class To-do:
-    - load in model
-    - NOTE: model loading/setup should occur in the INIT and persist across function calls to avoid unnecessary overhead by reloading models.
-    """
-
 
 class ARE:
     """
     Argumentative Relation Extraction via pre-trained language model classification.
     """
-    def __init__(self, model: str | Path | dict, *, map: dict | None = None, **kwargs):
+    def __init__(
+        self, 
+        model: str | Path | dict | None = None, 
+        *, 
+        map: dict | None = None, 
+        use_model_2: bool = False,
+        adur_model: str | Path | dict | None = None,
+        use_adur_model_2: bool = False,
+        **kwargs
+    ):
         self.logger = get_logger(__name__)
-        self.model = model
         # Default relation mapping per project docs
         self.map = map or {}
         self.kwargs = kwargs
+
+        # Load models from config if not provided
+        cfg = None
+        try:
+            cfg = Config.load()
+        except Exception:
+            cfg = None
+
+        # Handle ARE model
+        if model is None and cfg is not None:
+            model_key = "model_2" if use_model_2 else "model_1"
+            model = cfg.get(f"paths.models.are.{model_key}", None)
+        
+        if model is None:
+            # Fallback to default SAM model
+            model = {"hf": "ArneBinder/sam-are-sciarg"}
+            self.logger.warning("Could not load ARE model from config, using default SAM model")
+
+        # Handle ADUR model (needed for preprocessing)
+        if adur_model is None and cfg is not None:
+            adur_model_key = "model_2" if use_adur_model_2 else "model_1"
+            adur_model = cfg.get(f"paths.models.adur.{adur_model_key}", None)
+        
+        if adur_model is None:
+            # Fallback to default SAM ADUR model
+            adur_model = {"hf": "ArneBinder/sam-adur-sciarg"}
+            self.logger.warning("Could not load ADUR model from config, using default SAM model")
+
+        self.model = model
+        self.adur_model = adur_model
 
         # Device index for pytorch_ie
         try:
@@ -473,9 +525,8 @@ class ARE:
                 "pytorch_ie is required for ARE with SAM models. Install pytorch-ie and pie_modules."
             ) from exc
 
-        adur_ref = self.kwargs.get("adur_model") or {"hf": "ArneBinder/sam-adur-sciarg"}
-        are_ref = self._resolve_model_ref(self.model)
-        adur_resolved = self._resolve_model_ref(adur_ref)
+        are_resolved = self._resolve_model_ref(self.model)
+        adur_resolved = self._resolve_model_ref(self.adur_model)
 
         self._ner_pipeline = AutoPipeline.from_pretrained(
             adur_resolved,
@@ -483,7 +534,7 @@ class ARE:
             taskmodule_kwargs={"combine_token_scores_method": "product"},
         )
         self._re_pipeline = AutoPipeline.from_pretrained(
-            are_ref,
+            are_resolved,
             device=self._device_index,
             taskmodule_kwargs={"collect_statistics": False},
         )
@@ -592,8 +643,3 @@ class ARE:
             v = str(it.get(key))
             result[v] = result.get(v, 0) + 1
         return result
-
-    """
-    Class To-do:
-    - 
-    """
