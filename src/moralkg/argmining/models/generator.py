@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import os
 from pathlib import Path
 from typing import Optional, Tuple
 
@@ -32,7 +33,8 @@ def load_generator_model(
 
     device, dtype = get_device_and_dtype()
 
-    tokenizer = AutoTokenizer.from_pretrained(base_model, use_fast=True, cache_dir=cache_dir)
+    tokenizer = AutoTokenizer.from_pretrained(pretrained_model_name_or_path=str(base_model), use_fast=True, cache_dir=cache_dir)
+
     model = AutoModelForCausalLM.from_pretrained(
         base_model, torch_dtype=dtype, device_map="auto", cache_dir=cache_dir
     )
@@ -59,11 +61,19 @@ def load_generator_model_from_config(*, cache_dir: Optional[str] = None):
     Convenience loader using moralkg Config paths.
     Falls back to HF ids if local dirs are not set.
     """
-    base_cfg = Config.get("paths.models.end2end.base")
-    adapter_cfg = Config.get("paths.models.end2end.finetune")
+    # Create a config instance in order to set up models
+    cfg = None
+    try:
+        cfg = Config.load()
+    except Exception:
+        cfg = None
+    if cfg is not None:
+        base_cfg = Config.get("paths.models.end2end.base")
+        adapter_cfg = Config.get("paths.models.end2end.finetune")
 
-    base_model = (base_cfg.get("dir") or base_cfg.get("hf")) if isinstance(base_cfg, dict) else base_cfg
-    adapter_dir = adapter_cfg.get("dir") if isinstance(adapter_cfg, dict) else adapter_cfg
+        base_model = (base_cfg.get("dir") or base_cfg.get("hf")) if isinstance(base_cfg, dict) else base_cfg
+        adapter_dir = adapter_cfg.get("dir") if isinstance(adapter_cfg, dict) else adapter_cfg
+
     if not base_model:
         raise ValueError("Config paths.models.end2end.base is not set")
     if not adapter_dir:

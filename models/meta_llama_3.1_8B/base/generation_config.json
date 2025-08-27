@@ -1,1 +1,9 @@
-../../blobs/36757c2d3b16784e61fee3bd00b157719f22e809
+{
+  "do_sample": true,
+  "temperature": 0.6,
+  "top_p": 0.9,
+  "_from_model_config": true,
+  "bos_token_id": 128000,
+  "eos_token_id": 128001,
+  "transformers_version": "4.43.0.dev0"
+}

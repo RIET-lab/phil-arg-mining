@@ -1,5 +1,5 @@
 from pathlib import Path
-from typing import Any, Callable, Tuple
+from typing import Any, Callable, Optional, Tuple
 
 import os
 from moralkg import Config, get_logger
@@ -111,10 +111,18 @@ class End2End:
         self.kwargs = kwargs
         self.logger = get_logger(__name__)
 
-        # Setup models
-        self.model = Config.get("paths.models.end2end.base")
-        self.adapter = Config.get("paths.models.end2end.finetune")
-        self.embedder = Config.get("paths.models.end2end.embedder")
+
+        # Create a config instance in order to set up models
+        cfg = None
+        try:
+            cfg = Config.load()
+        except Exception:
+            cfg = None
+        if cfg is not None:
+            # Setup models
+            self.model = cfg.get("paths.models.end2end.base", None)
+            self.adapter = cfg.get("paths.models.end2end.finetune", None)
+            self.embedder = cfg.get("paths.models.end2end.embedder", None)
 
         # Resolve local model directories using config (model-agnostic)
         base_local = _check_for_model(self.model)
@@ -122,7 +130,7 @@ class End2End:
 
         # Load generator (HF with PEFT adapter) - end2end-specific, defer import to avoid circular
         from .generator import load_generator_model
-        self._hf_model, self._hf_tokenizer = load_generator_model(str(base_local), str(adapter_local))
+        self._hf_model, self._hf_tokenizer = load_generator_model(base_model=str(base_local), adapter_dir=str(adapter_local))
 
         # Prepare RAG if enabled
         self._rag = None
