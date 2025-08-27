@@ -159,7 +159,7 @@ class Parser:
                 type=adu_type,
                 text=text,
                 quote=adu_data.get("quote"),  # Optional field
-                isImplicit=adu_data.get("isImplicit", False)  # Default to False
+                isImplicit=adu_data.get("isImplicit", False)  # Optional field. Default to False
             )
             
             adus.append(adu)

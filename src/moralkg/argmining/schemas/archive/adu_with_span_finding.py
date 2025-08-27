@@ -1,5 +1,6 @@
 """
-ADU (Argumentative Discourse Unit) schema definition.
+Old version of ADU (Argumentative Discourse Unit) schema definition.
+Lacks some of the completeness/basic functionality of the new version, but we want to re-introduce the span-finding capability from this version later.
 """
 
 import re
@@ -37,13 +38,9 @@ class ADU(BaseModel):
     text: str = Field(
         ..., description="ADU description (exact text, paraphrase, etc.)"
     )
-    quote: Optional[str] = Field(
-        default=None,
+    quote: str = Field(
+        ...,
         description="Exact span in the text the ADU refers to",
-    )
-    isImplicit: Optional[bool] = Field(
-        default=False,
-        description="Whether this ADU is implicit in the text"
     )
     positions: Optional[List[SpanPosition]] = Field(
         default_factory=list,
