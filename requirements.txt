@@ -22,3 +22,6 @@ rapidfuzz
 trl
 datasets
 unsloth
+pycountry
+matplotlib
+seaborn

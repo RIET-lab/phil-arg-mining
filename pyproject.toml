@@ -33,7 +33,9 @@ dependencies = [
     "trl",
     "datasets",
     "unsloth"
-
+    "pycountry"
+    "matplotlib"
+    "seaborn"
 ]
 
 [tool.setuptools]
