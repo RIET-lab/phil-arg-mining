@@ -1,0 +1,329 @@
+{
+  "type": {
+    "count": 87871,
+    "missing_count": 1,
+    "missing_percentage": 0.0011380189366351056,
+    "distribution": [
+      {
+        "value": "article",
+        "count": 79244,
+        "percentage": 90.18219890521333
+      },
+      {
+        "value": "book",
+        "count": 4705,
+        "percentage": 5.3544400314096805
+      },
+      {
+        "value": "review",
+        "count": 3910,
+        "percentage": 4.449704680725154
+      },
+      {
+        "value": "edited book",
+        "count": 6,
+        "percentage": 0.0068281913259209525
+      },
+      {
+        "value": "articolo",
+        "count": 2,
+        "percentage": 0.0022760637753069845
+      },
+      {
+        "value": "livro",
+        "count": 2,
+        "percentage": 0.0022760637753069845
+      },
+      {
+        "value": "\u00d0\u00ba\u00d0\u00bd\u00d0\u00b8\u00d0\u00b3\u00d0\u00b0",
+        "count": 1,
+        "percentage": 0.0011380318876534922
+      },
+      {
+        "value": "\u00e8\u00ab\u0096\u00e6\u0096\u0087",
+        "count": 1,
+        "percentage": 0.0011380318876534922
+      }
+    ],
+    "top_10": [
+      {
+        "value": "article",
+        "count": 79244,
+        "percentage": 90.18219890521333
+      },
+      {
+        "value": "book",
+        "count": 4705,
+        "percentage": 5.3544400314096805
+      },
+      {
+        "value": "review",
+        "count": 3910,
+        "percentage": 4.449704680725154
+      },
+      {
+        "value": "edited book",
+        "count": 6,
+        "percentage": 0.0068281913259209525
+      },
+      {
+        "value": "articolo",
+        "count": 2,
+        "percentage": 0.0022760637753069845
+      },
+      {
+        "value": "livro",
+        "count": 2,
+        "percentage": 0.0022760637753069845
+      },
+      {
+        "value": "\u00d0\u00ba\u00d0\u00bd\u00d0\u00b8\u00d0\u00b3\u00d0\u00b0",
+        "count": 1,
+        "percentage": 0.0011380318876534922
+      },
+      {
+        "value": "\u00e8\u00ab\u0096\u00e6\u0096\u0087",
+        "count": 1,
+        "percentage": 0.0011380318876534922
+      }
+    ]
+  },
+  "language": {
+    "count": 87872,
+    "missing_count": 0,
+    "missing_percentage": 0.0,
+    "distribution": [
+      {
+        "value": "en",
+        "count": 87872,
+        "percentage": 100.0
+      }
+    ],
+    "top_10": [
+      {
+        "value": "en",
+        "count": 87872,
+        "percentage": 100.0
+      }
+    ]
+  },
+  "year": {
+    "count": 76075,
+    "missing_count": 11797,
+    "mean": 2014.6263161353927,
+    "median": 2018.0,
+    "std": 36.79703386737467,
+    "min": 1.0,
+    "max": 2026.0,
+    "top_10_years": [
+      {
+        "year": 2023,
+        "count": 5351,
+        "percentage": 7.033848176141966
+      },
+      {
+        "year": 2024,
+        "count": 5308,
+        "percentage": 6.977325008215576
+      },
+      {
+        "year": 2022,
+        "count": 5244,
+        "percentage": 6.893197502464673
+      },
+      {
+        "year": 2021,
+        "count": 5204,
+        "percentage": 6.840617811370358
+      },
+      {
+        "year": 2020,
+        "count": 4844,
+        "percentage": 6.367400591521524
+      },
+      {
+        "year": 2019,
+        "count": 4651,
+        "percentage": 6.113703581991456
+      },
+      {
+        "year": 2018,
+        "count": 4371,
+        "percentage": 5.745645744331252
+      },
+      {
+        "year": 2017,
+        "count": 4201,
+        "percentage": 5.522182057180414
+      },
+      {
+        "year": 2016,
+        "count": 3664,
+        "percentage": 4.8162997042392375
+      },
+      {
+        "year": 2015,
+        "count": 3417,
+        "percentage": 4.4916201117318435
+      }
+    ]
+  },
+  "authors": {
+    "count": 36380,
+    "missing_authors": 7,
+    "top_20": [
+      {
+        "author": "Malicse, Angelito",
+        "paper_count": 2351
+      },
+      {
+        "author": "Smith, Barry",
+        "paper_count": 1707
+      },
+      {
+        "author": "Bostick, Devin",
+        "paper_count": 1134
+      },
+      {
+        "author": "Maxwell, Nicholas",
+        "paper_count": 863
+      },
+      {
+        "author": "Russell, Paul",
+        "paper_count": 750
+      },
+      {
+        "author": "Metz, Thaddeus",
+        "paper_count": 713
+      },
+      {
+        "author": "Vuong, Quan-Hoang",
+        "paper_count": 663
+      },
+      {
+        "author": "Nguyen, Minh-Hoang",
+        "paper_count": 662
+      },
+      {
+        "author": "Singh, Devinder Pal",
+        "paper_count": 559
+      },
+      {
+        "author": "Edward, Terence Rajivan",
+        "paper_count": 552
+      },
+      {
+        "author": "Starks, Michael",
+        "paper_count": 536
+      },
+      {
+        "author": "Miller, Kristie",
+        "paper_count": 518
+      },
+      {
+        "author": "Oppy, Graham",
+        "paper_count": 515
+      },
+      {
+        "author": "Janello, Martin",
+        "paper_count": 509
+      },
+      {
+        "author": "Queloz, Matthieu",
+        "paper_count": 477
+      },
+      {
+        "author": "List, Christian",
+        "paper_count": 472
+      },
+      {
+        "author": "Mizrahi, Moti",
+        "paper_count": 451
+      },
+      {
+        "author": "Ajvazi, Irfan",
+        "paper_count": 427
+      },
+      {
+        "author": "Champagne, Marc",
+        "paper_count": 425
+      },
+      {
+        "author": "Turri, John",
+        "paper_count": 408
+      }
+    ]
+  },
+  "title_length_chars": {
+    "count": 87871,
+    "missing_count": 1,
+    "mean": 60.469859225455494,
+    "median": 55.0,
+    "std": 32.256685372926405,
+    "min": 2.0,
+    "max": 696.0
+  },
+  "title_length_words": {
+    "count": 87872,
+    "mean": 8.792311544064093,
+    "median": 8.0,
+    "std": 4.820237830140698,
+    "min": 0.0,
+    "max": 98.0
+  },
+  "title_semantic_diversity": {
+    "mean_distance": 0.9309695190895696,
+    "std_distance": 0.047720307478688065,
+    "most_diverse": [
+      {
+        "title": "A Trivialist's Travails",
+        "distance": 1.0
+      },
+      {
+        "title": "Ambivalence",
+        "distance": 1.0
+      },
+      {
+        "title": "Cartographies of Capture",
+        "distance": 1.0
+      },
+      {
+        "title": "Abstractions and Implementations",
+        "distance": 1.0
+      },
+      {
+        "title": "The Bit (and Three Other Abstractions) Define the Borderline Between Hardware and Software",
+        "distance": 1.0
+      },
+      {
+        "title": "Geology and petrography of gabbroic rocks from Khanozai Ophiolite, Northwestern Pakistan",
+        "distance": 1.0
+      },
+      {
+        "title": "Comics and Genre",
+        "distance": 1.0
+      },
+      {
+        "title": "Against Depictive Conventionalism",
+        "distance": 1.0
+      },
+      {
+        "title": "Arguer's Intent",
+        "distance": 1.0
+      },
+      {
+        "title": "On outlining the shape of depiction",
+        "distance": 1.0
+      }
+    ]
+  },
+  "categories_per_paper": {
+    "count": 87872,
+    "papers_with_no_categories": 6103,
+    "mean": 2.8814867079388202,
+    "median": 2.0,
+    "std": 2.173877514638696,
+    "min": 0.0,
+    "max": 42.0
+  }
+}

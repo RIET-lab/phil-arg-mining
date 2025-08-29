@@ -20,16 +20,10 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_distances
 
 from ...config import Config
+from . import get_most_recent_file
 
 logger = logging.getLogger(__name__)
 
-
-def get_most_recent_file(directory: Path, pattern: str = "*") -> Optional[Path]:
-    """Find the most recent file matching pattern in directory."""
-    files = list(directory.glob(pattern))
-    if not files:
-        return None
-    return max(files, key=lambda p: p.stat().st_mtime)
 
 
 def parse_year(year_str):

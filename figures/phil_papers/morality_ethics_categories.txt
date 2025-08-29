@@ -1,0 +1,56 @@
+Morality/Ethics Categories Analysis
+==================================================
+
+Morality/Ethics search pattern: (ethic)|(moral)|(virtue)|(deontolog)|(utilitar)|(justice)
+Individual terms searched: ethic, moral, virtue, deontolog, utilitar, justice
+
+Total unique categories: 5739
+Morality/Ethics categories: 474 (8.26%)
+Other categories: 5265
+
+Total papers with categories: 81762
+Papers with Morality/Ethics categories: 16146
+Papers with other categories: 65616
+
+Term Frequency Analysis (Unique Categories)
+---------------------------------------------
+Individual Terms:
+  ethic: 257
+  moral: 159
+  virtue: 39
+  justice: 37
+  deontolog: 15
+  utilitar: 7
+
+Term Combinations:
+  ethic + virtue: 20
+  deontolog + moral: 7
+  moral + virtue: 4
+  ethic + justice: 3
+  deontolog + ethic: 1
+  ethic + moral: 1
+  deontolog + ethic + virtue: 1
+  ethic + moral + virtue: 1
+
+Example Morality/Ethics Categories:
+----------------------------------------
+ 1. Autonomy and Moral Psychology [moral]
+ 2. Environmental Justice [justice]
+ 3. Professional Ethics [ethic]
+ 4. Business Ethics [ethic]
+ 5. Moral Realism and Irrealism [moral]
+ 6. Environmental Ethics [ethic]
+ 7. Animal Ethics, Misc [ethic]
+ 8. Kant: Meta-Ethics [ethic]
+ 9. Business Ethics, Miscellaneous [ethic]
+10. Moral Reasoning and Motivation [moral]
+11. Moral Character [moral]
+12. Moral Emotion [moral]
+13. Animal Ethics [ethic]
+14. Conservation Ethics [ethic]
+15. Topics in Environmental Ethics [ethic]
+16. Environmental Ethics, Misc [ethic]
+17. Technology Ethics, Misc [ethic]
+18. Engineering Ethics [ethic]
+19. Biotechnology Ethics [ethic]
+20. Scientific Research Ethics [ethic]

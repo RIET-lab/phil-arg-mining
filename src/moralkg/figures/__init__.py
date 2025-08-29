@@ -9,6 +9,7 @@ from typing import Dict, Any, Optional
 from .metadata import (
     analyze_categories_from_json,
     analyze_categories_from_dataframe,
+    run_category_analysis,
     analyze_paper_lengths_simple,
     analyze_paper_content_lengths,
     run_metadata_distributions,
@@ -66,7 +67,7 @@ def generate_all_figures(
         cat_stats = analyze_categories_from_dataframe(exploded_df)
         create_category_plots(cat_stats, output_dir)
         results['categories'] = cat_stats
-        
+
         # Simple paper length analysis
         if docling_dir.exists():
             from .metadata import create_content_plots
