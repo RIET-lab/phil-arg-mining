@@ -1,0 +1,175 @@
+{
+  "ADUs": {
+    "Comparative claim": {
+      "type": "Major Claim",
+      "text": "Bentham and Kant are linked more closely in their politics and political theory than philosophical scholarship normally concludes.",
+      "isImplicit": true
+    },
+    "Untitled 1": {
+      "type": "Claim",
+      "text": "There has been philosophical scholarship to link Kant and Bentham to Smith in various ways."
+    },
+    "Untitled 2": {
+      "type": "Claim",
+      "text": "Work by Fleischacker shows Kant drawing on the impartial spectator and the invisible hand."
+    },
+    "Untitled 3": {
+      "type": "Claim",
+      "text": "Work by Fred Rosen, especially, links Smith to Bentham, drawing on the defense of markets."
+    },
+    "Untitled 4": {
+      "type": "Claim",
+      "text": "With Hume, and to a lesser extent with Smith, what we find in the existing literature on the Kant and Bentham's intellectual debts is that Kant and Bentham grab different threads from their philosophies and run off in, if not wholly opposite, then very distinct directions."
+    },
+    "Untitled 5": {
+      "type": "Claim",
+      "text": "It is usually taught in in undergraduate ethics and political philosophy that Kant and Bentham carry their intellectual debts to Hume and Smith from different starting points and in divergent directions."
+    },
+    "Extension to other early liberals": {
+      "type": "Major Claim",
+      "text": "The argument that links Bentham and Kant's politics and political theory, through their shared debt to Smith's Wealth of Nations, can be extended to Benjamin Constant and other early liberals."
+    },
+    "Untitled 6": {
+      "type": "Claim",
+      "text": "The author of this publication is not the first to suggest that federalism is rather central to the origin of liberalism."
+    },
+    "Untitled 7": {
+      "type": "Claim",
+      "text": "Back in 2007, Jacob T. Levy called attention to Benjamin Constant's articulation of a \"new kind of federalism,\" that would prevent despotism within each federated state."
+    },
+    "Untitled 8": {
+      "type": "Claim",
+      "text": "The 'old' federalism, as articulated by Benjamin Constant, is agnostic on the structure of each federated state."
+    },
+    "Untitled 9": {
+      "type": "Claim",
+      "text": "We know that when Constant wrote his Principles of Politics he was deeply immersed in Smith's Wealth of Nations."
+    },
+    "Untitled 10": {
+      "type": "Claim",
+      "text": "Unlike Kant and Bentham, who both treat federalism as a means to link and pacify previously hostile states, Constant is more focused on the role of federalism in integrating a great state internally."
+    },
+    "Adam Smith's impact is anti-mercantilism according to critics of liberalism": {
+      "type": "Major Claim",
+      "text": "The original understanding of Adam Smith's impact, as seen by liberalism's greatest critics, is that Smith's political economy and Smith's commitment to a (federally grounded) perpetual peace are the same side of the anti-mercantilist coin."
+    },
+    "Untitled 11": {
+      "type": "Claim",
+      "text": "Friedrich Engels' \"Outlines of a Critique of Political Economy\" was one of the great critiques of liberalism.",
+      "isImplicit": true
+    },
+    "Untitled 12": {
+      "type": "Claim",
+      "text": "Friedrich Engels' (1843/44) \"Outlines of a Critique of Political Economy\" (Umrisse zu einer Kritik der Nationalökonomie) is one of the originating moments of Marxism."
+    },
+    "Untitled 13": {
+      "type": "Claim",
+      "text": "\"Outlines of a Critique of Political Economy\" is a critique of Smith's political economy.",
+      "isImplicit": true
+    },
+    "Untitled 14": {
+      "type": "Claim",
+      "text": "\"Outlines of a Critique of Political Economy\" offers a scathing indictment of \"liberal economics\" after Ricardo."
+    },
+    "Untitled 15": {
+      "type": "Claim",
+      "text": "Friedrich Engels' \"Outlines of a Critique of Political Economy\" was also critical of Adam Smith."
+    },
+    "Untitled 16": {
+      "type": "Claim",
+      "text": "Friedrich Engels' \"Outlines of a Critique of Political Economy\" saw Smith's political economy as linked to a commitment to a (federally grounded) perpetual peace.",
+      "isImplicit": true
+    },
+    "Untitled 17": {
+      "type": "Claim",
+      "text": "In \"Outlines of a Critique of Political Economy\", Friedrich Engels ascribed to Adam Smith the idea that trade would generate a 'union among nations.'"
+    }
+  },
+  "relations": [
+    {
+      "src": "Untitled 2",
+      "tgt": "Untitled 1",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 3",
+      "tgt": "Untitled 1",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 1",
+      "tgt": "Comparative claim",
+      "type": "attack"
+    },
+    {
+      "src": "Untitled 5",
+      "tgt": "Untitled 4",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 4",
+      "tgt": "Comparative claim",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 8",
+      "tgt": "Untitled 7",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 7",
+      "tgt": "Untitled 6",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 9",
+      "tgt": "Untitled 6",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 6",
+      "tgt": "Extension to other early liberals",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 10",
+      "tgt": "Extension to other early liberals",
+      "type": "attack"
+    },
+    {
+      "src": "Untitled 12",
+      "tgt": "Untitled 11",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 13",
+      "tgt": "Untitled 11",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 14",
+      "tgt": "Untitled 11",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 15",
+      "tgt": "Untitled 11",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 11",
+      "tgt": "Adam Smith's impact is anti-mercantilism according to critics of liberalism",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 17",
+      "tgt": "Untitled 16",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 16",
+      "tgt": "Adam Smith's impact is anti-mercantilism according to critics of liberalism",
+      "type": "support"
+    }
+  ]
+}

@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """
 Converter script for transforming Argdown JSON format to custom argument mining JSON format.
+TODO: Make the conversion process more modular, and integrate it with the syntax conversion script. Or, alternatively, add the json part of the other conversion script to this one to separate the syntax fixing from the argdown -> json pipeline.
 """
 
 import json

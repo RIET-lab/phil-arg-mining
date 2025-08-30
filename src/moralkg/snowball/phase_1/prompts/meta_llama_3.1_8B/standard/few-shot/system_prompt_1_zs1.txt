@@ -1,0 +1,461 @@
+You are an expert philosopher and argument miner. You can express yourself succinctly. If you are given a philosopher paper on a certain topic and stance, your task is to create a single argument map, capturing the high-level argument structure of the paper’s Major Claim and the Claims & Premises which support this Major Claim. A Claim might be for or against a certain stance on a topic or it might be offering a new distinction to the topic. Since papers might be complex, there might be more than one Major Claim and both Premises and Claims might support multiple propositions. Some Premises might not be clearly stated in the paper, so you must add these in when they are needed to make the argument.
+
+Your response should consist of an argument map that follows the JSON schema:
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "ArgumentMiningStructure",
+    "description": "Argument mining schema with equivalence classes and simplified ADU types",
+    "type": "object",
+    "required": [
+        "ADUs",
+        "relations"
+    ],
+    "properties": {
+        "ADUs": {
+            "type": "object",
+            "description": "Map of ADU IDs (equivalence class titles) to their content",
+            "additionalProperties": {
+                "type": "object",
+                "required": [
+                    "type",
+                    "text"
+                ],
+                "properties": {
+                    "type": {
+                        "type": "string",
+                        "enum": [
+                            "Major Claim",
+                            "Claim"
+                        ],
+                        "description": "Major Claim for root nodes (top-level/unindented claims), Claim for all others"
+                    },
+                    "text": {
+                        "type": "string",
+                        "description": "The canonical/representative text for this ADU"
+                    },
+                    "quote": {
+                        "type": "string",
+                        "description": "Optional: Exact text from the original source before argument mapping"
+                    },
+                    "isImplicit": {
+                        "type": "boolean",
+                        "description": "Whether this ADU is implicit in the original text",
+                        "default": false
+                    }
+                }
+            }
+        },
+        "relations": {
+            "type": "array",
+            "description": "Relations between ADUs (equivalence classes)",
+            "items": {
+                "type": "object",
+                "required": [
+                    "src",
+                    "tgt",
+                    "type"
+                ],
+                "properties": {
+                    "src": {
+                        "type": "string",
+                        "description": "ID of the source ADU (equivalence class title)"
+                    },
+                    "tgt": {
+                        "type": "string",
+                        "description": "ID of the target ADU (equivalence class title)"
+                    },
+                    "type": {
+                        "type": "string",
+                        "enum": [
+                            "support",
+                            "attack"
+                        ],
+                        "description": "Type of relationship (support or attack)"
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+For example, here is a philosophy paper:
+Federalism and The unity of Early Liberalism: Bentham and Kant's reception of Adam Smith's'New Imperialism' 1
+
+By the second half of the twentieth century moral and political philosophy had split liberalism into two opposing camps: a utilitarian one originating in Bentham and a deontic, social contract tradition centered on Kant. So, for example, in 1971, Rawls understood his own theoretical contribution as'to offer an alternative systematic account of justice that is superior, or so I argue, to the dominant utilitarianism of the tradition. The theory that results is highly Kantian in nature.' 2 This contrast is by no means unique to analytic political philosophy. For example, in a lecture of 17 January 1979, Foucault distinguishes'two approaches' within liberalism: 'the revolutionary approach, basically structured around traditional positions of public law, and the radical approach, basically structured around the new economy of government reason.' The former is centered on Kant, the latter on Bentham. 3 Drawing on Elie Halévy, Rawls and Foucault explicitly insist that Bentham, in particular, owes a debt to Hume and Smith, who are seen as anticipating the significance of utility to moral and political philosophy. 4
+
+As I acknowledge below, there has been philosophical scholarship to link Kant and Bentham to Smith in various ways not the least work by Fleischacker showing Kant drawing on the impartial spectator and the invisible hand; and work on linking Smith to Bentham, by Fred Rosen, especially, drawing on the defense of markets. 5 With Hume, and to a lesser extent with Smith, what we find in the existing literature on these debts is that Kant and Bentham grab different threads from their philosophies and run off in, if not wholly opposite, than very distinct directions. This is, in fact, how they are usually taught in undergraduate ethics and political philosophy.
+
+In this paper I link Bentham and Kant more closely in their politics and political theory through a shared, substantially similar debt to Smith's Wealth of Nations. In particular, I argue that on some key political questions that are foundational to liberalism, they drew strikingly similar lessons from Smith, and built on his ideas in similar direction. That is, even very otherwise-different strands of early liberalism found agreement on a constellation of ideas about trade, federalism, and peace; I show that these were not just preoccupations of Kant's idiosyncratic Perpetual Peace but helped define the whole political tradition. 6
+
+I am not the first to suggest that federalism is rather central to the origin of liberalism. Back in 2007, writing in this very journal, Jacob T. Levy called attention to Benjamin Constant's articulation of a'new kind of federalism,' that
+
+would prevent despotism within each federated state. 7 (The'old' federalism is agnostic on the structure of each federated state.) We know that when Constant wrote his Principles of Politics he was deeply immersed in Smith's Wealth of Nations. 8 So, while I focus on Kant and Bentham in what follows, the argument can be extended to Constant, and other early liberals. My reason for focusing on Kant and Bentham is that they both treat federalism as a means to link and pacify previously hostile states, while Constant is more focused on the role of federalism in integrating a great state internally.
+
+In fact, in some ways this paper returns to the original understanding of Smith's impact in which his political economy and commitment to a (federally grounded) perpetual peace are the same side of the anti-mercantilist coin as seen by liberalism's greatest critics. For example, Friedrich Engels' (1843/44) 'Outlines of a Critique of Political Economy' ([ Umrisse zu einer Kritik der Nationalökonomie ] is one of the originating moments of Marxism. It offers a scathing indictment of'liberal economics' after Ricardo. And while Engels is, of course, also critical of Smith, in commenting on Smith, Engels writes, Thus economics took on a philanthropic character. It withdrew its favour from the producers and bestowed it on the consumers. It affected a solemn abhorrence of the bloody terror of the Mercantile System, and proclaimed trade to be a bond of friendship and union among nations as among individuals. All was pure splendour and magnificence - yet the premises
+
+reasserted themselves soon enough, and in contrast to this sham philanthropy produced the Malthusian population theory - the crudest, most barbarous theory that ever existed, a system of despair which struck down all those beautiful phrases about philanthropy and world citizenship.---(emphasis added-ES) 9
+
+This paper helps explain why it was natural for Engels to ascribe to Smith the idea that trade would generate a'union among nations.' For, in the latter parts of the Wealth of Nations Adam Smith presents a plan for a parliamentary union-a form of federalism between Great Brittain, Ireland, and her colonies. As Jennifer Pitts puts it'For the American colonies, Smith favored either complete emancipation or complete political and economic integration, both of which he believed would be politically so unpopular as to be impossible to institute peacefully.' 10 (p. 54) Pitts does not develop what'complete political and economic integration' means for Smith.
+
+I argue that Smith proposed a new kind of imperialism, which we would describe as a species of'federalism,' and that his plan influenced Bentham and Kant in their federal projects, although they seem to have been unaware of each other's proposals. In what follows, I outline Smith's position. I then describe Kant's and Bentham's debts to Smith in turn. This will also allow for greater clarity about the nature of early liberalism. 11
+
+## I. Adam Smith.
+
+In this section I briefly review the connection between trade and empire in Wealth of Nations in order to introduce Smith's views on federalism. I show, in particular, that Smith's account of parliamentary union is meant to reinforce a functional understanding of the role of trade in political integration.
+
+The English term'empire' is derived from the Latin imperium for'to command' or'to control.' To the best of my knowledge Smith never gives a definition of what he means by'empire.' He recognizes that empires have existed in the past (he often discusses the'Roman' empire) and he allows that there were ancient empires in Mexico and Peru (both destroyed by the Spanish), but not as well governed or rich as the empires of'China, Indostan, Japan, as well as several others in the East Indies.' (WN 4.1.33, 488) 12
+
+Smith recognizes that he, too, lives in a empire, as he notes in the final, gloomy sentence of Wealth of Nations: 'If any of the provinces of the British empire
+
+cannot be made to contribute towards the support of the whole empire, it is surely time that Great Britain should free herself from the expence of defending those provinces in time of war, and of supporting any part of their civil or military establishments in time of peace, and endeavour to accommodate her future views and designs to the real mediocrity of her circumstances.' (WN 5.3.92, 947)
+
+The particular'provinces' Smith has in mind are, of course, the'American' colonies who (he is writing in 1776) seem tempted to go it alone unwilling as they are to pay the taxes that would contribute to the maintenance of their defense and administration by the British empire without representation. This is not the only reason Smith thinks they are ready to leave; in Book 4, he had suggested that the leaders of the American colonies prefer the stature they gain from their local significance. (WN 4.7.C.68-74, pp. 619-622) 13
+
+In fact, Smith implies that the ordinary clientalism that, according to Hume, 14 had made the British constitution function so well in the first half of the eighteenth century could not be extended to bribe colonial political leaders into supporting British imperial government: 'It would be absolutely impossible to distribute among all the leading members of all the colony assemblies such a share, either of the offices or of the disposal of the offices arising from the general government of the British empire, as to dispose them to give up their popularity at home and to tax their constituents for the support of that general government, of which
+
+almost the whole emoluments were to be divided among people who were strangers to them.' (WN 4.7.C.69, 619) The British empire had become too large to function in the way Walpole had managed through the earlier half of the eighteenth century.
+
+In Wealth of Nations Smith proposed an alternative vision to real mediocrity and malfunctioning corruption: a parliamentary union or federal parliament, first housed in Westminster and then, as population keeps growing, North America. (WN 4.7.c.78-79, 625-626) One of its benefits would be to allow the clientelism'to be managed' properly again. (WN 4.7.C.78, 625)
+
+In Smith's terminology, this is an imperial project that would'complete' the British constitution. In fact, Smith makes this very point by contrasting it with the fate of the Roman republic:
+
+Though the Roman constitution, therefore, was necessarily ruined by the union of Rome with the allied states of Italy, there is not the least probability that the British constitution would be hurt by the union of Great Britain with her colonies. That constitution, on the contrary, would be completed by it, and seems to be imperfect without it. (WN 4.7.c.624, 777)
+
+This idea of completing and perfecting the constitution (and empire) is echoed in the final paragraph in the lines just before Smith prophecies Britain's real mediocrity:
+
+This empire, however, has hitherto existed in imagination only. It has hitherto been, not an empire, but the project of an empire; not a gold mine, but the project of a gold mine; a project which has cost, which continues to cost, and which, if pursued in the same way as it has been hitherto, is likely to cost immense expence, without being likely to bring any profit; for the effects of the monopoly of the colony trade, it has been shewn, are, to the great body of the people, mere loss instead of profit. It is surely now time that our rulers should either realize this golden dream, in which they have been indulging themselves, perhaps, as well as the people; or, that they should awake from it themselves, and endeavour to awaken the people. If the project cannot be compleated, it ought to be given up. (WN 5.3.92, 947)
+
+Despite the low odds, Smith is proposing a new kind of imperialism, one that is federal in character in which the colonies will have, in addition to the colonial assemblies, representatives in the "States General of the British Empire," (WN 5.3.68, 933). The point is thereby to extend'the British system of taxation…to all the different provinces of the empire.' (WN 5.3.68, 934; emphasis added.) To what degree this'all' is meant to include the North American colonists only (as I
+
+used to think), or, in fact, all of Britain's global dominions (including colonized inhabitants), as Maria Pia Paganelli suggests, is an interesting question I cannot answer here. 15 Once there is an imperial system of taxation, it could pay for common defense and other common expenses, including paying off the debt. (WN 5.3.88, 944)
+
+I use'new imperialism' here to suggest that it anticipates Constant's idea of a'new kind of federalism,' that would prevent despotism within each federated state. Unlike the mercantile empires, Smith's new imperialism is peaceful in character and is meant to create economic and political integration.
+
+For, it would be a mistake to see Smith's advocacy of new kind of globalizing imperialism as driven by concerns over tax policy only. As is well known, Smith has many reasons for defending the benefits of free trade. 16 According to Smith free trade also generates the development of a peaceful (continental) empire. Smith presents this as a'functionalist' argument; liberal free trade itself shapes political integration: "Were all nations to follow the liberal system of free exportation and free importation, the different states into which a great continent was divided would so far resemble the different provinces of a great empire." (WN 4.5.b.39, 538) To be sure, this literally says that [I] free trade is structurally analogous to life under empire. But since in wider context he is arguing for free trade, this can also be read as: [II] if one adopts free trade, as Smith urges, the
+
+trading parties will seem transformed and politically integrated as if or structurally analogous to ('resemble') a continent-wide empire.
+
+Smith goes on to emphasize an important humanitarian feature of his account of empire, which links it to his argument for free trade:
+
+As among the different provinces of a great empire the freedom of the inland trade appears, both from reason and experience, not only the best palliative of a dearth, but the most effectual preventative of a famine; so would the freedom of the exportation and importation trade be among the different states into which a great continent was divided. (WN 4.5.b.39, 538)
+
+For Smith'empire' entails (intra-imperial) free trade. That is to say, the freedom of trade within empires are themselves an excellent way to manage and prevent the risk of famine. Peacefully completing the British constitution in a parliamentary union is, thus, a means to induce the hunger-fighting benefits and marshal the resources of an actual empire.
+
+Smith's interest in combatting famine is signaled from the opening pages of WN. 17 In the'Introduction and plan' of the work Smith introduces us to the great risk of perishing'with hunger' in poor nations. (WN Intro.4, 10) This he contrasts with circumstances'in a well-governed society,' with an advanced
+
+division of labor that generates'that universal opulence which extends itself to the lowest ranks of the people.' (WN 1.1.10, 22) The beneficial effects of widespread wealth are made possible by good government. (The implied target is mercantile rent-seeking.) Development is an act of ongoing and active statebuilding. 18 As noted, Smith presents his parliamentary union as an extension of'the British system of taxation…to all the different provinces of the empire.' (WN 5.3.68, 934) The benefits of such constructive governance, thus, bookends Wealth of Nations.
+
+My interest here in this argument is, thus, not just humanitarian, but political. Given [II], lurking in Smith's economic arguments for free trade is a functionalist argument in which free trade itself leads to a kind of pacific political integration of a new kind of empire. But because this empire is itself meant to be a free trade area (e.g., WN 5.3.89, 944), the functional argument and parliamentary union complement and strengthen each other. For students of EU politics this is very familiar argument pattern. 19 What makes Smith's argument novel is that he thinks such integration can work across enormous spatial distances; he insists on the fact that'the European colonies in America are more remote than the most distant provinces of the greatest empires which had ever been known before.' (WN 4.7.b.52, 586) 20
+
+To be sure, Smith realized that in many mercantile contexts trade can also be a source of conflict and animosity, and so he did not have a providential faith in its necessary good effects. 21 But this is not because Smith viewed trade in a-political fashion (e.g. WN 4.7.c.80, 626ff.)
+
+As an aside, I do not mean to suggest that Smith is the first person to offer a functionalist argument that suggests that trade leads to political union and/or peace. One can locate, for example, a version of it in Robert Molesworth's (1694) An Account of Denmark. 22
+
+Smith calls his specific plan for a parliamentary union, the "States General of the British Empire;" (WN 5.3.68, 933) and he presents it, as we have seen, as a'completion' of the British constitution (WN 4.7.c.77, 624). 23 Both the teleological language of completion (and'perfection') and the foreign terminology of'states general' are a bit puzzling. I discuss them in turn.
+
+Until the early days of the French revolution (1789), there had been no French States General since 1614. So it would be very strange of Smith meant to allude to it in 1776. However, Smith does not originate the idea of an imperial'Statesgeneral' (in Dutch Staten-generaal ) or federal parliamentary unions. 24 The idea, with explicit mention or allusions to the Dutch example of federalism, can also be found in Hume's (1752) 'Idea of a Perfect Commonwealth' 25 and Spinoza's
+
+posthumous (1677) Political treatise ( sect 9.4). 26 In fact, Smith's proposal combines features of Hume's domestic federal plan with Spinoza's'new' (in Constant's sense) kind of international federalism. 27 So, there is some precedent in treating an imperial federal parliament as an estates general. 28
+
+Smith's teleological language in which the imperial, parliamentary union'perfects' and'completes' the British constitution seems to have fewer anticipations. Strikingly, Hume never seems to describe constitutions in this way, although he does articulate an (1752) 'Idea for a Perfect Commonwealth' (which is federal in character). Perhaps, Smith was influenced by the great jurist, Blackstone, who while criticizing Locke, who is classified with the'wild extremes' and even among the'zealous republicans,' suggests, nevertheless, that the non-trivial changes of the events of 1688 (the Glorious Revolution) were in accord with'the spirit of our constitution.' 29 Blackstone intimates that in his own day'our constitution arrived' at'full perfection.' 30 Smith's new imperialism explicitly denies this.
+
+One may well wonder, why I have treated Smith's proposed parliamentary union as federal in character. First, Smith assumes throughout that the colonies will also be self-governed by assemblies, although he wants to shift the political primacy to Westminster (e.g. WN 4.7.C.68-74, pp. 619-622). Second, the Dutch EstatesGeneral were, in principle, federal in character; each of its provinces (and towns)
+
+had its own governing structure. The seven provinces had their own'states' (s)elected by the towns and nobility, whereas cities were controlled by a magistracy and a council that could be elected or selected. 31
+
+In 1776 Smith was offering to give the colonists and British what they wanted: the Americans would have gotten no taxation without representation, and the British retention of empire. 32 Even after American independence, in subsequent editions, Smith left his proposal in WN, presumably to illustrate some of his arguments that remained significant if only because other British colonies and dependencies might, as Maria Pia Paganini suggested, also make good candidates for parliamentary union. As Smith puts it, 'such a speculation can at worst be regarded but as a new Utopia, less amusing certainly, but not more useless and chimerical than the old one.' (WN 5.3.68, 934)
+
+I suspect there are three reasons for this. First, federalism could undermine the tendency toward mercantilism because it would make some kinds of rent-seeking more difficult because there would be more and more potentially competing interests represented in the enlarged parliament. In particular, those interested in creating free trade between Britain and her American colonies would be better represented. 33 Second, it would explicitly aim to solve the oppression of'the middling and inferior ranks of people in Scotland' from'the power of an aristocracy which had always before oppressed them.' (WN 5.3.89, 944) Third it
+
+would combat the oppression'of all ranks in Ireland [who] would gain an equally complete deliverance from a much more oppressive aristocracy' ground'in the most odious of all distinctions, those of religious and political prejudices.' (WN 5.3.89, 944) That is, Smith sees parliamentary union with the colonies also as a means to resolve a number of intractable political and moral problems that were the consequence of English colonization of Ireland and English Union with Scotland. Why he thinks this is not entirely clear, but presumably he expects that in a wider polity good governance demands a more homogeneous, and simultaneously more tolerating rule of law.
+
+In what follows, I focus on the afterlife of Smith's functionalist argument for free trade and'new imperialism' (that is, federalism) in the context of arguments for federal peace projects. In particular, it can be shown that in the 1790s early Bentham and (relatively late) Kant embrace versions of it, and that they did so while engaging with Wealth of Nations. So, a subtext of my argument is that such functionalism about trade and federalism is one of the slender threads that unifies an otherwise heterogeneous seeming origin of the liberal tradition. While modern commentators have been relatively uninterested in exploring the details, Smith's federal ideas were, in fact, debated throughout the nineteenth century in Britain. 34
+
+## II. Kant and Smithian Federalism
+
+The first uncontroversial and explicit reference to Smith in Immanuel Kant's writings dates from 1798. But in a celebrated article, Sam Fleischacker has made a compelling case that Kant (1724-1804) started to engage with Smith's Wealth of Nations from around 1784 onward. 35 Fleischacker has shown there are clear allusions to Smith in Kant's (1795) essay, Perpetual Peace: A Philosophical Sketch. Here I develop Fleischacker's argument.
+
+Before I continue, one aside. First, if Kant was, as seems likely, read Deutsches Museum, - an influential journal founded in 1776 in which people like Jacobi published - he would be familiar with Christian von Dohm's 1778 essay against Physiocracy. Von Dohm (1751-1820), who was a student of Garve, explicitly draws on Adam Smith. 36 Even if Kant was unfamiliar with the work, it generated a considerable number of responses. Von Dohm later became very famous due to his work promoting Jewish emancipation. 37 So, the role of Von Dohm's mediation in the reception of Smith is worth exploring in its own right, and also for its potential impact on philosophical luminaries of the age.
+
+One other important insight that one can glean from Fleischacker's original (1996) study (he subsequently frequently returned to conjoining the study of Kant and Smith), is that Kant treats the significance of the Wealth of Nations not exclusively as an economic, but also as a political work. Also, Kant sees the connection between financial and commercial independence and tutelage (or
+
+Unmündigkeit, that is, 'without voice'), and Fleischacker makes a promising case that this is, in fact, derived from Smith who (like Hume) greatly valued the interdependent independence that modern commercial life provided. 38
+
+In addition to tracking some of Smith's views on the relationship between state and religion in Perpetual Peace (1795), Fleischacker notes that there are clear allusions to Smith in Perpetual Peace related to the role of debt financing of war. (Since Kant was familiar with ''Of Public Credit'' ('The Contest of the Faculties' (7:93)), he may have gotten some of these claims from Hume.)
+
+Even so, Kant offers six reasons for worrying about debt finance in the context of war (and war preparation) and thereby undermine what he takes to be the natural pacifism of what he calls'commercial republics' (we might say'liberal democracy'):
+
+- 1) the ability to take on potentially unlimited debt prolongs war (8:345). - 2) The availability of debt as a state instrument incentivizes aggressive, mercantile elements in society, when they have access to power, to pursue unpacific foreign policy. (8.345) - 3) Debt financing pushes costs of war onto future generations (and so undermines the incentive to seek peace). (8.311) - 4) It shifts partial control over the war from politics to financial markets. 39
+
+- 5) International debt generates systemic risk through contagion. It's worth quoting the passage because it is rarely mentioned: 'prohibition [of noninvestment state.debt] ought all the more to serve as the basis of a preliminary article of perpetual peace, since the ultimately unavoidable bankruptcy of one state would necessarily involve other states in the loss, though at no fault of their own, which would thus cause them a public injury.' (8:346) - 6) Punitive debt (in the service of reparations) incentivizes war. (8.351)
+
+Three comments. First, the first four of these claims have counterparts in WN. The fifth seems wholly original in Kant, although Smith has a lot of material on domestic financial contagion in Book II of WN. The sixth is original to Kant, although as I show in the next section, was noted by Bentham while also engaging with WN. 40
+
+Second, in all six of these there is an understanding that also runs through the Wealth of Nations and its polemic against mercantilism: that war is profitable for some well-connected interests, while damaging to the rest of society (and other countries). Third, this pessimism about debt's role represents a change from'Idea for a Universal History' (1784) where Kant thought that great financial debt would prevent wars (8:28; see also page 8:113'On the Common Saying' from
+
+1793). So, this does make one wonder to what degree he really agreed with Smith in the mid-1780s (as Fleischacker implies ).
+
+My suggestion, and this goes beyond Fleischacker's argument, is that Smith's federalism as a political structure for Britain's empire, itself helped shape Kant's proposal for perpetual peace, if we accept the argument that Kant had intimate familiarity with WN when he wrote Perpetual Peace. There are two arguments to suggest that Smith's federalism is important to Kant. The first strikes me as rather solid, the second is wholly speculative.
+
+First, recall the passage that I have treated as Smith's argument of functional integration near the end of Wealth of Nations: 'Were all nations to follow the liberal system of free exportation and free importation, the different states into which a great continent was divided would so far resemble the different provinces of a great empire.' (WN 4.5.b.39, 538)
+
+Now, Perpetual Peace adopts this functionalist argument for political integration in terms of regional blocks that grow organically and peacefully and that maintain pacific relations with others (which is why it is often trotted out in discussions of the EU). 41 Kant does not use the same terms as Smith, but they both offer functional arguments from trade to economic and political integration of continental systems.
+
+In Perpetual Peace, the functional argument operates on two levels. The first level is as a means to escape the Hobbesian state of nature that first dispersed people throughout the globe: 'It was trade that first brought them into peaceful relations with one another and thereby into relationships based on mutual consent, community, and peaceful interactions even with remote peoples.' 42 So trade makes a widely dispersed peaceful interaction possible.
+
+The second level is after the establishment of states. For Kant thinks that a system of well-designed commercial republics may secure perpetual peace because they have a natural pacifism. (8.311) For'It is the spirit of trade, which cannot coexist with war, which will, sooner or later, take hold of every people. Since, among all ordered powers subordinate to state authority, the power of money is likely the most reliable, states find themselves forced (admittedly not by motivations of morality) to promote a noble peace' (8.368). 43
+
+Kant's is a kind of sociological argument. In virtue of the spirit of trade being a persistent and so a reliable social force, it becomes the preferred means of public policy and to promote political integration. On some readings of the two functional arguments, the effect (viz., pacific relations/noble peace) may well not be intended by the state actors. So, these may also be thought to instantiate
+
+unintended consequence arguments. This sociological argument is my main reason for thinking that Kant is indebted to Smith.
+
+The second, much more speculative argument for suggesting that Kant is indebted to Smith is based on a somewhat odd passage:
+
+'[N]ature guarantees perpetual peace through the mechanism of human inclinations itself. To be sure, it does this with a certainty that is not sufficient to foretell the future of this peace (theoretically), but which is adequate from a practical perspective and makes it a duty to work toward this (not simply chimerical) goal.' 44
+
+The underlying claim is fairly straightforward. Kant reassures his reader that his normative project (federal, regional peace blocks) makes no unrealistic assumptions about human nature because it relies on mostly self-regarding dispositions and the social force of the pursuit of wealth. Because his project is possible we have a duty to pursue it and, thereby, work with the tendency of providence.
+
+It is notable that Kant himself adds for good measure that his goal is feasible, and not a'chimera.' Smith also uses'chimera' at a key point. I quote the passage, where Smith re-introduces his parliamentary union project that would make of
+
+the Northern Atlantic Ocean a giant free trade zone. After noting the obstacles derives from'the private interest of many powerful individuals,' Smith writes,
+
+'Without, however, pretending to determine whether such a union be practicable or impracticable, it may not, perhaps, be improper, in a speculative work of this kind, to consider how far the British system of taxation might be applicable to all the different provinces of the empire, what revenue might be expected from it if so applied, and in what manner a general union of this kind might be likely to affect the happiness and prosperity of the different provinces comprehended within it. Such a speculation can at worst be regarded but as a new Utopia, less amusing certainly, but not more useless and chimerical than the old one.' (WN 5.3.3.1, 934)
+
+Taken by itself the use of'chimera' and its cognates would surely be a coincidence. But in the context of Fleischacker's argument, and my own evidence about the connection between Wealth of Nations and Perpetual Peace, it's not improbable that in Perpetual Peace it reflects a Kantian homage to Smith.
+
+This concludes my two-fold argument about Smith's impact on one of Kant's most famous works. In the next section, I show there is a similar connection between Smith and Bentham with even better evidence.
+
+## III. Bentham and Smithian Federalism
+
+Thanks to Pitts' A turn to empire Bentham's anti-imperial sensibility is well known. But her explicit treatment of a work known as'A Plan for an Universal and Perpetual Peace' (hereafter: A Plan) is brief. In what follows I explain four key features of A Plan, and I also illustrate how Jeremy Bentham (1748-1832) is indebted to Smith and addresses Smith's practical objection to de-colonization by using Smith's principles against Smith.
+
+A Plan is the fourth of the essays published in 1839, under the title Principles of International Law, edited by Bowring. 45 In his edition, Bowring suggests the essays were manuscripts written in 1786-9 (536). This timing matters because we know Bentham was then immersed in Smith's Wealth of Nations because he published the first edition of his Defence of Usury, which included his famous criticism of Smith's views of usury, in 1787, from St. Petersburg, Russia. 46
+
+Unfortunately, as Pitts notes, contemporary editors strongly suspect that Bowring re-organized these manuscripts in all kinds of ways. 47 In fact, Gunhild Hoogensen suggests that A Plan is itself a complex (even'Frankensteinian') compilation of three essays: 'Pacification and Emancipation,' 'Colonies and Navy,' and'Cabinet No Secresy.' 48 It's, thus, pretty clear that while this material can be used to understand Bentham's reception and sources, one should be cautious in using it to understand Bentham's intentions. In what follows I focus on sources and implied impact. Where I seem to speak of Bentham's implied intentions it should be understood that I really merely mean to be characterizing A Plan. 49
+
+A Plan defends four proposals, the first two mentioned at outset: '1. The reduction and fixation of the force of the several nations that compose the European system;--2. The emancipation of the distant dependencies {possessions} of each state.' (546) When Bentham speaks of the'European system' he is primarily and explicitly focused on France and England. (At one point the naval and political contexts of Spain and Holland enter in, too.) He believes'that supposing Great Britain and France thoroughly agreed [to arms reduction], the principal difficulties would be removed to the establishment of a plan of general and permanent pacification for all Europe.' (547) As Bentham notes in a footnote (546) the former (1) he is building on an argument by Dean Tucker, and the latter (2) by James Anderson. 50
+
+Tucker's argument was not unique because versions of it had circulated since 1713 when Saint-Pierre had proposed arms reduction as a means to perpetual peace; Saint-Pierre's proposals also caught Rousseau's and Kant's attention. 51 Interestingly enough, in 1841 The National System of Political Economy, in
+
+chapter 11 of Book 2, Smith's great critic, Friedrich List, claims'Adam Smith naturally understood under the word'peace' the'perpetual universal peace' of the Abbé St. Pierre.' 52
+
+As Bentham's way of phrasing it already indicates, Anderson was not against colonizing as such, but he thought it made more sense to do so in underdeveloped parts of Great Britain (especially Scottish highlands). As Salim Rashid notes, this was part of a wider trend in the aftermath of American independence, and arguably built on the experience of colonizing Ireland. 53
+
+Lurking in A Plan is the idea that under modern conditions wars of conquests are costly and self-defeating, although they may be profitable for a part of the (conquering) nation. This echoes Smith's critique of mercantilism. We have encountered a similar argument in Kant.
+
+There is an another important proposal in Bentham's A Plan: (3) 'the establishment of a common court of judicature for the decision of differences between the several nations, although such court were not to be armed with any coercive powers.' (547) This echoes the 1623 New Cineas by Emeric Crucé and also William Penn's 1693 pamphlet "Essay toward the Present and Future Peace of Europe." 54 Penn's pamphlet was probably better known than Crucé's, but I
+
+have not seen either mentioned by Kant, Bentham, or Smith so will leave these aside here. 55
+
+Arbitration of conflict and functional integration through trade becomes a mainstay of later liberals like Cobden and Bright during the middle of the nineteenth century. 56 This culminates in the first free trade treaty, the (1860) Cobden-Chevalier treaty between France and Great-Brittain, including its adoption of most favored nation status device. 57 The publication of A Plan is, thus, important to the development of propagating functional integration in liberalism.
+
+Bentham also anticipates President Wilson's hostility to secret diplomacy: 'That secresy in the operations of the foreign department ought not to be endured in England; being altogether useless and equally repugnant to the interests of liberty and to those of peace.' (554) This rejection of secret diplomacy seems original to Bentham.
+
+The Smithian elements in A Plan have been underplayed in the literature. For example, the argument against foreign colonies rests on the Smithian claim that they increase the chance of wars. But the connection with Smith's writings is integral to the argument of A Plan (without wishing to deny its distinctivenessit is not derivative of Smith, but wholly Benthamite in character). In what follows
+
+I emphasize two features. First, the indebtedness of Bentham to Smith's actual political economy. Second, what ties many elements of A Plan together is an attempt to remedy the rent-seeking problem - it would have been Smith's key objection to the feasibility of Bentham's proposals - that some ruling parts of a state benefit from war and monopoly.
+
+First, Bentham builds on Smith's critique of the Mercantile system in his own political economy. Smith had argued that while monopolistic trade with foreign colonies was highly profitable for some it came at the expense of consumers, undermined domestic investment, and involved the tax-payers in open-ended costly wars to defend often strategically vulnerable dependencies. As Smith puts it, 'Britain derives nothing but loss from the dominion which she assumes over her colonies.' (WN 4.7.c.65, 616) Bentham accepts this argument, but unlike Smith (who had made an exception to his free trade principles on this very point) Bentham also attacks the navigation act in A Plan.
+
+In fact, A Plan argues from normative and theoretical Smithian premises to an anti-Smithian prescriptive conclusion. For the very paragraph after WN 4.7.65, starts with: 'To propose that Great Britain should voluntarily give up all authority over her colonies, and leave them to elect their own magistrates, to enact their own laws, and to make peace and war as they might think proper, would be to propose such a measure as never was, and never will be adopted, by any nation
+
+in the world. No nation ever voluntarily gave up the dominion of any province, how troublesome soever it might be to govern it, and how small soever the revenue which it afforded might be in proportion to the expence which it occasioned.' (WN 4.7.66, 616-7). That is, Smith thinks on economic grounds Britain ought to give up her colonies if they wish for independence, but he thinks it is unrealistic to accept voluntary dismembering from the center of any polity. 58 Smith states that it is pride and, more important, the'private interests' of governing parts of the state that prevent it. In what follows I show how Bentham engages with this objection and that's why I emphasize his use of Smith's principles to do so (even where Bentham may be drawing on other sources, too).
+
+For, the stated aim of A Plan is'The objection, and the only objection to it, is the apparent impracticability of it;---that it is not only hopeless, but that to such a degree that any {every} proposal to that effect deserves the name of visionary and ridiculous. This objection I shall endeavour in the first place to remove; for the removal {overcoming} of this prejudice may be necessary to procure for the plan a hearing.' (546; emphasis added.) So, Bentham is offering a kind of immanent development of Smith's position in order to undermine Smith's feasibility objections to it.
+
+Donald Winch claims that Bentham's fundamental axiom, 'That the increase of growing wealth every nation in a given period [sic], is necessarily limited by the
+
+quantity of capital it possesses at that period' (546) 59 is a subtle deviation from Smith. 60 Because according to Winch for Smith trade is limited by'new markets.' Winch undoubtedly gets the spirit of Smith's position right (the division of labor is limited by size of market). But he understates how Smithian Bentham's position really is. Here's a key passage from Smith:
+
+The extent of the home-trade and of the capital which can be employed in it, is necessarily limited by the value of the surplus produce of all those distant places within the country which have occasion to exchange their respective productions with one another. That of the foreign trade of consumption, by the value of the surplus produce of the whole country and of what can be purchased with it. That of the carrying trade, by the value of the surplus produce of all the different countries in the world. Its possible extent, therefore, is in a manner infinite in comparison of that of the other two, and is capable of absorbing the greatest capitals. (WN 2.5.36, 374)
+
+I agree with Winch that this states that effective demand limits trade. But, as Smith also indicates in the first quoted sentence, capital is needed for distant trade. It is a necessary condition for trade; and its stock grows only by savings, greater productivity, or income from rents. Because Bentham only emphasizes capital as a constraint, Winch is right to suggest that it is'A simplified and more dogmatic version of Smith's economic ideas.'
+
+But this is not the only economic idea that Bentham deploys from Smith. For example, after agreeing with Smith (and against mercantile and physiocratic systems) that of all branches of the economy, 'no one is to such a degree more beneficial to the public than the rest, as that it should be worth its while to call forth the powers of law to give it an advantage. But if there were any, it would unquestionably be the improvement and cultivation of land.' (547) And this is exactly Smith's position (especially for small-landholding) because (as Smith notes) it is least risky: 'The capital of the landlord, on the contrary, which is fixed in the improvement of his land, seems to be as well secured as the nature of human affairs can admit of.' (WN 3.1.3, 378)
+
+In fact, Bentham claims that'It is impossible that while there is ground untilled, or ground that might be better tilled than it is, that any detriment should ensue to the community from the withholding or withdrawing capital from any other branch of industry, and employing it in agriculture.' (550) This echoes Smith's arguments against entails and primogeniture: 'Compare the present condition of those [great] estates with the possessions of the small proprietors in their neighbourhood, and you will require no other argument to convince you how unfavourable such extensive property is to improvement.' (WN 3.2.7, 386)
+
+Another key argument of A Plan is the following:
+
+'[R]easons against distant dominions may be found in a consideration of the good of the government. 61 Distant mischiefs make little impression on those on whom the remedying of them depends. A single murder committed in London makes more impression than if thousands of murders and other cruelties committed in the East Indies. The situation of Hastings, only because he was present, excited compassion in those who heard the detail of the cruelties {enormities} committed by him with indifference.' (547-548)
+
+Here A Plan uses Smith's moral psychology (that distance affects our motivation to act) to argue for Smith's claim that principal-agent problems beset colonial government. Smith thought the East India charter should be revoked precisely because it was tyrannical and principal-agent problems could not be overcome. 62 Compassion, a Latinate synonym for (the Greek inspired) sympathy, plays a much bigger role in Smith's moral philosophy than Bentham's! I doubt Smith applies it to the Hastings impeachment, so that's especially remarkable. 63 Other Smithian articulated principles in A Plan are that the government should not promote export subsidies (bounties), nor use duties or promote taxes on imports of other countries' manufacturers.
+
+So much for the indebtedness of Bentham to Smith's political economy. I now move to Smith's key objection to the feasibility of Bentham's proposals. For so far, second, it looks like A Plan does not address the issue of honor/pride, and so seems to ignore Smith's concern that voluntary, peaceful de-colonization is never
+
+to be expected. But A Plan tackles this in an ingenious way. Bentham points out that if a (peace) treaty is used to set favorable conditions for oneself and de facto is felt as humiliating by the other side, then that treaty must be thought unstable, even an invitation to further war. Bentham uses Rome's first peace treaty with Carthage as an example (550; we may invoke the treaty of Versailles.) That is, A Plan proposes that all states should address each other's sense of honor and fears when they make treaties with each other. Lurking in Bentham is the idea that government rests on public opinion. This is a view more ordinarily associated with Hume, but as Paul Sagar has rightly emphasized, it's also in Smith. 64
+
+As noted, one of Bentham's main proposals in A Plan is a court of arbitrage that eventually may get enforcement powers and require'a clause guaranteeing the liberty of the press in each state.' (554) This is the plank of his proposal that is introduced by A Plan when Bentham confronts the objection that his plan is visionary. He writes:
+
+'Can the arrangement proposed be justly styled visionary, when it has been proved of it---that
+
+1. It is in the interest of the parties concerned. 2. They are already sensible of that interest. 3. The situation it would place them in is no new one, nor any other than the original situation they set out from.' (552)
+
+At this point A Plan argues a court of arbitrage is not a new invention but exists in several (federal) contexts: The American confederation, The German diet., The Swiss league.' (552) 65 Such a court would, thus, be the building block for (4) federalism. A Plan proposes that such a court to be instituted alongside a disarmament treaty in which the arms savings are publicly announced such that the benefits of peace are made clear to public opinion.
+
+That is, what ties many elements of A Plan together is an attempt to overcome the politically salient fact that some ruling parts of a state benefit from war and monopoly. On my reconstruction Bentham's response centers on the interlocking effects of publicity, no secrecy in diplomacy, a free press, public opinion and the avoidance of humiliating treaties. Once federal and arbitration mechanisms are in place, these, in turn, can introduce further mechanisms to reduce the possibility and attractiveness of mutual war.
+
+## Conclusion:
+
+In this paper I have recovered a feature of the Benthamite and Kantian readings of Smith's Wealth of Nations. The reception by Bentham and Kant suggests that Smith's Wealth of Nations galvanized a political argument for economic and political integration through federal institutions that may bring about peaceful relations against the spirit of war promoted by European mercantile projects. But
+
+Smith also leaves key objections to this argument in place. Kant and Bentham both offer related institutional and political mechanisms to tackle these objections, and thereby develop the political institutions that become characteristic of liberalism.
+
+By bringing to the foreground the shared Smithian roots of their perpetual peace plans, we come to appreciate Bentham and Kant as belonging to a shared movement, one, for all their individual flaws, originally dedicated to peace and the progressive, political unification of humankind.
+
+## Eric Schliesser, Amsterdam. May 23, 2024, nescio2@yahoo.com
+
+1 I thank an audience at University of Arizona, Waseda University, David Schmidtz, an anonymous referee and the readers of my blog for helpful suggestions.
+
+2 See the original'preface' to John Rawls The Theory of Justice: Revised edition, (Harvard University Press 1999 [1971]), xviii.
+
+3 See Michel Foucault The Birth of Biopolitics: Lectures at the Collège de France: 1978-1979, translated by Graham Burchell, (Palgrave MacMillan, 2008), 41.
+
+4 For Rawls' use of Elie Halévy see Theory of Justice, 49 n. 3. My claim is compatible with the argument promoted by David Levy and Sandra Peart that'John Rawls's reading of TMS, now questioned…seems to have been limited to the British Moralists extracts ( Rawls 1971: 161).' Sandra Peart &amp; David M. Levy, 'Adam smith and the state: language and reform,' in Berry, Christopher J., Maria Pia Paganelli, and Craig Smith, eds. The oxford handbook of Adam Smith. (OUP 2013), 378. For details on Foucault, see Eric Schliesser "Foucault on Hume: Some Preliminaries." Cosmos+ Taxis 1-2 (2023): 45-58.
+
+5 Rosen, Frederick. Classical utilitarianism from Hume to Mill. (Routledge, 2005).
+
+6 I am indebted to a referee for putting the significance of my argument like this.
+
+7 Levy, Jacob T. "Federalism and the old and new liberalisms." Social Philosophy and Policy 24.1 (2007): 306326. Levy quotes Benjamin Constant, 'On Municipal Power, Local Authorities, and a New Kind of Federalism,' in Principles of Politics Applicable to All Representative Governments, in Constant, Political Writings, ed. and trans. Biancamaria Fontana (Cambridge: Cambridge University Press, 1988), 253-54. See also Eric Schliesser. (2024). 'Once Upon A Time in America: Retelling the Tale of New Federalism.' Isonomia Quarterly, 2(1). https://isonomiaquarterly.com/archive/volume-2-issue-1/once-upon-a-time-in-america-retelling-the-tale-of-newfederalism/ Some material in the first section of the present paper first appeared there.
+
+8 In her'Introduction' to her translation and edition, Benjamin Constant: Political Writings, (Cambridge University Press, 1988) Biancamaria Fontana writes, 'The 1806 draft [of Constant's Principle of Politics ] in particular can be read as a close commentary on Smith's Wealth of Nations,' 32., (Progress Publishers 1977), 163. The translator
+
+9 In: Marx, Karl Economic and Philosophic Manuscripts of 1844 seems to be Martin Milligan. See also https://www.marxists.org/archive/marx/works/1844/dfjahrbucher/outlines.htm
+
+10 Pitts, Jennifer. A turn to empire: The rise of imperial liberalism in Britain and France. (Princeton University Press, 2005), 54.
+
+- 11 Of course, many commonalities among Smith, Bentham, Kant, and Constant are undoubtedly the effect of common sources some of which I call attention to. There are many peace projects throughout the eighteenth century some of them federal in character. So, rather than exhaustively describing each of their projects and how these relate to common sources, I am primarily focused on the way one may discern Smith's influence on Bentham and Kant. For background, see, e.g. Annemarie van Heerikhuizen "How God disappeared from Europe: visions of a united Europe from Erasmus to Kant." The European Legacy 13.4 (2008): 401-411. George M. Gross "Spinoza and the federal polity." Publius: The Journal of Federalism 26.1 (1996): 117-136. - 12 I follow convention established by the Glasgow Edition of citing and quoting Wealth of Nations by paragraph and page-number as reprinted by Liberty fund. - 13 Coase, Ronald H. "The wealth of nations." Economic Inquiry 15.3 (1977): 323. I thank Barry Weingast for the reference. - 14'We may, therefore, give to this influence what name we please; we may call it by the invidious appellations of corruption and dependence; but some degree and some kind of it are inseparable from the very nature of the constitution, and necessary to the preservation of our mixed government.' David Hume'Of the Independency of Parliament,' par. 6. William Selinger, Parliamentarism: from Burke to Weber (Cambridge UP, 2019), 51. - 15 Cf. Schliesser, Eric. Adam Smith: Systematic philosopher and public thinker. (Oxford University Press, 2017) chapter 7 &amp; Ince, Onur Ulas. "Adam Smith, settler colonialism, and limits of liberal anti-imperialism." The Journal of Politics 83.3 (2021): 1080-1096. - 16 For a sophisticated analysis of the emergence of different interpretations of Smith's trade theory as well as a nice summary of a more textually grounded interpretation, see Schumacher, Reinhard. "Altering the pattern of trade in the wealth of nations: Adam Smith and the historiography of international trade theory." Journal of the History of Economic Though t 42.1 (2020): 19-42. - 17 Sen has argued, not implausibly, that Smith anticipates his own views on'market-inclusive but state-dependent policies' to fight famines. See Sen, Amartya. "Adam Smith and economic development." Adam Smith-His life, thought, and legacy (2016): 281-302. See also Williams, Callum. "Famine: Adam Smith and Foucauldian Political Economy." Scottish Journal of Political Economy 62.2 (2015): 171-190. - 18 For a different argument on Smith's views on state building, see Eric Schliesser'Adam Smith on Political Leadership,' In R. J. W. Mills &amp; Craig Smith (eds.), The Scottish Enlightenment: Human Nature, Social Theory and Moral Philosophy: Essays in Honour of Christopher J. Berry. (Edinburgh University Press, 2021), 132-163. - 19 Birchfield, Vicki L., John Krige, and Alasdair R. Young. "European integration as a peace project." The British Journal of Politics and International Relations 19.1 (2017): 3-12. They trace this back to'Wilsonian liberalism.' - The view is also associated with Hayek, see Masini, Fabio. "Hayek's Federalism and the Making of European Integration." Cosmos+ Taxis 10 (2022). - 20 Lurking in the same paragraph is also a uniqueness claim of the British model, 'The government of the English colonies is perhaps the only one which, since the world began, could give perfect security to the inhabitants of so very distant a province.' - 21 Paganelli, Maria Pia, and Reinhard Schumacher. "Do not take peace for granted: Adam Smith's warning on the relation between commerce and war." Cambridge Journal of Economics 43.3 (2019): 785-797. - 22 Eric Schliesser (2021) 'No Instructions for the Art of Peace: Molesworth's An Account of Denmark'https://oll.libertyfund.org/reading-room/Schleisser\_Molesworth\_Denmark - 23 Benians, E. A. 'Adam Smith's Project of an Empire.' Cambridge Historical Journal 1(3) (1925), 249-83. - 24 I have explored the echoes between Smith's project and William Penn's federal projects (which also deploy the language of'estates general') in Schliesser'Once Upon A Time in America.' - 25'That the foregoing plan of government is practicable, no one can doubt, who considers the resemblance that it bears to the commonwealth of the United Provinces, a wise and renowned government.'-Hume'Idea of a Perfect Commonwealth' par. 66 (the whole paragraph is important). Adair, Douglass. "That Politics May Be Reduced to a Science: David Hume, James Madison, and the Tenth Federalist." Huntington Library Quarterly 20.1 (1956): 343-360. Plans for domestic federalism go back to Thomas More's Utopia. (Paradoxically, a lot of texts in this period that propose federal projects simultaneously deny being utopian.) Quentin Skinner Liberty Before Liberalism, (Cambridge University Press, 1998), 30-31 put me on this trail. - 26 For more on Spinoza's federalism, see George M. Gross, Spinoza and The Federal Polity, Publius: The Journal of Federalis m, Vol.26(1), 1996: 117-136, and Schliesser, Eric. "Spinoza and Economics." A Companion to Spinoza (2021): 410-421. - 27 Smith may not have read Spinoza's Political Treatise. But he was familiar with an intermediary source, Montesquieu's The Spirit of the Laws (1748), part II, book 9, chaps. 1-3. - 28 Smith's project also echoes features of the so-called (1754) Albany plan, whose most famous proponent was Benjamin Franklin (with whom Smith was familiar). In this plan the colonists or their representatives would select - a "Grand Council" that had the power to levy taxes. But this Council would remain distinct from the Westminster
+
+parliament. The Albany Plan also involved Smith's eventual critic Thomas Pownall. Pincus, Steve. 'Confederal Union and Empire: Placing the Albany Plan (1754) in Imperial Context.' Journal of British Studies 62.3 (2023): 589-617.
+
+- 29 William Blackstone (1765-1769) Commentaries on the Laws of England: Book the First, Chapter 3, 206 https://www.gutenberg.org/files/30802/30802-h/30802-h.htm#Chapter\_the\_third - 30 Blackstone, op. cit, chapter 7, 258. https://www.gutenberg.org/files/30802/30802-h/30802h.htm#Chapter\_the\_seventh - 31 In practice, a rather small oligarchy controlled political affairs. See Israel, Jonathan. The Dutch Republic: its rise, greatness, and fall 1477-1806. (Oxford University Press, 1995, chapter 13. - 32 I thank Barry Weingast for discussion. - 33 I thank Maria Pia Paganelli for discussion. - 34 In addition to Benians, 'Adam Smith's Project of an Empire,' see also Martin, Ged. "Empire federalism and imperial parliamentary union, 1820-1870," The Historical Journal 16.1 (1973): 76-80. Palen, Marc-William'Adam Smith as Advocate of Empire: 1870-1932.' The Historical Journal, 57(1), 2014: 186. - 35 Fleischacker, Samuel. "Values behind the market: Kant's response to the Wealth of Nations." History of political thought 17.3 (1996): 379-407. Throughout, I use the translation as found in Kant, Immanuel. Toward perpetual peace and other writings on politics, peace, and history. Edited by P. Kleingeld and translated by David L. Colclasure. (Yale University Press, 2006). All my page references in the text are to the Akadamie Edition. - 36 Von Dohm, C.W. Über das physiokratische System in Das deutsche Museum 10, (1778): 289-324 it was published a a book in 1782. - 37 Liberles, Robert. "Dohm's Treatise on the Jews: A Defence of the Enlightenment." The Leo Baeck Institute Yearbook 33.1 (1988): 29-42. - 38 On this theme see Berry, Christopher J. "Adam Smith: commerce, liberty and modernity." Philosophers of the Enlightenment (1990): 113-32. - 39 This seems implied, but not wholly explicit. - 40 In discussion, Maria Pia Paganelli has suggested it could be related to a sense of honor and particularly to the desire of recognition of self-esteem and so be given a Smithian origin. - 41'But peace can be neither brought about nor secured without a treaty among peoples, and for this reason a special sort of federation must be created, which one might call a pacific federation ( foedus pacificum ). This federation would be distinct from a peace treaty ( pactum pacis ) in that it seeks to end not merely one war, as does the latter, but rather to end all wars forever…For if fortune so determines that a powerful and enlightened people can constitute itself as a republic (which according to its nature necessarily tends toward perpetual peace), then this republic provides a focus point for other states, so that they might join this federative union and thereby secure the condition of peace among states in accordance with the idea of international right and gradually extend this union further and further through several such associations.' (Kleingeld, Perpetual Peace, 80 (8:356)). - 42 Kleingeld, Perpetual Peace, 88 (8:364). - 43 Kleingeld, Perpetual Peace, 92. - 44 Kleingeld, Perpetual Peace, 93 (8:368). - 45 In The Works of Jeremy Bentham, Part VIII. (William Tait Edinburgh, 1839). All my page-numbers are references to this edition, which is available here:
+
+https://www.google.nl/books/edition/Works\_of\_Jeremy\_Bentham/AusJAAAAIAAJ?hl=en&amp;gbpv=1&amp;pg=PA54 6&amp;printsec=frontcover
+
+The text of A Plan can also be perused here: https://www.laits.utexas.edu/poltheory/bentham/pil/pil.e04.html. Some of the material in A Plan was also published in 1843 as Benthamiana: selects extracts (edited by John Hill Burton).
+
+46 Hollander, Samuel. "Jeremy Bentham and Adam Smith on the usury laws: A'Smithian'reply to Bentham and a new problem." Journal of the History of Economic Thought 6.4 (1999): 523-551; Paganelli, Maria Pia. "In medio stat virtus: An alternative view of usury in Adam Smith's thinking." History of Political Economy 35.1 (2003): 21.1 (2007):
+
+- 21-48. Persky, Joseph. "Retrospectives: From usury to interest." Journal of Economic Perspectives 227-236. - 47 Pitts A turn to empir e, 297 n. 43. - 48 Hoogensen, Gunhild. "Bentham's international manuscripts versus the published'Works'." Journal of Bentham Studies 4 (2001): 1-17. This made me wonder if the title of A Plan was even original (since it's so Kantian inflected, yet Kant's Perpetual Peace is from 1795), but Hoogensen explains this is based on an original, rudiment outline in Bentham's hand. This title of this rudiment sheet'itself is titled Pacification and Emancipation Ordo International.'
+
+49 Philip Schofield kindly shared an uncorrected transcript by Benjamin Bourcier of the manuscripts in box 25 of the UCL Bentham Papers. I have checked all my Bentham quotes against this transcript. If this transcript is correct,
+
+Bowring clearly didn't just change texts around, but also changed punctuation and reworded things. In most cases the meaning seems unaffected, and I have left Bowring's text as is. Text in curly brackets '{}' reflect occasions where the transcript to suggest a different wording; texts in regular brackets '[]' are my additions. Unfortunately, Bowring did not publish the following passage transcribed by Bourcier: 'This is my creed.
+
+Did it depend on me I would not obtain for my own nation the smallest privilege of which I would not impart in equal measure to every other nation… In much of this to speak form vague and general recollection, I have been forestalled by Dr Tucker: in other parts by Dr Smith. Alas! I wish I could say superseded!'
+
+- 50 Cain, P. (2011) 'Bentham and the Development of the British Critique of Colonialism,' Utilitas 23(1): 1-24. See, for example, van den Dungen, Peter. "The Abbe de Saint-Pierre and the English'irenists' of the 18th century - 51 (Penn, Bellers, and Bentham)." International Journal on World Peace 17.2 (2000): 5-31. - 52 - The National System of Political Economy by Friedrich List, trans. Sampson S. Lloyd, with an Introduction by J. Shield Nicholson (Longmans, Green and Co., 1909), 98. See also List, op. cit., Book 3, chapter four, 'The System of Values of Exchange (Falsely termed by the School, the ''Industrial' System)-Adam Smith.' - 53 Rashid, Salim. 'James Anderson, Fisheries and Regional Economic Development in Scotland,' History of Economic Ideas, 17(1): 2009: 9-31. - 54 New Cineas seems to have been relatively obscure, although because Leibniz mentions it in a letter to SaintPierre I have wondered if it was better known. See Villaverde, María José. "The long road to religious toleration: Emeric Crucé predecessor of the enlightenment." History of European Ideas 43.4 (2017): 288-301. - 55 See Schliesser (2024). 'Once Upon A Time in America,' op. cit. - 56 Christopher Brooke, "The Idea of a European Union" (unpublished MS). - 57 Hobson, J.A. Richard Cobden: The International Man. (Henry Holt and Company, 1919), - 58 This puts the wholly pacific dissolution of Czechoslovakia and even Brexit in stark relief. - 59 The Bourcier transcript reads: 'That the encrease of growing wealth of every nation is a given period necessarily limited by the quantity of capital it possesses at a given period at that period.' - 60 Winch, Donald "Bentham on colonies and empire." Utilitas 9(1) (1997): 147-154. - 61 The manuscript reads: 'Reasons against distant dominion - The good of the governed.' - 62 For discussion, see Muthu, Sankar. "Adam Smith's critique of international trading companies: theorizing'globalization' in the Age of Enlightenment." Political Theory 36.2 (2008): 185-212. Collins, Gregory M. "The limits of mercantile administration: Adam Smith and Edmund Burke on Britain's East India company." Journal of the History of Economic Thought 41.3 (2019): 369-392. Donoghue, Mark. "Adam Smith and the honourable East India company." History of Economics Review 77.1 (2020): 1-19. - 63 Hasting's great critic, Burke, by contrast wanted to preserve and improve colonial administration. - 64 Sagar, Paul. The opinion of mankind: sociability and the theory of the state from Hobbes to Smith. (Princeton University Press, 2018). Hume's treatment of De Wit and Temple in the History (and by implication'A Perfect Commonwealth') is explicitly mentioned in A Plan. For background see also Schliesser, Eric. "Hume on affective leadership." In Hume's moral philosophy and contemporary psychology. (Routledge, 2018). 311-333. - 65 Presumably the reference to the American confederation reinforced the idea that these manuscripts are from late 1780s. The New Cineas had also proposed a court of arbitrage.
+
+Here is the argument map for that paper:
+{
+  "ADUs": {
+    "Main claim": {
+      "type": "Major Claim",
+      "text": "Bentham and Kant are linked in their politics and political theory through a shared, substantially similar debt to Smith's Wealth of Nations."
+    },
+    "Untitled 1": {
+      "type": "Claim",
+      "text": "Smith's plan influenced Bentham and Kant in their federal projects."
+    },
+    "Untitled 2": {
+      "type": "Claim",
+      "text": "Ideas about trade, federalism, and peace were not just preoccupations of Kant's idiosyncratic Perpetual Peace but helped define the whole political tradition."
+    },
+    "Areas of agreement in early liberalism": {
+      "type": "Claim",
+      "text": "On some key political questions that are foundational to liberalism, Bentham and Kant drew strikingly similar lessons from Smith, and built on his ideas in similar direction."
+    },
+    "Untitled 3": {
+      "type": "Claim",
+      "text": "Bentham and Kant seem to have been unaware of each other's proposals with respect to federalism."
+    },
+    "Untitled 4": {
+      "type": "Claim",
+      "text": "Kant and Bentham each had intellectual debts to Smith."
+    },
+    "Federalism and Perpetual Peace helped define the political tradition of early liberalism": {
+      "type": "Claim",
+      "text": "Even very otherwise-different strands of early liberalism found agreement on a constellation of ideas about trade, federalism, and peace."
+    },
+    "Untitled 5": {
+      "type": "Claim",
+      "text": "The reception by Bentham and Kant of Smith's Wealth of Nations suggests that Smith’s Wealth of Nations galvanized a political argument for economic and political integration through federal institutions that may bring about peaceful relations against the spirit of war promoted by European mercantile projects."
+    },
+    "Untitled 6": {
+      "type": "Claim",
+      "text": "Adam Smith's Wealth of Nations left open key objections to the politicial argument for federalism, in pursuit of peaceful relations, that Wealth of Nations had galvanized."
+    },
+    "Untitled 7": {
+      "type": "Claim",
+      "text": "Kant and Bentham both offer related institutional and political mechanisms to tackle these objections, and thereby develop the political institutions that become characteristic of liberalism."
+    },
+    "Adam Smith's Wealth of Nations proposed a species of federalism": {
+      "type": "Claim",
+      "text": "Smith proposed a new kind of imperialism, which we would describe as a species of 'federalism.'"
+    },
+    "Untitled 8": {
+      "type": "Claim",
+      "text": "By bringing to the foreground the shared Smithian roots of Bentham and Kant's perpetual peace plans, we come to appreciate Bentham and Kant as belonging to a shared movement dedicated to peace and the progressive, political unification of humankind."
+    }
+  },
+  "relations": [
+    {
+      "src": "Areas of agreement in early liberalism",
+      "tgt": "Untitled 2",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 2",
+      "tgt": "Untitled 1",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 3",
+      "tgt": "Untitled 1",
+      "type": "attack"
+    },
+    {
+      "src": "Untitled 5",
+      "tgt": "Federalism and Perpetual Peace helped define the political tradition of early liberalism",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 7",
+      "tgt": "Untitled 6",
+      "type": "attack"
+    },
+    {
+      "src": "Untitled 6",
+      "tgt": "Federalism and Perpetual Peace helped define the political tradition of early liberalism",
+      "type": "attack"
+    },
+    {
+      "src": "Federalism and Perpetual Peace helped define the political tradition of early liberalism",
+      "tgt": "Untitled 4",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 4",
+      "tgt": "Untitled 1",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 1",
+      "tgt": "Main claim",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 8",
+      "tgt": "Adam Smith's Wealth of Nations proposed a species of federalism",
+      "type": "support"
+    },
+    {
+      "src": "Adam Smith's Wealth of Nations proposed a species of federalism",
+      "tgt": "Main claim",
+      "type": "support"
+    }
+  ]
+}
+<SCHFAR-43_extra.json>

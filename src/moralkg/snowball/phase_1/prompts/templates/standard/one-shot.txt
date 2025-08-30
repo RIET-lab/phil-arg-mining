@@ -1,0 +1,35 @@
+System Prompt
+--- 1 ---
+```
+<Zero-shot system prompt>
+
+
+For example, here is a philosophy paper:
+<SCHFAT-43_cleaned.md>
+
+Here is the argument map for that paper:
+<SCHFAT-43_main.json>
+```
+--- 2 ---
+```
+<Zero-shot system prompt>
+
+
+For example, here is a philosophy paper:
+<SCHFAT-43_cleaned.md>
+
+
+Here is argument map for that paper’s main argument:
+<SCHFAT-43_main.json>
+```
+
+User Prompt
+--- 1 ---
+```
+Philosophy paper text:
+<paper text inserted here>
+
+Argument map:
+```
+
+

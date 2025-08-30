@@ -8,7 +8,11 @@ Key components
   - Datasets: adapter interface for (id, text, gold_struct) iteration.
   - Prompts: minimal default builder for ACC/ARI/ARC/ARIC JSON.
   - Cost: WeightedCost reading weights from config.
-- hpo.py: placeholder for Optuna/Bayesian search loop (not implemented).
+- prompts/
+  - meta_llama_3.1_8B/
+  - 
+- generate_llm_prompts.py: Uses the prompt templates to generate prompt files for LLM usage
+- hpo.py: placeholder for Optuna/Bayesian search loop (not implemented). 
 
 Config usage
 - snowball.phase_1.eval.fuzzy_thr: fuzzy matching threshold.
@@ -17,4 +21,5 @@ Config usage
 
 Status / TODO
 - Dataset loaders and HPO loop wiring are not yet implemented.
+- For generate_llm_prompts.py, implement prompt generation for CoT, RAG, and CoT + RAG.
 

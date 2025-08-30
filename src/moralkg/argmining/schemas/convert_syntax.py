@@ -5,6 +5,10 @@ In the custom syntax:
   - '+' indicates an explicit claim
   - '-' indicates an implicit claim
 Both are converted to support relations (+) with implicit claims getting {isImplicit: True} metadata.
+
+Optionally, the argdown to argdown conversion can be skipped to generate only the json.
+
+TODO: Separate the argdown conversion and json generation steps so that they can be called as separate modules.
 """
 
 import re
@@ -14,7 +18,7 @@ import tempfile
 import os
 from pathlib import Path
 from typing import List, Tuple
-
+import argparse
 
 def convert_custom_syntax(lines: List[str]) -> List[str]:
     """
@@ -73,10 +77,10 @@ def convert_custom_syntax(lines: List[str]) -> List[str]:
     return converted_lines
 
 
-def process_argdown_file(input_file: str, output_argdown: str = None, output_json: str = None) -> None:
+def process_argdown_file(input_file: str, output_argdown: str = None, output_json: str = None, no_convert: bool = False) -> None:
     """
     Process a custom argdown file:
-    1. Convert custom syntax to standard argdown
+    1. Convert custom syntax to standard argdown if necessary
     2. Save the converted argdown
     3. Use argdown CLI to convert to JSON
     """
@@ -87,15 +91,21 @@ def process_argdown_file(input_file: str, output_argdown: str = None, output_jso
     # Remove trailing newlines but preserve the line structure
     lines = [line.rstrip('\n') for line in lines]
     
-    # Convert the syntax
-    converted_lines = convert_custom_syntax(lines)
-    
+    # Convert the syntax if necessary
+    if no_convert:
+        converted_lines = lines
+    else:
+        converted_lines = convert_custom_syntax(lines)
+
     # Determine output filenames
     input_path = Path(input_file)
     base_name = input_path.stem
     
     if output_argdown is None:
-        output_argdown = input_path.parent / f"{base_name}_converted.argdown"
+        if no_convert:
+            output_argdown = input_path.parent / f"{base_name}.argdown"
+        else:
+            output_argdown = input_path.parent / f"{base_name}_converted.argdown"
     else:
         output_argdown = Path(output_argdown)
     
@@ -105,10 +115,11 @@ def process_argdown_file(input_file: str, output_argdown: str = None, output_jso
         output_json = Path(output_json)
     
     # Write the converted argdown
-    with open(output_argdown, 'w', encoding='utf-8') as f:
-        f.write('\n'.join(converted_lines))
-    
-    print(f"Converted argdown saved to: {output_argdown}")
+    if not no_convert:
+        with open(output_argdown, 'w', encoding='utf-8') as f:
+            f.write('\n'.join(converted_lines))
+
+        print(f"Converted argdown saved to: {output_argdown}")
     
     # Check if argdown CLI is available (try local install first, then global)
     argdown_cmd = None
@@ -174,27 +185,26 @@ def process_argdown_file(input_file: str, output_argdown: str = None, output_jso
 
 def main():
     """
-    Main function to handle command line arguments.
+    Main function to handle command line arguments. Also includes argument parsing to determine whether to convert syntax.
     """
-    if len(sys.argv) < 2:
-        print("Usage: python convert_syntax.py <input.argdown> [output.argdown] [output.json]")
-        print("\nThis script converts custom argdown syntax where:")
-        print("  '+' = explicit claim")
-        print("  '-' = implicit claim")
-        print("\nTo standard argdown syntax with YAML metadata for implicit claims.")
-        print("\nThen uses argdown CLI to convert to JSON format.")
-        sys.exit(1)
-    
-    input_file = sys.argv[1]
-    output_argdown = sys.argv[2] if len(sys.argv) > 2 else None
-    output_json = sys.argv[3] if len(sys.argv) > 3 else None
-    
+    parser = argparse.ArgumentParser(description="Convert argdown files.")
+    parser.add_argument("input_file", help="Path to the input argdown file.")
+    parser.add_argument("--output_argdown", help="Path to the output argdown file.")
+    parser.add_argument("--output_json", help="Path to the output JSON file.")
+    parser.add_argument("--no_convert", action="store_true", help="Skip syntax conversion.")
+    args = parser.parse_args()
+
+    input_file = args.input_file
+    output_argdown = args.output_argdown
+    output_json = args.output_json
+    no_convert = args.no_convert
+
     if not os.path.exists(input_file):
         print(f"Error: Input file '{input_file}' not found.")
         sys.exit(1)
     
     try:
-        process_argdown_file(input_file, output_argdown, output_json)
+        process_argdown_file(input_file, output_argdown, output_json, no_convert)
     except Exception as e:
         print(f"Error processing file: {e}")
         sys.exit(1)

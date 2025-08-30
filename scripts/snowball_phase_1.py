@@ -17,6 +17,7 @@ TODO:
     -> Not yet implemented
 """
 import rootutils
+import json
 from pathlib import Path
 rootutils.setup_root(__file__, indicator=".git")
 from moralkg import Config, get_logger
@@ -66,97 +67,110 @@ def main() -> None:
             prompt_dir = Path(cfg.get("paths.snowball.phase_1.prompts.x_shot"))
             
             # Read system and user prompt files
-            system_prompt = ""
-            user_prompt = ""
-            
-            # Try common prompt file names
-            for sys_name in ["system.txt", "system.md", "system_prompt.txt"]:
+            system_prompts = []
+            user_prompts = []
+
+            # Load system prompts and user prompts for different prompt strategies
+            system_prompt_files = ["zero_shot_system", "one_shot_system", "few_shot_system"]
+            user_prompt_files = ["zero_shot_user", "one_shot_user", "few_shot_user"]
+            for sys_name, user_name in zip(system_prompt_files, user_prompt_files):
+                sys_name += ".txt"
+                user_name += ".txt"
                 sys_path = prompt_dir / sys_name
-                if sys_path.exists():
-                    system_prompt = sys_path.read_text(encoding="utf-8")
-                    break
-            
-            for user_name in ["user.txt", "user.md", "user_prompt.txt"]:
                 user_path = prompt_dir / user_name
-                if user_path.exists():
-                    user_prompt = user_path.read_text(encoding="utf-8") 
-                    break
-            
-            if not system_prompt or not user_prompt:
-                logger.warning(f"Could not find system or user prompts in {prompt_dir}")
-                logger.warning(f"Available files: {list(prompt_dir.glob('*')) if prompt_dir.exists() else 'Directory not found'}")
-                continue
-            
+                system_prompt = sys_path.read_text(encoding="utf-8")
+                user_prompt = user_path.read_text(encoding="utf-8")
+                system_prompts.append(system_prompt)
+                user_prompts.append(user_prompt)
+
             logger.info(f"Loaded prompts from {prompt_dir}")
-            
-            outputs = []
-            
-            # Process a sample of papers (limit to 5 for testing)
-            sample_papers = dataset.metadata.ids[:5]
-            logger.info(f"Processing {len(sample_papers)} papers with End2End pipeline")
-            
-            for paper_id in sample_papers:
-                try:
-                    paper_text = dataset.get_paper(paper_id)
-                    if paper_text is None:
-                        logger.warning(f"Could not load paper text for {paper_id}")
+
+
+            # Process the data for each prompt
+            # TODO: Make sure outputs are being saved separately for each set of prompts
+            for system_prompt, user_prompt in zip(system_prompts, user_prompts):
+                # Load the response format json schema to insert it in the system prompts
+                json_schema = Path("/opt/extra/avijit/projects/moralkg/src/moralkg/argmining/schemas/argmining.json") # TODO: Get the path from config instead of hardcoding it
+                if json_schema.exists():
+                    json_schema = json.loads(json_schema.read_text(encoding="utf-8"))
+                else:
+                    logger.warning(f"Could not find response format json in {json_schema}")
+                    continue
+
+                # Replace the text "{json schema}" in the system prompt with the json schema
+                system_prompt = system_prompt.replace("{json schema}", json.dumps(json_schema, indent=2))
+
+                outputs = []
+                
+                # Process a sample of papers (limit to 5 for testing)
+                sample_papers = dataset.metadata.ids[:5]
+                logger.info(f"Processing {len(sample_papers)} papers with End2End pipeline")
+                
+                for paper_id in sample_papers:
+                    try:
+                        paper_text = dataset.get_paper(paper_id)
+                        if paper_text is None:
+                            logger.warning(f"Could not load paper text for {paper_id}")
+                            continue
+                        
+                        logger.info(f"Processing paper {paper_id} (length: {len(paper_text)} chars)")
+                        
+                        # Get paper metadata for context
+                        metadata = dataset.metadata[paper_id] or {}
+                        title = metadata.get("title", "Unknown Title")
+                        authors = metadata.get("authors", "Unknown Authors")
+                        
+                        # Prepare prompt files with paper content and metadata
+                        prompt_files = {
+                            "paper_text": paper_text,
+                            "paper_id": paper_id,
+                            "title": title,
+                            "authors": authors
+                        }
+
+                        # Replace "{paper}" in the user prompt with the paper text
+                        user_prompt = user_prompt.replace("{paper}", paper_text)
+
+                        # Generate argument map using End2End model
+                        result = model.generate(
+                            system_prompt=system_prompt,
+                            user_prompt=user_prompt,
+                            prompt_files=prompt_files
+                        )
+                        
+                        # Store raw output
+                        output_data = {
+                            "id": paper_id,
+                            "text": result["text"],
+                            "trace": result["trace"],
+                            "metadata": metadata
+                        }
+                        outputs.append(output_data)
+                        
+                        logger.info(f"Generated output for {paper_id}: {len(result['text'])} chars")
+                        
+                    except Exception as e:
+                        logger.error(f"Error processing paper {paper_id}: {e}")
                         continue
-                    
-                    logger.info(f"Processing paper {paper_id} (length: {len(paper_text)} chars)")
-                    
-                    # Get paper metadata for context
-                    metadata = dataset.metadata[paper_id] or {}
-                    title = metadata.get("title", "Unknown Title")
-                    authors = metadata.get("authors", "Unknown Authors")
-                    
-                    # Prepare prompt files with paper content and metadata
-                    prompt_files = {
-                        "paper_text": paper_text,
-                        "paper_id": paper_id,
-                        "title": title,
-                        "authors": authors
-                    }
-                    
-                    # Generate argument map using End2End model
-                    result = model.generate(
-                        system_prompt=system_prompt,
-                        user_prompt=user_prompt,
-                        prompt_files=prompt_files
-                    )
-                    
-                    # Store raw output
-                    output_data = {
-                        "id": paper_id,
-                        "text": result["text"],
-                        "trace": result["trace"],
-                        "metadata": metadata
-                    }
-                    outputs.append(output_data)
-                    
-                    logger.info(f"Generated output for {paper_id}: {len(result['text'])} chars")
-                    
-                except Exception as e:
-                    logger.error(f"Error processing paper {paper_id}: {e}")
-                    continue
-            
-            # Parse outputs into ArgumentMaps
-            parsed_maps = []
-            for output in outputs:
-                try:
-                    # Parse the generated text into an ArgumentMap
-                    arg_map = parser.parse_text(output["text"], map_id=output["id"])
-                    parsed_maps.append(arg_map)
-                    logger.info(f"Parsed ArgumentMap for {output['id']}: {len(arg_map.adus) if hasattr(arg_map, 'adus') else 0} ADUs")
-                except Exception as e:
-                    logger.error(f"Error parsing output for {output['id']}: {e}")
-                    continue
-            
-            # Store results
-            pipeline_outputs[name] = {
-                "raw_outputs": outputs,
-                "parsed_maps": parsed_maps
-            }
-            
+                
+                # Parse outputs into ArgumentMaps
+                parsed_maps = []
+                for output in outputs:
+                    try:
+                        # Parse the generated text into an ArgumentMap
+                        arg_map = parser.parse_text(output["text"], map_id=output["id"])
+                        parsed_maps.append(arg_map)
+                        logger.info(f"Parsed ArgumentMap for {output['id']}: {len(arg_map.adus) if hasattr(arg_map, 'adus') else 0} ADUs")
+                    except Exception as e:
+                        logger.error(f"Error parsing output for {output['id']}: {e}")
+                        continue
+                
+                # Store results
+                pipeline_outputs[name] = {
+                    "raw_outputs": outputs,
+                    "parsed_maps": parsed_maps
+                }
+                
             logger.info(f"Completed {name} pipeline: {len(outputs)} outputs, {len(parsed_maps)} parsed maps")
        
         # TODO: Run generate() for ADUR
