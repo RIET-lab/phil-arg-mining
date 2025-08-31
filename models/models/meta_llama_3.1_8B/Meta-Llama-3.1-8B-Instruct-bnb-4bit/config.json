@@ -1,12 +1,12 @@
 {
-  "_name_or_path": "meta-llama/meta-Llama-3.1-8B",
+  "_name_or_path": "meta-llama/meta-Llama-3.1-8B-Instruct",
   "architectures": [
     "LlamaForCausalLM"
   ],
   "attention_bias": false,
   "attention_dropout": 0.0,
   "bos_token_id": 128000,
-  "eos_token_id": 128001,
+  "eos_token_id": 128009,
   "head_dim": 128,
   "hidden_act": "silu",
   "hidden_size": 4096,

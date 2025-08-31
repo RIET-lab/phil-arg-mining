@@ -60,7 +60,7 @@ def _check_for_model(config: dict) -> str:
     raise ValueError("Invalid model config: expected keys 'dir' or 'hf'")
 
 
-def _get_device_and_dtype() -> Tuple["os.PathLike", Any]:
+def _get_device_and_dtype() -> Tuple[Any, Any]:
     """
     Model-agnostic device and dtype selection. Returns (device, dtype).
     """
@@ -69,7 +69,7 @@ def _get_device_and_dtype() -> Tuple["os.PathLike", Any]:
     dtype = (
         torch.bfloat16 if use_cuda and torch.cuda.is_bf16_supported() else (torch.float16 if use_cuda else torch.float32)
     )
-    device = torch.device("cuda" if use_cuda else "cpu")
+    device = torch.device("cuda:0" if use_cuda else "cpu") # TODO: Allow other device indices to be used
     return device, dtype
 
 # TODO: internal tooling to discover and use GPUs so that models are properly parallelized
@@ -111,6 +111,9 @@ class End2End:
         self.kwargs = kwargs
         self.logger = get_logger(__name__)
 
+        # Get device and dtype for consistent tensor placement
+        self.device, self.dtype = _get_device_and_dtype()
+        self.logger.info("Using device: %s, dtype: %s", self.device, self.dtype)
 
         # Create a config instance in order to set up models
         cfg = None
@@ -130,7 +133,12 @@ class End2End:
 
         # Load generator (HF with PEFT adapter) - end2end-specific, defer import to avoid circular
         from .generator import load_generator_model
-        self._hf_model, self._hf_tokenizer = load_generator_model(base_model=str(base_local), adapter_dir=str(adapter_local))
+        self._hf_model, self._hf_tokenizer = load_generator_model(
+            base_model=str(base_local), 
+            adapter_dir=str(adapter_local),
+            device=self.device,
+            dtype=self.dtype
+        )
 
         # Prepare RAG if enabled
         self._rag = None
@@ -141,6 +149,7 @@ class End2End:
                 chunk_overlap=self.chunk_overlap or 100,
                 top_k=self.top_k,
                 keep_index=bool(self.kwargs.get("keep_embeddings", False)),
+                device=self.device,  # Pass device to RAG
             )
 
     def generate(
@@ -184,6 +193,8 @@ class End2End:
             "modes": {"rag": self.rag, "cot": self.cot},
             "decoding": {"temperature": self.temperature, "max_new_tokens": self.max_new_tokens},
             "files": list(prompt_files.keys()),
+            "device": str(self.device),
+            "dtype": str(self.dtype),
         }
 
         # Prepare RAG index if requested
@@ -210,13 +221,16 @@ class End2End:
                 #composed_user = self._compose_user_prompt(user_text, few_shot_examples, context_blocks) # TODO: Decide whether to handle few-shot examples here or elsewhere for CoT
                 composed_user = self._compose_user_prompt(user_text, context_blocks)
                 from .generator import build_input_ids, generate as hf_generate
-                input_ids = build_input_ids(self._hf_tokenizer, system_text, composed_user)
+                input_ids = build_input_ids(self._hf_tokenizer, system_text, composed_user, device=self.device)
+                
                 text, metrics = hf_generate(
                     self._hf_model,
                     self._hf_tokenizer,
                     input_ids,
                     max_new_tokens=self.max_new_tokens,
                     temperature=self.temperature,
+                    device=self.device,
+                    dtype=self.dtype
                 )
                 trace["metrics"] = metrics
                 return {"text": text, "trace": trace}
@@ -228,7 +242,7 @@ class End2End:
                 retrieval_step_positions=self.kwargs.get("retrieval_step_positions", [1] if self.rag else []),
                 debug=debug,
             )
-            generator_cb = lambda prompt: self._call_hf_generator(system_text, prompt)
+            generator_cb = lambda prompt: self._call_hf_generator(system_text, prompt, device=self.device)
             result = cot.run(
                 user_prompt=user_text,
                 generator=generator_cb,
@@ -294,6 +308,7 @@ class End2End:
             user_text=user_text,
             max_new_tokens=self.max_new_tokens,
             temperature=self.temperature,
+            device=self.device,  # Pass device to ensure consistency
         )
         return text
 
@@ -642,10 +657,3 @@ class ARE:
         }
 
         return {"adus": adus, "relations": relations, "statistics": stats}
-
-    def _count_by_key(self, items: list[dict], key: str) -> dict:
-        result: dict[str, int] = {}
-        for it in items:
-            v = str(it.get(key))
-            result[v] = result.get(v, 0) + 1
-        return result

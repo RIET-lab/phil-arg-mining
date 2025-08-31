@@ -31,10 +31,10 @@ paths:
   models:
     end2end: # End-to-end LLM argument mining models
       base:
-        dir: "models/meta_llama_3.1_8B-Instruct-bnb-4bit/base" # Local directory where model is stored
-        hf: "unsloth/Meta-Llama-3.1-8B-bnb-4bit" # Hugging Face directory for reference if not found locally
+        dir: "models/meta_llama_3.1_8B/Meta-Llama-3.1-8B-Instruct-bnb-4bit" # Local directory where model is stored
+        hf: "unsloth/Meta-Llama-3.1-8B-Instruct-bnb-4bit" # Hugging Face directory for reference if not found locally
       finetune: 
-        dir: "models/meta_llama_3.1_8B-Instruct/finetune" # Local directory model is stored (PEFT LoRA adapter weights only)
+        dir: "models/meta_llama_3.1_8B/finetune" # Local directory model is stored (PEFT LoRA adapter weights only)
         hf: "andrewelawrence/AMwithLLMs-Meta-Llama-3.1-8B-Instruct-bnb-4bit" # Hugging Face directory for reference if not found locally
       embedder:
         dir: "models/qwen3_embedding_0.6B" # Local directory where model is stored

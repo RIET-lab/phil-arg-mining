@@ -14,7 +14,7 @@
 /models/*/archive/*
 /models/*/base/archive/*
 /models/*/finetune/archive/*
-.pth
+*.pth
 
 # Ignore archived and temporary files
 /archive/
