@@ -31,10 +31,10 @@ paths:
   models:
     end2end: # End-to-end LLM argument mining models
       base:
-        dir: "models/meta_llama_3.1_8B/base" # Local directory where model is stored
+        dir: "models/meta_llama_3.1_8B-Instruct-bnb-4bit/base" # Local directory where model is stored
         hf: "unsloth/Meta-Llama-3.1-8B-bnb-4bit" # Hugging Face directory for reference if not found locally
       finetune: 
-        dir: "models/meta_llama_3.1_8B/finetune" # Local directory model is stored (PEFT LoRA adapter weights only)
+        dir: "models/meta_llama_3.1_8B-Instruct/finetune" # Local directory model is stored (PEFT LoRA adapter weights only)
         hf: "andrewelawrence/AMwithLLMs-Meta-Llama-3.1-8B-Instruct-bnb-4bit" # Hugging Face directory for reference if not found locally
       embedder:
         dir: "models/qwen3_embedding_0.6B" # Local directory where model is stored
@@ -55,6 +55,22 @@ paths:
         hf: "ArneBinder/sam-are-sciarg" # Hugging face directory for reference if not found locally
   snowball:
     phase_1:
+      outputs:
+        end2end:
+          standard: "datasets/interim/argument_mining/snowball_phase_1/end2end/standard" # Raw generation outputs for standard prompting
+          standard_rag: "datasets/interim/argument_mining/snowball_phase_1/end2end/standard_rag" # Raw generation outputs for standard RAG prompting
+          cot: "datasets/interim/argument_mining/snowball_phase_1/end2end/cot" # Raw generation outputs for CoT prompting
+          rag_cot: "datasets/interim/argument_mining/snowball_phase_1/end2end/rag_cot" # Raw generation outputs for RAG+CoT prompting
+        adur: "datasets/interim/argument_mining/snowball_phase_1/adur" # Raw ADUR pipeline outputs
+        are: "datasets/interim/argument_mining/snowball_phase_1/are" # Raw ARE pipeline outputs
+      parsed:
+        end2end:
+          standard: "datasets/processed/argument_mining/snowball_phase_1/end2end/standard" # Parsed argument maps for standard prompting
+          standard_rag: "datasets/processed/argument_mining/snowball_phase_1/end2end/standard_rag" # Parsed argument maps for standard RAG prompting
+          cot: "datasets/processed/argument_mining/snowball_phase_1/end2end/cot" # Parsed argument maps for CoT prompting
+          rag_cot: "datasets/processed/argument_mining/snowball_phase_1/end2end/rag_cot" # Parsed argument maps for RAG+CoT prompting
+        adur: "datasets/processed/argument_mining/snowball_phase_1/adur" # Parsed argument maps from ADUR pipeline
+        are: "datasets/processed/argument_mining/snowball_phase_1/are" # Parsed argument maps from ARE pipeline
       valid: "datasets/processed/argument_mining/snowball_sampling/phase_1_workshop_sample" # Local directory containing the argument map pipeline results for the annotation comparision set
       sample: "datasets/processed/argument_mining/snowball_sampling/phase_1_small_sample" # Local directory containing the argument map pipeline results for the random validation
       prompts: 
@@ -68,10 +84,10 @@ paths:
           cot: "src/moralkg/snowball/phase_1/prompts/templates/cot"
           rag_cot: "src/moralkg/snowball/phase_1/prompts/templates/rag_cot"
         meta_llama_3:
-          standard: "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B/standard" # Local directory containing the LLM system and user prompts for the non-CoT, non-RAG pipelines
-          standard_rag: "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B/standard_rag" # Local directory containing the LLM system and user prompts for the standard RAG pipelines
-          cot: "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B/cot" # Local directory containing the LLM system and user prompts for the CoT pipeline
-          rag_cot: "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B/cot_rag" # Local directory containing the LLM system and user prompts for the RAG+CoT pipeline
+          standard: "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard" # Local directory containing the LLM system and user prompts for the non-CoT, non-RAG pipelines
+          standard_rag: "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard_rag" # Local directory containing the LLM system and user prompts for the standard RAG pipelines
+          cot: "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/cot" # Local directory containing the LLM system and user prompts for the CoT pipeline
+          rag_cot: "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/cot_rag" # Local directory containing the LLM system and user prompts for the RAG+CoT pipeline
     phase_2:
       sample: "datasets/processed/argument_mining/snowball_sampling/phase_2_large_sample"
   figures:

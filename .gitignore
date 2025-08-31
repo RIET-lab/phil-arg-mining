@@ -14,12 +14,12 @@
 /models/*/archive/*
 /models/*/base/archive/*
 /models/*/finetune/archive/*
+.pth
 
 # Ignore archived and temporary files
 /archive/
 /temp/
 /src/moralkg/preprocessing/pdfs/archive/
-
 
 # Ignore logs
 *.logs
