@@ -89,8 +89,13 @@ def _ensure_configured(
         return
     # Avoid overriding if another part of the program already configured logging
     if logging.getLogger().hasHandlers():
-        _CONFIGURED = True
-        return
+        for handler in logging.getLogger().handlers:
+            # The default handler is usually a StreamHandler to stderr with level NOTSET
+            if isinstance(handler, logging.StreamHandler) and handler.level == logging.NOTSET:
+                continue # Assume this is the default handler
+            else:
+                _CONFIGURED = True
+                return
     cfg = None
     try:
         cfg = Config.load()
@@ -109,7 +114,7 @@ def _ensure_configured(
         fmt=fmt,
         datefmt=datefmt,
         destination=cfg_destination,
-        force=False,
+        force=True,
     )
     _CONFIGURED = True
 

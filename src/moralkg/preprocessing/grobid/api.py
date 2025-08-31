@@ -9,8 +9,6 @@ from moralkg.config import Config
 from moralkg.logging import get_logger
 
 
-logger = get_logger(__name__)
-
 
 @dataclass
 class GrobidSettings:
@@ -87,6 +85,8 @@ def process_references(
         raise RuntimeError(
             "grobid_client is not installed. Please `pip install grobid_client_python`."
         ) from exc
+
+    logger = get_logger("grobid")
 
     settings = settings or GrobidSettings.from_config()
     cfg_path = _write_temp_grobid_config(settings)

@@ -206,7 +206,7 @@ def get_annotated_papers(dataset: Dataset, logger, limit: int = None) -> list:
 
 def main() -> None:
     Config.load()
-    logger = get_logger("snowball")
+    logger = get_logger("snowball_phase_1")
     logger.info("Config loaded and logger initialized")
    
     # Load the dataset

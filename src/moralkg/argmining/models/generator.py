@@ -9,7 +9,7 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 
 from moralkg import Config, get_logger
 
-LOGGER = get_logger(__name__)
+LOGGER = None # Defer logger creation so that a logger isn't unintentionally created during the import process.
 
 
 def get_device_and_dtype() -> Tuple[torch.device, torch.dtype]:
@@ -51,6 +51,11 @@ def load_generator_model(
     
     if tokenizer.pad_token_id is None and tokenizer.eos_token_id is not None:
         tokenizer.pad_token = tokenizer.eos_token
+
+    global LOGGER
+    if LOGGER is None:
+        LOGGER = get_logger(__name__)
+
     LOGGER.info(
         "Loaded generator: base=%s, adapter=%s, device=%s, dtype=%s",
         base_model,
@@ -162,6 +167,11 @@ def generate(
         "device": str(device),
         "dtype": str(dtype),
     }
+
+    global LOGGER
+    if LOGGER is None:
+        LOGGER = get_logger(__name__)
+
     LOGGER.debug(
         "Generated output: tokens_in=%d tokens_out=%d total=%d latency=%.3fs tps=%.2f temp=%.2f max_new=%d device=%s",
         input_token_count,
