@@ -24,6 +24,7 @@ from pathlib import Path
 from datetime import datetime
 import tempfile
 import shutil
+import argparse
 rootutils.setup_root(__file__, indicator=".git")
 from moralkg import Config, get_logger
 from moralkg.argmining.loaders import Dataset
@@ -144,6 +145,10 @@ def load_prompts_from_directory(prompt_dir: Path, logger):
     logger.info(f"Loaded {len(all_prompts)} total prompt pairs from {prompt_dir}")
     return all_prompts
 
+def get_prompt_key(prompt_info):
+    """Generate a unique key for a prompt configuration."""
+    return f"{prompt_info['shot_type']}_{prompt_info['system_file']}_{prompt_info['user_file']}_{prompt_info['variation']}"
+
 def save_outputs(outputs, output_dir: Path, prompt_strategy: str, logger):
     """Save generation outputs to the specified directory."""
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -243,10 +248,25 @@ def save_checkpoint(outputs, output_dir: Path, prompt_strategy: str, checkpoint_
             temp_file.unlink()
         return None
 
-def load_existing_outputs(output_dir: Path, prompt_strategy: str, logger):
-    """Load existing outputs from previous runs to avoid reprocessing."""
+def load_existing_outputs(output_dir: Path, prompt_strategy: str, logger, skip_existing: bool = False):
+    """Load existing outputs from previous runs to avoid reprocessing.
+    
+    Args:
+        output_dir: Directory containing outputs
+        prompt_strategy: Strategy name (e.g., "standard")
+        logger: Logger instance  
+        skip_existing: If True, don't load any existing outputs (forces reprocessing)
+        
+    Returns:
+        tuple: (existing_outputs, processed_combinations)
+        where processed_combinations is a set of (paper_id, prompt_key) tuples
+    """
+    if skip_existing:
+        logger.info("Skipping existing outputs - will reprocess all prompt pairs")
+        return [], set()
+    
     existing_outputs = []
-    processed_papers = set()
+    processed_combinations = set()  # Set of (paper_id, prompt_key) tuples
     
     # Check for individual outputs
     individual_dir = output_dir / "individual_outputs"
@@ -256,7 +276,13 @@ def load_existing_outputs(output_dir: Path, prompt_strategy: str, logger):
                 with open(individual_file, 'r', encoding='utf-8') as f:
                     output_data = json.load(f)
                     existing_outputs.append(output_data)
-                    processed_papers.add(output_data.get("id"))
+                    
+                    # Create key for this specific prompt configuration
+                    paper_id = output_data.get("id")
+                    if "prompt_info" in output_data:
+                        prompt_key = get_prompt_key(output_data["prompt_info"])
+                        processed_combinations.add((paper_id, prompt_key))
+                        
             except Exception as e:
                 logger.warning(f"Could not load existing output {individual_file}: {e}")
     
@@ -275,9 +301,13 @@ def load_existing_outputs(output_dir: Path, prompt_strategy: str, logger):
                     # Merge with individual outputs, avoiding duplicates
                     for output in checkpoint_outputs:
                         paper_id = output.get("id")
-                        if paper_id not in processed_papers:
-                            existing_outputs.append(output)
-                            processed_papers.add(paper_id)
+                        if "prompt_info" in output:
+                            prompt_key = get_prompt_key(output["prompt_info"])
+                            combination = (paper_id, prompt_key)
+                            
+                            if combination not in processed_combinations:
+                                existing_outputs.append(output)
+                                processed_combinations.add(combination)
                     
                     logger.info(f"Loaded {len(checkpoint_outputs)} outputs from latest checkpoint: {latest_checkpoint}")
             except Exception as e:
@@ -285,9 +315,15 @@ def load_existing_outputs(output_dir: Path, prompt_strategy: str, logger):
     
     if existing_outputs:
         logger.info(f"Found {len(existing_outputs)} existing outputs for {prompt_strategy}")
-        logger.info(f"Already processed papers: {sorted(processed_papers)}")
+        logger.info(f"Already processed combinations: {len(processed_combinations)}")
+        
+        # Show some stats about what's been processed
+        processed_papers = set(combo[0] for combo in processed_combinations)
+        processed_prompts = set(combo[1] for combo in processed_combinations)
+        logger.info(f"Processed papers: {len(processed_papers)}")
+        logger.info(f"Processed prompt configurations: {len(processed_prompts)}")
     
-    return existing_outputs, processed_papers
+    return existing_outputs, processed_combinations
 
 def get_annotated_papers(dataset: Dataset, logger, limit: int = None) -> list:
     """Get list of paper IDs that have large gold-standard annotations.
@@ -316,11 +352,16 @@ def get_annotated_papers(dataset: Dataset, logger, limit: int = None) -> list:
     
     return annotated_paper_ids
 
-def main() -> None:
+def main(force_reprocess: bool = False, paper_limit: int = None) -> None:
     Config.load()
     logger = get_logger("snowball_phase_1")
     logger.info("Config loaded and logger initialized")
-   
+
+    if force_reprocess:
+        logger.info("force_reprocess=True: Will reprocess all prompt pairs")
+    else:
+        logger.info("force_reprocess=False: Will skip already processed (paper, prompt) combinations")
+
     # Load the dataset
     logger.info("Loading dataset...")
     dataset = Dataset()
@@ -372,15 +413,31 @@ def main() -> None:
                 logger.info(f"Loaded {len(prompt_pairs)} prompt pairs for {strategy}")
 
                 # Set up output directory and load existing outputs
-                # TODO: Make the loading of existing outputs optional, to enable re-processing of all prompt pairs when prompts or other hyperparameters are modified
                 output_dir = Path(cfg.get(f"paths.snowball.phase_1.outputs.end2end.{strategy}"))
-                existing_outputs, processed_papers = load_existing_outputs(output_dir, strategy, logger)
+                existing_outputs, processed_combinations = load_existing_outputs(
+                    output_dir, strategy, logger, force_reprocess
+                )
                 
                 # Process each prompt pair
                 strategy_outputs = existing_outputs.copy()  # Start with existing outputs
                 
+                # Get papers that have gold standard annotations
+                annotated_papers = get_annotated_papers(dataset, logger, limit=paper_limit)
+                
+                if not annotated_papers:
+                    logger.error("No annotated papers found to process")
+                    continue
+                
+                logger.info(f"Processing {len(annotated_papers)} papers with existing annotations")
+                
+                total_combinations_possible = len(prompt_pairs) * len(annotated_papers)
+                total_combinations_processed = len(processed_combinations)
+                
+                logger.info(f"Total possible combinations: {total_combinations_possible}")
+                logger.info(f"Already processed combinations: {total_combinations_processed}")
+                logger.info(f"Remaining combinations: {total_combinations_possible - total_combinations_processed}")
+                
                 for i, prompt_info in enumerate(prompt_pairs):
-                    logger.info(f"Processing prompt pair {i+1}/{len(prompt_pairs)} for {strategy}")
                     # For testing purposes, skip all variations that are not either "default" or "zs1". Revert this when the pipelines are complete in order to test more prompt strategies.
                     #if prompt_info["variation"] not in ["default", "zs1"]:
                     #    logger.warning(f"Skipping prompt pair {i+1}/{len(prompt_pairs)} for {strategy} due to variation")
@@ -393,23 +450,21 @@ def main() -> None:
                     
                     system_prompt = prompt_info["system_prompt"]
                     user_prompt = prompt_info["user_prompt"]
+                    prompt_key = get_prompt_key(prompt_info)
                     
                     prompt_outputs = []
                     
-                    # Get papers that have gold standard annotations
-                    annotated_papers = get_annotated_papers(dataset, logger)
+                    # Filter papers to only those not yet processed with this specific prompt
+                    remaining_papers = [
+                        paper_id for paper_id in annotated_papers 
+                        if (paper_id, prompt_key) not in processed_combinations
+                    ]
                     
-                    if not annotated_papers:
-                        logger.error("No annotated papers found to process")
+                    logger.info(f"Papers remaining for this prompt: {len(remaining_papers)}/{len(annotated_papers)}")
+                    
+                    if not remaining_papers:
+                        logger.info(f"All papers already processed for prompt pair {i+1}, skipping")
                         continue
-                    
-                    # Filter out already processed papers
-                    remaining_papers = [p for p in annotated_papers if p not in processed_papers]
-                    
-                    logger.info(f"Processing {len(annotated_papers)} papers with existing annotations")
-                    logger.info(f"Already processed: {len(processed_papers)} papers")
-                    logger.info(f"Remaining to process: {len(remaining_papers)} papers")
-                    logger.info(f"Selected papers: {annotated_papers}")
                     
                     papers_processed_this_run = 0
                     
@@ -457,7 +512,7 @@ def main() -> None:
                             
                             prompt_outputs.append(output_data)
                             strategy_outputs.append(output_data)
-                            processed_papers.add(paper_id)
+                            processed_combinations.add((paper_id, prompt_key))
                             papers_processed_this_run += 1
                             
                             logger.info(f"Generated output for {paper_id}: {len(result['text'])} chars")
@@ -490,7 +545,9 @@ def main() -> None:
                         "papers_processed": len(set(output["id"] for output in strategy_outputs)),
                         "annotated_papers_targeted": True,  # NEW: Flag to indicate we targeted annotated papers
                         "prompt_pairs": len(prompt_pairs),
-                        "new_outputs_this_run": len(strategy_outputs) - len(existing_outputs)
+                        "new_outputs_this_run": len(strategy_outputs) - len(existing_outputs),
+                        "total_combinations_possible": len(prompt_pairs) * len(annotated_papers),
+                        "combinations_processed": len(processed_combinations)
                     }
                 
                 logger.info(f"Completed {strategy} strategy: {len(strategy_outputs)} total outputs ({len(strategy_outputs) - len(existing_outputs)} new)")
@@ -515,6 +572,8 @@ def main() -> None:
         "timestamp": datetime.now().isoformat(),
         "pipelines_run": list(all_pipeline_outputs.keys()),
         "total_papers_in_dataset": len(dataset.metadata.ids),
+        "force_reprocess": force_reprocess,
+        "paper_limit": paper_limit,
         "pipeline_results": all_pipeline_outputs
     }
     
@@ -540,6 +599,13 @@ def main() -> None:
         logger.info(f"  Papers processed: {results['papers_processed']}")
         logger.info(f"  Prompt pairs used: {results['prompt_pairs']}")
         logger.info(f"  Output file: {results['output_file']}")
+        
+        # Show combination statistics
+        if 'combinations_processed' in results and 'total_combinations_possible' in results:
+            combinations_processed = results['combinations_processed']
+            total_combinations = results['total_combinations_possible']
+            completion_pct = (combinations_processed / total_combinations) * 100 if total_combinations > 0 else 0
+            logger.info(f"  Combinations processed: {combinations_processed}/{total_combinations} ({completion_pct:.1f}%)")
         
         # Show shot type distribution if available
         if 'num_outputs' in results and results['num_outputs'] > 0:
@@ -571,4 +637,18 @@ def main() -> None:
     logger.info("Pipeline execution completed successfully!")
 
 if __name__ == "__main__":
-    main()
+    parser = argparse.ArgumentParser(description="Run Snowball Phase 1 pipeline generation")
+    parser.add_argument(
+        "--force-reprocess", 
+        action="store_true", # Defaults to False
+        help="Skip loading existing outputs and reprocess all prompt pairs"
+    )
+    parser.add_argument(
+        "--paper-limit", 
+        type=int, 
+        default=None,
+        help="Limit the number of papers to process (for testing)"
+    )
+    
+    args = parser.parse_args()
+    main(force_reprocess=args.force_reprocess, paper_limit=args.paper_limit)
