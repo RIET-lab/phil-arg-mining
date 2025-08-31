@@ -10,7 +10,7 @@ TODO:
  b. ADUR model class + ARE model class
     -> Not yet finished. Both classes have KeyErrors while loading their pipelines.
 3. For each pipeline, run generate()
-    -> End2End implementation completed
+    -> End2End implementation completed for standard prompting, not yet implemented for CoT and/or RAG
     -> Not yet implemented for ADUR and ARE
 4. Parse results into ArgumentMaps
     -> Implemented and untested for End2End
@@ -22,6 +22,8 @@ import json
 import os
 from pathlib import Path
 from datetime import datetime
+import tempfile
+import shutil
 rootutils.setup_root(__file__, indicator=".git")
 from moralkg import Config, get_logger
 from moralkg.argmining.loaders import Dataset
@@ -177,6 +179,116 @@ def save_outputs(outputs, output_dir: Path, prompt_strategy: str, logger):
         logger.error(f"Error saving outputs to {output_file}: {e}")
         return None
 
+def save_individual_output(output_data, output_dir: Path, prompt_strategy: str, logger):
+    """Save a single output immediately after generation."""
+    output_dir.mkdir(parents=True, exist_ok=True)
+    
+    # Create individual output filename with paper ID and timestamp
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S_%f")[:-3]  # Include milliseconds
+    paper_id = output_data.get("id", "unknown")
+    shot_type = output_data.get("prompt_info", {}).get("shot_type", "unknown")
+    variation = output_data.get("prompt_info", {}).get("variation", "default")
+    
+    filename_parts = ["individual", prompt_strategy, shot_type, paper_id]
+    if variation != "default":
+        filename_parts.append(variation)
+    filename_parts.append(timestamp)
+    
+    output_file = output_dir / "individual_outputs" / f"{'_'.join(filename_parts)}.json"
+    output_file.parent.mkdir(parents=True, exist_ok=True)
+    
+    try:
+        with open(output_file, 'w', encoding='utf-8') as f:
+            json.dump(output_data, f, indent=2, ensure_ascii=False)
+        
+        logger.debug(f"Saved individual output to {output_file}")
+        return output_file
+        
+    except Exception as e:
+        logger.error(f"Error saving individual output to {output_file}: {e}")
+        return None
+
+def save_checkpoint(outputs, output_dir: Path, prompt_strategy: str, checkpoint_name: str, logger):
+    """Save a checkpoint with current outputs."""
+    output_dir.mkdir(parents=True, exist_ok=True)
+    
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    checkpoint_file = output_dir / "checkpoints" / f"checkpoint_{prompt_strategy}_{checkpoint_name}_{timestamp}.json"
+    checkpoint_file.parent.mkdir(parents=True, exist_ok=True)
+    
+    checkpoint_data = {
+        "timestamp": datetime.now().isoformat(),
+        "checkpoint_name": checkpoint_name,
+        "strategy": prompt_strategy,
+        "num_outputs": len(outputs),
+        "outputs": outputs
+    }
+    
+    try:
+        # Write to temporary file first, then move to avoid corruption
+        temp_file = checkpoint_file.with_suffix('.tmp')
+        with open(temp_file, 'w', encoding='utf-8') as f:
+            json.dump(checkpoint_data, f, indent=2, ensure_ascii=False)
+        
+        # Atomic move
+        shutil.move(temp_file, checkpoint_file)
+        
+        logger.info(f"Saved checkpoint '{checkpoint_name}' with {len(outputs)} outputs to {checkpoint_file}")
+        return checkpoint_file
+        
+    except Exception as e:
+        logger.error(f"Error saving checkpoint to {checkpoint_file}: {e}")
+        # Clean up temp file if it exists
+        if temp_file.exists():
+            temp_file.unlink()
+        return None
+
+def load_existing_outputs(output_dir: Path, prompt_strategy: str, logger):
+    """Load existing outputs from previous runs to avoid reprocessing."""
+    existing_outputs = []
+    processed_papers = set()
+    
+    # Check for individual outputs
+    individual_dir = output_dir / "individual_outputs"
+    if individual_dir.exists():
+        for individual_file in individual_dir.glob(f"individual_{prompt_strategy}_*.json"):
+            try:
+                with open(individual_file, 'r', encoding='utf-8') as f:
+                    output_data = json.load(f)
+                    existing_outputs.append(output_data)
+                    processed_papers.add(output_data.get("id"))
+            except Exception as e:
+                logger.warning(f"Could not load existing output {individual_file}: {e}")
+    
+    # Check for checkpoints
+    checkpoint_dir = output_dir / "checkpoints"
+    if checkpoint_dir.exists():
+        # Find the most recent checkpoint
+        checkpoint_files = list(checkpoint_dir.glob(f"checkpoint_{prompt_strategy}_*.json"))
+        if checkpoint_files:
+            latest_checkpoint = max(checkpoint_files, key=lambda x: x.stat().st_mtime)
+            try:
+                with open(latest_checkpoint, 'r', encoding='utf-8') as f:
+                    checkpoint_data = json.load(f)
+                    checkpoint_outputs = checkpoint_data.get("outputs", [])
+                    
+                    # Merge with individual outputs, avoiding duplicates
+                    for output in checkpoint_outputs:
+                        paper_id = output.get("id")
+                        if paper_id not in processed_papers:
+                            existing_outputs.append(output)
+                            processed_papers.add(paper_id)
+                    
+                    logger.info(f"Loaded {len(checkpoint_outputs)} outputs from latest checkpoint: {latest_checkpoint}")
+            except Exception as e:
+                logger.warning(f"Could not load checkpoint {latest_checkpoint}: {e}")
+    
+    if existing_outputs:
+        logger.info(f"Found {len(existing_outputs)} existing outputs for {prompt_strategy}")
+        logger.info(f"Already processed papers: {sorted(processed_papers)}")
+    
+    return existing_outputs, processed_papers
+
 def get_annotated_papers(dataset: Dataset, logger, limit: int = None) -> list:
     """Get list of paper IDs that have large gold-standard annotations.
     
@@ -259,12 +371,15 @@ def main() -> None:
                 
                 logger.info(f"Loaded {len(prompt_pairs)} prompt pairs for {strategy}")
 
+                # Set up output directory and load existing outputs
+                # TODO: Make the loading of existing outputs optional, to enable re-processing of all prompt pairs when prompts or other hyperparameters are modified
+                output_dir = Path(cfg.get(f"paths.snowball.phase_1.outputs.end2end.{strategy}"))
+                existing_outputs, processed_papers = load_existing_outputs(output_dir, strategy, logger)
+                
                 # Process each prompt pair
-                strategy_outputs = []
+                strategy_outputs = existing_outputs.copy()  # Start with existing outputs
                 
                 for i, prompt_info in enumerate(prompt_pairs):
-                    if i > 0:
-                        continue  # Limit to first prompt pair for testing
                     logger.info(f"Processing prompt pair {i+1}/{len(prompt_pairs)} for {strategy}")
                     # For testing purposes, skip all variations that are not either "default" or "zs1". Revert this when the pipelines are complete in order to test more prompt strategies.
                     #if prompt_info["variation"] not in ["default", "zs1"]:
@@ -288,11 +403,20 @@ def main() -> None:
                         logger.error("No annotated papers found to process")
                         continue
                     
+                    # Filter out already processed papers
+                    remaining_papers = [p for p in annotated_papers if p not in processed_papers]
+                    
                     logger.info(f"Processing {len(annotated_papers)} papers with existing annotations")
+                    logger.info(f"Already processed: {len(processed_papers)} papers")
+                    logger.info(f"Remaining to process: {len(remaining_papers)} papers")
                     logger.info(f"Selected papers: {annotated_papers}")
                     
-                    for paper_id in annotated_papers:
+                    papers_processed_this_run = 0
+                    
+                    for paper_idx, paper_id in enumerate(remaining_papers):
                         try:
+                            logger.info(f"Processing paper {paper_idx+1}/{len(remaining_papers)}: {paper_id}")
+                            
                             paper_text = dataset.get_paper(paper_id)
                             if paper_text is None:
                                 logger.warning(f"Could not load paper text for {paper_id}")
@@ -327,21 +451,34 @@ def main() -> None:
                                 },
                                 "timestamp": datetime.now().isoformat()
                             }
+                            
+                            # Save individual output immediately
+                            save_individual_output(output_data, output_dir, strategy, logger)
+                            
                             prompt_outputs.append(output_data)
+                            strategy_outputs.append(output_data)
+                            processed_papers.add(paper_id)
+                            papers_processed_this_run += 1
                             
                             logger.info(f"Generated output for {paper_id}: {len(result['text'])} chars")
+                            
+                            # Save checkpoint every 5 papers
+                            if papers_processed_this_run % 5 == 0:
+                                checkpoint_name = f"prompt_{i+1}_paper_{papers_processed_this_run}"
+                                save_checkpoint(strategy_outputs, output_dir, strategy, checkpoint_name, logger)
                             
                         except Exception as e:
                             logger.error(f"Error processing paper {paper_id}: {e}")
                             continue
                     
-                    # Add prompt outputs to strategy outputs
-                    strategy_outputs.extend(prompt_outputs)
+                    # Save checkpoint after completing prompt pair
+                    if papers_processed_this_run > 0:
+                        checkpoint_name = f"prompt_{i+1}_completed"
+                        save_checkpoint(strategy_outputs, output_dir, strategy, checkpoint_name, logger)
                     
-                    logger.info(f"Completed prompt pair {i+1}: {len(prompt_outputs)} outputs generated")
+                    logger.info(f"Completed prompt pair {i+1}: {len(prompt_outputs)} new outputs generated")
                 
-                # Save outputs for this strategy
-                output_dir = Path(cfg.get(f"paths.snowball.phase_1.outputs.end2end.{strategy}"))
+                # Save final outputs for this strategy
                 output_file = save_outputs(strategy_outputs, output_dir, strategy, logger)
                 
                 # Store in overall results
@@ -352,10 +489,11 @@ def main() -> None:
                         "num_outputs": len(strategy_outputs),
                         "papers_processed": len(set(output["id"] for output in strategy_outputs)),
                         "annotated_papers_targeted": True,  # NEW: Flag to indicate we targeted annotated papers
-                        "prompt_pairs": len(prompt_pairs)
+                        "prompt_pairs": len(prompt_pairs),
+                        "new_outputs_this_run": len(strategy_outputs) - len(existing_outputs)
                     }
                 
-                logger.info(f"Completed {strategy} strategy: {len(strategy_outputs)} total outputs")
+                logger.info(f"Completed {strategy} strategy: {len(strategy_outputs)} total outputs ({len(strategy_outputs) - len(existing_outputs)} new)")
        
         # TODO: Implement ADUR pipeline generation
         elif pipeline_name.startswith("adur"):
@@ -397,7 +535,8 @@ def main() -> None:
     for pipeline_name, results in all_pipeline_outputs.items():
         logger.info(f"{pipeline_name}:")
         logger.info(f"  Strategy: {results['strategy']}")
-        logger.info(f"  Outputs generated: {results['num_outputs']}")
+        logger.info(f"  Total outputs: {results['num_outputs']}")
+        logger.info(f"  New outputs this run: {results.get('new_outputs_this_run', 'N/A')}")
         logger.info(f"  Papers processed: {results['papers_processed']}")
         logger.info(f"  Prompt pairs used: {results['prompt_pairs']}")
         logger.info(f"  Output file: {results['output_file']}")
