@@ -177,6 +177,33 @@ def save_outputs(outputs, output_dir: Path, prompt_strategy: str, logger):
         logger.error(f"Error saving outputs to {output_file}: {e}")
         return None
 
+def get_annotated_papers(dataset: Dataset, logger, limit: int = None) -> list:
+    """Get list of paper IDs that have large gold-standard annotations.
+    
+    Args:
+        dataset: The Dataset object containing metadata and annotations
+        logger: Logger instance
+        limit: Optional limit on number of papers to return (for testing)
+        
+    Returns:
+        List of paper IDs that have annotations
+    """
+    annotated_paper_ids = list(dataset.annotations.by_paper.keys())
+    
+    if not annotated_paper_ids:
+        logger.warning("No papers with annotations found in the dataset")
+        return []
+    
+    logger.info(f"Found {len(annotated_paper_ids)} papers with annotations")
+    
+    # Apply limit if specified
+    if limit is not None and limit > 0:
+        limited_papers = annotated_paper_ids[:limit]
+        logger.info(f"Limited to {len(limited_papers)} papers for processing")
+        return limited_papers
+    
+    return annotated_paper_ids
+
 def main() -> None:
     Config.load()
     logger = get_logger("snowball")
@@ -236,10 +263,13 @@ def main() -> None:
                 strategy_outputs = []
                 
                 for i, prompt_info in enumerate(prompt_pairs):
-                    # TODO: For testing purposes, skip all variations that are not either "default" or "zs1". Revert this when the pipelines are complete in order to test more prompt strategies. 
-                    if prompt_info["variation"] not in ["default", "zs1"]:
-                        logger.warning(f"Skipping prompt pair {i+1}/{len(prompt_pairs)} for {strategy} due to variation")
-                        continue
+                    if i > 0:
+                        continue  # Limit to first prompt pair for testing
+                    logger.info(f"Processing prompt pair {i+1}/{len(prompt_pairs)} for {strategy}")
+                    # For testing purposes, skip all variations that are not either "default" or "zs1". Revert this when the pipelines are complete in order to test more prompt strategies.
+                    #if prompt_info["variation"] not in ["default", "zs1"]:
+                    #    logger.warning(f"Skipping prompt pair {i+1}/{len(prompt_pairs)} for {strategy} due to variation")
+                    #    continue
 
                     logger.info(f"Processing prompt pair {i+1}/{len(prompt_pairs)} for {strategy}")
                     logger.info(f"  Shot type: {prompt_info['shot_type']}")
@@ -251,20 +281,24 @@ def main() -> None:
                     
                     prompt_outputs = []
                     
-                    # Process a sample of papers (limit to 2 for testing)
-                    sample_papers = dataset.metadata.ids[:2]
-                    logger.info(f"Processing {len(sample_papers)} papers with prompt pair {i+1}")
+                    # Get papers that have gold standard annotations
+                    annotated_papers = get_annotated_papers(dataset, logger)
                     
-                    for paper_id in sample_papers:
+                    if not annotated_papers:
+                        logger.error("No annotated papers found to process")
+                        continue
+                    
+                    logger.info(f"Processing {len(annotated_papers)} papers with existing annotations")
+                    logger.info(f"Selected papers: {annotated_papers}")
+                    
+                    for paper_id in annotated_papers:
                         try:
                             paper_text = dataset.get_paper(paper_id)
                             if paper_text is None:
                                 logger.warning(f"Could not load paper text for {paper_id}")
                                 continue
                             
-                            logger.info(f"Processing paper {paper_id} (length: {len(paper_text)} chars)")
-
-                            # Replace placeholder in the user prompt with the actual paper text
+                            # Replace placeholder in the user prompt with the paper text
                             processed_user_prompt = user_prompt.replace("<paper text inserted here>", paper_text)
 
                             # Generate argument map using End2End model
@@ -274,7 +308,7 @@ def main() -> None:
                                 prompt_files=None
                             )
                             
-                            # Store raw output
+                            # Store raw output with additional annotation metadata
                             output_data = {
                                 "id": paper_id,
                                 "text": result["text"],
@@ -317,6 +351,7 @@ def main() -> None:
                         "output_file": str(output_file),
                         "num_outputs": len(strategy_outputs),
                         "papers_processed": len(set(output["id"] for output in strategy_outputs)),
+                        "annotated_papers_targeted": True,  # NEW: Flag to indicate we targeted annotated papers
                         "prompt_pairs": len(prompt_pairs)
                     }
                 
@@ -342,7 +377,6 @@ def main() -> None:
         "timestamp": datetime.now().isoformat(),
         "pipelines_run": list(all_pipeline_outputs.keys()),
         "total_papers_in_dataset": len(dataset.metadata.ids),
-        "papers_processed": 2,  # We limited to 2 for testing
         "pipeline_results": all_pipeline_outputs
     }
     
@@ -377,6 +411,7 @@ def main() -> None:
                 
                 shot_types = {}
                 variations = {}
+
                 for output in outputs_data:
                     if "prompt_info" in output:
                         shot_type = output["prompt_info"]["shot_type"]
@@ -388,7 +423,7 @@ def main() -> None:
                     logger.info(f"  Shot type distribution: {dict(shot_types)}")
                 if len(variations) > 1:
                     logger.info(f"  Variation distribution: {dict(variations)}")
-                    
+                
             except Exception as e:
                 logger.warning(f"Could not load output statistics: {e}")
         
