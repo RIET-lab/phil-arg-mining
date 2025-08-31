@@ -1,0 +1,17 @@
+{
+  "timestamp": "2025-08-31T02:58:22.516654",
+  "pipelines_run": [
+    "end2end_standard"
+  ],
+  "total_papers_in_dataset": 87872,
+  "pipeline_results": {
+    "end2end_standard": {
+      "strategy": "standard",
+      "output_file": "datasets/interim/argument_mining/snowball_phase_1/end2end/standard/generation_outputs_standard_zero-shot_20250831_025822.json",
+      "num_outputs": 1,
+      "papers_processed": 1,
+      "annotated_papers_targeted": true,
+      "prompt_pairs": 10
+    }
+  }
+}
