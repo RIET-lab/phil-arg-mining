@@ -22,4 +22,5 @@ Config usage
 Status / TODO
 - Dataset loaders and HPO loop wiring are not yet implemented.
 - For generate_llm_prompts.py, implement prompt generation for CoT, RAG, and CoT + RAG.
+- Add the rest of the prompts folder to the "Key components" tree above.
 

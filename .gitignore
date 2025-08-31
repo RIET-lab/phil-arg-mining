@@ -21,6 +21,10 @@
 /temp/
 /src/moralkg/preprocessing/pdfs/archive/
 
+# Ignore interim outputs
+/datasets/interim/argument_mining/snowball_phase_1/*/*/individual_outputs/
+datasets/interim/argument_mining/snowball_phase_1/end2end/pipeline_summary*.json
+
 # Ignore logs
 *.logs
 
@@ -38,5 +42,6 @@
 # Ignore apps with their own repositories
 /apps/mere_workshop/
 /apps/mere_workshop_listener/
-models/meta_llama_3.1_8B/base/original/consolidated.00.pth
-models/meta_llama_3.1_8B/base/original/tokenizer.model
+
+
+
