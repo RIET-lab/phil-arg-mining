@@ -147,7 +147,7 @@ class End2End:
         self,
         system_prompt: list[str] | str,
         user_prompt: list[str] | str,
-        prompt_files: list[dict] | dict,
+        prompt_files: dict | list[dict] | None, # Must be dict or list of dicts. Optional.
     ) -> dict:
         """
         Compose prompts, optionally retrieve context (RAG), optionally orchestrate reasoning (CoT), and generate output.
@@ -156,11 +156,11 @@ class End2End:
         debug = bool(self.kwargs.get("debug", False))
 
         # Normalize prompts
-        system_text = self._normalize_prompt(system_prompt)
+        system_text = self._normalize_prompt(system_prompt) 
         user_text = self._normalize_prompt(user_prompt)
 
         # Resolve prompt_files: separate documents corpus from variables
-        prompt_files = prompt_files or {}
+        prompt_files = prompt_files or {} # If prompt_files is None, use empty dict
         if isinstance(prompt_files, list):
             # Merge list of dicts left-to-right
             merged: dict[str, Any] = {}
@@ -171,13 +171,14 @@ class End2End:
             prompt_files = merged
         if not isinstance(prompt_files, dict):
             raise TypeError("prompt_files must be a dict or list of dicts")
+            
 
         documents = prompt_files.pop("documents", None)
-        few_shot_examples = prompt_files.pop("few_shot_examples", None)
+        #few_shot_examples = prompt_files.pop("few_shot_examples", None) # Deprecated; this is now handled by generate_llm_prompts.py
 
         # Interpolate variables in prompts from remaining prompt_files
-        system_text = self._render_template(system_text, prompt_files)
-        user_text = self._render_template(user_text, prompt_files)
+        #system_text = self._render_template(system_text, prompt_files) # Deprecated; this is now handled by generate_llm_prompts.py
+        #user_text = self._render_template(user_text, prompt_files) # Deprecated; this is now handled by snowball_phase_1
 
         trace: dict[str, Any] = {
             "modes": {"rag": self.rag, "cot": self.cot},
@@ -206,7 +207,8 @@ class End2End:
                         citations.append({k: ctx.get(k) for k in ("id", "chunk_id", "score", "offsets", "metadata")})
                     trace["retrieved"] = citations
 
-                composed_user = self._compose_user_prompt(user_text, few_shot_examples, context_blocks)
+                #composed_user = self._compose_user_prompt(user_text, few_shot_examples, context_blocks) # TODO: Decide whether to handle few-shot examples here or elsewhere for CoT
+                composed_user = self._compose_user_prompt(user_text, context_blocks)
                 from .generator import build_input_ids, generate as hf_generate
                 input_ids = build_input_ids(self._hf_tokenizer, system_text, composed_user)
                 text, metrics = hf_generate(
@@ -233,7 +235,7 @@ class End2End:
                 retrieve=retrieval_callback,
                 temperature=self.temperature,
                 max_new_tokens=self.max_new_tokens,
-                few_shot_examples=few_shot_examples,
+                #few_shot_examples=few_shot_examples, # TODO: Decide whether to handle few-shot examples here or elsewhere for CoT
             )
             trace.update({"cot": result.get("steps", [])})
             return {"text": result.get("final", ""), "trace": trace}
@@ -267,6 +269,10 @@ class End2End:
         except Exception:
             pass
         return str(value)
+
+    def _normalize_prompt(self, prompt: str) -> str:
+        # Normalize whitespace and line breaks in the prompt
+        return "\n".join(line.strip() for line in prompt.splitlines() if line.strip())
 
     def _compose_user_prompt(
         self,

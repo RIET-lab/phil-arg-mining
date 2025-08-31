@@ -3,7 +3,7 @@ This should first load in the metadata for philpapers by getting it from config.
 
 Papers should be dynamically grabbed with get_paper() and loaded in from the path declared at config.paths.philpapers.docling.cleaned. It should look for a file like <metadata.id>.md then <metadata.id>.txt. No paper should raise an error.
 
-Annotations should be batch loaded in during the init and tied to papers. what annotations to load in should be decided by config.workshop.annotations.use. if "large", just use config.paths.workshop.annotations.large_maps, if "both" also use config.paths.workshop.annotations.small_maps.
+Annotations should be batch loaded in during the init and tied to papers. The choice of which annotations to load should be decided by config.workshop.annotations.use. If "large", we just use config.paths.workshop.annotations.large_maps, if "both" also use config.paths.workshop.annotations.small_maps.
 
 Maps should be parsed into an ArgumentMap (see from moralkg.argmining.schemas import ArgumentMap, ADU, Relation). Parsing should be done with from moralkg.argmining.parsers import Parser.
 """
@@ -107,8 +107,10 @@ class Dataset:
         """Return paper text for the given id, if available.
 
         Search order inside cleaned docling dir:
-        1) <id>.md
-        2) <id>.txt
+        1) <id>_cleaned.md
+        2) <id>_cleaned.txt
+        3) <id>.md
+        4) <id>.txt
 
         """
         try:
@@ -116,7 +118,7 @@ class Dataset:
                 self._logger.warning("No papers directory configured (paths.philpapers.docling.cleaned)")
                 return None
 
-            candidates = [self._papers_dir / f"{paper_id}.md", self._papers_dir / f"{paper_id}.txt"]
+            candidates = [self._papers_dir / f"{paper_id}_cleaned.md", self._papers_dir / f"{paper_id}_cleaned.txt", self._papers_dir / f"{paper_id}.md", self._papers_dir / f"{paper_id}.txt"]
             for path in candidates:
                 if path.exists() and path.is_file():
                     return path.read_text(encoding="utf-8", errors="ignore")

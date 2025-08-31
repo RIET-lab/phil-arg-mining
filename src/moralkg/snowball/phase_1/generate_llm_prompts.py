@@ -4,6 +4,10 @@ Script to generate prompt template files from the provided templates.
 Creates separate files for system prompts and user prompts with placeholders.
 Uses configuration file to determine input and output paths.
 Handles chevron-enclosed references to other files and zero-shot prompts.
+Does not insert data into prompts.
+
+TODO: Add a function to insert paper data into prompts, for use by other modules.
+
 """
 import rootutils
 import os

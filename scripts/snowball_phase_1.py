@@ -1,4 +1,6 @@
 """
+Usage note: For End2End processing, prompts will have to be generated first using the prompt generation script: src/moralkg/snowball/phase_1/generate_llm_prompts.py
+
 TODO:
 1. load in the Dataset via the Dataset class
 -> Done and tested successfully
@@ -8,8 +10,7 @@ TODO:
  b. ADUR model class + ARE model class
     -> Not yet finished. Both classes have KeyErrors while loading their pipelines.
 3. For each pipeline, run generate()
-    -> Implemented and untested for End2End
-        -> Prompts need to be added to the prompt files in models/meta_llama_3.1_8B/prompts
+    -> End2End implementation completed
     -> Not yet implemented for ADUR and ARE
 4. Parse results into ArgumentMaps
     -> Implemented and untested for End2End
@@ -18,14 +19,163 @@ TODO:
 """
 import rootutils
 import json
+import os
 from pathlib import Path
+from datetime import datetime
 rootutils.setup_root(__file__, indicator=".git")
 from moralkg import Config, get_logger
 from moralkg.argmining.loaders import Dataset
 from moralkg.argmining.models import End2End, ADUR, ARE
-from moralkg.argmining.parsers import Parser # Parser for model outputs into argument maps.
-from moralkg.argmining.schemas import ArgumentMap # Argument Map schema for storing complete argument structures.
-from moralkg.snowball.phase_1.evals import Evaluator, ModelConfig, GenerationConfig # Unified evaluation functions for phase 1.
+
+def load_prompts_from_directory(prompt_dir: Path, logger):
+    """Load system and user prompts from a directory structure created by the prompt generation script."""
+    all_prompts = []
+    
+    # Look for shot-type subdirectories (zero-shot, one-shot, few-shot)
+    shot_subdirs = [d for d in prompt_dir.iterdir() if d.is_dir() and d.name.endswith('-shot')]
+    
+    if not shot_subdirs:
+        # Fallback: look directly in the prompt_dir for prompt files
+        logger.warning(f"No shot-type subdirectories found in {prompt_dir}, looking for files directly")
+        shot_subdirs = [prompt_dir]
+    
+    for shot_dir in shot_subdirs:
+        shot_type = shot_dir.name if shot_dir != prompt_dir else "direct"
+        logger.info(f"Loading prompts from {shot_type} directory: {shot_dir}")
+        
+        # Find all system prompt files
+        system_files = list(shot_dir.glob("system_prompt*.txt"))
+        
+        if not system_files:
+            logger.warning(f"No system prompt files found in {shot_dir}")
+            continue
+        
+        # Extract number from filename like "system_prompt_1.txt" or "system_prompt_1_zs2.txt".
+        system_files.sort(key=lambda x: int(x.stem.split('_')[2]))
+
+        # Find corresponding user prompt files
+        user_files = list(shot_dir.glob("user_prompt*.txt"))
+        
+        if not user_files:
+            logger.warning(f"No user prompt files found in {shot_dir}")
+            continue
+        
+        # Sort user files similarly
+        user_files.sort(key=lambda x: x.name)
+        
+        # If there's only one user prompt file, pair it with all system prompts
+        if len(user_files) == 1:
+            user_file = user_files[0]
+            try:
+                with open(user_file, 'r', encoding='utf-8') as f:
+                    user_prompt = f.read().strip()
+                
+                # Pair this user prompt with each system prompt
+                for sys_file in system_files:
+                    try:
+                        with open(sys_file, 'r', encoding='utf-8') as f:
+                            system_prompt = f.read().strip()
+                        
+                        prompt_info = {
+                            "system_prompt": system_prompt,
+                            "user_prompt": user_prompt,
+                            "shot_type": shot_type,
+                            "system_file": sys_file.name,
+                            "user_file": user_file.name,
+                            "variation": "default" # Currently, variations are used to indicate which version of the zero-shot system prompt was inserted into the x-shot prompts
+                        }
+
+                        # Use the number of underscore-separated terms to check if this is a variation (has extra suffix after number)
+                        # A typical file with a suffix will have 4 or more terms, e.g. "system_prompt_1_zs2.txt" > "system", "prompt", "1", "zs2"
+                        underscore_terms = sys_file.stem.split('_')
+                        if len(underscore_terms) > 3:
+                            # Name the variation based on everything that follows the number
+                            prompt_info["variation"] = '_'.join(underscore_terms[3:])
+
+                        all_prompts.append(prompt_info)
+                        logger.info(f"Loaded prompt pair: {sys_file.name} & {user_file.name}")
+                        
+                    except Exception as e:
+                        logger.error(f"Error loading system prompt {sys_file}: {e}")
+                        continue
+                        
+            except Exception as e:
+                logger.error(f"Error loading user prompt {user_file}: {e}")
+                continue
+        
+        else:
+            # Multiple user prompts - pair them with system prompts by index
+            min_count = min(len(system_files), len(user_files))
+            
+            for i in range(min_count):
+                try:
+                    with open(system_files[i], 'r', encoding='utf-8') as f:
+                        system_prompt = f.read().strip()
+                    with open(user_files[i], 'r', encoding='utf-8') as f:
+                        user_prompt = f.read().strip()
+                    
+                    prompt_info = {
+                        "system_prompt": system_prompt,
+                        "user_prompt": user_prompt,
+                        "shot_type": shot_type,
+                        "system_file": system_files[i].name,
+                        "user_file": user_files[i].name,
+                        "variation": "default"
+                    }
+                    
+                    # Check if this is a variation
+                    underscore_terms = system_files[i].stem.split('_')
+                    if len(underscore_terms) > 3:
+                        prompt_info["variation"] = '_'.join(underscore_terms[3:])
+
+                    all_prompts.append(prompt_info)
+                    logger.info(f"Loaded prompt pair: {system_files[i].name} & {user_files[i].name}")
+                    
+                except Exception as e:
+                    logger.error(f"Error loading prompt pair {i}: {e}")
+                    continue
+    
+    if not all_prompts:
+        logger.warning(f"No valid prompt pairs found in {prompt_dir}")
+        return []
+    
+    logger.info(f"Loaded {len(all_prompts)} total prompt pairs from {prompt_dir}")
+    return all_prompts
+
+def save_outputs(outputs, output_dir: Path, prompt_strategy: str, logger):
+    """Save generation outputs to the specified directory."""
+    output_dir.mkdir(parents=True, exist_ok=True)
+    
+    # Get shot types and variations used in this batch
+    shot_types = set()
+    variations = set()
+    for output in outputs:
+        if "prompt_info" in output:
+            shot_types.add(output["prompt_info"]["shot_type"])
+            variations.add(output["prompt_info"]["variation"])
+    
+    # Create descriptive filename
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    shot_desc = "_".join(sorted(shot_types)) if shot_types else "unknown"
+    var_desc = "_".join(sorted(variations)) if len(variations) > 1 else ""
+    
+    filename_parts = ["generation_outputs", prompt_strategy, shot_desc]
+    if var_desc and var_desc != "default":
+        filename_parts.append(var_desc)
+    filename_parts.append(timestamp)
+    
+    output_file = output_dir / f"{'_'.join(filename_parts)}.json"
+    
+    try:
+        with open(output_file, 'w', encoding='utf-8') as f:
+            json.dump(outputs, f, indent=2, ensure_ascii=False)
+        
+        logger.info(f"Saved {len(outputs)} outputs to {output_file}")
+        return output_file
+        
+    except Exception as e:
+        logger.error(f"Error saving outputs to {output_file}: {e}")
+        return None
 
 def main() -> None:
     Config.load()
@@ -39,7 +189,7 @@ def main() -> None:
     logger.info(f"Metadata contains {len(dataset.metadata.ids)} papers")
     logger.info(f"Available metadata columns: {dataset.metadata.columns}")
     logger.info(f"Annotations loaded for {len(dataset.annotations.by_paper)} papers")
-    logger.info(f"Total annotation maps: {len(dataset.annotations.all)}") # Loading papers now works successfully!
+    logger.info(f"Total annotation maps: {len(dataset.annotations.all)}")
    
     # Load the model pipelines
     pipelines = {
@@ -50,205 +200,201 @@ def main() -> None:
         #"are_sciarg": ARE(use_model_2=True), TODO: This module has a taskmodule_type KeyError like the Roberta ones, so it might also be missing its config. Or it might be encountering this during the ADUR step.
     }
     
-    # Initialize parser for converting outputs to ArgumentMaps
-    parser = Parser()
+    # Store all pipeline outputs
+    all_pipeline_outputs = {}
     
-    # Store outputs for each pipeline
-    pipeline_outputs = {}
-    
-    for name, model in pipelines.items():
-        logger.info(f"Running {name} pipeline")
+    for pipeline_name, model in pipelines.items():
+        logger.info(f"Running {pipeline_name} pipeline")
         
         # Run generate() for End2End
-        if name == "end2end":
+        if pipeline_name == "end2end":
             cfg = Config.load()
             
-            # Load prompts from configured directory
-            prompt_dir = Path(cfg.get("paths.snowball.phase_1.prompts.x_shot"))
-            
-            # Read system and user prompt files
-            system_prompts = []
-            user_prompts = []
+            # Define the prompt strategies to run
+            #prompt_strategies = ["standard", "standard_rag", "cot", "rag_cot"] # TODO: Implement all prompt strategies, including by generating custom prompts
+            prompt_strategies = ["standard"]
 
-            # Load system prompts and user prompts for different prompt strategies
-            system_prompt_files = ["zero_shot_system", "one_shot_system", "few_shot_system"]
-            user_prompt_files = ["zero_shot_user", "one_shot_user", "few_shot_user"]
-            for sys_name, user_name in zip(system_prompt_files, user_prompt_files):
-                sys_name += ".txt"
-                user_name += ".txt"
-                sys_path = prompt_dir / sys_name
-                user_path = prompt_dir / user_name
-                system_prompt = sys_path.read_text(encoding="utf-8")
-                user_prompt = user_path.read_text(encoding="utf-8")
-                system_prompts.append(system_prompt)
-                user_prompts.append(user_prompt)
-
-            logger.info(f"Loaded prompts from {prompt_dir}")
-
-
-            # Process the data for each prompt
-            # TODO: Make sure outputs are being saved separately for each set of prompts
-            for system_prompt, user_prompt in zip(system_prompts, user_prompts):
-                # Load the response format json schema to insert it in the system prompts
-                json_schema = Path("/opt/extra/avijit/projects/moralkg/src/moralkg/argmining/schemas/argmining.json") # TODO: Get the path from config instead of hardcoding it
-                if json_schema.exists():
-                    json_schema = json.loads(json_schema.read_text(encoding="utf-8"))
-                else:
-                    logger.warning(f"Could not find response format json in {json_schema}")
+            for strategy in prompt_strategies:
+                logger.info(f"Processing {strategy} prompting strategy")
+                
+                # Load prompts from the configured directory
+                prompt_dir = Path(cfg.get(f"paths.snowball.phase_1.prompts.meta_llama_3.{strategy}"))
+                
+                if not prompt_dir.exists():
+                    logger.warning(f"Prompt directory {prompt_dir} does not exist, skipping {strategy}")
                     continue
-
-                # Replace the text "{json schema}" in the system prompt with the json schema
-                system_prompt = system_prompt.replace("{json schema}", json.dumps(json_schema, indent=2))
-
-                outputs = []
                 
-                # Process a sample of papers (limit to 5 for testing)
-                sample_papers = dataset.metadata.ids[:5]
-                logger.info(f"Processing {len(sample_papers)} papers with End2End pipeline")
+                prompt_pairs = load_prompts_from_directory(prompt_dir, logger)
                 
-                for paper_id in sample_papers:
-                    try:
-                        paper_text = dataset.get_paper(paper_id)
-                        if paper_text is None:
-                            logger.warning(f"Could not load paper text for {paper_id}")
+                if not prompt_pairs:
+                    logger.warning(f"No valid prompts found for {strategy}, skipping")
+                    continue
+                
+                logger.info(f"Loaded {len(prompt_pairs)} prompt pairs for {strategy}")
+
+                # Process each prompt pair
+                strategy_outputs = []
+                
+                for i, prompt_info in enumerate(prompt_pairs):
+                    # TODO: For testing purposes, skip all variations that are not either "default" or "zs1". Revert this when the pipelines are complete in order to test more prompt strategies. 
+                    if prompt_info["variation"] not in ["default", "zs1"]:
+                        logger.warning(f"Skipping prompt pair {i+1}/{len(prompt_pairs)} for {strategy} due to variation")
+                        continue
+
+                    logger.info(f"Processing prompt pair {i+1}/{len(prompt_pairs)} for {strategy}")
+                    logger.info(f"  Shot type: {prompt_info['shot_type']}")
+                    logger.info(f"  Files: {prompt_info['system_file']} & {prompt_info['user_file']}")
+                    logger.info(f"  Variation: {prompt_info['variation']}")
+                    
+                    system_prompt = prompt_info["system_prompt"]
+                    user_prompt = prompt_info["user_prompt"]
+                    
+                    prompt_outputs = []
+                    
+                    # Process a sample of papers (limit to 2 for testing)
+                    sample_papers = dataset.metadata.ids[:2]
+                    logger.info(f"Processing {len(sample_papers)} papers with prompt pair {i+1}")
+                    
+                    for paper_id in sample_papers:
+                        try:
+                            paper_text = dataset.get_paper(paper_id)
+                            if paper_text is None:
+                                logger.warning(f"Could not load paper text for {paper_id}")
+                                continue
+                            
+                            logger.info(f"Processing paper {paper_id} (length: {len(paper_text)} chars)")
+
+                            # Replace placeholder in the user prompt with the actual paper text
+                            processed_user_prompt = user_prompt.replace("<paper text inserted here>", paper_text)
+
+                            # Generate argument map using End2End model
+                            result = model.generate(
+                                system_prompt=system_prompt,
+                                user_prompt=processed_user_prompt,
+                                prompt_files=None
+                            )
+                            
+                            # Store raw output
+                            output_data = {
+                                "id": paper_id,
+                                "text": result["text"],
+                                "trace": result.get("trace", {}),
+                                "prompt_info": {
+                                    "pair_index": i + 1,
+                                    "strategy": strategy,
+                                    "shot_type": prompt_info["shot_type"],
+                                    "system_file": prompt_info["system_file"],
+                                    "user_file": prompt_info["user_file"],
+                                    "variation": prompt_info["variation"]
+                                },
+                                "prompts_used": {
+                                    "system_prompt": system_prompt,
+                                    "user_prompt": processed_user_prompt
+                                },
+                                "timestamp": datetime.now().isoformat()
+                            }
+                            prompt_outputs.append(output_data)
+                            
+                            logger.info(f"Generated output for {paper_id}: {len(result['text'])} chars")
+                            
+                        except Exception as e:
+                            logger.error(f"Error processing paper {paper_id}: {e}")
                             continue
-                        
-                        logger.info(f"Processing paper {paper_id} (length: {len(paper_text)} chars)")
-                        
-                        # Get paper metadata for context
-                        metadata = dataset.metadata[paper_id] or {}
-                        title = metadata.get("title", "Unknown Title")
-                        authors = metadata.get("authors", "Unknown Authors")
-                        
-                        # Prepare prompt files with paper content and metadata
-                        prompt_files = {
-                            "paper_text": paper_text,
-                            "paper_id": paper_id,
-                            "title": title,
-                            "authors": authors
-                        }
-
-                        # Replace "{paper}" in the user prompt with the paper text
-                        user_prompt = user_prompt.replace("{paper}", paper_text)
-
-                        # Generate argument map using End2End model
-                        result = model.generate(
-                            system_prompt=system_prompt,
-                            user_prompt=user_prompt,
-                            prompt_files=prompt_files
-                        )
-                        
-                        # Store raw output
-                        output_data = {
-                            "id": paper_id,
-                            "text": result["text"],
-                            "trace": result["trace"],
-                            "metadata": metadata
-                        }
-                        outputs.append(output_data)
-                        
-                        logger.info(f"Generated output for {paper_id}: {len(result['text'])} chars")
-                        
-                    except Exception as e:
-                        logger.error(f"Error processing paper {paper_id}: {e}")
-                        continue
+                    
+                    # Add prompt outputs to strategy outputs
+                    strategy_outputs.extend(prompt_outputs)
+                    
+                    logger.info(f"Completed prompt pair {i+1}: {len(prompt_outputs)} outputs generated")
                 
-                # Parse outputs into ArgumentMaps
-                parsed_maps = []
-                for output in outputs:
-                    try:
-                        # Parse the generated text into an ArgumentMap
-                        arg_map = parser.parse_text(output["text"], map_id=output["id"])
-                        parsed_maps.append(arg_map)
-                        logger.info(f"Parsed ArgumentMap for {output['id']}: {len(arg_map.adus) if hasattr(arg_map, 'adus') else 0} ADUs")
-                    except Exception as e:
-                        logger.error(f"Error parsing output for {output['id']}: {e}")
-                        continue
+                # Save outputs for this strategy
+                output_dir = Path(cfg.get(f"paths.snowball.phase_1.outputs.end2end.{strategy}"))
+                output_file = save_outputs(strategy_outputs, output_dir, strategy, logger)
                 
-                # Store results
-                pipeline_outputs[name] = {
-                    "raw_outputs": outputs,
-                    "parsed_maps": parsed_maps
-                }
+                # Store in overall results
+                if output_file:
+                    all_pipeline_outputs[f"end2end_{strategy}"] = {
+                        "strategy": strategy,
+                        "output_file": str(output_file),
+                        "num_outputs": len(strategy_outputs),
+                        "papers_processed": len(set(output["id"] for output in strategy_outputs)),
+                        "prompt_pairs": len(prompt_pairs)
+                    }
                 
-            logger.info(f"Completed {name} pipeline: {len(outputs)} outputs, {len(parsed_maps)} parsed maps")
+                logger.info(f"Completed {strategy} strategy: {len(strategy_outputs)} total outputs")
        
-        # TODO: Run generate() for ADUR
-        if name == "adur_roberta" or name == "adur_sciarg":
-            outputs = []
-            sample_papers = dataset.metadata.ids[:5]
+        # TODO: Implement ADUR pipeline generation
+        elif pipeline_name.startswith("adur"):
+            logger.info(f"Skipping {pipeline_name} - implementation pending")
             
-            for paper_id in sample_papers:
-                try:
-                    paper_text = dataset.get_paper(paper_id)
-                    if paper_text is None:
-                        continue
-                    
-                    # Create temporary file for ADUR input (it expects file path)
-                    import tempfile
-                    with tempfile.NamedTemporaryFile(mode='w', suffix='.txt', delete=False) as tmp_file:
-                        tmp_file.write(paper_text)
-                        tmp_path = tmp_file.name
-                    
-                    try:
-                        result = model.generate(tmp_path)
-                        result["id"] = paper_id
-                        outputs.append(result)
-                    finally:
-                        Path(tmp_path).unlink(missing_ok=True)
-                        
-                except Exception as e:
-                    logger.error(f"Error processing paper {paper_id} with {name}: {e}")
-                    continue
-            
-            pipeline_outputs[name] = {"raw_outputs": outputs, "parsed_maps": []}
-            
-        # TODO: Run generate() for ARE  
-        if name == "are_roberta" or name == "are_sciarg":
-            outputs = []
-            sample_papers = dataset.metadata.ids[:5]
-            
-            for paper_id in sample_papers:
-                try:
-                    paper_text = dataset.get_paper(paper_id)
-                    if paper_text is None:
-                        continue
-                    
-                    # Create temporary file for ARE input
-                    import tempfile
-                    with tempfile.NamedTemporaryFile(mode='w', suffix='.txt', delete=False) as tmp_file:
-                        tmp_file.write(paper_text)
-                        tmp_path = tmp_file.name
-                    
-                    try:
-                        result = model.generate(tmp_path)
-                        result["id"] = paper_id
-                        outputs.append(result)
-                    finally:
-                        Path(tmp_path).unlink(missing_ok=True)
-                        
-                except Exception as e:
-                    logger.error(f"Error processing paper {paper_id} with {name}: {e}")
-                    continue
-            
-            pipeline_outputs[name] = {"raw_outputs": outputs, "parsed_maps": []}
+        # TODO: Implement ARE pipeline generation  
+        elif pipeline_name.startswith("are"):
+            logger.info(f"Skipping {pipeline_name} - implementation pending")
     
-    # Load the evaluation class
+    # Save summary of all pipeline runs
+    cfg = Config.load()
+    summary_dir = Path(cfg.get("paths.snowball.phase_1.outputs.end2end.standard")).parent
+    summary_dir.mkdir(parents=True, exist_ok=True)
+    
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    summary_file = summary_dir / f"pipeline_summary_{timestamp}.json"
+    
+    summary_data = {
+        "timestamp": datetime.now().isoformat(),
+        "pipelines_run": list(all_pipeline_outputs.keys()),
+        "total_papers_in_dataset": len(dataset.metadata.ids),
+        "papers_processed": 2,  # We limited to 2 for testing
+        "pipeline_results": all_pipeline_outputs
+    }
+    
     try:
-        evaluator = Evaluator(ModelConfig(), GenerationConfig())
-        logger.info("Loaded evaluation class")
+        with open(summary_file, 'w', encoding='utf-8') as f:
+            json.dump(summary_data, f, indent=2, ensure_ascii=False)
         
-        # Compare generated maps to annotation maps
-        for name, results in pipeline_outputs.items():
-            if results["parsed_maps"]:
-                logger.info(f"Evaluating {name} pipeline with {len(results['parsed_maps'])} maps")
-                # TODO: Implement evaluation comparison
-                # evaluator.evaluate(results["parsed_maps"], dataset.annotations.all)
-            else:
-                logger.info(f"No parsed maps available for {name} pipeline evaluation")
-                
+        logger.info(f"Saved pipeline summary to {summary_file}")
+        
     except Exception as e:
-        logger.error(f"Error loading evaluator: {e}")
+        logger.error(f"Error saving pipeline summary: {e}")
+    
+    # Print final summary
+    logger.info("="*50)
+    logger.info("PIPELINE EXECUTION SUMMARY")
+    logger.info("="*50)
+    
+    for pipeline_name, results in all_pipeline_outputs.items():
+        logger.info(f"{pipeline_name}:")
+        logger.info(f"  Strategy: {results['strategy']}")
+        logger.info(f"  Outputs generated: {results['num_outputs']}")
+        logger.info(f"  Papers processed: {results['papers_processed']}")
+        logger.info(f"  Prompt pairs used: {results['prompt_pairs']}")
+        logger.info(f"  Output file: {results['output_file']}")
+        
+        # Show shot type distribution if available
+        if 'num_outputs' in results and results['num_outputs'] > 0:
+            # Try to read the output file to get shot type statistics
+            try:
+                with open(results['output_file'], 'r', encoding='utf-8') as f:
+                    outputs_data = json.load(f)
+                
+                shot_types = {}
+                variations = {}
+                for output in outputs_data:
+                    if "prompt_info" in output:
+                        shot_type = output["prompt_info"]["shot_type"]
+                        variation = output["prompt_info"]["variation"]
+                        shot_types[shot_type] = shot_types.get(shot_type, 0) + 1
+                        variations[variation] = variations.get(variation, 0) + 1
+                
+                if shot_types:
+                    logger.info(f"  Shot type distribution: {dict(shot_types)}")
+                if len(variations) > 1:
+                    logger.info(f"  Variation distribution: {dict(variations)}")
+                    
+            except Exception as e:
+                logger.warning(f"Could not load output statistics: {e}")
+        
+        logger.info("")
+    
+    logger.info("Pipeline execution completed successfully!")
 
 if __name__ == "__main__":
     main()
