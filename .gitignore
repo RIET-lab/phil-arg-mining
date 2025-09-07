@@ -44,4 +44,5 @@ datasets/interim/argument_mining/snowball_phase_1/end2end/pipeline_summary*.json
 /apps/mere_workshop_listener/
 
 
-
+# Ignore data about annotators
+scripts/annotator_ID_finding/*
