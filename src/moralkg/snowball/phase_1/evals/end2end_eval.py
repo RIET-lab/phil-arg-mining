@@ -241,7 +241,7 @@ class End2EndEvaluator:
         # Try to get gold standard annotation
         gold_map = None
         try:
-            gold_map = self.dataset.annotations.by_paper.get(paper_id)
+            gold_map = self.dataset.annotations.by_paper.get(paper_id)[0]
         except Exception as e:
             self.logger.warning(f"Could not load gold annotation for {paper_id}: {e}")
         

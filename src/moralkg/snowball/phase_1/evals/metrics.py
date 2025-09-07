@@ -6,12 +6,17 @@ Implements the evaluation metrics specified in the Phase 1 spec:
 - Relation-type F1 scores (macro-F1)
 - Count RMSE for ADUs and relations
 - Combined score
+
+TODO: Implement logger for GED timeout warnings.
 """
 
 import numpy as np
 from typing import List, Tuple, Dict, Set, Any
 from sklearn.metrics import f1_score, precision_score, recall_score
 import networkx as nx
+import multiprocessing
+import time
+import queue
 from moralkg.argmining.schemas import ArgumentMap, ADU, Relation
 
 
@@ -115,18 +120,18 @@ def relation_f1_score(gold_map: ArgumentMap, pred_map: ArgumentMap,
     
     for gold_rel in gold_map.relations:
         # Only consider relations between matched ADUs
-        if (gold_rel.src_id in adu_matches and gold_rel.tgt_id in adu_matches):
-            gold_relations.append((gold_rel.src_id, gold_rel.tgt_id, gold_rel.type))
-    
+        if (gold_rel.src in adu_matches and gold_rel.tgt in adu_matches):
+            gold_relations.append((gold_rel.src, gold_rel.tgt, gold_rel.type))
+
     for pred_rel in pred_map.relations:
         # Find corresponding gold ADU IDs for the predicted relation
         source_gold_id = None
         target_gold_id = None
 
         for gold_id, pred_id in adu_matches.items():
-            if pred_id == pred_rel.src_id:
+            if pred_id == pred_rel.src:
                 source_gold_id = gold_id
-            if pred_id == pred_rel.tgt_id:
+            if pred_id == pred_rel.tgt:
                 target_gold_id = gold_id
 
         if source_gold_id and target_gold_id:
@@ -223,47 +228,6 @@ def count_rmse(gold_map: ArgumentMap, pred_map: ArgumentMap) -> Dict[str, float]
     }
 
 
-
-
-def combined_score(gold_map: ArgumentMap, pred_map: ArgumentMap, 
-                  threshold: float = 0.7) -> Dict[str, float]:
-    """
-    Calculate combined score based on all metrics.
-    
-    Args:
-        gold_map: Gold standard argument map
-        pred_map: Predicted argument map
-        threshold: Token overlap threshold for fuzzy matching
-        
-    Returns:
-        Dictionary with all metrics and a combined score
-    """
-    # Calculate all component metrics
-    adu_metrics = fuzzy_match_f1(gold_map, pred_map, threshold)
-    relation_metrics = relation_f1_score(gold_map, pred_map, threshold)
-    count_metrics = count_rmse(gold_map, pred_map)
-    ged_metrics = graph_edit_distance_metrics(gold_map, pred_map, threshold)
-    
-    # Extract key scores
-    adu_f1 = adu_metrics["f1"]
-    relation_f1 = relation_metrics["macro_f1"]
-    scaled_rmse = count_metrics["scaled_rmse"]
-    ged_sim = ged_metrics["ged_sim"]
-    
-    # Calculate combined score (higher is better)
-    # Equal-weight average across span F1, relation F1, inverted count error, and GED similarity
-    combined = (adu_f1 + relation_f1 + (1 - scaled_rmse) + ged_sim) / 4
-    
-    # Return all metrics
-    return {
-        **adu_metrics,
-        **relation_metrics,
-        **count_metrics,
-        **ged_metrics,
-        "combined_score": combined,
-    }
-
-
 def _build_graph_from_map(argument_map: ArgumentMap) -> nx.DiGraph:
     """
     Construct a directed graph from an ArgumentMap with node/edge attributes.
@@ -283,8 +247,8 @@ def _build_graph_from_map(argument_map: ArgumentMap) -> nx.DiGraph:
             rel_type_str = str(getattr(rel_type_obj, "value")).lower()
         else:
             rel_type_str = str(rel_type_obj).lower()
-        src = getattr(rel, "src_id", None) or getattr(rel, "source_id", None) or getattr(rel, "source", None)
-        tgt = getattr(rel, "tgt_id", None) or getattr(rel, "target_id", None) or getattr(rel, "target", None)
+        src = getattr(rel, "src", None) or getattr(rel, "src_id", None) or getattr(rel, "source_id", None) or getattr(rel, "source", None)
+        tgt = getattr(rel, "tgt", None) or getattr(rel, "tgt_id", None) or getattr(rel, "target_id", None) or getattr(rel, "target", None)
         if src is None or tgt is None:
             continue
         if src not in G:
@@ -353,4 +317,111 @@ def graph_edit_distance_metrics(
         "ged": float(ged_val),
         "ged_norm": ged_norm,
         "ged_sim": ged_sim,
+    }
+
+
+def _ged_worker(result_queue: multiprocessing.Queue, gold_map: ArgumentMap, 
+                pred_map: ArgumentMap, threshold: float):
+    """
+    Worker function to compute GED metrics in a separate process.
+    """
+    try:
+        result = graph_edit_distance_metrics(gold_map, pred_map, threshold)
+        result_queue.put(result)
+    except Exception as e:
+        result_queue.put(None)
+
+
+def combined_score(gold_map: ArgumentMap, pred_map: ArgumentMap, 
+                  threshold: float = 0.7) -> Dict[str, float]:
+    """
+    Calculate combined score based on all metrics.
+    
+    Args:
+        gold_map: Gold standard argument map
+        pred_map: Predicted argument map
+        threshold: Token overlap threshold for fuzzy matching
+        
+    Returns:
+        Dictionary with all metrics and a combined score
+    """
+    # Calculate all component metrics
+    adu_metrics = fuzzy_match_f1(gold_map, pred_map, threshold)
+    relation_metrics = relation_f1_score(gold_map, pred_map, threshold)
+    count_metrics = count_rmse(gold_map, pred_map)
+    
+    # Calculate GED metrics with hard timeout using multiprocessing
+    ged_metrics = None
+    
+    # Use multiprocessing with a hard timeout
+    ctx = multiprocessing.get_context('spawn')  # Use spawn to avoid issues with fork
+    result_queue = ctx.Queue()
+    
+    # Start the worker process
+    process = ctx.Process(
+        target=_ged_worker,
+        args=(result_queue, gold_map, pred_map, threshold)
+    )
+    process.start()
+    
+    # Wait for up to 10 seconds
+    process.join(timeout=10.0)
+    
+    # Check if process finished
+    if process.is_alive():
+        # Process is still running, terminate it
+        print("Warning: GED calculation timed out after 10 seconds, using fallback values")
+        process.terminate()
+        process.join(timeout=1.0)  # Give it a second to terminate
+        
+        if process.is_alive():
+            # Still alive, kill it
+            process.kill()
+            process.join()
+        
+        # Use fallback values
+        ged_metrics = {
+            "ged": float('inf'),
+            "ged_norm": 1.0,
+            "ged_sim": 0.0,
+        }
+    else:
+        # Process finished, try to get result
+        try:
+            ged_metrics = result_queue.get_nowait()
+            if ged_metrics is None:
+                # Worker had an exception
+                ged_metrics = {
+                    "ged": float('inf'),
+                    "ged_norm": 1.0,
+                    "ged_sim": 0.0,
+                }
+        except queue.Empty:
+            # No result available
+            ged_metrics = {
+                "ged": float('inf'),
+                "ged_norm": 1.0,
+                "ged_sim": 0.0,
+            }
+    
+    # Close the queue
+    result_queue.close()
+    
+    # Extract key scores
+    adu_f1 = adu_metrics["f1"]
+    relation_f1 = relation_metrics["macro_f1"]
+    scaled_rmse = count_metrics["scaled_rmse"]
+    ged_sim = ged_metrics["ged_sim"]
+    
+    # Calculate combined score (higher is better)
+    # Equal-weight average across span F1, relation F1, inverted count error, and GED similarity
+    combined = (adu_f1 + relation_f1 + (1 - scaled_rmse) + ged_sim) / 4
+    
+    # Return all metrics
+    return {
+        **adu_metrics,
+        **relation_metrics,
+        **count_metrics,
+        **ged_metrics,
+        "combined_score": combined,
     }

@@ -1,18 +1,163 @@
 {
   "summary": {
     "total_papers": 150,
-    "successful_parses": 18,
-    "failed_parses": 132,
-    "parse_success_rate": 0.12
+    "successful_parses": 150,
+    "failed_parses": 0,
+    "parse_success_rate": 1.0
   },
-  "aggregate_metrics": {},
+  "aggregate_metrics": {
+    "avg_ged": Infinity,
+    "std_ged": NaN,
+    "avg_precision": 0.00913960989388305,
+    "std_precision": 0.0351441118268034,
+    "avg_f1": 0.012573660438136094,
+    "std_f1": 0.04723312072558295,
+    "avg_scaled_rmse": 0.7709940358081068,
+    "std_scaled_rmse": 0.31043394697976323,
+    "avg_ged_norm": 1.0,
+    "std_ged_norm": 0.0,
+    "avg_relation_rmse": 17.713333333333335,
+    "std_relation_rmse": 40.666339342944994,
+    "avg_recall": 0.03470899470899471,
+    "std_recall": 0.09512460904542916,
+    "avg_attack_f1": 0.0,
+    "std_attack_f1": 0.0,
+    "avg_ged_sim": 0.0,
+    "std_ged_sim": 0.0,
+    "avg_combined_score": 0.06039490615750733,
+    "std_combined_score": 0.07904795082513764,
+    "avg_macro_f1": 0.0,
+    "std_macro_f1": 0.0,
+    "avg_adu_rmse": 88.34,
+    "std_adu_rmse": 88.86490345837701,
+    "avg_combined_rmse": 69.57120775311891,
+    "std_combined_rmse": 63.19863172389389,
+    "avg_support_f1": 0.0,
+    "std_support_f1": 0.0
+  },
   "strategy_breakdown": {
-    "standard": {}
+    "standard": {
+      "avg_ged": Infinity,
+      "std_ged": NaN,
+      "avg_precision": 0.00913960989388305,
+      "std_precision": 0.0351441118268034,
+      "avg_f1": 0.012573660438136094,
+      "std_f1": 0.04723312072558295,
+      "avg_scaled_rmse": 0.7709940358081068,
+      "std_scaled_rmse": 0.31043394697976323,
+      "avg_ged_norm": 1.0,
+      "std_ged_norm": 0.0,
+      "avg_relation_rmse": 17.713333333333335,
+      "std_relation_rmse": 40.666339342944994,
+      "avg_recall": 0.03470899470899471,
+      "std_recall": 0.09512460904542916,
+      "avg_attack_f1": 0.0,
+      "std_attack_f1": 0.0,
+      "avg_ged_sim": 0.0,
+      "std_ged_sim": 0.0,
+      "avg_combined_score": 0.06039490615750733,
+      "std_combined_score": 0.07904795082513764,
+      "avg_macro_f1": 0.0,
+      "std_macro_f1": 0.0,
+      "avg_adu_rmse": 88.34,
+      "std_adu_rmse": 88.86490345837701,
+      "avg_combined_rmse": 69.57120775311891,
+      "std_combined_rmse": 63.19863172389389,
+      "avg_support_f1": 0.0,
+      "std_support_f1": 0.0
+    }
   },
   "shot_type_breakdown": {
-    "zero-shot": {},
-    "one-shot": {},
-    "few-shot": {}
+    "zero-shot": {
+      "avg_ged": Infinity,
+      "std_ged": NaN,
+      "avg_precision": 0.016390391104958036,
+      "std_precision": 0.043111229255808355,
+      "avg_f1": 0.020124636759631956,
+      "std_f1": 0.05232567258458619,
+      "avg_scaled_rmse": 0.6278489549477262,
+      "std_scaled_rmse": 0.3032970342252332,
+      "avg_ged_norm": 1.0,
+      "std_ged_norm": 0.0,
+      "avg_relation_rmse": 12.2,
+      "std_relation_rmse": 11.516365167302862,
+      "avg_recall": 0.029894179894179893,
+      "std_recall": 0.07095946289163772,
+      "avg_attack_f1": 0.0,
+      "std_attack_f1": 0.0,
+      "avg_ged_sim": 0.0,
+      "std_ged_sim": 0.0,
+      "avg_combined_score": 0.09806892045297645,
+      "std_combined_score": 0.07962035288820242,
+      "avg_macro_f1": 0.0,
+      "std_macro_f1": 0.0,
+      "avg_adu_rmse": 26.7,
+      "std_adu_rmse": 49.142072945016615,
+      "avg_combined_rmse": 22.6377459292147,
+      "std_combined_rmse": 34.52799529721243,
+      "avg_support_f1": 0.0,
+      "std_support_f1": 0.0
+    },
+    "one-shot": {
+      "avg_ged": Infinity,
+      "std_ged": NaN,
+      "avg_precision": 0.0032274459471515796,
+      "std_precision": 0.01181802665439052,
+      "avg_f1": 0.0049214536875621245,
+      "std_f1": 0.01632656050216534,
+      "avg_scaled_rmse": 0.7990240190587106,
+      "std_scaled_rmse": 0.29950445806477327,
+      "avg_ged_norm": 1.0,
+      "std_ged_norm": 0.0,
+      "avg_relation_rmse": 15.033333333333333,
+      "std_relation_rmse": 37.24556647739731,
+      "avg_recall": 0.025449735449735448,
+      "std_recall": 0.06652082603353868,
+      "avg_attack_f1": 0.0,
+      "std_attack_f1": 0.0,
+      "avg_ged_sim": 0.0,
+      "std_ged_sim": 0.0,
+      "avg_combined_score": 0.051474358657212914,
+      "std_combined_score": 0.07433919851445296,
+      "avg_macro_f1": 0.0,
+      "std_macro_f1": 0.0,
+      "avg_adu_rmse": 108.88333333333334,
+      "std_adu_rmse": 92.017949637859,
+      "avg_combined_rmse": 82.59922862030812,
+      "std_combined_rmse": 64.38498089355471,
+      "avg_support_f1": 0.0,
+      "std_support_f1": 0.0
+    },
+    "few-shot": {
+      "avg_ged": Infinity,
+      "std_ged": NaN,
+      "avg_precision": 0.01142638323507703,
+      "std_precision": 0.044185368204048864,
+      "avg_f1": 0.016450379027962134,
+      "std_f1": 0.06196596495872619,
+      "avg_scaled_rmse": 0.8145365929876933,
+      "std_scaled_rmse": 0.3038070627453751,
+      "avg_ged_norm": 1.0,
+      "std_ged_norm": 0.0,
+      "avg_relation_rmse": 23.15,
+      "std_relation_rmse": 51.27274292123122,
+      "avg_recall": 0.046375661375661376,
+      "std_recall": 0.12428052509546061,
+      "avg_attack_f1": 0.0,
+      "std_attack_f1": 0.0,
+      "avg_ged_sim": 0.0,
+      "std_ged_sim": 0.0,
+      "avg_combined_score": 0.0504784465100672,
+      "std_combined_score": 0.07770361365553945,
+      "avg_macro_f1": 0.0,
+      "std_macro_f1": 0.0,
+      "avg_adu_rmse": 98.61666666666666,
+      "std_adu_rmse": 87.40863642811402,
+      "avg_combined_rmse": 80.00991779788181,
+      "std_combined_rmse": 62.15770041308528,
+      "avg_support_f1": 0.0,
+      "std_support_f1": 0.0
+    }
   },
   "per_paper_results": [
     {
@@ -27,7 +172,22 @@
       },
       "parse_success": true,
       "parse_error": null,
-      "metrics": {}
+      "metrics": {
+        "precision": 0.003937007874015748,
+        "recall": 0.08333333333333333,
+        "f1": 0.007518796992481203,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 242.0,
+        "relation_rmse": 10.0,
+        "combined_rmse": 171.26587517658035,
+        "scaled_rmse": 0.9999998269395732,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 0.0018797425132269924
+      }
     },
     {
       "paper_id": "STEGPD-9",
@@ -39,9 +199,24 @@
         "user_file": "user_prompt.txt",
         "variation": "default"
       },
-      "parse_success": false,
-      "parse_error": "Expecting ':' delimiter: line 1 column 8268 (char 8267)",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 24.0,
+        "relation_rmse": 17.0,
+        "combined_rmse": 20.796634343085422,
+        "scaled_rmse": 0.9134179590190326,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 0.02164551024524186
+      }
     },
     {
       "paper_id": "SMIWSW",
@@ -53,9 +228,24 @@
         "user_file": "user_prompt.txt",
         "variation": "default"
       },
-      "parse_success": false,
-      "parse_error": "Expecting value: line 1 column 22807 (char 22806)",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 11.0,
+        "relation_rmse": 10.0,
+        "combined_rmse": 10.51189802081432,
+        "scaled_rmse": 0.6325371834262783,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 0.09186570414343043
+      }
     },
     {
       "paper_id": "MELSPP",
@@ -67,9 +257,24 @@
         "user_file": "user_prompt.txt",
         "variation": "default"
       },
-      "parse_success": false,
-      "parse_error": "Expecting property name enclosed in double quotes: line 1 column 1767 (char 1766)",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 11.0,
+        "relation_rmse": 7.0,
+        "combined_rmse": 9.219544457292887,
+        "scaled_rmse": 0.812931573213841,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 0.046767106696539745
+      }
     },
     {
       "paper_id": "HOCASA-3",
@@ -81,9 +286,24 @@
         "user_file": "user_prompt.txt",
         "variation": "default"
       },
-      "parse_success": false,
-      "parse_error": "Expecting property name enclosed in double quotes: line 1 column 5905 (char 5904)",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 12.0,
+        "relation_rmse": 4.0,
+        "combined_rmse": 8.94427190999916,
+        "scaled_rmse": 0.4603563899091693,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 0.13491090252270768
+      }
     },
     {
       "paper_id": "CHIKBT",
@@ -95,9 +315,24 @@
         "user_file": "user_prompt.txt",
         "variation": "default"
       },
-      "parse_success": false,
-      "parse_error": "Expecting property name enclosed in double quotes: line 1 column 15189 (char 15188)",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 10.0,
+        "relation_rmse": 9.0,
+        "combined_rmse": 9.513148795220223,
+        "scaled_rmse": 0.6326293825608197,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 0.09184265435979508
+      }
     },
     {
       "paper_id": "GOLHBN",
@@ -109,9 +344,24 @@
         "user_file": "user_prompt.txt",
         "variation": "default"
       },
-      "parse_success": false,
-      "parse_error": "Expecting property name enclosed in double quotes: line 1 column 6265 (char 6264)",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 7.0,
+        "relation_rmse": 13.0,
+        "combined_rmse": 10.44030650891055,
+        "scaled_rmse": 0.6667890921287666,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 0.08330272696780835
+      }
     },
     {
       "paper_id": "DYCTAM",
@@ -123,9 +373,24 @@
         "user_file": "user_prompt.txt",
         "variation": "default"
       },
-      "parse_success": false,
-      "parse_error": "Expecting property name enclosed in double quotes: line 1 column 6524 (char 6523)",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 10.0,
+        "relation_rmse": 6.0,
+        "combined_rmse": 8.246211251235321,
+        "scaled_rmse": 0.45710017643364187,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 0.13572495589158953
+      }
     },
     {
       "paper_id": "VILWVI",
@@ -139,7 +404,22 @@
       },
       "parse_success": true,
       "parse_error": null,
-      "metrics": {}
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 94.0,
+        "relation_rmse": 6.0,
+        "combined_rmse": 66.60330322138685,
+        "scaled_rmse": 0.9999645242798197,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 8.86893004506395e-06
+      }
     },
     {
       "paper_id": "RALAET",
@@ -151,9 +431,24 @@
         "user_file": "user_prompt.txt",
         "variation": "default"
       },
-      "parse_success": false,
-      "parse_error": "Expecting property name enclosed in double quotes: line 1 column 7749 (char 7748)",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 6.0,
+        "relation_rmse": 10.0,
+        "combined_rmse": 8.246211251235321,
+        "scaled_rmse": 0.5802190439530979,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 0.10494523901172553
+      }
     },
     {
       "paper_id": "WEYUOP",
@@ -165,9 +460,24 @@
         "user_file": "user_prompt.txt",
         "variation": "default"
       },
-      "parse_success": false,
-      "parse_error": "Expecting property name enclosed in double quotes: line 1 column 5656 (char 5655)",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 1.0,
+        "relation_rmse": 1.0,
+        "combined_rmse": 1.0,
+        "scaled_rmse": 0.11099023459722435,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 0.2222524413506939
+      }
     },
     {
       "paper_id": "MCGCRR",
@@ -179,9 +489,24 @@
         "user_file": "user_prompt.txt",
         "variation": "default"
       },
-      "parse_success": false,
-      "parse_error": "Expecting property name enclosed in double quotes: line 1 column 5378 (char 5377)",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 7.0,
+        "relation_rmse": 8.0,
+        "combined_rmse": 7.516648189186454,
+        "scaled_rmse": 0.4654806510607822,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 0.13362983723480445
+      }
     },
     {
       "paper_id": "BACFTU",
@@ -193,9 +518,24 @@
         "user_file": "user_prompt.txt",
         "variation": "default"
       },
-      "parse_success": false,
-      "parse_error": "Expecting property name enclosed in double quotes: line 1 column 9950 (char 9949)",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 25.0,
+        "relation_rmse": 25.0,
+        "combined_rmse": 25.0,
+        "scaled_rmse": 0.9961340798605272,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 0.0009664800348682112
+      }
     },
     {
       "paper_id": "VANTPO-40",
@@ -207,9 +547,24 @@
         "user_file": "user_prompt.txt",
         "variation": "default"
       },
-      "parse_success": false,
-      "parse_error": "Expecting value: line 1 column 23961 (char 23960)",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 11.0,
+        "relation_rmse": 10.0,
+        "combined_rmse": 10.51189802081432,
+        "scaled_rmse": 0.6325371834262783,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 0.09186570414343043
+      }
     },
     {
       "paper_id": "NUBDAA",
@@ -221,9 +576,24 @@
         "user_file": "user_prompt.txt",
         "variation": "default"
       },
-      "parse_success": false,
-      "parse_error": "Expecting property name enclosed in double quotes: line 1 column 8148 (char 8147)",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 0.0,
+        "relation_rmse": 1.0,
+        "combined_rmse": 0.7071067811865476,
+        "scaled_rmse": 0.04925332291663387,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 0.23768666927084153
+      }
     },
     {
       "paper_id": "BACFTU",
@@ -235,9 +605,24 @@
         "user_file": "user_prompt.txt",
         "variation": "default"
       },
-      "parse_success": false,
-      "parse_error": "Expecting ':' delimiter: line 1 column 1765 (char 1764)",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 136.0,
+        "relation_rmse": 4.0,
+        "combined_rmse": 96.20810776644555,
+        "scaled_rmse": 0.9999999994812399,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 1.2969003648777289e-10
+      }
     },
     {
       "paper_id": "BRAAIC",
@@ -249,9 +634,24 @@
         "user_file": "user_prompt.txt",
         "variation": "default"
       },
-      "parse_success": false,
-      "parse_error": "Expecting property name enclosed in double quotes: line 1 column 9615 (char 9614)",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.11538461538461539,
+        "recall": 0.25,
+        "f1": 0.15789473684210525,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 14.0,
+        "relation_rmse": 14.0,
+        "combined_rmse": 14.0,
+        "scaled_rmse": 0.7199332391783511,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 0.10949037441593855
+      }
     },
     {
       "paper_id": "CHIKBT",
@@ -263,9 +663,24 @@
         "user_file": "user_prompt.txt",
         "variation": "default"
       },
-      "parse_success": false,
-      "parse_error": "Expecting ':' delimiter: line 1 column 2391 (char 2390)",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 20.0,
+        "relation_rmse": 20.0,
+        "combined_rmse": 20.0,
+        "scaled_rmse": 0.8781863861633801,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 0.030453403459154982
+      }
     },
     {
       "paper_id": "DYCTAM",
@@ -277,9 +692,24 @@
         "user_file": "user_prompt.txt",
         "variation": "default"
       },
-      "parse_success": false,
-      "parse_error": "Expecting ':' delimiter: line 1 column 3560 (char 3559)",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 5.0,
+        "relation_rmse": 13.0,
+        "combined_rmse": 9.848857801796104,
+        "scaled_rmse": 0.5178717022062426,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 0.12053207444843936
+      }
     },
     {
       "paper_id": "GOLHBN",
@@ -291,9 +721,24 @@
         "user_file": "user_prompt.txt",
         "variation": "default"
       },
-      "parse_success": false,
-      "parse_error": "Expecting ':' delimiter: line 1 column 1908 (char 1907)",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 55.0,
+        "relation_rmse": 55.0,
+        "combined_rmse": 55.0,
+        "scaled_rmse": 0.9969404079356557,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 0.000764898016086063
+      }
     },
     {
       "paper_id": "HOCASA-3",
@@ -305,9 +750,24 @@
         "user_file": "user_prompt.txt",
         "variation": "default"
       },
-      "parse_success": false,
-      "parse_error": "Expecting property name enclosed in double quotes: line 1 column 10375 (char 10374)",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 6.0,
+        "relation_rmse": 23.0,
+        "combined_rmse": 16.80773631397161,
+        "scaled_rmse": 0.6862485693010122,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 0.07843785767474695
+      }
     },
     {
       "paper_id": "MCGCRR",
@@ -319,9 +779,24 @@
         "user_file": "user_prompt.txt",
         "variation": "default"
       },
-      "parse_success": false,
-      "parse_error": "Expecting property name enclosed in double quotes: line 1 column 3827 (char 3826)",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 1.0,
+        "relation_rmse": 1.0,
+        "combined_rmse": 1.0,
+        "scaled_rmse": 0.07995558537067671,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 0.23001110365733082
+      }
     },
     {
       "paper_id": "MELSPP",
@@ -333,9 +808,24 @@
         "user_file": "user_prompt.txt",
         "variation": "default"
       },
-      "parse_success": false,
-      "parse_error": "Expecting ':' delimiter: line 1 column 1687 (char 1686)",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 22.0,
+        "relation_rmse": 21.0,
+        "combined_rmse": 21.50581316760657,
+        "scaled_rmse": 0.9799624616804342,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 0.005009384579891446
+      }
     },
     {
       "paper_id": "NUBDAA",
@@ -347,9 +837,24 @@
         "user_file": "user_prompt.txt",
         "variation": "default"
       },
-      "parse_success": false,
-      "parse_error": "Expecting property name enclosed in double quotes: line 1 column 7709 (char 7708)",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.07142857142857142,
+        "recall": 0.06666666666666667,
+        "f1": 0.0689655172413793,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 1.0,
+        "relation_rmse": 0.0,
+        "combined_rmse": 0.7071067811865476,
+        "scaled_rmse": 0.04925332291663387,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 0.25492804858118634
+      }
     },
     {
       "paper_id": "RALAET",
@@ -361,9 +866,24 @@
         "user_file": "user_prompt.txt",
         "variation": "default"
       },
-      "parse_success": false,
-      "parse_error": "Expecting ':' delimiter: line 1 column 1415 (char 1414)",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0625,
+        "recall": 0.1,
+        "f1": 0.07692307692307693,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 6.0,
+        "relation_rmse": 6.0,
+        "combined_rmse": 6.0,
+        "scaled_rmse": 0.46824846986942925,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 0.15216865176341193
+      }
     },
     {
       "paper_id": "SMIWSW",
@@ -375,9 +895,24 @@
         "user_file": "user_prompt.txt",
         "variation": "default"
       },
-      "parse_success": false,
-      "parse_error": "Expecting property name enclosed in double quotes: line 1 column 9895 (char 9894)",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 37.0,
+        "relation_rmse": 37.0,
+        "combined_rmse": 37.0,
+        "scaled_rmse": 0.9705131100771242,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 0.007371722480718962
+      }
     },
     {
       "paper_id": "STEGPD-9",
@@ -389,9 +924,24 @@
         "user_file": "user_prompt.txt",
         "variation": "default"
       },
-      "parse_success": false,
-      "parse_error": "Expecting ':' delimiter: line 1 column 1405 (char 1404)",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.038461538461538464,
+        "recall": 0.1111111111111111,
+        "f1": 0.05714285714285715,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 17.0,
+        "relation_rmse": 17.0,
+        "combined_rmse": 17.0,
+        "scaled_rmse": 0.8646647167633873,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 0.048119535094867466
+      }
     },
     {
       "paper_id": "VANTPO-40",
@@ -403,9 +953,24 @@
         "user_file": "user_prompt.txt",
         "variation": "default"
       },
-      "parse_success": false,
-      "parse_error": "Expecting value: line 1 column 6679 (char 6678)",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 4.0,
+        "relation_rmse": 14.0,
+        "combined_rmse": 10.295630140987,
+        "scaled_rmse": 0.6248900904807674,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 0.09377747737980816
+      }
     },
     {
       "paper_id": "VILWVI",
@@ -417,9 +982,24 @@
         "user_file": "user_prompt.txt",
         "variation": "default"
       },
-      "parse_success": false,
-      "parse_error": "Expecting property name enclosed in double quotes: line 1 column 6488 (char 6487)",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.2,
+        "recall": 0.2857142857142857,
+        "f1": 0.23529411764705882,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 3.0,
+        "relation_rmse": 1.0,
+        "combined_rmse": 2.23606797749979,
+        "scaled_rmse": 0.2910784859449608,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 0.2360539079255245
+      }
     },
     {
       "paper_id": "WEYUOP",
@@ -431,9 +1011,24 @@
         "user_file": "user_prompt.txt",
         "variation": "default"
       },
-      "parse_success": false,
-      "parse_error": "Expecting property name enclosed in double quotes: line 1 column 6452 (char 6451)",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 3.0,
+        "relation_rmse": 3.0,
+        "combined_rmse": 3.0,
+        "scaled_rmse": 0.2973814773370045,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 0.17565463066574888
+      }
     },
     {
       "paper_id": "BACFTU",
@@ -445,9 +1040,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs2"
       },
-      "parse_success": false,
-      "parse_error": "Expecting property name enclosed in double quotes: line 384 column 50 (char 34984)",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 90.0,
+        "relation_rmse": 4.0,
+        "combined_rmse": 63.702433234531945,
+        "scaled_rmse": 0.9999992886464507,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 1.778383873218825e-07
+      }
     },
     {
       "paper_id": "BRAAIC",
@@ -459,9 +1069,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs2"
       },
-      "parse_success": false,
-      "parse_error": "'relations'",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.014150943396226415,
+        "recall": 0.25,
+        "f1": 0.026785714285714288,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 200.0,
+        "relation_rmse": 10.0,
+        "combined_rmse": 141.59802258506295,
+        "scaled_rmse": 0.9999974324219791,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 0.0066970704659337875
+      }
     },
     {
       "paper_id": "CHIKBT",
@@ -475,7 +1100,22 @@
       },
       "parse_success": true,
       "parse_error": null,
-      "metrics": {}
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 1.0,
+        "relation_rmse": 0.0,
+        "combined_rmse": 0.7071067811865476,
+        "scaled_rmse": 0.07172967744390701,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 0.23206758063902325
+      }
     },
     {
       "paper_id": "DYCTAM",
@@ -487,9 +1127,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs2"
       },
-      "parse_success": false,
-      "parse_error": "Expecting property name enclosed in double quotes: line 820 column 78 (char 39762)",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 190.0,
+        "relation_rmse": 13.0,
+        "combined_rmse": 134.66439767065384,
+        "scaled_rmse": 0.9999534573084259,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 1.1635672893528515e-05
+      }
     },
     {
       "paper_id": "GOLHBN",
@@ -501,9 +1156,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs2"
       },
-      "parse_success": false,
-      "parse_error": "Expecting property name enclosed in double quotes: line 151 column 3 (char 6937)",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 8.0,
+        "relation_rmse": 6.0,
+        "combined_rmse": 7.0710678118654755,
+        "scaled_rmse": 0.5249441617114552,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 0.1187639595721362
+      }
     },
     {
       "paper_id": "HOCASA-3",
@@ -515,9 +1185,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs2"
       },
-      "parse_success": false,
-      "parse_error": "Expecting property name enclosed in double quotes: line 66 column 3 (char 2720)",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 7.0,
+        "relation_rmse": 8.0,
+        "combined_rmse": 7.516648189186454,
+        "scaled_rmse": 0.40452122330250184,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 0.14886969417437454
+      }
     },
     {
       "paper_id": "MCGCRR",
@@ -529,9 +1214,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs2"
       },
-      "parse_success": false,
-      "parse_error": "Expecting property name enclosed in double quotes: line 1529 column 1 (char 24258)",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 20.0,
+        "relation_rmse": 267.0,
+        "combined_rmse": 189.32643766785452,
+        "scaled_rmse": 0.9999998593797917,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 3.515505206386216e-08
+      }
     },
     {
       "paper_id": "MELSPP",
@@ -543,9 +1243,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs2"
       },
-      "parse_success": false,
-      "parse_error": "'relations'",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 170.0,
+        "relation_rmse": 5.0,
+        "combined_rmse": 120.26013470805694,
+        "scaled_rmse": 0.999999999680888,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 7.977798976988026e-11
+      }
     },
     {
       "paper_id": "NUBDAA",
@@ -557,9 +1272,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs2"
       },
-      "parse_success": false,
-      "parse_error": "'relations'",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0045045045045045045,
+        "recall": 0.06666666666666667,
+        "f1": 0.008438818565400845,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 207.0,
+        "relation_rmse": 13.0,
+        "combined_rmse": 146.6594695203825,
+        "scaled_rmse": 0.9999717855526635,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 0.0021167582531843292
+      }
     },
     {
       "paper_id": "RALAET",
@@ -571,9 +1301,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs2"
       },
-      "parse_success": false,
-      "parse_error": "Expecting property name enclosed in double quotes: line 116 column 3 (char 6236)",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 3.0,
+        "relation_rmse": 3.0,
+        "combined_rmse": 3.0,
+        "scaled_rmse": 0.2707870474747649,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 0.18230323813130878
+      }
     },
     {
       "paper_id": "SMIWSW",
@@ -585,9 +1330,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs2"
       },
-      "parse_success": false,
-      "parse_error": "Expecting property name enclosed in double quotes: line 148 column 3 (char 5163)",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 4.0,
+        "relation_rmse": 7.0,
+        "combined_rmse": 5.70087712549569,
+        "scaled_rmse": 0.4189629057356655,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 0.14525927356608362
+      }
     },
     {
       "paper_id": "STEGPD-9",
@@ -599,9 +1359,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs2"
       },
-      "parse_success": false,
-      "parse_error": "Extra data: line 783 column 1 (char 32495)",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 186.0,
+        "relation_rmse": 8.0,
+        "combined_rmse": 131.64345787011217,
+        "scaled_rmse": 0.9999998121206117,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 4.6969847067313e-08
+      }
     },
     {
       "paper_id": "VANTPO-40",
@@ -615,7 +1390,22 @@
       },
       "parse_success": true,
       "parse_error": null,
-      "metrics": {}
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 8.0,
+        "relation_rmse": 8.0,
+        "combined_rmse": 8.0,
+        "scaled_rmse": 0.5332235183483186,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 0.11669412041292035
+      }
     },
     {
       "paper_id": "VILWVI",
@@ -627,9 +1417,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs2"
       },
-      "parse_success": false,
-      "parse_error": "Expecting property name enclosed in double quotes: line 992 column 144 (char 36939)",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.004048582995951417,
+        "recall": 0.14285714285714285,
+        "f1": 0.007874015748031496,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 240.0,
+        "relation_rmse": 6.0,
+        "combined_rmse": 169.7586522095413,
+        "scaled_rmse": 0.9999999999954537,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 0.001968503938144437
+      }
     },
     {
       "paper_id": "WEYUOP",
@@ -641,9 +1446,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs2"
       },
-      "parse_success": false,
-      "parse_error": "Expecting value: line 1051 column 8 (char 37895)",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 253.0,
+        "relation_rmse": 8.0,
+        "combined_rmse": 178.98742972622406,
+        "scaled_rmse": 0.9999999992840026,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 1.789993431255965e-10
+      }
     },
     {
       "paper_id": "BACFTU",
@@ -655,9 +1475,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs1"
       },
-      "parse_success": false,
-      "parse_error": "Expecting property name enclosed in double quotes: line 504 column 70 (char 38013)",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 120.0,
+        "relation_rmse": 4.0,
+        "combined_rmse": 84.8999411071645,
+        "scaled_rmse": 0.9999999935979884,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 1.600502896881295e-09
+      }
     },
     {
       "paper_id": "BRAAIC",
@@ -669,9 +1504,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs1"
       },
-      "parse_success": false,
-      "parse_error": "'relations'",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.01910828025477707,
+        "recall": 0.25,
+        "f1": 0.03550295857988166,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 145.0,
+        "relation_rmse": 10.0,
+        "combined_rmse": 102.77402395547233,
+        "scaled_rmse": 0.9999124318391636,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 0.008897631685179524
+      }
     },
     {
       "paper_id": "CHIKBT",
@@ -683,9 +1533,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs1"
       },
-      "parse_success": false,
-      "parse_error": "'relations'",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 175.0,
+        "relation_rmse": 9.0,
+        "combined_rmse": 123.90722335683259,
+        "scaled_rmse": 0.9999978345137297,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 5.413715675750552e-07
+      }
     },
     {
       "paper_id": "DYCTAM",
@@ -697,9 +1562,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs1"
       },
-      "parse_success": false,
-      "parse_error": "Expecting property name enclosed in double quotes: line 620 column 47 (char 37710)",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 140.0,
+        "relation_rmse": 13.0,
+        "combined_rmse": 99.42082276867356,
+        "scaled_rmse": 0.999366661415548,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 0.0001583346461130064
+      }
     },
     {
       "paper_id": "GOLHBN",
@@ -713,7 +1593,22 @@
       },
       "parse_success": true,
       "parse_error": null,
-      "metrics": {}
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 0.0,
+        "relation_rmse": 2.0,
+        "combined_rmse": 1.4142135623730951,
+        "scaled_rmse": 0.138314208261607,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 0.21542144793459825
+      }
     },
     {
       "paper_id": "HOCASA-3",
@@ -725,9 +1620,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs1"
       },
-      "parse_success": false,
-      "parse_error": "'relations'",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 167.0,
+        "relation_rmse": 14.0,
+        "combined_rmse": 118.50105484762572,
+        "scaled_rmse": 0.9997176848453089,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 7.057878867278156e-05
+      }
     },
     {
       "paper_id": "MCGCRR",
@@ -739,9 +1649,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs1"
       },
-      "parse_success": false,
-      "parse_error": "Expecting property name enclosed in double quotes: line 128 column 3 (char 5716)",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 12.0,
+        "relation_rmse": 13.0,
+        "combined_rmse": 12.509996003196804,
+        "scaled_rmse": 0.6474277336899718,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 0.08814306657750706
+      }
     },
     {
       "paper_id": "MELSPP",
@@ -753,9 +1678,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs1"
       },
-      "parse_success": false,
-      "parse_error": "Expecting property name enclosed in double quotes: line 111 column 3 (char 3300)",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 7.0,
+        "relation_rmse": 6.0,
+        "combined_rmse": 6.519202405202649,
+        "scaled_rmse": 0.6943484429266807,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 0.07641288926832981
+      }
     },
     {
       "paper_id": "NUBDAA",
@@ -767,9 +1707,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs1"
       },
-      "parse_success": false,
-      "parse_error": "Expecting property name enclosed in double quotes: line 94 column 3 (char 5265)",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 5.0,
+        "relation_rmse": 2.0,
+        "combined_rmse": 3.8078865529319543,
+        "scaled_rmse": 0.2381395653042777,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 0.19046510867393057
+      }
     },
     {
       "paper_id": "RALAET",
@@ -781,9 +1736,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs1"
       },
-      "parse_success": false,
-      "parse_error": "Expecting property name enclosed in double quotes: line 170 column 3 (char 7716)",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 9.0,
+        "relation_rmse": 9.0,
+        "combined_rmse": 9.0,
+        "scaled_rmse": 0.6122398967036751,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 0.09694002582408123
+      }
     },
     {
       "paper_id": "SMIWSW",
@@ -795,9 +1765,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs1"
       },
-      "parse_success": false,
-      "parse_error": "Expecting property name enclosed in double quotes: line 644 column 101 (char 36713)",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 149.0,
+        "relation_rmse": 10.0,
+        "combined_rmse": 105.59592795179178,
+        "scaled_rmse": 0.9999571049894517,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 1.0723752637081807e-05
+      }
     },
     {
       "paper_id": "STEGPD-9",
@@ -809,9 +1794,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs1"
       },
-      "parse_success": false,
-      "parse_error": "Expecting ':' delimiter: line 726 column 14 (char 31939)",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 172.0,
+        "relation_rmse": 8.0,
+        "combined_rmse": 121.75385004179539,
+        "scaled_rmse": 0.9999993985860423,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 1.503534894364833e-07
+      }
     },
     {
       "paper_id": "VANTPO-40",
@@ -823,9 +1823,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs1"
       },
-      "parse_success": false,
-      "parse_error": "'relations'",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 217.0,
+        "relation_rmse": 10.0,
+        "combined_rmse": 153.60501293903138,
+        "scaled_rmse": 0.9999995567131907,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 1.1082170231491162e-07
+      }
     },
     {
       "paper_id": "VILWVI",
@@ -837,9 +1852,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs1"
       },
-      "parse_success": false,
-      "parse_error": "Expecting ':' delimiter: line 916 column 7 (char 34624)",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 221.0,
+        "relation_rmse": 6.0,
+        "combined_rmse": 156.32818044101967,
+        "scaled_rmse": 0.9999999999641074,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 8.973155551927903e-12
+      }
     },
     {
       "paper_id": "WEYUOP",
@@ -851,9 +1881,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs1"
       },
-      "parse_success": false,
-      "parse_error": "'relations'",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 216.0,
+        "relation_rmse": 8.0,
+        "combined_rmse": 152.8397853963424,
+        "scaled_rmse": 0.9999999844802313,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 3.879942173101725e-09
+      }
     },
     {
       "paper_id": "BACFTU",
@@ -865,9 +1910,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs1"
       },
-      "parse_success": false,
-      "parse_error": "Expecting ':' delimiter: line 754 column 6 (char 31294)",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 39.0,
+        "relation_rmse": 4.0,
+        "combined_rmse": 27.721832551258224,
+        "scaled_rmse": 0.9978886067336752,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 0.0005278483165812031
+      }
     },
     {
       "paper_id": "BRAAIC",
@@ -879,9 +1939,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs1"
       },
-      "parse_success": false,
-      "parse_error": "Expecting ':' delimiter: line 778 column 12 (char 42218)",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.010309278350515464,
+        "recall": 0.16666666666666666,
+        "f1": 0.01941747572815534,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 182.0,
+        "relation_rmse": 10.0,
+        "combined_rmse": 128.8875478857442,
+        "scaled_rmse": 0.999991846390194,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 0.004856407334490334
+      }
     },
     {
       "paper_id": "CHIKBT",
@@ -893,9 +1968,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs1"
       },
-      "parse_success": false,
-      "parse_error": "'relations'",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 203.0,
+        "relation_rmse": 9.0,
+        "combined_rmse": 143.68368035375485,
+        "scaled_rmse": 0.9999997299335864,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 6.751660339143761e-08
+      }
     },
     {
       "paper_id": "DYCTAM",
@@ -907,9 +1997,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs1"
       },
-      "parse_success": false,
-      "parse_error": "Expecting value: line 560 column 8 (char 40711)",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 125.0,
+        "relation_rmse": 13.0,
+        "combined_rmse": 88.86506625215557,
+        "scaled_rmse": 0.9986157509660656,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 0.0003460622584836037
+      }
     },
     {
       "paper_id": "GOLHBN",
@@ -923,7 +2028,22 @@
       },
       "parse_success": true,
       "parse_error": null,
-      "metrics": {}
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 2.0,
+        "relation_rmse": 9.0,
+        "combined_rmse": 6.519202405202649,
+        "scaled_rmse": 0.4965303426657839,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 0.12586741433355403
+      }
     },
     {
       "paper_id": "HOCASA-3",
@@ -935,9 +2055,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs1"
       },
-      "parse_success": false,
-      "parse_error": "'relations'",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 205.0,
+        "relation_rmse": 14.0,
+        "combined_rmse": 145.29452845857617,
+        "scaled_rmse": 0.9999555129448888,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 1.1121763777793836e-05
+      }
     },
     {
       "paper_id": "MCGCRR",
@@ -949,9 +2084,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs1"
       },
-      "parse_success": false,
-      "parse_error": "Expecting property name enclosed in double quotes: line 156 column 3 (char 6037)",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 18.0,
+        "relation_rmse": 18.0,
+        "combined_rmse": 18.0,
+        "scaled_rmse": 0.7768698398515702,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 0.05578254003710745
+      }
     },
     {
       "paper_id": "MELSPP",
@@ -963,9 +2113,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs1"
       },
-      "parse_success": false,
-      "parse_error": "'relations'",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 207.0,
+        "relation_rmse": 5.0,
+        "combined_rmse": 146.4137971640651,
+        "scaled_rmse": 0.9999999999972535,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 6.866174295794281e-13
+      }
     },
     {
       "paper_id": "NUBDAA",
@@ -977,9 +2142,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs1"
       },
-      "parse_success": false,
-      "parse_error": "Expecting property name enclosed in double quotes: line 104 column 3 (char 6813)",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 7.0,
+        "relation_rmse": 0.0,
+        "combined_rmse": 4.949747468305833,
+        "scaled_rmse": 0.29781149867344037,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 0.1755471253316399
+      }
     },
     {
       "paper_id": "RALAET",
@@ -991,9 +2171,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs1"
       },
-      "parse_success": false,
-      "parse_error": "Expecting property name enclosed in double quotes: line 179 column 3 (char 5668)",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 10.0,
+        "relation_rmse": 10.0,
+        "combined_rmse": 10.0,
+        "scaled_rmse": 0.65098192906868,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 0.08725451773283
+      }
     },
     {
       "paper_id": "SMIWSW",
@@ -1005,9 +2200,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs1"
       },
-      "parse_success": false,
-      "parse_error": "Expecting property name enclosed in double quotes: line 596 column 115 (char 36894)",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 137.0,
+        "relation_rmse": 10.0,
+        "combined_rmse": 97.13135436098891,
+        "scaled_rmse": 0.9999039464949263,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 2.401337626842248e-05
+      }
     },
     {
       "paper_id": "STEGPD-9",
@@ -1019,9 +2229,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs1"
       },
-      "parse_success": false,
-      "parse_error": "Expecting ':' delimiter: line 226 column 7 (char 32928)",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.05555555555555555,
+        "recall": 0.1111111111111111,
+        "f1": 0.07407407407407407,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 9.0,
+        "relation_rmse": 142.0,
+        "combined_rmse": 100.6106356206937,
+        "scaled_rmse": 0.9999927647479953,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 0.018520327331519704
+      }
     },
     {
       "paper_id": "VANTPO-40",
@@ -1035,7 +2260,22 @@
       },
       "parse_success": true,
       "parse_error": null,
-      "metrics": {}
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 2.0,
+        "relation_rmse": 3.0,
+        "combined_rmse": 2.5495097567963922,
+        "scaled_rmse": 0.21557981584839592,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 0.19610504603790102
+      }
     },
     {
       "paper_id": "VILWVI",
@@ -1047,9 +2287,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs1"
       },
-      "parse_success": false,
-      "parse_error": "'relations'",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.008368200836820083,
+        "recall": 0.2857142857142857,
+        "f1": 0.016260162601626015,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 232.0,
+        "relation_rmse": 6.0,
+        "combined_rmse": 164.10362579784763,
+        "scaled_rmse": 0.9999999999891485,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 0.004065040653119389
+      }
     },
     {
       "paper_id": "WEYUOP",
@@ -1061,9 +2316,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs1"
       },
-      "parse_success": false,
-      "parse_error": "'relations'",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 189.0,
+        "relation_rmse": 8.0,
+        "combined_rmse": 133.76284985002374,
+        "scaled_rmse": 0.999999853582816,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 3.6604296010933624e-08
+      }
     },
     {
       "paper_id": "BACFTU",
@@ -1077,7 +2347,22 @@
       },
       "parse_success": true,
       "parse_error": null,
-      "metrics": {}
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 28.0,
+        "relation_rmse": 23.0,
+        "combined_rmse": 25.622255950637914,
+        "scaled_rmse": 0.9966333417900335,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 0.0008416645524916277
+      }
     },
     {
       "paper_id": "BRAAIC",
@@ -1089,9 +2374,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs2"
       },
-      "parse_success": false,
-      "parse_error": "Expecting property name enclosed in double quotes: line 189 column 3 (char 5619)",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 6.0,
+        "relation_rmse": 10.0,
+        "combined_rmse": 8.246211251235321,
+        "scaled_rmse": 0.527470721219029,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 0.11813231969524274
+      }
     },
     {
       "paper_id": "CHIKBT",
@@ -1103,9 +2403,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs2"
       },
-      "parse_success": false,
-      "parse_error": "Expecting property name enclosed in double quotes: line 111 column 3 (char 6736)",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 11.0,
+        "relation_rmse": 14.0,
+        "combined_rmse": 12.589678312014172,
+        "scaled_rmse": 0.7342579814797958,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 0.06643550463005105
+      }
     },
     {
       "paper_id": "DYCTAM",
@@ -1117,9 +2432,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs2"
       },
-      "parse_success": false,
-      "parse_error": "Expecting ':' delimiter: line 898 column 3 (char 37463)",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 210.0,
+        "relation_rmse": 13.0,
+        "combined_rmse": 148.77667827989708,
+        "scaled_rmse": 0.9999836371115606,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 4.090722109856282e-06
+      }
     },
     {
       "paper_id": "GOLHBN",
@@ -1131,9 +2461,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs2"
       },
-      "parse_success": false,
-      "parse_error": "'relations'",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 205.0,
+        "relation_rmse": 9.0,
+        "combined_rmse": 145.09651959988565,
+        "scaled_rmse": 0.9999997672539408,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 5.8186514800828704e-08
+      }
     },
     {
       "paper_id": "HOCASA-3",
@@ -1147,7 +2492,22 @@
       },
       "parse_success": true,
       "parse_error": null,
-      "metrics": {}
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 0.0,
+        "relation_rmse": 2.0,
+        "combined_rmse": 1.4142135623730951,
+        "scaled_rmse": 0.09292665787816601,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 0.2267683355304585
+      }
     },
     {
       "paper_id": "MCGCRR",
@@ -1159,9 +2519,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs2"
       },
-      "parse_success": false,
-      "parse_error": "Expecting property name enclosed in double quotes: line 98 column 3 (char 2838)",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 2.0,
+        "relation_rmse": 1.0,
+        "combined_rmse": 1.5811388300841898,
+        "scaled_rmse": 0.12345003330138604,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 0.2191374916746535
+      }
     },
     {
       "paper_id": "MELSPP",
@@ -1173,9 +2548,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs2"
       },
-      "parse_success": false,
-      "parse_error": "Expecting property name enclosed in double quotes: line 824 column 62 (char 38599)",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 199.0,
+        "relation_rmse": 5.0,
+        "combined_rmse": 140.75865870347016,
+        "scaled_rmse": 0.9999999999923206,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 1.919853165333052e-12
+      }
     },
     {
       "paper_id": "NUBDAA",
@@ -1187,9 +2577,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs2"
       },
-      "parse_success": false,
-      "parse_error": "'relations'",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 250.0,
+        "relation_rmse": 13.0,
+        "combined_rmse": 177.0155360413317,
+        "scaled_rmse": 0.9999967730297373,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 8.067425656677063e-07
+      }
     },
     {
       "paper_id": "RALAET",
@@ -1201,9 +2606,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs2"
       },
-      "parse_success": false,
-      "parse_error": "Expecting property name enclosed in double quotes: line 169 column 3 (char 6076)",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 10.0,
+        "relation_rmse": 8.0,
+        "combined_rmse": 9.055385138137417,
+        "scaled_rmse": 0.6144939667292398,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 0.09637650831769004
+      }
     },
     {
       "paper_id": "SMIWSW",
@@ -1215,9 +2635,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs2"
       },
-      "parse_success": false,
-      "parse_error": "Extra data: line 847 column 1 (char 34969)",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 200.0,
+        "relation_rmse": 10.0,
+        "combined_rmse": 141.59802258506295,
+        "scaled_rmse": 0.9999986090532957,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 3.477366760651357e-07
+      }
     },
     {
       "paper_id": "STEGPD-9",
@@ -1229,9 +2664,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs2"
       },
-      "parse_success": false,
-      "parse_error": "'relations'",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.006172839506172839,
+        "recall": 0.1111111111111111,
+        "f1": 0.011695906432748537,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 153.0,
+        "relation_rmse": 8.0,
+        "combined_rmse": 108.3351281902597,
+        "scaled_rmse": 0.9999970840334027,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 0.002924705599836458
+      }
     },
     {
       "paper_id": "VANTPO-40",
@@ -1243,9 +2693,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs2"
       },
-      "parse_success": false,
-      "parse_error": "'relations'",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 143.0,
+        "relation_rmse": 10.0,
+        "combined_rmse": 101.36320831544353,
+        "scaled_rmse": 0.9999358084443073,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 1.6047888923176323e-05
+      }
     },
     {
       "paper_id": "VILWVI",
@@ -1257,9 +2722,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs2"
       },
-      "parse_success": false,
-      "parse_error": "Expecting property name enclosed in double quotes: line 83 column 3 (char 5070)",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.07142857142857142,
+        "recall": 0.14285714285714285,
+        "f1": 0.09523809523809523,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 7.0,
+        "relation_rmse": 17.0,
+        "combined_rmse": 13.0,
+        "scaled_rmse": 0.8646647167633873,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 0.057643344618676984
+      }
     },
     {
       "paper_id": "WEYUOP",
@@ -1271,9 +2751,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs2"
       },
-      "parse_success": false,
-      "parse_error": "'relations'",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 200.0,
+        "relation_rmse": 8.0,
+        "combined_rmse": 141.53444810363305,
+        "scaled_rmse": 0.9999999413167524,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 1.4670811898653824e-08
+      }
     },
     {
       "paper_id": "BACFTU",
@@ -1285,9 +2780,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs1"
       },
-      "parse_success": false,
-      "parse_error": "Expecting ':' delimiter: line 346 column 42 (char 33181)",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 81.0,
+        "relation_rmse": 4.0,
+        "combined_rmse": 57.34544445725397,
+        "scaled_rmse": 0.9999970785547094,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 7.303613226428141e-07
+      }
     },
     {
       "paper_id": "BRAAIC",
@@ -1299,9 +2809,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs1"
       },
-      "parse_success": false,
-      "parse_error": "'relations'",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.023148148148148147,
+        "recall": 0.4166666666666667,
+        "f1": 0.043859649122807015,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 204.0,
+        "relation_rmse": 10.0,
+        "combined_rmse": 144.42298985964803,
+        "scaled_rmse": 0.9999980139497976,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 0.010965408793252356
+      }
     },
     {
       "paper_id": "CHIKBT",
@@ -1315,7 +2840,22 @@
       },
       "parse_success": true,
       "parse_error": null,
-      "metrics": {}
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 0.0,
+        "relation_rmse": 1.0,
+        "combined_rmse": 0.7071067811865476,
+        "scaled_rmse": 0.07172967744390701,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 0.23206758063902325
+      }
     },
     {
       "paper_id": "DYCTAM",
@@ -1327,9 +2867,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs1"
       },
-      "parse_success": false,
-      "parse_error": "Expecting value: line 699 column 8 (char 38390)",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 160.0,
+        "relation_rmse": 13.0,
+        "combined_rmse": 113.50991146151071,
+        "scaled_rmse": 0.9997769560207858,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 5.576099480356089e-05
+      }
     },
     {
       "paper_id": "GOLHBN",
@@ -1343,7 +2898,22 @@
       },
       "parse_success": true,
       "parse_error": null,
-      "metrics": {}
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 12.0,
+        "relation_rmse": 11.0,
+        "combined_rmse": 11.510864433221338,
+        "scaled_rmse": 0.702300276675905,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 0.07442493083102375
+      }
     },
     {
       "paper_id": "HOCASA-3",
@@ -1355,9 +2925,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs1"
       },
-      "parse_success": false,
-      "parse_error": "Expecting property name enclosed in double quotes: line 876 column 131 (char 34252)",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 203.0,
+        "relation_rmse": 14.0,
+        "combined_rmse": 143.88363353766127,
+        "scaled_rmse": 0.999950966617166,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 1.2258345708504592e-05
+      }
     },
     {
       "paper_id": "MCGCRR",
@@ -1369,9 +2954,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs1"
       },
-      "parse_success": false,
-      "parse_error": "Expecting property name enclosed in double quotes: line 142 column 3 (char 6119)",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 15.0,
+        "relation_rmse": 15.0,
+        "combined_rmse": 15.0,
+        "scaled_rmse": 0.7134952031398099,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 0.07162619921504754
+      }
     },
     {
       "paper_id": "MELSPP",
@@ -1383,9 +2983,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs1"
       },
-      "parse_success": false,
-      "parse_error": "Expecting property name enclosed in double quotes: line 248 column 35 (char 21970)",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 55.0,
+        "relation_rmse": 5.0,
+        "combined_rmse": 39.05124837953327,
+        "scaled_rmse": 0.9991750823362266,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 0.00020622941594333755
+      }
     },
     {
       "paper_id": "NUBDAA",
@@ -1397,9 +3012,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs1"
       },
-      "parse_success": false,
-      "parse_error": "Expecting property name enclosed in double quotes: line 152 column 3 (char 4499)",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 2.0,
+        "relation_rmse": 3.0,
+        "combined_rmse": 2.5495097567963922,
+        "scaled_rmse": 0.16648855011508856,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 0.20837786247122786
+      }
     },
     {
       "paper_id": "RALAET",
@@ -1413,7 +3043,22 @@
       },
       "parse_success": true,
       "parse_error": null,
-      "metrics": {}
+      "metrics": {
+        "precision": 0.05263157894736842,
+        "recall": 0.1,
+        "f1": 0.06896551724137931,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 9.0,
+        "relation_rmse": 7.0,
+        "combined_rmse": 8.06225774829855,
+        "scaled_rmse": 0.5720113961815393,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 0.12423853026496001
+      }
     },
     {
       "paper_id": "SMIWSW",
@@ -1425,9 +3070,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs1"
       },
-      "parse_success": false,
-      "parse_error": "Invalid control character at: line 26 column 73 (char 1371)",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 10.0,
+        "relation_rmse": 3.0,
+        "combined_rmse": 7.3824115301167,
+        "scaled_rmse": 0.5049451984760983,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 0.12376370038097542
+      }
     },
     {
       "paper_id": "STEGPD-9",
@@ -1439,9 +3099,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs1"
       },
-      "parse_success": false,
-      "parse_error": "'relations'",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 189.0,
+        "relation_rmse": 8.0,
+        "combined_rmse": 133.76284985002374,
+        "scaled_rmse": 0.999999853582816,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 3.6604296010933624e-08
+      }
     },
     {
       "paper_id": "VANTPO-40",
@@ -1453,9 +3128,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs1"
       },
-      "parse_success": false,
-      "parse_error": "'relations'",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 203.0,
+        "relation_rmse": 10.0,
+        "combined_rmse": 143.71673528159482,
+        "scaled_rmse": 0.9999988632168949,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 2.84195776273366e-07
+      }
     },
     {
       "paper_id": "VILWVI",
@@ -1467,9 +3157,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs1"
       },
-      "parse_success": false,
-      "parse_error": "'relations'",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0030303030303030303,
+        "recall": 0.14285714285714285,
+        "f1": 0.005934718100890209,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 323.0,
+        "relation_rmse": 6.0,
+        "combined_rmse": 228.4348922559774,
+        "scaled_rmse": 0.9999999999999994,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 0.001483679525222691
+      }
     },
     {
       "paper_id": "WEYUOP",
@@ -1481,9 +3186,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs1"
       },
-      "parse_success": false,
-      "parse_error": "Expecting property name enclosed in double quotes: line 708 column 113 (char 39198)",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 167.0,
+        "relation_rmse": 8.0,
+        "combined_rmse": 118.22224832915335,
+        "scaled_rmse": 0.9999990887967002,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 2.2780082495343912e-07
+      }
     },
     {
       "paper_id": "BACFTU",
@@ -1495,9 +3215,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs2"
       },
-      "parse_success": false,
-      "parse_error": "Expecting property name enclosed in double quotes: line 282 column 3 (char 13307)",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 32.0,
+        "relation_rmse": 22.0,
+        "combined_rmse": 27.459060435491963,
+        "scaled_rmse": 0.9977616435947798,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 0.0005595891013050469
+      }
     },
     {
       "paper_id": "BRAAIC",
@@ -1509,9 +3244,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs2"
       },
-      "parse_success": false,
-      "parse_error": "'relations'",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 242.0,
+        "relation_rmse": 10.0,
+        "combined_rmse": 171.26587517658035,
+        "scaled_rmse": 0.9999998269395732,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 4.3265106691725563e-08
+      }
     },
     {
       "paper_id": "CHIKBT",
@@ -1523,9 +3273,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs2"
       },
-      "parse_success": false,
-      "parse_error": "Expecting property name enclosed in double quotes: line 104 column 3 (char 3923)",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 0.0,
+        "relation_rmse": 3.0,
+        "combined_rmse": 2.1213203435596424,
+        "scaled_rmse": 0.20012265216099956,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 0.1999693369597501
+      }
     },
     {
       "paper_id": "DYCTAM",
@@ -1537,9 +3302,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs2"
       },
-      "parse_success": false,
-      "parse_error": "Expecting property name enclosed in double quotes: line 87 column 3 (char 6246)",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 3.0,
+        "relation_rmse": 3.0,
+        "combined_rmse": 3.0,
+        "scaled_rmse": 0.19926259708319194,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 0.20018435072920202
+      }
     },
     {
       "paper_id": "GOLHBN",
@@ -1551,9 +3331,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs2"
       },
-      "parse_success": false,
-      "parse_error": "Expecting ':' delimiter: line 554 column 100 (char 42154)",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 128.0,
+        "relation_rmse": 9.0,
+        "combined_rmse": 90.73312515283489,
+        "scaled_rmse": 0.9999288596078612,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 1.778509803471162e-05
+      }
     },
     {
       "paper_id": "HOCASA-3",
@@ -1565,9 +3360,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs2"
       },
-      "parse_success": false,
-      "parse_error": "Expecting property name enclosed in double quotes: line 129 column 63 (char 6245)",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 14.0,
+        "relation_rmse": 3.0,
+        "combined_rmse": 10.124228365658293,
+        "scaled_rmse": 0.502531303468307,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 0.12436717413292325
+      }
     },
     {
       "paper_id": "MCGCRR",
@@ -1579,9 +3389,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs2"
       },
-      "parse_success": false,
-      "parse_error": "Expecting property name enclosed in double quotes: line 107 column 3 (char 2271)",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 1.0,
+        "relation_rmse": 0.0,
+        "combined_rmse": 0.7071067811865476,
+        "scaled_rmse": 0.05722305794612803,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 0.235694235513468
+      }
     },
     {
       "paper_id": "MELSPP",
@@ -1593,9 +3418,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs2"
       },
-      "parse_success": false,
-      "parse_error": "Expecting value: line 1270 column 20 (char 27567)",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 19.0,
+        "relation_rmse": 228.0,
+        "combined_rmse": 161.7791704763008,
+        "scaled_rmse": 0.9999999999998319,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 4.2021941482062175e-14
+      }
     },
     {
       "paper_id": "NUBDAA",
@@ -1607,9 +3447,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs2"
       },
-      "parse_success": false,
-      "parse_error": "Expecting property name enclosed in double quotes: line 723 column 20 (char 21723)",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 86.0,
+        "relation_rmse": 84.0,
+        "combined_rmse": 85.00588214941364,
+        "scaled_rmse": 0.9976930955658823,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 0.0005767261085294351
+      }
     },
     {
       "paper_id": "RALAET",
@@ -1621,9 +3476,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs2"
       },
-      "parse_success": false,
-      "parse_error": "Expecting property name enclosed in double quotes: line 152 column 3 (char 4349)",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 7.0,
+        "relation_rmse": 7.0,
+        "combined_rmse": 7.0,
+        "scaled_rmse": 0.5213770274887679,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 0.11965574312780802
+      }
     },
     {
       "paper_id": "SMIWSW",
@@ -1635,9 +3505,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs2"
       },
-      "parse_success": false,
-      "parse_error": "Expecting property name enclosed in double quotes: line 644 column 77 (char 35521)",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 149.0,
+        "relation_rmse": 10.0,
+        "combined_rmse": 105.59592795179178,
+        "scaled_rmse": 0.9999571049894517,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 1.0723752637081807e-05
+      }
     },
     {
       "paper_id": "STEGPD-9",
@@ -1649,9 +3534,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs2"
       },
-      "parse_success": false,
-      "parse_error": "'relations'",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 165.0,
+        "relation_rmse": 8.0,
+        "combined_rmse": 116.8096742568868,
+        "scaled_rmse": 0.9999989240586643,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 2.689853339232773e-07
+      }
     },
     {
       "paper_id": "VANTPO-40",
@@ -1663,9 +3563,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs2"
       },
-      "parse_success": false,
-      "parse_error": "Expecting value: line 364 column 38 (char 30103)",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 28.0,
+        "relation_rmse": 195.0,
+        "combined_rmse": 139.30003589374985,
+        "scaled_rmse": 0.9999982687555713,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 4.3281110717607874e-07
+      }
     },
     {
       "paper_id": "VILWVI",
@@ -1677,9 +3592,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs2"
       },
-      "parse_success": false,
-      "parse_error": "Expecting value: line 620 column 85 (char 37441)",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.012987012987012988,
+        "recall": 0.2857142857142857,
+        "f1": 0.02484472049689441,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 147.0,
+        "relation_rmse": 6.0,
+        "combined_rmse": 104.03124530639822,
+        "scaled_rmse": 0.9999998880044805,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 0.006211208123103484
+      }
     },
     {
       "paper_id": "WEYUOP",
@@ -1691,9 +3621,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs2"
       },
-      "parse_success": false,
-      "parse_error": "Expecting property name enclosed in double quotes: line 328 column 3 (char 9487)",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 47.0,
+        "relation_rmse": 12.0,
+        "combined_rmse": 34.30014577228499,
+        "scaled_rmse": 0.9823198240045365,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 0.0044200439988658635
+      }
     },
     {
       "paper_id": "BACFTU",
@@ -1705,9 +3650,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs2"
       },
-      "parse_success": false,
-      "parse_error": "Expecting property name enclosed in double quotes: line 515 column 210 (char 35485)",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 28.0,
+        "relation_rmse": 4.0,
+        "combined_rmse": 20.0,
+        "scaled_rmse": 0.9882563715429786,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 0.002935907114255343
+      }
     },
     {
       "paper_id": "BRAAIC",
@@ -1719,9 +3679,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs2"
       },
-      "parse_success": false,
-      "parse_error": "'relations'",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.01485148514851485,
+        "recall": 0.25,
+        "f1": 0.02803738317757009,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 190.0,
+        "relation_rmse": 10.0,
+        "combined_rmse": 134.5362404707371,
+        "scaled_rmse": 0.9999951209855503,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 0.007010565548004942
+      }
     },
     {
       "paper_id": "CHIKBT",
@@ -1735,7 +3710,22 @@
       },
       "parse_success": true,
       "parse_error": null,
-      "metrics": {}
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 0.0,
+        "relation_rmse": 0.0,
+        "combined_rmse": 0.0,
+        "scaled_rmse": 0.0,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 0.25
+      }
     },
     {
       "paper_id": "DYCTAM",
@@ -1747,9 +3737,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs2"
       },
-      "parse_success": false,
-      "parse_error": "'relations'",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 166.0,
+        "relation_rmse": 13.0,
+        "combined_rmse": 117.73911839316617,
+        "scaled_rmse": 0.999836943889023,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 4.076402774425003e-05
+      }
     },
     {
       "paper_id": "GOLHBN",
@@ -1761,9 +3766,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs2"
       },
-      "parse_success": false,
-      "parse_error": "Expecting property name enclosed in double quotes: line 736 column 35 (char 38119)",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 173.0,
+        "relation_rmse": 9.0,
+        "combined_rmse": 122.494897852931,
+        "scaled_rmse": 0.9999974874183158,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 6.281454210388393e-07
+      }
     },
     {
       "paper_id": "HOCASA-3",
@@ -1775,9 +3795,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs2"
       },
-      "parse_success": false,
-      "parse_error": "'relations'",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 206.0,
+        "relation_rmse": 14.0,
+        "combined_rmse": 146.0,
+        "scaled_rmse": 0.9999576255731171,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 1.0593606720732396e-05
+      }
     },
     {
       "paper_id": "MCGCRR",
@@ -1789,9 +3824,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs2"
       },
-      "parse_success": false,
-      "parse_error": "Expecting value: line 891 column 8 (char 35949)",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 209.0,
+        "relation_rmse": 11.0,
+        "combined_rmse": 147.98986451781082,
+        "scaled_rmse": 0.9999955937594268,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 1.1015601432962097e-06
+      }
     },
     {
       "paper_id": "MELSPP",
@@ -1805,7 +3855,22 @@
       },
       "parse_success": true,
       "parse_error": null,
-      "metrics": {}
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 7.0,
+        "relation_rmse": 6.0,
+        "combined_rmse": 6.519202405202649,
+        "scaled_rmse": 0.6943484429266807,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 0.07641288926832981
+      }
     },
     {
       "paper_id": "NUBDAA",
@@ -1817,9 +3882,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs2"
       },
-      "parse_success": false,
-      "parse_error": "'relations'",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 185.0,
+        "relation_rmse": 13.0,
+        "combined_rmse": 131.13733259449805,
+        "scaled_rmse": 0.9999144964214215,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 2.1375894644626303e-05
+      }
     },
     {
       "paper_id": "RALAET",
@@ -1833,7 +3913,22 @@
       },
       "parse_success": true,
       "parse_error": null,
-      "metrics": {}
+      "metrics": {
+        "precision": 0.047619047619047616,
+        "recall": 0.1,
+        "f1": 0.06451612903225806,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 11.0,
+        "relation_rmse": 9.0,
+        "combined_rmse": 10.04987562112089,
+        "scaled_rmse": 0.6528094951417915,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 0.10292665847261663
+      }
     },
     {
       "paper_id": "SMIWSW",
@@ -1845,9 +3940,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs2"
       },
-      "parse_success": false,
-      "parse_error": "'relations'",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 136.0,
+        "relation_rmse": 10.0,
+        "combined_rmse": 96.42613753542138,
+        "scaled_rmse": 0.9998972736262335,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 2.568159344162879e-05
+      }
     },
     {
       "paper_id": "STEGPD-9",
@@ -1859,9 +3969,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs2"
       },
-      "parse_success": false,
-      "parse_error": "Expecting ':' delimiter: line 299 column 101 (char 26114)",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 16.0,
+        "relation_rmse": 188.0,
+        "combined_rmse": 133.41664064126334,
+        "scaled_rmse": 0.9999998474960545,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 3.812598636798725e-08
+      }
     },
     {
       "paper_id": "VANTPO-40",
@@ -1873,9 +3998,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs2"
       },
-      "parse_success": false,
-      "parse_error": "'relations'",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 223.0,
+        "relation_rmse": 10.0,
+        "combined_rmse": 157.84327670192354,
+        "scaled_rmse": 0.9999997039368377,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 7.401579057986218e-08
+      }
     },
     {
       "paper_id": "VILWVI",
@@ -1889,7 +4029,22 @@
       },
       "parse_success": true,
       "parse_error": null,
-      "metrics": {}
+      "metrics": {
+        "precision": 0.25,
+        "recall": 0.5714285714285714,
+        "f1": 0.34782608695652173,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 9.0,
+        "relation_rmse": 10.0,
+        "combined_rmse": 9.513148795220223,
+        "scaled_rmse": 0.7685893296427302,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 0.14480918932844788
+      }
     },
     {
       "paper_id": "WEYUOP",
@@ -1901,9 +4056,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs2"
       },
-      "parse_success": false,
-      "parse_error": "'relations'",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 192.0,
+        "relation_rmse": 8.0,
+        "combined_rmse": 135.88230201170424,
+        "scaled_rmse": 0.9999998858957323,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 2.852606692527182e-08
+      }
     },
     {
       "paper_id": "BACFTU",
@@ -1915,9 +4085,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs1"
       },
-      "parse_success": false,
-      "parse_error": "Expecting ':' delimiter: line 418 column 12 (char 33646)",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 99.0,
+        "relation_rmse": 4.0,
+        "combined_rmse": 70.06068797835202,
+        "scaled_rmse": 0.9999998268386076,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 4.329034811179078e-08
+      }
     },
     {
       "paper_id": "BRAAIC",
@@ -1929,9 +4114,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs1"
       },
-      "parse_success": false,
-      "parse_error": "'relations'",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.008298755186721992,
+        "recall": 0.16666666666666666,
+        "f1": 0.015810276679841896,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 229.0,
+        "relation_rmse": 10.0,
+        "combined_rmse": 162.08176948688586,
+        "scaled_rmse": 0.9999996011603246,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 0.003952668879879323
+      }
     },
     {
       "paper_id": "CHIKBT",
@@ -1943,9 +4143,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs1"
       },
-      "parse_success": false,
-      "parse_error": "Expecting property name enclosed in double quotes: line 58 column 3 (char 3296)",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 1.0,
+        "relation_rmse": 0.0,
+        "combined_rmse": 0.7071067811865476,
+        "scaled_rmse": 0.07172967744390701,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 0.23206758063902325
+      }
     },
     {
       "paper_id": "DYCTAM",
@@ -1957,9 +4172,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs1"
       },
-      "parse_success": false,
-      "parse_error": "'relations'",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 179.0,
+        "relation_rmse": 13.0,
+        "combined_rmse": 126.90547663517127,
+        "scaled_rmse": 0.9999173094868614,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 2.067262828464589e-05
+      }
     },
     {
       "paper_id": "GOLHBN",
@@ -1973,7 +4203,22 @@
       },
       "parse_success": true,
       "parse_error": null,
-      "metrics": {}
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 5.0,
+        "relation_rmse": 4.0,
+        "combined_rmse": 4.527692569068709,
+        "scaled_rmse": 0.37910867837377515,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 0.1552228304065562
+      }
     },
     {
       "paper_id": "HOCASA-3",
@@ -1985,9 +4230,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs1"
       },
-      "parse_success": false,
-      "parse_error": "'relations'",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 181.0,
+        "relation_rmse": 14.0,
+        "combined_rmse": 128.36860987017036,
+        "scaled_rmse": 0.9998570488475407,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 3.5737788114831304e-05
+      }
     },
     {
       "paper_id": "MCGCRR",
@@ -1999,9 +4259,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs1"
       },
-      "parse_success": false,
-      "parse_error": "Expecting ':' delimiter: line 682 column 11 (char 36701)",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 157.0,
+        "relation_rmse": 11.0,
+        "combined_rmse": 111.28791488746656,
+        "scaled_rmse": 0.9999061669020225,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 2.3458274494375653e-05
+      }
     },
     {
       "paper_id": "MELSPP",
@@ -2013,9 +4288,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs1"
       },
-      "parse_success": false,
-      "parse_error": "'relations'",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 154.0,
+        "relation_rmse": 5.0,
+        "combined_rmse": 108.95182421602678,
+        "scaled_rmse": 0.9999999975061112,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 6.234721905418183e-10
+      }
     },
     {
       "paper_id": "NUBDAA",
@@ -2027,9 +4317,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs1"
       },
-      "parse_success": false,
-      "parse_error": "Expecting property name enclosed in double quotes: line 158 column 3 (char 6828)",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.03225806451612903,
+        "recall": 0.06666666666666667,
+        "f1": 0.043478260869565216,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 16.0,
+        "relation_rmse": 17.0,
+        "combined_rmse": 16.507574019219177,
+        "scaled_rmse": 0.6924484089217788,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 0.08775746298694659
+      }
     },
     {
       "paper_id": "RALAET",
@@ -2041,9 +4346,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs1"
       },
-      "parse_success": false,
-      "parse_error": "Expecting property name enclosed in double quotes: line 94 column 3 (char 5331)",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 8.0,
+        "relation_rmse": 9.0,
+        "combined_rmse": 8.514693182963201,
+        "scaled_rmse": 0.5919165099119015,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 0.10202087252202463
+      }
     },
     {
       "paper_id": "SMIWSW",
@@ -2055,9 +4375,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs1"
       },
-      "parse_success": false,
-      "parse_error": "Expecting property name enclosed in double quotes: line 342 column 42 (char 25939)",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 14.0,
+        "relation_rmse": 229.0,
+        "combined_rmse": 162.22977531883598,
+        "scaled_rmse": 0.9999998050367568,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 4.87408108040821e-08
+      }
     },
     {
       "paper_id": "STEGPD-9",
@@ -2069,9 +4404,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs1"
       },
-      "parse_success": false,
-      "parse_error": "Extra data: line 735 column 1 (char 32561)",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.00546448087431694,
+        "recall": 0.1111111111111111,
+        "f1": 0.010416666666666666,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 174.0,
+        "relation_rmse": 8.0,
+        "combined_rmse": 123.1665539016173,
+        "scaled_rmse": 0.999999490676678,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 0.002604293997497157
+      }
     },
     {
       "paper_id": "VANTPO-40",
@@ -2083,9 +4433,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs1"
       },
-      "parse_success": false,
-      "parse_error": "'relations'",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 144.0,
+        "relation_rmse": 10.0,
+        "combined_rmse": 102.06860437960343,
+        "scaled_rmse": 0.999939979204536,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 1.5005198865991609e-05
+      }
     },
     {
       "paper_id": "VILWVI",
@@ -2099,7 +4464,22 @@
       },
       "parse_success": true,
       "parse_error": null,
-      "metrics": {}
+      "metrics": {
+        "precision": 0.23529411764705882,
+        "recall": 0.5714285714285714,
+        "f1": 0.3333333333333333,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 10.0,
+        "relation_rmse": 14.0,
+        "combined_rmse": 12.165525060596439,
+        "scaled_rmse": 0.8461256994548014,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 0.12180190846963297
+      }
     },
     {
       "paper_id": "WEYUOP",
@@ -2111,9 +4491,24 @@
         "user_file": "user_prompt.txt",
         "variation": "zs1"
       },
-      "parse_success": false,
-      "parse_error": "'relations'",
-      "metrics": {}
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 94.0,
+        "relation_rmse": 8.0,
+        "combined_rmse": 66.70832032063167,
+        "scaled_rmse": 0.9996094824646317,
+        "ged": Infinity,
+        "ged_norm": 1.0,
+        "ged_sim": 0.0,
+        "combined_score": 9.762938384208497e-05
+      }
     }
   ]
 }
