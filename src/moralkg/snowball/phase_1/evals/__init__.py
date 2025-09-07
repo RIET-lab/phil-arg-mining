@@ -14,10 +14,11 @@ from .cost import WeightedCost
 from .datasets import BaseDatasetAdapter, ListAdapter
 from .retrievers import BaseRetriever, NoopRetriever
 from .prompts import BasePromptBuilder, DefaultPromptBuilder
+from .end2end_eval import End2EndEvaluator, EvaluationResult, BatchEvaluationResult
 
 __all__ = [
     "Evaluator",
-    "ModelConfig",
+    "ModelConfig", 
     "GenerationConfig",
     "Phase1Metrics",
     "WeightedCost",
@@ -27,6 +28,9 @@ __all__ = [
     "NoopRetriever",
     "BasePromptBuilder",
     "DefaultPromptBuilder",
+    "End2EndEvaluator",
+    "End2EndEvaluationResult",
+    "End2EndBatchEvaluationResult",
     "fuzzy_match_f1",
     "relation_type_f1",
     "attribute_count_rmse",

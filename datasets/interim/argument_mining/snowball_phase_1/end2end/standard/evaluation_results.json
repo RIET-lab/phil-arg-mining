@@ -1,0 +1,2119 @@
+{
+  "summary": {
+    "total_papers": 150,
+    "successful_parses": 18,
+    "failed_parses": 132,
+    "parse_success_rate": 0.12
+  },
+  "aggregate_metrics": {},
+  "strategy_breakdown": {
+    "standard": {}
+  },
+  "shot_type_breakdown": {
+    "zero-shot": {},
+    "one-shot": {},
+    "few-shot": {}
+  },
+  "per_paper_results": [
+    {
+      "paper_id": "BRAAIC",
+      "prompt_info": {
+        "pair_index": 1,
+        "strategy": "standard",
+        "shot_type": "zero-shot",
+        "system_file": "system_prompt_1.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "default"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {}
+    },
+    {
+      "paper_id": "STEGPD-9",
+      "prompt_info": {
+        "pair_index": 1,
+        "strategy": "standard",
+        "shot_type": "zero-shot",
+        "system_file": "system_prompt_1.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "default"
+      },
+      "parse_success": false,
+      "parse_error": "Expecting ':' delimiter: line 1 column 8268 (char 8267)",
+      "metrics": {}
+    },
+    {
+      "paper_id": "SMIWSW",
+      "prompt_info": {
+        "pair_index": 1,
+        "strategy": "standard",
+        "shot_type": "zero-shot",
+        "system_file": "system_prompt_1.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "default"
+      },
+      "parse_success": false,
+      "parse_error": "Expecting value: line 1 column 22807 (char 22806)",
+      "metrics": {}
+    },
+    {
+      "paper_id": "MELSPP",
+      "prompt_info": {
+        "pair_index": 1,
+        "strategy": "standard",
+        "shot_type": "zero-shot",
+        "system_file": "system_prompt_1.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "default"
+      },
+      "parse_success": false,
+      "parse_error": "Expecting property name enclosed in double quotes: line 1 column 1767 (char 1766)",
+      "metrics": {}
+    },
+    {
+      "paper_id": "HOCASA-3",
+      "prompt_info": {
+        "pair_index": 1,
+        "strategy": "standard",
+        "shot_type": "zero-shot",
+        "system_file": "system_prompt_1.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "default"
+      },
+      "parse_success": false,
+      "parse_error": "Expecting property name enclosed in double quotes: line 1 column 5905 (char 5904)",
+      "metrics": {}
+    },
+    {
+      "paper_id": "CHIKBT",
+      "prompt_info": {
+        "pair_index": 1,
+        "strategy": "standard",
+        "shot_type": "zero-shot",
+        "system_file": "system_prompt_1.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "default"
+      },
+      "parse_success": false,
+      "parse_error": "Expecting property name enclosed in double quotes: line 1 column 15189 (char 15188)",
+      "metrics": {}
+    },
+    {
+      "paper_id": "GOLHBN",
+      "prompt_info": {
+        "pair_index": 1,
+        "strategy": "standard",
+        "shot_type": "zero-shot",
+        "system_file": "system_prompt_1.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "default"
+      },
+      "parse_success": false,
+      "parse_error": "Expecting property name enclosed in double quotes: line 1 column 6265 (char 6264)",
+      "metrics": {}
+    },
+    {
+      "paper_id": "DYCTAM",
+      "prompt_info": {
+        "pair_index": 1,
+        "strategy": "standard",
+        "shot_type": "zero-shot",
+        "system_file": "system_prompt_1.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "default"
+      },
+      "parse_success": false,
+      "parse_error": "Expecting property name enclosed in double quotes: line 1 column 6524 (char 6523)",
+      "metrics": {}
+    },
+    {
+      "paper_id": "VILWVI",
+      "prompt_info": {
+        "pair_index": 1,
+        "strategy": "standard",
+        "shot_type": "zero-shot",
+        "system_file": "system_prompt_1.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "default"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {}
+    },
+    {
+      "paper_id": "RALAET",
+      "prompt_info": {
+        "pair_index": 1,
+        "strategy": "standard",
+        "shot_type": "zero-shot",
+        "system_file": "system_prompt_1.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "default"
+      },
+      "parse_success": false,
+      "parse_error": "Expecting property name enclosed in double quotes: line 1 column 7749 (char 7748)",
+      "metrics": {}
+    },
+    {
+      "paper_id": "WEYUOP",
+      "prompt_info": {
+        "pair_index": 1,
+        "strategy": "standard",
+        "shot_type": "zero-shot",
+        "system_file": "system_prompt_1.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "default"
+      },
+      "parse_success": false,
+      "parse_error": "Expecting property name enclosed in double quotes: line 1 column 5656 (char 5655)",
+      "metrics": {}
+    },
+    {
+      "paper_id": "MCGCRR",
+      "prompt_info": {
+        "pair_index": 1,
+        "strategy": "standard",
+        "shot_type": "zero-shot",
+        "system_file": "system_prompt_1.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "default"
+      },
+      "parse_success": false,
+      "parse_error": "Expecting property name enclosed in double quotes: line 1 column 5378 (char 5377)",
+      "metrics": {}
+    },
+    {
+      "paper_id": "BACFTU",
+      "prompt_info": {
+        "pair_index": 1,
+        "strategy": "standard",
+        "shot_type": "zero-shot",
+        "system_file": "system_prompt_1.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "default"
+      },
+      "parse_success": false,
+      "parse_error": "Expecting property name enclosed in double quotes: line 1 column 9950 (char 9949)",
+      "metrics": {}
+    },
+    {
+      "paper_id": "VANTPO-40",
+      "prompt_info": {
+        "pair_index": 1,
+        "strategy": "standard",
+        "shot_type": "zero-shot",
+        "system_file": "system_prompt_1.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "default"
+      },
+      "parse_success": false,
+      "parse_error": "Expecting value: line 1 column 23961 (char 23960)",
+      "metrics": {}
+    },
+    {
+      "paper_id": "NUBDAA",
+      "prompt_info": {
+        "pair_index": 1,
+        "strategy": "standard",
+        "shot_type": "zero-shot",
+        "system_file": "system_prompt_1.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "default"
+      },
+      "parse_success": false,
+      "parse_error": "Expecting property name enclosed in double quotes: line 1 column 8148 (char 8147)",
+      "metrics": {}
+    },
+    {
+      "paper_id": "BACFTU",
+      "prompt_info": {
+        "pair_index": 2,
+        "strategy": "standard",
+        "shot_type": "zero-shot",
+        "system_file": "system_prompt_2.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "default"
+      },
+      "parse_success": false,
+      "parse_error": "Expecting ':' delimiter: line 1 column 1765 (char 1764)",
+      "metrics": {}
+    },
+    {
+      "paper_id": "BRAAIC",
+      "prompt_info": {
+        "pair_index": 2,
+        "strategy": "standard",
+        "shot_type": "zero-shot",
+        "system_file": "system_prompt_2.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "default"
+      },
+      "parse_success": false,
+      "parse_error": "Expecting property name enclosed in double quotes: line 1 column 9615 (char 9614)",
+      "metrics": {}
+    },
+    {
+      "paper_id": "CHIKBT",
+      "prompt_info": {
+        "pair_index": 2,
+        "strategy": "standard",
+        "shot_type": "zero-shot",
+        "system_file": "system_prompt_2.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "default"
+      },
+      "parse_success": false,
+      "parse_error": "Expecting ':' delimiter: line 1 column 2391 (char 2390)",
+      "metrics": {}
+    },
+    {
+      "paper_id": "DYCTAM",
+      "prompt_info": {
+        "pair_index": 2,
+        "strategy": "standard",
+        "shot_type": "zero-shot",
+        "system_file": "system_prompt_2.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "default"
+      },
+      "parse_success": false,
+      "parse_error": "Expecting ':' delimiter: line 1 column 3560 (char 3559)",
+      "metrics": {}
+    },
+    {
+      "paper_id": "GOLHBN",
+      "prompt_info": {
+        "pair_index": 2,
+        "strategy": "standard",
+        "shot_type": "zero-shot",
+        "system_file": "system_prompt_2.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "default"
+      },
+      "parse_success": false,
+      "parse_error": "Expecting ':' delimiter: line 1 column 1908 (char 1907)",
+      "metrics": {}
+    },
+    {
+      "paper_id": "HOCASA-3",
+      "prompt_info": {
+        "pair_index": 2,
+        "strategy": "standard",
+        "shot_type": "zero-shot",
+        "system_file": "system_prompt_2.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "default"
+      },
+      "parse_success": false,
+      "parse_error": "Expecting property name enclosed in double quotes: line 1 column 10375 (char 10374)",
+      "metrics": {}
+    },
+    {
+      "paper_id": "MCGCRR",
+      "prompt_info": {
+        "pair_index": 2,
+        "strategy": "standard",
+        "shot_type": "zero-shot",
+        "system_file": "system_prompt_2.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "default"
+      },
+      "parse_success": false,
+      "parse_error": "Expecting property name enclosed in double quotes: line 1 column 3827 (char 3826)",
+      "metrics": {}
+    },
+    {
+      "paper_id": "MELSPP",
+      "prompt_info": {
+        "pair_index": 2,
+        "strategy": "standard",
+        "shot_type": "zero-shot",
+        "system_file": "system_prompt_2.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "default"
+      },
+      "parse_success": false,
+      "parse_error": "Expecting ':' delimiter: line 1 column 1687 (char 1686)",
+      "metrics": {}
+    },
+    {
+      "paper_id": "NUBDAA",
+      "prompt_info": {
+        "pair_index": 2,
+        "strategy": "standard",
+        "shot_type": "zero-shot",
+        "system_file": "system_prompt_2.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "default"
+      },
+      "parse_success": false,
+      "parse_error": "Expecting property name enclosed in double quotes: line 1 column 7709 (char 7708)",
+      "metrics": {}
+    },
+    {
+      "paper_id": "RALAET",
+      "prompt_info": {
+        "pair_index": 2,
+        "strategy": "standard",
+        "shot_type": "zero-shot",
+        "system_file": "system_prompt_2.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "default"
+      },
+      "parse_success": false,
+      "parse_error": "Expecting ':' delimiter: line 1 column 1415 (char 1414)",
+      "metrics": {}
+    },
+    {
+      "paper_id": "SMIWSW",
+      "prompt_info": {
+        "pair_index": 2,
+        "strategy": "standard",
+        "shot_type": "zero-shot",
+        "system_file": "system_prompt_2.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "default"
+      },
+      "parse_success": false,
+      "parse_error": "Expecting property name enclosed in double quotes: line 1 column 9895 (char 9894)",
+      "metrics": {}
+    },
+    {
+      "paper_id": "STEGPD-9",
+      "prompt_info": {
+        "pair_index": 2,
+        "strategy": "standard",
+        "shot_type": "zero-shot",
+        "system_file": "system_prompt_2.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "default"
+      },
+      "parse_success": false,
+      "parse_error": "Expecting ':' delimiter: line 1 column 1405 (char 1404)",
+      "metrics": {}
+    },
+    {
+      "paper_id": "VANTPO-40",
+      "prompt_info": {
+        "pair_index": 2,
+        "strategy": "standard",
+        "shot_type": "zero-shot",
+        "system_file": "system_prompt_2.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "default"
+      },
+      "parse_success": false,
+      "parse_error": "Expecting value: line 1 column 6679 (char 6678)",
+      "metrics": {}
+    },
+    {
+      "paper_id": "VILWVI",
+      "prompt_info": {
+        "pair_index": 2,
+        "strategy": "standard",
+        "shot_type": "zero-shot",
+        "system_file": "system_prompt_2.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "default"
+      },
+      "parse_success": false,
+      "parse_error": "Expecting property name enclosed in double quotes: line 1 column 6488 (char 6487)",
+      "metrics": {}
+    },
+    {
+      "paper_id": "WEYUOP",
+      "prompt_info": {
+        "pair_index": 2,
+        "strategy": "standard",
+        "shot_type": "zero-shot",
+        "system_file": "system_prompt_2.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "default"
+      },
+      "parse_success": false,
+      "parse_error": "Expecting property name enclosed in double quotes: line 1 column 6452 (char 6451)",
+      "metrics": {}
+    },
+    {
+      "paper_id": "BACFTU",
+      "prompt_info": {
+        "pair_index": 3,
+        "strategy": "standard",
+        "shot_type": "one-shot",
+        "system_file": "system_prompt_1_zs2.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs2"
+      },
+      "parse_success": false,
+      "parse_error": "Expecting property name enclosed in double quotes: line 384 column 50 (char 34984)",
+      "metrics": {}
+    },
+    {
+      "paper_id": "BRAAIC",
+      "prompt_info": {
+        "pair_index": 3,
+        "strategy": "standard",
+        "shot_type": "one-shot",
+        "system_file": "system_prompt_1_zs2.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs2"
+      },
+      "parse_success": false,
+      "parse_error": "'relations'",
+      "metrics": {}
+    },
+    {
+      "paper_id": "CHIKBT",
+      "prompt_info": {
+        "pair_index": 3,
+        "strategy": "standard",
+        "shot_type": "one-shot",
+        "system_file": "system_prompt_1_zs2.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs2"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {}
+    },
+    {
+      "paper_id": "DYCTAM",
+      "prompt_info": {
+        "pair_index": 3,
+        "strategy": "standard",
+        "shot_type": "one-shot",
+        "system_file": "system_prompt_1_zs2.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs2"
+      },
+      "parse_success": false,
+      "parse_error": "Expecting property name enclosed in double quotes: line 820 column 78 (char 39762)",
+      "metrics": {}
+    },
+    {
+      "paper_id": "GOLHBN",
+      "prompt_info": {
+        "pair_index": 3,
+        "strategy": "standard",
+        "shot_type": "one-shot",
+        "system_file": "system_prompt_1_zs2.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs2"
+      },
+      "parse_success": false,
+      "parse_error": "Expecting property name enclosed in double quotes: line 151 column 3 (char 6937)",
+      "metrics": {}
+    },
+    {
+      "paper_id": "HOCASA-3",
+      "prompt_info": {
+        "pair_index": 3,
+        "strategy": "standard",
+        "shot_type": "one-shot",
+        "system_file": "system_prompt_1_zs2.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs2"
+      },
+      "parse_success": false,
+      "parse_error": "Expecting property name enclosed in double quotes: line 66 column 3 (char 2720)",
+      "metrics": {}
+    },
+    {
+      "paper_id": "MCGCRR",
+      "prompt_info": {
+        "pair_index": 3,
+        "strategy": "standard",
+        "shot_type": "one-shot",
+        "system_file": "system_prompt_1_zs2.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs2"
+      },
+      "parse_success": false,
+      "parse_error": "Expecting property name enclosed in double quotes: line 1529 column 1 (char 24258)",
+      "metrics": {}
+    },
+    {
+      "paper_id": "MELSPP",
+      "prompt_info": {
+        "pair_index": 3,
+        "strategy": "standard",
+        "shot_type": "one-shot",
+        "system_file": "system_prompt_1_zs2.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs2"
+      },
+      "parse_success": false,
+      "parse_error": "'relations'",
+      "metrics": {}
+    },
+    {
+      "paper_id": "NUBDAA",
+      "prompt_info": {
+        "pair_index": 3,
+        "strategy": "standard",
+        "shot_type": "one-shot",
+        "system_file": "system_prompt_1_zs2.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs2"
+      },
+      "parse_success": false,
+      "parse_error": "'relations'",
+      "metrics": {}
+    },
+    {
+      "paper_id": "RALAET",
+      "prompt_info": {
+        "pair_index": 3,
+        "strategy": "standard",
+        "shot_type": "one-shot",
+        "system_file": "system_prompt_1_zs2.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs2"
+      },
+      "parse_success": false,
+      "parse_error": "Expecting property name enclosed in double quotes: line 116 column 3 (char 6236)",
+      "metrics": {}
+    },
+    {
+      "paper_id": "SMIWSW",
+      "prompt_info": {
+        "pair_index": 3,
+        "strategy": "standard",
+        "shot_type": "one-shot",
+        "system_file": "system_prompt_1_zs2.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs2"
+      },
+      "parse_success": false,
+      "parse_error": "Expecting property name enclosed in double quotes: line 148 column 3 (char 5163)",
+      "metrics": {}
+    },
+    {
+      "paper_id": "STEGPD-9",
+      "prompt_info": {
+        "pair_index": 3,
+        "strategy": "standard",
+        "shot_type": "one-shot",
+        "system_file": "system_prompt_1_zs2.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs2"
+      },
+      "parse_success": false,
+      "parse_error": "Extra data: line 783 column 1 (char 32495)",
+      "metrics": {}
+    },
+    {
+      "paper_id": "VANTPO-40",
+      "prompt_info": {
+        "pair_index": 3,
+        "strategy": "standard",
+        "shot_type": "one-shot",
+        "system_file": "system_prompt_1_zs2.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs2"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {}
+    },
+    {
+      "paper_id": "VILWVI",
+      "prompt_info": {
+        "pair_index": 3,
+        "strategy": "standard",
+        "shot_type": "one-shot",
+        "system_file": "system_prompt_1_zs2.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs2"
+      },
+      "parse_success": false,
+      "parse_error": "Expecting property name enclosed in double quotes: line 992 column 144 (char 36939)",
+      "metrics": {}
+    },
+    {
+      "paper_id": "WEYUOP",
+      "prompt_info": {
+        "pair_index": 3,
+        "strategy": "standard",
+        "shot_type": "one-shot",
+        "system_file": "system_prompt_1_zs2.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs2"
+      },
+      "parse_success": false,
+      "parse_error": "Expecting value: line 1051 column 8 (char 37895)",
+      "metrics": {}
+    },
+    {
+      "paper_id": "BACFTU",
+      "prompt_info": {
+        "pair_index": 4,
+        "strategy": "standard",
+        "shot_type": "one-shot",
+        "system_file": "system_prompt_1_zs1.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs1"
+      },
+      "parse_success": false,
+      "parse_error": "Expecting property name enclosed in double quotes: line 504 column 70 (char 38013)",
+      "metrics": {}
+    },
+    {
+      "paper_id": "BRAAIC",
+      "prompt_info": {
+        "pair_index": 4,
+        "strategy": "standard",
+        "shot_type": "one-shot",
+        "system_file": "system_prompt_1_zs1.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs1"
+      },
+      "parse_success": false,
+      "parse_error": "'relations'",
+      "metrics": {}
+    },
+    {
+      "paper_id": "CHIKBT",
+      "prompt_info": {
+        "pair_index": 4,
+        "strategy": "standard",
+        "shot_type": "one-shot",
+        "system_file": "system_prompt_1_zs1.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs1"
+      },
+      "parse_success": false,
+      "parse_error": "'relations'",
+      "metrics": {}
+    },
+    {
+      "paper_id": "DYCTAM",
+      "prompt_info": {
+        "pair_index": 4,
+        "strategy": "standard",
+        "shot_type": "one-shot",
+        "system_file": "system_prompt_1_zs1.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs1"
+      },
+      "parse_success": false,
+      "parse_error": "Expecting property name enclosed in double quotes: line 620 column 47 (char 37710)",
+      "metrics": {}
+    },
+    {
+      "paper_id": "GOLHBN",
+      "prompt_info": {
+        "pair_index": 4,
+        "strategy": "standard",
+        "shot_type": "one-shot",
+        "system_file": "system_prompt_1_zs1.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs1"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {}
+    },
+    {
+      "paper_id": "HOCASA-3",
+      "prompt_info": {
+        "pair_index": 4,
+        "strategy": "standard",
+        "shot_type": "one-shot",
+        "system_file": "system_prompt_1_zs1.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs1"
+      },
+      "parse_success": false,
+      "parse_error": "'relations'",
+      "metrics": {}
+    },
+    {
+      "paper_id": "MCGCRR",
+      "prompt_info": {
+        "pair_index": 4,
+        "strategy": "standard",
+        "shot_type": "one-shot",
+        "system_file": "system_prompt_1_zs1.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs1"
+      },
+      "parse_success": false,
+      "parse_error": "Expecting property name enclosed in double quotes: line 128 column 3 (char 5716)",
+      "metrics": {}
+    },
+    {
+      "paper_id": "MELSPP",
+      "prompt_info": {
+        "pair_index": 4,
+        "strategy": "standard",
+        "shot_type": "one-shot",
+        "system_file": "system_prompt_1_zs1.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs1"
+      },
+      "parse_success": false,
+      "parse_error": "Expecting property name enclosed in double quotes: line 111 column 3 (char 3300)",
+      "metrics": {}
+    },
+    {
+      "paper_id": "NUBDAA",
+      "prompt_info": {
+        "pair_index": 4,
+        "strategy": "standard",
+        "shot_type": "one-shot",
+        "system_file": "system_prompt_1_zs1.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs1"
+      },
+      "parse_success": false,
+      "parse_error": "Expecting property name enclosed in double quotes: line 94 column 3 (char 5265)",
+      "metrics": {}
+    },
+    {
+      "paper_id": "RALAET",
+      "prompt_info": {
+        "pair_index": 4,
+        "strategy": "standard",
+        "shot_type": "one-shot",
+        "system_file": "system_prompt_1_zs1.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs1"
+      },
+      "parse_success": false,
+      "parse_error": "Expecting property name enclosed in double quotes: line 170 column 3 (char 7716)",
+      "metrics": {}
+    },
+    {
+      "paper_id": "SMIWSW",
+      "prompt_info": {
+        "pair_index": 4,
+        "strategy": "standard",
+        "shot_type": "one-shot",
+        "system_file": "system_prompt_1_zs1.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs1"
+      },
+      "parse_success": false,
+      "parse_error": "Expecting property name enclosed in double quotes: line 644 column 101 (char 36713)",
+      "metrics": {}
+    },
+    {
+      "paper_id": "STEGPD-9",
+      "prompt_info": {
+        "pair_index": 4,
+        "strategy": "standard",
+        "shot_type": "one-shot",
+        "system_file": "system_prompt_1_zs1.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs1"
+      },
+      "parse_success": false,
+      "parse_error": "Expecting ':' delimiter: line 726 column 14 (char 31939)",
+      "metrics": {}
+    },
+    {
+      "paper_id": "VANTPO-40",
+      "prompt_info": {
+        "pair_index": 4,
+        "strategy": "standard",
+        "shot_type": "one-shot",
+        "system_file": "system_prompt_1_zs1.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs1"
+      },
+      "parse_success": false,
+      "parse_error": "'relations'",
+      "metrics": {}
+    },
+    {
+      "paper_id": "VILWVI",
+      "prompt_info": {
+        "pair_index": 4,
+        "strategy": "standard",
+        "shot_type": "one-shot",
+        "system_file": "system_prompt_1_zs1.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs1"
+      },
+      "parse_success": false,
+      "parse_error": "Expecting ':' delimiter: line 916 column 7 (char 34624)",
+      "metrics": {}
+    },
+    {
+      "paper_id": "WEYUOP",
+      "prompt_info": {
+        "pair_index": 4,
+        "strategy": "standard",
+        "shot_type": "one-shot",
+        "system_file": "system_prompt_1_zs1.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs1"
+      },
+      "parse_success": false,
+      "parse_error": "'relations'",
+      "metrics": {}
+    },
+    {
+      "paper_id": "BACFTU",
+      "prompt_info": {
+        "pair_index": 5,
+        "strategy": "standard",
+        "shot_type": "one-shot",
+        "system_file": "system_prompt_2_zs1.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs1"
+      },
+      "parse_success": false,
+      "parse_error": "Expecting ':' delimiter: line 754 column 6 (char 31294)",
+      "metrics": {}
+    },
+    {
+      "paper_id": "BRAAIC",
+      "prompt_info": {
+        "pair_index": 5,
+        "strategy": "standard",
+        "shot_type": "one-shot",
+        "system_file": "system_prompt_2_zs1.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs1"
+      },
+      "parse_success": false,
+      "parse_error": "Expecting ':' delimiter: line 778 column 12 (char 42218)",
+      "metrics": {}
+    },
+    {
+      "paper_id": "CHIKBT",
+      "prompt_info": {
+        "pair_index": 5,
+        "strategy": "standard",
+        "shot_type": "one-shot",
+        "system_file": "system_prompt_2_zs1.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs1"
+      },
+      "parse_success": false,
+      "parse_error": "'relations'",
+      "metrics": {}
+    },
+    {
+      "paper_id": "DYCTAM",
+      "prompt_info": {
+        "pair_index": 5,
+        "strategy": "standard",
+        "shot_type": "one-shot",
+        "system_file": "system_prompt_2_zs1.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs1"
+      },
+      "parse_success": false,
+      "parse_error": "Expecting value: line 560 column 8 (char 40711)",
+      "metrics": {}
+    },
+    {
+      "paper_id": "GOLHBN",
+      "prompt_info": {
+        "pair_index": 5,
+        "strategy": "standard",
+        "shot_type": "one-shot",
+        "system_file": "system_prompt_2_zs1.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs1"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {}
+    },
+    {
+      "paper_id": "HOCASA-3",
+      "prompt_info": {
+        "pair_index": 5,
+        "strategy": "standard",
+        "shot_type": "one-shot",
+        "system_file": "system_prompt_2_zs1.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs1"
+      },
+      "parse_success": false,
+      "parse_error": "'relations'",
+      "metrics": {}
+    },
+    {
+      "paper_id": "MCGCRR",
+      "prompt_info": {
+        "pair_index": 5,
+        "strategy": "standard",
+        "shot_type": "one-shot",
+        "system_file": "system_prompt_2_zs1.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs1"
+      },
+      "parse_success": false,
+      "parse_error": "Expecting property name enclosed in double quotes: line 156 column 3 (char 6037)",
+      "metrics": {}
+    },
+    {
+      "paper_id": "MELSPP",
+      "prompt_info": {
+        "pair_index": 5,
+        "strategy": "standard",
+        "shot_type": "one-shot",
+        "system_file": "system_prompt_2_zs1.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs1"
+      },
+      "parse_success": false,
+      "parse_error": "'relations'",
+      "metrics": {}
+    },
+    {
+      "paper_id": "NUBDAA",
+      "prompt_info": {
+        "pair_index": 5,
+        "strategy": "standard",
+        "shot_type": "one-shot",
+        "system_file": "system_prompt_2_zs1.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs1"
+      },
+      "parse_success": false,
+      "parse_error": "Expecting property name enclosed in double quotes: line 104 column 3 (char 6813)",
+      "metrics": {}
+    },
+    {
+      "paper_id": "RALAET",
+      "prompt_info": {
+        "pair_index": 5,
+        "strategy": "standard",
+        "shot_type": "one-shot",
+        "system_file": "system_prompt_2_zs1.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs1"
+      },
+      "parse_success": false,
+      "parse_error": "Expecting property name enclosed in double quotes: line 179 column 3 (char 5668)",
+      "metrics": {}
+    },
+    {
+      "paper_id": "SMIWSW",
+      "prompt_info": {
+        "pair_index": 5,
+        "strategy": "standard",
+        "shot_type": "one-shot",
+        "system_file": "system_prompt_2_zs1.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs1"
+      },
+      "parse_success": false,
+      "parse_error": "Expecting property name enclosed in double quotes: line 596 column 115 (char 36894)",
+      "metrics": {}
+    },
+    {
+      "paper_id": "STEGPD-9",
+      "prompt_info": {
+        "pair_index": 5,
+        "strategy": "standard",
+        "shot_type": "one-shot",
+        "system_file": "system_prompt_2_zs1.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs1"
+      },
+      "parse_success": false,
+      "parse_error": "Expecting ':' delimiter: line 226 column 7 (char 32928)",
+      "metrics": {}
+    },
+    {
+      "paper_id": "VANTPO-40",
+      "prompt_info": {
+        "pair_index": 5,
+        "strategy": "standard",
+        "shot_type": "one-shot",
+        "system_file": "system_prompt_2_zs1.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs1"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {}
+    },
+    {
+      "paper_id": "VILWVI",
+      "prompt_info": {
+        "pair_index": 5,
+        "strategy": "standard",
+        "shot_type": "one-shot",
+        "system_file": "system_prompt_2_zs1.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs1"
+      },
+      "parse_success": false,
+      "parse_error": "'relations'",
+      "metrics": {}
+    },
+    {
+      "paper_id": "WEYUOP",
+      "prompt_info": {
+        "pair_index": 5,
+        "strategy": "standard",
+        "shot_type": "one-shot",
+        "system_file": "system_prompt_2_zs1.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs1"
+      },
+      "parse_success": false,
+      "parse_error": "'relations'",
+      "metrics": {}
+    },
+    {
+      "paper_id": "BACFTU",
+      "prompt_info": {
+        "pair_index": 6,
+        "strategy": "standard",
+        "shot_type": "one-shot",
+        "system_file": "system_prompt_2_zs2.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs2"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {}
+    },
+    {
+      "paper_id": "BRAAIC",
+      "prompt_info": {
+        "pair_index": 6,
+        "strategy": "standard",
+        "shot_type": "one-shot",
+        "system_file": "system_prompt_2_zs2.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs2"
+      },
+      "parse_success": false,
+      "parse_error": "Expecting property name enclosed in double quotes: line 189 column 3 (char 5619)",
+      "metrics": {}
+    },
+    {
+      "paper_id": "CHIKBT",
+      "prompt_info": {
+        "pair_index": 6,
+        "strategy": "standard",
+        "shot_type": "one-shot",
+        "system_file": "system_prompt_2_zs2.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs2"
+      },
+      "parse_success": false,
+      "parse_error": "Expecting property name enclosed in double quotes: line 111 column 3 (char 6736)",
+      "metrics": {}
+    },
+    {
+      "paper_id": "DYCTAM",
+      "prompt_info": {
+        "pair_index": 6,
+        "strategy": "standard",
+        "shot_type": "one-shot",
+        "system_file": "system_prompt_2_zs2.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs2"
+      },
+      "parse_success": false,
+      "parse_error": "Expecting ':' delimiter: line 898 column 3 (char 37463)",
+      "metrics": {}
+    },
+    {
+      "paper_id": "GOLHBN",
+      "prompt_info": {
+        "pair_index": 6,
+        "strategy": "standard",
+        "shot_type": "one-shot",
+        "system_file": "system_prompt_2_zs2.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs2"
+      },
+      "parse_success": false,
+      "parse_error": "'relations'",
+      "metrics": {}
+    },
+    {
+      "paper_id": "HOCASA-3",
+      "prompt_info": {
+        "pair_index": 6,
+        "strategy": "standard",
+        "shot_type": "one-shot",
+        "system_file": "system_prompt_2_zs2.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs2"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {}
+    },
+    {
+      "paper_id": "MCGCRR",
+      "prompt_info": {
+        "pair_index": 6,
+        "strategy": "standard",
+        "shot_type": "one-shot",
+        "system_file": "system_prompt_2_zs2.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs2"
+      },
+      "parse_success": false,
+      "parse_error": "Expecting property name enclosed in double quotes: line 98 column 3 (char 2838)",
+      "metrics": {}
+    },
+    {
+      "paper_id": "MELSPP",
+      "prompt_info": {
+        "pair_index": 6,
+        "strategy": "standard",
+        "shot_type": "one-shot",
+        "system_file": "system_prompt_2_zs2.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs2"
+      },
+      "parse_success": false,
+      "parse_error": "Expecting property name enclosed in double quotes: line 824 column 62 (char 38599)",
+      "metrics": {}
+    },
+    {
+      "paper_id": "NUBDAA",
+      "prompt_info": {
+        "pair_index": 6,
+        "strategy": "standard",
+        "shot_type": "one-shot",
+        "system_file": "system_prompt_2_zs2.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs2"
+      },
+      "parse_success": false,
+      "parse_error": "'relations'",
+      "metrics": {}
+    },
+    {
+      "paper_id": "RALAET",
+      "prompt_info": {
+        "pair_index": 6,
+        "strategy": "standard",
+        "shot_type": "one-shot",
+        "system_file": "system_prompt_2_zs2.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs2"
+      },
+      "parse_success": false,
+      "parse_error": "Expecting property name enclosed in double quotes: line 169 column 3 (char 6076)",
+      "metrics": {}
+    },
+    {
+      "paper_id": "SMIWSW",
+      "prompt_info": {
+        "pair_index": 6,
+        "strategy": "standard",
+        "shot_type": "one-shot",
+        "system_file": "system_prompt_2_zs2.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs2"
+      },
+      "parse_success": false,
+      "parse_error": "Extra data: line 847 column 1 (char 34969)",
+      "metrics": {}
+    },
+    {
+      "paper_id": "STEGPD-9",
+      "prompt_info": {
+        "pair_index": 6,
+        "strategy": "standard",
+        "shot_type": "one-shot",
+        "system_file": "system_prompt_2_zs2.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs2"
+      },
+      "parse_success": false,
+      "parse_error": "'relations'",
+      "metrics": {}
+    },
+    {
+      "paper_id": "VANTPO-40",
+      "prompt_info": {
+        "pair_index": 6,
+        "strategy": "standard",
+        "shot_type": "one-shot",
+        "system_file": "system_prompt_2_zs2.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs2"
+      },
+      "parse_success": false,
+      "parse_error": "'relations'",
+      "metrics": {}
+    },
+    {
+      "paper_id": "VILWVI",
+      "prompt_info": {
+        "pair_index": 6,
+        "strategy": "standard",
+        "shot_type": "one-shot",
+        "system_file": "system_prompt_2_zs2.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs2"
+      },
+      "parse_success": false,
+      "parse_error": "Expecting property name enclosed in double quotes: line 83 column 3 (char 5070)",
+      "metrics": {}
+    },
+    {
+      "paper_id": "WEYUOP",
+      "prompt_info": {
+        "pair_index": 6,
+        "strategy": "standard",
+        "shot_type": "one-shot",
+        "system_file": "system_prompt_2_zs2.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs2"
+      },
+      "parse_success": false,
+      "parse_error": "'relations'",
+      "metrics": {}
+    },
+    {
+      "paper_id": "BACFTU",
+      "prompt_info": {
+        "pair_index": 7,
+        "strategy": "standard",
+        "shot_type": "few-shot",
+        "system_file": "system_prompt_1_zs1.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs1"
+      },
+      "parse_success": false,
+      "parse_error": "Expecting ':' delimiter: line 346 column 42 (char 33181)",
+      "metrics": {}
+    },
+    {
+      "paper_id": "BRAAIC",
+      "prompt_info": {
+        "pair_index": 7,
+        "strategy": "standard",
+        "shot_type": "few-shot",
+        "system_file": "system_prompt_1_zs1.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs1"
+      },
+      "parse_success": false,
+      "parse_error": "'relations'",
+      "metrics": {}
+    },
+    {
+      "paper_id": "CHIKBT",
+      "prompt_info": {
+        "pair_index": 7,
+        "strategy": "standard",
+        "shot_type": "few-shot",
+        "system_file": "system_prompt_1_zs1.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs1"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {}
+    },
+    {
+      "paper_id": "DYCTAM",
+      "prompt_info": {
+        "pair_index": 7,
+        "strategy": "standard",
+        "shot_type": "few-shot",
+        "system_file": "system_prompt_1_zs1.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs1"
+      },
+      "parse_success": false,
+      "parse_error": "Expecting value: line 699 column 8 (char 38390)",
+      "metrics": {}
+    },
+    {
+      "paper_id": "GOLHBN",
+      "prompt_info": {
+        "pair_index": 7,
+        "strategy": "standard",
+        "shot_type": "few-shot",
+        "system_file": "system_prompt_1_zs1.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs1"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {}
+    },
+    {
+      "paper_id": "HOCASA-3",
+      "prompt_info": {
+        "pair_index": 7,
+        "strategy": "standard",
+        "shot_type": "few-shot",
+        "system_file": "system_prompt_1_zs1.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs1"
+      },
+      "parse_success": false,
+      "parse_error": "Expecting property name enclosed in double quotes: line 876 column 131 (char 34252)",
+      "metrics": {}
+    },
+    {
+      "paper_id": "MCGCRR",
+      "prompt_info": {
+        "pair_index": 7,
+        "strategy": "standard",
+        "shot_type": "few-shot",
+        "system_file": "system_prompt_1_zs1.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs1"
+      },
+      "parse_success": false,
+      "parse_error": "Expecting property name enclosed in double quotes: line 142 column 3 (char 6119)",
+      "metrics": {}
+    },
+    {
+      "paper_id": "MELSPP",
+      "prompt_info": {
+        "pair_index": 7,
+        "strategy": "standard",
+        "shot_type": "few-shot",
+        "system_file": "system_prompt_1_zs1.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs1"
+      },
+      "parse_success": false,
+      "parse_error": "Expecting property name enclosed in double quotes: line 248 column 35 (char 21970)",
+      "metrics": {}
+    },
+    {
+      "paper_id": "NUBDAA",
+      "prompt_info": {
+        "pair_index": 7,
+        "strategy": "standard",
+        "shot_type": "few-shot",
+        "system_file": "system_prompt_1_zs1.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs1"
+      },
+      "parse_success": false,
+      "parse_error": "Expecting property name enclosed in double quotes: line 152 column 3 (char 4499)",
+      "metrics": {}
+    },
+    {
+      "paper_id": "RALAET",
+      "prompt_info": {
+        "pair_index": 7,
+        "strategy": "standard",
+        "shot_type": "few-shot",
+        "system_file": "system_prompt_1_zs1.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs1"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {}
+    },
+    {
+      "paper_id": "SMIWSW",
+      "prompt_info": {
+        "pair_index": 7,
+        "strategy": "standard",
+        "shot_type": "few-shot",
+        "system_file": "system_prompt_1_zs1.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs1"
+      },
+      "parse_success": false,
+      "parse_error": "Invalid control character at: line 26 column 73 (char 1371)",
+      "metrics": {}
+    },
+    {
+      "paper_id": "STEGPD-9",
+      "prompt_info": {
+        "pair_index": 7,
+        "strategy": "standard",
+        "shot_type": "few-shot",
+        "system_file": "system_prompt_1_zs1.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs1"
+      },
+      "parse_success": false,
+      "parse_error": "'relations'",
+      "metrics": {}
+    },
+    {
+      "paper_id": "VANTPO-40",
+      "prompt_info": {
+        "pair_index": 7,
+        "strategy": "standard",
+        "shot_type": "few-shot",
+        "system_file": "system_prompt_1_zs1.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs1"
+      },
+      "parse_success": false,
+      "parse_error": "'relations'",
+      "metrics": {}
+    },
+    {
+      "paper_id": "VILWVI",
+      "prompt_info": {
+        "pair_index": 7,
+        "strategy": "standard",
+        "shot_type": "few-shot",
+        "system_file": "system_prompt_1_zs1.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs1"
+      },
+      "parse_success": false,
+      "parse_error": "'relations'",
+      "metrics": {}
+    },
+    {
+      "paper_id": "WEYUOP",
+      "prompt_info": {
+        "pair_index": 7,
+        "strategy": "standard",
+        "shot_type": "few-shot",
+        "system_file": "system_prompt_1_zs1.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs1"
+      },
+      "parse_success": false,
+      "parse_error": "Expecting property name enclosed in double quotes: line 708 column 113 (char 39198)",
+      "metrics": {}
+    },
+    {
+      "paper_id": "BACFTU",
+      "prompt_info": {
+        "pair_index": 8,
+        "strategy": "standard",
+        "shot_type": "few-shot",
+        "system_file": "system_prompt_1_zs2.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs2"
+      },
+      "parse_success": false,
+      "parse_error": "Expecting property name enclosed in double quotes: line 282 column 3 (char 13307)",
+      "metrics": {}
+    },
+    {
+      "paper_id": "BRAAIC",
+      "prompt_info": {
+        "pair_index": 8,
+        "strategy": "standard",
+        "shot_type": "few-shot",
+        "system_file": "system_prompt_1_zs2.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs2"
+      },
+      "parse_success": false,
+      "parse_error": "'relations'",
+      "metrics": {}
+    },
+    {
+      "paper_id": "CHIKBT",
+      "prompt_info": {
+        "pair_index": 8,
+        "strategy": "standard",
+        "shot_type": "few-shot",
+        "system_file": "system_prompt_1_zs2.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs2"
+      },
+      "parse_success": false,
+      "parse_error": "Expecting property name enclosed in double quotes: line 104 column 3 (char 3923)",
+      "metrics": {}
+    },
+    {
+      "paper_id": "DYCTAM",
+      "prompt_info": {
+        "pair_index": 8,
+        "strategy": "standard",
+        "shot_type": "few-shot",
+        "system_file": "system_prompt_1_zs2.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs2"
+      },
+      "parse_success": false,
+      "parse_error": "Expecting property name enclosed in double quotes: line 87 column 3 (char 6246)",
+      "metrics": {}
+    },
+    {
+      "paper_id": "GOLHBN",
+      "prompt_info": {
+        "pair_index": 8,
+        "strategy": "standard",
+        "shot_type": "few-shot",
+        "system_file": "system_prompt_1_zs2.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs2"
+      },
+      "parse_success": false,
+      "parse_error": "Expecting ':' delimiter: line 554 column 100 (char 42154)",
+      "metrics": {}
+    },
+    {
+      "paper_id": "HOCASA-3",
+      "prompt_info": {
+        "pair_index": 8,
+        "strategy": "standard",
+        "shot_type": "few-shot",
+        "system_file": "system_prompt_1_zs2.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs2"
+      },
+      "parse_success": false,
+      "parse_error": "Expecting property name enclosed in double quotes: line 129 column 63 (char 6245)",
+      "metrics": {}
+    },
+    {
+      "paper_id": "MCGCRR",
+      "prompt_info": {
+        "pair_index": 8,
+        "strategy": "standard",
+        "shot_type": "few-shot",
+        "system_file": "system_prompt_1_zs2.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs2"
+      },
+      "parse_success": false,
+      "parse_error": "Expecting property name enclosed in double quotes: line 107 column 3 (char 2271)",
+      "metrics": {}
+    },
+    {
+      "paper_id": "MELSPP",
+      "prompt_info": {
+        "pair_index": 8,
+        "strategy": "standard",
+        "shot_type": "few-shot",
+        "system_file": "system_prompt_1_zs2.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs2"
+      },
+      "parse_success": false,
+      "parse_error": "Expecting value: line 1270 column 20 (char 27567)",
+      "metrics": {}
+    },
+    {
+      "paper_id": "NUBDAA",
+      "prompt_info": {
+        "pair_index": 8,
+        "strategy": "standard",
+        "shot_type": "few-shot",
+        "system_file": "system_prompt_1_zs2.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs2"
+      },
+      "parse_success": false,
+      "parse_error": "Expecting property name enclosed in double quotes: line 723 column 20 (char 21723)",
+      "metrics": {}
+    },
+    {
+      "paper_id": "RALAET",
+      "prompt_info": {
+        "pair_index": 8,
+        "strategy": "standard",
+        "shot_type": "few-shot",
+        "system_file": "system_prompt_1_zs2.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs2"
+      },
+      "parse_success": false,
+      "parse_error": "Expecting property name enclosed in double quotes: line 152 column 3 (char 4349)",
+      "metrics": {}
+    },
+    {
+      "paper_id": "SMIWSW",
+      "prompt_info": {
+        "pair_index": 8,
+        "strategy": "standard",
+        "shot_type": "few-shot",
+        "system_file": "system_prompt_1_zs2.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs2"
+      },
+      "parse_success": false,
+      "parse_error": "Expecting property name enclosed in double quotes: line 644 column 77 (char 35521)",
+      "metrics": {}
+    },
+    {
+      "paper_id": "STEGPD-9",
+      "prompt_info": {
+        "pair_index": 8,
+        "strategy": "standard",
+        "shot_type": "few-shot",
+        "system_file": "system_prompt_1_zs2.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs2"
+      },
+      "parse_success": false,
+      "parse_error": "'relations'",
+      "metrics": {}
+    },
+    {
+      "paper_id": "VANTPO-40",
+      "prompt_info": {
+        "pair_index": 8,
+        "strategy": "standard",
+        "shot_type": "few-shot",
+        "system_file": "system_prompt_1_zs2.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs2"
+      },
+      "parse_success": false,
+      "parse_error": "Expecting value: line 364 column 38 (char 30103)",
+      "metrics": {}
+    },
+    {
+      "paper_id": "VILWVI",
+      "prompt_info": {
+        "pair_index": 8,
+        "strategy": "standard",
+        "shot_type": "few-shot",
+        "system_file": "system_prompt_1_zs2.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs2"
+      },
+      "parse_success": false,
+      "parse_error": "Expecting value: line 620 column 85 (char 37441)",
+      "metrics": {}
+    },
+    {
+      "paper_id": "WEYUOP",
+      "prompt_info": {
+        "pair_index": 8,
+        "strategy": "standard",
+        "shot_type": "few-shot",
+        "system_file": "system_prompt_1_zs2.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs2"
+      },
+      "parse_success": false,
+      "parse_error": "Expecting property name enclosed in double quotes: line 328 column 3 (char 9487)",
+      "metrics": {}
+    },
+    {
+      "paper_id": "BACFTU",
+      "prompt_info": {
+        "pair_index": 9,
+        "strategy": "standard",
+        "shot_type": "few-shot",
+        "system_file": "system_prompt_2_zs2.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs2"
+      },
+      "parse_success": false,
+      "parse_error": "Expecting property name enclosed in double quotes: line 515 column 210 (char 35485)",
+      "metrics": {}
+    },
+    {
+      "paper_id": "BRAAIC",
+      "prompt_info": {
+        "pair_index": 9,
+        "strategy": "standard",
+        "shot_type": "few-shot",
+        "system_file": "system_prompt_2_zs2.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs2"
+      },
+      "parse_success": false,
+      "parse_error": "'relations'",
+      "metrics": {}
+    },
+    {
+      "paper_id": "CHIKBT",
+      "prompt_info": {
+        "pair_index": 9,
+        "strategy": "standard",
+        "shot_type": "few-shot",
+        "system_file": "system_prompt_2_zs2.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs2"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {}
+    },
+    {
+      "paper_id": "DYCTAM",
+      "prompt_info": {
+        "pair_index": 9,
+        "strategy": "standard",
+        "shot_type": "few-shot",
+        "system_file": "system_prompt_2_zs2.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs2"
+      },
+      "parse_success": false,
+      "parse_error": "'relations'",
+      "metrics": {}
+    },
+    {
+      "paper_id": "GOLHBN",
+      "prompt_info": {
+        "pair_index": 9,
+        "strategy": "standard",
+        "shot_type": "few-shot",
+        "system_file": "system_prompt_2_zs2.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs2"
+      },
+      "parse_success": false,
+      "parse_error": "Expecting property name enclosed in double quotes: line 736 column 35 (char 38119)",
+      "metrics": {}
+    },
+    {
+      "paper_id": "HOCASA-3",
+      "prompt_info": {
+        "pair_index": 9,
+        "strategy": "standard",
+        "shot_type": "few-shot",
+        "system_file": "system_prompt_2_zs2.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs2"
+      },
+      "parse_success": false,
+      "parse_error": "'relations'",
+      "metrics": {}
+    },
+    {
+      "paper_id": "MCGCRR",
+      "prompt_info": {
+        "pair_index": 9,
+        "strategy": "standard",
+        "shot_type": "few-shot",
+        "system_file": "system_prompt_2_zs2.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs2"
+      },
+      "parse_success": false,
+      "parse_error": "Expecting value: line 891 column 8 (char 35949)",
+      "metrics": {}
+    },
+    {
+      "paper_id": "MELSPP",
+      "prompt_info": {
+        "pair_index": 9,
+        "strategy": "standard",
+        "shot_type": "few-shot",
+        "system_file": "system_prompt_2_zs2.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs2"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {}
+    },
+    {
+      "paper_id": "NUBDAA",
+      "prompt_info": {
+        "pair_index": 9,
+        "strategy": "standard",
+        "shot_type": "few-shot",
+        "system_file": "system_prompt_2_zs2.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs2"
+      },
+      "parse_success": false,
+      "parse_error": "'relations'",
+      "metrics": {}
+    },
+    {
+      "paper_id": "RALAET",
+      "prompt_info": {
+        "pair_index": 9,
+        "strategy": "standard",
+        "shot_type": "few-shot",
+        "system_file": "system_prompt_2_zs2.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs2"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {}
+    },
+    {
+      "paper_id": "SMIWSW",
+      "prompt_info": {
+        "pair_index": 9,
+        "strategy": "standard",
+        "shot_type": "few-shot",
+        "system_file": "system_prompt_2_zs2.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs2"
+      },
+      "parse_success": false,
+      "parse_error": "'relations'",
+      "metrics": {}
+    },
+    {
+      "paper_id": "STEGPD-9",
+      "prompt_info": {
+        "pair_index": 9,
+        "strategy": "standard",
+        "shot_type": "few-shot",
+        "system_file": "system_prompt_2_zs2.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs2"
+      },
+      "parse_success": false,
+      "parse_error": "Expecting ':' delimiter: line 299 column 101 (char 26114)",
+      "metrics": {}
+    },
+    {
+      "paper_id": "VANTPO-40",
+      "prompt_info": {
+        "pair_index": 9,
+        "strategy": "standard",
+        "shot_type": "few-shot",
+        "system_file": "system_prompt_2_zs2.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs2"
+      },
+      "parse_success": false,
+      "parse_error": "'relations'",
+      "metrics": {}
+    },
+    {
+      "paper_id": "VILWVI",
+      "prompt_info": {
+        "pair_index": 9,
+        "strategy": "standard",
+        "shot_type": "few-shot",
+        "system_file": "system_prompt_2_zs2.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs2"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {}
+    },
+    {
+      "paper_id": "WEYUOP",
+      "prompt_info": {
+        "pair_index": 9,
+        "strategy": "standard",
+        "shot_type": "few-shot",
+        "system_file": "system_prompt_2_zs2.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs2"
+      },
+      "parse_success": false,
+      "parse_error": "'relations'",
+      "metrics": {}
+    },
+    {
+      "paper_id": "BACFTU",
+      "prompt_info": {
+        "pair_index": 10,
+        "strategy": "standard",
+        "shot_type": "few-shot",
+        "system_file": "system_prompt_2_zs1.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs1"
+      },
+      "parse_success": false,
+      "parse_error": "Expecting ':' delimiter: line 418 column 12 (char 33646)",
+      "metrics": {}
+    },
+    {
+      "paper_id": "BRAAIC",
+      "prompt_info": {
+        "pair_index": 10,
+        "strategy": "standard",
+        "shot_type": "few-shot",
+        "system_file": "system_prompt_2_zs1.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs1"
+      },
+      "parse_success": false,
+      "parse_error": "'relations'",
+      "metrics": {}
+    },
+    {
+      "paper_id": "CHIKBT",
+      "prompt_info": {
+        "pair_index": 10,
+        "strategy": "standard",
+        "shot_type": "few-shot",
+        "system_file": "system_prompt_2_zs1.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs1"
+      },
+      "parse_success": false,
+      "parse_error": "Expecting property name enclosed in double quotes: line 58 column 3 (char 3296)",
+      "metrics": {}
+    },
+    {
+      "paper_id": "DYCTAM",
+      "prompt_info": {
+        "pair_index": 10,
+        "strategy": "standard",
+        "shot_type": "few-shot",
+        "system_file": "system_prompt_2_zs1.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs1"
+      },
+      "parse_success": false,
+      "parse_error": "'relations'",
+      "metrics": {}
+    },
+    {
+      "paper_id": "GOLHBN",
+      "prompt_info": {
+        "pair_index": 10,
+        "strategy": "standard",
+        "shot_type": "few-shot",
+        "system_file": "system_prompt_2_zs1.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs1"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {}
+    },
+    {
+      "paper_id": "HOCASA-3",
+      "prompt_info": {
+        "pair_index": 10,
+        "strategy": "standard",
+        "shot_type": "few-shot",
+        "system_file": "system_prompt_2_zs1.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs1"
+      },
+      "parse_success": false,
+      "parse_error": "'relations'",
+      "metrics": {}
+    },
+    {
+      "paper_id": "MCGCRR",
+      "prompt_info": {
+        "pair_index": 10,
+        "strategy": "standard",
+        "shot_type": "few-shot",
+        "system_file": "system_prompt_2_zs1.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs1"
+      },
+      "parse_success": false,
+      "parse_error": "Expecting ':' delimiter: line 682 column 11 (char 36701)",
+      "metrics": {}
+    },
+    {
+      "paper_id": "MELSPP",
+      "prompt_info": {
+        "pair_index": 10,
+        "strategy": "standard",
+        "shot_type": "few-shot",
+        "system_file": "system_prompt_2_zs1.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs1"
+      },
+      "parse_success": false,
+      "parse_error": "'relations'",
+      "metrics": {}
+    },
+    {
+      "paper_id": "NUBDAA",
+      "prompt_info": {
+        "pair_index": 10,
+        "strategy": "standard",
+        "shot_type": "few-shot",
+        "system_file": "system_prompt_2_zs1.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs1"
+      },
+      "parse_success": false,
+      "parse_error": "Expecting property name enclosed in double quotes: line 158 column 3 (char 6828)",
+      "metrics": {}
+    },
+    {
+      "paper_id": "RALAET",
+      "prompt_info": {
+        "pair_index": 10,
+        "strategy": "standard",
+        "shot_type": "few-shot",
+        "system_file": "system_prompt_2_zs1.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs1"
+      },
+      "parse_success": false,
+      "parse_error": "Expecting property name enclosed in double quotes: line 94 column 3 (char 5331)",
+      "metrics": {}
+    },
+    {
+      "paper_id": "SMIWSW",
+      "prompt_info": {
+        "pair_index": 10,
+        "strategy": "standard",
+        "shot_type": "few-shot",
+        "system_file": "system_prompt_2_zs1.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs1"
+      },
+      "parse_success": false,
+      "parse_error": "Expecting property name enclosed in double quotes: line 342 column 42 (char 25939)",
+      "metrics": {}
+    },
+    {
+      "paper_id": "STEGPD-9",
+      "prompt_info": {
+        "pair_index": 10,
+        "strategy": "standard",
+        "shot_type": "few-shot",
+        "system_file": "system_prompt_2_zs1.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs1"
+      },
+      "parse_success": false,
+      "parse_error": "Extra data: line 735 column 1 (char 32561)",
+      "metrics": {}
+    },
+    {
+      "paper_id": "VANTPO-40",
+      "prompt_info": {
+        "pair_index": 10,
+        "strategy": "standard",
+        "shot_type": "few-shot",
+        "system_file": "system_prompt_2_zs1.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs1"
+      },
+      "parse_success": false,
+      "parse_error": "'relations'",
+      "metrics": {}
+    },
+    {
+      "paper_id": "VILWVI",
+      "prompt_info": {
+        "pair_index": 10,
+        "strategy": "standard",
+        "shot_type": "few-shot",
+        "system_file": "system_prompt_2_zs1.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs1"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {}
+    },
+    {
+      "paper_id": "WEYUOP",
+      "prompt_info": {
+        "pair_index": 10,
+        "strategy": "standard",
+        "shot_type": "few-shot",
+        "system_file": "system_prompt_2_zs1.txt",
+        "user_file": "user_prompt.txt",
+        "variation": "zs1"
+      },
+      "parse_success": false,
+      "parse_error": "'relations'",
+      "metrics": {}
+    }
+  ]
+}

@@ -7,7 +7,7 @@ general:
   tmp: "temp" # Directory to store temporary files, throwaway scripts, etc.
   logs: 
     dir: ".logs" # `null` to print logs or "<directory>" to save them
-    level: "INFO" # "CRITICAL", "ERROR", "WARNING", "INFO", "DEBUG", "NOTSET"
+    level: "DEBUG" # "CRITICAL", "ERROR", "WARNING", "INFO", "DEBUG", "NOTSET"
 
 # File and directory paths for all processes
 paths:

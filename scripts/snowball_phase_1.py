@@ -13,7 +13,7 @@ TODO:
     -> End2End implementation completed for standard prompting, not yet implemented for CoT and/or RAG
     -> Not yet implemented for ADUR and ARE
 4. Parse results into ArgumentMaps
-    -> Implemented and untested for End2End
+    -> Not yet implemented
 5. Load in the phase_1 evals class to compare generated maps to annotation maps
     -> Not yet implemented
 """
@@ -29,6 +29,10 @@ rootutils.setup_root(__file__, indicator=".git")
 from moralkg import Config, get_logger
 from moralkg.argmining.loaders import Dataset
 from moralkg.argmining.models import End2End, ADUR, ARE
+from moralkg.snowball.phase_1.evals import End2EndEvaluator
+
+from typing import Dict, Any
+
 
 def load_prompts_from_directory(prompt_dir: Path, logger):
     """Load system and user prompts from a directory structure created by the prompt generation script."""
@@ -352,6 +356,89 @@ def get_annotated_papers(dataset: Dataset, logger, limit: int = None) -> list:
     
     return annotated_paper_ids
 
+def evaluate_pipeline_results(all_pipeline_outputs: Dict, dataset: Dataset, logger) -> Dict[str, Any]:
+    """
+    Evaluate all pipeline results using the End2EndEvaluator.
+    This implements TODO items 4 and 5: parsing results and running evaluations.
+    
+    Args:
+        all_pipeline_outputs: Dictionary of pipeline results from main()
+        dataset: The Dataset object with gold standard annotations
+        logger: Logger instance
+        
+    Returns:
+        Dictionary of evaluation results for each pipeline
+    """
+    logger.info("="*50)
+    logger.info("STARTING EVALUATION OF PIPELINE RESULTS")
+    logger.info("="*50)
+    
+    # Create evaluator
+    evaluator = End2EndEvaluator(dataset)
+    evaluation_results = {}
+    
+    for pipeline_name, pipeline_info in all_pipeline_outputs.items():
+        logger.info(f"Evaluating {pipeline_name}...")
+        
+        try:
+            # Get output directory for this pipeline
+            output_file = Path(pipeline_info["output_file"])
+            output_dir = output_file.parent
+            
+            # Evaluate the outputs
+            results = evaluator.evaluate_checkpoint_dir(
+                output_dir, 
+                strategy=pipeline_info["strategy"]
+            )
+            
+            # Save evaluation results
+            eval_output_file = output_dir / f"evaluation_results_{pipeline_info['strategy']}.json"
+            evaluator.save_results(results, eval_output_file)
+            
+            # Store results
+            evaluation_results[pipeline_name] = {
+                "results": results,
+                "eval_file": str(eval_output_file),
+                "summary": {
+                    "total_papers": results.total_papers,
+                    "successful_parses": results.successful_parses,
+                    "parse_success_rate": results.parse_success_rate,
+                    "key_metrics": {
+                        k: v for k, v in results.aggregate_metrics.items() 
+                        if k.startswith("avg_") and not k.endswith("_std")
+                    }
+                }
+            }
+            
+            # Log summary
+            logger.info(f"  Total papers processed: {results.total_papers}")
+            logger.info(f"  Successful parses: {results.successful_parses}")
+            logger.info(f"  Parse success rate: {results.parse_success_rate:.2%}")
+            
+            if results.aggregate_metrics:
+                logger.info("  Key metrics:")
+                key_metrics = ["avg_f1", "avg_macro_f1", "avg_combined_score"]
+                for metric in key_metrics:
+                    if metric in results.aggregate_metrics:
+                        logger.info(f"    {metric}: {results.aggregate_metrics[metric]:.4f}")
+            
+            if results.strategy_breakdown:
+                logger.info(f"  Strategies evaluated: {list(results.strategy_breakdown.keys())}")
+            
+            if results.shot_type_breakdown:
+                logger.info(f"  Shot types evaluated: {list(results.shot_type_breakdown.keys())}")
+            
+            logger.info(f"  Evaluation results saved to: {eval_output_file}")
+            
+        except Exception as e:
+            logger.error(f"Error evaluating {pipeline_name}: {e}")
+            evaluation_results[pipeline_name] = {
+                "error": str(e),
+                "summary": {"error": True}
+            }
+    
+    return evaluation_results
+
 def main(force_reprocess: bool = False, paper_limit: int = None) -> None:
     Config.load()
     logger = get_logger("snowball_phase_1")
@@ -559,7 +646,7 @@ def main(force_reprocess: bool = False, paper_limit: int = None) -> None:
         # TODO: Implement ARE pipeline generation  
         elif pipeline_name.startswith("are"):
             logger.info(f"Skipping {pipeline_name} - implementation pending")
-    
+
     # Save summary of all pipeline runs
     cfg = Config.load()
     summary_dir = Path(cfg.get("paths.snowball.phase_1.outputs.end2end.standard")).parent
@@ -586,6 +673,53 @@ def main(force_reprocess: bool = False, paper_limit: int = None) -> None:
     except Exception as e:
         logger.error(f"Error saving pipeline summary: {e}")
     
+    
+
+    logger.info("Starting evaluation of generated results...")
+        
+    try:
+        evaluation_results = evaluate_pipeline_results(all_pipeline_outputs, dataset, logger)
+        
+        # Add evaluation results to the summary
+        summary_data["evaluation_results"] = {
+            pipeline_name: result["summary"] 
+            for pipeline_name, result in evaluation_results.items()
+        }
+        
+        # Update the summary file with evaluation results
+        try:
+            with open(summary_file, 'w', encoding='utf-8') as f:
+                json.dump(summary_data, f, indent=2, ensure_ascii=False)
+            logger.info(f"Updated pipeline summary with evaluation results: {summary_file}")
+        except Exception as e:
+            logger.error(f"Error updating summary with evaluation results: {e}")
+        
+        # Print evaluation summary
+        logger.info("="*50)
+        logger.info("EVALUATION RESULTS SUMMARY")
+        logger.info("="*50)
+        
+        for pipeline_name, eval_result in evaluation_results.items():
+            if "error" not in eval_result:
+                summary = eval_result["summary"]
+                logger.info(f"{pipeline_name}:")
+                logger.info(f"  Papers processed: {summary['total_papers']}")
+                logger.info(f"  Parse success rate: {summary['parse_success_rate']:.2%}")
+                
+                if "key_metrics" in summary:
+                    logger.info("  Key performance metrics:")
+                    for metric, value in summary["key_metrics"].items():
+                        logger.info(f"    {metric}: {value:.4f}")
+                
+                logger.info(f"  Evaluation file: {eval_result['eval_file']}")
+            else:
+                logger.error(f"{pipeline_name}: Evaluation failed - {eval_result['error']}")
+            logger.info("")
+        
+    except Exception as e:
+        logger.error(f"Evaluation step failed: {e}")
+        logger.info("Continuing without evaluation results...")
+
     # Print final summary
     logger.info("="*50)
     logger.info("PIPELINE EXECUTION SUMMARY")
