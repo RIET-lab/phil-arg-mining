@@ -19,7 +19,7 @@ def main():
     evaluator = End2EndEvaluator(dataset, parsed_argmap_dir=parsed_argmap_dir, save_parsed_argument_json=True, use_existing_parsed_if_found=True)
 
     output_file = Path("datasets/interim/argument_mining/snowball_phase_1/end2end/standard/generation_outputs_standard_few-shot_one-shot_zero-shot_default_zs1_zs2_20250901_132248.json")
-    output_dir = output_file.parent
+    output_dir = parsed_argmap_dir
     results = evaluator.evaluate_output_files([output_file])
 
 
