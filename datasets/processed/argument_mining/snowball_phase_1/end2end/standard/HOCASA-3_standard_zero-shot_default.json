@@ -1,0 +1,236 @@
+{
+  "ADUs": {
+    "ADU31": {
+      "type": "Claim",
+      "text": "\"Cajetan's theory of analogy has been criticized for being Scotistic",
+      "isImplicit": false
+    },
+    "ADU32": {
+      "type": "Claim",
+      "text": "\"Burrell argues that Cajetan's theory of analogy is Scotistic because it is concerned with the concept rather than judgment.\"",
+      "isImplicit": false
+    },
+    "ADU33": {
+      "type": "Claim",
+      "text": "\"Cajetan's theory of analogy is not Scotistic because it is motivated by an attempt to develop a semantic analysis of analogy that will do justice to certain inferential contexts.\"",
+      "isImplicit": false
+    },
+    "ADU34": {
+      "type": "Claim",
+      "text": "\"Cajetan's concern with concepts is motivated by an attempt to develop a semantic analysis of analogy that will do justice to certain inferential contexts.\"",
+      "isImplicit": false
+    },
+    "ADU35": {
+      "type": "Claim",
+      "text": "\"Cajetan wants to account for the possibility of syllogisms mediated by analogical terms.\"",
+      "isImplicit": false
+    },
+    "ADU36": {
+      "type": "Claim",
+      "text": "\"Cajetan wants to account for the possibility of syllogisms mediated by analogical terms",
+      "isImplicit": false
+    },
+    "ADU37": {
+      "type": "Claim",
+      "text": "\"Cajetan's approach to analogy is not reductionist.\"",
+      "isImplicit": false
+    },
+    "ADU38": {
+      "type": "Claim",
+      "text": "\"Cajetan's semantic framework is conceptualist",
+      "isImplicit": false
+    },
+    "ADU39": {
+      "type": "Claim",
+      "text": "\"Cajetan's semantic framework is not reductionist.\"",
+      "isImplicit": false
+    }
+  },
+  "relations": [
+    {
+      "src": "ADU1",
+      "tgt": "ADU2",
+      "type": "support"
+    },
+    {
+      "src": "ADU2",
+      "tgt": "ADU3",
+      "type": "support"
+    },
+    {
+      "src": "ADU3",
+      "tgt": "ADU4",
+      "type": "support"
+    },
+    {
+      "src": "ADU4",
+      "tgt": "ADU5",
+      "type": "support"
+    },
+    {
+      "src": "ADU5",
+      "tgt": "ADU6",
+      "type": "support"
+    },
+    {
+      "src": "ADU6",
+      "tgt": "ADU7",
+      "type": "support"
+    },
+    {
+      "src": "ADU7",
+      "tgt": "ADU8",
+      "type": "support"
+    },
+    {
+      "src": "ADU8",
+      "tgt": "ADU9",
+      "type": "support"
+    },
+    {
+      "src": "ADU9",
+      "tgt": "ADU10",
+      "type": "support"
+    },
+    {
+      "src": "ADU10",
+      "tgt": "ADU11",
+      "type": "support"
+    },
+    {
+      "src": "ADU11",
+      "tgt": "ADU12",
+      "type": "support"
+    },
+    {
+      "src": "ADU12",
+      "tgt": "ADU13",
+      "type": "support"
+    },
+    {
+      "src": "ADU13",
+      "tgt": "ADU14",
+      "type": "support"
+    },
+    {
+      "src": "ADU14",
+      "tgt": "ADU15",
+      "type": "support"
+    },
+    {
+      "src": "ADU15",
+      "tgt": "ADU16",
+      "type": "support"
+    },
+    {
+      "src": "ADU16",
+      "tgt": "ADU17",
+      "type": "support"
+    },
+    {
+      "src": "ADU17",
+      "tgt": "ADU18",
+      "type": "support"
+    },
+    {
+      "src": "ADU18",
+      "tgt": "ADU19",
+      "type": "support"
+    },
+    {
+      "src": "ADU19",
+      "tgt": "ADU20",
+      "type": "support"
+    },
+    {
+      "src": "ADU20",
+      "tgt": "ADU21",
+      "type": "support"
+    },
+    {
+      "src": "ADU21",
+      "tgt": "ADU22",
+      "type": "support"
+    },
+    {
+      "src": "ADU22",
+      "tgt": "ADU23",
+      "type": "support"
+    },
+    {
+      "src": "ADU23",
+      "tgt": "ADU24",
+      "type": "support"
+    },
+    {
+      "src": "ADU24",
+      "tgt": "ADU25",
+      "type": "support"
+    },
+    {
+      "src": "ADU25",
+      "tgt": "ADU26",
+      "type": "support"
+    },
+    {
+      "src": "ADU26",
+      "tgt": "ADU27",
+      "type": "support"
+    },
+    {
+      "src": "ADU27",
+      "tgt": "ADU28",
+      "type": "support"
+    },
+    {
+      "src": "ADU28",
+      "tgt": "ADU29",
+      "type": "support"
+    },
+    {
+      "src": "ADU29",
+      "tgt": "ADU30",
+      "type": "support"
+    },
+    {
+      "src": "ADU31",
+      "tgt": "ADU32",
+      "type": "attack"
+    },
+    {
+      "src": "ADU32",
+      "tgt": "ADU33",
+      "type": "attack"
+    },
+    {
+      "src": "ADU33",
+      "tgt": "ADU34",
+      "type": "support"
+    },
+    {
+      "src": "ADU34",
+      "tgt": "ADU35",
+      "type": "support"
+    },
+    {
+      "src": "ADU35",
+      "tgt": "ADU36",
+      "type": "support"
+    },
+    {
+      "src": "ADU36",
+      "tgt": "ADU37",
+      "type": "support"
+    },
+    {
+      "src": "ADU37",
+      "tgt": "ADU38",
+      "type": "support"
+    },
+    {
+      "src": "ADU38",
+      "tgt": "ADU39",
+      "type": "support"
+    }
+  ]
+}

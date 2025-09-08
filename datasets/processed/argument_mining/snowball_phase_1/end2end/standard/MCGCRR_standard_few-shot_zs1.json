@@ -1,0 +1,855 @@
+{
+  "ADUs": {
+    "MainClaim": {
+      "type": "Major Claim",
+      "text": "\"Currie's rejection of weak illusionism is sound",
+      "isImplicit": false
+    },
+    "Untitled 1": {
+      "type": "Claim",
+      "text": "\"Currie's rejection of weak illusionism is unjustified because he fails to present an argument for realism and merely argues against illusionism.\"",
+      "isImplicit": false
+    },
+    "Untitled 2": {
+      "type": "Claim",
+      "text": "\"Currie's rejection of weak illusionism relies on a false dichotomy",
+      "isImplicit": false
+    },
+    "Untitled 3": {
+      "type": "Claim",
+      "text": "\"Kania's argument against Currie relies on a single contention",
+      "isImplicit": false
+    },
+    "Untitled 4": {
+      "type": "Claim",
+      "text": "\"The nature of cinematic motion must be considered independently from the means used to produce the motion",
+      "isImplicit": false
+    },
+    "Untitled 5": {
+      "type": "Claim",
+      "text": "\"Currie's theory of cinematic motion is the most plausible of the three options.\"",
+      "isImplicit": false
+    },
+    "Untitled 6": {
+      "type": "Claim",
+      "text": "\"The experience of film involves certain necessary reception conditions",
+      "isImplicit": false
+    },
+    "Untitled 7": {
+      "type": "Claim",
+      "text": "\"Ponech's attempt to prove that singletons exhibit garden-variety motion fails",
+      "isImplicit": false
+    },
+    "Untitled 8": {
+      "type": "Claim",
+      "text": "\"Currie's rejection of weak illusionism is sound",
+      "isImplicit": false
+    },
+    "s argument against Currie": {
+      "type": "Claim",
+      "text": "\"Kania's argument against Currie relies on a single contention",
+      "isImplicit": false
+    },
+    "s theory of cinematic motion": {
+      "type": "Claim",
+      "text": "\"Currie's theory of cinematic motion is the most plausible of the three options.\"",
+      "isImplicit": false
+    },
+    "s argument against illusionism": {
+      "type": "Claim",
+      "text": "\"Currie's rejection of weak illusionism relies on a false dichotomy",
+      "isImplicit": false
+    },
+    "Reception conditions for art forms": {
+      "type": "Claim",
+      "text": "\"The nature of cinematic motion must be considered independently from the means used to produce the motion",
+      "isImplicit": false
+    },
+    "s argument for garden-variety motion": {
+      "type": "Claim",
+      "text": "\"Ponech's attempt to prove that singletons exhibit garden-variety motion fails",
+      "isImplicit": false
+    },
+    "Untitled 9": {
+      "type": "Claim",
+      "text": "\"The experience of film involves certain necessary reception conditions",
+      "isImplicit": false
+    },
+    "Untitled 10": {
+      "type": "Claim",
+      "text": "\"Currie's rejection of weak illusionism is sound",
+      "isImplicit": false
+    },
+    "Untitled 11": {
+      "type": "Claim",
+      "text": "\"Ponech's argument for garden-variety motion relies on a false dichotomy",
+      "isImplicit": false
+    },
+    "Untitled 12": {
+      "type": "Claim",
+      "text": "\"The nature of cinematic motion must be considered independently from the means used to produce the motion",
+      "isImplicit": false
+    },
+    "Untitled 13": {
+      "type": "Claim",
+      "text": "\"Currie's rejection of weak illusionism is sound",
+      "isImplicit": false
+    },
+    "Untitled 14": {
+      "type": "Claim",
+      "text": "\"The experience of film involves certain necessary reception conditions",
+      "isImplicit": false
+    },
+    "Untitled 15": {
+      "type": "Claim",
+      "text": "\"Ponech's argument for garden-variety motion relies on a false dichotomy",
+      "isImplicit": false
+    },
+    "Untitled 16": {
+      "type": "Claim",
+      "text": "\"The nature of cinematic motion must be considered independently from the means used to produce the motion",
+      "isImplicit": false
+    },
+    "Untitled 17": {
+      "type": "Claim",
+      "text": "\"Currie's rejection of weak illusionism is sound",
+      "isImplicit": false
+    },
+    "Untitled 18": {
+      "type": "Claim",
+      "text": "\"The experience of film involves certain necessary reception conditions",
+      "isImplicit": false
+    },
+    "Untitled 19": {
+      "type": "Claim",
+      "text": "\"Ponech's argument for garden-variety motion relies on a false dichotomy",
+      "isImplicit": false
+    },
+    "Untitled 20": {
+      "type": "Claim",
+      "text": "\"The nature of cinematic motion must be considered independently from the means used to produce the motion",
+      "isImplicit": false
+    },
+    "Untitled 21": {
+      "type": "Claim",
+      "text": "\"Currie's rejection of weak illusionism is sound",
+      "isImplicit": false
+    },
+    "Untitled 22": {
+      "type": "Claim",
+      "text": "\"The experience of film involves certain necessary reception conditions",
+      "isImplicit": false
+    },
+    "Untitled 23": {
+      "type": "Claim",
+      "text": "\"Ponech's argument for garden-variety motion relies on a false dichotomy",
+      "isImplicit": false
+    },
+    "Untitled 24": {
+      "type": "Claim",
+      "text": "\"The nature of cinematic motion must be considered independently from the means used to produce the motion",
+      "isImplicit": false
+    },
+    "Untitled 25": {
+      "type": "Claim",
+      "text": "\"Currie's rejection of weak illusionism is sound",
+      "isImplicit": false
+    },
+    "Untitled 26": {
+      "type": "Claim",
+      "text": "\"The experience of film involves certain necessary reception conditions",
+      "isImplicit": false
+    },
+    "Untitled 27": {
+      "type": "Claim",
+      "text": "\"Ponech's argument for garden-variety motion relies on a false dichotomy",
+      "isImplicit": false
+    },
+    "Untitled 28": {
+      "type": "Claim",
+      "text": "\"The nature of cinematic motion must be considered independently from the means used to produce the motion",
+      "isImplicit": false
+    },
+    "Untitled 29": {
+      "type": "Claim",
+      "text": "\"Currie's rejection of weak illusionism is sound",
+      "isImplicit": false
+    },
+    "Untitled 30": {
+      "type": "Claim",
+      "text": "\"The experience of film involves certain necessary reception conditions",
+      "isImplicit": false
+    },
+    "Untitled 31": {
+      "type": "Claim",
+      "text": "\"Ponech's argument for garden-variety motion relies on a false dichotomy",
+      "isImplicit": false
+    },
+    "Untitled 32": {
+      "type": "Claim",
+      "text": "\"The nature of cinematic motion must be considered independently from the means used to produce the motion",
+      "isImplicit": false
+    },
+    "Untitled 33": {
+      "type": "Claim",
+      "text": "\"Currie's rejection of weak illusionism is sound",
+      "isImplicit": false
+    },
+    "Untitled 34": {
+      "type": "Claim",
+      "text": "\"The experience of film involves certain necessary reception conditions",
+      "isImplicit": false
+    },
+    "Untitled 35": {
+      "type": "Claim",
+      "text": "\"Ponech's argument for garden-variety motion relies on a false dichotomy",
+      "isImplicit": false
+    },
+    "Untitled 36": {
+      "type": "Claim",
+      "text": "\"The nature of cinematic motion must be considered independently from the means used to produce the motion",
+      "isImplicit": false
+    },
+    "Untitled 37": {
+      "type": "Claim",
+      "text": "\"Currie's rejection of weak illusionism is sound",
+      "isImplicit": false
+    },
+    "Untitled 38": {
+      "type": "Claim",
+      "text": "\"The experience of film involves certain necessary reception conditions",
+      "isImplicit": false
+    },
+    "Untitled 39": {
+      "type": "Claim",
+      "text": "\"Ponech's argument for garden-variety motion relies on a false dichotomy",
+      "isImplicit": false
+    },
+    "Untitled 40": {
+      "type": "Claim",
+      "text": "\"The nature of cinematic motion must be considered independently from the means used to produce the motion",
+      "isImplicit": false
+    },
+    "Untitled 41": {
+      "type": "Claim",
+      "text": "\"Currie's rejection of weak illusionism is sound",
+      "isImplicit": false
+    },
+    "Untitled 42": {
+      "type": "Claim",
+      "text": "\"The experience of film involves certain necessary reception conditions",
+      "isImplicit": false
+    },
+    "Untitled 43": {
+      "type": "Claim",
+      "text": "\"Ponech's argument for garden-variety motion relies on a false dichotomy",
+      "isImplicit": false
+    },
+    "Untitled 44": {
+      "type": "Claim",
+      "text": "\"The nature of cinematic motion must be considered independently from the means used to produce the motion",
+      "isImplicit": false
+    },
+    "Untitled 45": {
+      "type": "Claim",
+      "text": "\"Currie's rejection of weak illusionism is sound",
+      "isImplicit": false
+    },
+    "Untitled 46": {
+      "type": "Claim",
+      "text": "\"The experience of film involves certain necessary reception conditions",
+      "isImplicit": false
+    },
+    "Untitled 47": {
+      "type": "Claim",
+      "text": "\"Ponech's argument for garden-variety motion relies on a false dichotomy",
+      "isImplicit": false
+    },
+    "Untitled 48": {
+      "type": "Claim",
+      "text": "\"The nature of cinematic motion must be considered independently from the means used to produce the motion",
+      "isImplicit": false
+    },
+    "Untitled 49": {
+      "type": "Claim",
+      "text": "\"Currie's rejection of weak illusionism is sound",
+      "isImplicit": false
+    },
+    "Untitled 50": {
+      "type": "Claim",
+      "text": "\"The experience of film involves certain necessary reception conditions",
+      "isImplicit": false
+    },
+    "Untitled 51": {
+      "type": "Claim",
+      "text": "\"Ponech's argument for garden-variety motion relies on a false dichotomy",
+      "isImplicit": false
+    },
+    "Untitled 52": {
+      "type": "Claim",
+      "text": "\"The nature of cinematic motion must be considered independently from the means used to produce the motion",
+      "isImplicit": false
+    },
+    "Untitled 53": {
+      "type": "Claim",
+      "text": "\"Currie's rejection of weak illusionism is sound",
+      "isImplicit": false
+    },
+    "Untitled 54": {
+      "type": "Claim",
+      "text": "\"The experience of film involves certain necessary reception conditions",
+      "isImplicit": false
+    },
+    "Untitled 55": {
+      "type": "Claim",
+      "text": "\"Ponech's argument for garden-variety motion relies on a false dichotomy",
+      "isImplicit": false
+    },
+    "Untitled 56": {
+      "type": "Claim",
+      "text": "\"The nature of cinematic motion must be considered independently from the means used to produce the motion",
+      "isImplicit": false
+    },
+    "Untitled 57": {
+      "type": "Claim",
+      "text": "\"Currie's rejection of weak illusionism is sound",
+      "isImplicit": false
+    },
+    "Untitled 58": {
+      "type": "Claim",
+      "text": "\"The experience of film involves certain necessary reception conditions",
+      "isImplicit": false
+    },
+    "Untitled 59": {
+      "type": "Claim",
+      "text": "\"Ponech's argument for garden-variety motion relies on a false dichotomy",
+      "isImplicit": false
+    },
+    "Untitled 60": {
+      "type": "Claim",
+      "text": "\"The nature of cinematic motion must be considered independently from the means used to produce the motion",
+      "isImplicit": false
+    },
+    "Untitled 61": {
+      "type": "Claim",
+      "text": "\"Currie's rejection of weak illusionism is sound",
+      "isImplicit": false
+    },
+    "Untitled 62": {
+      "type": "Claim",
+      "text": "\"The experience of film involves certain necessary reception conditions",
+      "isImplicit": false
+    },
+    "Untitled 63": {
+      "type": "Claim",
+      "text": "\"Ponech's argument for garden-variety motion relies on a false dichotomy",
+      "isImplicit": false
+    },
+    "Untitled 64": {
+      "type": "Claim",
+      "text": "\"The nature of cinematic motion must be considered independently from the means used to produce the motion",
+      "isImplicit": false
+    },
+    "Untitled 65": {
+      "type": "Claim",
+      "text": "\"Currie's rejection of weak illusionism is sound",
+      "isImplicit": false
+    },
+    "Untitled 66": {
+      "type": "Claim",
+      "text": "\"The experience of film involves certain necessary reception conditions",
+      "isImplicit": false
+    },
+    "Untitled 67": {
+      "type": "Claim",
+      "text": "\"Ponech's argument for garden-variety motion relies on a false dichotomy",
+      "isImplicit": false
+    },
+    "Untitled 68": {
+      "type": "Claim",
+      "text": "\"The nature of cinematic motion must be considered independently from the means used to produce the motion",
+      "isImplicit": false
+    },
+    "Untitled 69": {
+      "type": "Claim",
+      "text": "\"Currie's rejection of weak illusionism is sound",
+      "isImplicit": false
+    },
+    "Untitled 70": {
+      "type": "Claim",
+      "text": "\"The experience of film involves certain necessary reception conditions",
+      "isImplicit": false
+    },
+    "Untitled 71": {
+      "type": "Claim",
+      "text": "\"Ponech's argument for garden-variety motion relies on a false dichotomy",
+      "isImplicit": false
+    },
+    "Untitled 72": {
+      "type": "Claim",
+      "text": "\"The nature of cinematic motion must be considered independently from the means used to produce the motion",
+      "isImplicit": false
+    },
+    "Untitled 73": {
+      "type": "Claim",
+      "text": "\"Currie's rejection of weak illusionism is sound",
+      "isImplicit": false
+    },
+    "Untitled 74": {
+      "type": "Claim",
+      "text": "\"The experience of film involves certain necessary reception conditions",
+      "isImplicit": false
+    },
+    "Untitled 75": {
+      "type": "Claim",
+      "text": "\"Ponech's argument for garden-variety motion relies on a false dichotomy",
+      "isImplicit": false
+    },
+    "Untitled 76": {
+      "type": "Claim",
+      "text": "\"The nature of cinematic motion must be considered independently from the means used to produce the motion",
+      "isImplicit": false
+    },
+    "Untitled 77": {
+      "type": "Claim",
+      "text": "\"Currie's rejection of weak illusionism is sound",
+      "isImplicit": false
+    },
+    "Untitled 78": {
+      "type": "Claim",
+      "text": "\"The experience of film involves certain necessary reception conditions",
+      "isImplicit": false
+    },
+    "Untitled 79": {
+      "type": "Claim",
+      "text": "\"Ponech's argument for garden-variety motion relies on a false dichotomy",
+      "isImplicit": false
+    },
+    "Untitled 80": {
+      "type": "Claim",
+      "text": "\"The nature of cinematic motion must be considered independently from the means used to produce the motion",
+      "isImplicit": false
+    },
+    "Untitled 81": {
+      "type": "Claim",
+      "text": "\"Currie's rejection of weak illusionism is sound",
+      "isImplicit": false
+    },
+    "Untitled 82": {
+      "type": "Claim",
+      "text": "\"The experience of film involves certain necessary reception conditions",
+      "isImplicit": false
+    },
+    "Untitled 83": {
+      "type": "Claim",
+      "text": "\"Ponech's argument for garden-variety motion relies on a false dichotomy",
+      "isImplicit": false
+    },
+    "Untitled 84": {
+      "type": "Claim",
+      "text": "\"The nature of cinematic motion must be considered independently from the means used to produce the motion",
+      "isImplicit": false
+    },
+    "Untitled 85": {
+      "type": "Claim",
+      "text": "\"Currie's rejection of weak illusionism is sound",
+      "isImplicit": false
+    },
+    "Untitled 86": {
+      "type": "Claim",
+      "text": "\"The experience of film involves certain necessary reception conditions",
+      "isImplicit": false
+    },
+    "Untitled 87": {
+      "type": "Claim",
+      "text": "\"Ponech's argument for garden-variety motion relies on a false dichotomy",
+      "isImplicit": false
+    },
+    "Untitled 88": {
+      "type": "Claim",
+      "text": "\"The nature of cinematic motion must be considered independently from the means used to produce the motion",
+      "isImplicit": false
+    },
+    "Untitled 89": {
+      "type": "Claim",
+      "text": "\"Currie's rejection of weak illusionism is sound",
+      "isImplicit": false
+    },
+    "Untitled 90": {
+      "type": "Claim",
+      "text": "\"The experience of film involves certain necessary reception conditions",
+      "isImplicit": false
+    },
+    "Untitled 91": {
+      "type": "Claim",
+      "text": "\"Ponech's argument for garden-variety motion relies on a false dichotomy",
+      "isImplicit": false
+    },
+    "Untitled 92": {
+      "type": "Claim",
+      "text": "\"The nature of cinematic motion must be considered independently from the means used to produce the motion",
+      "isImplicit": false
+    },
+    "Untitled 93": {
+      "type": "Claim",
+      "text": "\"Currie's rejection of weak illusionism is sound",
+      "isImplicit": false
+    },
+    "Untitled 94": {
+      "type": "Claim",
+      "text": "\"The experience of film involves certain necessary reception conditions",
+      "isImplicit": false
+    },
+    "Untitled 95": {
+      "type": "Claim",
+      "text": "\"Ponech's argument for garden-variety motion relies on a false dichotomy",
+      "isImplicit": false
+    },
+    "Untitled 96": {
+      "type": "Claim",
+      "text": "\"The nature of cinematic motion must be considered independently from the means used to produce the motion",
+      "isImplicit": false
+    },
+    "Untitled 97": {
+      "type": "Claim",
+      "text": "\"Currie's rejection of weak illusionism is sound",
+      "isImplicit": false
+    },
+    "Untitled 98": {
+      "type": "Claim",
+      "text": "\"The experience of film involves certain necessary reception conditions",
+      "isImplicit": false
+    },
+    "Untitled 99": {
+      "type": "Claim",
+      "text": "\"Ponech's argument for garden-variety motion relies on a false dichotomy",
+      "isImplicit": false
+    },
+    "Untitled 100": {
+      "type": "Claim",
+      "text": "\"The nature of cinematic motion must be considered independently from the means used to produce the motion",
+      "isImplicit": false
+    },
+    "Untitled 101": {
+      "type": "Claim",
+      "text": "\"Currie's rejection of weak illusionism is sound",
+      "isImplicit": false
+    },
+    "Untitled 102": {
+      "type": "Claim",
+      "text": "\"The experience of film involves certain necessary reception conditions",
+      "isImplicit": false
+    },
+    "Untitled 103": {
+      "type": "Claim",
+      "text": "\"Ponech's argument for garden-variety motion relies on a false dichotomy",
+      "isImplicit": false
+    },
+    "Untitled 104": {
+      "type": "Claim",
+      "text": "\"The nature of cinematic motion must be considered independently from the means used to produce the motion",
+      "isImplicit": false
+    },
+    "Untitled 105": {
+      "type": "Claim",
+      "text": "\"Currie's rejection of weak illusionism is sound",
+      "isImplicit": false
+    },
+    "Untitled 106": {
+      "type": "Claim",
+      "text": "\"The experience of film involves certain necessary reception conditions",
+      "isImplicit": false
+    },
+    "Untitled 107": {
+      "type": "Claim",
+      "text": "\"Ponech's argument for garden-variety motion relies on a false dichotomy",
+      "isImplicit": false
+    },
+    "Untitled 108": {
+      "type": "Claim",
+      "text": "\"The nature of cinematic motion must be considered independently from the means used to produce the motion",
+      "isImplicit": false
+    },
+    "Untitled 109": {
+      "type": "Claim",
+      "text": "\"Currie's rejection of weak illusionism is sound",
+      "isImplicit": false
+    },
+    "Untitled 110": {
+      "type": "Claim",
+      "text": "\"The experience of film involves certain necessary reception conditions",
+      "isImplicit": false
+    },
+    "Untitled 111": {
+      "type": "Claim",
+      "text": "\"Ponech's argument for garden-variety motion relies on a false dichotomy",
+      "isImplicit": false
+    },
+    "Untitled 112": {
+      "type": "Claim",
+      "text": "\"The nature of cinematic motion must be considered independently from the means used to produce the motion",
+      "isImplicit": false
+    },
+    "Untitled 113": {
+      "type": "Claim",
+      "text": "\"Currie's rejection of weak illusionism is sound",
+      "isImplicit": false
+    },
+    "Untitled 114": {
+      "type": "Claim",
+      "text": "\"The experience of film involves certain necessary reception conditions",
+      "isImplicit": false
+    },
+    "Untitled 115": {
+      "type": "Claim",
+      "text": "\"Ponech's argument for garden-variety motion relies on a false dichotomy",
+      "isImplicit": false
+    },
+    "Untitled 116": {
+      "type": "Claim",
+      "text": "\"The nature of cinematic motion must be considered independently from the means used to produce the motion",
+      "isImplicit": false
+    },
+    "Untitled 117": {
+      "type": "Claim",
+      "text": "\"Currie's rejection of weak illusionism is sound",
+      "isImplicit": false
+    },
+    "Untitled 118": {
+      "type": "Claim",
+      "text": "\"The experience of film involves certain necessary reception conditions",
+      "isImplicit": false
+    },
+    "Untitled 119": {
+      "type": "Claim",
+      "text": "\"Ponech's argument for garden-variety motion relies on a false dichotomy",
+      "isImplicit": false
+    },
+    "Untitled 120": {
+      "type": "Claim",
+      "text": "\"The nature of cinematic motion must be considered independently from the means used to produce the motion",
+      "isImplicit": false
+    },
+    "Untitled 121": {
+      "type": "Claim",
+      "text": "\"Currie's rejection of weak illusionism is sound",
+      "isImplicit": false
+    },
+    "Untitled 122": {
+      "type": "Claim",
+      "text": "\"The experience of film involves certain necessary reception conditions",
+      "isImplicit": false
+    },
+    "Untitled 123": {
+      "type": "Claim",
+      "text": "\"Ponech's argument for garden-variety motion relies on a false dichotomy",
+      "isImplicit": false
+    },
+    "Untitled 124": {
+      "type": "Claim",
+      "text": "\"The nature of cinematic motion must be considered independently from the means used to produce the motion",
+      "isImplicit": false
+    },
+    "Untitled 125": {
+      "type": "Claim",
+      "text": "\"Currie's rejection of weak illusionism is sound",
+      "isImplicit": false
+    },
+    "Untitled 126": {
+      "type": "Claim",
+      "text": "\"The experience of film involves certain necessary reception conditions",
+      "isImplicit": false
+    },
+    "Untitled 127": {
+      "type": "Claim",
+      "text": "\"Ponech's argument for garden-variety motion relies on a false dichotomy",
+      "isImplicit": false
+    },
+    "Untitled 128": {
+      "type": "Claim",
+      "text": "\"The nature of cinematic motion must be considered independently from the means used to produce the motion",
+      "isImplicit": false
+    },
+    "Untitled 129": {
+      "type": "Claim",
+      "text": "\"Currie's rejection of weak illusionism is sound",
+      "isImplicit": false
+    },
+    "Untitled 130": {
+      "type": "Claim",
+      "text": "\"The experience of film involves certain necessary reception conditions",
+      "isImplicit": false
+    },
+    "Untitled 131": {
+      "type": "Claim",
+      "text": "\"Ponech's argument for garden-variety motion relies on a false dichotomy",
+      "isImplicit": false
+    },
+    "Untitled 132": {
+      "type": "Claim",
+      "text": "\"The nature of cinematic motion must be considered independently from the means used to produce the motion",
+      "isImplicit": false
+    },
+    "Untitled 133": {
+      "type": "Claim",
+      "text": "\"Currie's rejection of weak illusionism is sound",
+      "isImplicit": false
+    },
+    "Untitled 134": {
+      "type": "Claim",
+      "text": "\"The experience of film involves certain necessary reception conditions",
+      "isImplicit": false
+    },
+    "Untitled 135": {
+      "type": "Claim",
+      "text": "\"Ponech's argument for garden-variety motion relies on a false dichotomy",
+      "isImplicit": false
+    },
+    "Untitled 136": {
+      "type": "Claim",
+      "text": "\"The nature of cinematic motion must be considered independently from the means used to produce the motion",
+      "isImplicit": false
+    },
+    "Untitled 137": {
+      "type": "Claim",
+      "text": "\"Currie's rejection of weak illusionism is sound",
+      "isImplicit": false
+    },
+    "Untitled 138": {
+      "type": "Claim",
+      "text": "\"The experience of film involves certain necessary reception conditions",
+      "isImplicit": false
+    },
+    "Untitled 139": {
+      "type": "Claim",
+      "text": "\"Ponech's argument for garden-variety motion relies on a false dichotomy",
+      "isImplicit": false
+    },
+    "Untitled 140": {
+      "type": "Claim",
+      "text": "\"The nature of cinematic motion must be considered independently from the means used to produce the motion",
+      "isImplicit": false
+    },
+    "Untitled 141": {
+      "type": "Claim",
+      "text": "\"Currie's rejection of weak illusionism is sound",
+      "isImplicit": false
+    },
+    "Untitled 142": {
+      "type": "Claim",
+      "text": "\"The experience of film involves certain necessary reception conditions",
+      "isImplicit": false
+    },
+    "Untitled 143": {
+      "type": "Claim",
+      "text": "\"Ponech's argument for garden-variety motion relies on a false dichotomy",
+      "isImplicit": false
+    },
+    "Untitled 144": {
+      "type": "Claim",
+      "text": "\"The nature of cinematic motion must be considered independently from the means used to produce the motion",
+      "isImplicit": false
+    },
+    "Untitled 145": {
+      "type": "Claim",
+      "text": "\"Currie's rejection of weak illusionism is sound",
+      "isImplicit": false
+    },
+    "Untitled 146": {
+      "type": "Claim",
+      "text": "\"The experience of film involves certain necessary reception conditions",
+      "isImplicit": false
+    },
+    "Untitled 147": {
+      "type": "Claim",
+      "text": "\"Ponech's argument for garden-variety motion relies on a false dichotomy",
+      "isImplicit": false
+    },
+    "Untitled 148": {
+      "type": "Claim",
+      "text": "\"The nature of cinematic motion must be considered independently from the means used to produce the motion",
+      "isImplicit": false
+    },
+    "Untitled 149": {
+      "type": "Claim",
+      "text": "\"Currie's rejection of weak illusionism is sound",
+      "isImplicit": false
+    },
+    "Untitled 150": {
+      "type": "Claim",
+      "text": "\"The experience of film involves certain necessary reception conditions",
+      "isImplicit": false
+    },
+    "Untitled 151": {
+      "type": "Claim",
+      "text": "\"Ponech's argument for garden-variety motion relies on a false dichotomy",
+      "isImplicit": false
+    },
+    "Untitled 152": {
+      "type": "Claim",
+      "text": "\"The nature of cinematic motion must be considered independently from the means used to produce the motion",
+      "isImplicit": false
+    },
+    "Untitled 153": {
+      "type": "Claim",
+      "text": "\"Currie's rejection of weak illusionism is sound",
+      "isImplicit": false
+    },
+    "Untitled 154": {
+      "type": "Claim",
+      "text": "\"The experience of film involves certain necessary reception conditions",
+      "isImplicit": false
+    },
+    "Untitled 155": {
+      "type": "Claim",
+      "text": "\"Ponech's argument for garden-variety motion relies on a false dichotomy",
+      "isImplicit": false
+    },
+    "Untitled 156": {
+      "type": "Claim",
+      "text": "\"The nature of cinematic motion must be considered independently from the means used to produce the motion",
+      "isImplicit": false
+    },
+    "Untitled 157": {
+      "type": "Claim",
+      "text": "\"Currie's rejection of weak illusionism is sound",
+      "isImplicit": false
+    },
+    "Untitled 158": {
+      "type": "Claim",
+      "text": "\"The experience of film involves certain necessary reception conditions",
+      "isImplicit": false
+    },
+    "Untitled 159": {
+      "type": "Claim",
+      "text": "\"Ponech's argument for garden-variety motion relies on a false dichotomy",
+      "isImplicit": false
+    },
+    "Untitled 160": {
+      "type": "Claim",
+      "text": "\"The nature of cinematic motion must be considered independently from the means used to produce the motion",
+      "isImplicit": false
+    },
+    "Untitled 161": {
+      "type": "Claim",
+      "text": "\"Currie's rejection of weak illusionism is sound",
+      "isImplicit": false
+    },
+    "Untitled 162": {
+      "type": "Claim",
+      "text": "\"The experience of film involves certain necessary reception conditions",
+      "isImplicit": false
+    },
+    "Untitled 163": {
+      "type": "Claim",
+      "text": "\"Ponech's argument for garden-variety motion relies on a false dichotomy",
+      "isImplicit": false
+    },
+    "Untitled 164": {
+      "type": "Claim",
+      "text": "\"The nature of cinematic motion must be considered independently from the means used to produce the motion",
+      "isImplicit": false
+    }
+  },
+  "relations": []
+}

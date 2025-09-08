@@ -1,0 +1,201 @@
+{
+  "ADUs": {
+    "MainClaim": {
+      "type": "Major Claim",
+      "text": "\"The American Enlightenment was a period of time during the eighteenth century when thinkers in British North America and the early United States were inspired by the ideas of the British and French Enlightenments",
+      "isImplicit": false
+    },
+    "AmericanEnlightenment": {
+      "type": "Claim",
+      "text": "\"American Enlightenment thought was inspired by the ideas of the British and French Enlightenments.\"",
+      "isImplicit": false
+    },
+    "KeyIdeas": {
+      "type": "Claim",
+      "text": "\"At least six ideas came to punctuate American Enlightenment thinking: deism",
+      "isImplicit": false
+    },
+    "ModerateandRadical": {
+      "type": "Claim",
+      "text": "\"American Enlightenment thought integrates both moderate and radical elements",
+      "isImplicit": false
+    },
+    "Chronology": {
+      "type": "Claim",
+      "text": "\"American Enlightenment thought can be appreciated chronologically",
+      "isImplicit": false
+    },
+    "DemocracyandSocialContract": {
+      "type": "Claim",
+      "text": "\"Many European and American Enlightenment figures were critical of democracy",
+      "isImplicit": false
+    },
+    "Deism": {
+      "type": "Claim",
+      "text": "\"Deism was a central idea in American Enlightenment thinking",
+      "isImplicit": false
+    },
+    "Liberalism": {
+      "type": "Claim",
+      "text": "\"Liberalism was also a key idea in American Enlightenment thinking",
+      "isImplicit": false
+    },
+    "Republicanism": {
+      "type": "Claim",
+      "text": "\"Classical republicanism was a commitment to the notion that a nation ought to be ruled as a republic",
+      "isImplicit": false
+    },
+    "Conservatism": {
+      "type": "Claim",
+      "text": "\"Conservatism emerged as a reaction to the excesses of the French Revolution",
+      "isImplicit": false
+    },
+    "Toleration": {
+      "type": "Claim",
+      "text": "\"Toleration was also a major theme in American Enlightenment thought",
+      "isImplicit": false
+    },
+    "ScientificProgress": {
+      "type": "Claim",
+      "text": "\"Scientific progress was a key idea in American Enlightenment thinking",
+      "isImplicit": false
+    },
+    "FourThinkers": {
+      "type": "Claim",
+      "text": "\"Four significant thinkers contributed to the eighteenth-century American Enlightenment: Benjamin Franklin",
+      "isImplicit": false
+    },
+    "Franklin": {
+      "type": "Claim",
+      "text": "\"Benjamin Franklin was a key thinker in the American Enlightenment",
+      "isImplicit": false
+    },
+    "Jefferson": {
+      "type": "Claim",
+      "text": "\"Thomas Jefferson was a key thinker in the American Enlightenment",
+      "isImplicit": false
+    },
+    "Madison": {
+      "type": "Claim",
+      "text": "\"James Madison was a key thinker in the American Enlightenment",
+      "isImplicit": false
+    },
+    "Adams": {
+      "type": "Claim",
+      "text": "\"John Adams was a key thinker in the American Enlightenment",
+      "isImplicit": false
+    },
+    "EnlightenmentLegacy": {
+      "type": "Claim",
+      "text": "\"The American Enlightenment project signifies how America has taken a leading role in promoting Enlightenment ideals during the period of modernity.\"",
+      "isImplicit": false
+    },
+    "EnlightenmentCritique": {
+      "type": "Claim",
+      "text": "\"Invocations of universal freedom draw their inspiration from Enlightenment thinkers but come into conflict with contemporary liberal appeals to multiculturalism and pluralism.\"",
+      "isImplicit": false
+    },
+    "References": {
+      "type": "Claim",
+      "text": "\"The references provided offer further reading on the American Enlightenment and its key thinkers.\"",
+      "isImplicit": false
+    }
+  },
+  "relations": [
+    {
+      "src": "MainClaim",
+      "tgt": "AmericanEnlightenment",
+      "type": "support"
+    },
+    {
+      "src": "MainClaim",
+      "tgt": "KeyIdeas",
+      "type": "support"
+    },
+    {
+      "src": "KeyIdeas",
+      "tgt": "ModerateandRadical",
+      "type": "support"
+    },
+    {
+      "src": "ModerateandRadical",
+      "tgt": "Chronology",
+      "type": "support"
+    },
+    {
+      "src": "Chronology",
+      "tgt": "DemocracyandSocialContract",
+      "type": "support"
+    },
+    {
+      "src": "DemocracyandSocialContract",
+      "tgt": "Deism",
+      "type": "support"
+    },
+    {
+      "src": "Deism",
+      "tgt": "Liberalism",
+      "type": "support"
+    },
+    {
+      "src": "Liberalism",
+      "tgt": "Republicanism",
+      "type": "support"
+    },
+    {
+      "src": "Republicanism",
+      "tgt": "Conservatism",
+      "type": "support"
+    },
+    {
+      "src": "Conservatism",
+      "tgt": "Toleration",
+      "type": "support"
+    },
+    {
+      "src": "Toleration",
+      "tgt": "ScientificProgress",
+      "type": "support"
+    },
+    {
+      "src": "ScientificProgress",
+      "tgt": "FourThinkers",
+      "type": "support"
+    },
+    {
+      "src": "FourThinkers",
+      "tgt": "Franklin",
+      "type": "support"
+    },
+    {
+      "src": "FourThinkers",
+      "tgt": "Jefferson",
+      "type": "support"
+    },
+    {
+      "src": "FourThinkers",
+      "tgt": "Madison",
+      "type": "support"
+    },
+    {
+      "src": "FourThinkers",
+      "tgt": "Adams",
+      "type": "support"
+    },
+    {
+      "src": "KeyIdeas",
+      "tgt": "EnlightenmentLegacy",
+      "type": "support"
+    },
+    {
+      "src": "EnlightenmentLegacy",
+      "tgt": "EnlightenmentCritique",
+      "type": "support"
+    },
+    {
+      "src": "EnlightenmentCritique",
+      "tgt": "References",
+      "type": "support"
+    }
+  ]
+}

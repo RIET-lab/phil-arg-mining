@@ -1,0 +1,111 @@
+{
+  "ADUs": {
+    "MainClaim": {
+      "type": "Major Claim",
+      "text": "\"Currie's rejection of weak illusionism is sound",
+      "isImplicit": false
+    },
+    "Untitled 1": {
+      "type": "Claim",
+      "text": "\"Currie's rejection of weak illusionism is unjustified.\"",
+      "isImplicit": false
+    },
+    "s rejection of weak illusionism": {
+      "type": "Claim",
+      "text": "\"Kania's objections to Currie's rejection of weak illusionism are unsuccessful due to his failure to acknowledge the necessary conditions for cinematic experience.\"",
+      "isImplicit": false
+    },
+    "Untitled 2": {
+      "type": "Claim",
+      "text": "\"Currie's rejection of weak illusionism is sound.\"",
+      "isImplicit": false
+    },
+    "Untitled 3": {
+      "type": "Claim",
+      "text": "\"Kania's argument against Currie relies upon a single contention",
+      "isImplicit": false
+    },
+    "Untitled 4": {
+      "type": "Claim",
+      "text": "\"Currie's view that cinematic motion is real in the weak sense",
+      "isImplicit": false
+    },
+    "Untitled 5": {
+      "type": "Claim",
+      "text": "\"The experience of film is the experience of seeing moving images under specific perceptual circumstances",
+      "isImplicit": false
+    },
+    "Untitled 6": {
+      "type": "Claim",
+      "text": "\"Ponech's attempt to prove that singletons exhibit garden-variety motion fails because singletons are not objects.\"",
+      "isImplicit": false
+    },
+    "Untitled 7": {
+      "type": "Claim",
+      "text": "\"Currie's theory of cinematic motion is the most plausible of the three options.\"",
+      "isImplicit": false
+    },
+    "Untitled 8": {
+      "type": "Claim",
+      "text": "\"The view that the illusory nature of film can be proved by slowing the projector down is doubly fallacious.\"",
+      "isImplicit": false
+    },
+    "Untitled 9": {
+      "type": "Claim",
+      "text": "\"Currie's rejection of weak illusionism is sound because cinematic images really move",
+      "isImplicit": false
+    }
+  },
+  "relations": [
+    {
+      "src": "Untitled 1",
+      "tgt": "Kania",
+      "type": "attack"
+    },
+    {
+      "src": "Kania",
+      "tgt": "Untitled 2",
+      "type": "attack"
+    },
+    {
+      "src": "Untitled 2",
+      "tgt": "MainClaim",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 3",
+      "tgt": "Kania",
+      "type": "attack"
+    },
+    {
+      "src": "Untitled 4",
+      "tgt": "MainClaim",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 5",
+      "tgt": "Untitled 4",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 6",
+      "tgt": "Untitled 4",
+      "type": "attack"
+    },
+    {
+      "src": "Untitled 7",
+      "tgt": "MainClaim",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 8",
+      "tgt": "Kania",
+      "type": "attack"
+    },
+    {
+      "src": "Untitled 9",
+      "tgt": "MainClaim",
+      "type": "support"
+    }
+  ]
+}

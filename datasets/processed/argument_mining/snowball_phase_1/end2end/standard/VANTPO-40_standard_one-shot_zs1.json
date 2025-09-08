@@ -1,0 +1,86 @@
+{
+  "ADUs": {
+    "MainClaim": {
+      "type": "Claim",
+      "text": "Bayle's failed attempt to save his career at the Illustrious School of Rotterdam by turning to Erasmus tapped into a long, local tradition of civic pride and produced a picture of Erasmus that would become highly influential, particularly during the Enlightenment.",
+      "isImplicit": false
+    },
+    "Bayle'sErasmianism": {
+      "type": "Claim",
+      "text": "Bayle's appropriation of Erasmus was marked by the politics of his personal predicament, and he chose Erasmus as a source of intellectual ancestry to enhance his own reputation.",
+      "isImplicit": false
+    },
+    "Localtraditionofcivicpride": {
+      "type": "Claim",
+      "text": "Rotterdam elites have persistently cultivated the fact that Erasmus was born in their city, and this tradition has produced a wide variety of initiatives, including the appropriation of Erasmus as a champion of toleration.",
+      "isImplicit": false
+    },
+    "Politicallymotivatedinitiatives": {
+      "type": "Claim",
+      "text": "The appropriation of Erasmus has also produced a wide variety of politically motivated initiatives, focusing on his 'tolerant' and 'cosmopolitan' qualities.",
+      "isImplicit": false
+    },
+    "SharedvalueswithErasmus": {
+      "type": "Claim",
+      "text": "Bayle and Erasmus shared a common penchant for fideism and pacifism, and both were scholars dedicated to the quest of establishing historical accuracy.",
+      "isImplicit": false
+    },
+    "ErasmianismduringtheEnlightenment": {
+      "type": "Claim",
+      "text": "Bayle's account of Erasmus became highly influential during the Enlightenment, particularly in the context of the Republic of Letters.",
+      "isImplicit": false
+    },
+    "Bayle'sadmirationforErasmus": {
+      "type": "Claim",
+      "text": "Bayle admired Erasmus as a historian, and his practice as a historian was influenced by Erasmus' humanist historiography.",
+      "isImplicit": false
+    },
+    "SharedvalueswithErasmusasahistorian": {
+      "type": "Claim",
+      "text": "Bayle and Erasmus shared a deep felt awareness of the fragility of human nature, which was reflected in their historical practices.",
+      "isImplicit": false
+    },
+    "Conclusion": {
+      "type": "Claim",
+      "text": "In conclusion, Bayle's failed attempt to save his career at the Illustrious School of Rotterdam by turning to Erasmus tapped into a long, local tradition of civic pride and produced a picture of Erasmus that would become highly influential, particularly during the Enlightenment.",
+      "isImplicit": false
+    }
+  },
+  "relations": [
+    {
+      "src": "Bayle'sErasmianism",
+      "tgt": "Localtraditionofcivicpride",
+      "type": "support"
+    },
+    {
+      "src": "Localtraditionofcivicpride",
+      "tgt": "Politicallymotivatedinitiatives",
+      "type": "support"
+    },
+    {
+      "src": "Politicallymotivatedinitiatives",
+      "tgt": "ErasmianismduringtheEnlightenment",
+      "type": "support"
+    },
+    {
+      "src": "Bayle'sadmirationforErasmus",
+      "tgt": "SharedvalueswithErasmusasahistorian",
+      "type": "support"
+    },
+    {
+      "src": "SharedvalueswithErasmusasahistorian",
+      "tgt": "SharedvalueswithErasmus",
+      "type": "support"
+    },
+    {
+      "src": "SharedvalueswithErasmus",
+      "tgt": "Conclusion",
+      "type": "support"
+    },
+    {
+      "src": "Conclusion",
+      "tgt": "Bayle'sErasmianism",
+      "type": "support"
+    }
+  ]
+}

@@ -9,7 +9,7 @@ robustness against malformed JSON.
 import re
 import json
 import uuid
-import logging
+import logging # TODO: Replace with "from moralkg import get_logger" and update logger loading accordingly
 from pathlib import Path
 from typing import Dict, List, Optional, Union, Any
 
@@ -381,7 +381,8 @@ class Parser:
     def parse_dict(self, model_output: Dict[str, Any], map_id: str) -> ArgumentMap:
         """
         Parse a dictionary containing model output into an ArgumentMap.
-        
+        TODO: Make sure this is not redundant with the regex-based parsing.
+
         Args:
             model_output: Dictionary containing model output
             map_id: ID for the argument map

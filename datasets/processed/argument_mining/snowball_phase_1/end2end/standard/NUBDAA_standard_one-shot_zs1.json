@@ -1,0 +1,126 @@
+{
+  "ADUs": {
+    "MainClaim": {
+      "type": "Major Claim",
+      "text": "\"Dichotomies are artifacts that we devise with some useful purpose in mind",
+      "isImplicit": false
+    },
+    "s approach to distinctions and dichotomies": {
+      "type": "Claim",
+      "text": "\"Putnam's approach to distinctions and dichotomies is aligned with the rejection of modern philosophy's dualism",
+      "isImplicit": false
+    },
+    "Dichotomies as logical divisions": {
+      "type": "Claim",
+      "text": "\"Dichotomies are primarily a form of logical division",
+      "isImplicit": false
+    },
+    "Dichotomies as metaphysical bogeys": {
+      "type": "Claim",
+      "text": "\"When dichotomies are inflated into metaphysical dichotomies",
+      "isImplicit": false
+    },
+    "Dichotomies as artifacts": {
+      "type": "Claim",
+      "text": "\"Dichotomies are artifacts",
+      "isImplicit": false
+    },
+    "s view on thick ethical concepts": {
+      "type": "Claim",
+      "text": "\"Putnam holds that thick ethical concepts are counterexamples to the claim that there is an absolute fact/value dichotomy",
+      "isImplicit": false
+    },
+    "Lamp as an example of a mixed descriptive and evaluative concept": {
+      "type": "Claim",
+      "text": "\"The concept of a lamp is an example of a mixed descriptive and evaluative concept",
+      "isImplicit": false
+    },
+    "s view on the fact/value dichotomy": {
+      "type": "Claim",
+      "text": "\"Austin characterizes the fact/value dichotomy as a fetish",
+      "isImplicit": false
+    },
+    "Pragmatist approach to language": {
+      "type": "Claim",
+      "text": "\"The view of language presented by Austin in his philosophy of language fits with a pragmatist approach to language",
+      "isImplicit": false
+    },
+    "Elimination of the fact/value dichotomy": {
+      "type": "Claim",
+      "text": "\"The fact/value dichotomy should be eliminated as a metaphysical dichotomy",
+      "isImplicit": false
+    },
+    "s influence on the rediscovery of American pragmatism": {
+      "type": "Claim",
+      "text": "\"Putnam's work has been instrumental in the rediscovery of American pragmatism",
+      "isImplicit": false
+    }
+  },
+  "relations": [
+    {
+      "src": "Putnam",
+      "tgt": "Dichotomies as logical divisions",
+      "type": "support"
+    },
+    {
+      "src": "Dichotomies as logical divisions",
+      "tgt": "Dichotomies as metaphysical bogeys",
+      "type": "attack"
+    },
+    {
+      "src": "Dichotomies as metaphysical bogeys",
+      "tgt": "Dichotomies as artifacts",
+      "type": "attack"
+    },
+    {
+      "src": "Dichotomies as artifacts",
+      "tgt": "Dichotomies as logical divisions",
+      "type": "support"
+    },
+    {
+      "src": "Putnam",
+      "tgt": "Dichotomies as artifacts",
+      "type": "attack"
+    },
+    {
+      "src": "Lamp as an example of a mixed descriptive and evaluative concept",
+      "tgt": "Dichotomies as artifacts",
+      "type": "attack"
+    },
+    {
+      "src": "Putnam",
+      "tgt": "Dichotomies as metaphysical bogeys",
+      "type": "attack"
+    },
+    {
+      "src": "Austins view on the fact/value dichotomy",
+      "tgt": "Dichotomies as metaphysical bogeys",
+      "type": "attack"
+    },
+    {
+      "src": "Pragmatist approach to language",
+      "tgt": "Elimination of the fact/value dichotomy",
+      "type": "support"
+    },
+    {
+      "src": "Elimination of the fact/value dichotomy",
+      "tgt": "Dichotomies as artifacts",
+      "type": "attack"
+    },
+    {
+      "src": "Putnam",
+      "tgt": "Dichotomies as artifacts",
+      "type": "attack"
+    },
+    {
+      "src": "Putnam",
+      "tgt": "MainClaim",
+      "type": "support"
+    },
+    {
+      "src": "MainClaim",
+      "tgt": "Putnam",
+      "type": "support"
+    }
+  ]
+}

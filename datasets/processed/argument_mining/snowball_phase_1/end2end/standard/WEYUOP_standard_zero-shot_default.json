@@ -1,0 +1,133 @@
+{
+  "ADUs": {
+    "ADU1": {
+      "type": "Claim",
+      "text": "The provision of public security in the EU has grown increasingly dependent on the use of data.",
+      "quote": "I thank the anonymous reviewers for their important comments.",
+      "isImplicit": false
+    },
+    "ADU2": {
+      "type": "Claim",
+      "text": "This security practice has been termed'social sorting' in the international surveillance literature.",
+      "quote": "In such cases, law enforcement agents assume that the analysis of potentially relevant data can be used to define information patterns that allow for assigning risks to individuals or smaller groups, i.e., likelihoods of posing a threat to public security.",
+      "isImplicit": false
+    },
+    "ADU3": {
+      "type": "Claim",
+      "text": "Data-driven risk assessment keeps conflicting with fundamental values.",
+      "quote": "However, as the literature highlights, data-driven risk assessment keeps conflicting with fundamental values.",
+      "isImplicit": false
+    },
+    "ADU4": {
+      "type": "Claim",
+      "text": "The use of OSINT remains a rather vague term.",
+      "quote": "However, OSINT remains a rather vague term, as it is unclear what constitutes 'open' or 'public' data, how the use of such techniques would contribute to, for example, border checks, and whether its use actually mitigates ethical issues.",
+      "isImplicit": false
+    },
+    "ADU5": {
+      "type": "Claim",
+      "text": "The goal of this article is to contribute toward a situated answer to these questions.",
+      "quote": "This, among other things, has led to the idea of avoiding personal data and of using publicly available, 'open' data instead.",
+      "isImplicit": false
+    },
+    "ADU6": {
+      "type": "Claim",
+      "text": "I will show that the impact depends not so much on the public availability of the analyzed data, but on the specifics of the implementation of OSINT techniques.",
+      "quote": "Thus, certain uses of OSINT continue to raise severe privacy and fundamental rights issues.",
+      "isImplicit": false
+    },
+    "ADU7": {
+      "type": "Claim",
+      "text": "The EU's border checks regime provides no clear basis for using 'open, public data' for risk classification of travelers.",
+      "quote": "Since, currently, there is no legal basis that allows and defines the use of OSINT to enable risk-based border checks.",
+      "isImplicit": false
+    },
+    "ADU8": {
+      "type": "Claim",
+      "text": "The use of OSINT in situational risk assessment does not preclude fundamental forms of ethical impact.",
+      "quote": "However, when we consider darknet OSINT, the picture changes somewhat.",
+      "isImplicit": false
+    },
+    "ADU9": {
+      "type": "Claim",
+      "text": "The use of OSINT in risk profiling using person-related data does not preclude fundamental forms of ethical impact.",
+      "quote": "Since the EU's legal framework demands humans-in-the-loop [EU 2016c, Preamble (71)], fully automated steps in OSINT data collection and analysis, especially if AI-based steps are foreseen in the future, would need to produce results that are meaningful for decision making.",
+      "isImplicit": false
+    },
+    "ADU10": {
+      "type": "Claim",
+      "text": "The ethical impact of OSINT techniques in border checks will depend on whether their impact leads to a reproduction of structural discrimination.",
+      "quote": "Hence, irrespective of only making use of public information, the ethical impact will depend on transparency and accountability: The more the use of OSINT-based risk profiling can be explained in detail, the more meaningful the possibility of legal redress for being denied a low-risk classification, e.g., on grounds of discrimination.",
+      "isImplicit": false
+    },
+    "ADU11": {
+      "type": "Claim",
+      "text": "The use of OSINT practices in the context of the European border checks regime does not result in an extensive mitigation of the ethical concerns related to risk-based checks on travelers.",
+      "quote": "After sketching out the relevant historical developments toward data-driven, risk-based checks in Sect. 2.1, I have discussed the EU's border management regime for the Schengen Area and reconstructed its 'logic' for border checks in Sect. 2.2.",
+      "isImplicit": false
+    },
+    "ADU12": {
+      "type": "Major Claim",
+      "text": "The use of OSINT practices in the context of the European border checks regime raises severe privacy and fundamental rights issues.",
+      "quote": "The goal of this article was to clarify what OSINT practices could entail in the context of the European border checks regime and to contest the idea that the exclusive use of 'open,' 'public' data results in an extensive mitigation of the ethical concerns related to risk-based checks on travelers.",
+      "isImplicit": false
+    }
+  },
+  "relations": [
+    {
+      "src": "ADU1",
+      "tgt": "ADU2",
+      "type": "support"
+    },
+    {
+      "src": "ADU2",
+      "tgt": "ADU3",
+      "type": "support"
+    },
+    {
+      "src": "ADU3",
+      "tgt": "ADU4",
+      "type": "support"
+    },
+    {
+      "src": "ADU4",
+      "tgt": "ADU5",
+      "type": "support"
+    },
+    {
+      "src": "ADU5",
+      "tgt": "ADU6",
+      "type": "support"
+    },
+    {
+      "src": "ADU6",
+      "tgt": "ADU7",
+      "type": "support"
+    },
+    {
+      "src": "ADU7",
+      "tgt": "ADU8",
+      "type": "support"
+    },
+    {
+      "src": "ADU8",
+      "tgt": "ADU9",
+      "type": "support"
+    },
+    {
+      "src": "ADU9",
+      "tgt": "ADU10",
+      "type": "support"
+    },
+    {
+      "src": "ADU10",
+      "tgt": "ADU11",
+      "type": "support"
+    },
+    {
+      "src": "ADU11",
+      "tgt": "ADU12",
+      "type": "support"
+    }
+  ]
+}

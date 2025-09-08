@@ -1,0 +1,481 @@
+{
+  "ADUs": {
+    "ADU1": {
+      "type": "Claim",
+      "text": "\"What Should We Do With Our Brains? is a book that",
+      "isImplicit": false
+    },
+    "ADU2": {
+      "type": "Claim",
+      "text": "\"Malabou's project bears a certain resemblance to Kant's critical project.\"",
+      "isImplicit": false
+    },
+    "ADU3": {
+      "type": "Claim",
+      "text": "\"The conditions of the question 'What Should We Do?' have changed since Kant's time.\"",
+      "isImplicit": false
+    },
+    "ADU4": {
+      "type": "Claim",
+      "text": "\"The question of freedom has been inverted since Kant.\"",
+      "isImplicit": false
+    },
+    "ADU5": {
+      "type": "Claim",
+      "text": "\"Malabou links the question of freedom with the structure of the brain.\"",
+      "isImplicit": false
+    },
+    "ADU6": {
+      "type": "Claim",
+      "text": "\"Malabou's title question can be understood as 'How should we use neuroscience?'\"",
+      "isImplicit": false
+    },
+    "ADU7": {
+      "type": "Claim",
+      "text": "\"Neuroscience has a unique position: it is a human science",
+      "isImplicit": false
+    },
+    "ADU8": {
+      "type": "Claim",
+      "text": "\"Neuroscience claims to give us a scientific explanation of something that eludes science",
+      "isImplicit": false
+    },
+    "ADU9": {
+      "type": "Claim",
+      "text": "\"Neuroscience forms the current scientific conception of what Noam Chomsky might call 'human nature'.\"",
+      "isImplicit": false
+    },
+    "ADU10": {
+      "type": "Claim",
+      "text": "\"Malabou analyzes three 'fields of action' in the brain where plasticity plays a fundamental role.\"",
+      "isImplicit": false
+    },
+    "ADU11": {
+      "type": "Claim",
+      "text": "\"There is developmental plasticity in the brain.\"",
+      "isImplicit": false
+    },
+    "ADU12": {
+      "type": "Claim",
+      "text": "\"There is modulational plasticity in the brain.\"",
+      "isImplicit": false
+    },
+    "ADU13": {
+      "type": "Claim",
+      "text": "\"There is reparative plasticity in the brain.\"",
+      "isImplicit": false
+    },
+    "ADU14": {
+      "type": "Claim",
+      "text": "\"Malabou provides a conceptual analysis of the notion of plasticity.\"",
+      "isImplicit": false
+    },
+    "ADU15": {
+      "type": "Claim",
+      "text": "\"The concept of plasticity contains within itself two contradictory extremes.\"",
+      "isImplicit": false
+    },
+    "ADU16": {
+      "type": "Claim",
+      "text": "\"The question for Malabou is whether brain plasticity is a model of freedom.\"",
+      "isImplicit": false
+    },
+    "ADU17": {
+      "type": "Claim",
+      "text": "\"Malabou argues that the potential for both freedom and biological justification of the manner in which the brain is molded is inherent in the notion of brain plasticity.\"",
+      "isImplicit": false
+    },
+    "ADU18": {
+      "type": "Claim",
+      "text": "\"Malabou's main point of reference is the 1999 book by Luc Boltanski and Eve Chiapello.\"",
+      "isImplicit": false
+    },
+    "ADU19": {
+      "type": "Claim",
+      "text": "\"Malabou points out that employment has become synonymous with being adaptable and flexible.\"",
+      "isImplicit": false
+    },
+    "ADU20": {
+      "type": "Claim",
+      "text": "\"Malabou draws a parallel between the neuronal and the social.\"",
+      "isImplicit": false
+    },
+    "ADU21": {
+      "type": "Claim",
+      "text": "\"The shift in our global capitalist economy has generated a conceptual shift that has altered our view of the way the brain functions.\"",
+      "isImplicit": false
+    },
+    "ADU22": {
+      "type": "Claim",
+      "text": "\"Malabou critiques 'neuronal ideology'.\"",
+      "isImplicit": false
+    },
+    "ADU23": {
+      "type": "Claim",
+      "text": "\"Neuroscience has a naturalization effect.\"",
+      "isImplicit": false
+    },
+    "ADU24": {
+      "type": "Claim",
+      "text": "\"The brain is the essential thing",
+      "isImplicit": false
+    },
+    "ADU25": {
+      "type": "Claim",
+      "text": "\"Neuroscientific discourse has unwittingly produced criteria",
+      "isImplicit": false
+    },
+    "ADU26": {
+      "type": "Claim",
+      "text": "\"The plasticity of the brain can move in one of two directions.\"",
+      "isImplicit": false
+    },
+    "ADU27": {
+      "type": "Claim",
+      "text": "\"The plasticity of the brain can constitute the biological justification of a type of economic",
+      "isImplicit": false
+    },
+    "ADU28": {
+      "type": "Claim",
+      "text": "\"The plasticity of the brain can allow us to think a multiplicity of interactions in which the participants exercise transformative effects on one another.\"",
+      "isImplicit": false
+    },
+    "ADU29": {
+      "type": "Claim",
+      "text": "\"Malabou's strategy is to interrogate the transition from the neuronal to the mental.\"",
+      "isImplicit": false
+    },
+    "ADU30": {
+      "type": "Claim",
+      "text": "\"Malabou challenges the idea that there is a continuity from the biological to the cultural.\"",
+      "isImplicit": false
+    },
+    "ADU31": {
+      "type": "Claim",
+      "text": "\"The transition from the neuronal to the mental is a philosophical or epistemological position.\"",
+      "isImplicit": false
+    },
+    "ADU32": {
+      "type": "Claim",
+      "text": "\"Malabou turns to the work of Antonio Damasio.\"",
+      "isImplicit": false
+    },
+    "ADU33": {
+      "type": "Claim",
+      "text": "\"Damasio posits a 'protoself'.\"",
+      "isImplicit": false
+    },
+    "ADU34": {
+      "type": "Claim",
+      "text": "\"The proto-self indicates the way the brain represents the organism to itself.\"",
+      "isImplicit": false
+    },
+    "ADU35": {
+      "type": "Claim",
+      "text": "\"Consciousness emerges from the proto-self in a progressive manner.\"",
+      "isImplicit": false
+    },
+    "ADU36": {
+      "type": "Claim",
+      "text": "\"Malabou challenges Damasio's thesis.\"",
+      "isImplicit": false
+    },
+    "ADU37": {
+      "type": "Claim",
+      "text": "\"Not all neuronal patterns become images or signs.\"",
+      "isImplicit": false
+    },
+    "ADU38": {
+      "type": "Claim",
+      "text": "\"Malabou suggests that the transition from the neuronal to the mental proceeds by intermediate plasticity.\"",
+      "isImplicit": false
+    },
+    "ADU39": {
+      "type": "Claim",
+      "text": "\"This intermediate plasticity is situated between the proto-self and the conscious self.\"",
+      "isImplicit": false
+    },
+    "ADU40": {
+      "type": "Claim",
+      "text": "\"Malabou proposes a Hegelian reading of the neurosciences.\"",
+      "isImplicit": false
+    },
+    "ADU41": {
+      "type": "Claim",
+      "text": "\"Malabou's ultimate position is closer to Foucault and Deleuze.\"",
+      "isImplicit": false
+    },
+    "ADU42": {
+      "type": "Claim",
+      "text": "\"Malabou's characterization of the neuronal self is Foucauldian in tone.\"",
+      "isImplicit": false
+    },
+    "ADU43": {
+      "type": "Claim",
+      "text": "\"Malabou concludes her book in a Foucauldian vein.\"",
+      "isImplicit": false
+    },
+    "ADU44": {
+      "type": "Claim",
+      "text": "\"Malabou's answer to the question 'What should we do with our brain?' is to understand plasticity as the production of the new.\"",
+      "isImplicit": false
+    },
+    "ADU45": {
+      "type": "Claim",
+      "text": "\"Malabou's problem with the neurological revolution is that it has revolutionized nothing for us.\"",
+      "isImplicit": false
+    },
+    "ADU46": {
+      "type": "Claim",
+      "text": "\"The only real view of progress opened by the neurosciences is that of an improvement in the quality of life.\"",
+      "isImplicit": false
+    },
+    "ADU47": {
+      "type": "Claim",
+      "text": "\"Malabou calls for an 'awakening of a consciousness of the brain'.\"",
+      "isImplicit": false
+    },
+    "ADU48": {
+      "type": "Claim",
+      "text": "\"The production and constitution of the new is nothing other than the movement of the problem that seems to animate this entire book - namely",
+      "isImplicit": false
+    }
+  },
+  "relations": [
+    {
+      "src": "ADU1",
+      "tgt": "ADU2",
+      "type": "support"
+    },
+    {
+      "src": "ADU2",
+      "tgt": "ADU3",
+      "type": "support"
+    },
+    {
+      "src": "ADU3",
+      "tgt": "ADU4",
+      "type": "support"
+    },
+    {
+      "src": "ADU4",
+      "tgt": "ADU5",
+      "type": "support"
+    },
+    {
+      "src": "ADU5",
+      "tgt": "ADU6",
+      "type": "support"
+    },
+    {
+      "src": "ADU6",
+      "tgt": "ADU7",
+      "type": "support"
+    },
+    {
+      "src": "ADU7",
+      "tgt": "ADU8",
+      "type": "support"
+    },
+    {
+      "src": "ADU8",
+      "tgt": "ADU9",
+      "type": "support"
+    },
+    {
+      "src": "ADU9",
+      "tgt": "ADU10",
+      "type": "support"
+    },
+    {
+      "src": "ADU10",
+      "tgt": "ADU11",
+      "type": "support"
+    },
+    {
+      "src": "ADU10",
+      "tgt": "ADU12",
+      "type": "support"
+    },
+    {
+      "src": "ADU10",
+      "tgt": "ADU13",
+      "type": "support"
+    },
+    {
+      "src": "ADU13",
+      "tgt": "ADU14",
+      "type": "support"
+    },
+    {
+      "src": "ADU14",
+      "tgt": "ADU15",
+      "type": "support"
+    },
+    {
+      "src": "ADU15",
+      "tgt": "ADU16",
+      "type": "support"
+    },
+    {
+      "src": "ADU16",
+      "tgt": "ADU17",
+      "type": "support"
+    },
+    {
+      "src": "ADU17",
+      "tgt": "ADU18",
+      "type": "support"
+    },
+    {
+      "src": "ADU18",
+      "tgt": "ADU19",
+      "type": "support"
+    },
+    {
+      "src": "ADU19",
+      "tgt": "ADU20",
+      "type": "support"
+    },
+    {
+      "src": "ADU20",
+      "tgt": "ADU21",
+      "type": "support"
+    },
+    {
+      "src": "ADU21",
+      "tgt": "ADU22",
+      "type": "support"
+    },
+    {
+      "src": "ADU22",
+      "tgt": "ADU23",
+      "type": "support"
+    },
+    {
+      "src": "ADU23",
+      "tgt": "ADU24",
+      "type": "support"
+    },
+    {
+      "src": "ADU24",
+      "tgt": "ADU25",
+      "type": "support"
+    },
+    {
+      "src": "ADU25",
+      "tgt": "ADU26",
+      "type": "support"
+    },
+    {
+      "src": "ADU26",
+      "tgt": "ADU27",
+      "type": "attack"
+    },
+    {
+      "src": "ADU27",
+      "tgt": "ADU28",
+      "type": "support"
+    },
+    {
+      "src": "ADU28",
+      "tgt": "ADU29",
+      "type": "support"
+    },
+    {
+      "src": "ADU29",
+      "tgt": "ADU30",
+      "type": "support"
+    },
+    {
+      "src": "ADU30",
+      "tgt": "ADU31",
+      "type": "support"
+    },
+    {
+      "src": "ADU31",
+      "tgt": "ADU32",
+      "type": "support"
+    },
+    {
+      "src": "ADU32",
+      "tgt": "ADU33",
+      "type": "support"
+    },
+    {
+      "src": "ADU33",
+      "tgt": "ADU34",
+      "type": "support"
+    },
+    {
+      "src": "ADU34",
+      "tgt": "ADU35",
+      "type": "support"
+    },
+    {
+      "src": "ADU35",
+      "tgt": "ADU36",
+      "type": "attack"
+    },
+    {
+      "src": "ADU36",
+      "tgt": "ADU37",
+      "type": "support"
+    },
+    {
+      "src": "ADU37",
+      "tgt": "ADU38",
+      "type": "support"
+    },
+    {
+      "src": "ADU38",
+      "tgt": "ADU39",
+      "type": "support"
+    },
+    {
+      "src": "ADU39",
+      "tgt": "ADU40",
+      "type": "support"
+    },
+    {
+      "src": "ADU40",
+      "tgt": "ADU41",
+      "type": "attack"
+    },
+    {
+      "src": "ADU41",
+      "tgt": "ADU42",
+      "type": "support"
+    },
+    {
+      "src": "ADU42",
+      "tgt": "ADU43",
+      "type": "support"
+    },
+    {
+      "src": "ADU43",
+      "tgt": "ADU44",
+      "type": "support"
+    },
+    {
+      "src": "ADU44",
+      "tgt": "ADU45",
+      "type": "support"
+    },
+    {
+      "src": "ADU45",
+      "tgt": "ADU46",
+      "type": "support"
+    },
+    {
+      "src": "ADU46",
+      "tgt": "ADU47",
+      "type": "support"
+    },
+    {
+      "src": "ADU47",
+      "tgt": "ADU48",
+      "type": "support"
+    }
+  ]
+}

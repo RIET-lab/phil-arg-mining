@@ -1,0 +1,177 @@
+{
+  "ADUs": {
+    "1": {
+      "type": "Claim",
+      "text": "Although there is no consensus about the exact span of time that corresponds to the American Enlightenment, it is safe to say that it occurred during the eighteenth century among thinkers in British North America and the early United States and was inspired by the ideas of the British and French Enlightenments.",
+      "quote": "Although there is no consensus about the exact span of time that corresponds to the American Enlightenment, it is safe to say that it occurred during the eighteenth century among thinkers in British North America and the early United States and was inspired by the ideas of the British and French Enlightenments.",
+      "isImplicit": false
+    },
+    "2": {
+      "type": "Claim",
+      "text": "The Age of the Enlightenment shifted allegiances away from absolute authority, whether religious or political, to more skeptical and optimistic attitudes about human nature, religion and politics.",
+      "quote": "The Age of the Enlightenment shifted allegiances away from absolute authority, whether religious or political, to more skeptical and optimistic attitudes about human nature, religion and politics.",
+      "isImplicit": false
+    },
+    "3": {
+      "type": "Claim",
+      "text": "In the American context, thinkers such as Thomas Paine, James Madison, Thomas Jefferson, John Adams and Benjamin Franklin invented and adopted revolutionary ideas about scientific rationality, religious toleration and experimental political organization.",
+      "quote": "In the American context, thinkers such as Thomas Paine, James Madison, Thomas Jefferson, John Adams and Benjamin Franklin invented and adopted revolutionary ideas about scientific rationality, religious toleration and experimental political organization.",
+      "isImplicit": false
+    },
+    "4": {
+      "type": "Claim",
+      "text": "At least six ideas came to punctuate American Enlightenment thinking: deism, liberalism, republicanism, conservatism, toleration and scientific progress.",
+      "quote": "At least six ideas came to punctuate American Enlightenment thinking: deism, liberalism, republicanism, conservatism, toleration and scientific progress.",
+      "isImplicit": false
+    },
+    "5": {
+      "type": "Claim",
+      "text": "The American Enlightenment was continuous with parallel experiences in British and French society.",
+      "quote": "The American Enlightenment was continuous with parallel experiences in British and French society.",
+      "isImplicit": false
+    },
+    "6": {
+      "type": "Claim",
+      "text": "Four themes recur in both European and American Enlightenment texts: modernization, skepticism, reason and liberty.",
+      "quote": "Four themes recur in both European and American Enlightenment texts: modernization, skepticism, reason and liberty.",
+      "isImplicit": false
+    },
+    "7": {
+      "type": "Claim",
+      "text": "Many European and American Enlightenment figures were critical of democracy.",
+      "quote": "Many European and American Enlightenment figures were critical of democracy.",
+      "isImplicit": false
+    },
+    "8": {
+      "type": "Claim",
+      "text": "Thomas Jefferson was strongly influenced by John Locke's social contract theory.",
+      "quote": "Thomas Jefferson was strongly influenced by John Locke's social contract theory.",
+      "isImplicit": false
+    },
+    "9": {
+      "type": "Claim",
+      "text": "Liberalism was rooted in the commercial harmony and tolerant Protestantism embraced by merchants in Northern Europe.",
+      "quote": "Liberalism was rooted in the commercial harmony and tolerant Protestantism embraced by merchants in Northern Europe.",
+      "isImplicit": false
+    },
+    "10": {
+      "type": "Claim",
+      "text": "Classical republicanism differed from early liberalism insofar as rights were not thought to be granted by God in a pre-social state of nature, but were the products of living in political society.",
+      "quote": "Classical republicanism differed from early liberalism insofar as rights were not thought to be granted by God in a pre-social state of nature, but were the products of living in political society.",
+      "isImplicit": false
+    },
+    "11": {
+      "type": "Claim",
+      "text": "Burkean conservatism was a reaction to the Enlightenment, but also operating within its framework.",
+      "quote": "Burkean conservatism was a reaction to the Enlightenment, but also operating within its framework.",
+      "isImplicit": false
+    },
+    "12": {
+      "type": "Claim",
+      "text": "Conservatism featured strongly in American Enlightenment thinking.",
+      "quote": "Conservatism featured strongly in American Enlightenment thinking.",
+      "isImplicit": false
+    },
+    "13": {
+      "type": "Claim",
+      "text": "Toleration or tolerant pluralism was a major theme in American Enlightenment thought.",
+      "quote": "Toleration or tolerant pluralism was a major theme in American Enlightenment thought.",
+      "isImplicit": false
+    },
+    "14": {
+      "type": "Claim",
+      "text": "Deists engaged in scientific inquiry not only to satisfy their intellectual curiosity, but to respond to a divine calling to expose God's natural laws.",
+      "quote": "Deists engaged in scientific inquiry not only to satisfy their intellectual curiosity, but to respond to a divine calling to expose God's natural laws.",
+      "isImplicit": false
+    },
+    "15": {
+      "type": "Claim",
+      "text": "The American Enlightenment project signifies how America has taken a leading role in promoting Enlightenment ideals during that period of human history commonly referred to as'modernity'.",
+      "quote": "The American Enlightenment project signifies how America has taken a leading role in promoting Enlightenment ideals during that period of human history commonly referred to as'modernity'.",
+      "isImplicit": false
+    },
+    "16": {
+      "type": "Claim",
+      "text": "There is no consensus about the exact legacy of American Enlightenment thinkers-for instance, whether republican or liberal ideas are predominant.",
+      "quote": "There is no consensus about the exact legacy of American Enlightenment thinkers-for instance, whether republican or liberal ideas are predominant.",
+      "isImplicit": false
+    }
+  },
+  "relations": [
+    {
+      "src": "1",
+      "tgt": "2",
+      "type": "support"
+    },
+    {
+      "src": "1",
+      "tgt": "3",
+      "type": "support"
+    },
+    {
+      "src": "3",
+      "tgt": "4",
+      "type": "support"
+    },
+    {
+      "src": "2",
+      "tgt": "5",
+      "type": "support"
+    },
+    {
+      "src": "5",
+      "tgt": "6",
+      "type": "support"
+    },
+    {
+      "src": "6",
+      "tgt": "7",
+      "type": "support"
+    },
+    {
+      "src": "7",
+      "tgt": "8",
+      "type": "support"
+    },
+    {
+      "src": "7",
+      "tgt": "9",
+      "type": "support"
+    },
+    {
+      "src": "9",
+      "tgt": "10",
+      "type": "support"
+    },
+    {
+      "src": "10",
+      "tgt": "11",
+      "type": "support"
+    },
+    {
+      "src": "11",
+      "tgt": "12",
+      "type": "support"
+    },
+    {
+      "src": "12",
+      "tgt": "13",
+      "type": "support"
+    },
+    {
+      "src": "13",
+      "tgt": "14",
+      "type": "support"
+    },
+    {
+      "src": "14",
+      "tgt": "15",
+      "type": "support"
+    },
+    {
+      "src": "15",
+      "tgt": "16",
+      "type": "support"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "ADUs": {
+    "sConceptionOfEnlightenment": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment involves a distinction between the human being's vocation as human being and as citizen",
+      "isImplicit": false
+    },
+    "KantVsMendelssohn": {
+      "type": "Claim",
+      "text": "\"Kant's conception of enlightenment differs from Mendelssohn's in that it is enacted publically and involves the casting off of fetters through which one willingly subjects the use of one's understanding to the authority of others.\"",
+      "isImplicit": false
+    },
+    "MendelssohnVsKant": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment differs from Kant's in that it is enacted within society and involves the development of culture and sociability.\"",
+      "isImplicit": false
+    },
+    "ImportanceOfCulture": {
+      "type": "Claim",
+      "text": "\"Culture is crucial for enlightenment",
+      "isImplicit": false
+    },
+    "CultureAndEnlightenment": {
+      "type": "Claim",
+      "text": "\"Culture and enlightenment are closely interconnected and interdependent.\"",
+      "isImplicit": false
+    },
+    "HolstVsMendelssohn": {
+      "type": "Claim",
+      "text": "\"Holst's conception of enlightenment differs from Mendelssohn's in that she emphasizes the importance of education for cultivating the child's intellect and will.\"",
+      "isImplicit": false
+    },
+    "ReimarusVsMendelssohn": {
+      "type": "Claim",
+      "text": "\"Reimarus' views on the advance of enlightenment differ from Mendelssohn's in that she emphasizes the responsibility of the would-be enlightener to proactively",
+      "isImplicit": false
+    },
+    "ReimarusVsHennings": {
+      "type": "Claim",
+      "text": "\"Reimarus' views on the advance of enlightenment differ from Hennings' in that she prefers a cautious and gradual approach to Hennings' more extreme approach.\"",
+      "isImplicit": false
+    },
+    "MajorClaim": {
+      "type": "Major Claim",
+      "text": "\"Shifting focus to Mendelssohn's conception of enlightenment reveals women to be active participants in discussions of central importance to the Enlightenment.\"",
+      "isImplicit": false
+    }
+  },
+  "relations": []
+}

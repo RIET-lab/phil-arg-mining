@@ -1,0 +1,150 @@
+{
+  "ADUs": {
+    "MainClaim": {
+      "type": "Major Claim",
+      "text": "\"The Heideggerian account of ontotheological constitution of Western metaphysics has been influential for contemporary philosophy of religion and for philosophical perspectives on theology and the divine",
+      "isImplicit": false
+    },
+    "s ontotheology": {
+      "type": "Claim",
+      "text": "\"Meillassoux reintroduces an explicitly philosophical notion of God as a being/entity",
+      "isImplicit": false
+    },
+    "s critique of ontotheology": {
+      "type": "Claim",
+      "text": "\"Heidegger views Nietzsche as a culmination of ontotheological thinking",
+      "isImplicit": false
+    },
+    "s materialist ontology": {
+      "type": "Claim",
+      "text": "\"Badiou's ontology",
+      "isImplicit": false
+    },
+    "s speculative materialism": {
+      "type": "Claim",
+      "text": "\"Meillassoux's speculative materialism is an absolute certainty of the thinkability of being-without-thinking",
+      "isImplicit": false
+    },
+    "s postmetaphysical divinity": {
+      "type": "Claim",
+      "text": "\"Heideggerian postmetaphysics makes the former points of reference interdependent dimensions or poles in a multidimensional and multipolar event of the spatiotemporal contextualization of meaningful presence.\"",
+      "isImplicit": false
+    },
+    "s contemporary atheism": {
+      "type": "Claim",
+      "text": "\"Badiou adopts a contemporary atheism",
+      "isImplicit": false
+    },
+    "s virtual god": {
+      "type": "Claim",
+      "text": "\"Meillassoux introduces a notion of a God-entity that does not exist",
+      "isImplicit": false
+    },
+    "s notion of the ultimate god": {
+      "type": "Claim",
+      "text": "\"The ultimate god is a dimension of ultimate purpose",
+      "isImplicit": false
+    },
+    "s notion of the divine": {
+      "type": "Claim",
+      "text": "\"Meillassoux's notion of the divine is a merely possible and contingent one",
+      "isImplicit": false
+    },
+    "s rejection of fideism": {
+      "type": "Claim",
+      "text": "\"Meillassoux rejects the idea that the contemporary end of metaphysics is an end which",
+      "isImplicit": false
+    },
+    "s notion of the god-less thinking": {
+      "type": "Claim",
+      "text": "\"Heidegger's god-less thinking is perhaps closer to the divine god",
+      "isImplicit": false
+    },
+    "s notion of the fourfold": {
+      "type": "Claim",
+      "text": "\"Heidegger's fourfold makes the divinities one of the four meaning-dimensions that converge in the singular and situated meaningfulness of a particular thing.\"",
+      "isImplicit": false
+    },
+    "s notion of the divine as an ultimate sense-granting purpose": {
+      "type": "Claim",
+      "text": "\"Badiou's notion of the divine is an ultimate sense-granting purpose whose sole form of presence is that of an indication",
+      "isImplicit": false
+    },
+    "s notion of the divine as a merely possible and contingent one": {
+      "type": "Claim",
+      "text": "\"Meillassoux's notion of the divine is a merely possible and contingent one",
+      "isImplicit": false
+    },
+    "s notion of the divinities": {
+      "type": "Claim",
+      "text": "\"The divinities are the indications or hints of an ultimate meaning",
+      "isImplicit": false
+    },
+    "s notion of the ultimate god as a dimension of ultimate purpose": {
+      "type": "Claim",
+      "text": "\"The ultimate god is a dimension of ultimate purpose",
+      "isImplicit": false
+    },
+    "s notion of the ultimate god as a dimension of radical futurity": {
+      "type": "Claim",
+      "text": "\"The ultimate god is a dimension of radical futurity",
+      "isImplicit": false
+    },
+    "s notion of the ultimate god as a dimension of futural ones": {
+      "type": "Claim",
+      "text": "\"The ultimate god is a dimension of futural ones",
+      "isImplicit": false
+    },
+    "s notion of the ultimate god as a dimension of the post-ontotheological theologians": {
+      "type": "Claim",
+      "text": "\"The ultimate god is a dimension of the post-ontotheological theologians",
+      "isImplicit": false
+    },
+    "s need for beyng": {
+      "type": "Claim",
+      "text": "\"The ultimate god is a dimension of the human being's need for beyng",
+      "isImplicit": false
+    },
+    "s notion of the ultimate god as a dimension of the recognition of the belonging of the human being to beyng": {
+      "type": "Claim",
+      "text": "\"The ultimate god is a dimension of the recognition of the belonging of the human being to beyng",
+      "isImplicit": false
+    },
+    "s notion of the ultimate god as a dimension of the divine indications or hints": {
+      "type": "Claim",
+      "text": "\"The ultimate god is a dimension of the divine indications or hints",
+      "isImplicit": false
+    },
+    "s notion of the ultimate god as a dimension of the futural ones of the divine": {
+      "type": "Claim",
+      "text": "\"The ultimate god is a dimension of the futural ones of the divine",
+      "isImplicit": false
+    },
+    "s notion of the ultimate god as a dimension of the subjective truth-processes": {
+      "type": "Claim",
+      "text": "\"The ultimate god is a dimension of the subjective truth-processes",
+      "isImplicit": false
+    },
+    "s need for beyng through god": {
+      "type": "Claim",
+      "text": "\"The ultimate god is a dimension of the human being's need for beyng through god",
+      "isImplicit": false
+    },
+    "s notion of the ultimate god as a dimension of the admission by god that it needs beyng": {
+      "type": "Claim",
+      "text": "\"The ultimate god is a dimension of the admission by god that it needs beyng",
+      "isImplicit": false
+    },
+    "s notion of the ultimate god as a dimension of the divine indications or hints of an ultimate meaning": {
+      "type": "Claim",
+      "text": "\"The ultimate god is a dimension of the divine indications or hints of an ultimate meaning",
+      "isImplicit": false
+    },
+    "s notion of the ultimate god as a dimension of the futural ones of the divine through the emergence of a new dimension of ultimate purposiveness": {
+      "type": "Claim",
+      "text": "\"The ultimate god is a dimension of the futural ones of the divine through the emergence of a new dimension of ultimate purposiveness",
+      "isImplicit": false
+    }
+  },
+  "relations": []
+}

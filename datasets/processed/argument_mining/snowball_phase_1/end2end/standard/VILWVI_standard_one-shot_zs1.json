@@ -1,0 +1,1200 @@
+{
+  "ADUs": {
+    "MainClaim": {
+      "type": "Major Claim",
+      "text": "\"Descartes's claim that virtue is sufficient for happiness is not exactly true: more than virtuous action is needed to secure happiness.\"",
+      "isImplicit": false
+    },
+    "Claim1": {
+      "type": "Claim",
+      "text": "\"Virtue is primarily about exerting ourselves according to our best judgment.\"",
+      "isImplicit": false
+    },
+    "Claim2": {
+      "type": "Claim",
+      "text": "\"Happiness is about having a contented mind",
+      "isImplicit": false
+    },
+    "Claim3": {
+      "type": "Claim",
+      "text": "\"Virtue is sufficient for happiness.\"",
+      "isImplicit": false
+    },
+    "Claim4": {
+      "type": "Claim",
+      "text": "\"The third condition in Descartes's account of virtue is based on the idea that we must distinguish between what is and what is not up to us.\"",
+      "isImplicit": false
+    },
+    "Claim5": {
+      "type": "Claim",
+      "text": "\"Fulfilling the third condition protects us from the threats to happiness of desire",
+      "isImplicit": false
+    },
+    "Claim6": {
+      "type": "Claim",
+      "text": "\"The third condition involves an intellectual insight consisting of three key components: the distinction between what is and what is not up to us",
+      "isImplicit": false
+    },
+    "Claim7": {
+      "type": "Claim",
+      "text": "\"Descartes's reasons for downplaying the intellectual insight his account involves are unclear.\"",
+      "isImplicit": false
+    },
+    "Claim8": {
+      "type": "Claim",
+      "text": "\"Descartes downplays the intellectual insight his account involves because he thinks that all of its three main components are innocuous in their ubiquity.\"",
+      "isImplicit": false
+    },
+    "Claim9": {
+      "type": "Claim",
+      "text": "\"The three major features of the implicit premise make their presence acutely felt in Descartes's theory of the passions.\"",
+      "isImplicit": false
+    },
+    "Claim10": {
+      "type": "Claim",
+      "text": "\"Descartes's moral thought forms a surprisingly unified whole.\"",
+      "isImplicit": false
+    },
+    "Claim11": {
+      "type": "Claim",
+      "text": "\"Happiness is not the highest good but something that is supposed to follow from virtuous action.\"",
+      "isImplicit": false
+    },
+    "Claim12": {
+      "type": "Claim",
+      "text": "\"Virtuous action involves two components: judging well and striving to act according to one's judgment.\"",
+      "isImplicit": false
+    },
+    "Claim13": {
+      "type": "Claim",
+      "text": "\"The intellectual insight involved in securing happiness is multifaceted and requires a rather complex intellectual insight into virtuous action.\"",
+      "isImplicit": false
+    },
+    "Claim14": {
+      "type": "Claim",
+      "text": "\"Descartes's reasons for downplaying the intellectual insight his account involves are unclear.\"",
+      "isImplicit": false
+    },
+    "Claim15": {
+      "type": "Claim",
+      "text": "\"Descartes leaves a key premise implicit because the insight on which happiness (partly) rests appears much more self-evident to him than to us.\"",
+      "isImplicit": false
+    },
+    "Claim16": {
+      "type": "Claim",
+      "text": "\"Our historical distance allows us to see a philosophical assumption which Descartes feels extremely comfortable operating on.\"",
+      "isImplicit": false
+    },
+    "Claim17": {
+      "type": "Claim",
+      "text": "\"The Cartesian sage is certainly not far removed from her Stoic predecessor.\"",
+      "isImplicit": false
+    },
+    "Claim18": {
+      "type": "Claim",
+      "text": "\"Descartes's conception of virtue is primarily about exerting ourselves according to our best judgment.\"",
+      "isImplicit": false
+    },
+    "Claim19": {
+      "type": "Claim",
+      "text": "\"Descartes's view of happiness is about having a contented mind.\"",
+      "isImplicit": false
+    },
+    "Claim20": {
+      "type": "Claim",
+      "text": "\"Happiness is not the highest good but something that is supposed to follow from virtuous action.\"",
+      "isImplicit": false
+    },
+    "Claim21": {
+      "type": "Claim",
+      "text": "\"Virtuous action involves two components: judging well and striving to act according to one's judgment.\"",
+      "isImplicit": false
+    },
+    "Claim22": {
+      "type": "Claim",
+      "text": "\"The intellectual insight involved in securing happiness is multifaceted and requires a rather complex intellectual insight into virtuous action.\"",
+      "isImplicit": false
+    },
+    "Claim23": {
+      "type": "Claim",
+      "text": "\"Descartes's reasons for downplaying the intellectual insight his account involves are unclear.\"",
+      "isImplicit": false
+    },
+    "Claim24": {
+      "type": "Claim",
+      "text": "\"Descartes leaves a key premise implicit because the insight on which happiness (partly) rests appears much more self-evident to him than to us.\"",
+      "isImplicit": false
+    },
+    "Claim25": {
+      "type": "Claim",
+      "text": "\"Our historical distance allows us to see a philosophical assumption which Descartes feels extremely comfortable operating on.\"",
+      "isImplicit": false
+    },
+    "Claim26": {
+      "type": "Claim",
+      "text": "\"The Cartesian sage is certainly not far removed from her Stoic predecessor.\"",
+      "isImplicit": false
+    },
+    "Claim27": {
+      "type": "Claim",
+      "text": "\"Descartes's conception of virtue is primarily about exerting ourselves according to our best judgment.\"",
+      "isImplicit": false
+    },
+    "Claim28": {
+      "type": "Claim",
+      "text": "\"Descartes's view of happiness is about having a contented mind.\"",
+      "isImplicit": false
+    },
+    "Claim29": {
+      "type": "Claim",
+      "text": "\"Happiness is not the highest good but something that is supposed to follow from virtuous action.\"",
+      "isImplicit": false
+    },
+    "Claim30": {
+      "type": "Claim",
+      "text": "\"Virtuous action involves two components: judging well and striving to act according to one's judgment.\"",
+      "isImplicit": false
+    },
+    "Claim31": {
+      "type": "Claim",
+      "text": "\"The intellectual insight involved in securing happiness is multifaceted and requires a rather complex intellectual insight into virtuous action.\"",
+      "isImplicit": false
+    },
+    "Claim32": {
+      "type": "Claim",
+      "text": "\"Descartes's reasons for downplaying the intellectual insight his account involves are unclear.\"",
+      "isImplicit": false
+    },
+    "Claim33": {
+      "type": "Claim",
+      "text": "\"Descartes leaves a key premise implicit because the insight on which happiness (partly) rests appears much more self-evident to him than to us.\"",
+      "isImplicit": false
+    },
+    "Claim34": {
+      "type": "Claim",
+      "text": "\"Our historical distance allows us to see a philosophical assumption which Descartes feels extremely comfortable operating on.\"",
+      "isImplicit": false
+    },
+    "Claim35": {
+      "type": "Claim",
+      "text": "\"The Cartesian sage is certainly not far removed from her Stoic predecessor.\"",
+      "isImplicit": false
+    },
+    "Claim36": {
+      "type": "Claim",
+      "text": "\"Descartes's conception of virtue is primarily about exerting ourselves according to our best judgment.\"",
+      "isImplicit": false
+    },
+    "Claim37": {
+      "type": "Claim",
+      "text": "\"Descartes's view of happiness is about having a contented mind.\"",
+      "isImplicit": false
+    },
+    "Claim38": {
+      "type": "Claim",
+      "text": "\"Happiness is not the highest good but something that is supposed to follow from virtuous action.\"",
+      "isImplicit": false
+    },
+    "Claim39": {
+      "type": "Claim",
+      "text": "\"Virtuous action involves two components: judging well and striving to act according to one's judgment.\"",
+      "isImplicit": false
+    },
+    "Claim40": {
+      "type": "Claim",
+      "text": "\"The intellectual insight involved in securing happiness is multifaceted and requires a rather complex intellectual insight into virtuous action.\"",
+      "isImplicit": false
+    },
+    "Claim41": {
+      "type": "Claim",
+      "text": "\"Descartes's reasons for downplaying the intellectual insight his account involves are unclear.\"",
+      "isImplicit": false
+    },
+    "Claim42": {
+      "type": "Claim",
+      "text": "\"Descartes leaves a key premise implicit because the insight on which happiness (partly) rests appears much more self-evident to him than to us.\"",
+      "isImplicit": false
+    },
+    "Claim43": {
+      "type": "Claim",
+      "text": "\"Our historical distance allows us to see a philosophical assumption which Descartes feels extremely comfortable operating on.\"",
+      "isImplicit": false
+    },
+    "Claim44": {
+      "type": "Claim",
+      "text": "\"The Cartesian sage is certainly not far removed from her Stoic predecessor.\"",
+      "isImplicit": false
+    },
+    "Claim45": {
+      "type": "Claim",
+      "text": "\"Descartes's conception of virtue is primarily about exerting ourselves according to our best judgment.\"",
+      "isImplicit": false
+    },
+    "Claim46": {
+      "type": "Claim",
+      "text": "\"Descartes's view of happiness is about having a contented mind.\"",
+      "isImplicit": false
+    },
+    "Claim47": {
+      "type": "Claim",
+      "text": "\"Happiness is not the highest good but something that is supposed to follow from virtuous action.\"",
+      "isImplicit": false
+    },
+    "Claim48": {
+      "type": "Claim",
+      "text": "\"Virtuous action involves two components: judging well and striving to act according to one's judgment.\"",
+      "isImplicit": false
+    },
+    "Claim49": {
+      "type": "Claim",
+      "text": "\"The intellectual insight involved in securing happiness is multifaceted and requires a rather complex intellectual insight into virtuous action.\"",
+      "isImplicit": false
+    },
+    "Claim50": {
+      "type": "Claim",
+      "text": "\"Descartes's reasons for downplaying the intellectual insight his account involves are unclear.\"",
+      "isImplicit": false
+    },
+    "Claim51": {
+      "type": "Claim",
+      "text": "\"Descartes leaves a key premise implicit because the insight on which happiness (partly) rests appears much more self-evident to him than to us.\"",
+      "isImplicit": false
+    },
+    "Claim52": {
+      "type": "Claim",
+      "text": "\"Our historical distance allows us to see a philosophical assumption which Descartes feels extremely comfortable operating on.\"",
+      "isImplicit": false
+    },
+    "Claim53": {
+      "type": "Claim",
+      "text": "\"The Cartesian sage is certainly not far removed from her Stoic predecessor.\"",
+      "isImplicit": false
+    },
+    "Claim54": {
+      "type": "Claim",
+      "text": "\"Descartes's conception of virtue is primarily about exerting ourselves according to our best judgment.\"",
+      "isImplicit": false
+    },
+    "Claim55": {
+      "type": "Claim",
+      "text": "\"Descartes's view of happiness is about having a contented mind.\"",
+      "isImplicit": false
+    },
+    "Claim56": {
+      "type": "Claim",
+      "text": "\"Happiness is not the highest good but something that is supposed to follow from virtuous action.\"",
+      "isImplicit": false
+    },
+    "Claim57": {
+      "type": "Claim",
+      "text": "\"Virtuous action involves two components: judging well and striving to act according to one's judgment.\"",
+      "isImplicit": false
+    },
+    "Claim58": {
+      "type": "Claim",
+      "text": "\"The intellectual insight involved in securing happiness is multifaceted and requires a rather complex intellectual insight into virtuous action.\"",
+      "isImplicit": false
+    },
+    "Claim59": {
+      "type": "Claim",
+      "text": "\"Descartes's reasons for downplaying the intellectual insight his account involves are unclear.\"",
+      "isImplicit": false
+    },
+    "Claim60": {
+      "type": "Claim",
+      "text": "\"Descartes leaves a key premise implicit because the insight on which happiness (partly) rests appears much more self-evident to him than to us.\"",
+      "isImplicit": false
+    },
+    "Claim61": {
+      "type": "Claim",
+      "text": "\"Our historical distance allows us to see a philosophical assumption which Descartes feels extremely comfortable operating on.\"",
+      "isImplicit": false
+    },
+    "Claim62": {
+      "type": "Claim",
+      "text": "\"The Cartesian sage is certainly not far removed from her Stoic predecessor.\"",
+      "isImplicit": false
+    },
+    "Claim63": {
+      "type": "Claim",
+      "text": "\"Descartes's conception of virtue is primarily about exerting ourselves according to our best judgment.\"",
+      "isImplicit": false
+    },
+    "Claim64": {
+      "type": "Claim",
+      "text": "\"Descartes's view of happiness is about having a contented mind.\"",
+      "isImplicit": false
+    },
+    "Claim65": {
+      "type": "Claim",
+      "text": "\"Happiness is not the highest good but something that is supposed to follow from virtuous action.\"",
+      "isImplicit": false
+    },
+    "Claim66": {
+      "type": "Claim",
+      "text": "\"Virtuous action involves two components: judging well and striving to act according to one's judgment.\"",
+      "isImplicit": false
+    },
+    "Claim67": {
+      "type": "Claim",
+      "text": "\"The intellectual insight involved in securing happiness is multifaceted and requires a rather complex intellectual insight into virtuous action.\"",
+      "isImplicit": false
+    },
+    "Claim68": {
+      "type": "Claim",
+      "text": "\"Descartes's reasons for downplaying the intellectual insight his account involves are unclear.\"",
+      "isImplicit": false
+    },
+    "Claim69": {
+      "type": "Claim",
+      "text": "\"Descartes leaves a key premise implicit because the insight on which happiness (partly) rests appears much more self-evident to him than to us.\"",
+      "isImplicit": false
+    },
+    "Claim70": {
+      "type": "Claim",
+      "text": "\"Our historical distance allows us to see a philosophical assumption which Descartes feels extremely comfortable operating on.\"",
+      "isImplicit": false
+    },
+    "Claim71": {
+      "type": "Claim",
+      "text": "\"The Cartesian sage is certainly not far removed from her Stoic predecessor.\"",
+      "isImplicit": false
+    },
+    "Claim72": {
+      "type": "Claim",
+      "text": "\"Descartes's conception of virtue is primarily about exerting ourselves according to our best judgment.\"",
+      "isImplicit": false
+    },
+    "Claim73": {
+      "type": "Claim",
+      "text": "\"Descartes's view of happiness is about having a contented mind.\"",
+      "isImplicit": false
+    },
+    "Claim74": {
+      "type": "Claim",
+      "text": "\"Happiness is not the highest good but something that is supposed to follow from virtuous action.\"",
+      "isImplicit": false
+    },
+    "Claim75": {
+      "type": "Claim",
+      "text": "\"Virtuous action involves two components: judging well and striving to act according to one's judgment.\"",
+      "isImplicit": false
+    },
+    "Claim76": {
+      "type": "Claim",
+      "text": "\"The intellectual insight involved in securing happiness is multifaceted and requires a rather complex intellectual insight into virtuous action.\"",
+      "isImplicit": false
+    },
+    "Claim77": {
+      "type": "Claim",
+      "text": "\"Descartes's reasons for downplaying the intellectual insight his account involves are unclear.\"",
+      "isImplicit": false
+    },
+    "Claim78": {
+      "type": "Claim",
+      "text": "\"Descartes leaves a key premise implicit because the insight on which happiness (partly) rests appears much more self-evident to him than to us.\"",
+      "isImplicit": false
+    },
+    "Claim79": {
+      "type": "Claim",
+      "text": "\"Our historical distance allows us to see a philosophical assumption which Descartes feels extremely comfortable operating on.\"",
+      "isImplicit": false
+    },
+    "Claim80": {
+      "type": "Claim",
+      "text": "\"The Cartesian sage is certainly not far removed from her Stoic predecessor.\"",
+      "isImplicit": false
+    },
+    "Claim81": {
+      "type": "Claim",
+      "text": "\"Descartes's conception of virtue is primarily about exerting ourselves according to our best judgment.\"",
+      "isImplicit": false
+    },
+    "Claim82": {
+      "type": "Claim",
+      "text": "\"Descartes's view of happiness is about having a contented mind.\"",
+      "isImplicit": false
+    },
+    "Claim83": {
+      "type": "Claim",
+      "text": "\"Happiness is not the highest good but something that is supposed to follow from virtuous action.\"",
+      "isImplicit": false
+    },
+    "Claim84": {
+      "type": "Claim",
+      "text": "\"Virtuous action involves two components: judging well and striving to act according to one's judgment.\"",
+      "isImplicit": false
+    },
+    "Claim85": {
+      "type": "Claim",
+      "text": "\"The intellectual insight involved in securing happiness is multifaceted and requires a rather complex intellectual insight into virtuous action.\"",
+      "isImplicit": false
+    },
+    "Claim86": {
+      "type": "Claim",
+      "text": "\"Descartes's reasons for downplaying the intellectual insight his account involves are unclear.\"",
+      "isImplicit": false
+    },
+    "Claim87": {
+      "type": "Claim",
+      "text": "\"Descartes leaves a key premise implicit because the insight on which happiness (partly) rests appears much more self-evident to him than to us.\"",
+      "isImplicit": false
+    },
+    "Claim88": {
+      "type": "Claim",
+      "text": "\"Our historical distance allows us to see a philosophical assumption which Descartes feels extremely comfortable operating on.\"",
+      "isImplicit": false
+    },
+    "Claim89": {
+      "type": "Claim",
+      "text": "\"The Cartesian sage is certainly not far removed from her Stoic predecessor.\"",
+      "isImplicit": false
+    },
+    "Claim90": {
+      "type": "Claim",
+      "text": "\"Descartes's conception of virtue is primarily about exerting ourselves according to our best judgment.\"",
+      "isImplicit": false
+    },
+    "Claim91": {
+      "type": "Claim",
+      "text": "\"Descartes's view of happiness is about having a contented mind.\"",
+      "isImplicit": false
+    },
+    "Claim92": {
+      "type": "Claim",
+      "text": "\"Happiness is not the highest good but something that is supposed to follow from virtuous action.\"",
+      "isImplicit": false
+    },
+    "Claim93": {
+      "type": "Claim",
+      "text": "\"Virtuous action involves two components: judging well and striving to act according to one's judgment.\"",
+      "isImplicit": false
+    },
+    "Claim94": {
+      "type": "Claim",
+      "text": "\"The intellectual insight involved in securing happiness is multifaceted and requires a rather complex intellectual insight into virtuous action.\"",
+      "isImplicit": false
+    },
+    "Claim95": {
+      "type": "Claim",
+      "text": "\"Descartes's reasons for downplaying the intellectual insight his account involves are unclear.\"",
+      "isImplicit": false
+    },
+    "Claim96": {
+      "type": "Claim",
+      "text": "\"Descartes leaves a key premise implicit because the insight on which happiness (partly) rests appears much more self-evident to him than to us.\"",
+      "isImplicit": false
+    },
+    "Claim97": {
+      "type": "Claim",
+      "text": "\"Our historical distance allows us to see a philosophical assumption which Descartes feels extremely comfortable operating on.\"",
+      "isImplicit": false
+    },
+    "Claim98": {
+      "type": "Claim",
+      "text": "\"The Cartesian sage is certainly not far removed from her Stoic predecessor.\"",
+      "isImplicit": false
+    },
+    "Claim99": {
+      "type": "Claim",
+      "text": "\"Descartes's conception of virtue is primarily about exerting ourselves according to our best judgment.\"",
+      "isImplicit": false
+    },
+    "Claim100": {
+      "type": "Claim",
+      "text": "\"Descartes's view of happiness is about having a contented mind.\"",
+      "isImplicit": false
+    },
+    "Claim101": {
+      "type": "Claim",
+      "text": "\"Happiness is not the highest good but something that is supposed to follow from virtuous action.\"",
+      "isImplicit": false
+    },
+    "Claim102": {
+      "type": "Claim",
+      "text": "\"Virtuous action involves two components: judging well and striving to act according to one's judgment.\"",
+      "isImplicit": false
+    },
+    "Claim103": {
+      "type": "Claim",
+      "text": "\"The intellectual insight involved in securing happiness is multifaceted and requires a rather complex intellectual insight into virtuous action.\"",
+      "isImplicit": false
+    },
+    "Claim104": {
+      "type": "Claim",
+      "text": "\"Descartes's reasons for downplaying the intellectual insight his account involves are unclear.\"",
+      "isImplicit": false
+    },
+    "Claim105": {
+      "type": "Claim",
+      "text": "\"Descartes leaves a key premise implicit because the insight on which happiness (partly) rests appears much more self-evident to him than to us.\"",
+      "isImplicit": false
+    },
+    "Claim106": {
+      "type": "Claim",
+      "text": "\"Our historical distance allows us to see a philosophical assumption which Descartes feels extremely comfortable operating on.\"",
+      "isImplicit": false
+    },
+    "Claim107": {
+      "type": "Claim",
+      "text": "\"The Cartesian sage is certainly not far removed from her Stoic predecessor.\"",
+      "isImplicit": false
+    },
+    "Claim108": {
+      "type": "Claim",
+      "text": "\"Descartes's conception of virtue is primarily about exerting ourselves according to our best judgment.\"",
+      "isImplicit": false
+    },
+    "Claim109": {
+      "type": "Claim",
+      "text": "\"Descartes's view of happiness is about having a contented mind.\"",
+      "isImplicit": false
+    },
+    "Claim110": {
+      "type": "Claim",
+      "text": "\"Happiness is not the highest good but something that is supposed to follow from virtuous action.\"",
+      "isImplicit": false
+    },
+    "Claim111": {
+      "type": "Claim",
+      "text": "\"Virtuous action involves two components: judging well and striving to act according to one's judgment.\"",
+      "isImplicit": false
+    },
+    "Claim112": {
+      "type": "Claim",
+      "text": "\"The intellectual insight involved in securing happiness is multifaceted and requires a rather complex intellectual insight into virtuous action.\"",
+      "isImplicit": false
+    },
+    "Claim113": {
+      "type": "Claim",
+      "text": "\"Descartes's reasons for downplaying the intellectual insight his account involves are unclear.\"",
+      "isImplicit": false
+    },
+    "Claim114": {
+      "type": "Claim",
+      "text": "\"Descartes leaves a key premise implicit because the insight on which happiness (partly) rests appears much more self-evident to him than to us.\"",
+      "isImplicit": false
+    },
+    "Claim115": {
+      "type": "Claim",
+      "text": "\"Our historical distance allows us to see a philosophical assumption which Descartes feels extremely comfortable operating on.\"",
+      "isImplicit": false
+    },
+    "Claim116": {
+      "type": "Claim",
+      "text": "\"The Cartesian sage is certainly not far removed from her Stoic predecessor.\"",
+      "isImplicit": false
+    },
+    "Claim117": {
+      "type": "Claim",
+      "text": "\"Descartes's conception of virtue is primarily about exerting ourselves according to our best judgment.\"",
+      "isImplicit": false
+    },
+    "Claim118": {
+      "type": "Claim",
+      "text": "\"Descartes's view of happiness is about having a contented mind.\"",
+      "isImplicit": false
+    },
+    "Claim119": {
+      "type": "Claim",
+      "text": "\"Happiness is not the highest good but something that is supposed to follow from virtuous action.\"",
+      "isImplicit": false
+    },
+    "Claim120": {
+      "type": "Claim",
+      "text": "\"Virtuous action involves two components: judging well and striving to act according to one's judgment.\"",
+      "isImplicit": false
+    },
+    "Claim121": {
+      "type": "Claim",
+      "text": "\"The intellectual insight involved in securing happiness is multifaceted and requires a rather complex intellectual insight into virtuous action.\"",
+      "isImplicit": false
+    },
+    "Claim122": {
+      "type": "Claim",
+      "text": "\"Descartes's reasons for downplaying the intellectual insight his account involves are unclear.\"",
+      "isImplicit": false
+    },
+    "Claim123": {
+      "type": "Claim",
+      "text": "\"Descartes leaves a key premise implicit because the insight on which happiness (partly) rests appears much more self-evident to him than to us.\"",
+      "isImplicit": false
+    },
+    "Claim124": {
+      "type": "Claim",
+      "text": "\"Our historical distance allows us to see a philosophical assumption which Descartes feels extremely comfortable operating on.\"",
+      "isImplicit": false
+    },
+    "Claim125": {
+      "type": "Claim",
+      "text": "\"The Cartesian sage is certainly not far removed from her Stoic predecessor.\"",
+      "isImplicit": false
+    },
+    "Claim126": {
+      "type": "Claim",
+      "text": "\"Descartes's conception of virtue is primarily about exerting ourselves according to our best judgment.\"",
+      "isImplicit": false
+    },
+    "Claim127": {
+      "type": "Claim",
+      "text": "\"Descartes's view of happiness is about having a contented mind.\"",
+      "isImplicit": false
+    },
+    "Claim128": {
+      "type": "Claim",
+      "text": "\"Happiness is not the highest good but something that is supposed to follow from virtuous action.\"",
+      "isImplicit": false
+    },
+    "Claim129": {
+      "type": "Claim",
+      "text": "\"Virtuous action involves two components: judging well and striving to act according to one's judgment.\"",
+      "isImplicit": false
+    },
+    "Claim130": {
+      "type": "Claim",
+      "text": "\"The intellectual insight involved in securing happiness is multifaceted and requires a rather complex intellectual insight into virtuous action.\"",
+      "isImplicit": false
+    },
+    "Claim131": {
+      "type": "Claim",
+      "text": "\"Descartes's reasons for downplaying the intellectual insight his account involves are unclear.\"",
+      "isImplicit": false
+    },
+    "Claim132": {
+      "type": "Claim",
+      "text": "\"Descartes leaves a key premise implicit because the insight on which happiness (partly) rests appears much more self-evident to him than to us.\"",
+      "isImplicit": false
+    },
+    "Claim133": {
+      "type": "Claim",
+      "text": "\"Our historical distance allows us to see a philosophical assumption which Descartes feels extremely comfortable operating on.\"",
+      "isImplicit": false
+    },
+    "Claim134": {
+      "type": "Claim",
+      "text": "\"The Cartesian sage is certainly not far removed from her Stoic predecessor.\"",
+      "isImplicit": false
+    },
+    "Claim135": {
+      "type": "Claim",
+      "text": "\"Descartes's conception of virtue is primarily about exerting ourselves according to our best judgment.\"",
+      "isImplicit": false
+    },
+    "Claim136": {
+      "type": "Claim",
+      "text": "\"Descartes's view of happiness is about having a contented mind.\"",
+      "isImplicit": false
+    },
+    "Claim137": {
+      "type": "Claim",
+      "text": "\"Happiness is not the highest good but something that is supposed to follow from virtuous action.\"",
+      "isImplicit": false
+    },
+    "Claim138": {
+      "type": "Claim",
+      "text": "\"Virtuous action involves two components: judging well and striving to act according to one's judgment.\"",
+      "isImplicit": false
+    },
+    "Claim139": {
+      "type": "Claim",
+      "text": "\"The intellectual insight involved in securing happiness is multifaceted and requires a rather complex intellectual insight into virtuous action.\"",
+      "isImplicit": false
+    },
+    "Claim140": {
+      "type": "Claim",
+      "text": "\"Descartes's reasons for downplaying the intellectual insight his account involves are unclear.\"",
+      "isImplicit": false
+    },
+    "Claim141": {
+      "type": "Claim",
+      "text": "\"Descartes leaves a key premise implicit because the insight on which happiness (partly) rests appears much more self-evident to him than to us.\"",
+      "isImplicit": false
+    },
+    "Claim142": {
+      "type": "Claim",
+      "text": "\"Our historical distance allows us to see a philosophical assumption which Descartes feels extremely comfortable operating on.\"",
+      "isImplicit": false
+    },
+    "Claim143": {
+      "type": "Claim",
+      "text": "\"The Cartesian sage is certainly not far removed from her Stoic predecessor.\"",
+      "isImplicit": false
+    },
+    "Claim144": {
+      "type": "Claim",
+      "text": "\"Descartes's conception of virtue is primarily about exerting ourselves according to our best judgment.\"",
+      "isImplicit": false
+    },
+    "Claim145": {
+      "type": "Claim",
+      "text": "\"Descartes's view of happiness is about having a contented mind.\"",
+      "isImplicit": false
+    },
+    "Claim146": {
+      "type": "Claim",
+      "text": "\"Happiness is not the highest good but something that is supposed to follow from virtuous action.\"",
+      "isImplicit": false
+    },
+    "Claim147": {
+      "type": "Claim",
+      "text": "\"Virtuous action involves two components: judging well and striving to act according to one's judgment.\"",
+      "isImplicit": false
+    },
+    "Claim148": {
+      "type": "Claim",
+      "text": "\"The intellectual insight involved in securing happiness is multifaceted and requires a rather complex intellectual insight into virtuous action.\"",
+      "isImplicit": false
+    },
+    "Claim149": {
+      "type": "Claim",
+      "text": "\"Descartes's reasons for downplaying the intellectual insight his account involves are unclear.\"",
+      "isImplicit": false
+    },
+    "Claim150": {
+      "type": "Claim",
+      "text": "\"Descartes leaves a key premise implicit because the insight on which happiness (partly) rests appears much more self-evident to him than to us.\"",
+      "isImplicit": false
+    },
+    "Claim151": {
+      "type": "Claim",
+      "text": "\"Our historical distance allows us to see a philosophical assumption which Descartes feels extremely comfortable operating on.\"",
+      "isImplicit": false
+    },
+    "Claim152": {
+      "type": "Claim",
+      "text": "\"The Cartesian sage is certainly not far removed from her Stoic predecessor.\"",
+      "isImplicit": false
+    },
+    "Claim153": {
+      "type": "Claim",
+      "text": "\"Descartes's conception of virtue is primarily about exerting ourselves according to our best judgment.\"",
+      "isImplicit": false
+    },
+    "Claim154": {
+      "type": "Claim",
+      "text": "\"Descartes's view of happiness is about having a contented mind.\"",
+      "isImplicit": false
+    },
+    "Claim155": {
+      "type": "Claim",
+      "text": "\"Happiness is not the highest good but something that is supposed to follow from virtuous action.\"",
+      "isImplicit": false
+    },
+    "Claim156": {
+      "type": "Claim",
+      "text": "\"Virtuous action involves two components: judging well and striving to act according to one's judgment.\"",
+      "isImplicit": false
+    },
+    "Claim157": {
+      "type": "Claim",
+      "text": "\"The intellectual insight involved in securing happiness is multifaceted and requires a rather complex intellectual insight into virtuous action.\"",
+      "isImplicit": false
+    },
+    "Claim158": {
+      "type": "Claim",
+      "text": "\"Descartes's reasons for downplaying the intellectual insight his account involves are unclear.\"",
+      "isImplicit": false
+    },
+    "Claim159": {
+      "type": "Claim",
+      "text": "\"Descartes leaves a key premise implicit because the insight on which happiness (partly) rests appears much more self-evident to him than to us.\"",
+      "isImplicit": false
+    },
+    "Claim160": {
+      "type": "Claim",
+      "text": "\"Our historical distance allows us to see a philosophical assumption which Descartes feels extremely comfortable operating on.\"",
+      "isImplicit": false
+    },
+    "Claim161": {
+      "type": "Claim",
+      "text": "\"The Cartesian sage is certainly not far removed from her Stoic predecessor.\"",
+      "isImplicit": false
+    },
+    "Claim162": {
+      "type": "Claim",
+      "text": "\"Descartes's conception of virtue is primarily about exerting ourselves according to our best judgment.\"",
+      "isImplicit": false
+    },
+    "Claim163": {
+      "type": "Claim",
+      "text": "\"Descartes's view of happiness is about having a contented mind.\"",
+      "isImplicit": false
+    },
+    "Claim164": {
+      "type": "Claim",
+      "text": "\"Happiness is not the highest good but something that is supposed to follow from virtuous action.\"",
+      "isImplicit": false
+    },
+    "Claim165": {
+      "type": "Claim",
+      "text": "\"Virtuous action involves two components: judging well and striving to act according to one's judgment.\"",
+      "isImplicit": false
+    },
+    "Claim166": {
+      "type": "Claim",
+      "text": "\"The intellectual insight involved in securing happiness is multifaceted and requires a rather complex intellectual insight into virtuous action.\"",
+      "isImplicit": false
+    },
+    "Claim167": {
+      "type": "Claim",
+      "text": "\"Descartes's reasons for downplaying the intellectual insight his account involves are unclear.\"",
+      "isImplicit": false
+    },
+    "Claim168": {
+      "type": "Claim",
+      "text": "\"Descartes leaves a key premise implicit because the insight on which happiness (partly) rests appears much more self-evident to him than to us.\"",
+      "isImplicit": false
+    },
+    "Claim169": {
+      "type": "Claim",
+      "text": "\"Our historical distance allows us to see a philosophical assumption which Descartes feels extremely comfortable operating on.\"",
+      "isImplicit": false
+    },
+    "Claim170": {
+      "type": "Claim",
+      "text": "\"The Cartesian sage is certainly not far removed from her Stoic predecessor.\"",
+      "isImplicit": false
+    },
+    "Claim171": {
+      "type": "Claim",
+      "text": "\"Descartes's conception of virtue is primarily about exerting ourselves according to our best judgment.\"",
+      "isImplicit": false
+    },
+    "Claim172": {
+      "type": "Claim",
+      "text": "\"Descartes's view of happiness is about having a contented mind.\"",
+      "isImplicit": false
+    },
+    "Claim173": {
+      "type": "Claim",
+      "text": "\"Happiness is not the highest good but something that is supposed to follow from virtuous action.\"",
+      "isImplicit": false
+    },
+    "Claim174": {
+      "type": "Claim",
+      "text": "\"Virtuous action involves two components: judging well and striving to act according to one's judgment.\"",
+      "isImplicit": false
+    },
+    "Claim175": {
+      "type": "Claim",
+      "text": "\"The intellectual insight involved in securing happiness is multifaceted and requires a rather complex intellectual insight into virtuous action.\"",
+      "isImplicit": false
+    },
+    "Claim176": {
+      "type": "Claim",
+      "text": "\"Descartes's reasons for downplaying the intellectual insight his account involves are unclear.\"",
+      "isImplicit": false
+    },
+    "Claim177": {
+      "type": "Claim",
+      "text": "\"Descartes leaves a key premise implicit because the insight on which happiness (partly) rests appears much more self-evident to him than to us.\"",
+      "isImplicit": false
+    },
+    "Claim178": {
+      "type": "Claim",
+      "text": "\"Our historical distance allows us to see a philosophical assumption which Descartes feels extremely comfortable operating on.\"",
+      "isImplicit": false
+    },
+    "Claim179": {
+      "type": "Claim",
+      "text": "\"The Cartesian sage is certainly not far removed from her Stoic predecessor.\"",
+      "isImplicit": false
+    },
+    "Claim180": {
+      "type": "Claim",
+      "text": "\"Descartes's conception of virtue is primarily about exerting ourselves according to our best judgment.\"",
+      "isImplicit": false
+    },
+    "Claim181": {
+      "type": "Claim",
+      "text": "\"Descartes's view of happiness is about having a contented mind.\"",
+      "isImplicit": false
+    },
+    "Claim182": {
+      "type": "Claim",
+      "text": "\"Happiness is not the highest good but something that is supposed to follow from virtuous action.\"",
+      "isImplicit": false
+    },
+    "Claim183": {
+      "type": "Claim",
+      "text": "\"Virtuous action involves two components: judging well and striving to act according to one's judgment.\"",
+      "isImplicit": false
+    },
+    "Claim184": {
+      "type": "Claim",
+      "text": "\"The intellectual insight involved in securing happiness is multifaceted and requires a rather complex intellectual insight into virtuous action.\"",
+      "isImplicit": false
+    },
+    "Claim185": {
+      "type": "Claim",
+      "text": "\"Descartes's reasons for downplaying the intellectual insight his account involves are unclear.\"",
+      "isImplicit": false
+    },
+    "Claim186": {
+      "type": "Claim",
+      "text": "\"Descartes leaves a key premise implicit because the insight on which happiness (partly) rests appears much more self-evident to him than to us.\"",
+      "isImplicit": false
+    },
+    "Claim187": {
+      "type": "Claim",
+      "text": "\"Our historical distance allows us to see a philosophical assumption which Descartes feels extremely comfortable operating on.\"",
+      "isImplicit": false
+    },
+    "Claim188": {
+      "type": "Claim",
+      "text": "\"The Cartesian sage is certainly not far removed from her Stoic predecessor.\"",
+      "isImplicit": false
+    },
+    "Claim189": {
+      "type": "Claim",
+      "text": "\"Descartes's conception of virtue is primarily about exerting ourselves according to our best judgment.\"",
+      "isImplicit": false
+    },
+    "Claim190": {
+      "type": "Claim",
+      "text": "\"Descartes's view of happiness is about having a contented mind.\"",
+      "isImplicit": false
+    },
+    "Claim191": {
+      "type": "Claim",
+      "text": "\"Happiness is not the highest good but something that is supposed to follow from virtuous action.\"",
+      "isImplicit": false
+    },
+    "Claim192": {
+      "type": "Claim",
+      "text": "\"Virtuous action involves two components: judging well and striving to act according to one's judgment.\"",
+      "isImplicit": false
+    },
+    "Claim193": {
+      "type": "Claim",
+      "text": "\"The intellectual insight involved in securing happiness is multifaceted and requires a rather complex intellectual insight into virtuous action.\"",
+      "isImplicit": false
+    },
+    "Claim194": {
+      "type": "Claim",
+      "text": "\"Descartes's reasons for downplaying the intellectual insight his account involves are unclear.\"",
+      "isImplicit": false
+    },
+    "Claim195": {
+      "type": "Claim",
+      "text": "\"Descartes leaves a key premise implicit because the insight on which happiness (partly) rests appears much more self-evident to him than to us.\"",
+      "isImplicit": false
+    },
+    "Claim196": {
+      "type": "Claim",
+      "text": "\"Our historical distance allows us to see a philosophical assumption which Descartes feels extremely comfortable operating on.\"",
+      "isImplicit": false
+    },
+    "Claim197": {
+      "type": "Claim",
+      "text": "\"The Cartesian sage is certainly not far removed from her Stoic predecessor.\"",
+      "isImplicit": false
+    },
+    "Claim198": {
+      "type": "Claim",
+      "text": "\"Descartes's conception of virtue is primarily about exerting ourselves according to our best judgment.\"",
+      "isImplicit": false
+    },
+    "Claim199": {
+      "type": "Claim",
+      "text": "\"Descartes's view of happiness is about having a contented mind.\"",
+      "isImplicit": false
+    },
+    "Claim200": {
+      "type": "Claim",
+      "text": "\"Happiness is not the highest good but something that is supposed to follow from virtuous action.\"",
+      "isImplicit": false
+    },
+    "Claim201": {
+      "type": "Claim",
+      "text": "\"Virtuous action involves two components: judging well and striving to act according to one's judgment.\"",
+      "isImplicit": false
+    },
+    "Claim202": {
+      "type": "Claim",
+      "text": "\"The intellectual insight involved in securing happiness is multifaceted and requires a rather complex intellectual insight into virtuous action.\"",
+      "isImplicit": false
+    },
+    "Claim203": {
+      "type": "Claim",
+      "text": "\"Descartes's reasons for downplaying the intellectual insight his account involves are unclear.\"",
+      "isImplicit": false
+    },
+    "Claim204": {
+      "type": "Claim",
+      "text": "\"Descartes leaves a key premise implicit because the insight on which happiness (partly) rests appears much more self-evident to him than to us.\"",
+      "isImplicit": false
+    },
+    "Claim205": {
+      "type": "Claim",
+      "text": "\"Our historical distance allows us to see a philosophical assumption which Descartes feels extremely comfortable operating on.\"",
+      "isImplicit": false
+    },
+    "Claim206": {
+      "type": "Claim",
+      "text": "\"The Cartesian sage is certainly not far removed from her Stoic predecessor.\"",
+      "isImplicit": false
+    },
+    "Claim207": {
+      "type": "Claim",
+      "text": "\"Descartes's conception of virtue is primarily about exerting ourselves according to our best judgment.\"",
+      "isImplicit": false
+    },
+    "Claim208": {
+      "type": "Claim",
+      "text": "\"Descartes's view of happiness is about having a contented mind.\"",
+      "isImplicit": false
+    },
+    "Claim209": {
+      "type": "Claim",
+      "text": "\"Happiness is not the highest good but something that is supposed to follow from virtuous action.\"",
+      "isImplicit": false
+    },
+    "Claim210": {
+      "type": "Claim",
+      "text": "\"Virtuous action involves two components: judging well and striving to act according to one's judgment.\"",
+      "isImplicit": false
+    },
+    "Claim211": {
+      "type": "Claim",
+      "text": "\"The intellectual insight involved in securing happiness is multifaceted and requires a rather complex intellectual insight into virtuous action.\"",
+      "isImplicit": false
+    },
+    "Claim212": {
+      "type": "Claim",
+      "text": "\"Descartes's reasons for downplaying the intellectual insight his account involves are unclear.\"",
+      "isImplicit": false
+    },
+    "Claim213": {
+      "type": "Claim",
+      "text": "\"Descartes leaves a key premise implicit because the insight on which happiness (partly) rests appears much more self-evident to him than to us.\"",
+      "isImplicit": false
+    },
+    "Claim214": {
+      "type": "Claim",
+      "text": "\"Our historical distance allows us to see a philosophical assumption which Descartes feels extremely comfortable operating on.\"",
+      "isImplicit": false
+    },
+    "Claim215": {
+      "type": "Claim",
+      "text": "\"The Cartesian sage is certainly not far removed from her Stoic predecessor.\"",
+      "isImplicit": false
+    },
+    "Claim216": {
+      "type": "Claim",
+      "text": "\"Descartes's conception of virtue is primarily about exerting ourselves according to our best judgment.\"",
+      "isImplicit": false
+    },
+    "Claim217": {
+      "type": "Claim",
+      "text": "\"Descartes's view of happiness is about having a contented mind.\"",
+      "isImplicit": false
+    },
+    "Claim218": {
+      "type": "Claim",
+      "text": "\"Happiness is not the highest good but something that is supposed to follow from virtuous action.\"",
+      "isImplicit": false
+    },
+    "Claim219": {
+      "type": "Claim",
+      "text": "\"Virtuous action involves two components: judging well and striving to act according to one's judgment.\"",
+      "isImplicit": false
+    },
+    "Claim220": {
+      "type": "Claim",
+      "text": "\"The intellectual insight involved in securing happiness is multifaceted and requires a rather complex intellectual insight into virtuous action.\"",
+      "isImplicit": false
+    },
+    "Claim221": {
+      "type": "Claim",
+      "text": "\"Descartes's reasons for downplaying the intellectual insight his account involves are unclear.\"",
+      "isImplicit": false
+    },
+    "Claim222": {
+      "type": "Claim",
+      "text": "\"Descartes leaves a key premise implicit because the insight on which happiness (partly) rests appears much more self-evident to him than to us.\"",
+      "isImplicit": false
+    },
+    "Claim223": {
+      "type": "Claim",
+      "text": "\"Our historical distance allows us to see a philosophical assumption which Descartes feels extremely comfortable operating on.\"",
+      "isImplicit": false
+    },
+    "Claim224": {
+      "type": "Claim",
+      "text": "\"The Cartesian sage is certainly not far removed from her Stoic predecessor.\"",
+      "isImplicit": false
+    },
+    "Claim225": {
+      "type": "Claim",
+      "text": "\"Descartes's conception of virtue is primarily about exerting ourselves according to our best judgment.\"",
+      "isImplicit": false
+    },
+    "Claim226": {
+      "type": "Claim",
+      "text": "\"Descartes's view of happiness is about having a contented mind.\"",
+      "isImplicit": false
+    },
+    "Claim227": {
+      "type": "Claim",
+      "text": "\"Happiness is not the highest good but something that is supposed to follow from virtuous action.\"",
+      "isImplicit": false
+    },
+    "Claim228": {
+      "type": "Claim",
+      "text": "\"Virtuous action involves two components: judging well and striving to act according to one's judgment.\"",
+      "isImplicit": false
+    },
+    "Claim229": {
+      "type": "Claim",
+      "text": "\"The intellectual insight involved in securing happiness is multifaceted and requires a rather complex intellectual insight into virtuous action.\"",
+      "isImplicit": false
+    },
+    "Claim230": {
+      "type": "Claim",
+      "text": "\"Descartes's reasons for downplaying the intellectual insight his account involves are unclear.\"",
+      "isImplicit": false
+    },
+    "Claim231": {
+      "type": "Claim",
+      "text": "\"Descartes leaves a key premise implicit because the insight on which happiness (partly) rests appears much more self-evident to him than to us.\"",
+      "isImplicit": false
+    },
+    "Claim232": {
+      "type": "Claim",
+      "text": "\"Our historical distance allows us to see a philosophical assumption which Descartes feels extremely comfortable operating on.\"",
+      "isImplicit": false
+    },
+    "Claim233": {
+      "type": "Claim",
+      "text": "\"The Cartesian sage is certainly not far removed from her Stoic predecessor.\"",
+      "isImplicit": false
+    },
+    "Claim234": {
+      "type": "Claim",
+      "text": "\"Descartes's conception of virtue is primarily about exerting ourselves according to our best judgment.\"",
+      "isImplicit": false
+    },
+    "Claim235": {
+      "type": "Claim",
+      "text": "\"Descartes's view of happiness is about having a contented mind.\"",
+      "isImplicit": false
+    },
+    "Claim236": {
+      "type": "Claim",
+      "text": "\"Happiness is not the highest good but something that is supposed to follow from virtuous action.\"",
+      "isImplicit": false
+    },
+    "Claim237": {
+      "type": "Claim",
+      "text": "\"Virtuous action involves two components: judging well and striving to act according to one's judgment.\"",
+      "isImplicit": false
+    },
+    "Claim238": {
+      "type": "Claim",
+      "text": "\"The intellectual insight involved in securing happiness is multifaceted and requires a rather complex intellectual insight into virtuous action.\"",
+      "isImplicit": false
+    }
+  },
+  "relations": []
+}

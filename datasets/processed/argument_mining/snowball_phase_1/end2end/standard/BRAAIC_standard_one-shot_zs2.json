@@ -1,0 +1,95 @@
+{
+  "ADUs": {
+    "MainClaim": {
+      "type": "Major Claim",
+      "text": "\"The widespread availability of generative artificial intelligence (AI) models poses a threat to human creativity",
+      "isImplicit": false
+    },
+    "CreativeObsolescence": {
+      "type": "Claim",
+      "text": "\"AI may make human creativity obsolete in various aspects of our lives.\"",
+      "isImplicit": false
+    },
+    "ValueOfCreativity": {
+      "type": "Claim",
+      "text": "\"One underappreciated value of creativity is that it plays an important role in connecting us to others.\"",
+      "isImplicit": false
+    },
+    "LazyReliance": {
+      "type": "Claim",
+      "text": "\"The widespread availability of AI models tempts us to rely on them for creative tasks",
+      "isImplicit": false
+    },
+    "DiminishedConnection": {
+      "type": "Claim",
+      "text": "\"The reliance on AI for creative tasks diminishes our prospects for social connection.\"",
+      "isImplicit": false
+    },
+    "LazyRelianceInArt": {
+      "type": "Claim",
+      "text": "\"In typical use cases",
+      "isImplicit": false
+    },
+    "LazyRelianceInScience": {
+      "type": "Claim",
+      "text": "\"The reliance on AI in science may lead to a diminished ability to understand the underlying mechanisms responsible for protein folding.\"",
+      "isImplicit": false
+    },
+    "AlphaFold": {
+      "type": "Claim",
+      "text": "\"AlphaFold has produced valuable predictions",
+      "isImplicit": false
+    },
+    "ScientificProgress": {
+      "type": "Claim",
+      "text": "\"Scientific progress requires not only advances in predictive power but also advances in understanding.\"",
+      "isImplicit": false
+    },
+    "HumanConnection": {
+      "type": "Claim",
+      "text": "\"Human connection is vital for the pursuit of scientific explanations.\"",
+      "isImplicit": false
+    },
+    "EmersonOnConformity": {
+      "type": "Claim",
+      "text": "\"Conformity to dead social norms scatters one's force",
+      "isImplicit": false
+    },
+    "EmersonOnCharacter": {
+      "type": "Claim",
+      "text": "\"Do your work",
+      "isImplicit": false
+    },
+    "RelianceOnAI": {
+      "type": "Claim",
+      "text": "\"Outsourcing creative work to AI means that one's choices are determined by something other than the exercise of one's own capacities.\"",
+      "isImplicit": false
+    },
+    "Alienation": {
+      "type": "Claim",
+      "text": "\"Becoming less creative in the age of AI increases our risk of remaining strangers to each other.\"",
+      "isImplicit": false
+    },
+    "AlphaFoldExplaining": {
+      "type": "Claim",
+      "text": "\"AlphaFold cannot explain why it generates its predictions",
+      "isImplicit": false
+    },
+    "AlphaFoldUnderstanding": {
+      "type": "Claim",
+      "text": "\"Understanding the underlying mechanisms responsible for protein folding requires creative theorizing and the ability to explain why predictions are made.\"",
+      "isImplicit": false
+    },
+    "ScientificProgressUnderstanding": {
+      "type": "Claim",
+      "text": "\"Scientific progress requires not only advances in predictive power but also advances in understanding.\"",
+      "isImplicit": false
+    },
+    "HumanConnectionInScience": {
+      "type": "Claim",
+      "text": "\"Human connection is vital for the pursuit of scientific explanations.\"",
+      "isImplicit": false
+    }
+  },
+  "relations": []
+}

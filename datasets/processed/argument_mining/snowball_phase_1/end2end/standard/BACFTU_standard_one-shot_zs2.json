@@ -1,0 +1,306 @@
+{
+  "ADUs": {
+    "Claim": {
+      "type": "Claim",
+      "text": "Heidegger's account of ontotheological constitution of Western metaphysics has been extremely influential for contemporary philosophy of religion and for philosophical perspectives on theology and the divine.",
+      "isImplicit": false
+    },
+    "Heideggerian post-ontotheology": {
+      "type": "Claim",
+      "text": "Heidegger's notion of post-ontotheological thinking emphasizes the interdependent dimensions of finite and contextual meaningful presence.",
+      "isImplicit": false
+    },
+    "Heidegger's ontotheology": {
+      "type": "Claim",
+      "text": "Heidegger's ontotheology is the approach in which the basic ontological question concerning being encounters the universality and indeterminacy of 'being as such' and theologically resorts to the supreme and ideal instance of being, the most-being of beings.",
+      "isImplicit": false
+    },
+    "Badiou's materialist post-ontotheology": {
+      "type": "Claim",
+      "text": "Badiou's materialist post-ontotheology adopts mathematics as its basic ontological model, dissociating itself from Heideggerian hermeneutics of finitude.",
+      "isImplicit": false
+    },
+    "Meillassoux's materialist post-ontotheology": {
+      "type": "Claim",
+      "text": "Meillassoux's materialist post-ontotheology is a version of Badiou's materialist post-ontotheology, but with a stronger emphasis on the contingency of being.",
+      "isImplicit": false
+    },
+    "Heidegger's ontotheological mode of thought": {
+      "type": "Claim",
+      "text": "Heidegger's ontotheological mode of thought is the approach in which the basic ontological question concerning being encounters the universality and indeterminacy of 'being as such' and theologically resorts to the supreme and ideal instance of being, the most-being of beings.",
+      "isImplicit": false
+    },
+    "Heidegger's postmetaphysical divinity": {
+      "type": "Claim",
+      "text": "Heidegger's postmetaphysical divinity is a deabsolutized divinity that is merely one of the interdependent aspects of contextualized meaningfulness.",
+      "isImplicit": false
+    },
+    "Badiou's contemporary atheism": {
+      "type": "Claim",
+      "text": "Badiou's contemporary atheism is a rejection of the ontotheological and poetic divinity.",
+      "isImplicit": false
+    },
+    "Badiou's mathematical ontology": {
+      "type": "Claim",
+      "text": "Badiou's mathematical ontology posits that being as such is a pure, inconsistent multiplicity that resists all unification.",
+      "isImplicit": false
+    },
+    "Meillassoux's speculative materialism": {
+      "type": "Claim",
+      "text": "Meillassoux's speculative materialism posits that being as such is a reality independent of thinking, which can be thought in terms of mathematics.",
+      "isImplicit": false
+    },
+    "Divinity in Meillassoux's speculative materialism": {
+      "type": "Claim",
+      "text": "Meillassoux's speculative materialism introduces a notion of divinity as a possible and contingent being.",
+      "isImplicit": false
+    },
+    "Heidegger's notion of the ultimate god": {
+      "type": "Claim",
+      "text": "Heidegger's notion of the ultimate god is a deabsolutized divinity that is merely one of the interdependent aspects of contextualized meaningfulness.",
+      "isImplicit": false
+    },
+    "Heidegger's ontotheological narrative": {
+      "type": "Claim",
+      "text": "Heidegger's ontotheological narrative sees Nietzsche as the culmination of ontotheological thinking.",
+      "isImplicit": false
+    },
+    "Heidegger's other beginning": {
+      "type": "Claim",
+      "text": "Heidegger's other beginning would transform the first (Greek) beginning(s) of philosophy and metaphysics into a post-Nietzschean and post-metaphysical approach.",
+      "isImplicit": false
+    },
+    "Badiou's relationship to theology": {
+      "type": "Claim",
+      "text": "Badiou's relationship to theology is complex and open to multiple interpretations.",
+      "isImplicit": false
+    },
+    "Meillassoux's relationship to theology": {
+      "type": "Claim",
+      "text": "Meillassoux's relationship to theology is also complex and open to multiple interpretations.",
+      "isImplicit": false
+    },
+    "Divinity in Badiou's philosophy": {
+      "type": "Claim",
+      "text": "Badiou's philosophy does not posit a traditional notion of divinity.",
+      "isImplicit": false
+    },
+    "Divinity in Meillassoux's philosophy": {
+      "type": "Claim",
+      "text": "Meillassoux's philosophy posits a notion of divinity as a possible and contingent being.",
+      "isImplicit": false
+    },
+    "Heidegger's influence on Badiou and Meillassoux": {
+      "type": "Claim",
+      "text": "Heidegger's philosophy has had a significant influence on both Badiou and Meillassoux.",
+      "isImplicit": false
+    },
+    "Comparison of Badiou and Meillassoux": {
+      "type": "Claim",
+      "text": "Badiou and Meillassoux share some similarities in their critiques of ontotheology, but they also have significant differences.",
+      "isImplicit": false
+    },
+    "Heidegger's ontotheology and its significance": {
+      "type": "Claim",
+      "text": "Heidegger's ontotheology is a key concept in understanding the development of his philosophy and its significance for contemporary thought.",
+      "isImplicit": false
+    },
+    "Badiou's materialist post-ontotheology and its significance": {
+      "type": "Claim",
+      "text": "Badiou's materialist post-ontotheology is a key concept in understanding the development of his philosophy and its significance for contemporary thought.",
+      "isImplicit": false
+    },
+    "Meillassoux's speculative materialism and its significance": {
+      "type": "Claim",
+      "text": "Meillassoux's speculative materialism is a key concept in understanding the development of his philosophy and its significance for contemporary thought.",
+      "isImplicit": false
+    },
+    "Relationship between Badiou and Meillassoux": {
+      "type": "Claim",
+      "text": "Badiou and Meillassoux share some similarities in their critiques of ontotheology, but they also have significant differences.",
+      "isImplicit": false
+    },
+    "Heidegger's influence on contemporary thought": {
+      "type": "Claim",
+      "text": "Heidegger's philosophy has had a significant influence on contemporary thought in various fields, including philosophy, theology, and literature.",
+      "isImplicit": false
+    },
+    "Badiou's influence on contemporary thought": {
+      "type": "Claim",
+      "text": "Badiou's philosophy has had a significant influence on contemporary thought in various fields, including philosophy, theology, and literature.",
+      "isImplicit": false
+    },
+    "Meillassoux's influence on contemporary thought": {
+      "type": "Claim",
+      "text": "Meillassoux's philosophy has had a significant influence on contemporary thought in various fields, including philosophy, theology, and literature.",
+      "isImplicit": false
+    },
+    "Heidegger's ontotheology and Badiou's materialist post-ontotheology": {
+      "type": "Claim",
+      "text": "Heidegger's ontotheology and Badiou's materialist post-ontotheology are two different approaches to understanding the relationship between being and thought.",
+      "isImplicit": false
+    },
+    "Heidegger's ontotheology and Meillassoux's speculative materialism": {
+      "type": "Claim",
+      "text": "Heidegger's ontotheology and Meillassoux's speculative materialism are two different approaches to understanding the relationship between being and thought.",
+      "isImplicit": false
+    },
+    "Badiou's materialist post-ontotheology and Meillassoux's speculative materialism": {
+      "type": "Claim",
+      "text": "Badiou's materialist post-ontotheology and Meillassoux's speculative materialism are two different approaches to understanding the relationship between being and thought.",
+      "isImplicit": false
+    },
+    "Heidegger's ontotheology, Badiou's materialist post-ontotheology, and Meillassoux's speculative materialism": {
+      "type": "Claim",
+      "text": "Heidegger's ontotheology, Badiou's materialist post-ontotheology, and Meillassoux's speculative materialism are three different approaches to understanding the relationship between being and thought.",
+      "isImplicit": false
+    },
+    "Heidegger's ontotheology and Badiou's contemporary atheism": {
+      "type": "Claim",
+      "text": "Heidegger's ontotheology and Badiou's contemporary atheism are two different approaches to understanding the relationship between being and thought.",
+      "isImplicit": false
+    },
+    "Badiou's contemporary atheism and Meillassoux's speculative materialism": {
+      "type": "Claim",
+      "text": "Badiou's contemporary atheism and Meillassoux's speculative materialism are two different approaches to understanding the relationship between being and thought.",
+      "isImplicit": false
+    }
+  },
+  "relations": [
+    {
+      "src": "Heidegger's ontotheology",
+      "tgt": "Badiou's materialist post-ontotheology",
+      "type": "support"
+    },
+    {
+      "src": "Badiou's materialist post-ontotheology",
+      "tgt": "Meillassoux's speculative materialism",
+      "type": "support"
+    },
+    {
+      "src": "Heidegger's ontotheology",
+      "tgt": "Heidegger's postmetaphysical divinity",
+      "type": "support"
+    },
+    {
+      "src": "Heidegger's postmetaphysical divinity",
+      "tgt": "Badiou's contemporary atheism",
+      "type": "attack"
+    },
+    {
+      "src": "Badiou's contemporary atheism",
+      "tgt": "Badiou's materialist post-ontotheology",
+      "type": "support"
+    },
+    {
+      "src": "Meillassoux's speculative materialism",
+      "tgt": "Heidegger's ontotheology",
+      "type": "attack"
+    },
+    {
+      "src": "Heidegger's ontotheology",
+      "tgt": "Heidegger's ontotheological narrative",
+      "type": "support"
+    },
+    {
+      "src": "Heidegger's ontotheological narrative",
+      "tgt": "Heidegger's other beginning",
+      "type": "support"
+    },
+    {
+      "src": "Heidegger's other beginning",
+      "tgt": "Heidegger's ontotheology",
+      "type": "attack"
+    },
+    {
+      "src": "Badiou's materialist post-ontotheology",
+      "tgt": "Badiou's contemporary atheism",
+      "type": "attack"
+    },
+    {
+      "src": "Badiou's contemporary atheism",
+      "tgt": "Heidegger's ontotheology",
+      "type": "support"
+    },
+    {
+      "src": "Heidegger's ontotheology",
+      "tgt": "Heidegger's influence on contemporary thought",
+      "type": "support"
+    },
+    {
+      "src": "Heidegger's influence on contemporary thought",
+      "tgt": "Badiou's influence on contemporary thought",
+      "type": "support"
+    },
+    {
+      "src": "Heidegger's influence on contemporary thought",
+      "tgt": "Meillassoux's influence on contemporary thought",
+      "type": "support"
+    },
+    {
+      "src": "Badiou's materialist post-ontotheology",
+      "tgt": "Heidegger's ontotheology",
+      "type": "attack"
+    },
+    {
+      "src": "Meillassoux's speculative materialism",
+      "tgt": "Heidegger's ontotheology",
+      "type": "attack"
+    },
+    {
+      "src": "Heidegger's ontotheology",
+      "tgt": "Badiou's materialist post-ontotheology",
+      "type": "support"
+    },
+    {
+      "src": "Badiou's materialist post-ontotheology",
+      "tgt": "Meillassoux's speculative materialism",
+      "type": "support"
+    },
+    {
+      "src": "Meillassoux's speculative materialism",
+      "tgt": "Badiou's materialist post-ontotheology",
+      "type": "attack"
+    },
+    {
+      "src": "Heidegger's ontotheology",
+      "tgt": "Heidegger's ontotheological narrative",
+      "type": "support"
+    },
+    {
+      "src": "Heidegger's ontotheological narrative",
+      "tgt": "Heidegger's other beginning",
+      "type": "support"
+    },
+    {
+      "src": "Heidegger's other beginning",
+      "tgt": "Heidegger's ontotheology",
+      "type": "attack"
+    },
+    {
+      "src": "Badiou's materialist post-ontotheology",
+      "tgt": "Badiou's contemporary atheism",
+      "type": "attack"
+    },
+    {
+      "src": "Badiou's contemporary atheism",
+      "tgt": "Heidegger's ontotheology",
+      "type": "support"
+    },
+    {
+      "src": "Heidegger's ontotheology",
+      "tgt": "Heidegger's influence on contemporary thought",
+      "type": "support"
+    },
+    {
+      "src": "Heidegger's influence on contemporary thought",
+      "tgt": "Badiou's influence on contemporary thought",
+      "type": "support"
+    },
+    {
+      "src": "Heidegger's influence on contemporary thought",
+      "tgt": "Meillassoux's influence on contemporary thought",
+      "type": "support"
+    }
+  ]
+}

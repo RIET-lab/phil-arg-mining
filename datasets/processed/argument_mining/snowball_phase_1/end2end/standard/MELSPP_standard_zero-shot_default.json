@@ -1,0 +1,276 @@
+{
+  "ADUs": {
+    "1": {
+      "type": "Claim",
+      "text": "\"The present paper defends the thesis that Spenser's recovery of place",
+      "isImplicit": false
+    },
+    "2": {
+      "type": "Claim",
+      "text": "\"Traditional humanism is sometimes defined as an attempt to appropriate the meaning of classical art and literature in terms of \"timeless\" philosophical truths.\"",
+      "isImplicit": false
+    },
+    "3": {
+      "type": "Claim",
+      "text": "\"Spenser's originality as a Renaissance poet has much to do with his use of literary procedures that express but also complicate his relationship to traditional humanism.\"",
+      "isImplicit": false
+    },
+    "4": {
+      "type": "Claim",
+      "text": "\"The heart of Spenser's \"Book of Courtesy\" enacts a Neo-Platonic movement from the lower levels of temporal existence to an exalted vision of spiritual perfection.\"",
+      "isImplicit": false
+    },
+    "5": {
+      "type": "Claim",
+      "text": "\"This same section can be read along phenomenological lines as a mysterious adventure that embraces self and other",
+      "isImplicit": false
+    },
+    "6": {
+      "type": "Claim",
+      "text": "\"The burden of this paper is largely concerned with demonstrating how this poetic sequence instates the \"truth\" of place in a way that is inseparable from the meaning of Spenser's humanism.\"",
+      "isImplicit": false
+    },
+    "7": {
+      "type": "Claim",
+      "text": "\"Spenser's celebration of Courtesy as a virtue involves an appreciation of social values as well as a commitment to transcendent notions of Good.\"",
+      "isImplicit": false
+    },
+    "8": {
+      "type": "Claim",
+      "text": "\"This peculiar combination cannot be understood apart from a dialectical appraisal of Spenser's view of nature.\"",
+      "isImplicit": false
+    },
+    "9": {
+      "type": "Claim",
+      "text": "\"Spenser identifies nature with the principle of fecundity and abundance.\"",
+      "isImplicit": false
+    },
+    "10": {
+      "type": "Claim",
+      "text": "\"Spenser also maintains that nature can function as the invisible source of moral virtue.\"",
+      "isImplicit": false
+    },
+    "11": {
+      "type": "Claim",
+      "text": "\"The difference between these two conceptions of nature can be understood in terms of the tension that governs The Faerie Queene as a whole.\"",
+      "isImplicit": false
+    },
+    "12": {
+      "type": "Claim",
+      "text": "\"The Aristotelian conception is more closely related to traditional conceptions of political authority.\"",
+      "isImplicit": false
+    },
+    "13": {
+      "type": "Claim",
+      "text": "\"At the beginning of Book VI",
+      "isImplicit": false
+    },
+    "14": {
+      "type": "Claim",
+      "text": "\"At the end of Book VI",
+      "isImplicit": false
+    },
+    "15": {
+      "type": "Claim",
+      "text": "\"The idea that virtue can be institutional as well as basic to human communities underlines Spenser's epic narrative as a recovery of place which happens in language and ultimately concerns the movement of the soul toward imaginative fulfillment.\"",
+      "isImplicit": false
+    },
+    "16": {
+      "type": "Claim",
+      "text": "\"In the introductory stanzas of his epic",
+      "isImplicit": false
+    },
+    "17": {
+      "type": "Claim",
+      "text": "\"Courtesy as a virtue belongs in the hall of princes",
+      "isImplicit": false
+    },
+    "18": {
+      "type": "Claim",
+      "text": "\"An early allusion to the meaning of courtesy invokes the figure of Calidore.\"",
+      "isImplicit": false
+    },
+    "19": {
+      "type": "Claim",
+      "text": "\"However",
+      "isImplicit": false
+    },
+    "20": {
+      "type": "Claim",
+      "text": "\"The figure of Calidore takes part in a phenomenological movement toward spiritual insight.\"",
+      "isImplicit": false
+    },
+    "21": {
+      "type": "Claim",
+      "text": "\"While functioning as a counter to pure nature and its attendant virtue",
+      "isImplicit": false
+    },
+    "22": {
+      "type": "Claim",
+      "text": "\"Calidore's moral education within the epic context takes the form of a \"recollection\" of virtue that allows him to partially overcome the difference between nature and politics.\"",
+      "isImplicit": false
+    },
+    "23": {
+      "type": "Claim",
+      "text": "\"Unlike other heroes in Spenser's epic",
+      "isImplicit": false
+    },
+    "24": {
+      "type": "Claim",
+      "text": "\"Calidore's absence creates a moral vacuum that his return promises to fill.\"",
+      "isImplicit": false
+    },
+    "25": {
+      "type": "Claim",
+      "text": "\"Calidore's return to the center of the poem has not gone unobserved.\"",
+      "isImplicit": false
+    },
+    "26": {
+      "type": "Claim",
+      "text": "\"Calidore's return promises to fill the moral vacuum created by his absence.\"",
+      "isImplicit": false
+    },
+    "27": {
+      "type": "Claim",
+      "text": "\"The recovery of place involves a slow spiritual awakening that embraces the lowest levels of erotic awareness as well as the highest reaches of \"ideal\" experience.\"",
+      "isImplicit": false
+    },
+    "28": {
+      "type": "Claim",
+      "text": "\"The recovery of place becomes a sublime metaphor whose deeper meaning is corroborated by tradition and phenomenology alike.\"",
+      "isImplicit": false
+    }
+  },
+  "relations": [
+    {
+      "src": "1",
+      "tgt": "2",
+      "type": "support"
+    },
+    {
+      "src": "3",
+      "tgt": "4",
+      "type": "support"
+    },
+    {
+      "src": "3",
+      "tgt": "5",
+      "type": "support"
+    },
+    {
+      "src": "4",
+      "tgt": "6",
+      "type": "support"
+    },
+    {
+      "src": "5",
+      "tgt": "6",
+      "type": "support"
+    },
+    {
+      "src": "7",
+      "tgt": "8",
+      "type": "support"
+    },
+    {
+      "src": "8",
+      "tgt": "9",
+      "type": "support"
+    },
+    {
+      "src": "9",
+      "tgt": "10",
+      "type": "support"
+    },
+    {
+      "src": "10",
+      "tgt": "11",
+      "type": "support"
+    },
+    {
+      "src": "11",
+      "tgt": "12",
+      "type": "support"
+    },
+    {
+      "src": "12",
+      "tgt": "13",
+      "type": "support"
+    },
+    {
+      "src": "13",
+      "tgt": "14",
+      "type": "support"
+    },
+    {
+      "src": "14",
+      "tgt": "15",
+      "type": "support"
+    },
+    {
+      "src": "15",
+      "tgt": "16",
+      "type": "support"
+    },
+    {
+      "src": "16",
+      "tgt": "17",
+      "type": "support"
+    },
+    {
+      "src": "17",
+      "tgt": "18",
+      "type": "support"
+    },
+    {
+      "src": "18",
+      "tgt": "19",
+      "type": "support"
+    },
+    {
+      "src": "19",
+      "tgt": "20",
+      "type": "support"
+    },
+    {
+      "src": "20",
+      "tgt": "21",
+      "type": "support"
+    },
+    {
+      "src": "21",
+      "tgt": "22",
+      "type": "support"
+    },
+    {
+      "src": "22",
+      "tgt": "23",
+      "type": "support"
+    },
+    {
+      "src": "23",
+      "tgt": "24",
+      "type": "support"
+    },
+    {
+      "src": "24",
+      "tgt": "25",
+      "type": "support"
+    },
+    {
+      "src": "25",
+      "tgt": "26",
+      "type": "support"
+    },
+    {
+      "src": "26",
+      "tgt": "27",
+      "type": "support"
+    },
+    {
+      "src": "27",
+      "tgt": "28",
+      "type": "support"
+    }
+  ]
+}

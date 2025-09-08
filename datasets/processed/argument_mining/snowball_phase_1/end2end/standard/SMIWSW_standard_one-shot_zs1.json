@@ -1,0 +1,745 @@
+{
+  "ADUs": {
+    "MainClaim": {
+      "type": "Major Claim",
+      "text": "\"Malabou's book What Should We Do With Our Brains? offers a critique of neuronal ideology and a call for a new understanding of the brain's plasticity as the production of the new.\"",
+      "isImplicit": false
+    },
+    "Untitled 1": {
+      "type": "Claim",
+      "text": "\"Malabou's project bears a resemblance to Kant's critical project",
+      "isImplicit": false
+    },
+    "Untitled 2": {
+      "type": "Claim",
+      "text": "\"The question of freedom has been inverted since Kant",
+      "isImplicit": false
+    },
+    "Untitled 3": {
+      "type": "Claim",
+      "text": "\"Malabou's analysis of freedom and neuroscience is organized around the fundamental concept of plasticity.\"",
+      "isImplicit": false
+    },
+    "Untitled 4": {
+      "type": "Claim",
+      "text": "\"Malabou's book links the question of freedom with the structure of the brain",
+      "isImplicit": false
+    },
+    "Untitled 5": {
+      "type": "Claim",
+      "text": "\"The discovery of the plasticity of the brain reflects the structure of capitalism and points the way for a conception of the production of the new.\"",
+      "isImplicit": false
+    },
+    "Untitled 6": {
+      "type": "Claim",
+      "text": "\"Malabou's critique of neuronal ideology is that it naturalizes the capitalist demand for flexibility and ignores the possibility of transformative effects on others.\"",
+      "isImplicit": false
+    },
+    "Untitled 7": {
+      "type": "Claim",
+      "text": "\"Malabou's answer to the question 'What should we do with our brain?' is that we should understand plasticity as the production of the new",
+      "isImplicit": false
+    },
+    "Untitled 8": {
+      "type": "Claim",
+      "text": "\"Malabou's book offers a call for a new understanding of the brain's plasticity as the production of the new",
+      "isImplicit": false
+    },
+    "Untitled 9": {
+      "type": "Claim",
+      "text": "\"Malabou's critique of neuronal ideology is a critique of the fundamental concepts of the neurosciences",
+      "isImplicit": false
+    },
+    "Untitled 10": {
+      "type": "Claim",
+      "text": "\"Malabou suggests that the brain's plasticity can move in one of two directions: either it can constitute the biological justification of a type of economic",
+      "isImplicit": false
+    },
+    "Untitled 11": {
+      "type": "Claim",
+      "text": "\"Malabou's critique of neuronal ideology is a critique of the naturalization effect of neuroscience",
+      "isImplicit": false
+    },
+    "Untitled 12": {
+      "type": "Claim",
+      "text": "\"Malabou argues that the plasticity of the brain can resist the flexibility demanded of it by capitalism",
+      "isImplicit": false
+    },
+    "Untitled 13": {
+      "type": "Claim",
+      "text": "\"Malabou's book offers a critique of the fundamental concepts of the neurosciences",
+      "isImplicit": false
+    },
+    "Untitled 14": {
+      "type": "Claim",
+      "text": "\"Malabou suggests that the brain's plasticity can be seen as a model for a conception of the production of the new",
+      "isImplicit": false
+    },
+    "Untitled 15": {
+      "type": "Claim",
+      "text": "\"Malabou's critique of neuronal ideology is a critique of the naturalization effect of neuroscience",
+      "isImplicit": false
+    },
+    "Untitled 16": {
+      "type": "Claim",
+      "text": "\"Malabou argues that the plasticity of the brain can be understood as the production of the new",
+      "isImplicit": false
+    },
+    "Untitled 17": {
+      "type": "Claim",
+      "text": "\"Malabou's book offers a call for a new understanding of the brain's plasticity as the production of the new",
+      "isImplicit": false
+    },
+    "Untitled 18": {
+      "type": "Claim",
+      "text": "\"Malabou's critique of neuronal ideology is a critique of the fundamental concepts of the neurosciences",
+      "isImplicit": false
+    },
+    "Untitled 19": {
+      "type": "Claim",
+      "text": "\"Malabou suggests that the brain's plasticity can be seen as a model for a conception of the production of the new",
+      "isImplicit": false
+    },
+    "Untitled 20": {
+      "type": "Claim",
+      "text": "\"Malabou's critique of neuronal ideology is a critique of the naturalization effect of neuroscience",
+      "isImplicit": false
+    },
+    "Untitled 21": {
+      "type": "Claim",
+      "text": "\"Malabou argues that the plasticity of the brain can be understood as the production of the new",
+      "isImplicit": false
+    },
+    "Untitled 22": {
+      "type": "Claim",
+      "text": "\"Malabou's book offers a call for a new understanding of the brain's plasticity as the production of the new",
+      "isImplicit": false
+    },
+    "Untitled 23": {
+      "type": "Claim",
+      "text": "\"Malabou's critique of neuronal ideology is a critique of the fundamental concepts of the neurosciences",
+      "isImplicit": false
+    },
+    "Untitled 24": {
+      "type": "Claim",
+      "text": "\"Malabou suggests that the brain's plasticity can be seen as a model for a conception of the production of the new",
+      "isImplicit": false
+    },
+    "Untitled 25": {
+      "type": "Claim",
+      "text": "\"Malabou's critique of neuronal ideology is a critique of the naturalization effect of neuroscience",
+      "isImplicit": false
+    },
+    "Untitled 26": {
+      "type": "Claim",
+      "text": "\"Malabou argues that the plasticity of the brain can be understood as the production of the new",
+      "isImplicit": false
+    },
+    "Untitled 27": {
+      "type": "Claim",
+      "text": "\"Malabou's book offers a call for a new understanding of the brain's plasticity as the production of the new",
+      "isImplicit": false
+    },
+    "Untitled 28": {
+      "type": "Claim",
+      "text": "\"Malabou's critique of neuronal ideology is a critique of the fundamental concepts of the neurosciences",
+      "isImplicit": false
+    },
+    "Untitled 29": {
+      "type": "Claim",
+      "text": "\"Malabou suggests that the brain's plasticity can be seen as a model for a conception of the production of the new",
+      "isImplicit": false
+    },
+    "Untitled 30": {
+      "type": "Claim",
+      "text": "\"Malabou's critique of neuronal ideology is a critique of the naturalization effect of neuroscience",
+      "isImplicit": false
+    },
+    "Untitled 31": {
+      "type": "Claim",
+      "text": "\"Malabou argues that the plasticity of the brain can be understood as the production of the new",
+      "isImplicit": false
+    },
+    "Untitled 32": {
+      "type": "Claim",
+      "text": "\"Malabou's book offers a call for a new understanding of the brain's plasticity as the production of the new",
+      "isImplicit": false
+    },
+    "Untitled 33": {
+      "type": "Claim",
+      "text": "\"Malabou's critique of neuronal ideology is a critique of the fundamental concepts of the neurosciences",
+      "isImplicit": false
+    },
+    "Untitled 34": {
+      "type": "Claim",
+      "text": "\"Malabou suggests that the brain's plasticity can be seen as a model for a conception of the production of the new",
+      "isImplicit": false
+    },
+    "Untitled 35": {
+      "type": "Claim",
+      "text": "\"Malabou's critique of neuronal ideology is a critique of the naturalization effect of neuroscience",
+      "isImplicit": false
+    },
+    "Untitled 36": {
+      "type": "Claim",
+      "text": "\"Malabou argues that the plasticity of the brain can be understood as the production of the new",
+      "isImplicit": false
+    },
+    "Untitled 37": {
+      "type": "Claim",
+      "text": "\"Malabou's book offers a call for a new understanding of the brain's plasticity as the production of the new",
+      "isImplicit": false
+    },
+    "Untitled 38": {
+      "type": "Claim",
+      "text": "\"Malabou's critique of neuronal ideology is a critique of the fundamental concepts of the neurosciences",
+      "isImplicit": false
+    },
+    "Untitled 39": {
+      "type": "Claim",
+      "text": "\"Malabou suggests that the brain's plasticity can be seen as a model for a conception of the production of the new",
+      "isImplicit": false
+    },
+    "Untitled 40": {
+      "type": "Claim",
+      "text": "\"Malabou's critique of neuronal ideology is a critique of the naturalization effect of neuroscience",
+      "isImplicit": false
+    },
+    "Untitled 41": {
+      "type": "Claim",
+      "text": "\"Malabou argues that the plasticity of the brain can be understood as the production of the new",
+      "isImplicit": false
+    },
+    "Untitled 42": {
+      "type": "Claim",
+      "text": "\"Malabou's book offers a call for a new understanding of the brain's plasticity as the production of the new",
+      "isImplicit": false
+    },
+    "Untitled 43": {
+      "type": "Claim",
+      "text": "\"Malabou's critique of neuronal ideology is a critique of the fundamental concepts of the neurosciences",
+      "isImplicit": false
+    },
+    "Untitled 44": {
+      "type": "Claim",
+      "text": "\"Malabou suggests that the brain's plasticity can be seen as a model for a conception of the production of the new",
+      "isImplicit": false
+    },
+    "Untitled 45": {
+      "type": "Claim",
+      "text": "\"Malabou's critique of neuronal ideology is a critique of the naturalization effect of neuroscience",
+      "isImplicit": false
+    },
+    "Untitled 46": {
+      "type": "Claim",
+      "text": "\"Malabou argues that the plasticity of the brain can be understood as the production of the new",
+      "isImplicit": false
+    },
+    "Untitled 47": {
+      "type": "Claim",
+      "text": "\"Malabou's book offers a call for a new understanding of the brain's plasticity as the production of the new",
+      "isImplicit": false
+    },
+    "Untitled 48": {
+      "type": "Claim",
+      "text": "\"Malabou's critique of neuronal ideology is a critique of the fundamental concepts of the neurosciences",
+      "isImplicit": false
+    },
+    "Untitled 49": {
+      "type": "Claim",
+      "text": "\"Malabou suggests that the brain's plasticity can be seen as a model for a conception of the production of the new",
+      "isImplicit": false
+    },
+    "Untitled 50": {
+      "type": "Claim",
+      "text": "\"Malabou's critique of neuronal ideology is a critique of the naturalization effect of neuroscience",
+      "isImplicit": false
+    },
+    "Untitled 51": {
+      "type": "Claim",
+      "text": "\"Malabou argues that the plasticity of the brain can be understood as the production of the new",
+      "isImplicit": false
+    },
+    "Untitled 52": {
+      "type": "Claim",
+      "text": "\"Malabou's book offers a call for a new understanding of the brain's plasticity as the production of the new",
+      "isImplicit": false
+    },
+    "Untitled 53": {
+      "type": "Claim",
+      "text": "\"Malabou's critique of neuronal ideology is a critique of the fundamental concepts of the neurosciences",
+      "isImplicit": false
+    },
+    "Untitled 54": {
+      "type": "Claim",
+      "text": "\"Malabou suggests that the brain's plasticity can be seen as a model for a conception of the production of the new",
+      "isImplicit": false
+    },
+    "Untitled 55": {
+      "type": "Claim",
+      "text": "\"Malabou's critique of neuronal ideology is a critique of the naturalization effect of neuroscience",
+      "isImplicit": false
+    },
+    "Untitled 56": {
+      "type": "Claim",
+      "text": "\"Malabou argues that the plasticity of the brain can be understood as the production of the new",
+      "isImplicit": false
+    },
+    "Untitled 57": {
+      "type": "Claim",
+      "text": "\"Malabou's book offers a call for a new understanding of the brain's plasticity as the production of the new",
+      "isImplicit": false
+    },
+    "Untitled 58": {
+      "type": "Claim",
+      "text": "\"Malabou's critique of neuronal ideology is a critique of the fundamental concepts of the neurosciences",
+      "isImplicit": false
+    },
+    "Untitled 59": {
+      "type": "Claim",
+      "text": "\"Malabou suggests that the brain's plasticity can be seen as a model for a conception of the production of the new",
+      "isImplicit": false
+    },
+    "Untitled 60": {
+      "type": "Claim",
+      "text": "\"Malabou's critique of neuronal ideology is a critique of the naturalization effect of neuroscience",
+      "isImplicit": false
+    },
+    "Untitled 61": {
+      "type": "Claim",
+      "text": "\"Malabou argues that the plasticity of the brain can be understood as the production of the new",
+      "isImplicit": false
+    },
+    "Untitled 62": {
+      "type": "Claim",
+      "text": "\"Malabou's book offers a call for a new understanding of the brain's plasticity as the production of the new",
+      "isImplicit": false
+    },
+    "Untitled 63": {
+      "type": "Claim",
+      "text": "\"Malabou's critique of neuronal ideology is a critique of the fundamental concepts of the neurosciences",
+      "isImplicit": false
+    },
+    "Untitled 64": {
+      "type": "Claim",
+      "text": "\"Malabou suggests that the brain's plasticity can be seen as a model for a conception of the production of the new",
+      "isImplicit": false
+    },
+    "Untitled 65": {
+      "type": "Claim",
+      "text": "\"Malabou's critique of neuronal ideology is a critique of the naturalization effect of neuroscience",
+      "isImplicit": false
+    },
+    "Untitled 66": {
+      "type": "Claim",
+      "text": "\"Malabou argues that the plasticity of the brain can be understood as the production of the new",
+      "isImplicit": false
+    },
+    "Untitled 67": {
+      "type": "Claim",
+      "text": "\"Malabou's book offers a call for a new understanding of the brain's plasticity as the production of the new",
+      "isImplicit": false
+    },
+    "Untitled 68": {
+      "type": "Claim",
+      "text": "\"Malabou's critique of neuronal ideology is a critique of the fundamental concepts of the neurosciences",
+      "isImplicit": false
+    },
+    "Untitled 69": {
+      "type": "Claim",
+      "text": "\"Malabou suggests that the brain's plasticity can be seen as a model for a conception of the production of the new",
+      "isImplicit": false
+    },
+    "Untitled 70": {
+      "type": "Claim",
+      "text": "\"Malabou's critique of neuronal ideology is a critique of the naturalization effect of neuroscience",
+      "isImplicit": false
+    },
+    "Untitled 71": {
+      "type": "Claim",
+      "text": "\"Malabou argues that the plasticity of the brain can be understood as the production of the new",
+      "isImplicit": false
+    },
+    "Untitled 72": {
+      "type": "Claim",
+      "text": "\"Malabou's book offers a call for a new understanding of the brain's plasticity as the production of the new",
+      "isImplicit": false
+    },
+    "Untitled 73": {
+      "type": "Claim",
+      "text": "\"Malabou's critique of neuronal ideology is a critique of the fundamental concepts of the neurosciences",
+      "isImplicit": false
+    },
+    "Untitled 74": {
+      "type": "Claim",
+      "text": "\"Malabou suggests that the brain's plasticity can be seen as a model for a conception of the production of the new",
+      "isImplicit": false
+    },
+    "Untitled 75": {
+      "type": "Claim",
+      "text": "\"Malabou's critique of neuronal ideology is a critique of the naturalization effect of neuroscience",
+      "isImplicit": false
+    },
+    "Untitled 76": {
+      "type": "Claim",
+      "text": "\"Malabou argues that the plasticity of the brain can be understood as the production of the new",
+      "isImplicit": false
+    },
+    "Untitled 77": {
+      "type": "Claim",
+      "text": "\"Malabou's book offers a call for a new understanding of the brain's plasticity as the production of the new",
+      "isImplicit": false
+    },
+    "Untitled 78": {
+      "type": "Claim",
+      "text": "\"Malabou's critique of neuronal ideology is a critique of the fundamental concepts of the neurosciences",
+      "isImplicit": false
+    },
+    "Untitled 79": {
+      "type": "Claim",
+      "text": "\"Malabou suggests that the brain's plasticity can be seen as a model for a conception of the production of the new",
+      "isImplicit": false
+    },
+    "Untitled 80": {
+      "type": "Claim",
+      "text": "\"Malabou's critique of neuronal ideology is a critique of the naturalization effect of neuroscience",
+      "isImplicit": false
+    },
+    "Untitled 81": {
+      "type": "Claim",
+      "text": "\"Malabou argues that the plasticity of the brain can be understood as the production of the new",
+      "isImplicit": false
+    },
+    "Untitled 82": {
+      "type": "Claim",
+      "text": "\"Malabou's book offers a call for a new understanding of the brain's plasticity as the production of the new",
+      "isImplicit": false
+    },
+    "Untitled 83": {
+      "type": "Claim",
+      "text": "\"Malabou's critique of neuronal ideology is a critique of the fundamental concepts of the neurosciences",
+      "isImplicit": false
+    },
+    "Untitled 84": {
+      "type": "Claim",
+      "text": "\"Malabou suggests that the brain's plasticity can be seen as a model for a conception of the production of the new",
+      "isImplicit": false
+    },
+    "Untitled 85": {
+      "type": "Claim",
+      "text": "\"Malabou's critique of neuronal ideology is a critique of the naturalization effect of neuroscience",
+      "isImplicit": false
+    },
+    "Untitled 86": {
+      "type": "Claim",
+      "text": "\"Malabou argues that the plasticity of the brain can be understood as the production of the new",
+      "isImplicit": false
+    },
+    "Untitled 87": {
+      "type": "Claim",
+      "text": "\"Malabou's book offers a call for a new understanding of the brain's plasticity as the production of the new",
+      "isImplicit": false
+    },
+    "Untitled 88": {
+      "type": "Claim",
+      "text": "\"Malabou's critique of neuronal ideology is a critique of the fundamental concepts of the neurosciences",
+      "isImplicit": false
+    },
+    "Untitled 89": {
+      "type": "Claim",
+      "text": "\"Malabou suggests that the brain's plasticity can be seen as a model for a conception of the production of the new",
+      "isImplicit": false
+    },
+    "Untitled 90": {
+      "type": "Claim",
+      "text": "\"Malabou's critique of neuronal ideology is a critique of the naturalization effect of neuroscience",
+      "isImplicit": false
+    },
+    "Untitled 91": {
+      "type": "Claim",
+      "text": "\"Malabou argues that the plasticity of the brain can be understood as the production of the new",
+      "isImplicit": false
+    },
+    "Untitled 92": {
+      "type": "Claim",
+      "text": "\"Malabou's book offers a call for a new understanding of the brain's plasticity as the production of the new",
+      "isImplicit": false
+    },
+    "Untitled 93": {
+      "type": "Claim",
+      "text": "\"Malabou's critique of neuronal ideology is a critique of the fundamental concepts of the neurosciences",
+      "isImplicit": false
+    },
+    "Untitled 94": {
+      "type": "Claim",
+      "text": "\"Malabou suggests that the brain's plasticity can be seen as a model for a conception of the production of the new",
+      "isImplicit": false
+    },
+    "Untitled 95": {
+      "type": "Claim",
+      "text": "\"Malabou's critique of neuronal ideology is a critique of the naturalization effect of neuroscience",
+      "isImplicit": false
+    },
+    "Untitled 96": {
+      "type": "Claim",
+      "text": "\"Malabou argues that the plasticity of the brain can be understood as the production of the new",
+      "isImplicit": false
+    },
+    "Untitled 97": {
+      "type": "Claim",
+      "text": "\"Malabou's book offers a call for a new understanding of the brain's plasticity as the production of the new",
+      "isImplicit": false
+    },
+    "Untitled 98": {
+      "type": "Claim",
+      "text": "\"Malabou's critique of neuronal ideology is a critique of the fundamental concepts of the neurosciences",
+      "isImplicit": false
+    },
+    "Untitled 99": {
+      "type": "Claim",
+      "text": "\"Malabou suggests that the brain's plasticity can be seen as a model for a conception of the production of the new",
+      "isImplicit": false
+    },
+    "Untitled 100": {
+      "type": "Claim",
+      "text": "\"Malabou's critique of neuronal ideology is a critique of the naturalization effect of neuroscience",
+      "isImplicit": false
+    },
+    "Untitled 101": {
+      "type": "Claim",
+      "text": "\"Malabou argues that the plasticity of the brain can be understood as the production of the new",
+      "isImplicit": false
+    },
+    "Untitled 102": {
+      "type": "Claim",
+      "text": "\"Malabou's book offers a call for a new understanding of the brain's plasticity as the production of the new",
+      "isImplicit": false
+    },
+    "Untitled 103": {
+      "type": "Claim",
+      "text": "\"Malabou's critique of neuronal ideology is a critique of the fundamental concepts of the neurosciences",
+      "isImplicit": false
+    },
+    "Untitled 104": {
+      "type": "Claim",
+      "text": "\"Malabou suggests that the brain's plasticity can be seen as a model for a conception of the production of the new",
+      "isImplicit": false
+    },
+    "Untitled 105": {
+      "type": "Claim",
+      "text": "\"Malabou's critique of neuronal ideology is a critique of the naturalization effect of neuroscience",
+      "isImplicit": false
+    },
+    "Untitled 106": {
+      "type": "Claim",
+      "text": "\"Malabou argues that the plasticity of the brain can be understood as the production of the new",
+      "isImplicit": false
+    },
+    "Untitled 107": {
+      "type": "Claim",
+      "text": "\"Malabou's book offers a call for a new understanding of the brain's plasticity as the production of the new",
+      "isImplicit": false
+    },
+    "Untitled 108": {
+      "type": "Claim",
+      "text": "\"Malabou's critique of neuronal ideology is a critique of the fundamental concepts of the neurosciences",
+      "isImplicit": false
+    },
+    "Untitled 109": {
+      "type": "Claim",
+      "text": "\"Malabou suggests that the brain's plasticity can be seen as a model for a conception of the production of the new",
+      "isImplicit": false
+    },
+    "Untitled 110": {
+      "type": "Claim",
+      "text": "\"Malabou's critique of neuronal ideology is a critique of the naturalization effect of neuroscience",
+      "isImplicit": false
+    },
+    "Untitled 111": {
+      "type": "Claim",
+      "text": "\"Malabou argues that the plasticity of the brain can be understood as the production of the new",
+      "isImplicit": false
+    },
+    "Untitled 112": {
+      "type": "Claim",
+      "text": "\"Malabou's book offers a call for a new understanding of the brain's plasticity as the production of the new",
+      "isImplicit": false
+    },
+    "Untitled 113": {
+      "type": "Claim",
+      "text": "\"Malabou's critique of neuronal ideology is a critique of the fundamental concepts of the neurosciences",
+      "isImplicit": false
+    },
+    "Untitled 114": {
+      "type": "Claim",
+      "text": "\"Malabou suggests that the brain's plasticity can be seen as a model for a conception of the production of the new",
+      "isImplicit": false
+    },
+    "Untitled 115": {
+      "type": "Claim",
+      "text": "\"Malabou's critique of neuronal ideology is a critique of the naturalization effect of neuroscience",
+      "isImplicit": false
+    },
+    "Untitled 116": {
+      "type": "Claim",
+      "text": "\"Malabou argues that the plasticity of the brain can be understood as the production of the new",
+      "isImplicit": false
+    },
+    "Untitled 117": {
+      "type": "Claim",
+      "text": "\"Malabou's book offers a call for a new understanding of the brain's plasticity as the production of the new",
+      "isImplicit": false
+    },
+    "Untitled 118": {
+      "type": "Claim",
+      "text": "\"Malabou's critique of neuronal ideology is a critique of the fundamental concepts of the neurosciences",
+      "isImplicit": false
+    },
+    "Untitled 119": {
+      "type": "Claim",
+      "text": "\"Malabou suggests that the brain's plasticity can be seen as a model for a conception of the production of the new",
+      "isImplicit": false
+    },
+    "Untitled 120": {
+      "type": "Claim",
+      "text": "\"Malabou's critique of neuronal ideology is a critique of the naturalization effect of neuroscience",
+      "isImplicit": false
+    },
+    "Untitled 121": {
+      "type": "Claim",
+      "text": "\"Malabou argues that the plasticity of the brain can be understood as the production of the new",
+      "isImplicit": false
+    },
+    "Untitled 122": {
+      "type": "Claim",
+      "text": "\"Malabou's book offers a call for a new understanding of the brain's plasticity as the production of the new",
+      "isImplicit": false
+    },
+    "Untitled 123": {
+      "type": "Claim",
+      "text": "\"Malabou's critique of neuronal ideology is a critique of the fundamental concepts of the neurosciences",
+      "isImplicit": false
+    },
+    "Untitled 124": {
+      "type": "Claim",
+      "text": "\"Malabou suggests that the brain's plasticity can be seen as a model for a conception of the production of the new",
+      "isImplicit": false
+    },
+    "Untitled 125": {
+      "type": "Claim",
+      "text": "\"Malabou's critique of neuronal ideology is a critique of the naturalization effect of neuroscience",
+      "isImplicit": false
+    },
+    "Untitled 126": {
+      "type": "Claim",
+      "text": "\"Malabou argues that the plasticity of the brain can be understood as the production of the new",
+      "isImplicit": false
+    },
+    "Untitled 127": {
+      "type": "Claim",
+      "text": "\"Malabou's book offers a call for a new understanding of the brain's plasticity as the production of the new",
+      "isImplicit": false
+    },
+    "Untitled 128": {
+      "type": "Claim",
+      "text": "\"Malabou's critique of neuronal ideology is a critique of the fundamental concepts of the neurosciences",
+      "isImplicit": false
+    },
+    "Untitled 129": {
+      "type": "Claim",
+      "text": "\"Malabou suggests that the brain's plasticity can be seen as a model for a conception of the production of the new",
+      "isImplicit": false
+    },
+    "Untitled 130": {
+      "type": "Claim",
+      "text": "\"Malabou's critique of neuronal ideology is a critique of the naturalization effect of neuroscience",
+      "isImplicit": false
+    },
+    "Untitled 131": {
+      "type": "Claim",
+      "text": "\"Malabou argues that the plasticity of the brain can be understood as the production of the new",
+      "isImplicit": false
+    },
+    "Untitled 132": {
+      "type": "Claim",
+      "text": "\"Malabou's book offers a call for a new understanding of the brain's plasticity as the production of the new",
+      "isImplicit": false
+    },
+    "Untitled 133": {
+      "type": "Claim",
+      "text": "\"Malabou's critique of neuronal ideology is a critique of the fundamental concepts of the neurosciences",
+      "isImplicit": false
+    },
+    "Untitled 134": {
+      "type": "Claim",
+      "text": "\"Malabou suggests that the brain's plasticity can be seen as a model for a conception of the production of the new",
+      "isImplicit": false
+    },
+    "Untitled 135": {
+      "type": "Claim",
+      "text": "\"Malabou's critique of neuronal ideology is a critique of the naturalization effect of neuroscience",
+      "isImplicit": false
+    },
+    "Untitled 136": {
+      "type": "Claim",
+      "text": "\"Malabou argues that the plasticity of the brain can be understood as the production of the new",
+      "isImplicit": false
+    },
+    "Untitled 137": {
+      "type": "Claim",
+      "text": "\"Malabou's book offers a call for a new understanding of the brain's plasticity as the production of the new",
+      "isImplicit": false
+    },
+    "Untitled 138": {
+      "type": "Claim",
+      "text": "\"Malabou's critique of neuronal ideology is a critique of the fundamental concepts of the neurosciences",
+      "isImplicit": false
+    },
+    "Untitled 139": {
+      "type": "Claim",
+      "text": "\"Malabou suggests that the brain's plasticity can be seen as a model for a conception of the production of the new",
+      "isImplicit": false
+    },
+    "Untitled 140": {
+      "type": "Claim",
+      "text": "\"Malabou's critique of neuronal ideology is a critique of the naturalization effect of neuroscience",
+      "isImplicit": false
+    },
+    "Untitled 141": {
+      "type": "Claim",
+      "text": "\"Malabou argues that the plasticity of the brain can be understood as the production of the new",
+      "isImplicit": false
+    },
+    "Untitled 142": {
+      "type": "Claim",
+      "text": "\"Malabou's book offers a call for a new understanding of the brain's plasticity as the production of the new",
+      "isImplicit": false
+    },
+    "Untitled 143": {
+      "type": "Claim",
+      "text": "\"Malabou's critique of neuronal ideology is a critique of the fundamental concepts of the neurosciences",
+      "isImplicit": false
+    },
+    "Untitled 144": {
+      "type": "Claim",
+      "text": "\"Malabou suggests that the brain's plasticity can be seen as a model for a conception of the production of the new",
+      "isImplicit": false
+    },
+    "Untitled 145": {
+      "type": "Claim",
+      "text": "\"Malabou's critique of neuronal ideology is a critique of the naturalization effect of neuroscience",
+      "isImplicit": false
+    },
+    "Untitled 146": {
+      "type": "Claim",
+      "text": "\"Malabou argues that the plasticity of the brain can be understood as the production of the new",
+      "isImplicit": false
+    },
+    "Untitled 147": {
+      "type": "Claim",
+      "text": "\"Malabou's book offers a call for a new understanding of the brain's plasticity as the production of the new",
+      "isImplicit": false
+    }
+  },
+  "relations": []
+}

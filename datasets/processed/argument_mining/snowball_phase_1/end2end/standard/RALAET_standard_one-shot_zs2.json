@@ -1,0 +1,191 @@
+{
+  "ADUs": {
+    "MainClaim": {
+      "type": "Major Claim",
+      "text": "\"The American Enlightenment was a distinct intellectual movement that shared many ideas with the European Enlightenment",
+      "isImplicit": false
+    },
+    "AmericanEnlightenment": {
+      "type": "Claim",
+      "text": "\"The American Enlightenment was a distinct intellectual movement that shared many ideas with the European Enlightenment",
+      "isImplicit": false
+    },
+    "ModerateAndRadical": {
+      "type": "Claim",
+      "text": "\"American Enlightenment thought integrates both moderate and radical elements",
+      "isImplicit": false
+    },
+    "SixKeyIdeas": {
+      "type": "Claim",
+      "text": "\"At least six ideas came to punctuate American Enlightenment thinking: deism",
+      "isImplicit": false
+    },
+    "Deism": {
+      "type": "Claim",
+      "text": "\"Deism was a central idea in American Enlightenment thinking",
+      "isImplicit": false
+    },
+    "Liberalism": {
+      "type": "Claim",
+      "text": "\"Liberalism was a major theme in American Enlightenment thought",
+      "isImplicit": false
+    },
+    "Republicanism": {
+      "type": "Claim",
+      "text": "\"Classical republicanism was a commitment to the notion that a nation ought to be ruled as a republic",
+      "isImplicit": false
+    },
+    "Conservatism": {
+      "type": "Claim",
+      "text": "\"Conservatism emerged in the last stage of the Enlightenment",
+      "isImplicit": false
+    },
+    "Toleration": {
+      "type": "Claim",
+      "text": "\"Toleration or tolerant pluralism was a major theme in American Enlightenment thought",
+      "isImplicit": false
+    },
+    "ScientificProgress": {
+      "type": "Claim",
+      "text": "\"Scientific progress was a key idea in American Enlightenment thinking",
+      "isImplicit": false
+    },
+    "FourThinkers": {
+      "type": "Claim",
+      "text": "\"Benjamin Franklin",
+      "isImplicit": false
+    },
+    "Franklin": {
+      "type": "Claim",
+      "text": "\"Benjamin Franklin was a key figure in the American Enlightenment",
+      "isImplicit": false
+    },
+    "Jefferson": {
+      "type": "Claim",
+      "text": "\"Thomas Jefferson was a Virginian statesman",
+      "isImplicit": false
+    },
+    "Madison": {
+      "type": "Claim",
+      "text": "\"James Madison was a key figure in the American Enlightenment",
+      "isImplicit": false
+    },
+    "Adams": {
+      "type": "Claim",
+      "text": "\"John Adams was a founder",
+      "isImplicit": false
+    },
+    "ContemporaryWork": {
+      "type": "Claim",
+      "text": "\"Invocations of universal freedom draw their inspiration from Enlightenment thinkers",
+      "isImplicit": false
+    },
+    "EnlightenmentProject": {
+      "type": "Claim",
+      "text": "\"The American Enlightenment project signifies how America has taken a leading role in promoting Enlightenment ideals during the period of modernity.\"",
+      "isImplicit": false
+    },
+    "Legacy": {
+      "type": "Claim",
+      "text": "\"There is no consensus about the exact legacy of American Enlightenment thinkers",
+      "isImplicit": false
+    },
+    "References": {
+      "type": "Claim",
+      "text": "\"There are several important works on the American Enlightenment",
+      "isImplicit": false
+    },
+    "AuthorInfo": {
+      "type": "Claim",
+      "text": "\"Shane J. Ralston is the author of this article",
+      "isImplicit": false
+    }
+  },
+  "relations": [
+    {
+      "src": "ModerateAndRadical",
+      "tgt": "AmericanEnlightenment",
+      "type": "support"
+    },
+    {
+      "src": "SixKeyIdeas",
+      "tgt": "AmericanEnlightenment",
+      "type": "support"
+    },
+    {
+      "src": "Deism",
+      "tgt": "Liberalism",
+      "type": "support"
+    },
+    {
+      "src": "Liberalism",
+      "tgt": "Republicanism",
+      "type": "support"
+    },
+    {
+      "src": "Conservatism",
+      "tgt": "AmericanEnlightenment",
+      "type": "support"
+    },
+    {
+      "src": "Toleration",
+      "tgt": "Liberalism",
+      "type": "support"
+    },
+    {
+      "src": "ScientificProgress",
+      "tgt": "Deism",
+      "type": "support"
+    },
+    {
+      "src": "Franklin",
+      "tgt": "FourThinkers",
+      "type": "support"
+    },
+    {
+      "src": "Jefferson",
+      "tgt": "FourThinkers",
+      "type": "support"
+    },
+    {
+      "src": "Madison",
+      "tgt": "FourThinkers",
+      "type": "support"
+    },
+    {
+      "src": "Adams",
+      "tgt": "FourThinkers",
+      "type": "support"
+    },
+    {
+      "src": "FourThinkers",
+      "tgt": "AmericanEnlightenment",
+      "type": "support"
+    },
+    {
+      "src": "ContemporaryWork",
+      "tgt": "EnlightenmentProject",
+      "type": "support"
+    },
+    {
+      "src": "EnlightenmentProject",
+      "tgt": "Legacy",
+      "type": "support"
+    },
+    {
+      "src": "Legacy",
+      "tgt": "MainClaim",
+      "type": "support"
+    },
+    {
+      "src": "References",
+      "tgt": "MainClaim",
+      "type": "support"
+    },
+    {
+      "src": "AuthorInfo",
+      "tgt": "MainClaim",
+      "type": "support"
+    }
+  ]
+}

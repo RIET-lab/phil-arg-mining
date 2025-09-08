@@ -1,0 +1,905 @@
+{
+  "ADUs": {
+    "MainClaim": {
+      "type": "Major Claim",
+      "text": "\"Shifting focus to Mendelssohn’s conception of enlightenment has the effect of acknowledging the importance of diverse forms of historically female intellectuality and sociality",
+      "isImplicit": false
+    },
+    "Claim1": {
+      "type": "Claim",
+      "text": "\"Mendelssohn’s conception of enlightenment is inclusive of diverse forms of historically female intellectuality and sociality.\"",
+      "isImplicit": false
+    },
+    "Claim2": {
+      "type": "Claim",
+      "text": "\"The women considered above did not content themselves with implementing Mendelssohn’s views but instead actively and critically engaged with them",
+      "isImplicit": false
+    },
+    "Claim3": {
+      "type": "Claim",
+      "text": "\"The conception of enlightenment framed by Mendelssohn has a distinctively inclusive character.\"",
+      "isImplicit": false
+    },
+    "Claim4": {
+      "type": "Claim",
+      "text": "\"Mendelssohn’s conception of enlightenment has been neglected by historians of philosophy and of the Enlightenment.\"",
+      "isImplicit": false
+    },
+    "Claim5": {
+      "type": "Claim",
+      "text": "\"Mendelssohn’s essay on enlightenment emphasizes the importance of culture for enlightenment.\"",
+      "isImplicit": false
+    },
+    "Claim6": {
+      "type": "Claim",
+      "text": "\"Holst appropriates the core distinctions in Mendelssohn’s account to unlock the emancipatory potential of this conception of enlightenment for women.\"",
+      "isImplicit": false
+    },
+    "Claim7": {
+      "type": "Claim",
+      "text": "\"Reimarus’ views on the advance of enlightenment are to be distinguished from Mendelssohn’s more concessive approach.\"",
+      "isImplicit": false
+    },
+    "Claim8": {
+      "type": "Claim",
+      "text": "\"Reimarus’ views on the advance of enlightenment are to be distinguished from Mendelssohn’s more concessive approach.\"",
+      "isImplicit": false
+    },
+    "Claim9": {
+      "type": "Claim",
+      "text": "\"Mendelssohn advises the need for forbearance and even toleration of prejudice",
+      "isImplicit": false
+    },
+    "Claim10": {
+      "type": "Claim",
+      "text": "\"Reimarus contends that in spite of the unavoidability of prejudice",
+      "isImplicit": false
+    },
+    "Claim11": {
+      "type": "Claim",
+      "text": "\"Mendelssohn’s position on the advance of enlightenment is to be situated within the context of his Jerusalem and the strict exclusion of the state (and religion) from authority over matters of conscience.\"",
+      "isImplicit": false
+    },
+    "Claim12": {
+      "type": "Claim",
+      "text": "\"Reimarus’ activity in the Fragment controversy illustrates her cautious but persistent advancement of enlightenment.\"",
+      "isImplicit": false
+    },
+    "Claim13": {
+      "type": "Claim",
+      "text": "\"Reimarus’ views on the advance of enlightenment are also evident in her activity in the context of the Pantheism controversy.\"",
+      "isImplicit": false
+    },
+    "Claim14": {
+      "type": "Claim",
+      "text": "\"Reimarus emphasizes the necessity for the enlightened individual to guide and inform the policies of the state.\"",
+      "isImplicit": false
+    },
+    "Claim15": {
+      "type": "Claim",
+      "text": "\"Mendelssohn’s conception of enlightenment is distinct from Kant’s conception of enlightenment.\"",
+      "isImplicit": false
+    },
+    "Claim16": {
+      "type": "Claim",
+      "text": "\"Mendelssohn’s conception of enlightenment is enacted within society.\"",
+      "isImplicit": false
+    },
+    "Claim17": {
+      "type": "Claim",
+      "text": "\"Mendelssohn’s conception of enlightenment is enacted publically.\"",
+      "isImplicit": false
+    },
+    "Claim18": {
+      "type": "Claim",
+      "text": "\"Mendelssohn’s conception of enlightenment is the result of a spontaneous act of will or practical reason.\"",
+      "isImplicit": false
+    },
+    "Claim19": {
+      "type": "Claim",
+      "text": "\"Mendelssohn’s conception of enlightenment is the result of a gradual process of training and education.\"",
+      "isImplicit": false
+    },
+    "Claim20": {
+      "type": "Claim",
+      "text": "\"Mendelssohn’s conception of enlightenment emphasizes the importance of culture for enlightenment.\"",
+      "isImplicit": false
+    },
+    "Claim21": {
+      "type": "Claim",
+      "text": "\"Mendelssohn’s conception of enlightenment is distinct from Kant’s conception of enlightenment.\"",
+      "isImplicit": false
+    },
+    "Claim22": {
+      "type": "Claim",
+      "text": "\"Mendelssohn’s conception of enlightenment is enacted within society.\"",
+      "isImplicit": false
+    },
+    "Claim23": {
+      "type": "Claim",
+      "text": "\"Mendelssohn’s conception of enlightenment is enacted publically.\"",
+      "isImplicit": false
+    },
+    "Claim24": {
+      "type": "Claim",
+      "text": "\"Mendelssohn’s conception of enlightenment is the result of a spontaneous act of will or practical reason.\"",
+      "isImplicit": false
+    },
+    "Claim25": {
+      "type": "Claim",
+      "text": "\"Mendelssohn’s conception of enlightenment is the result of a gradual process of training and education.\"",
+      "isImplicit": false
+    },
+    "Claim26": {
+      "type": "Claim",
+      "text": "\"Holst’s criticisms of modern education are implicit in her *Bemerkungen*.\"",
+      "isImplicit": false
+    },
+    "Claim27": {
+      "type": "Claim",
+      "text": "\"Holst’s criticisms of modern education are explicit in her *Über die Bestimmung des Weibes zur höhern Geistesbildung*.\"",
+      "isImplicit": false
+    },
+    "Claim28": {
+      "type": "Claim",
+      "text": "\"Holst appropriates the core distinctions in Mendelssohn’s account to unlock the emancipatory potential of this conception of enlightenment for women.\"",
+      "isImplicit": false
+    },
+    "Claim29": {
+      "type": "Claim",
+      "text": "\"Mendelssohn’s conception of enlightenment is distinct from Kant’s conception of enlightenment.\"",
+      "isImplicit": false
+    },
+    "Claim30": {
+      "type": "Claim",
+      "text": "\"Mendelssohn’s conception of enlightenment emphasizes the importance of education for the development of the human being.\"",
+      "isImplicit": false
+    },
+    "Claim31": {
+      "type": "Claim",
+      "text": "\"Mendelssohn’s conception of enlightenment is distinct from Kant’s conception of enlightenment.\"",
+      "isImplicit": false
+    },
+    "Claim32": {
+      "type": "Claim",
+      "text": "\"Mendelssohn’s conception of enlightenment emphasizes the importance of education for the development of the human being.\"",
+      "isImplicit": false
+    },
+    "Claim33": {
+      "type": "Claim",
+      "text": "\"Mendelssohn’s conception of enlightenment is distinct from Kant’s conception of enlightenment.\"",
+      "isImplicit": false
+    },
+    "Claim34": {
+      "type": "Claim",
+      "text": "\"Mendelssohn’s conception of enlightenment emphasizes the importance of education for the development of the human being.\"",
+      "isImplicit": false
+    },
+    "Claim35": {
+      "type": "Claim",
+      "text": "\"Holst appropriates the core distinctions in Mendelssohn’s account to unlock the emancipatory potential of this conception of enlightenment for women.\"",
+      "isImplicit": false
+    },
+    "Claim36": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim37": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim38": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim39": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim40": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim41": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim42": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim43": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim44": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim45": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim46": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim47": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim48": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim49": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim50": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim51": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim52": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim53": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim54": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim55": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim56": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim57": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim58": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim59": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim60": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim61": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim62": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim63": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim64": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim65": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim66": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim67": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim68": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim69": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim70": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim71": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim72": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim73": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim74": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim75": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim76": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim77": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim78": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim79": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim80": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim81": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim82": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim83": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim84": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim85": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim86": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim87": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim88": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim89": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim90": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim91": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim92": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim93": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim94": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim95": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim96": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim97": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim98": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim99": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim100": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim101": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim102": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim103": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim104": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim105": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim106": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim107": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim108": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim109": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim110": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim111": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim112": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim113": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim114": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim115": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim116": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim117": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim118": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim119": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim120": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim121": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim122": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim123": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim124": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim125": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim126": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim127": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim128": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim129": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim130": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim131": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim132": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim133": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim134": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim135": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim136": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim137": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim138": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim139": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim140": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim141": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim142": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim143": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim144": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim145": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim146": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim147": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim148": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim149": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim150": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim151": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim152": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim153": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim154": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim155": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim156": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim157": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim158": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim159": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim160": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim161": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim162": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim163": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim164": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim165": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim166": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim167": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim168": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim169": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim170": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim171": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim172": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim173": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim174": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim175": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim176": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim177": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim178": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    },
+    "Claim179": {
+      "type": "Claim",
+      "text": "\"Holst’s *Über die Bestimmung des Weibes zur höhern Geistesbildung* argues that women should have the right to education.\"",
+      "isImplicit": false
+    }
+  },
+  "relations": []
+}

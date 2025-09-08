@@ -1,0 +1,60 @@
+{
+  "ADUs": {
+    "MainClaim": {
+      "type": "Major Claim",
+      "text": "\"The use of OSINT in risk-based border checks does not mitigate ethical concerns related to risk-based checks on travelers.\"",
+      "isImplicit": false
+    },
+    "ValueConflicts": {
+      "type": "Claim",
+      "text": "\"Data-driven",
+      "isImplicit": false
+    },
+    "OSINTandPrivacy": {
+      "type": "Claim",
+      "text": "\"The impact of OSINT on privacy depends not so much on the public availability of the analyzed data",
+      "isImplicit": false
+    },
+    "SituationalRiskAssessment": {
+      "type": "Claim",
+      "text": "\"OSINT can be used for situational risk assessment",
+      "isImplicit": false
+    },
+    "OSINTinSituationalRiskAssessment": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in situational risk assessment may be problematic due to concerns about the collection and use of information from the deep web.\"",
+      "isImplicit": false
+    },
+    "RiskProfiling": {
+      "type": "Claim",
+      "text": "\"Risk profiling raises concerns about the collection and use of information from social media and the potential for discriminatory impact.\"",
+      "isImplicit": false
+    },
+    "OSINTinRiskProfiling": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in risk profiling raises concerns about the collection and use of information from social media and the potential for discriminatory impact.\"",
+      "isImplicit": false
+    },
+    "OSINTandRiskProfiling": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in risk profiling is problematic due to concerns about the collection and use of information from social media and the potential for discriminatory impact.\"",
+      "isImplicit": false
+    },
+    "OSINTandRiskBasedChecks": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in risk-based checks does not mitigate the ethical concerns related to risk-based checks on travelers.\"",
+      "isImplicit": false
+    },
+    "RiskBasedChecks": {
+      "type": "Claim",
+      "text": "\"Risk-based checks are problematic due to concerns about the potential for unfair or discriminatory distributions of impact.\"",
+      "isImplicit": false
+    },
+    "OSINTinRiskBasedChecks": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in risk-based checks is problematic due to concerns about the potential for unfair or discriminatory distributions of impact.\"",
+      "isImplicit": false
+    }
+  },
+  "relations": []
+}

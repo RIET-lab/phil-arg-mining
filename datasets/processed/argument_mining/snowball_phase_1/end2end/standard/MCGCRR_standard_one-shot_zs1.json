@@ -1,0 +1,306 @@
+{
+  "ADUs": {
+    "MainClaim": {
+      "type": "Major Claim",
+      "text": "\"Currie's rejection of weak illusionism is sound because cinematic motion is real",
+      "isImplicit": false
+    },
+    "Untitled1": {
+      "type": "Claim",
+      "text": "\"Cinematic motion is real",
+      "isImplicit": false
+    },
+    "Untitled2": {
+      "type": "Claim",
+      "text": "\"Cinematic motion is not illusory in the weak sense",
+      "isImplicit": false
+    },
+    "Untitled3": {
+      "type": "Claim",
+      "text": "\"Cinematic motion is real in the weak sense",
+      "isImplicit": false
+    },
+    "Untitled4": {
+      "type": "Claim",
+      "text": "\"The experience of film requires specific reception conditions",
+      "isImplicit": false
+    },
+    "Untitled5": {
+      "type": "Claim",
+      "text": "\"The speed of projection is a necessary condition for the reception of the art form of film.\"",
+      "isImplicit": false
+    },
+    "Untitled6": {
+      "type": "Claim",
+      "text": "\"The nature of cinematic motion must be considered independently from the means used to produce the motion.\"",
+      "isImplicit": false
+    },
+    "Untitled7": {
+      "type": "Claim",
+      "text": "\"Currie's theory of cinematic motion is the most plausible of the three options.\"",
+      "isImplicit": false
+    },
+    "Untitled8": {
+      "type": "Claim",
+      "text": "\"Cinematic motion is real",
+      "isImplicit": false
+    },
+    "Untitled9": {
+      "type": "Claim",
+      "text": "\"The discussion about cinematic motion is about the art form of film",
+      "isImplicit": false
+    },
+    "Untitled10": {
+      "type": "Claim",
+      "text": "\"Cinematic motion is the real movement of singletons.\"",
+      "isImplicit": false
+    },
+    "Untitled11": {
+      "type": "Claim",
+      "text": "\"Ponech's theory fails because singletons are not objects.\"",
+      "isImplicit": false
+    },
+    "Untitled12": {
+      "type": "Claim",
+      "text": "\"Ponech's attempt to prove that singletons exhibit garden-variety motion fails.\"",
+      "isImplicit": false
+    },
+    "Untitled13": {
+      "type": "Claim",
+      "text": "\"Currie's theory of cinematic motion is the most plausible of the three options.\"",
+      "isImplicit": false
+    },
+    "Untitled14": {
+      "type": "Claim",
+      "text": "\"Currie's rejection of weak illusionism is sound.\"",
+      "isImplicit": false
+    },
+    "Untitled15": {
+      "type": "Claim",
+      "text": "\"The fact that cinematic motion is produced by static frames shows only that a certain speed of projection is a reception condition of the art form.\"",
+      "isImplicit": false
+    },
+    "Untitled16": {
+      "type": "Claim",
+      "text": "\"The analogy with the Müller-Lyer illusion breaks down once one departs from the reception conditions of the art form.\"",
+      "isImplicit": false
+    },
+    "Untitled17": {
+      "type": "Claim",
+      "text": "\"Cinematic motion is real",
+      "isImplicit": false
+    },
+    "Untitled18": {
+      "type": "Claim",
+      "text": "\"The experience of film is the experience of seeing moving images under specific perceptual circumstances.\"",
+      "isImplicit": false
+    },
+    "Untitled19": {
+      "type": "Claim",
+      "text": "\"The necessary conditions for an audience to experience the work of art include the speed of projection.\"",
+      "isImplicit": false
+    },
+    "Untitled20": {
+      "type": "Claim",
+      "text": "\"The art form of film is independent of the specific medium used in production.\"",
+      "isImplicit": false
+    },
+    "Untitled21": {
+      "type": "Claim",
+      "text": "\"The nature of cinematic motion must be considered independently from the means used to produce the motion.\"",
+      "isImplicit": false
+    },
+    "Untitled22": {
+      "type": "Claim",
+      "text": "\"The view that the illusory nature of film can be proved by slowing the projector down is doubly fallacious.\"",
+      "isImplicit": false
+    },
+    "Untitled23": {
+      "type": "Claim",
+      "text": "\"Currie's theory of cinematic motion is the most plausible of the three options.\"",
+      "isImplicit": false
+    },
+    "Untitled24": {
+      "type": "Claim",
+      "text": "\"Cinematic motion is real",
+      "isImplicit": false
+    },
+    "Untitled25": {
+      "type": "Claim",
+      "text": "\"The discussion is about film and the art of film involves certain necessary reception conditions.\"",
+      "isImplicit": false
+    },
+    "Untitled26": {
+      "type": "Claim",
+      "text": "\"Currie has already identified film as essentially moving pictures.\"",
+      "isImplicit": false
+    },
+    "Untitled27": {
+      "type": "Claim",
+      "text": "\"Cinematic motion is the real movement of singletons.\"",
+      "isImplicit": false
+    },
+    "Untitled28": {
+      "type": "Claim",
+      "text": "\"The fact that cinematic motion is produced by static frames shows only that a certain speed of projection is a reception condition of the art form.\"",
+      "isImplicit": false
+    },
+    "Untitled29": {
+      "type": "Claim",
+      "text": "\"The analogy with the Müller-Lyer illusion breaks down once one departs from the reception conditions of the art form.\"",
+      "isImplicit": false
+    },
+    "Untitled30": {
+      "type": "Claim",
+      "text": "\"Cinematic motion is real",
+      "isImplicit": false
+    }
+  },
+  "relations": [
+    {
+      "src": "Untitled1",
+      "tgt": "Untitled2",
+      "type": "support"
+    },
+    {
+      "src": "Untitled2",
+      "tgt": "Untitled3",
+      "type": "support"
+    },
+    {
+      "src": "Untitled3",
+      "tgt": "Untitled4",
+      "type": "support"
+    },
+    {
+      "src": "Untitled4",
+      "tgt": "Untitled5",
+      "type": "support"
+    },
+    {
+      "src": "Untitled5",
+      "tgt": "Untitled6",
+      "type": "support"
+    },
+    {
+      "src": "Untitled6",
+      "tgt": "Untitled7",
+      "type": "support"
+    },
+    {
+      "src": "Untitled7",
+      "tgt": "Untitled8",
+      "type": "support"
+    },
+    {
+      "src": "Untitled8",
+      "tgt": "Untitled9",
+      "type": "support"
+    },
+    {
+      "src": "Untitled9",
+      "tgt": "Untitled10",
+      "type": "support"
+    },
+    {
+      "src": "Untitled10",
+      "tgt": "Untitled11",
+      "type": "support"
+    },
+    {
+      "src": "Untitled11",
+      "tgt": "Untitled12",
+      "type": "support"
+    },
+    {
+      "src": "Untitled12",
+      "tgt": "Untitled13",
+      "type": "support"
+    },
+    {
+      "src": "Untitled13",
+      "tgt": "Untitled14",
+      "type": "support"
+    },
+    {
+      "src": "Untitled14",
+      "tgt": "Untitled15",
+      "type": "support"
+    },
+    {
+      "src": "Untitled15",
+      "tgt": "Untitled16",
+      "type": "support"
+    },
+    {
+      "src": "Untitled16",
+      "tgt": "Untitled17",
+      "type": "support"
+    },
+    {
+      "src": "Untitled17",
+      "tgt": "Untitled18",
+      "type": "support"
+    },
+    {
+      "src": "Untitled18",
+      "tgt": "Untitled19",
+      "type": "support"
+    },
+    {
+      "src": "Untitled19",
+      "tgt": "Untitled20",
+      "type": "support"
+    },
+    {
+      "src": "Untitled20",
+      "tgt": "Untitled21",
+      "type": "support"
+    },
+    {
+      "src": "Untitled21",
+      "tgt": "Untitled22",
+      "type": "support"
+    },
+    {
+      "src": "Untitled22",
+      "tgt": "Untitled23",
+      "type": "support"
+    },
+    {
+      "src": "Untitled23",
+      "tgt": "Untitled24",
+      "type": "support"
+    },
+    {
+      "src": "Untitled24",
+      "tgt": "Untitled25",
+      "type": "support"
+    },
+    {
+      "src": "Untitled25",
+      "tgt": "Untitled26",
+      "type": "support"
+    },
+    {
+      "src": "Untitled26",
+      "tgt": "Untitled27",
+      "type": "support"
+    },
+    {
+      "src": "Untitled27",
+      "tgt": "Untitled28",
+      "type": "support"
+    },
+    {
+      "src": "Untitled28",
+      "tgt": "Untitled29",
+      "type": "support"
+    },
+    {
+      "src": "Untitled29",
+      "tgt": "Untitled30",
+      "type": "support"
+    }
+  ]
+}

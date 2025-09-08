@@ -1,0 +1,651 @@
+{
+  "ADUs": {
+    "1": {
+      "type": "Claim",
+      "text": "\"My aim in this paper is to advance our understanding of Heidegger's politics as it is laid bare within the so-called 'Schwarze Hefte'. But my interest is not in his first order political views nor in his prejudices",
+      "isImplicit": false
+    },
+    "2": {
+      "type": "Claim",
+      "text": "\"I want to approach the topic with the help of a figure that is",
+      "isImplicit": false
+    },
+    "3": {
+      "type": "Claim",
+      "text": "\"The figure is provocative because the diagram is obviously utterly vague one's immediate response is to ask what is meant by the terms listed. But that is also why the figure is helpful - it triggers a demand for clarification within a context orientated around the interaction of the three points.\"",
+      "isImplicit": false
+    },
+    "4": {
+      "type": "Claim",
+      "text": "\"Consider",
+      "isImplicit": false
+    },
+    "5": {
+      "type": "Claim",
+      "text": "My purpose in this essay is to use first volume of the so-called 'Schwarze Hefte",
+      "isImplicit": false
+    },
+    "6": {
+      "type": "Claim",
+      "text": "\"I confine my analysis to this single volume for two reasons. First",
+      "isImplicit": false
+    },
+    "7": {
+      "type": "Claim",
+      "text": "\"The question I want to begin with is a deceptively simple one: 'what is the political?'.\"",
+      "isImplicit": false
+    },
+    "8": {
+      "type": "Claim",
+      "text": "\"The political sphere is necessarily a public sphere - one can then gloss that public sphere in terms of power",
+      "isImplicit": false
+    },
+    "9": {
+      "type": "Claim",
+      "text": "\"What is immediately striking in GA94",
+      "isImplicit": false
+    },
+    "10": {
+      "type": "Claim",
+      "text": "\"Heidegger's worries are articulated simultaneously along aesthetic",
+      "isImplicit": false
+    },
+    "11": {
+      "type": "Claim",
+      "text": "\"This can be seen at both a general and a more specific level",
+      "isImplicit": false
+    },
+    "12": {
+      "type": "Claim",
+      "text": "\"First",
+      "isImplicit": false
+    },
+    "13": {
+      "type": "Claim",
+      "text": "\"Many of these are the standard targets of the period",
+      "isImplicit": false
+    },
+    "14": {
+      "type": "Claim",
+      "text": "\"Journalism",
+      "isImplicit": false
+    },
+    "15": {
+      "type": "Claim",
+      "text": "\"Second",
+      "isImplicit": false
+    },
+    "16": {
+      "type": "Claim",
+      "text": "\"Within GA94",
+      "isImplicit": false
+    },
+    "17": {
+      "type": "Claim",
+      "text": "\"Heidegger gives as examples of this trend everything from current discussions of Existenzphilosophie to 'Ontologie'.\"",
+      "isImplicit": false
+    },
+    "18": {
+      "type": "Claim",
+      "text": "\"The third axis shaping Heidegger's discussion concerns the scope of his misgivings.\"",
+      "isImplicit": false
+    },
+    "19": {
+      "type": "Claim",
+      "text": "Whilst many philosophers assume some form of distinction between what the early moderns called the 'vulgar' and the 'learned",
+      "isImplicit": false
+    },
+    "20": {
+      "type": "Claim",
+      "text": "\"Heidegger views scholarly exegesis of Sein und Zeit's links to Kierkegaard as a derailment device",
+      "isImplicit": false
+    },
+    "21": {
+      "type": "Claim",
+      "text": "\"The threat is that politics will increasingly reconfigure philosophy in terms of its own agenda; this will take place",
+      "isImplicit": false
+    },
+    "22": {
+      "type": "Claim",
+      "text": "\"Within such a framework",
+      "isImplicit": false
+    },
+    "23": {
+      "type": "Claim",
+      "text": "\"It is a 'path to barbarism'.\"",
+      "isImplicit": false
+    },
+    "24": {
+      "type": "Claim",
+      "text": "\"Heidegger's answer is absolutely clear - the fundamental task of philosophy is to sustain",
+      "isImplicit": false
+    },
+    "25": {
+      "type": "Claim",
+      "text": "\"The fundamental characterisation of the political in GA94 is as a threat; a threat manifest at both a general and a specific level.\"",
+      "isImplicit": false
+    },
+    "26": {
+      "type": "Claim",
+      "text": "\"What it threatens is the distinctive role of philosophy",
+      "isImplicit": false
+    },
+    "27": {
+      "type": "Claim",
+      "text": "\"To return to our diagram",
+      "isImplicit": false
+    },
+    "28": {
+      "type": "Claim",
+      "text": "\"The first strategy is one of disengagement from the public sphere.\"",
+      "isImplicit": false
+    },
+    "29": {
+      "type": "Claim",
+      "text": "\"Perhaps",
+      "isImplicit": false
+    },
+    "30": {
+      "type": "Claim",
+      "text": "\"The second tactic is more aggressive.\"",
+      "isImplicit": false
+    },
+    "31": {
+      "type": "Claim",
+      "text": "\"Heidegger uses the hermeneutic methodology articulated in Sein und Zeit to go on the offensive against the ideology behind the political fantasy of a 'lebensnah' or 'wirklichkeitsnah' philosophy.\"",
+      "isImplicit": false
+    },
+    "32": {
+      "type": "Claim",
+      "text": "\"The result is these ideas are crudely inchoate.\"",
+      "isImplicit": false
+    },
+    "33": {
+      "type": "Claim",
+      "text": "\"The third",
+      "isImplicit": false
+    },
+    "34": {
+      "type": "Claim",
+      "text": "\"Within GA94",
+      "isImplicit": false
+    },
+    "35": {
+      "type": "Claim",
+      "text": "\"There are",
+      "isImplicit": false
+    },
+    "36": {
+      "type": "Claim",
+      "text": "\"He also tries to redescribe the political in a way more in tune with his own system.\"",
+      "isImplicit": false
+    },
+    "37": {
+      "type": "Claim",
+      "text": "\"At the aesthetic level",
+      "isImplicit": false
+    },
+    "38": {
+      "type": "Claim",
+      "text": "\"Heidegger presides over an occlusion or suppression of the political",
+      "isImplicit": false
+    },
+    "39": {
+      "type": "Claim",
+      "text": "\"The occlusion has two dimensions to it.\"",
+      "isImplicit": false
+    },
+    "40": {
+      "type": "Claim",
+      "text": "\"On the one hand",
+      "isImplicit": false
+    },
+    "41": {
+      "type": "Claim",
+      "text": "\"On the other hand",
+      "isImplicit": false
+    },
+    "42": {
+      "type": "Claim",
+      "text": "\"The most important aspect of this process is normative.\"",
+      "isImplicit": false
+    },
+    "43": {
+      "type": "Claim",
+      "text": "\"For Heidegger",
+      "isImplicit": false
+    },
+    "44": {
+      "type": "Claim",
+      "text": "\"In that sense",
+      "isImplicit": false
+    },
+    "45": {
+      "type": "Claim",
+      "text": "\"To introduce",
+      "isImplicit": false
+    },
+    "46": {
+      "type": "Claim",
+      "text": "\"I want now to consider three objections to the reading advanced.\"",
+      "isImplicit": false
+    },
+    "47": {
+      "type": "Claim",
+      "text": "\"One might object that I have said nothing about how Heidegger's prejudices",
+      "isImplicit": false
+    },
+    "48": {
+      "type": "Claim",
+      "text": "\"My position is entirely neutral on how that story plays out.\"",
+      "isImplicit": false
+    },
+    "49": {
+      "type": "Claim",
+      "text": "\"An exact formulation of the point would require a discussion of prejudice beyond the scope of this piece.\"",
+      "isImplicit": false
+    },
+    "50": {
+      "type": "Claim",
+      "text": "\"Consider a misogynist who has a violent prejudice",
+      "isImplicit": false
+    },
+    "51": {
+      "type": "Claim",
+      "text": "\"The result",
+      "isImplicit": false
+    },
+    "52": {
+      "type": "Claim",
+      "text": "The result, within the later 'black notebooks",
+      "isImplicit": false
+    },
+    "53": {
+      "type": "Claim",
+      "text": "\"One might object that Heidegger was simply not a political philosopher",
+      "isImplicit": false
+    },
+    "54": {
+      "type": "Claim",
+      "text": "\"The explanatory apparatus which which Heidegger approaches the political is essentially drawn from ontology.\"",
+      "isImplicit": false
+    },
+    "55": {
+      "type": "Claim",
+      "text": "\"Thus",
+      "isImplicit": false
+    },
+    "56": {
+      "type": "Claim",
+      "text": "\"I want to close by briefly making a different",
+      "isImplicit": false
+    },
+    "57": {
+      "type": "Claim",
+      "text": "\"The point is this. As noted above",
+      "isImplicit": false
+    },
+    "58": {
+      "type": "Claim",
+      "text": "\"What is striking is that collectively the Schwarze Hefte serve to undermine the closest thing he offers there to a response to the charge that he allows ontology to occlude ethics and politics.\"",
+      "isImplicit": false
+    },
+    "59": {
+      "type": "Claim",
+      "text": "In the Letter, Heidegger suggest that thinking rightly has priority over other forms of action since it 'it cares for the light",
+      "isImplicit": false
+    },
+    "60": {
+      "type": "Claim",
+      "text": "\"The idea here is that thinking on Being - a lived philosophical ontology - has explanatory priority because it concerns those conditions under which entities can show up in the first place",
+      "isImplicit": false
+    },
+    "61": {
+      "type": "Claim",
+      "text": "\"But the problem with this type of transcendental move is that if a given state is really a transcendental condition of this type",
+      "isImplicit": false
+    },
+    "62": {
+      "type": "Claim",
+      "text": "\"Thus",
+      "isImplicit": false
+    },
+    "63": {
+      "type": "Claim",
+      "text": "\"Yet one of the recurring themes of Heidegger's notebooks is that certain groups",
+      "isImplicit": false
+    },
+    "64": {
+      "type": "Claim",
+      "text": "\"The result is that the privileging of ontological relations - being a 'Wahrer der Wahrheit des Seyns' - cannot",
+      "isImplicit": false
+    },
+    "65": {
+      "type": "Claim",
+      "text": "\"I have argued that GA94 sees an occlusion of the political by the ontological; ironically",
+      "isImplicit": false
+    }
+  },
+  "relations": [
+    {
+      "src": "1",
+      "tgt": "2",
+      "type": "support"
+    },
+    {
+      "src": "2",
+      "tgt": "3",
+      "type": "support"
+    },
+    {
+      "src": "3",
+      "tgt": "4",
+      "type": "support"
+    },
+    {
+      "src": "4",
+      "tgt": "5",
+      "type": "support"
+    },
+    {
+      "src": "5",
+      "tgt": "6",
+      "type": "support"
+    },
+    {
+      "src": "6",
+      "tgt": "7",
+      "type": "support"
+    },
+    {
+      "src": "7",
+      "tgt": "8",
+      "type": "support"
+    },
+    {
+      "src": "8",
+      "tgt": "9",
+      "type": "support"
+    },
+    {
+      "src": "9",
+      "tgt": "10",
+      "type": "support"
+    },
+    {
+      "src": "10",
+      "tgt": "11",
+      "type": "support"
+    },
+    {
+      "src": "11",
+      "tgt": "12",
+      "type": "support"
+    },
+    {
+      "src": "12",
+      "tgt": "13",
+      "type": "support"
+    },
+    {
+      "src": "13",
+      "tgt": "14",
+      "type": "support"
+    },
+    {
+      "src": "14",
+      "tgt": "15",
+      "type": "support"
+    },
+    {
+      "src": "15",
+      "tgt": "16",
+      "type": "support"
+    },
+    {
+      "src": "16",
+      "tgt": "17",
+      "type": "support"
+    },
+    {
+      "src": "17",
+      "tgt": "18",
+      "type": "support"
+    },
+    {
+      "src": "18",
+      "tgt": "19",
+      "type": "support"
+    },
+    {
+      "src": "19",
+      "tgt": "20",
+      "type": "support"
+    },
+    {
+      "src": "20",
+      "tgt": "21",
+      "type": "support"
+    },
+    {
+      "src": "21",
+      "tgt": "22",
+      "type": "support"
+    },
+    {
+      "src": "22",
+      "tgt": "23",
+      "type": "support"
+    },
+    {
+      "src": "23",
+      "tgt": "24",
+      "type": "support"
+    },
+    {
+      "src": "24",
+      "tgt": "25",
+      "type": "support"
+    },
+    {
+      "src": "25",
+      "tgt": "26",
+      "type": "support"
+    },
+    {
+      "src": "26",
+      "tgt": "27",
+      "type": "support"
+    },
+    {
+      "src": "27",
+      "tgt": "28",
+      "type": "support"
+    },
+    {
+      "src": "28",
+      "tgt": "29",
+      "type": "support"
+    },
+    {
+      "src": "29",
+      "tgt": "30",
+      "type": "support"
+    },
+    {
+      "src": "30",
+      "tgt": "31",
+      "type": "support"
+    },
+    {
+      "src": "31",
+      "tgt": "32",
+      "type": "support"
+    },
+    {
+      "src": "32",
+      "tgt": "33",
+      "type": "support"
+    },
+    {
+      "src": "33",
+      "tgt": "34",
+      "type": "support"
+    },
+    {
+      "src": "34",
+      "tgt": "35",
+      "type": "support"
+    },
+    {
+      "src": "35",
+      "tgt": "36",
+      "type": "support"
+    },
+    {
+      "src": "36",
+      "tgt": "37",
+      "type": "support"
+    },
+    {
+      "src": "37",
+      "tgt": "38",
+      "type": "support"
+    },
+    {
+      "src": "38",
+      "tgt": "39",
+      "type": "support"
+    },
+    {
+      "src": "39",
+      "tgt": "40",
+      "type": "support"
+    },
+    {
+      "src": "40",
+      "tgt": "41",
+      "type": "support"
+    },
+    {
+      "src": "41",
+      "tgt": "42",
+      "type": "support"
+    },
+    {
+      "src": "42",
+      "tgt": "43",
+      "type": "support"
+    },
+    {
+      "src": "43",
+      "tgt": "44",
+      "type": "support"
+    },
+    {
+      "src": "44",
+      "tgt": "45",
+      "type": "support"
+    },
+    {
+      "src": "45",
+      "tgt": "46",
+      "type": "attack"
+    },
+    {
+      "src": "46",
+      "tgt": "47",
+      "type": "attack"
+    },
+    {
+      "src": "47",
+      "tgt": "48",
+      "type": "attack"
+    },
+    {
+      "src": "48",
+      "tgt": "49",
+      "type": "attack"
+    },
+    {
+      "src": "49",
+      "tgt": "50",
+      "type": "attack"
+    },
+    {
+      "src": "50",
+      "tgt": "51",
+      "type": "attack"
+    },
+    {
+      "src": "51",
+      "tgt": "52",
+      "type": "attack"
+    },
+    {
+      "src": "52",
+      "tgt": "53",
+      "type": "attack"
+    },
+    {
+      "src": "53",
+      "tgt": "54",
+      "type": "attack"
+    },
+    {
+      "src": "54",
+      "tgt": "55",
+      "type": "attack"
+    },
+    {
+      "src": "55",
+      "tgt": "56",
+      "type": "support"
+    },
+    {
+      "src": "56",
+      "tgt": "57",
+      "type": "support"
+    },
+    {
+      "src": "57",
+      "tgt": "58",
+      "type": "support"
+    },
+    {
+      "src": "58",
+      "tgt": "59",
+      "type": "support"
+    },
+    {
+      "src": "59",
+      "tgt": "60",
+      "type": "support"
+    },
+    {
+      "src": "60",
+      "tgt": "61",
+      "type": "support"
+    },
+    {
+      "src": "61",
+      "tgt": "62",
+      "type": "support"
+    },
+    {
+      "src": "62",
+      "tgt": "63",
+      "type": "support"
+    },
+    {
+      "src": "63",
+      "tgt": "64",
+      "type": "support"
+    },
+    {
+      "src": "64",
+      "tgt": "65",
+      "type": "support"
+    }
+  ]
+}

@@ -1,0 +1,261 @@
+{
+  "ADUs": {
+    "ADU1": {
+      "type": "Claim",
+      "text": "\"Pico focuses on Anaxagoras because he considers him as a precursor of the later Neoplatonic concept all things exist in all things in their own mode",
+      "isImplicit": false
+    },
+    "ADU2": {
+      "type": "Claim",
+      "text": "\"Anaxagoras holds the view that objects are temporary mixtures of ingredients",
+      "isImplicit": false
+    },
+    "ADU3": {
+      "type": "Claim",
+      "text": "\"Anaxagoras shares with Parmenides the principle that what-is is without start or stop.\"",
+      "isImplicit": false
+    },
+    "ADU4": {
+      "type": "Claim",
+      "text": "\"The Intellect sets the mixture into rotary motion: everything is mixture and separation of ingredients.\"",
+      "isImplicit": false
+    },
+    "ADU5": {
+      "type": "Claim",
+      "text": "\"Pico correlates the philosophy of Anaxagoras with the conclusion that cum in ipsa ita sunt omnia",
+      "isImplicit": false
+    },
+    "ADU6": {
+      "type": "Claim",
+      "text": "\"The later Neoplatonic concept Πάντα ἐν πᾶσιν",
+      "isImplicit": false
+    },
+    "ADU7": {
+      "type": "Claim",
+      "text": "\"Pico probably had read Psellus's text.\"",
+      "isImplicit": false
+    },
+    "ADU8": {
+      "type": "Claim",
+      "text": "\"Pico argues that there is a Demiurge of the Intellect",
+      "isImplicit": false
+    },
+    "ADU9": {
+      "type": "Claim",
+      "text": "\"Anaxagoras is adamant: the Intellect is separate",
+      "isImplicit": false
+    },
+    "ADU10": {
+      "type": "Claim",
+      "text": "\"Aristotle notes that Anaxagoras failed to explain how Intellect comes to think.\"",
+      "isImplicit": false
+    },
+    "ADU11": {
+      "type": "Claim",
+      "text": "\"Pico's vocabulary indicates that he is relying on a Neoplatonic commentary on Aristotle's Physics.\"",
+      "isImplicit": false
+    },
+    "ADU12": {
+      "type": "Claim",
+      "text": "\"Pico could also have drawn from John Philoponus's In Aristotelis physicorum libros commentaria.\"",
+      "isImplicit": false
+    },
+    "ADU13": {
+      "type": "Claim",
+      "text": "\"Simplicius and Philoponus holds that the Intellect distinguishes the homoiomereias",
+      "isImplicit": false
+    },
+    "ADU14": {
+      "type": "Claim",
+      "text": "\"Pico supports that the opifex intellectus distinguishes the omiomeria.\"",
+      "isImplicit": false
+    },
+    "ADU15": {
+      "type": "Claim",
+      "text": "\"Anaxagoras never refers to a possible creator of the Intellect.\"",
+      "isImplicit": false
+    },
+    "ADU16": {
+      "type": "Claim",
+      "text": "\"Plotinus associates the Demiurge with Intellect and not with the One.\"",
+      "isImplicit": false
+    },
+    "ADU17": {
+      "type": "Claim",
+      "text": "\"Pico's argument no longer opposes the philosophy of Anaxagoras.\"",
+      "isImplicit": false
+    },
+    "ADU18": {
+      "type": "Claim",
+      "text": "\"Anaxagoras does not call the Intellect Demiurge nor does he conflate Intellect with God or divine principle.\"",
+      "isImplicit": false
+    },
+    "ADU19": {
+      "type": "Claim",
+      "text": "\"Pico's unambiguous affirmation that the Intellect creates the universe supports the translation of Pico's phrase opifex intellectus as Demiurge-Intellect.\"",
+      "isImplicit": false
+    },
+    "ADU20": {
+      "type": "Claim",
+      "text": "\"Anaxagoras's principle is supportive to Pico's metaphysics.\"",
+      "isImplicit": false
+    },
+    "ADU21": {
+      "type": "Claim",
+      "text": "\"Anaxagoras's philosophy permits Pico to establish his doctrine that all things share a portion of God within them",
+      "isImplicit": false
+    },
+    "ADU22": {
+      "type": "Claim",
+      "text": "\"Anaxagoras's metaphysical principle is supportive to Pico's method of allegorical interpretation.\"",
+      "isImplicit": false
+    },
+    "ADU23": {
+      "type": "Claim",
+      "text": "\"Anaxagoras assumes that all things are found together in the original mixture and everything is in everything at all times.\"",
+      "isImplicit": false
+    },
+    "ADU24": {
+      "type": "Claim",
+      "text": "\"Pico refutes instead Anaxagoras's argument and insists that the Intellect is greatly mixed.\"",
+      "isImplicit": false
+    },
+    "ADU25": {
+      "type": "Claim",
+      "text": "\"Pico expresses a similar view in the Commento",
+      "isImplicit": false
+    },
+    "ADU26": {
+      "type": "Claim",
+      "text": "\"Plotinus's interpretation of Anaxagoras's philosophy concerning the principle everything in everything is convenient for Pico's view that the greatest mixture coincides with the greatest simplicity in the intellectual nature.\"",
+      "isImplicit": false
+    }
+  },
+  "relations": [
+    {
+      "src": "ADU1",
+      "tgt": "ADU2",
+      "type": "support"
+    },
+    {
+      "src": "ADU2",
+      "tgt": "ADU3",
+      "type": "support"
+    },
+    {
+      "src": "ADU3",
+      "tgt": "ADU4",
+      "type": "support"
+    },
+    {
+      "src": "ADU4",
+      "tgt": "ADU5",
+      "type": "support"
+    },
+    {
+      "src": "ADU5",
+      "tgt": "ADU6",
+      "type": "support"
+    },
+    {
+      "src": "ADU6",
+      "tgt": "ADU7",
+      "type": "support"
+    },
+    {
+      "src": "ADU7",
+      "tgt": "ADU8",
+      "type": "support"
+    },
+    {
+      "src": "ADU8",
+      "tgt": "ADU9",
+      "type": "attack"
+    },
+    {
+      "src": "ADU9",
+      "tgt": "ADU10",
+      "type": "support"
+    },
+    {
+      "src": "ADU10",
+      "tgt": "ADU11",
+      "type": "support"
+    },
+    {
+      "src": "ADU11",
+      "tgt": "ADU12",
+      "type": "support"
+    },
+    {
+      "src": "ADU12",
+      "tgt": "ADU13",
+      "type": "support"
+    },
+    {
+      "src": "ADU13",
+      "tgt": "ADU14",
+      "type": "support"
+    },
+    {
+      "src": "ADU14",
+      "tgt": "ADU15",
+      "type": "attack"
+    },
+    {
+      "src": "ADU15",
+      "tgt": "ADU16",
+      "type": "support"
+    },
+    {
+      "src": "ADU16",
+      "tgt": "ADU17",
+      "type": "support"
+    },
+    {
+      "src": "ADU17",
+      "tgt": "ADU18",
+      "type": "support"
+    },
+    {
+      "src": "ADU18",
+      "tgt": "ADU19",
+      "type": "support"
+    },
+    {
+      "src": "ADU19",
+      "tgt": "ADU20",
+      "type": "support"
+    },
+    {
+      "src": "ADU20",
+      "tgt": "ADU21",
+      "type": "support"
+    },
+    {
+      "src": "ADU21",
+      "tgt": "ADU22",
+      "type": "support"
+    },
+    {
+      "src": "ADU22",
+      "tgt": "ADU23",
+      "type": "support"
+    },
+    {
+      "src": "ADU23",
+      "tgt": "ADU24",
+      "type": "attack"
+    },
+    {
+      "src": "ADU24",
+      "tgt": "ADU25",
+      "type": "support"
+    },
+    {
+      "src": "ADU25",
+      "tgt": "ADU26",
+      "type": "support"
+    }
+  ]
+}

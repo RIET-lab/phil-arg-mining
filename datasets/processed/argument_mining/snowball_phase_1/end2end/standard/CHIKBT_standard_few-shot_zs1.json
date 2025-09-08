@@ -1,0 +1,106 @@
+{
+  "ADUs": {
+    "MainClaim": {
+      "type": "Major Claim",
+      "text": "\"The demise of classical neo-Kantianism between the wars had at least as much to do with institutional",
+      "isImplicit": false
+    },
+    "Neo-Kantianism as Scapegoat": {
+      "type": "Claim",
+      "text": "\"Neo-Kantianism became the'scapegoat' for many of the perceived problems in imperial and Weimar culture after World War I.\"",
+      "isImplicit": false
+    },
+    "Affinities between neo-Kantianism and the interwar climate": {
+      "type": "Claim",
+      "text": "\"Neo-Kantianism had affinities with the interwar Zeitgeist",
+      "isImplicit": false
+    },
+    "Failure of neo-Kantianism": {
+      "type": "Claim",
+      "text": "\"Despite its apparent affinities with the interwar Zeitgeist",
+      "isImplicit": false
+    },
+    "Reasons for the failure of neo-Kantianism": {
+      "type": "Claim",
+      "text": "\"Institutional",
+      "isImplicit": false
+    },
+    "Critique of Kant": {
+      "type": "Claim",
+      "text": "\"Some of the best-known criticisms of Kant made by Lukacs do not apply very well to Kant himself",
+      "isImplicit": false
+    },
+    "s own views on limits of knowledge": {
+      "type": "Claim",
+      "text": "\"Kant repeatedly expresses his awareness of the limits of theoretical knowledge and his frustration with that fact.\"",
+      "isImplicit": false
+    },
+    "s moral philosophy": {
+      "type": "Claim",
+      "text": "\"Lukacs' criticism of Kant's moral philosophy is not a reconstruction of the historical Kant or an evaluation of relevant philosophical problems.\"",
+      "isImplicit": false
+    },
+    "Neo-Kantian readings of Kant": {
+      "type": "Claim",
+      "text": "\"The perceived unattractiveness of prominent neo-Kantian readings of Kant led to a renewed interest in a more painstaking historical and rational reconstruction of Kant's own views.\"",
+      "isImplicit": false
+    },
+    "Legacy of Kant": {
+      "type": "Claim",
+      "text": "\"The legacy of Kant became both so contested and so crucial that a new generation of scholars saw the need for yet another movement back to Kant.\"",
+      "isImplicit": false
+    },
+    "New generation of scholars": {
+      "type": "Claim",
+      "text": "\"A new generation of scholars founded the vibrant traditions of historical Kant scholarship that are now flourishing across both Europe and the Americas.\"",
+      "isImplicit": false
+    }
+  },
+  "relations": [
+    {
+      "src": "Neo-Kantianism as Scapegoat",
+      "tgt": "Affinities between neo-Kantianism and the interwar climate",
+      "type": "support"
+    },
+    {
+      "src": "Affinities between neo-Kantianism and the interwar climate",
+      "tgt": "Failure of neo-Kantianism",
+      "type": "support"
+    },
+    {
+      "src": "Reasons for the failure of neo-Kantianism",
+      "tgt": "Failure of neo-Kantianism",
+      "type": "support"
+    },
+    {
+      "src": "Neo-Kantianism as Scapegoat",
+      "tgt": "MainClaim",
+      "type": "support"
+    },
+    {
+      "src": "Lukacs",
+      "tgt": "Neo-Kantianism as Scapegoat",
+      "type": "attack"
+    },
+    {
+      "src": "Lukacs",
+      "tgt": "Neo-Kantianism as Scapegoat",
+      "type": "attack"
+    },
+    {
+      "src": "Neo-Kantian readings of Kant",
+      "tgt": "Legacy of Kant",
+      "type": "support"
+    },
+    {
+      "src": "Legacy of Kant",
+      "tgt": "New generation of scholars",
+      "type": "support"
+    },
+    {
+      "src": "New generation of scholars",
+      "tgt": "MainClaim",
+      "type": "support"
+    }
+  ]
+}

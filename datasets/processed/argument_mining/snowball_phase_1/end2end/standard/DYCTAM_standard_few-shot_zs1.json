@@ -1,0 +1,970 @@
+{
+  "ADUs": {
+    "MainClaim": {
+      "type": "Major Claim",
+      "text": "\"Mendelssohn's conception of enlightenment has a distinctively inclusive character and is often neglected by historians of philosophy and the Enlightenment.\"",
+      "isImplicit": false
+    },
+    "Claim1": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment is distinct from Kant's in its wider perspective",
+      "isImplicit": false
+    },
+    "Claim2": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment emphasizes the importance of culture for enlightenment and the interdependence of culture and enlightenment.\"",
+      "isImplicit": false
+    },
+    "Claim3": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment is extended and revised by women such as Henriette Herz and Rahel Levin Varnhagen.\"",
+      "isImplicit": false
+    },
+    "Claim4": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment is also extended and revised by women such as Amalia Holst and Elise Reimarus.\"",
+      "isImplicit": false
+    },
+    "Claim5": {
+      "type": "Claim",
+      "text": "\"Women such as Henriette Herz",
+      "isImplicit": false
+    },
+    "Claim6": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment has a distinctively inclusive character",
+      "isImplicit": false
+    },
+    "Claim7": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment is often neglected by historians of philosophy and the Enlightenment.\"",
+      "isImplicit": false
+    },
+    "Claim8": {
+      "type": "Claim",
+      "text": "\"The women considered in this chapter",
+      "isImplicit": false
+    },
+    "Claim9": {
+      "type": "Claim",
+      "text": "\"The women considered in this chapter extend and revise Mendelssohn's conception of enlightenment in ways that enhance its inclusivity.\"",
+      "isImplicit": false
+    },
+    "Claim10": {
+      "type": "Claim",
+      "text": "\"The conception of enlightenment framed by Mendelssohn has a distinctively inclusive character.\"",
+      "isImplicit": false
+    },
+    "Claim11": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment has been neglected by historians of philosophy and the Enlightenment.\"",
+      "isImplicit": false
+    },
+    "Claim12": {
+      "type": "Claim",
+      "text": "\"The women considered in this chapter engage with Mendelssohn's conception of enlightenment in ways that reveal their active participation in discussions of central importance to the Enlightenment.\"",
+      "isImplicit": false
+    },
+    "Claim13": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment is distinct from Kant's in its social context and focus on the enlightener.\"",
+      "isImplicit": false
+    },
+    "Claim14": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment emphasizes the importance of culture and sociability.\"",
+      "isImplicit": false
+    },
+    "Claim15": {
+      "type": "Claim",
+      "text": "\"The women considered in this chapter engage with Mendelssohn's conception of enlightenment in ways that reveal their critical and creative thinking.\"",
+      "isImplicit": false
+    },
+    "Claim16": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment has a distinctively inclusive character",
+      "isImplicit": false
+    },
+    "Claim17": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment is extended and revised by women such as Amalia Holst and Elise Reimarus.\"",
+      "isImplicit": false
+    },
+    "Claim18": {
+      "type": "Claim",
+      "text": "\"Women such as Henriette Herz",
+      "isImplicit": false
+    },
+    "Claim19": {
+      "type": "Claim",
+      "text": "\"The women considered in this chapter engage with Mendelssohn's conception of enlightenment in ways that reveal their critical and creative thinking.\"",
+      "isImplicit": false
+    },
+    "Claim20": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment has been neglected by historians of philosophy and the Enlightenment.\"",
+      "isImplicit": false
+    },
+    "Claim21": {
+      "type": "Claim",
+      "text": "\"The women considered in this chapter extend and revise Mendelssohn's conception of enlightenment in ways that enhance its inclusivity.\"",
+      "isImplicit": false
+    },
+    "Claim22": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment has a distinctively inclusive character",
+      "isImplicit": false
+    },
+    "Claim23": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment is often neglected by historians of philosophy and the Enlightenment.\"",
+      "isImplicit": false
+    },
+    "Claim24": {
+      "type": "Claim",
+      "text": "\"The women considered in this chapter engage with Mendelssohn's conception of enlightenment in ways that reveal their active participation in discussions of central importance to the Enlightenment.\"",
+      "isImplicit": false
+    },
+    "Claim25": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment is distinct from Kant's in its social context and focus on the enlightener.\"",
+      "isImplicit": false
+    },
+    "Claim26": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment emphasizes the importance of culture and sociability.\"",
+      "isImplicit": false
+    },
+    "Claim27": {
+      "type": "Claim",
+      "text": "\"The women considered in this chapter engage with Mendelssohn's conception of enlightenment in ways that reveal their critical and creative thinking.\"",
+      "isImplicit": false
+    },
+    "Claim28": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment has a distinctively inclusive character",
+      "isImplicit": false
+    },
+    "Claim29": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment is extended and revised by women such as Amalia Holst and Elise Reimarus.\"",
+      "isImplicit": false
+    },
+    "Claim30": {
+      "type": "Claim",
+      "text": "\"Women such as Henriette Herz",
+      "isImplicit": false
+    },
+    "Claim31": {
+      "type": "Claim",
+      "text": "\"The women considered in this chapter extend and revise Mendelssohn's conception of enlightenment in ways that enhance its inclusivity.\"",
+      "isImplicit": false
+    },
+    "Claim32": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment has a distinctively inclusive character",
+      "isImplicit": false
+    },
+    "Claim33": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment is often neglected by historians of philosophy and the Enlightenment.\"",
+      "isImplicit": false
+    },
+    "Claim34": {
+      "type": "Claim",
+      "text": "\"The women considered in this chapter engage with Mendelssohn's conception of enlightenment in ways that reveal their active participation in discussions of central importance to the Enlightenment.\"",
+      "isImplicit": false
+    },
+    "Claim35": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment is distinct from Kant's in its social context and focus on the enlightener.\"",
+      "isImplicit": false
+    },
+    "Claim36": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment emphasizes the importance of culture and sociability.\"",
+      "isImplicit": false
+    },
+    "Claim37": {
+      "type": "Claim",
+      "text": "\"The women considered in this chapter engage with Mendelssohn's conception of enlightenment in ways that reveal their critical and creative thinking.\"",
+      "isImplicit": false
+    },
+    "Claim38": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment has a distinctively inclusive character",
+      "isImplicit": false
+    },
+    "Claim39": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment is extended and revised by women such as Amalia Holst and Elise Reimarus.\"",
+      "isImplicit": false
+    },
+    "Claim40": {
+      "type": "Claim",
+      "text": "\"Women such as Henriette Herz",
+      "isImplicit": false
+    },
+    "Claim41": {
+      "type": "Claim",
+      "text": "\"The women considered in this chapter engage with Mendelssohn's conception of enlightenment in ways that reveal their critical and creative thinking.\"",
+      "isImplicit": false
+    },
+    "Claim42": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment has been neglected by historians of philosophy and the Enlightenment.\"",
+      "isImplicit": false
+    },
+    "Claim43": {
+      "type": "Claim",
+      "text": "\"The women considered in this chapter extend and revise Mendelssohn's conception of enlightenment in ways that enhance its inclusivity.\"",
+      "isImplicit": false
+    },
+    "Claim44": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment has a distinctively inclusive character",
+      "isImplicit": false
+    },
+    "Claim45": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment is often neglected by historians of philosophy and the Enlightenment.\"",
+      "isImplicit": false
+    },
+    "Claim46": {
+      "type": "Claim",
+      "text": "\"The women considered in this chapter engage with Mendelssohn's conception of enlightenment in ways that reveal their active participation in discussions of central importance to the Enlightenment.\"",
+      "isImplicit": false
+    },
+    "Claim47": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment is distinct from Kant's in its social context and focus on the enlightener.\"",
+      "isImplicit": false
+    },
+    "Claim48": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment emphasizes the importance of culture and sociability.\"",
+      "isImplicit": false
+    },
+    "Claim49": {
+      "type": "Claim",
+      "text": "\"The women considered in this chapter engage with Mendelssohn's conception of enlightenment in ways that reveal their critical and creative thinking.\"",
+      "isImplicit": false
+    },
+    "Claim50": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment has a distinctively inclusive character",
+      "isImplicit": false
+    },
+    "Claim51": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment is extended and revised by women such as Amalia Holst and Elise Reimarus.\"",
+      "isImplicit": false
+    },
+    "Claim52": {
+      "type": "Claim",
+      "text": "\"Women such as Henriette Herz",
+      "isImplicit": false
+    },
+    "Claim53": {
+      "type": "Claim",
+      "text": "\"The women considered in this chapter extend and revise Mendelssohn's conception of enlightenment in ways that enhance its inclusivity.\"",
+      "isImplicit": false
+    },
+    "Claim54": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment has a distinctively inclusive character",
+      "isImplicit": false
+    },
+    "Claim55": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment is often neglected by historians of philosophy and the Enlightenment.\"",
+      "isImplicit": false
+    },
+    "Claim56": {
+      "type": "Claim",
+      "text": "\"The women considered in this chapter engage with Mendelssohn's conception of enlightenment in ways that reveal their active participation in discussions of central importance to the Enlightenment.\"",
+      "isImplicit": false
+    },
+    "Claim57": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment is distinct from Kant's in its social context and focus on the enlightener.\"",
+      "isImplicit": false
+    },
+    "Claim58": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment emphasizes the importance of culture and sociability.\"",
+      "isImplicit": false
+    },
+    "Claim59": {
+      "type": "Claim",
+      "text": "\"The women considered in this chapter engage with Mendelssohn's conception of enlightenment in ways that reveal their critical and creative thinking.\"",
+      "isImplicit": false
+    },
+    "Claim60": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment has a distinctively inclusive character",
+      "isImplicit": false
+    },
+    "Claim61": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment is extended and revised by women such as Amalia Holst and Elise Reimarus.\"",
+      "isImplicit": false
+    },
+    "Claim62": {
+      "type": "Claim",
+      "text": "\"Women such as Henriette Herz",
+      "isImplicit": false
+    },
+    "Claim63": {
+      "type": "Claim",
+      "text": "\"The women considered in this chapter extend and revise Mendelssohn's conception of enlightenment in ways that enhance its inclusivity.\"",
+      "isImplicit": false
+    },
+    "Claim64": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment has a distinctively inclusive character",
+      "isImplicit": false
+    },
+    "Claim65": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment is often neglected by historians of philosophy and the Enlightenment.\"",
+      "isImplicit": false
+    },
+    "Claim66": {
+      "type": "Claim",
+      "text": "\"The women considered in this chapter engage with Mendelssohn's conception of enlightenment in ways that reveal their active participation in discussions of central importance to the Enlightenment.\"",
+      "isImplicit": false
+    },
+    "Claim67": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment is distinct from Kant's in its social context and focus on the enlightener.\"",
+      "isImplicit": false
+    },
+    "Claim68": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment emphasizes the importance of culture and sociability.\"",
+      "isImplicit": false
+    },
+    "Claim69": {
+      "type": "Claim",
+      "text": "\"The women considered in this chapter engage with Mendelssohn's conception of enlightenment in ways that reveal their critical and creative thinking.\"",
+      "isImplicit": false
+    },
+    "Claim70": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment has a distinctively inclusive character",
+      "isImplicit": false
+    },
+    "Claim71": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment is extended and revised by women such as Amalia Holst and Elise Reimarus.\"",
+      "isImplicit": false
+    },
+    "Claim72": {
+      "type": "Claim",
+      "text": "\"Women such as Henriette Herz",
+      "isImplicit": false
+    },
+    "Claim73": {
+      "type": "Claim",
+      "text": "\"The women considered in this chapter extend and revise Mendelssohn's conception of enlightenment in ways that enhance its inclusivity.\"",
+      "isImplicit": false
+    },
+    "Claim74": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment has a distinctively inclusive character",
+      "isImplicit": false
+    },
+    "Claim75": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment is often neglected by historians of philosophy and the Enlightenment.\"",
+      "isImplicit": false
+    },
+    "Claim76": {
+      "type": "Claim",
+      "text": "\"The women considered in this chapter engage with Mendelssohn's conception of enlightenment in ways that reveal their active participation in discussions of central importance to the Enlightenment.\"",
+      "isImplicit": false
+    },
+    "Claim77": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment is distinct from Kant's in its social context and focus on the enlightener.\"",
+      "isImplicit": false
+    },
+    "Claim78": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment emphasizes the importance of culture and sociability.\"",
+      "isImplicit": false
+    },
+    "Claim79": {
+      "type": "Claim",
+      "text": "\"The women considered in this chapter engage with Mendelssohn's conception of enlightenment in ways that reveal their critical and creative thinking.\"",
+      "isImplicit": false
+    },
+    "Claim80": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment has a distinctively inclusive character",
+      "isImplicit": false
+    },
+    "Claim81": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment is extended and revised by women such as Amalia Holst and Elise Reimarus.\"",
+      "isImplicit": false
+    },
+    "Claim82": {
+      "type": "Claim",
+      "text": "\"Women such as Henriette Herz",
+      "isImplicit": false
+    },
+    "Claim83": {
+      "type": "Claim",
+      "text": "\"The women considered in this chapter extend and revise Mendelssohn's conception of enlightenment in ways that enhance its inclusivity.\"",
+      "isImplicit": false
+    },
+    "Claim84": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment has a distinctively inclusive character",
+      "isImplicit": false
+    },
+    "Claim85": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment is often neglected by historians of philosophy and the Enlightenment.\"",
+      "isImplicit": false
+    },
+    "Claim86": {
+      "type": "Claim",
+      "text": "\"The women considered in this chapter engage with Mendelssohn's conception of enlightenment in ways that reveal their active participation in discussions of central importance to the Enlightenment.\"",
+      "isImplicit": false
+    },
+    "Claim87": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment is distinct from Kant's in its social context and focus on the enlightener.\"",
+      "isImplicit": false
+    },
+    "Claim88": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment emphasizes the importance of culture and sociability.\"",
+      "isImplicit": false
+    },
+    "Claim89": {
+      "type": "Claim",
+      "text": "\"The women considered in this chapter engage with Mendelssohn's conception of enlightenment in ways that reveal their critical and creative thinking.\"",
+      "isImplicit": false
+    },
+    "Claim90": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment has a distinctively inclusive character",
+      "isImplicit": false
+    },
+    "Claim91": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment is extended and revised by women such as Amalia Holst and Elise Reimarus.\"",
+      "isImplicit": false
+    },
+    "Claim92": {
+      "type": "Claim",
+      "text": "\"Women such as Henriette Herz",
+      "isImplicit": false
+    },
+    "Claim93": {
+      "type": "Claim",
+      "text": "\"The women considered in this chapter extend and revise Mendelssohn's conception of enlightenment in ways that enhance its inclusivity.\"",
+      "isImplicit": false
+    },
+    "Claim94": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment has a distinctively inclusive character",
+      "isImplicit": false
+    },
+    "Claim95": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment is often neglected by historians of philosophy and the Enlightenment.\"",
+      "isImplicit": false
+    },
+    "Claim96": {
+      "type": "Claim",
+      "text": "\"The women considered in this chapter engage with Mendelssohn's conception of enlightenment in ways that reveal their active participation in discussions of central importance to the Enlightenment.\"",
+      "isImplicit": false
+    },
+    "Claim97": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment is distinct from Kant's in its social context and focus on the enlightener.\"",
+      "isImplicit": false
+    },
+    "Claim98": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment emphasizes the importance of culture and sociability.\"",
+      "isImplicit": false
+    },
+    "Claim99": {
+      "type": "Claim",
+      "text": "\"The women considered in this chapter engage with Mendelssohn's conception of enlightenment in ways that reveal their critical and creative thinking.\"",
+      "isImplicit": false
+    },
+    "Claim100": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment has a distinctively inclusive character",
+      "isImplicit": false
+    },
+    "Claim101": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment is extended and revised by women such as Amalia Holst and Elise Reimarus.\"",
+      "isImplicit": false
+    },
+    "Claim102": {
+      "type": "Claim",
+      "text": "\"Women such as Henriette Herz",
+      "isImplicit": false
+    },
+    "Claim103": {
+      "type": "Claim",
+      "text": "\"The women considered in this chapter extend and revise Mendelssohn's conception of enlightenment in ways that enhance its inclusivity.\"",
+      "isImplicit": false
+    },
+    "Claim104": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment has a distinctively inclusive character",
+      "isImplicit": false
+    },
+    "Claim105": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment is often neglected by historians of philosophy and the Enlightenment.\"",
+      "isImplicit": false
+    },
+    "Claim106": {
+      "type": "Claim",
+      "text": "\"The women considered in this chapter engage with Mendelssohn's conception of enlightenment in ways that reveal their active participation in discussions of central importance to the Enlightenment.\"",
+      "isImplicit": false
+    },
+    "Claim107": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment is distinct from Kant's in its social context and focus on the enlightener.\"",
+      "isImplicit": false
+    },
+    "Claim108": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment emphasizes the importance of culture and sociability.\"",
+      "isImplicit": false
+    },
+    "Claim109": {
+      "type": "Claim",
+      "text": "\"The women considered in this chapter engage with Mendelssohn's conception of enlightenment in ways that reveal their critical and creative thinking.\"",
+      "isImplicit": false
+    },
+    "Claim110": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment has a distinctively inclusive character",
+      "isImplicit": false
+    },
+    "Claim111": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment is extended and revised by women such as Amalia Holst and Elise Reimarus.\"",
+      "isImplicit": false
+    },
+    "Claim112": {
+      "type": "Claim",
+      "text": "\"Women such as Henriette Herz",
+      "isImplicit": false
+    },
+    "Claim113": {
+      "type": "Claim",
+      "text": "\"The women considered in this chapter extend and revise Mendelssohn's conception of enlightenment in ways that enhance its inclusivity.\"",
+      "isImplicit": false
+    },
+    "Claim114": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment has a distinctively inclusive character",
+      "isImplicit": false
+    },
+    "Claim115": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment is often neglected by historians of philosophy and the Enlightenment.\"",
+      "isImplicit": false
+    },
+    "Claim116": {
+      "type": "Claim",
+      "text": "\"The women considered in this chapter engage with Mendelssohn's conception of enlightenment in ways that reveal their active participation in discussions of central importance to the Enlightenment.\"",
+      "isImplicit": false
+    },
+    "Claim117": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment is distinct from Kant's in its social context and focus on the enlightener.\"",
+      "isImplicit": false
+    },
+    "Claim118": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment emphasizes the importance of culture and sociability.\"",
+      "isImplicit": false
+    },
+    "Claim119": {
+      "type": "Claim",
+      "text": "\"The women considered in this chapter engage with Mendelssohn's conception of enlightenment in ways that reveal their critical and creative thinking.\"",
+      "isImplicit": false
+    },
+    "Claim120": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment has a distinctively inclusive character",
+      "isImplicit": false
+    },
+    "Claim121": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment is extended and revised by women such as Amalia Holst and Elise Reimarus.\"",
+      "isImplicit": false
+    },
+    "Claim122": {
+      "type": "Claim",
+      "text": "\"Women such as Henriette Herz",
+      "isImplicit": false
+    },
+    "Claim123": {
+      "type": "Claim",
+      "text": "\"The women considered in this chapter extend and revise Mendelssohn's conception of enlightenment in ways that enhance its inclusivity.\"",
+      "isImplicit": false
+    },
+    "Claim124": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment has a distinctively inclusive character",
+      "isImplicit": false
+    },
+    "Claim125": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment is often neglected by historians of philosophy and the Enlightenment.\"",
+      "isImplicit": false
+    },
+    "Claim126": {
+      "type": "Claim",
+      "text": "\"The women considered in this chapter engage with Mendelssohn's conception of enlightenment in ways that reveal their active participation in discussions of central importance to the Enlightenment.\"",
+      "isImplicit": false
+    },
+    "Claim127": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment is distinct from Kant's in its social context and focus on the enlightener.\"",
+      "isImplicit": false
+    },
+    "Claim128": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment emphasizes the importance of culture and sociability.\"",
+      "isImplicit": false
+    },
+    "Claim129": {
+      "type": "Claim",
+      "text": "\"The women considered in this chapter engage with Mendelssohn's conception of enlightenment in ways that reveal their critical and creative thinking.\"",
+      "isImplicit": false
+    },
+    "Claim130": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment has a distinctively inclusive character",
+      "isImplicit": false
+    },
+    "Claim131": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment is extended and revised by women such as Amalia Holst and Elise Reimarus.\"",
+      "isImplicit": false
+    },
+    "Claim132": {
+      "type": "Claim",
+      "text": "\"Women such as Henriette Herz",
+      "isImplicit": false
+    },
+    "Claim133": {
+      "type": "Claim",
+      "text": "\"The women considered in this chapter extend and revise Mendelssohn's conception of enlightenment in ways that enhance its inclusivity.\"",
+      "isImplicit": false
+    },
+    "Claim134": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment has a distinctively inclusive character",
+      "isImplicit": false
+    },
+    "Claim135": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment is often neglected by historians of philosophy and the Enlightenment.\"",
+      "isImplicit": false
+    },
+    "Claim136": {
+      "type": "Claim",
+      "text": "\"The women considered in this chapter engage with Mendelssohn's conception of enlightenment in ways that reveal their active participation in discussions of central importance to the Enlightenment.\"",
+      "isImplicit": false
+    },
+    "Claim137": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment is distinct from Kant's in its social context and focus on the enlightener.\"",
+      "isImplicit": false
+    },
+    "Claim138": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment emphasizes the importance of culture and sociability.\"",
+      "isImplicit": false
+    },
+    "Claim139": {
+      "type": "Claim",
+      "text": "\"The women considered in this chapter engage with Mendelssohn's conception of enlightenment in ways that reveal their critical and creative thinking.\"",
+      "isImplicit": false
+    },
+    "Claim140": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment has a distinctively inclusive character",
+      "isImplicit": false
+    },
+    "Claim141": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment is extended and revised by women such as Amalia Holst and Elise Reimarus.\"",
+      "isImplicit": false
+    },
+    "Claim142": {
+      "type": "Claim",
+      "text": "\"Women such as Henriette Herz",
+      "isImplicit": false
+    },
+    "Claim143": {
+      "type": "Claim",
+      "text": "\"The women considered in this chapter extend and revise Mendelssohn's conception of enlightenment in ways that enhance its inclusivity.\"",
+      "isImplicit": false
+    },
+    "Claim144": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment has a distinctively inclusive character",
+      "isImplicit": false
+    },
+    "Claim145": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment is often neglected by historians of philosophy and the Enlightenment.\"",
+      "isImplicit": false
+    },
+    "Claim146": {
+      "type": "Claim",
+      "text": "\"The women considered in this chapter engage with Mendelssohn's conception of enlightenment in ways that reveal their active participation in discussions of central importance to the Enlightenment.\"",
+      "isImplicit": false
+    },
+    "Claim147": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment is distinct from Kant's in its social context and focus on the enlightener.\"",
+      "isImplicit": false
+    },
+    "Claim148": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment emphasizes the importance of culture and sociability.\"",
+      "isImplicit": false
+    },
+    "Claim149": {
+      "type": "Claim",
+      "text": "\"The women considered in this chapter engage with Mendelssohn's conception of enlightenment in ways that reveal their critical and creative thinking.\"",
+      "isImplicit": false
+    },
+    "Claim150": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment has a distinctively inclusive character",
+      "isImplicit": false
+    },
+    "Claim151": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment is extended and revised by women such as Amalia Holst and Elise Reimarus.\"",
+      "isImplicit": false
+    },
+    "Claim152": {
+      "type": "Claim",
+      "text": "\"Women such as Henriette Herz",
+      "isImplicit": false
+    },
+    "Claim153": {
+      "type": "Claim",
+      "text": "\"The women considered in this chapter extend and revise Mendelssohn's conception of enlightenment in ways that enhance its inclusivity.\"",
+      "isImplicit": false
+    },
+    "Claim154": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment has a distinctively inclusive character",
+      "isImplicit": false
+    },
+    "Claim155": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment is often neglected by historians of philosophy and the Enlightenment.\"",
+      "isImplicit": false
+    },
+    "Claim156": {
+      "type": "Claim",
+      "text": "\"The women considered in this chapter engage with Mendelssohn's conception of enlightenment in ways that reveal their active participation in discussions of central importance to the Enlightenment.\"",
+      "isImplicit": false
+    },
+    "Claim157": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment is distinct from Kant's in its social context and focus on the enlightener.\"",
+      "isImplicit": false
+    },
+    "Claim158": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment emphasizes the importance of culture and sociability.\"",
+      "isImplicit": false
+    },
+    "Claim159": {
+      "type": "Claim",
+      "text": "\"The women considered in this chapter engage with Mendelssohn's conception of enlightenment in ways that reveal their critical and creative thinking.\"",
+      "isImplicit": false
+    },
+    "Claim160": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment has a distinctively inclusive character",
+      "isImplicit": false
+    },
+    "Claim161": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment is extended and revised by women such as Amalia Holst and Elise Reimarus.\"",
+      "isImplicit": false
+    },
+    "Claim162": {
+      "type": "Claim",
+      "text": "\"Women such as Henriette Herz",
+      "isImplicit": false
+    },
+    "Claim163": {
+      "type": "Claim",
+      "text": "\"The women considered in this chapter extend and revise Mendelssohn's conception of enlightenment in ways that enhance its inclusivity.\"",
+      "isImplicit": false
+    },
+    "Claim164": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment has a distinctively inclusive character",
+      "isImplicit": false
+    },
+    "Claim165": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment is often neglected by historians of philosophy and the Enlightenment.\"",
+      "isImplicit": false
+    },
+    "Claim166": {
+      "type": "Claim",
+      "text": "\"The women considered in this chapter engage with Mendelssohn's conception of enlightenment in ways that reveal their active participation in discussions of central importance to the Enlightenment.\"",
+      "isImplicit": false
+    },
+    "Claim167": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment is distinct from Kant's in its social context and focus on the enlightener.\"",
+      "isImplicit": false
+    },
+    "Claim168": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment emphasizes the importance of culture and sociability.\"",
+      "isImplicit": false
+    },
+    "Claim169": {
+      "type": "Claim",
+      "text": "\"The women considered in this chapter engage with Mendelssohn's conception of enlightenment in ways that reveal their critical and creative thinking.\"",
+      "isImplicit": false
+    },
+    "Claim170": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment has a distinctively inclusive character",
+      "isImplicit": false
+    },
+    "Claim171": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment is extended and revised by women such as Amalia Holst and Elise Reimarus.\"",
+      "isImplicit": false
+    },
+    "Claim172": {
+      "type": "Claim",
+      "text": "\"Women such as Henriette Herz",
+      "isImplicit": false
+    },
+    "Claim173": {
+      "type": "Claim",
+      "text": "\"The women considered in this chapter extend and revise Mendelssohn's conception of enlightenment in ways that enhance its inclusivity.\"",
+      "isImplicit": false
+    },
+    "Claim174": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment has a distinctively inclusive character",
+      "isImplicit": false
+    },
+    "Claim175": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment is often neglected by historians of philosophy and the Enlightenment.\"",
+      "isImplicit": false
+    },
+    "Claim176": {
+      "type": "Claim",
+      "text": "\"The women considered in this chapter engage with Mendelssohn's conception of enlightenment in ways that reveal their active participation in discussions of central importance to the Enlightenment.\"",
+      "isImplicit": false
+    },
+    "Claim177": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment is distinct from Kant's in its social context and focus on the enlightener.\"",
+      "isImplicit": false
+    },
+    "Claim178": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment emphasizes the importance of culture and sociability.\"",
+      "isImplicit": false
+    },
+    "Claim179": {
+      "type": "Claim",
+      "text": "\"The women considered in this chapter engage with Mendelssohn's conception of enlightenment in ways that reveal their critical and creative thinking.\"",
+      "isImplicit": false
+    },
+    "Claim180": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment has a distinctively inclusive character",
+      "isImplicit": false
+    },
+    "Claim181": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment is extended and revised by women such as Amalia Holst and Elise Reimarus.\"",
+      "isImplicit": false
+    },
+    "Claim182": {
+      "type": "Claim",
+      "text": "\"Women such as Henriette Herz",
+      "isImplicit": false
+    },
+    "Claim183": {
+      "type": "Claim",
+      "text": "\"The women considered in this chapter extend and revise Mendelssohn's conception of enlightenment in ways that enhance its inclusivity.\"",
+      "isImplicit": false
+    },
+    "Claim184": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment has a distinctively inclusive character",
+      "isImplicit": false
+    },
+    "Claim185": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment is often neglected by historians of philosophy and the Enlightenment.\"",
+      "isImplicit": false
+    },
+    "Claim186": {
+      "type": "Claim",
+      "text": "\"The women considered in this chapter engage with Mendelssohn's conception of enlightenment in ways that reveal their active participation in discussions of central importance to the Enlightenment.\"",
+      "isImplicit": false
+    },
+    "Claim187": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment is distinct from Kant's in its social context and focus on the enlightener.\"",
+      "isImplicit": false
+    },
+    "Claim188": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment emphasizes the importance of culture and sociability.\"",
+      "isImplicit": false
+    },
+    "Claim189": {
+      "type": "Claim",
+      "text": "\"The women considered in this chapter engage with Mendelssohn's conception of enlightenment in ways that reveal their critical and creative thinking.\"",
+      "isImplicit": false
+    },
+    "Claim190": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment has a distinctively inclusive character",
+      "isImplicit": false
+    },
+    "Claim191": {
+      "type": "Claim",
+      "text": "\"Mendelssohn's conception of enlightenment is extended and revised by women such as Amalia Holst and Elise Reimarus.\"",
+      "isImplicit": false
+    },
+    "Claim192": {
+      "type": "Claim",
+      "text": "\"Women such as Henriette Herz",
+      "isImplicit": false
+    }
+  },
+  "relations": []
+}

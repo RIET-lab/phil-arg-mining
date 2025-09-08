@@ -1,0 +1,55 @@
+{
+  "ADUs": {
+    "MainClaim": {
+      "type": "Major Claim",
+      "text": "\"Pico's philosophy is influenced by Anaxagoras' principle that everything is in everything in their own mode.\"",
+      "isImplicit": false
+    },
+    "s interpretation of Anaxagoras": {
+      "type": "Claim",
+      "text": "\"Pico interprets Anaxagoras' philosophy to support his own views on the nature of the Intellect.\"",
+      "isImplicit": false
+    },
+    "s influence on his metaphysics": {
+      "type": "Claim",
+      "text": "\"Anaxagoras' principle that everything is in everything in their own mode influences Pico's metaphysics.\"",
+      "isImplicit": false
+    },
+    "s method of allegorical interpretation": {
+      "type": "Claim",
+      "text": "\"Anaxagoras' principle is supportive to Pico's method of allegorical interpretation.\"",
+      "isImplicit": false
+    },
+    "s anthropocentrism": {
+      "type": "Claim",
+      "text": "\"Pico rejects the fixed position of man in the ontological hierarchy",
+      "isImplicit": false
+    },
+    "s relation to Anaxagoras": {
+      "type": "Claim",
+      "text": "\"Pico refutes Anaxagoras' argument that the Intellect is separate and unmixed",
+      "isImplicit": false
+    },
+    "Intellect": {
+      "type": "Claim",
+      "text": "\"Pico's interpretation of Anaxagoras' Intellect is influenced by Plotinus' interpretation.\"",
+      "isImplicit": false
+    },
+    "s argumentation is ambivalent": {
+      "type": "Claim",
+      "text": "\"Pico's argumentation is ambivalent and lacks consistency.\"",
+      "isImplicit": false
+    },
+    "creation myth": {
+      "type": "Claim",
+      "text": "\"Pico's view on creation is not compatible with Anaxagoras' model.\"",
+      "isImplicit": false
+    },
+    "principle": {
+      "type": "Claim",
+      "text": "\"Pico uses Anaxagoras' principle to support his own views on the nature of the Intellect.\"",
+      "isImplicit": false
+    }
+  },
+  "relations": []
+}

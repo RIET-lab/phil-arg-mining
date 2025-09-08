@@ -1,0 +1,1210 @@
+{
+  "ADUs": {
+    "MainClaim": {
+      "type": "Major Claim",
+      "text": "\"The widespread availability of generative AI poses a threat to human creativity",
+      "isImplicit": false
+    },
+    "Section1": {
+      "type": "Claim",
+      "text": "\"AI may make human creativity obsolete in various aspects of our lives.\"",
+      "isImplicit": false
+    },
+    "Section2": {
+      "type": "Claim",
+      "text": "\"An underappreciated benefit of our creativity is the role it plays in connecting us to one another.\"",
+      "isImplicit": false
+    },
+    "Section3": {
+      "type": "Claim",
+      "text": "\"Employing generative AI in place of our creative pursuits affects our prospects for social connection.\"",
+      "isImplicit": false
+    },
+    "CreativeObsolescence": {
+      "type": "Claim",
+      "text": "\"The normative question of creative obsolescence is: If we come to rely on AI models instead of our own creativity",
+      "isImplicit": false
+    },
+    "NormativeQuestion": {
+      "type": "Claim",
+      "text": "\"The value of human creativity cannot be secured by reliance on AI.\"",
+      "isImplicit": false
+    },
+    "DescriptiveQuestion": {
+      "type": "Claim",
+      "text": "\"The descriptive question of creative obsolescence is: Will AI become the case that people abandon human creativity in favor of using AI to get what they want?\"",
+      "isImplicit": false
+    },
+    "Section1Argument": {
+      "type": "Claim",
+      "text": "\"Human creativity is valuable because it yields products of aesthetic",
+      "isImplicit": false
+    },
+    "Section2Argument": {
+      "type": "Claim",
+      "text": "\"Creativity is valuable because it plays a role in enabling human connection.\"",
+      "isImplicit": false
+    },
+    "Section3Argument": {
+      "type": "Claim",
+      "text": "\"Relying on AI rather than human creativity in the arts and sciences can lead to diminished social connection.\"",
+      "isImplicit": false
+    },
+    "Anecdote": {
+      "type": "Claim",
+      "text": "\"Anecdote about the author's experience with Dall-E 2",
+      "isImplicit": false
+    },
+    "LazyReliance": {
+      "type": "Claim",
+      "text": "\"The temptation to outsource creative work to AI is strong and growing stronger.\"",
+      "isImplicit": false
+    },
+    "EmersonPremise": {
+      "type": "Claim",
+      "text": "\"Emerson's idea that thoughtless conformity to social norms can lead to alienation and loneliness.\"",
+      "isImplicit": false
+    },
+    "AlphaFoldPremise": {
+      "type": "Claim",
+      "text": "\"AlphaFold's success in protein folding has led to a tendency to conceive of scientific progress as solely predictive power",
+      "isImplicit": false
+    },
+    "Premise1": {
+      "type": "Claim",
+      "text": "\"Scientific creativity is valuable because it enables the sharing of ideas among scientists.\"",
+      "isImplicit": false
+    },
+    "Premise2": {
+      "type": "Claim",
+      "text": "\"Creative theorizing is necessary for scientific understanding.\"",
+      "isImplicit": false
+    },
+    "Premise3": {
+      "type": "Claim",
+      "text": "\"AlphaFold's black-box nature prevents it from furnishing scientific explanations.\"",
+      "isImplicit": false
+    },
+    "Premise4": {
+      "type": "Claim",
+      "text": "\"Human creativity is necessary for scientific understanding.\"",
+      "isImplicit": false
+    },
+    "Premise5": {
+      "type": "Claim",
+      "text": "\"Scientists cannot connect with AlphaFold in the same way they can connect with human scientists.\"",
+      "isImplicit": false
+    },
+    "Premise6": {
+      "type": "Claim",
+      "text": "\"Scientific progress involves advances in both predictive power and understanding.\"",
+      "isImplicit": false
+    },
+    "Premise7": {
+      "type": "Claim",
+      "text": "\"The tendency to conceive of scientific progress as solely predictive power is a threat to scientific creativity.\"",
+      "isImplicit": false
+    },
+    "Premise8": {
+      "type": "Claim",
+      "text": "\"Human creativity is essential for scientific understanding.\"",
+      "isImplicit": false
+    },
+    "Premise9": {
+      "type": "Claim",
+      "text": "\"The scientific community should be wary of adopting a conception of scientific progress that leaves out the importance of advancing shared human understanding.\"",
+      "isImplicit": false
+    },
+    "Premise10": {
+      "type": "Claim",
+      "text": "\"The value of human creativity is not solely aesthetic",
+      "isImplicit": false
+    },
+    "Premise11": {
+      "type": "Claim",
+      "text": "\"Human connection is essential for both interpersonal relationships and a broader sense of human connection.\"",
+      "isImplicit": false
+    },
+    "Premise12": {
+      "type": "Claim",
+      "text": "\"The self-disclosure that occurs when we are creative makes it possible for others to understand us.\"",
+      "isImplicit": false
+    },
+    "Premise13": {
+      "type": "Claim",
+      "text": "\"The widespread availability of generative AI poses a threat to human creativity.\"",
+      "isImplicit": false
+    },
+    "Premise14": {
+      "type": "Claim",
+      "text": "\"Human creativity is valuable because it enables human connection.\"",
+      "isImplicit": false
+    },
+    "Premise15": {
+      "type": "Claim",
+      "text": "\"The self-disclosure that occurs when we are creative is especially valuable for human connection.\"",
+      "isImplicit": false
+    },
+    "Premise16": {
+      "type": "Claim",
+      "text": "\"Creativity discloses the inquisitive self.\"",
+      "isImplicit": false
+    },
+    "Premise17": {
+      "type": "Claim",
+      "text": "\"The inquisitive self is a particularly important aspect of a person to get to know if you wish to form a meaningful connection with them.\"",
+      "isImplicit": false
+    },
+    "Premise18": {
+      "type": "Claim",
+      "text": "\"Creativity is especially valuable for human connection because it discloses the inquisitive self.\"",
+      "isImplicit": false
+    },
+    "Premise19": {
+      "type": "Claim",
+      "text": "\"The widespread availability of generative AI poses a threat to human creativity.\"",
+      "isImplicit": false
+    },
+    "Premise20": {
+      "type": "Claim",
+      "text": "\"Human connection is essential for both interpersonal relationships and a broader sense of human connection.\"",
+      "isImplicit": false
+    },
+    "Premise21": {
+      "type": "Claim",
+      "text": "\"The self-disclosure that occurs when we are creative makes it possible for others to understand us.\"",
+      "isImplicit": false
+    },
+    "Premise22": {
+      "type": "Claim",
+      "text": "\"The widespread availability of generative AI poses a threat to human creativity.\"",
+      "isImplicit": false
+    },
+    "Premise23": {
+      "type": "Claim",
+      "text": "\"Human creativity is valuable because it enables human connection.\"",
+      "isImplicit": false
+    },
+    "Premise24": {
+      "type": "Claim",
+      "text": "\"The value of human creativity is not solely aesthetic",
+      "isImplicit": false
+    },
+    "Premise25": {
+      "type": "Claim",
+      "text": "\"Human connection is essential for both interpersonal relationships and a broader sense of human connection.\"",
+      "isImplicit": false
+    },
+    "Premise26": {
+      "type": "Claim",
+      "text": "\"The self-disclosure that occurs when we are creative is especially valuable for human connection.\"",
+      "isImplicit": false
+    },
+    "Premise27": {
+      "type": "Claim",
+      "text": "\"Creativity discloses the inquisitive self.\"",
+      "isImplicit": false
+    },
+    "Premise28": {
+      "type": "Claim",
+      "text": "\"The inquisitive self is a particularly important aspect of a person to get to know if you wish to form a meaningful connection with them.\"",
+      "isImplicit": false
+    },
+    "Premise29": {
+      "type": "Claim",
+      "text": "\"The value of human creativity is not solely aesthetic",
+      "isImplicit": false
+    },
+    "Premise30": {
+      "type": "Claim",
+      "text": "\"Human connection is essential for both interpersonal relationships and a broader sense of human connection.\"",
+      "isImplicit": false
+    },
+    "Premise31": {
+      "type": "Claim",
+      "text": "\"The self-disclosure that occurs when we are creative is especially valuable for human connection.\"",
+      "isImplicit": false
+    },
+    "Premise32": {
+      "type": "Claim",
+      "text": "\"Creativity discloses the inquisitive self.\"",
+      "isImplicit": false
+    },
+    "Premise33": {
+      "type": "Claim",
+      "text": "\"The inquisitive self is a particularly important aspect of a person to get to know if you wish to form a meaningful connection with them.\"",
+      "isImplicit": false
+    },
+    "Premise34": {
+      "type": "Claim",
+      "text": "\"Human connection is essential for both interpersonal relationships and a broader sense of human connection.\"",
+      "isImplicit": false
+    },
+    "Premise35": {
+      "type": "Claim",
+      "text": "\"The value of human creativity is not solely aesthetic",
+      "isImplicit": false
+    },
+    "Premise36": {
+      "type": "Claim",
+      "text": "\"The self-disclosure that occurs when we are creative is especially valuable for human connection.\"",
+      "isImplicit": false
+    },
+    "Premise37": {
+      "type": "Claim",
+      "text": "\"Creativity discloses the inquisitive self.\"",
+      "isImplicit": false
+    },
+    "Premise38": {
+      "type": "Claim",
+      "text": "\"The inquisitive self is a particularly important aspect of a person to get to know if you wish to form a meaningful connection with them.\"",
+      "isImplicit": false
+    },
+    "Premise39": {
+      "type": "Claim",
+      "text": "\"Human connection is essential for both interpersonal relationships and a broader sense of human connection.\"",
+      "isImplicit": false
+    },
+    "Premise40": {
+      "type": "Claim",
+      "text": "\"The value of human creativity is not solely aesthetic",
+      "isImplicit": false
+    },
+    "Premise41": {
+      "type": "Claim",
+      "text": "\"The self-disclosure that occurs when we are creative is especially valuable for human connection.\"",
+      "isImplicit": false
+    },
+    "Premise42": {
+      "type": "Claim",
+      "text": "\"Creativity discloses the inquisitive self.\"",
+      "isImplicit": false
+    },
+    "Premise43": {
+      "type": "Claim",
+      "text": "\"The inquisitive self is a particularly important aspect of a person to get to know if you wish to form a meaningful connection with them.\"",
+      "isImplicit": false
+    },
+    "Premise44": {
+      "type": "Claim",
+      "text": "\"Human connection is essential for both interpersonal relationships and a broader sense of human connection.\"",
+      "isImplicit": false
+    },
+    "Premise45": {
+      "type": "Claim",
+      "text": "\"The value of human creativity is not solely aesthetic",
+      "isImplicit": false
+    },
+    "Premise46": {
+      "type": "Claim",
+      "text": "\"The self-disclosure that occurs when we are creative is especially valuable for human connection.\"",
+      "isImplicit": false
+    },
+    "Premise47": {
+      "type": "Claim",
+      "text": "\"Creativity discloses the inquisitive self.\"",
+      "isImplicit": false
+    },
+    "Premise48": {
+      "type": "Claim",
+      "text": "\"The inquisitive self is a particularly important aspect of a person to get to know if you wish to form a meaningful connection with them.\"",
+      "isImplicit": false
+    },
+    "Premise49": {
+      "type": "Claim",
+      "text": "\"Human connection is essential for both interpersonal relationships and a broader sense of human connection.\"",
+      "isImplicit": false
+    },
+    "Premise50": {
+      "type": "Claim",
+      "text": "\"The value of human creativity is not solely aesthetic",
+      "isImplicit": false
+    },
+    "Premise51": {
+      "type": "Claim",
+      "text": "\"The self-disclosure that occurs when we are creative is especially valuable for human connection.\"",
+      "isImplicit": false
+    },
+    "Premise52": {
+      "type": "Claim",
+      "text": "\"Creativity discloses the inquisitive self.\"",
+      "isImplicit": false
+    },
+    "Premise53": {
+      "type": "Claim",
+      "text": "\"The inquisitive self is a particularly important aspect of a person to get to know if you wish to form a meaningful connection with them.\"",
+      "isImplicit": false
+    },
+    "Premise54": {
+      "type": "Claim",
+      "text": "\"Human connection is essential for both interpersonal relationships and a broader sense of human connection.\"",
+      "isImplicit": false
+    },
+    "Premise55": {
+      "type": "Claim",
+      "text": "\"The value of human creativity is not solely aesthetic",
+      "isImplicit": false
+    },
+    "Premise56": {
+      "type": "Claim",
+      "text": "\"The self-disclosure that occurs when we are creative is especially valuable for human connection.\"",
+      "isImplicit": false
+    },
+    "Premise57": {
+      "type": "Claim",
+      "text": "\"Creativity discloses the inquisitive self.\"",
+      "isImplicit": false
+    },
+    "Premise58": {
+      "type": "Claim",
+      "text": "\"The inquisitive self is a particularly important aspect of a person to get to know if you wish to form a meaningful connection with them.\"",
+      "isImplicit": false
+    },
+    "Premise59": {
+      "type": "Claim",
+      "text": "\"Human connection is essential for both interpersonal relationships and a broader sense of human connection.\"",
+      "isImplicit": false
+    },
+    "Premise60": {
+      "type": "Claim",
+      "text": "\"The value of human creativity is not solely aesthetic",
+      "isImplicit": false
+    },
+    "Premise61": {
+      "type": "Claim",
+      "text": "\"The self-disclosure that occurs when we are creative is especially valuable for human connection.\"",
+      "isImplicit": false
+    },
+    "Premise62": {
+      "type": "Claim",
+      "text": "\"Creativity discloses the inquisitive self.\"",
+      "isImplicit": false
+    },
+    "Premise63": {
+      "type": "Claim",
+      "text": "\"The inquisitive self is a particularly important aspect of a person to get to know if you wish to form a meaningful connection with them.\"",
+      "isImplicit": false
+    },
+    "Premise64": {
+      "type": "Claim",
+      "text": "\"Human connection is essential for both interpersonal relationships and a broader sense of human connection.\"",
+      "isImplicit": false
+    },
+    "Premise65": {
+      "type": "Claim",
+      "text": "\"The value of human creativity is not solely aesthetic",
+      "isImplicit": false
+    },
+    "Premise66": {
+      "type": "Claim",
+      "text": "\"The self-disclosure that occurs when we are creative is especially valuable for human connection.\"",
+      "isImplicit": false
+    },
+    "Premise67": {
+      "type": "Claim",
+      "text": "\"Creativity discloses the inquisitive self.\"",
+      "isImplicit": false
+    },
+    "Premise68": {
+      "type": "Claim",
+      "text": "\"The inquisitive self is a particularly important aspect of a person to get to know if you wish to form a meaningful connection with them.\"",
+      "isImplicit": false
+    },
+    "Premise69": {
+      "type": "Claim",
+      "text": "\"Human connection is essential for both interpersonal relationships and a broader sense of human connection.\"",
+      "isImplicit": false
+    },
+    "Premise70": {
+      "type": "Claim",
+      "text": "\"The value of human creativity is not solely aesthetic",
+      "isImplicit": false
+    },
+    "Premise71": {
+      "type": "Claim",
+      "text": "\"The self-disclosure that occurs when we are creative is especially valuable for human connection.\"",
+      "isImplicit": false
+    },
+    "Premise72": {
+      "type": "Claim",
+      "text": "\"Creativity discloses the inquisitive self.\"",
+      "isImplicit": false
+    },
+    "Premise73": {
+      "type": "Claim",
+      "text": "\"The inquisitive self is a particularly important aspect of a person to get to know if you wish to form a meaningful connection with them.\"",
+      "isImplicit": false
+    },
+    "Premise74": {
+      "type": "Claim",
+      "text": "\"Human connection is essential for both interpersonal relationships and a broader sense of human connection.\"",
+      "isImplicit": false
+    },
+    "Premise75": {
+      "type": "Claim",
+      "text": "\"The value of human creativity is not solely aesthetic",
+      "isImplicit": false
+    },
+    "Premise76": {
+      "type": "Claim",
+      "text": "\"The self-disclosure that occurs when we are creative is especially valuable for human connection.\"",
+      "isImplicit": false
+    },
+    "Premise77": {
+      "type": "Claim",
+      "text": "\"Creativity discloses the inquisitive self.\"",
+      "isImplicit": false
+    },
+    "Premise78": {
+      "type": "Claim",
+      "text": "\"The inquisitive self is a particularly important aspect of a person to get to know if you wish to form a meaningful connection with them.\"",
+      "isImplicit": false
+    },
+    "Premise79": {
+      "type": "Claim",
+      "text": "\"Human connection is essential for both interpersonal relationships and a broader sense of human connection.\"",
+      "isImplicit": false
+    },
+    "Premise80": {
+      "type": "Claim",
+      "text": "\"The value of human creativity is not solely aesthetic",
+      "isImplicit": false
+    },
+    "Premise81": {
+      "type": "Claim",
+      "text": "\"The self-disclosure that occurs when we are creative is especially valuable for human connection.\"",
+      "isImplicit": false
+    },
+    "Premise82": {
+      "type": "Claim",
+      "text": "\"Creativity discloses the inquisitive self.\"",
+      "isImplicit": false
+    },
+    "Premise83": {
+      "type": "Claim",
+      "text": "\"The inquisitive self is a particularly important aspect of a person to get to know if you wish to form a meaningful connection with them.\"",
+      "isImplicit": false
+    },
+    "Premise84": {
+      "type": "Claim",
+      "text": "\"Human connection is essential for both interpersonal relationships and a broader sense of human connection.\"",
+      "isImplicit": false
+    },
+    "Premise85": {
+      "type": "Claim",
+      "text": "\"The value of human creativity is not solely aesthetic",
+      "isImplicit": false
+    },
+    "Premise86": {
+      "type": "Claim",
+      "text": "\"The self-disclosure that occurs when we are creative is especially valuable for human connection.\"",
+      "isImplicit": false
+    },
+    "Premise87": {
+      "type": "Claim",
+      "text": "\"Creativity discloses the inquisitive self.\"",
+      "isImplicit": false
+    },
+    "Premise88": {
+      "type": "Claim",
+      "text": "\"The inquisitive self is a particularly important aspect of a person to get to know if you wish to form a meaningful connection with them.\"",
+      "isImplicit": false
+    },
+    "Premise89": {
+      "type": "Claim",
+      "text": "\"Human connection is essential for both interpersonal relationships and a broader sense of human connection.\"",
+      "isImplicit": false
+    },
+    "Premise90": {
+      "type": "Claim",
+      "text": "\"The value of human creativity is not solely aesthetic",
+      "isImplicit": false
+    },
+    "Premise91": {
+      "type": "Claim",
+      "text": "\"The self-disclosure that occurs when we are creative is especially valuable for human connection.\"",
+      "isImplicit": false
+    },
+    "Premise92": {
+      "type": "Claim",
+      "text": "\"Creativity discloses the inquisitive self.\"",
+      "isImplicit": false
+    },
+    "Premise93": {
+      "type": "Claim",
+      "text": "\"The inquisitive self is a particularly important aspect of a person to get to know if you wish to form a meaningful connection with them.\"",
+      "isImplicit": false
+    },
+    "Premise94": {
+      "type": "Claim",
+      "text": "\"Human connection is essential for both interpersonal relationships and a broader sense of human connection.\"",
+      "isImplicit": false
+    },
+    "Premise95": {
+      "type": "Claim",
+      "text": "\"The value of human creativity is not solely aesthetic",
+      "isImplicit": false
+    },
+    "Premise96": {
+      "type": "Claim",
+      "text": "\"The self-disclosure that occurs when we are creative is especially valuable for human connection.\"",
+      "isImplicit": false
+    },
+    "Premise97": {
+      "type": "Claim",
+      "text": "\"Creativity discloses the inquisitive self.\"",
+      "isImplicit": false
+    },
+    "Premise98": {
+      "type": "Claim",
+      "text": "\"The inquisitive self is a particularly important aspect of a person to get to know if you wish to form a meaningful connection with them.\"",
+      "isImplicit": false
+    },
+    "Premise99": {
+      "type": "Claim",
+      "text": "\"Human connection is essential for both interpersonal relationships and a broader sense of human connection.\"",
+      "isImplicit": false
+    },
+    "Premise100": {
+      "type": "Claim",
+      "text": "\"The value of human creativity is not solely aesthetic",
+      "isImplicit": false
+    },
+    "Premise101": {
+      "type": "Claim",
+      "text": "\"The self-disclosure that occurs when we are creative is especially valuable for human connection.\"",
+      "isImplicit": false
+    },
+    "Premise102": {
+      "type": "Claim",
+      "text": "\"Creativity discloses the inquisitive self.\"",
+      "isImplicit": false
+    },
+    "Premise103": {
+      "type": "Claim",
+      "text": "\"The inquisitive self is a particularly important aspect of a person to get to know if you wish to form a meaningful connection with them.\"",
+      "isImplicit": false
+    },
+    "Premise104": {
+      "type": "Claim",
+      "text": "\"Human connection is essential for both interpersonal relationships and a broader sense of human connection.\"",
+      "isImplicit": false
+    },
+    "Premise105": {
+      "type": "Claim",
+      "text": "\"The value of human creativity is not solely aesthetic",
+      "isImplicit": false
+    },
+    "Premise106": {
+      "type": "Claim",
+      "text": "\"The self-disclosure that occurs when we are creative is especially valuable for human connection.\"",
+      "isImplicit": false
+    },
+    "Premise107": {
+      "type": "Claim",
+      "text": "\"Creativity discloses the inquisitive self.\"",
+      "isImplicit": false
+    },
+    "Premise108": {
+      "type": "Claim",
+      "text": "\"The inquisitive self is a particularly important aspect of a person to get to know if you wish to form a meaningful connection with them.\"",
+      "isImplicit": false
+    },
+    "Premise109": {
+      "type": "Claim",
+      "text": "\"Human connection is essential for both interpersonal relationships and a broader sense of human connection.\"",
+      "isImplicit": false
+    },
+    "Premise110": {
+      "type": "Claim",
+      "text": "\"The value of human creativity is not solely aesthetic",
+      "isImplicit": false
+    },
+    "Premise111": {
+      "type": "Claim",
+      "text": "\"The self-disclosure that occurs when we are creative is especially valuable for human connection.\"",
+      "isImplicit": false
+    },
+    "Premise112": {
+      "type": "Claim",
+      "text": "\"Creativity discloses the inquisitive self.\"",
+      "isImplicit": false
+    },
+    "Premise113": {
+      "type": "Claim",
+      "text": "\"The inquisitive self is a particularly important aspect of a person to get to know if you wish to form a meaningful connection with them.\"",
+      "isImplicit": false
+    },
+    "Premise114": {
+      "type": "Claim",
+      "text": "\"Human connection is essential for both interpersonal relationships and a broader sense of human connection.\"",
+      "isImplicit": false
+    },
+    "Premise115": {
+      "type": "Claim",
+      "text": "\"The value of human creativity is not solely aesthetic",
+      "isImplicit": false
+    },
+    "Premise116": {
+      "type": "Claim",
+      "text": "\"The self-disclosure that occurs when we are creative is especially valuable for human connection.\"",
+      "isImplicit": false
+    },
+    "Premise117": {
+      "type": "Claim",
+      "text": "\"Creativity discloses the inquisitive self.\"",
+      "isImplicit": false
+    },
+    "Premise118": {
+      "type": "Claim",
+      "text": "\"The inquisitive self is a particularly important aspect of a person to get to know if you wish to form a meaningful connection with them.\"",
+      "isImplicit": false
+    },
+    "Premise119": {
+      "type": "Claim",
+      "text": "\"Human connection is essential for both interpersonal relationships and a broader sense of human connection.\"",
+      "isImplicit": false
+    },
+    "Premise120": {
+      "type": "Claim",
+      "text": "\"The value of human creativity is not solely aesthetic",
+      "isImplicit": false
+    },
+    "Premise121": {
+      "type": "Claim",
+      "text": "\"The self-disclosure that occurs when we are creative is especially valuable for human connection.\"",
+      "isImplicit": false
+    },
+    "Premise122": {
+      "type": "Claim",
+      "text": "\"Creativity discloses the inquisitive self.\"",
+      "isImplicit": false
+    },
+    "Premise123": {
+      "type": "Claim",
+      "text": "\"The inquisitive self is a particularly important aspect of a person to get to know if you wish to form a meaningful connection with them.\"",
+      "isImplicit": false
+    },
+    "Premise124": {
+      "type": "Claim",
+      "text": "\"Human connection is essential for both interpersonal relationships and a broader sense of human connection.\"",
+      "isImplicit": false
+    },
+    "Premise125": {
+      "type": "Claim",
+      "text": "\"The value of human creativity is not solely aesthetic",
+      "isImplicit": false
+    },
+    "Premise126": {
+      "type": "Claim",
+      "text": "\"The self-disclosure that occurs when we are creative is especially valuable for human connection.\"",
+      "isImplicit": false
+    },
+    "Premise127": {
+      "type": "Claim",
+      "text": "\"Creativity discloses the inquisitive self.\"",
+      "isImplicit": false
+    },
+    "Premise128": {
+      "type": "Claim",
+      "text": "\"The inquisitive self is a particularly important aspect of a person to get to know if you wish to form a meaningful connection with them.\"",
+      "isImplicit": false
+    },
+    "Premise129": {
+      "type": "Claim",
+      "text": "\"Human connection is essential for both interpersonal relationships and a broader sense of human connection.\"",
+      "isImplicit": false
+    },
+    "Premise130": {
+      "type": "Claim",
+      "text": "\"The value of human creativity is not solely aesthetic",
+      "isImplicit": false
+    },
+    "Premise131": {
+      "type": "Claim",
+      "text": "\"The self-disclosure that occurs when we are creative is especially valuable for human connection.\"",
+      "isImplicit": false
+    },
+    "Premise132": {
+      "type": "Claim",
+      "text": "\"Creativity discloses the inquisitive self.\"",
+      "isImplicit": false
+    },
+    "Premise133": {
+      "type": "Claim",
+      "text": "\"The inquisitive self is a particularly important aspect of a person to get to know if you wish to form a meaningful connection with them.\"",
+      "isImplicit": false
+    },
+    "Premise134": {
+      "type": "Claim",
+      "text": "\"Human connection is essential for both interpersonal relationships and a broader sense of human connection.\"",
+      "isImplicit": false
+    },
+    "Premise135": {
+      "type": "Claim",
+      "text": "\"The value of human creativity is not solely aesthetic",
+      "isImplicit": false
+    },
+    "Premise136": {
+      "type": "Claim",
+      "text": "\"The self-disclosure that occurs when we are creative is especially valuable for human connection.\"",
+      "isImplicit": false
+    },
+    "Premise137": {
+      "type": "Claim",
+      "text": "\"Creativity discloses the inquisitive self.\"",
+      "isImplicit": false
+    },
+    "Premise138": {
+      "type": "Claim",
+      "text": "\"The inquisitive self is a particularly important aspect of a person to get to know if you wish to form a meaningful connection with them.\"",
+      "isImplicit": false
+    },
+    "Premise139": {
+      "type": "Claim",
+      "text": "\"Human connection is essential for both interpersonal relationships and a broader sense of human connection.\"",
+      "isImplicit": false
+    },
+    "Premise140": {
+      "type": "Claim",
+      "text": "\"The value of human creativity is not solely aesthetic",
+      "isImplicit": false
+    },
+    "Premise141": {
+      "type": "Claim",
+      "text": "\"The self-disclosure that occurs when we are creative is especially valuable for human connection.\"",
+      "isImplicit": false
+    },
+    "Premise142": {
+      "type": "Claim",
+      "text": "\"Creativity discloses the inquisitive self.\"",
+      "isImplicit": false
+    },
+    "Premise143": {
+      "type": "Claim",
+      "text": "\"The inquisitive self is a particularly important aspect of a person to get to know if you wish to form a meaningful connection with them.\"",
+      "isImplicit": false
+    },
+    "Premise144": {
+      "type": "Claim",
+      "text": "\"Human connection is essential for both interpersonal relationships and a broader sense of human connection.\"",
+      "isImplicit": false
+    },
+    "Premise145": {
+      "type": "Claim",
+      "text": "\"The value of human creativity is not solely aesthetic",
+      "isImplicit": false
+    },
+    "Premise146": {
+      "type": "Claim",
+      "text": "\"The self-disclosure that occurs when we are creative is especially valuable for human connection.\"",
+      "isImplicit": false
+    },
+    "Premise147": {
+      "type": "Claim",
+      "text": "\"Creativity discloses the inquisitive self.\"",
+      "isImplicit": false
+    },
+    "Premise148": {
+      "type": "Claim",
+      "text": "\"The inquisitive self is a particularly important aspect of a person to get to know if you wish to form a meaningful connection with them.\"",
+      "isImplicit": false
+    },
+    "Premise149": {
+      "type": "Claim",
+      "text": "\"Human connection is essential for both interpersonal relationships and a broader sense of human connection.\"",
+      "isImplicit": false
+    },
+    "Premise150": {
+      "type": "Claim",
+      "text": "\"The value of human creativity is not solely aesthetic",
+      "isImplicit": false
+    },
+    "Premise151": {
+      "type": "Claim",
+      "text": "\"The self-disclosure that occurs when we are creative is especially valuable for human connection.\"",
+      "isImplicit": false
+    },
+    "Premise152": {
+      "type": "Claim",
+      "text": "\"Creativity discloses the inquisitive self.\"",
+      "isImplicit": false
+    },
+    "Premise153": {
+      "type": "Claim",
+      "text": "\"The inquisitive self is a particularly important aspect of a person to get to know if you wish to form a meaningful connection with them.\"",
+      "isImplicit": false
+    },
+    "Premise154": {
+      "type": "Claim",
+      "text": "\"Human connection is essential for both interpersonal relationships and a broader sense of human connection.\"",
+      "isImplicit": false
+    },
+    "Premise155": {
+      "type": "Claim",
+      "text": "\"The value of human creativity is not solely aesthetic",
+      "isImplicit": false
+    },
+    "Premise156": {
+      "type": "Claim",
+      "text": "\"The self-disclosure that occurs when we are creative is especially valuable for human connection.\"",
+      "isImplicit": false
+    },
+    "Premise157": {
+      "type": "Claim",
+      "text": "\"Creativity discloses the inquisitive self.\"",
+      "isImplicit": false
+    },
+    "Premise158": {
+      "type": "Claim",
+      "text": "\"The inquisitive self is a particularly important aspect of a person to get to know if you wish to form a meaningful connection with them.\"",
+      "isImplicit": false
+    },
+    "Premise159": {
+      "type": "Claim",
+      "text": "\"Human connection is essential for both interpersonal relationships and a broader sense of human connection.\"",
+      "isImplicit": false
+    },
+    "Premise160": {
+      "type": "Claim",
+      "text": "\"The value of human creativity is not solely aesthetic",
+      "isImplicit": false
+    },
+    "Premise161": {
+      "type": "Claim",
+      "text": "\"The self-disclosure that occurs when we are creative is especially valuable for human connection.\"",
+      "isImplicit": false
+    },
+    "Premise162": {
+      "type": "Claim",
+      "text": "\"Creativity discloses the inquisitive self.\"",
+      "isImplicit": false
+    },
+    "Premise163": {
+      "type": "Claim",
+      "text": "\"The inquisitive self is a particularly important aspect of a person to get to know if you wish to form a meaningful connection with them.\"",
+      "isImplicit": false
+    },
+    "Premise164": {
+      "type": "Claim",
+      "text": "\"Human connection is essential for both interpersonal relationships and a broader sense of human connection.\"",
+      "isImplicit": false
+    },
+    "Premise165": {
+      "type": "Claim",
+      "text": "\"The value of human creativity is not solely aesthetic",
+      "isImplicit": false
+    },
+    "Premise166": {
+      "type": "Claim",
+      "text": "\"The self-disclosure that occurs when we are creative is especially valuable for human connection.\"",
+      "isImplicit": false
+    },
+    "Premise167": {
+      "type": "Claim",
+      "text": "\"Creativity discloses the inquisitive self.\"",
+      "isImplicit": false
+    },
+    "Premise168": {
+      "type": "Claim",
+      "text": "\"The inquisitive self is a particularly important aspect of a person to get to know if you wish to form a meaningful connection with them.\"",
+      "isImplicit": false
+    },
+    "Premise169": {
+      "type": "Claim",
+      "text": "\"Human connection is essential for both interpersonal relationships and a broader sense of human connection.\"",
+      "isImplicit": false
+    },
+    "Premise170": {
+      "type": "Claim",
+      "text": "\"The value of human creativity is not solely aesthetic",
+      "isImplicit": false
+    },
+    "Premise171": {
+      "type": "Claim",
+      "text": "\"The self-disclosure that occurs when we are creative is especially valuable for human connection.\"",
+      "isImplicit": false
+    },
+    "Premise172": {
+      "type": "Claim",
+      "text": "\"Creativity discloses the inquisitive self.\"",
+      "isImplicit": false
+    },
+    "Premise173": {
+      "type": "Claim",
+      "text": "\"The inquisitive self is a particularly important aspect of a person to get to know if you wish to form a meaningful connection with them.\"",
+      "isImplicit": false
+    },
+    "Premise174": {
+      "type": "Claim",
+      "text": "\"Human connection is essential for both interpersonal relationships and a broader sense of human connection.\"",
+      "isImplicit": false
+    },
+    "Premise175": {
+      "type": "Claim",
+      "text": "\"The value of human creativity is not solely aesthetic",
+      "isImplicit": false
+    },
+    "Premise176": {
+      "type": "Claim",
+      "text": "\"The self-disclosure that occurs when we are creative is especially valuable for human connection.\"",
+      "isImplicit": false
+    },
+    "Premise177": {
+      "type": "Claim",
+      "text": "\"Creativity discloses the inquisitive self.\"",
+      "isImplicit": false
+    },
+    "Premise178": {
+      "type": "Claim",
+      "text": "\"The inquisitive self is a particularly important aspect of a person to get to know if you wish to form a meaningful connection with them.\"",
+      "isImplicit": false
+    },
+    "Premise179": {
+      "type": "Claim",
+      "text": "\"Human connection is essential for both interpersonal relationships and a broader sense of human connection.\"",
+      "isImplicit": false
+    },
+    "Premise180": {
+      "type": "Claim",
+      "text": "\"The value of human creativity is not solely aesthetic",
+      "isImplicit": false
+    },
+    "Premise181": {
+      "type": "Claim",
+      "text": "\"The self-disclosure that occurs when we are creative is especially valuable for human connection.\"",
+      "isImplicit": false
+    },
+    "Premise182": {
+      "type": "Claim",
+      "text": "\"Creativity discloses the inquisitive self.\"",
+      "isImplicit": false
+    },
+    "Premise183": {
+      "type": "Claim",
+      "text": "\"The inquisitive self is a particularly important aspect of a person to get to know if you wish to form a meaningful connection with them.\"",
+      "isImplicit": false
+    },
+    "Premise184": {
+      "type": "Claim",
+      "text": "\"Human connection is essential for both interpersonal relationships and a broader sense of human connection.\"",
+      "isImplicit": false
+    },
+    "Premise185": {
+      "type": "Claim",
+      "text": "\"The value of human creativity is not solely aesthetic",
+      "isImplicit": false
+    },
+    "Premise186": {
+      "type": "Claim",
+      "text": "\"The self-disclosure that occurs when we are creative is especially valuable for human connection.\"",
+      "isImplicit": false
+    },
+    "Premise187": {
+      "type": "Claim",
+      "text": "\"Creativity discloses the inquisitive self.\"",
+      "isImplicit": false
+    },
+    "Premise188": {
+      "type": "Claim",
+      "text": "\"The inquisitive self is a particularly important aspect of a person to get to know if you wish to form a meaningful connection with them.\"",
+      "isImplicit": false
+    },
+    "Premise189": {
+      "type": "Claim",
+      "text": "\"Human connection is essential for both interpersonal relationships and a broader sense of human connection.\"",
+      "isImplicit": false
+    },
+    "Premise190": {
+      "type": "Claim",
+      "text": "\"The value of human creativity is not solely aesthetic",
+      "isImplicit": false
+    },
+    "Premise191": {
+      "type": "Claim",
+      "text": "\"The self-disclosure that occurs when we are creative is especially valuable for human connection.\"",
+      "isImplicit": false
+    },
+    "Premise192": {
+      "type": "Claim",
+      "text": "\"Creativity discloses the inquisitive self.\"",
+      "isImplicit": false
+    },
+    "Premise193": {
+      "type": "Claim",
+      "text": "\"The inquisitive self is a particularly important aspect of a person to get to know if you wish to form a meaningful connection with them.\"",
+      "isImplicit": false
+    },
+    "Premise194": {
+      "type": "Claim",
+      "text": "\"Human connection is essential for both interpersonal relationships and a broader sense of human connection.\"",
+      "isImplicit": false
+    },
+    "Premise195": {
+      "type": "Claim",
+      "text": "\"The value of human creativity is not solely aesthetic",
+      "isImplicit": false
+    },
+    "Premise196": {
+      "type": "Claim",
+      "text": "\"The self-disclosure that occurs when we are creative is especially valuable for human connection.\"",
+      "isImplicit": false
+    },
+    "Premise197": {
+      "type": "Claim",
+      "text": "\"Creativity discloses the inquisitive self.\"",
+      "isImplicit": false
+    },
+    "Premise198": {
+      "type": "Claim",
+      "text": "\"The inquisitive self is a particularly important aspect of a person to get to know if you wish to form a meaningful connection with them.\"",
+      "isImplicit": false
+    },
+    "Premise199": {
+      "type": "Claim",
+      "text": "\"Human connection is essential for both interpersonal relationships and a broader sense of human connection.\"",
+      "isImplicit": false
+    },
+    "Premise200": {
+      "type": "Claim",
+      "text": "\"The value of human creativity is not solely aesthetic",
+      "isImplicit": false
+    },
+    "Premise201": {
+      "type": "Claim",
+      "text": "\"The self-disclosure that occurs when we are creative is especially valuable for human connection.\"",
+      "isImplicit": false
+    },
+    "Premise202": {
+      "type": "Claim",
+      "text": "\"Creativity discloses the inquisitive self.\"",
+      "isImplicit": false
+    },
+    "Premise203": {
+      "type": "Claim",
+      "text": "\"The inquisitive self is a particularly important aspect of a person to get to know if you wish to form a meaningful connection with them.\"",
+      "isImplicit": false
+    },
+    "Premise204": {
+      "type": "Claim",
+      "text": "\"Human connection is essential for both interpersonal relationships and a broader sense of human connection.\"",
+      "isImplicit": false
+    },
+    "Premise205": {
+      "type": "Claim",
+      "text": "\"The value of human creativity is not solely aesthetic",
+      "isImplicit": false
+    },
+    "Premise206": {
+      "type": "Claim",
+      "text": "\"The self-disclosure that occurs when we are creative is especially valuable for human connection.\"",
+      "isImplicit": false
+    },
+    "Premise207": {
+      "type": "Claim",
+      "text": "\"Creativity discloses the inquisitive self.\"",
+      "isImplicit": false
+    },
+    "Premise208": {
+      "type": "Claim",
+      "text": "\"The inquisitive self is a particularly important aspect of a person to get to know if you wish to form a meaningful connection with them.\"",
+      "isImplicit": false
+    },
+    "Premise209": {
+      "type": "Claim",
+      "text": "\"Human connection is essential for both interpersonal relationships and a broader sense of human connection.\"",
+      "isImplicit": false
+    },
+    "Premise210": {
+      "type": "Claim",
+      "text": "\"The value of human creativity is not solely aesthetic",
+      "isImplicit": false
+    },
+    "Premise211": {
+      "type": "Claim",
+      "text": "\"The self-disclosure that occurs when we are creative is especially valuable for human connection.\"",
+      "isImplicit": false
+    },
+    "Premise212": {
+      "type": "Claim",
+      "text": "\"Creativity discloses the inquisitive self.\"",
+      "isImplicit": false
+    },
+    "Premise213": {
+      "type": "Claim",
+      "text": "\"The inquisitive self is a particularly important aspect of a person to get to know if you wish to form a meaningful connection with them.\"",
+      "isImplicit": false
+    },
+    "Premise214": {
+      "type": "Claim",
+      "text": "\"Human connection is essential for both interpersonal relationships and a broader sense of human connection.\"",
+      "isImplicit": false
+    },
+    "Premise215": {
+      "type": "Claim",
+      "text": "\"The value of human creativity is not solely aesthetic",
+      "isImplicit": false
+    },
+    "Premise216": {
+      "type": "Claim",
+      "text": "\"The self-disclosure that occurs when we are creative is especially valuable for human connection.\"",
+      "isImplicit": false
+    },
+    "Premise217": {
+      "type": "Claim",
+      "text": "\"Creativity discloses the inquisitive self.\"",
+      "isImplicit": false
+    },
+    "Premise218": {
+      "type": "Claim",
+      "text": "\"The inquisitive self is a particularly important aspect of a person to get to know if you wish to form a meaningful connection with them.\"",
+      "isImplicit": false
+    },
+    "Premise219": {
+      "type": "Claim",
+      "text": "\"Human connection is essential for both interpersonal relationships and a broader sense of human connection.\"",
+      "isImplicit": false
+    },
+    "Premise220": {
+      "type": "Claim",
+      "text": "\"The value of human creativity is not solely aesthetic",
+      "isImplicit": false
+    },
+    "Premise221": {
+      "type": "Claim",
+      "text": "\"The self-disclosure that occurs when we are creative is especially valuable for human connection.\"",
+      "isImplicit": false
+    },
+    "Premise222": {
+      "type": "Claim",
+      "text": "\"Creativity discloses the inquisitive self.\"",
+      "isImplicit": false
+    },
+    "Premise223": {
+      "type": "Claim",
+      "text": "\"The inquisitive self is a particularly important aspect of a person to get to know if you wish to form a meaningful connection with them.\"",
+      "isImplicit": false
+    },
+    "Premise224": {
+      "type": "Claim",
+      "text": "\"Human connection is essential for both interpersonal relationships and a broader sense of human connection.\"",
+      "isImplicit": false
+    },
+    "Premise225": {
+      "type": "Claim",
+      "text": "\"The value of human creativity is not solely aesthetic",
+      "isImplicit": false
+    },
+    "Premise226": {
+      "type": "Claim",
+      "text": "\"The self-disclosure that occurs when we are creative is especially valuable for human connection.\"",
+      "isImplicit": false
+    },
+    "Premise227": {
+      "type": "Claim",
+      "text": "\"Creativity discloses the inquisitive self.\"",
+      "isImplicit": false
+    }
+  },
+  "relations": []
+}

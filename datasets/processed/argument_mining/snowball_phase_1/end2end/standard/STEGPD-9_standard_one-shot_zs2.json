@@ -1,0 +1,95 @@
+{
+  "ADUs": {
+    "MainClaim": {
+      "type": "Major Claim",
+      "text": "\"Pico's philosophy was influenced by Anaxagoras's idea that all things exist in all things in their own mode\"",
+      "isImplicit": false
+    },
+    "s philosophy": {
+      "type": "Claim",
+      "text": "\"Anaxagoras holds the view that objects are temporary mixtures of ingredients",
+      "isImplicit": false
+    },
+    "s principle": {
+      "type": "Claim",
+      "text": "\"Anaxagoras's principle is that all things exist in all things in their own mode\"",
+      "isImplicit": false
+    },
+    "s interpretation of Anaxagoras": {
+      "type": "Claim",
+      "text": "\"Pico's interpretation of Anaxagoras's philosophy is that all things exist in all things in their own mode\"",
+      "isImplicit": false
+    },
+    "s metaphysics": {
+      "type": "Claim",
+      "text": "\"Pico's metaphysics is that all things share a portion of God within them",
+      "isImplicit": false
+    },
+    "s method of allegorical interpretation": {
+      "type": "Claim",
+      "text": "\"Pico's method of allegorical interpretation is indispensable for his syncretism and his attempt to reveal hidden truths in every text or level of reality\"",
+      "isImplicit": false
+    },
+    "s anthropocentrism": {
+      "type": "Claim",
+      "text": "\"Pico rejects the fixed position of man in the ontological hierarchy and argues that man has the chance to become everything\"",
+      "isImplicit": false
+    },
+    "s Intellect": {
+      "type": "Claim",
+      "text": "\"Anaxagoras's Intellect is the only thing in which the principle everything in everything does not apply\"",
+      "isImplicit": false
+    },
+    "s argumentation": {
+      "type": "Claim",
+      "text": "\"Pico's argumentation is ambivalent and lacks consistency\"",
+      "isImplicit": false
+    },
+    "s view on creation": {
+      "type": "Claim",
+      "text": "\"Pico's view on creation is that God creates Intellect",
+      "isImplicit": false
+    },
+    "s view on the Intellect": {
+      "type": "Claim",
+      "text": "\"Pico's view on the Intellect is that it is a perfect and unique creation of God\"",
+      "isImplicit": false
+    },
+    "s contradictions": {
+      "type": "Claim",
+      "text": "\"Pico's contradictions have further implications\"",
+      "isImplicit": false
+    },
+    "s view on the Demiurge": {
+      "type": "Claim",
+      "text": "\"Pico's view on the Demiurge is that it is the Demiurge-Intellect",
+      "isImplicit": false
+    },
+    "s view on the Intellect and the One": {
+      "type": "Claim",
+      "text": "\"Pico's view on the Intellect and the One is that they are coextensive",
+      "isImplicit": false
+    },
+    "s argumentation on the Intellect": {
+      "type": "Claim",
+      "text": "\"Pico's argumentation on the Intellect is that it is a perfect and unique creation of God\"",
+      "isImplicit": false
+    },
+    "s view on creation and emanation": {
+      "type": "Claim",
+      "text": "\"Pico's view on creation and emanation is that God creates Intellect",
+      "isImplicit": false
+    },
+    "s view on the Intellect and the Demiurge": {
+      "type": "Claim",
+      "text": "\"Pico's view on the Intellect and the Demiurge is that they are distinct concepts in the Neoplatonic sense\"",
+      "isImplicit": false
+    },
+    "s view on the Demiurge-Intellect": {
+      "type": "Claim",
+      "text": "\"Pico's view on the Demiurge-Intellect is that it is a Demiurge-Intellect in the Neoplatonic sense\"",
+      "isImplicit": false
+    }
+  },
+  "relations": []
+}

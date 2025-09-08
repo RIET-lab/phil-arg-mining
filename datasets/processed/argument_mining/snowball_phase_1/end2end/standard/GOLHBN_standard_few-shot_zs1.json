@@ -1,0 +1,146 @@
+{
+  "ADUs": {
+    "MainClaim": {
+      "type": "Claim",
+      "text": "Heidegger's conception of the political in GA94 is characterised as a threat to ontology, and he systematically occludes the political in favour of the ontological.",
+      "isImplicit": false
+    },
+    "Untitled 1": {
+      "type": "Claim",
+      "text": "Heidegger's view of the political sphere in GA94 is negative and characterised as a threat to philosophy and ontology.",
+      "isImplicit": false
+    },
+    "Untitled 2": {
+      "type": "Claim",
+      "text": "Heidegger's presentation of the political as a threat is manifest at both a general and a specific level.",
+      "isImplicit": false
+    },
+    "Untitled 3": {
+      "type": "Claim",
+      "text": "The political is treated as a threat to ontology, and what is threatened is the distinctive role of philosophy.",
+      "isImplicit": false
+    },
+    "Untitled 4": {
+      "type": "Claim",
+      "text": "Heidegger's strategies for dealing with the threat of the political include disengagement, aggressive critique, and co-optation.",
+      "isImplicit": false
+    },
+    "Untitled 5": {
+      "type": "Claim",
+      "text": "Heidegger's response to the threat of the political involves relocating the political within his own metaphysical framework.",
+      "isImplicit": false
+    },
+    "Untitled 6": {
+      "type": "Claim",
+      "text": "Heidegger's presentation of the political as a threat is accompanied by a suppression of the political in favour of the ontological.",
+      "isImplicit": false
+    },
+    "Untitled 7": {
+      "type": "Claim",
+      "text": "The occlusion of the political in Heidegger's work has deeply problematic consequences.",
+      "isImplicit": false
+    },
+    "Untitled 8": {
+      "type": "Claim",
+      "text": "Heidegger's failure to recognize the economic and political as'realities with a logic and laws of their own' leads to a conceptual scheme that disrupts the use of binary concepts like Volk.",
+      "isImplicit": false
+    },
+    "Untitled 9": {
+      "type": "Claim",
+      "text": "The occlusion of the political in Heidegger's work is a distinctive move, unlike in the frameworks of Kant and Foucault.",
+      "isImplicit": false
+    },
+    "Untitled 10": {
+      "type": "Claim",
+      "text": "Heidegger's treatment of authenticity exemplifies a process whereby what are loosely ethical norms become gradually reinterpreted as ontological norms.",
+      "isImplicit": false
+    },
+    "Untitled 11": {
+      "type": "Claim",
+      "text": "The triangle with which I began is becoming eclipsed, as points (II) and (III) collapse into point (I).",
+      "isImplicit": false
+    },
+    "Untitled 12": {
+      "type": "Claim",
+      "text": "Heidegger's account of the sciences and his taxonomy of theory and practice are relevant to the discussion of the occlusion of the political.",
+      "isImplicit": false
+    },
+    "Untitled 13": {
+      "type": "Claim",
+      "text": "The occlusion of the political in Heidegger's work undermines his response to the charge that he allows ontology to occlude ethics and politics.",
+      "isImplicit": false
+    },
+    "Untitled 14": {
+      "type": "Claim",
+      "text": "Heidegger's privileging of ontological relations cannot be a transcendental condition of experience.",
+      "isImplicit": false
+    }
+  },
+  "relations": [
+    {
+      "src": "Untitled 1",
+      "tgt": "Untitled 2",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 2",
+      "tgt": "Untitled 3",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 3",
+      "tgt": "Untitled 4",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 4",
+      "tgt": "Untitled 5",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 5",
+      "tgt": "Untitled 6",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 6",
+      "tgt": "Untitled 7",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 7",
+      "tgt": "Untitled 8",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 8",
+      "tgt": "Untitled 9",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 9",
+      "tgt": "Untitled 10",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 10",
+      "tgt": "Untitled 11",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 11",
+      "tgt": "Untitled 12",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 12",
+      "tgt": "Untitled 13",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 13",
+      "tgt": "Untitled 14",
+      "type": "support"
+    }
+  ]
+}

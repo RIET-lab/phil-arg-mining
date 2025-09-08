@@ -1,0 +1,140 @@
+{
+  "ADUs": {
+    "MainClaim": {
+      "type": "Major Claim",
+      "text": "\"Spenser's recovery of place in The Faerie Queene",
+      "isImplicit": false
+    },
+    "sCourtesie": {
+      "type": "Claim",
+      "text": "\"Calidore's virtue is defined on the basis of three discontinuous moments: the pitfalls of immediate experience",
+      "isImplicit": false
+    },
+    "sTrial": {
+      "type": "Claim",
+      "text": "\"The trial of Mirabella establishes the low point in the history of courtesy",
+      "isImplicit": false
+    },
+    "sAbduction": {
+      "type": "Claim",
+      "text": "\"The abduction of Serena by cannibals leads to a basic conflict in interpretations",
+      "isImplicit": false
+    },
+    "sVision": {
+      "type": "Claim",
+      "text": "\"Calidore's vision on Mount Acidale reveals his indebtedness to traditional iconography and the tension between ideals and their fulfillment.\"",
+      "isImplicit": false
+    },
+    "sHumanism": {
+      "type": "Claim",
+      "text": "\"Spenser's originality as a Renaissance poet is linked to his use of literary procedures that express but also complicate his relationship to traditional humanism.\"",
+      "isImplicit": false
+    },
+    "sIdealism": {
+      "type": "Claim",
+      "text": "\"Calidore's idealism derives from an ideal court",
+      "isImplicit": false
+    },
+    "sSubjectivity": {
+      "type": "Claim",
+      "text": "\"Calidore's actions as a Renaissance courtier never leave the world of experience entirely behind",
+      "isImplicit": false
+    },
+    "sPhenomenology": {
+      "type": "Claim",
+      "text": "\"Spenser's use of phenomenology in The Faerie Queene",
+      "isImplicit": false
+    },
+    "sRecoveryOfPlace": {
+      "type": "Claim",
+      "text": "\"The recovery of place involves a slow spiritual awakening that embraces the lowest levels of erotic awareness as well as the highest reaches of 'ideal' experience.\"",
+      "isImplicit": false
+    },
+    "sReconciliation": {
+      "type": "Claim",
+      "text": "\"Calidore's reconciliation of ideal and real is a sublime metaphor whose deeper meaning is corroborated by tradition and phenomenology alike.\"",
+      "isImplicit": false
+    },
+    "PhenomenologyInSpenser": {
+      "type": "Claim",
+      "text": "\"Spenser's use of phenomenology in The Faerie Queene",
+      "isImplicit": false
+    },
+    "sSubjectivityIsNotTheNarrativeCenter": {
+      "type": "Claim",
+      "text": "\"Calidore himself is not the narrative 'center' of Courtesy",
+      "isImplicit": false
+    },
+    "sVisionIsNotAPoliticalMission": {
+      "type": "Claim",
+      "text": "\"Calidore's chivalrous mission may have led him to discover an actual Gloriana",
+      "isImplicit": false
+    },
+    "sReturnToPastoral": {
+      "type": "Claim",
+      "text": "\"Calidore's return to pastoral culminates in the overcoming of nature as an external obstacle and prepares him for a future life of concrete acts and the company of historical persons.\"",
+      "isImplicit": false
+    },
+    "sIdealismDerivesFromAnIdealCourt": {
+      "type": "Claim",
+      "text": "\"Calidore's idealism derives from an ideal court",
+      "isImplicit": false
+    },
+    "sIdealismRequiresPoeticVision": {
+      "type": "Claim",
+      "text": "\"Calidore's idealism requires a poetic vision of the supernatural for its fulfillment",
+      "isImplicit": false
+    },
+    "sSubjectivityRequiresNoesisAndNoema": {
+      "type": "Claim",
+      "text": "\"Calidore's reconciliation of ideal and real must be understood in terms of the phenomenological difference between noesis and noema.\"",
+      "isImplicit": false
+    },
+    "sVisionIsAMetaphor": {
+      "type": "Claim",
+      "text": "\"Calidore's vision on Mount Acidale is a metaphor that reveals the tension between ideals and their fulfillment.\"",
+      "isImplicit": false
+    },
+    "sReturnToPastoralIsSublime": {
+      "type": "Claim",
+      "text": "\"Calidore's return to pastoral is a sublime metaphor whose deeper meaning is corroborated by tradition and phenomenology alike.\"",
+      "isImplicit": false
+    },
+    "sIdealismIsNotAPoliticalMission": {
+      "type": "Claim",
+      "text": "\"Calidore's idealism is not a political mission",
+      "isImplicit": false
+    },
+    "sIdealismRequiresIdealCourt": {
+      "type": "Claim",
+      "text": "\"Calidore's idealism requires an ideal court",
+      "isImplicit": false
+    },
+    "sSubjectivityIsNotAPoliticalMission": {
+      "type": "Claim",
+      "text": "\"Calidore's subjectivity is not a political mission",
+      "isImplicit": false
+    },
+    "sIdealismRequiresPoeticVisionOfSupernatural": {
+      "type": "Claim",
+      "text": "\"Calidore's idealism requires a poetic vision of the supernatural for its fulfillment.\"",
+      "isImplicit": false
+    },
+    "sSubjectivityRequiresPhenomenologicalDifference": {
+      "type": "Claim",
+      "text": "\"Calidore's reconciliation of ideal and real must be understood in terms of the phenomenological difference between noesis and noema.\"",
+      "isImplicit": false
+    },
+    "PhenomenologyInSpenserIsEspeciallySuitableForLiterature": {
+      "type": "Claim",
+      "text": "\"Spenser's use of phenomenology in The Faerie Queene",
+      "isImplicit": false
+    },
+    "PhenomenologyInSpenserAllowsForSubjectiveAdventure": {
+      "type": "Claim",
+      "text": "\"Spenser's use of phenomenology in The Faerie Queene",
+      "isImplicit": false
+    }
+  },
+  "relations": []
+}

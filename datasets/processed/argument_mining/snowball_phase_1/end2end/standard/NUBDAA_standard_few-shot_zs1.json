@@ -1,0 +1,311 @@
+{
+  "ADUs": {
+    "MainClaim": {
+      "type": "Major Claim",
+      "text": "\"Dichotomies are artifacts that we devise with some useful purpose in mind",
+      "isImplicit": false
+    },
+    "Untitled1": {
+      "type": "Claim",
+      "text": "\"Putnam's approach to distinctions and dichotomies is aligned with the rejection of modern philosophy's dualism.\"",
+      "isImplicit": false
+    },
+    "Untitled2": {
+      "type": "Claim",
+      "text": "\"Dichotomies are artifacts that we devise with some useful purpose in mind.\"",
+      "isImplicit": false
+    },
+    "Untitled3": {
+      "type": "Claim",
+      "text": "\"Dichotomies appear when and where there are human beings thinking",
+      "isImplicit": false
+    },
+    "Untitled4": {
+      "type": "Claim",
+      "text": "\"Dichotomies are mainly a form of logical division",
+      "isImplicit": false
+    },
+    "Untitled5": {
+      "type": "Claim",
+      "text": "\"The transformation of a distinction into a metaphysical dichotomy turns the distinction into a Procrustean bed.\"",
+      "isImplicit": false
+    },
+    "Untitled6": {
+      "type": "Claim",
+      "text": "\"Putnam has demonstrated convincingly that the fact/value dichotomy is",
+      "isImplicit": false
+    },
+    "Untitled7": {
+      "type": "Claim",
+      "text": "\"The fact/value dichotomy is a way of cutting off not only rational argument about values",
+      "isImplicit": false
+    },
+    "Untitled8": {
+      "type": "Claim",
+      "text": "\"The fact/value dichotomy is a thesis",
+      "isImplicit": false
+    },
+    "Untitled9": {
+      "type": "Claim",
+      "text": "\"Putnam identifies three reasons why we are tempted to establish the fact/value dichotomy.\"",
+      "isImplicit": false
+    },
+    "Untitled10": {
+      "type": "Claim",
+      "text": "\"The first reason is that the fact/value dichotomy is a way of cutting off not only rational argument about values",
+      "isImplicit": false
+    },
+    "Untitled11": {
+      "type": "Claim",
+      "text": "\"The second reason is that this dichotomy is a way of cutting off rational argument about values.\"",
+      "isImplicit": false
+    },
+    "Untitled12": {
+      "type": "Claim",
+      "text": "\"The third reason is that the fact/value dichotomy is a way of cutting off thought.\"",
+      "isImplicit": false
+    },
+    "Untitled13": {
+      "type": "Claim",
+      "text": "\"Putnam holds that thick ethical concepts are counterexamples to the claim that there is an absolute fact/value dichotomy.\"",
+      "isImplicit": false
+    },
+    "Untitled14": {
+      "type": "Claim",
+      "text": "\"Thick ethical concepts are counterexamples to the claim that there is an absolute fact/value dichotomy.\"",
+      "isImplicit": false
+    },
+    "Untitled15": {
+      "type": "Claim",
+      "text": "\"The application of intelligence to moral problems is itself a moral obligation.\"",
+      "isImplicit": false
+    },
+    "Untitled16": {
+      "type": "Claim",
+      "text": "\"Philosophy",
+      "isImplicit": false
+    },
+    "Untitled17": {
+      "type": "Claim",
+      "text": "\"The border between fact and value is faint: the terms considered to have a function of ethical evaluation have also a descriptive explicative and predictive function.\"",
+      "isImplicit": false
+    },
+    "Untitled18": {
+      "type": "Claim",
+      "text": "\"The concept of a lamp is a mixture of description and evaluation.\"",
+      "isImplicit": false
+    },
+    "Untitled19": {
+      "type": "Claim",
+      "text": "\"The use of the term 'lamp' involves some evaluation about the extension of the concept.\"",
+      "isImplicit": false
+    },
+    "Untitled20": {
+      "type": "Claim",
+      "text": "\"Any dichotomy",
+      "isImplicit": false
+    },
+    "Untitled21": {
+      "type": "Claim",
+      "text": "\"Dichotomies are tools like lamps",
+      "isImplicit": false
+    },
+    "Untitled22": {
+      "type": "Claim",
+      "text": "\"The making of dichotomies was perhaps seen by the vast majority of our colleagues in the past century as a useful tool to make philosophical progress.\"",
+      "isImplicit": false
+    },
+    "Untitled23": {
+      "type": "Claim",
+      "text": "\"The dichotomy between value judgments and judgments of facts was not really a dichotomy",
+      "isImplicit": false
+    },
+    "Untitled24": {
+      "type": "Claim",
+      "text": "\"The fact/value dichotomy blocks inquiry and distorts our view of rationality and human flourishing.\"",
+      "isImplicit": false
+    },
+    "Untitled25": {
+      "type": "Claim",
+      "text": "\"The view of language that Austin presents in the last lecture of How to Do Things with Words fits pretty well with a pragmatist approach to language.\"",
+      "isImplicit": false
+    },
+    "Untitled26": {
+      "type": "Claim",
+      "text": "\"Austin characterizes the dichotomy between the normative or evaluative and the factual as a'fetish'.\"",
+      "isImplicit": false
+    },
+    "Untitled27": {
+      "type": "Claim",
+      "text": "\"The dichotomy between the normative or evaluative and the factual is a'fetish'.\"",
+      "isImplicit": false
+    },
+    "Untitled28": {
+      "type": "Claim",
+      "text": "\"Austin's view of language is aligned with the pragmatist tradition.\"",
+      "isImplicit": false
+    },
+    "Untitled29": {
+      "type": "Claim",
+      "text": "\"The dichotomy between the normative or evaluative and the factual is an artifact",
+      "isImplicit": false
+    },
+    "Untitled30": {
+      "type": "Claim",
+      "text": "\"The dichotomy between the normative or evaluative and the factual is a thesis",
+      "isImplicit": false
+    }
+  },
+  "relations": [
+    {
+      "src": "Untitled2",
+      "tgt": "Untitled1",
+      "type": "support"
+    },
+    {
+      "src": "Untitled1",
+      "tgt": "MainClaim",
+      "type": "support"
+    },
+    {
+      "src": "Untitled3",
+      "tgt": "Untitled2",
+      "type": "support"
+    },
+    {
+      "src": "Untitled4",
+      "tgt": "Untitled3",
+      "type": "support"
+    },
+    {
+      "src": "Untitled5",
+      "tgt": "Untitled4",
+      "type": "support"
+    },
+    {
+      "src": "Untitled6",
+      "tgt": "Untitled5",
+      "type": "support"
+    },
+    {
+      "src": "Untitled7",
+      "tgt": "Untitled6",
+      "type": "support"
+    },
+    {
+      "src": "Untitled8",
+      "tgt": "Untitled7",
+      "type": "support"
+    },
+    {
+      "src": "Untitled9",
+      "tgt": "Untitled8",
+      "type": "support"
+    },
+    {
+      "src": "Untitled10",
+      "tgt": "Untitled9",
+      "type": "support"
+    },
+    {
+      "src": "Untitled11",
+      "tgt": "Untitled10",
+      "type": "support"
+    },
+    {
+      "src": "Untitled12",
+      "tgt": "Untitled11",
+      "type": "support"
+    },
+    {
+      "src": "Untitled13",
+      "tgt": "Untitled6",
+      "type": "support"
+    },
+    {
+      "src": "Untitled14",
+      "tgt": "Untitled13",
+      "type": "support"
+    },
+    {
+      "src": "Untitled15",
+      "tgt": "Untitled14",
+      "type": "support"
+    },
+    {
+      "src": "Untitled16",
+      "tgt": "Untitled15",
+      "type": "support"
+    },
+    {
+      "src": "Untitled17",
+      "tgt": "Untitled16",
+      "type": "support"
+    },
+    {
+      "src": "Untitled18",
+      "tgt": "Untitled17",
+      "type": "support"
+    },
+    {
+      "src": "Untitled19",
+      "tgt": "Untitled18",
+      "type": "support"
+    },
+    {
+      "src": "Untitled20",
+      "tgt": "Untitled19",
+      "type": "support"
+    },
+    {
+      "src": "Untitled21",
+      "tgt": "Untitled20",
+      "type": "support"
+    },
+    {
+      "src": "Untitled22",
+      "tgt": "Untitled21",
+      "type": "support"
+    },
+    {
+      "src": "Untitled23",
+      "tgt": "Untitled22",
+      "type": "support"
+    },
+    {
+      "src": "Untitled24",
+      "tgt": "Untitled23",
+      "type": "support"
+    },
+    {
+      "src": "Untitled25",
+      "tgt": "Untitled26",
+      "type": "support"
+    },
+    {
+      "src": "Untitled26",
+      "tgt": "MainClaim",
+      "type": "support"
+    },
+    {
+      "src": "Untitled27",
+      "tgt": "Untitled25",
+      "type": "support"
+    },
+    {
+      "src": "Untitled28",
+      "tgt": "Untitled27",
+      "type": "support"
+    },
+    {
+      "src": "Untitled29",
+      "tgt": "Untitled28",
+      "type": "support"
+    },
+    {
+      "src": "Untitled30",
+      "tgt": "Untitled29",
+      "type": "support"
+    }
+  ]
+}

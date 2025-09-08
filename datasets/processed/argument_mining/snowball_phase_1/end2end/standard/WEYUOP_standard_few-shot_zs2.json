@@ -1,0 +1,1010 @@
+{
+  "ADUs": {
+    "MainClaim": {
+      "type": "Major Claim",
+      "text": "\"The exclusive use of 'open",
+      "isImplicit": false
+    },
+    "Untitled1": {
+      "type": "Claim",
+      "text": "\"The construction of suspicion through the collection and processing of data is a common practice in dealing with the issue of public security in the EU.\"",
+      "isImplicit": false
+    },
+    "Untitled2": {
+      "type": "Claim",
+      "text": "\"The EU's PNR directive has largely curtailed practices of using personal data to construct suspicion and demanded safeguards against false positives and discriminating biases.\"",
+      "isImplicit": false
+    },
+    "Untitled3": {
+      "type": "Claim",
+      "text": "\"The construction of information patterns for traveler risk classification creates a demand for ever more personal data.\"",
+      "isImplicit": false
+    },
+    "Untitled4": {
+      "type": "Claim",
+      "text": "\"The exclusive use of public information for risk assessment seems like a viable way out.\"",
+      "isImplicit": false
+    },
+    "Untitled5": {
+      "type": "Claim",
+      "text": "\"The analysis of openly available",
+      "isImplicit": false
+    },
+    "Untitled6": {
+      "type": "Claim",
+      "text": "\"The EU's border checks regime provides no clear basis for using 'open",
+      "isImplicit": false
+    },
+    "Untitled7": {
+      "type": "Claim",
+      "text": "\"The revelatory function of border checks can include OSINT techniques.\"",
+      "isImplicit": false
+    },
+    "Untitled8": {
+      "type": "Claim",
+      "text": "\"The use of OSINT can contribute to the production of security in the context of the EU's border checks regime.\"",
+      "isImplicit": false
+    },
+    "Untitled9": {
+      "type": "Claim",
+      "text": "\"The potential role of OSINT in border checks is not clearly defined in the EU's legal framework.\"",
+      "isImplicit": false
+    },
+    "Untitled10": {
+      "type": "Claim",
+      "text": "\"OSINT practices may collide with fundamental value concepts such as privacy",
+      "isImplicit": false
+    },
+    "Untitled11": {
+      "type": "Claim",
+      "text": "\"OSINT can be used in situational risk assessment",
+      "isImplicit": false
+    },
+    "Untitled12": {
+      "type": "Claim",
+      "text": "\"The potential role of OSINT in situational risk assessment and risk profiling is conceptually different.\"",
+      "isImplicit": false
+    },
+    "Untitled13": {
+      "type": "Claim",
+      "text": "\"The ethical impact of OSINT practices will depend on the specifics of the implementation",
+      "isImplicit": false
+    },
+    "Untitled14": {
+      "type": "Claim",
+      "text": "\"Even when using consent",
+      "isImplicit": false
+    },
+    "Untitled15": {
+      "type": "Claim",
+      "text": "\"The use of OSINT may chill legitimate usage of the darknet.\"",
+      "isImplicit": false
+    },
+    "Untitled16": {
+      "type": "Claim",
+      "text": "\"The use of OSINT may lead to a reproduction of structural discrimination.\"",
+      "isImplicit": false
+    },
+    "Untitled17": {
+      "type": "Claim",
+      "text": "\"Travelers should be able to learn that they were classified 'high risk' due to matching certain situational circumstances and challenge that through the legal process.\"",
+      "isImplicit": false
+    },
+    "Untitled18": {
+      "type": "Claim",
+      "text": "\"The more information can be given to the traveler without compromising the security effect of the risk classification",
+      "isImplicit": false
+    },
+    "Untitled19": {
+      "type": "Claim",
+      "text": "\"The use of OSINT-based risk profiling can lead to a violation of contextual integrity.\"",
+      "isImplicit": false
+    },
+    "Untitled20": {
+      "type": "Claim",
+      "text": "\"The use of OSINT-based risk profiling can lead to a chilling effect on legitimate actions.\"",
+      "isImplicit": false
+    },
+    "Untitled21": {
+      "type": "Claim",
+      "text": "\"The use of OSINT-based risk profiling can lead to a discriminatory impact.\"",
+      "isImplicit": false
+    },
+    "Untitled22": {
+      "type": "Claim",
+      "text": "\"The ethical impact of OSINT techniques in border checks will depend on whether their impact leads to a reproduction of structural discrimination.\"",
+      "isImplicit": false
+    },
+    "Untitled23": {
+      "type": "Claim",
+      "text": "\"The use of OSINT-based risk profiling requires transparency and accountability to be meaningful for decision making.\"",
+      "isImplicit": false
+    },
+    "Untitled24": {
+      "type": "Claim",
+      "text": "\"The use of OSINT-based risk profiling requires checks for a disproportionate denial of the low-risk status for salient social groups.\"",
+      "isImplicit": false
+    },
+    "Untitled25": {
+      "type": "Claim",
+      "text": "\"The use of OSINT-based risk profiling requires a human-in-the-loop to produce results that are meaningful for decision making.\"",
+      "isImplicit": false
+    },
+    "Untitled26": {
+      "type": "Claim",
+      "text": "\"The use of OSINT-based risk profiling may lead to a violation of contextual integrity.\"",
+      "isImplicit": false
+    },
+    "Untitled27": {
+      "type": "Claim",
+      "text": "\"The use of OSINT-based risk profiling may lead to a chilling effect on legitimate actions.\"",
+      "isImplicit": false
+    },
+    "Untitled28": {
+      "type": "Claim",
+      "text": "\"The use of OSINT-based risk profiling may lead to a discriminatory impact.\"",
+      "isImplicit": false
+    },
+    "Untitled29": {
+      "type": "Claim",
+      "text": "\"OSINT techniques can be used in the context of risk profiling using person-related data.\"",
+      "isImplicit": false
+    },
+    "Untitled30": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in risk profiling may make use of journalistic texts",
+      "isImplicit": false
+    },
+    "Untitled31": {
+      "type": "Claim",
+      "text": "\"The technical challenge of attributing information found online to specific travelers is already difficult on social media and becomes even more challenging in the clear web and the darknet.\"",
+      "isImplicit": false
+    },
+    "Untitled32": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling is unlikely due to the need to find other means of attributing information collected from the darknet to specific travelers.\"",
+      "isImplicit": false
+    },
+    "Untitled33": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling would constitute a particular challenge to automatically assess the validity of the information.\"",
+      "isImplicit": false
+    },
+    "Untitled34": {
+      "type": "Claim",
+      "text": "\"The legality of using consent to justify profiling becomes highly questionable for information that travelers may not be aware of.\"",
+      "isImplicit": false
+    },
+    "Untitled35": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling is unlikely due to the need to find other means of attributing information collected from the darknet to specific travelers.\"",
+      "isImplicit": false
+    },
+    "Untitled36": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling would require additional technological and legal challenges.\"",
+      "isImplicit": false
+    },
+    "Untitled37": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling is unlikely due to the need to find other means of attributing information collected from the darknet to specific travelers.\"",
+      "isImplicit": false
+    },
+    "Untitled38": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling would require additional technological and legal challenges.\"",
+      "isImplicit": false
+    },
+    "Untitled39": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling is unlikely due to the need to find other means of attributing information collected from the darknet to specific travelers.\"",
+      "isImplicit": false
+    },
+    "Untitled40": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling would require additional technological and legal challenges.\"",
+      "isImplicit": false
+    },
+    "Untitled41": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling is unlikely due to the need to find other means of attributing information collected from the darknet to specific travelers.\"",
+      "isImplicit": false
+    },
+    "Untitled42": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling would require additional technological and legal challenges.\"",
+      "isImplicit": false
+    },
+    "Untitled43": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling is unlikely due to the need to find other means of attributing information collected from the darknet to specific travelers.\"",
+      "isImplicit": false
+    },
+    "Untitled44": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling would require additional technological and legal challenges.\"",
+      "isImplicit": false
+    },
+    "Untitled45": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling is unlikely due to the need to find other means of attributing information collected from the darknet to specific travelers.\"",
+      "isImplicit": false
+    },
+    "Untitled46": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling would require additional technological and legal challenges.\"",
+      "isImplicit": false
+    },
+    "Untitled47": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling is unlikely due to the need to find other means of attributing information collected from the darknet to specific travelers.\"",
+      "isImplicit": false
+    },
+    "Untitled48": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling would require additional technological and legal challenges.\"",
+      "isImplicit": false
+    },
+    "Untitled49": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling is unlikely due to the need to find other means of attributing information collected from the darknet to specific travelers.\"",
+      "isImplicit": false
+    },
+    "Untitled50": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling would require additional technological and legal challenges.\"",
+      "isImplicit": false
+    },
+    "Untitled51": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling is unlikely due to the need to find other means of attributing information collected from the darknet to specific travelers.\"",
+      "isImplicit": false
+    },
+    "Untitled52": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling would require additional technological and legal challenges.\"",
+      "isImplicit": false
+    },
+    "Untitled53": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling is unlikely due to the need to find other means of attributing information collected from the darknet to specific travelers.\"",
+      "isImplicit": false
+    },
+    "Untitled54": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling would require additional technological and legal challenges.\"",
+      "isImplicit": false
+    },
+    "Untitled55": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling is unlikely due to the need to find other means of attributing information collected from the darknet to specific travelers.\"",
+      "isImplicit": false
+    },
+    "Untitled56": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling would require additional technological and legal challenges.\"",
+      "isImplicit": false
+    },
+    "Untitled57": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling is unlikely due to the need to find other means of attributing information collected from the darknet to specific travelers.\"",
+      "isImplicit": false
+    },
+    "Untitled58": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling would require additional technological and legal challenges.\"",
+      "isImplicit": false
+    },
+    "Untitled59": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling is unlikely due to the need to find other means of attributing information collected from the darknet to specific travelers.\"",
+      "isImplicit": false
+    },
+    "Untitled60": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling would require additional technological and legal challenges.\"",
+      "isImplicit": false
+    },
+    "Untitled61": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling is unlikely due to the need to find other means of attributing information collected from the darknet to specific travelers.\"",
+      "isImplicit": false
+    },
+    "Untitled62": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling would require additional technological and legal challenges.\"",
+      "isImplicit": false
+    },
+    "Untitled63": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling is unlikely due to the need to find other means of attributing information collected from the darknet to specific travelers.\"",
+      "isImplicit": false
+    },
+    "Untitled64": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling would require additional technological and legal challenges.\"",
+      "isImplicit": false
+    },
+    "Untitled65": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling is unlikely due to the need to find other means of attributing information collected from the darknet to specific travelers.\"",
+      "isImplicit": false
+    },
+    "Untitled66": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling would require additional technological and legal challenges.\"",
+      "isImplicit": false
+    },
+    "Untitled67": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling is unlikely due to the need to find other means of attributing information collected from the darknet to specific travelers.\"",
+      "isImplicit": false
+    },
+    "Untitled68": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling would require additional technological and legal challenges.\"",
+      "isImplicit": false
+    },
+    "Untitled69": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling is unlikely due to the need to find other means of attributing information collected from the darknet to specific travelers.\"",
+      "isImplicit": false
+    },
+    "Untitled70": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling would require additional technological and legal challenges.\"",
+      "isImplicit": false
+    },
+    "Untitled71": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling is unlikely due to the need to find other means of attributing information collected from the darknet to specific travelers.\"",
+      "isImplicit": false
+    },
+    "Untitled72": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling would require additional technological and legal challenges.\"",
+      "isImplicit": false
+    },
+    "Untitled73": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling is unlikely due to the need to find other means of attributing information collected from the darknet to specific travelers.\"",
+      "isImplicit": false
+    },
+    "Untitled74": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling would require additional technological and legal challenges.\"",
+      "isImplicit": false
+    },
+    "Untitled75": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling is unlikely due to the need to find other means of attributing information collected from the darknet to specific travelers.\"",
+      "isImplicit": false
+    },
+    "Untitled76": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling would require additional technological and legal challenges.\"",
+      "isImplicit": false
+    },
+    "Untitled77": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling is unlikely due to the need to find other means of attributing information collected from the darknet to specific travelers.\"",
+      "isImplicit": false
+    },
+    "Untitled78": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling would require additional technological and legal challenges.\"",
+      "isImplicit": false
+    },
+    "Untitled79": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling is unlikely due to the need to find other means of attributing information collected from the darknet to specific travelers.\"",
+      "isImplicit": false
+    },
+    "Untitled80": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling would require additional technological and legal challenges.\"",
+      "isImplicit": false
+    },
+    "Untitled81": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling is unlikely due to the need to find other means of attributing information collected from the darknet to specific travelers.\"",
+      "isImplicit": false
+    },
+    "Untitled82": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling would require additional technological and legal challenges.\"",
+      "isImplicit": false
+    },
+    "Untitled83": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling is unlikely due to the need to find other means of attributing information collected from the darknet to specific travelers.\"",
+      "isImplicit": false
+    },
+    "Untitled84": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling would require additional technological and legal challenges.\"",
+      "isImplicit": false
+    },
+    "Untitled85": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling is unlikely due to the need to find other means of attributing information collected from the darknet to specific travelers.\"",
+      "isImplicit": false
+    },
+    "Untitled86": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling would require additional technological and legal challenges.\"",
+      "isImplicit": false
+    },
+    "Untitled87": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling is unlikely due to the need to find other means of attributing information collected from the darknet to specific travelers.\"",
+      "isImplicit": false
+    },
+    "Untitled88": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling would require additional technological and legal challenges.\"",
+      "isImplicit": false
+    },
+    "Untitled89": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling is unlikely due to the need to find other means of attributing information collected from the darknet to specific travelers.\"",
+      "isImplicit": false
+    },
+    "Untitled90": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling would require additional technological and legal challenges.\"",
+      "isImplicit": false
+    },
+    "Untitled91": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling is unlikely due to the need to find other means of attributing information collected from the darknet to specific travelers.\"",
+      "isImplicit": false
+    },
+    "Untitled92": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling would require additional technological and legal challenges.\"",
+      "isImplicit": false
+    },
+    "Untitled93": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling is unlikely due to the need to find other means of attributing information collected from the darknet to specific travelers.\"",
+      "isImplicit": false
+    },
+    "Untitled94": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling would require additional technological and legal challenges.\"",
+      "isImplicit": false
+    },
+    "Untitled95": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling is unlikely due to the need to find other means of attributing information collected from the darknet to specific travelers.\"",
+      "isImplicit": false
+    },
+    "Untitled96": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling would require additional technological and legal challenges.\"",
+      "isImplicit": false
+    },
+    "Untitled97": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling is unlikely due to the need to find other means of attributing information collected from the darknet to specific travelers.\"",
+      "isImplicit": false
+    },
+    "Untitled98": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling would require additional technological and legal challenges.\"",
+      "isImplicit": false
+    },
+    "Untitled99": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling is unlikely due to the need to find other means of attributing information collected from the darknet to specific travelers.\"",
+      "isImplicit": false
+    },
+    "Untitled100": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling would require additional technological and legal challenges.\"",
+      "isImplicit": false
+    },
+    "Untitled101": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling is unlikely due to the need to find other means of attributing information collected from the darknet to specific travelers.\"",
+      "isImplicit": false
+    },
+    "Untitled102": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling would require additional technological and legal challenges.\"",
+      "isImplicit": false
+    },
+    "Untitled103": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling is unlikely due to the need to find other means of attributing information collected from the darknet to specific travelers.\"",
+      "isImplicit": false
+    },
+    "Untitled104": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling would require additional technological and legal challenges.\"",
+      "isImplicit": false
+    },
+    "Untitled105": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling is unlikely due to the need to find other means of attributing information collected from the darknet to specific travelers.\"",
+      "isImplicit": false
+    },
+    "Untitled106": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling would require additional technological and legal challenges.\"",
+      "isImplicit": false
+    },
+    "Untitled107": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling is unlikely due to the need to find other means of attributing information collected from the darknet to specific travelers.\"",
+      "isImplicit": false
+    },
+    "Untitled108": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling would require additional technological and legal challenges.\"",
+      "isImplicit": false
+    },
+    "Untitled109": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling is unlikely due to the need to find other means of attributing information collected from the darknet to specific travelers.\"",
+      "isImplicit": false
+    },
+    "Untitled110": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling would require additional technological and legal challenges.\"",
+      "isImplicit": false
+    },
+    "Untitled111": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling is unlikely due to the need to find other means of attributing information collected from the darknet to specific travelers.\"",
+      "isImplicit": false
+    },
+    "Untitled112": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling would require additional technological and legal challenges.\"",
+      "isImplicit": false
+    },
+    "Untitled113": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling is unlikely due to the need to find other means of attributing information collected from the darknet to specific travelers.\"",
+      "isImplicit": false
+    },
+    "Untitled114": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling would require additional technological and legal challenges.\"",
+      "isImplicit": false
+    },
+    "Untitled115": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling is unlikely due to the need to find other means of attributing information collected from the darknet to specific travelers.\"",
+      "isImplicit": false
+    },
+    "Untitled116": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling would require additional technological and legal challenges.\"",
+      "isImplicit": false
+    },
+    "Untitled117": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling is unlikely due to the need to find other means of attributing information collected from the darknet to specific travelers.\"",
+      "isImplicit": false
+    },
+    "Untitled118": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling would require additional technological and legal challenges.\"",
+      "isImplicit": false
+    },
+    "Untitled119": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling is unlikely due to the need to find other means of attributing information collected from the darknet to specific travelers.\"",
+      "isImplicit": false
+    },
+    "Untitled120": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling would require additional technological and legal challenges.\"",
+      "isImplicit": false
+    },
+    "Untitled121": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling is unlikely due to the need to find other means of attributing information collected from the darknet to specific travelers.\"",
+      "isImplicit": false
+    },
+    "Untitled122": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling would require additional technological and legal challenges.\"",
+      "isImplicit": false
+    },
+    "Untitled123": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling is unlikely due to the need to find other means of attributing information collected from the darknet to specific travelers.\"",
+      "isImplicit": false
+    },
+    "Untitled124": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling would require additional technological and legal challenges.\"",
+      "isImplicit": false
+    },
+    "Untitled125": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling is unlikely due to the need to find other means of attributing information collected from the darknet to specific travelers.\"",
+      "isImplicit": false
+    },
+    "Untitled126": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling would require additional technological and legal challenges.\"",
+      "isImplicit": false
+    },
+    "Untitled127": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling is unlikely due to the need to find other means of attributing information collected from the darknet to specific travelers.\"",
+      "isImplicit": false
+    },
+    "Untitled128": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling would require additional technological and legal challenges.\"",
+      "isImplicit": false
+    },
+    "Untitled129": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling is unlikely due to the need to find other means of attributing information collected from the darknet to specific travelers.\"",
+      "isImplicit": false
+    },
+    "Untitled130": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling would require additional technological and legal challenges.\"",
+      "isImplicit": false
+    },
+    "Untitled131": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling is unlikely due to the need to find other means of attributing information collected from the darknet to specific travelers.\"",
+      "isImplicit": false
+    },
+    "Untitled132": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling would require additional technological and legal challenges.\"",
+      "isImplicit": false
+    },
+    "Untitled133": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling is unlikely due to the need to find other means of attributing information collected from the darknet to specific travelers.\"",
+      "isImplicit": false
+    },
+    "Untitled134": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling would require additional technological and legal challenges.\"",
+      "isImplicit": false
+    },
+    "Untitled135": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling is unlikely due to the need to find other means of attributing information collected from the darknet to specific travelers.\"",
+      "isImplicit": false
+    },
+    "Untitled136": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling would require additional technological and legal challenges.\"",
+      "isImplicit": false
+    },
+    "Untitled137": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling is unlikely due to the need to find other means of attributing information collected from the darknet to specific travelers.\"",
+      "isImplicit": false
+    },
+    "Untitled138": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling would require additional technological and legal challenges.\"",
+      "isImplicit": false
+    },
+    "Untitled139": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling is unlikely due to the need to find other means of attributing information collected from the darknet to specific travelers.\"",
+      "isImplicit": false
+    },
+    "Untitled140": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling would require additional technological and legal challenges.\"",
+      "isImplicit": false
+    },
+    "Untitled141": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling is unlikely due to the need to find other means of attributing information collected from the darknet to specific travelers.\"",
+      "isImplicit": false
+    },
+    "Untitled142": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling would require additional technological and legal challenges.\"",
+      "isImplicit": false
+    },
+    "Untitled143": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling is unlikely due to the need to find other means of attributing information collected from the darknet to specific travelers.\"",
+      "isImplicit": false
+    },
+    "Untitled144": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling would require additional technological and legal challenges.\"",
+      "isImplicit": false
+    },
+    "Untitled145": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling is unlikely due to the need to find other means of attributing information collected from the darknet to specific travelers.\"",
+      "isImplicit": false
+    },
+    "Untitled146": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling would require additional technological and legal challenges.\"",
+      "isImplicit": false
+    },
+    "Untitled147": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling is unlikely due to the need to find other means of attributing information collected from the darknet to specific travelers.\"",
+      "isImplicit": false
+    },
+    "Untitled148": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling would require additional technological and legal challenges.\"",
+      "isImplicit": false
+    },
+    "Untitled149": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling is unlikely due to the need to find other means of attributing information collected from the darknet to specific travelers.\"",
+      "isImplicit": false
+    },
+    "Untitled150": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling would require additional technological and legal challenges.\"",
+      "isImplicit": false
+    },
+    "Untitled151": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling is unlikely due to the need to find other means of attributing information collected from the darknet to specific travelers.\"",
+      "isImplicit": false
+    },
+    "Untitled152": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling would require additional technological and legal challenges.\"",
+      "isImplicit": false
+    },
+    "Untitled153": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling is unlikely due to the need to find other means of attributing information collected from the darknet to specific travelers.\"",
+      "isImplicit": false
+    },
+    "Untitled154": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling would require additional technological and legal challenges.\"",
+      "isImplicit": false
+    },
+    "Untitled155": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling is unlikely due to the need to find other means of attributing information collected from the darknet to specific travelers.\"",
+      "isImplicit": false
+    },
+    "Untitled156": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling would require additional technological and legal challenges.\"",
+      "isImplicit": false
+    },
+    "Untitled157": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling is unlikely due to the need to find other means of attributing information collected from the darknet to specific travelers.\"",
+      "isImplicit": false
+    },
+    "Untitled158": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling would require additional technological and legal challenges.\"",
+      "isImplicit": false
+    },
+    "Untitled159": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling is unlikely due to the need to find other means of attributing information collected from the darknet to specific travelers.\"",
+      "isImplicit": false
+    },
+    "Untitled160": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling would require additional technological and legal challenges.\"",
+      "isImplicit": false
+    },
+    "Untitled161": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling is unlikely due to the need to find other means of attributing information collected from the darknet to specific travelers.\"",
+      "isImplicit": false
+    },
+    "Untitled162": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling would require additional technological and legal challenges.\"",
+      "isImplicit": false
+    },
+    "Untitled163": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling is unlikely due to the need to find other means of attributing information collected from the darknet to specific travelers.\"",
+      "isImplicit": false
+    },
+    "Untitled164": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling would require additional technological and legal challenges.\"",
+      "isImplicit": false
+    },
+    "Untitled165": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling is unlikely due to the need to find other means of attributing information collected from the darknet to specific travelers.\"",
+      "isImplicit": false
+    },
+    "Untitled166": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling would require additional technological and legal challenges.\"",
+      "isImplicit": false
+    },
+    "Untitled167": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling is unlikely due to the need to find other means of attributing information collected from the darknet to specific travelers.\"",
+      "isImplicit": false
+    },
+    "Untitled168": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling would require additional technological and legal challenges.\"",
+      "isImplicit": false
+    },
+    "Untitled169": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling is unlikely due to the need to find other means of attributing information collected from the darknet to specific travelers.\"",
+      "isImplicit": false
+    },
+    "Untitled170": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling would require additional technological and legal challenges.\"",
+      "isImplicit": false
+    },
+    "Untitled171": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling is unlikely due to the need to find other means of attributing information collected from the darknet to specific travelers.\"",
+      "isImplicit": false
+    },
+    "Untitled172": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling would require additional technological and legal challenges.\"",
+      "isImplicit": false
+    },
+    "Untitled173": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling is unlikely due to the need to find other means of attributing information collected from the darknet to specific travelers.\"",
+      "isImplicit": false
+    },
+    "Untitled174": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling would require additional technological and legal challenges.\"",
+      "isImplicit": false
+    },
+    "Untitled175": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling is unlikely due to the need to find other means of attributing information collected from the darknet to specific travelers.\"",
+      "isImplicit": false
+    },
+    "Untitled176": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling would require additional technological and legal challenges.\"",
+      "isImplicit": false
+    },
+    "Untitled177": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling is unlikely due to the need to find other means of attributing information collected from the darknet to specific travelers.\"",
+      "isImplicit": false
+    },
+    "Untitled178": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling would require additional technological and legal challenges.\"",
+      "isImplicit": false
+    },
+    "Untitled179": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling is unlikely due to the need to find other means of attributing information collected from the darknet to specific travelers.\"",
+      "isImplicit": false
+    },
+    "Untitled180": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling would require additional technological and legal challenges.\"",
+      "isImplicit": false
+    },
+    "Untitled181": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling is unlikely due to the need to find other means of attributing information collected from the darknet to specific travelers.\"",
+      "isImplicit": false
+    },
+    "Untitled182": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling would require additional technological and legal challenges.\"",
+      "isImplicit": false
+    },
+    "Untitled183": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling is unlikely due to the need to find other means of attributing information collected from the darknet to specific travelers.\"",
+      "isImplicit": false
+    },
+    "Untitled184": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling would require additional technological and legal challenges.\"",
+      "isImplicit": false
+    },
+    "Untitled185": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling is unlikely due to the need to find other means of attributing information collected from the darknet to specific travelers.\"",
+      "isImplicit": false
+    },
+    "Untitled186": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling would require additional technological and legal challenges.\"",
+      "isImplicit": false
+    },
+    "Untitled187": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling is unlikely due to the need to find other means of attributing information collected from the darknet to specific travelers.\"",
+      "isImplicit": false
+    },
+    "Untitled188": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling would require additional technological and legal challenges.\"",
+      "isImplicit": false
+    },
+    "Untitled189": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling is unlikely due to the need to find other means of attributing information collected from the darknet to specific travelers.\"",
+      "isImplicit": false
+    },
+    "Untitled190": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling would require additional technological and legal challenges.\"",
+      "isImplicit": false
+    },
+    "Untitled191": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling is unlikely due to the need to find other means of attributing information collected from the darknet to specific travelers.\"",
+      "isImplicit": false
+    },
+    "Untitled192": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling would require additional technological and legal challenges.\"",
+      "isImplicit": false
+    },
+    "Untitled193": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling is unlikely due to the need to find other means of attributing information collected from the darknet to specific travelers.\"",
+      "isImplicit": false
+    },
+    "Untitled194": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling would require additional technological and legal challenges.\"",
+      "isImplicit": false
+    },
+    "Untitled195": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling is unlikely due to the need to find other means of attributing information collected from the darknet to specific travelers.\"",
+      "isImplicit": false
+    },
+    "Untitled196": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling would require additional technological and legal challenges.\"",
+      "isImplicit": false
+    },
+    "Untitled197": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling is unlikely due to the need to find other means of attributing information collected from the darknet to specific travelers.\"",
+      "isImplicit": false
+    },
+    "Untitled198": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling would require additional technological and legal challenges.\"",
+      "isImplicit": false
+    },
+    "Untitled199": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling is unlikely due to the need to find other means of attributing information collected from the darknet to specific travelers.\"",
+      "isImplicit": false
+    },
+    "Untitled200": {
+      "type": "Claim",
+      "text": "\"The use of OSINT in the darknet for risk profiling would require additional technological and legal challenges.\"",
+      "isImplicit": false
+    }
+  },
+  "relations": []
+}

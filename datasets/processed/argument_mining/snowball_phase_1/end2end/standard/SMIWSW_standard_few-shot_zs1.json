@@ -1,0 +1,1326 @@
+{
+  "ADUs": {
+    "MainClaim": {
+      "type": "Major Claim",
+      "text": "\"Malabou's book offers a critique of the ideological implications of neuroscience and suggests that brain plasticity can be understood as a model for freedom.\"",
+      "isImplicit": false
+    },
+    "sCritique": {
+      "type": "Claim",
+      "text": "\"Malabou critiques the ideological implications of neuroscience",
+      "isImplicit": false
+    },
+    "sSolution": {
+      "type": "Claim",
+      "text": "\"Malabou suggests that brain plasticity can be understood as a model for freedom",
+      "isImplicit": false
+    },
+    "sConceptualAnalysis": {
+      "type": "Claim",
+      "text": "\"Malabou performs a conceptual analysis of the notion of plasticity",
+      "isImplicit": false
+    },
+    "sHegelianSolution": {
+      "type": "Claim",
+      "text": "\"Malabou suggests that the transition from the neuronal to the mental involves a dialectical process",
+      "isImplicit": false
+    },
+    "sFoucauldianSolution": {
+      "type": "Claim",
+      "text": "\"Malabou suggests that the transition from the neuronal to the mental involves a Foucauldian process of subjection and subjectivation.\"",
+      "isImplicit": false
+    },
+    "sDeleuzianSolution": {
+      "type": "Claim",
+      "text": "\"Malabou suggests that the plasticity of the brain is the real image of the world",
+      "isImplicit": false
+    },
+    "sAnswer": {
+      "type": "Claim",
+      "text": "\"Malabou's answer to the question 'What should we do with our brain?' is to understand plasticity as the production of the new and to resist the capitalist demand for flexibility.\"",
+      "isImplicit": false
+    },
+    "sPhilosophicalProblem": {
+      "type": "Claim",
+      "text": "\"The problem of freedom is central to Malabou's book",
+      "isImplicit": false
+    },
+    "sUseOfNeuroscience": {
+      "type": "Claim",
+      "text": "\"Malabou uses neuroscience to explore the question of freedom and to challenge the ideological implications of the neurosciences.\"",
+      "isImplicit": false
+    },
+    "sCritiqueOfNeuronalIdeology": {
+      "type": "Claim",
+      "text": "\"Malabou critiques the way in which the neurosciences naturalize the capitalist demand for flexibility and legitimates the current economic order.\"",
+      "isImplicit": false
+    },
+    "sAnswerToTheQuestion": {
+      "type": "Claim",
+      "text": "\"Malabou's answer to the question 'What should we do with our brain?' is to understand plasticity as the production of the new and to resist the capitalist demand for flexibility.\"",
+      "isImplicit": false
+    },
+    "sPhilosophicalPosition": {
+      "type": "Claim",
+      "text": "\"Malabou's philosophical position is that the discovery of the plasticity of the brain reflects the structure of capitalism and points the way for a conception of the production of the new.\"",
+      "isImplicit": false
+    },
+    "sDialecticalSolution": {
+      "type": "Claim",
+      "text": "\"Malabou's solution to the problem of freedom involves a dialectical process",
+      "isImplicit": false
+    },
+    "sFoucauldianPosition": {
+      "type": "Claim",
+      "text": "\"Malabou's Foucauldian position is that the transition from the neuronal to the mental involves a process of subjection and subjectivation.\"",
+      "isImplicit": false
+    },
+    "sDeleuzianPosition": {
+      "type": "Claim",
+      "text": "\"Malabou's Deleuzian position is that the plasticity of the brain is the real image of the world",
+      "isImplicit": false
+    },
+    "sPhilosophicalSpeculation": {
+      "type": "Claim",
+      "text": "\"Malabou performs a philosophical speculation on the nature of the transition from the neuronal to the mental",
+      "isImplicit": false
+    },
+    "sHegelianReading": {
+      "type": "Claim",
+      "text": "\"Malabou's Hegelian reading of the neurosciences involves a dialectical process",
+      "isImplicit": false
+    },
+    "sFoucauldianReading": {
+      "type": "Claim",
+      "text": "\"Malabou's Foucauldian reading of the neurosciences involves a process of subjection and subjectivation.\"",
+      "isImplicit": false
+    },
+    "sDeleuzianReading": {
+      "type": "Claim",
+      "text": "\"Malabou's Deleuzian reading of the neurosciences involves the idea that the plasticity of the brain is the real image of the world",
+      "isImplicit": false
+    },
+    "sPhilosophicalInquiry": {
+      "type": "Claim",
+      "text": "\"Malabou's philosophical inquiry is focused on the question of freedom and the relationship between the brain and the mind.\"",
+      "isImplicit": false
+    },
+    "sCritiqueOfNeuroscientificDiscourse": {
+      "type": "Claim",
+      "text": "\"Malabou critiques the way in which neuroscientific discourse naturalizes the capitalist demand for flexibility and legitimates the current economic order.\"",
+      "isImplicit": false
+    },
+    "sAnswerToThePhilosophicalProblem": {
+      "type": "Claim",
+      "text": "\"Malabou's answer to the question of freedom is to understand plasticity as the production of the new and to resist the capitalist demand for flexibility.\"",
+      "isImplicit": false
+    },
+    "sPhilosophicalPositionOnFreedom": {
+      "type": "Claim",
+      "text": "\"Malabou's philosophical position on freedom is that it is the production of the new and the resistance to the capitalist demand for flexibility.\"",
+      "isImplicit": false
+    },
+    "sSolutionToThePhilosophicalProblem": {
+      "type": "Claim",
+      "text": "\"Malabou's solution to the question of freedom is to understand plasticity as the production of the new and to resist the capitalist demand for flexibility.\"",
+      "isImplicit": false
+    }
+  },
+  "relations": [
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    },
+    {
+      "src": "Malabou",
+      "tgt": "Malabou",
+      "type": "support"
+    }
+  ]
+}

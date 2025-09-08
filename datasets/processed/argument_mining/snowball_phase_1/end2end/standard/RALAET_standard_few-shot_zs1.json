@@ -1,0 +1,186 @@
+{
+  "ADUs": {
+    "MainClaim": {
+      "type": "Major Claim",
+      "text": "\"The American Enlightenment was a distinct intellectual movement that shared many ideas with the European Enlightenment",
+      "isImplicit": false
+    },
+    "AmericanEnlightenment": {
+      "type": "Claim",
+      "text": "\"American Enlightenment thought was inspired by the ideas of the British and French Enlightenments",
+      "isImplicit": false
+    },
+    "ModerateAndRadical": {
+      "type": "Claim",
+      "text": "\"American Enlightenment thought integrated both moderate and radical elements",
+      "isImplicit": false
+    },
+    "Chronology": {
+      "type": "Claim",
+      "text": "\"American Enlightenment thought can be appreciated chronologically",
+      "isImplicit": false
+    },
+    "DemocracyAndSocialContract": {
+      "type": "Claim",
+      "text": "\"Many European and American Enlightenment figures were critical of democracy",
+      "isImplicit": false
+    },
+    "KeyIdeas": {
+      "type": "Claim",
+      "text": "\"At least six ideas came to punctuate American Enlightenment thinking: deism",
+      "isImplicit": false
+    },
+    "Deism": {
+      "type": "Claim",
+      "text": "\"Both moderate and radical American Enlightenment thinkers were deists",
+      "isImplicit": false
+    },
+    "Liberalism": {
+      "type": "Claim",
+      "text": "\"Liberalism was a central idea in American Enlightenment thought",
+      "isImplicit": false
+    },
+    "RepublicanValues": {
+      "type": "Claim",
+      "text": "\"Republican values included civic patriotism",
+      "isImplicit": false
+    },
+    "Conservatism": {
+      "type": "Claim",
+      "text": "\"Conservatism emerged as a reaction to the excesses of the French Revolution",
+      "isImplicit": false
+    },
+    "Toleration": {
+      "type": "Claim",
+      "text": "\"Toleration or tolerant pluralism was a major theme in American Enlightenment thought",
+      "isImplicit": false
+    },
+    "ScientificProgress": {
+      "type": "Claim",
+      "text": "\"The Enlightenment enthusiasm for scientific discovery was directly related to the growth of deism and skepticism about received religious doctrine.\"",
+      "isImplicit": false
+    },
+    "FourThinkers": {
+      "type": "Claim",
+      "text": "\"Four significant thinkers contributed to the eighteenth-century American Enlightenment: Benjamin Franklin",
+      "isImplicit": false
+    },
+    "Franklin": {
+      "type": "Claim",
+      "text": "\"Benjamin Franklin was a key figure in American Enlightenment thought",
+      "isImplicit": false
+    },
+    "Jefferson": {
+      "type": "Claim",
+      "text": "\"Thomas Jefferson was a Virginian statesman",
+      "isImplicit": false
+    },
+    "Madison": {
+      "type": "Claim",
+      "text": "\"James Madison was a key architect of the U.S. Constitution and a prominent thinker in American Enlightenment thought",
+      "isImplicit": false
+    },
+    "Adams": {
+      "type": "Claim",
+      "text": "\"John Adams was a founder",
+      "isImplicit": false
+    },
+    "Legacy": {
+      "type": "Claim",
+      "text": "\"The American Enlightenment project signifies how America has taken a leading role in promoting Enlightenment ideals during the period of modernity",
+      "isImplicit": false
+    }
+  },
+  "relations": [
+    {
+      "src": "AmericanEnlightenment",
+      "tgt": "ModerateAndRadical",
+      "type": "support"
+    },
+    {
+      "src": "ModerateAndRadical",
+      "tgt": "Chronology",
+      "type": "support"
+    },
+    {
+      "src": "Chronology",
+      "tgt": "DemocracyAndSocialContract",
+      "type": "support"
+    },
+    {
+      "src": "DemocracyAndSocialContract",
+      "tgt": "KeyIdeas",
+      "type": "support"
+    },
+    {
+      "src": "KeyIdeas",
+      "tgt": "Deism",
+      "type": "support"
+    },
+    {
+      "src": "KeyIdeas",
+      "tgt": "Liberalism",
+      "type": "support"
+    },
+    {
+      "src": "KeyIdeas",
+      "tgt": "RepublicanValues",
+      "type": "support"
+    },
+    {
+      "src": "KeyIdeas",
+      "tgt": "Conservatism",
+      "type": "support"
+    },
+    {
+      "src": "KeyIdeas",
+      "tgt": "Toleration",
+      "type": "support"
+    },
+    {
+      "src": "KeyIdeas",
+      "tgt": "ScientificProgress",
+      "type": "support"
+    },
+    {
+      "src": "FourThinkers",
+      "tgt": "Franklin",
+      "type": "support"
+    },
+    {
+      "src": "FourThinkers",
+      "tgt": "Jefferson",
+      "type": "support"
+    },
+    {
+      "src": "FourThinkers",
+      "tgt": "Madison",
+      "type": "support"
+    },
+    {
+      "src": "FourThinkers",
+      "tgt": "Adams",
+      "type": "support"
+    },
+    {
+      "src": "Franklin",
+      "tgt": "Legacy",
+      "type": "support"
+    },
+    {
+      "src": "Jefferson",
+      "tgt": "Legacy",
+      "type": "support"
+    },
+    {
+      "src": "Madison",
+      "tgt": "Legacy",
+      "type": "support"
+    },
+    {
+      "src": "Adams",
+      "tgt": "Legacy",
+      "type": "support"
+    }
+  ]
+}

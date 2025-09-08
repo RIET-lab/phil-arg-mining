@@ -136,7 +136,7 @@ snowball:
     holdout: 0.20 # Split between validation and test (holdout) sets. NOTE: there is no "train" set as we're just running evals on the human annotations.
   phase_1:
     eval:
-      fuzzy_thr: 0.80 # Threshold of fuzzy similarity required to pass in order to be considered the "same" ADU.
+      fuzzy_thr: 0.70 # Threshold of fuzzy similarity required to pass in order to be considered the "same" ADU.
       loss:
         w: [0.25, 0.25, 0.25, 0.25] # Weighting of the 4 eval metrics: [Fuzzy-match F1 (ADU similarity), Relation-type F1 (relation similarity), Count Error (On ADUs and Relations), Attributed Graph Edit Distance]
     hparams:

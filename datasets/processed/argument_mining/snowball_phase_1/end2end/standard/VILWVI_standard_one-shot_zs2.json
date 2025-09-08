@@ -1,0 +1,191 @@
+{
+  "ADUs": {
+    "MainClaim": {
+      "type": "Major Claim",
+      "text": "\"Descartes's moral thought forms a surprisingly unified whole",
+      "isImplicit": false
+    },
+    "VirtueIsSufficientForHappiness": {
+      "type": "Claim",
+      "text": "\"Descartes claims that virtue is sufficient for happiness",
+      "isImplicit": false
+    },
+    "sAccountOfVirtue": {
+      "type": "Claim",
+      "text": "\"Descartes's account of virtue consists of two features: judging well and striving to act according to one's judgment.\"",
+      "isImplicit": false
+    },
+    "TwoComponentTheoryOfMoralAction": {
+      "type": "Claim",
+      "text": "\"Descartes's account of moral agency consists of two components: the cognitive component of judging well and the conative component of striving to act according to one's judgment.\"",
+      "isImplicit": false
+    },
+    "VirtueEqualsJudgingWell": {
+      "type": "Claim",
+      "text": "\"Virtue equals acting in accordance with the two-component theory of moral agency.\"",
+      "isImplicit": false
+    },
+    "HappinessIsNotTheHighestGood": {
+      "type": "Claim",
+      "text": "\"Happiness is not the highest good",
+      "isImplicit": false
+    },
+    "sAccountOfHappiness": {
+      "type": "Claim",
+      "text": "\"Descartes's account of happiness is about having a contented mind.\"",
+      "isImplicit": false
+    },
+    "IntellectualInsight": {
+      "type": "Claim",
+      "text": "\"An intellectual insight consisting of three key components is necessary to secure happiness.\"",
+      "isImplicit": false
+    },
+    "DescartesLeavesPremiseImplicit": {
+      "type": "Claim",
+      "text": "\"Descartes leaves the intellectual insight necessary for happiness implicit because it appears much more self-evident to him than to us.\"",
+      "isImplicit": false
+    },
+    "VirtueEqualsConativeComponent": {
+      "type": "Claim",
+      "text": "\"Virtue is primarily about exerting ourselves according to our best judgment.\"",
+      "isImplicit": false
+    },
+    "DescartesDownplaysIntellectualInsight": {
+      "type": "Claim",
+      "text": "\"Descartes downplays the intellectual insight his account involves because he thinks that all of its three main components are innocuous in their ubiquity.\"",
+      "isImplicit": false
+    },
+    "PremiseIsImplicitBecauseSelfEvident": {
+      "type": "Claim",
+      "text": "\"The intellectual insight necessary for happiness is implicit because its components are so evident that little reflection is needed to realize them.\"",
+      "isImplicit": false
+    },
+    "CartesianSageIsSimilarToStoicSage": {
+      "type": "Claim",
+      "text": "\"The Cartesian sage is similar to the Stoic sage in that both are concerned with governing their desires and taking a clear conscience as the goal of their actions.\"",
+      "isImplicit": false
+    },
+    "StoicismAndCartesianism": {
+      "type": "Claim",
+      "text": "\"Descartes's theory of the passions shows that he was concerned with the same issues as the Stoics",
+      "isImplicit": false
+    }
+  },
+  "relations": [
+    {
+      "src": "IntellectualInsight",
+      "tgt": "MainClaim",
+      "type": "support"
+    },
+    {
+      "src": "VirtueEqualsConativeComponent",
+      "tgt": "Descartes",
+      "type": "support"
+    },
+    {
+      "src": "TwoComponentTheoryOfMoralAction",
+      "tgt": "Descartes",
+      "type": "support"
+    },
+    {
+      "src": "DescartesLeavesPremiseImplicit",
+      "tgt": "MainClaim",
+      "type": "support"
+    },
+    {
+      "src": "DescartesDownplaysIntellectualInsight",
+      "tgt": "IntellectualInsight",
+      "type": "support"
+    },
+    {
+      "src": "PremiseIsImplicitBecauseSelfEvident",
+      "tgt": "DescartesDownplaysIntellectualInsight",
+      "type": "support"
+    },
+    {
+      "src": "IntellectualInsight",
+      "tgt": "VirtueIsSufficientForHappiness",
+      "type": "attack"
+    },
+    {
+      "src": "VirtueIsSufficientForHappiness",
+      "tgt": "Descartes",
+      "type": "support"
+    },
+    {
+      "src": "Descartes",
+      "tgt": "VirtueEqualsConativeComponent",
+      "type": "support"
+    },
+    {
+      "src": "VirtueEqualsConativeComponent",
+      "tgt": "VirtueEqualsJudgingWell",
+      "type": "support"
+    },
+    {
+      "src": "Descartes",
+      "tgt": "VirtueEqualsJudgingWell",
+      "type": "support"
+    },
+    {
+      "src": "HappinessIsNotTheHighestGood",
+      "tgt": "Descartes",
+      "type": "support"
+    },
+    {
+      "src": "Descartes",
+      "tgt": "VirtueIsSufficientForHappiness",
+      "type": "support"
+    },
+    {
+      "src": "VirtueIsSufficientForHappiness",
+      "tgt": "IntellectualInsight",
+      "type": "attack"
+    },
+    {
+      "src": "IntellectualInsight",
+      "tgt": "DescartesLeavesPremiseImplicit",
+      "type": "support"
+    },
+    {
+      "src": "DescartesLeavesPremiseImplicit",
+      "tgt": "MainClaim",
+      "type": "support"
+    },
+    {
+      "src": "DescartesDownplaysIntellectualInsight",
+      "tgt": "IntellectualInsight",
+      "type": "support"
+    },
+    {
+      "src": "PremiseIsImplicitBecauseSelfEvident",
+      "tgt": "DescartesDownplaysIntellectualInsight",
+      "type": "support"
+    },
+    {
+      "src": "DescartesDownplaysIntellectualInsight",
+      "tgt": "IntellectualInsight",
+      "type": "support"
+    },
+    {
+      "src": "PremiseIsImplicitBecauseSelfEvident",
+      "tgt": "DescartesDownplaysIntellectualInsight",
+      "type": "support"
+    },
+    {
+      "src": "IntellectualInsight",
+      "tgt": "CartesianSageIsSimilarToStoicSage",
+      "type": "support"
+    },
+    {
+      "src": "CartesianSageIsSimilarToStoicSage",
+      "tgt": "StoicismAndCartesianism",
+      "type": "support"
+    },
+    {
+      "src": "StoicismAndCartesianism",
+      "tgt": "DescartesDownplaysIntellectualInsight",
+      "type": "attack"
+    }
+  ]
+}

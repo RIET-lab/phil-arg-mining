@@ -1,0 +1,166 @@
+{
+  "ADUs": {
+    "MainClaim": {
+      "type": "Claim",
+      "text": "Descartes's moral thought forms a surprisingly unified whole, where the highest good equals virtuous action, which involves two components, judging well and striving to act according to one's judgment, and happiness is not the highest good but something that is supposed to follow from it.",
+      "isImplicit": false
+    },
+    "IntellectualInsight": {
+      "type": "Claim",
+      "text": "Securing happiness requires that we have a rather multifaceted intellectual insight into virtuous action.",
+      "isImplicit": false
+    },
+    "Descartes'sAccountOfHappiness": {
+      "type": "Claim",
+      "text": "Happiness is not the highest good but something that is supposed to follow from virtuous action.",
+      "isImplicit": false
+    },
+    "Descartes'sAccountOfVirtue": {
+      "type": "Claim",
+      "text": "Virtue is about exerting ourselves according to our best judgment.",
+      "isImplicit": false
+    },
+    "Descartes'sAccountOfTheHighestGood": {
+      "type": "Claim",
+      "text": "The highest good equals virtuous action.",
+      "isImplicit": false
+    },
+    "Descartes'sClaim": {
+      "type": "Claim",
+      "text": "Descartes claims that virtue is sufficient for happiness.",
+      "isImplicit": false
+    },
+    "Descartes'sArgument": {
+      "type": "Claim",
+      "text": "Descartes's argument for the sufficiency of virtue for happiness involves the distinction between what is and what is not up to us, the idea that we are not to blame ourselves for anything we do as long as we have genuinely done our best to judge correctly and act accordingly, and the view that things outside our power are determined by providence.",
+      "isImplicit": false
+    },
+    "Descartes'sOmission": {
+      "type": "Claim",
+      "text": "Descartes consistently claims that virtue is sufficient for happiness even though it seems clear that, according to his own account, it is not.",
+      "isImplicit": false
+    },
+    "Descartes'sReason": {
+      "type": "Claim",
+      "text": "Descartes downplays the intellectual insight his account involves because he thinks that all of its three main components are innocuous in their ubiquity.",
+      "isImplicit": false
+    },
+    "Descartes'sImplicitPremise": {
+      "type": "Claim",
+      "text": "The implicit premise that virtue is sufficient for happiness is that we have control over some things and not others, that we are not to blame ourselves if we have done the best we could, and that providence determines everything that does not depend on us.",
+      "isImplicit": false
+    },
+    "Descartes'sViewOfVirtue": {
+      "type": "Claim",
+      "text": "Descartes's view of virtue is that it is primarily about exerting ourselves according to our best judgment.",
+      "isImplicit": false
+    },
+    "Descartes'sViewOfHappiness": {
+      "type": "Claim",
+      "text": "Happiness is a result of virtuous action, but it requires an intellectual insight that consists of three key components.",
+      "isImplicit": false
+    },
+    "Descartes'sIntellectualInsight": {
+      "type": "Claim",
+      "text": "Descartes's intellectual insight involves the distinction between what is and what is not up to us, the idea that we are not to blame ourselves for anything we do as long as we have genuinely done our best to judge correctly and act accordingly, and the view that things outside our power are determined by providence.",
+      "isImplicit": false
+    },
+    "Descartes'sAccountOfHappinessRequiresIntellectualInsight": {
+      "type": "Claim",
+      "text": "An analysis of Descartes's argument reveals that securing happiness requires that we have a rather multifaceted intellectual insight into virtuous action.",
+      "isImplicit": false
+    },
+    "Descartes'sClaimRequiresIntellectualInsight": {
+      "type": "Claim",
+      "text": "Descartes's claim that virtue is sufficient for happiness requires an intellectual insight that consists of three key components.",
+      "isImplicit": false
+    },
+    "Descartes'sImplicitPremiseIsIntellectualInsight": {
+      "type": "Claim",
+      "text": "The implicit premise that virtue is sufficient for happiness is an intellectual insight that consists of three key components.",
+      "isImplicit": false
+    }
+  },
+  "relations": [
+    {
+      "src": "Descartes'sClaim",
+      "tgt": "Descartes'sArgument",
+      "type": "support"
+    },
+    {
+      "src": "Descartes'sArgument",
+      "tgt": "Descartes'sClaim",
+      "type": "support"
+    },
+    {
+      "src": "Descartes'sClaim",
+      "tgt": "Descartes'sOmission",
+      "type": "support"
+    },
+    {
+      "src": "Descartes'sOmission",
+      "tgt": "Descartes'sReason",
+      "type": "support"
+    },
+    {
+      "src": "Descartes'sReason",
+      "tgt": "Descartes'sImplicitPremise",
+      "type": "support"
+    },
+    {
+      "src": "Descartes'sImplicitPremise",
+      "tgt": "Descartes'sAccountOfHappinessRequiresIntellectualInsight",
+      "type": "support"
+    },
+    {
+      "src": "Descartes'sAccountOfHappinessRequiresIntellectualInsight",
+      "tgt": "Descartes'sAccountOfHappiness",
+      "type": "support"
+    },
+    {
+      "src": "Descartes'sAccountOfHappiness",
+      "tgt": "Descartes'sAccountOfTheHighestGood",
+      "type": "support"
+    },
+    {
+      "src": "Descartes'sAccountOfTheHighestGood",
+      "tgt": "Descartes'sClaim",
+      "type": "support"
+    },
+    {
+      "src": "Descartes'sClaim",
+      "tgt": "Descartes'sViewOfVirtue",
+      "type": "support"
+    },
+    {
+      "src": "Descartes'sViewOfVirtue",
+      "tgt": "Descartes'sViewOfHappiness",
+      "type": "support"
+    },
+    {
+      "src": "Descartes'sViewOfHappiness",
+      "tgt": "Descartes'sIntellectualInsight",
+      "type": "support"
+    },
+    {
+      "src": "Descartes'sIntellectualInsight",
+      "tgt": "Descartes'sClaimRequiresIntellectualInsight",
+      "type": "support"
+    },
+    {
+      "src": "Descartes'sClaimRequiresIntellectualInsight",
+      "tgt": "Descartes'sClaim",
+      "type": "support"
+    },
+    {
+      "src": "Descartes'sClaimRequiresIntellectualInsight",
+      "tgt": "Descartes'sImplicitPremiseIsIntellectualInsight",
+      "type": "support"
+    },
+    {
+      "src": "Descartes'sImplicitPremiseIsIntellectualInsight",
+      "tgt": "Descartes'sImplicitPremise",
+      "type": "support"
+    }
+  ]
+}

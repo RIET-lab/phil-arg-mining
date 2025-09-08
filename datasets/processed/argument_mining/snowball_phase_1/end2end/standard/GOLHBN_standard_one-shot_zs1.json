@@ -1,0 +1,156 @@
+{
+  "ADUs": {
+    "MainClaim": {
+      "type": "Claim",
+      "text": "Heidegger's conception of the political sphere in GA94 is characterized by an occlusion, a suppression of the political by the ontological.",
+      "isImplicit": false
+    },
+    "Occlusion of the political": {
+      "type": "Claim",
+      "text": "The political is cast primarily as a threat, leading Heidegger to be reluctant to engage with its categories and questions.",
+      "isImplicit": false
+    },
+    "Ontological dominance": {
+      "type": "Claim",
+      "text": "Philosophy and ontology frame the discourse in GA94, with the political being used only as a distribution channel for the ontological.",
+      "isImplicit": false
+    },
+    "Heidegger's response to the threat of the political": {
+      "type": "Claim",
+      "text": "Heidegger employs three strategies to deal with the threat of the political: disengagement, aggression, and co-option.",
+      "isImplicit": false
+    },
+    "Heidegger's view of the political": {
+      "type": "Claim",
+      "text": "The political is characterized as a threat to philosophy and ontology in GA94.",
+      "isImplicit": false
+    },
+    "Suppression of the political": {
+      "type": "Claim",
+      "text": "Heidegger presides over an occlusion or suppression of the political in GA94.",
+      "isImplicit": false
+    },
+    "Heidegger's conception of the political": {
+      "type": "Claim",
+      "text": "Heidegger's conception of the political in GA94 is characterized by a negative view of the public sphere.",
+      "isImplicit": false
+    },
+    "Heidegger's political thought": {
+      "type": "Claim",
+      "text": "Heidegger's political thought is non-political in the sense that it raises political issues only to thematize them using values and concepts drawn from ontology.",
+      "isImplicit": false
+    },
+    "Heidegger's treatment of authenticity": {
+      "type": "Claim",
+      "text": "Heidegger's treatment of authenticity exemplifies a process whereby ethical norms are gradually reinterpreted as ontological norms.",
+      "isImplicit": false
+    },
+    "Value of authenticity": {
+      "type": "Claim",
+      "text": "Authenticity is valuable because it enables a philosophy properly orientated towards Being.",
+      "isImplicit": false
+    },
+    "Heidegger's view of the relationship between ontology and politics": {
+      "type": "Claim",
+      "text": "Heidegger's view of the relationship between ontology and politics is one of ontological dominance.",
+      "isImplicit": false
+    },
+    "Heidegger's view of the relationship between ontology and ethics": {
+      "type": "Claim",
+      "text": "Heidegger's view of the relationship between ontology and ethics is one of ontological dominance.",
+      "isImplicit": false
+    }
+  },
+  "relations": [
+    {
+      "src": "Heidegger's view of the political",
+      "tgt": "Heidegger's response to the threat of the political",
+      "type": "support"
+    },
+    {
+      "src": "Heidegger's view of the political",
+      "tgt": "Suppression of the political",
+      "type": "support"
+    },
+    {
+      "src": "Heidegger's view of the political",
+      "tgt": "Heidegger's conception of the political",
+      "type": "support"
+    },
+    {
+      "src": "Heidegger's conception of the political",
+      "tgt": "Occlusion of the political",
+      "type": "support"
+    },
+    {
+      "src": "Heidegger's conception of the political",
+      "tgt": "Ontological dominance",
+      "type": "support"
+    },
+    {
+      "src": "Heidegger's political thought",
+      "tgt": "Heidegger's view of the relationship between ontology and politics",
+      "type": "support"
+    },
+    {
+      "src": "Heidegger's political thought",
+      "tgt": "Heidegger's view of the relationship between ontology and ethics",
+      "type": "support"
+    },
+    {
+      "src": "Heidegger's treatment of authenticity",
+      "tgt": "Value of authenticity",
+      "type": "support"
+    },
+    {
+      "src": "Heidegger's treatment of authenticity",
+      "tgt": "Heidegger's view of the relationship between ontology and ethics",
+      "type": "support"
+    },
+    {
+      "src": "Heidegger's view of the relationship between ontology and ethics",
+      "tgt": "Heidegger's view of the relationship between ontology and politics",
+      "type": "support"
+    },
+    {
+      "src": "Heidegger's view of the relationship between ontology and ethics",
+      "tgt": "Heidegger's view of the relationship between ontology and politics",
+      "type": "support"
+    },
+    {
+      "src": "Heidegger's view of the relationship between ontology and politics",
+      "tgt": "Heidegger's view of the relationship between ontology and ethics",
+      "type": "support"
+    },
+    {
+      "src": "Heidegger's view of the relationship between ontology and ethics",
+      "tgt": "Heidegger's view of the relationship between ontology and politics",
+      "type": "support"
+    },
+    {
+      "src": "Heidegger's view of the relationship between ontology and ethics",
+      "tgt": "MainClaim",
+      "type": "support"
+    },
+    {
+      "src": "Heidegger's view of the relationship between ontology and politics",
+      "tgt": "MainClaim",
+      "type": "support"
+    },
+    {
+      "src": "Heidegger's view of the relationship between ontology and politics",
+      "tgt": "Occlusion of the political",
+      "type": "support"
+    },
+    {
+      "src": "Heidegger's view of the relationship between ontology and ethics",
+      "tgt": "Occlusion of the political",
+      "type": "support"
+    },
+    {
+      "src": "Occlusion of the political",
+      "tgt": "MainClaim",
+      "type": "support"
+    }
+  ]
+}

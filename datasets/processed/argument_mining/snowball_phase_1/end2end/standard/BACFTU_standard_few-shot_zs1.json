@@ -1,0 +1,125 @@
+{
+  "ADUs": {
+    "MainClaim": {
+      "type": "Major Claim",
+      "text": "\"Heidegger's notion of ontotheology is contrasted with the materialist approaches of Badiou and Meillassoux in contemporary philosophy",
+      "isImplicit": false
+    },
+    "Heideggerian ontotheology": {
+      "type": "Claim",
+      "text": "\"Heidegger's notion of ontotheology designates the tendency of Western philosophy to posit an absolute point of reference for all beings",
+      "isImplicit": false
+    },
+    "s materialist approaches": {
+      "type": "Claim",
+      "text": "\"Badiou and Meillassoux's materialist approaches reject the Heideggerian finitization of thinking and instead adopt mathematics as their basic ontological model.\"",
+      "isImplicit": false
+    },
+    "s critique of ontotheology": {
+      "type": "Claim",
+      "text": "\"Heidegger's critique of ontotheology is centered on the idea that ontotheological metaphysics fails to think the difference between being and that-which-is in positive terms.\"",
+      "isImplicit": false
+    },
+    "s contemporary atheism": {
+      "type": "Claim",
+      "text": "\"Heidegger's ontotheology",
+      "isImplicit": false
+    },
+    "s reintroduction of a divine entity": {
+      "type": "Claim",
+      "text": "\"Meillassoux reintroduces a divine entity that is no longer the ontotheological necessary being but a merely possible and contingent one.\"",
+      "isImplicit": false
+    },
+    "s ultimate god": {
+      "type": "Claim",
+      "text": "\"Heidegger's ontotheology",
+      "isImplicit": false
+    },
+    "s postmetaphysical divinity": {
+      "type": "Claim",
+      "text": "\"Heidegger's ontotheology",
+      "isImplicit": false
+    },
+    "Divinity in Badiou and Meillassoux": {
+      "type": "Claim",
+      "text": "\"Badiou's contemporary atheism and Meillassoux's reintroduction of a divine entity represent two different approaches to divinity in contemporary philosophy.\"",
+      "isImplicit": false
+    },
+    "s ontotheological hierarchy": {
+      "type": "Claim",
+      "text": "\"Heidegger's ontotheology",
+      "isImplicit": false
+    },
+    "s postmetaphysical approach": {
+      "type": "Claim",
+      "text": "\"Heidegger's ontotheology",
+      "isImplicit": false
+    },
+    "s ultimate god and divinity": {
+      "type": "Claim",
+      "text": "\"Heidegger's ultimate god and divinity are radically deabsolutized",
+      "isImplicit": false
+    },
+    "s notion of ontotheology": {
+      "type": "Claim",
+      "text": "\"Heidegger's ontotheology",
+      "isImplicit": false
+    },
+    "s speculative materialism": {
+      "type": "Claim",
+      "text": "\"Heidegger's ontotheology",
+      "isImplicit": false
+    },
+    "s notion of the ultimate god": {
+      "type": "Claim",
+      "text": "\"Heidegger's notion of the ultimate god is the god of the postmetaphysical poet Hölderlin",
+      "isImplicit": false
+    },
+    "s divinity": {
+      "type": "Claim",
+      "text": "\"Heidegger's divinity is a dimension of the meaningful taking-place (Ereignis) of being as a divinity always yet to come.\"",
+      "isImplicit": false
+    },
+    "Divinity in Heidegger, Badiou, and Meillassoux": {
+      "type": "Claim",
+      "text": "\"Divinity in Heidegger",
+      "isImplicit": false
+    },
+    "Divinity in Heidegger and Badiou": {
+      "type": "Claim",
+      "text": "\"Divinity in Heidegger and Badiou represents a departure from the ontotheological notion of divinity as an always already present",
+      "isImplicit": false
+    },
+    "s ontotheological thinking": {
+      "type": "Claim",
+      "text": "\"Heidegger's ontotheology",
+      "isImplicit": false
+    },
+    "Divinity in Heidegger and Meillassoux": {
+      "type": "Claim",
+      "text": "\"Divinity in Heidegger and Meillassoux represents a departure from the ontotheological notion of divinity as an always already present",
+      "isImplicit": false
+    },
+    "s notion of the ultimate god and divinity": {
+      "type": "Claim",
+      "text": "\"Heidegger's notion of the ultimate god and divinity is characterized by the idea that the ultimate god is completely other to the previous ones",
+      "isImplicit": false
+    },
+    "s virtual god": {
+      "type": "Claim",
+      "text": "\"Heidegger's ontotheology",
+      "isImplicit": false
+    },
+    "s materialism": {
+      "type": "Claim",
+      "text": "\"Heidegger's ontotheology",
+      "isImplicit": false
+    },
+    "s ontotheology": {
+      "type": "Claim",
+      "text": "\"Heidegger's ontotheology",
+      "isImplicit": false
+    }
+  },
+  "relations": []
+}

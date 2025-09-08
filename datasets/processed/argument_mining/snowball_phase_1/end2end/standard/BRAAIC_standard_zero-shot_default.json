@@ -1,0 +1,282 @@
+{
+  "ADUs": {
+    "0": {
+      "type": "Claim",
+      "text": "The widespread availability of generative AI models poses a threat to human connection.",
+      "quote": "My central contention is that, insofar as the widespread availability of AI models threatens human creativity, it threatens our ability to connect with other humans.",
+      "isImplicit": false
+    },
+    "1": {
+      "type": "Claim",
+      "text": "AI poses a threat to human creativity.",
+      "quote": "The subtle threat I have in mind here can be captured with an analogy. It is akin to the threat my smart phone poses to my attention span.",
+      "isImplicit": false
+    },
+    "2": {
+      "type": "Claim",
+      "text": "If AI poses a threat to human creativity, it would be a bad thing.",
+      "quote": "If it would, there must be some value of human creativity that is not secured by reliance on AI.",
+      "isImplicit": false
+    },
+    "3": {
+      "type": "Claim",
+      "text": "Human creativity plays an important role in connecting us to others.",
+      "quote": "The notion of ÒconnectionÓ I have in mind here is quite broad.",
+      "isImplicit": false
+    },
+    "4": {
+      "type": "Claim",
+      "text": "Creativity involves self-disclosure.",
+      "quote": "I follow Gary Watson in using the term to refer to something that happens when we exercise our agency in ways that give us a kind of ownership over our actions.",
+      "isImplicit": false
+    },
+    "5": {
+      "type": "Claim",
+      "text": "Creativity discloses the inquisitive self.",
+      "quote": "Because creativity is driven by our curiosity, our creative pursuits demonstrate who we are as inquirers in an especially transparent way.",
+      "isImplicit": false
+    },
+    "6": {
+      "type": "Claim",
+      "text": "The inquisitive self is a particularly important aspect of a person to get to know if you wish to form a meaningful connection with them.",
+      "quote": "It is important to understand someoneÕs inquisitive self if you want to understand their perspective.",
+      "isImplicit": false
+    },
+    "7": {
+      "type": "Claim",
+      "text": "Self-disclosure is especially valuable in the context of human connection.",
+      "quote": "Creativity is especially disclosive of the inquisitive self, both in how much is information disclosed and how reliably accurate the information is.",
+      "isImplicit": false
+    },
+    "8": {
+      "type": "Claim",
+      "text": "Scientific creativity is self-disclosive in a way that enables human connection.",
+      "quote": "Creative theorizing thus enables the sharing of ideas among scientists.",
+      "isImplicit": false
+    },
+    "9": {
+      "type": "Claim",
+      "text": "The widespread availability of AI models poses a threat to human creativity.",
+      "quote": "This is the notion of ÒthreatÓ I have in mind in considering whether AI poses a threat to human creativity.",
+      "isImplicit": false
+    },
+    "10": {
+      "type": "Claim",
+      "text": "Human creativity is especially valuable for human connection.",
+      "quote": "Creativity is especially valuable for human connection because it discloses the inquisitive self.",
+      "isImplicit": false
+    },
+    "11": {
+      "type": "Claim",
+      "text": "The temptation to outsource creative work to AI is strong and growing stronger.",
+      "quote": "The idea that one can inhibit social connection by choosing ways of living that impede self-disclosure appears in Ralph Waldo EmersonÕs essay Self-Reliance.",
+      "isImplicit": false
+    },
+    "12": {
+      "type": "Claim",
+      "text": "The tendency to conceive of what generative AI can do as fully replacing the important role played by human creativity in science is a threat to scientific creativity.",
+      "quote": "This tendency poses a threat to scientific creativity and consequently to the human connection via shared understanding of the natural world that creative scientific theorizing facilitates.",
+      "isImplicit": false
+    },
+    "13": {
+      "type": "Claim",
+      "text": "The widespread availability of AI models poses a threat to human connection.",
+      "quote": "My central contention is that, insofar as the widespread availability of AI models threatens human creativity, it threatens our ability to connect with other humans.",
+      "isImplicit": false
+    },
+    "14": {
+      "type": "Claim",
+      "text": "Human connection is valuable.",
+      "quote": "The notion of ÒconnectionÓ I have in mind here is quite broad.",
+      "isImplicit": false
+    },
+    "15": {
+      "type": "Major Claim",
+      "text": "Letting ourselves become less creative in the age of AI poses a threat to our ability to connect with each other.",
+      "quote": "I have argued that letting ourselves become less creative in the age of AI poses a threat to our ability to connect with each other.",
+      "isImplicit": false
+    },
+    "16": {
+      "type": "Claim",
+      "text": "The self-disclosure that occurs when we are creative makes it possible for others to understand us.",
+      "quote": "This is essential for both our interpersonal relationships and a broader sense of human connection that includes the resonance of othersÕ art and the apprehension of othersÕ ideas.",
+      "isImplicit": false
+    },
+    "17": {
+      "type": "Claim",
+      "text": "The self-disclosure that occurs when we are creative is especially valuable for human connection.",
+      "quote": "Creativity discloses the inquisitive self.",
+      "isImplicit": false
+    },
+    "18": {
+      "type": "Claim",
+      "text": "The widespread availability of generative AI models is making human creativity obsolete.",
+      "quote": "If we can get the benefits of creative work without the costs, perhaps creativity can be made normatively obsolete.",
+      "isImplicit": false
+    },
+    "19": {
+      "type": "Claim",
+      "text": "Human creativity has value that cannot be secured by AI.",
+      "quote": "If creativity has some value that cannot be secured by AI, and yet AIÕs widespread availability is a threat to our creativity (in the same way that my smart phone is a threat to my attention span), then we may lose that value Ð whatever it is Ð without realizing it.",
+      "isImplicit": false
+    },
+    "20": {
+      "type": "Claim",
+      "text": "AI can produce outputs that are valuable in many of the same ways that the products of genuine creativity are often valuable.",
+      "quote": "Human creativity is often prized for its products. Among other things, our creative achievements have given us powerful art, successful scientific theories, and solutions to complex problems.",
+      "isImplicit": false
+    },
+    "21": {
+      "type": "Claim",
+      "text": "AI can produce outputs that are aesthetically, scientifically, and practically valuable.",
+      "quote": "AI models have produced images humans find beautiful and jokes humans find funny.",
+      "isImplicit": false
+    },
+    "22": {
+      "type": "Claim",
+      "text": "The self-disclosure that occurs when we are creative is especially valuable for human connection.",
+      "quote": "Creativity discloses the inquisitive self.",
+      "isImplicit": false
+    },
+    "23": {
+      "type": "Claim",
+      "text": "Human connection is valuable.",
+      "quote": "The notion of ÒconnectionÓ I have in mind here is quite broad.",
+      "isImplicit": false
+    },
+    "24": {
+      "type": "Claim",
+      "text": "The widespread availability of AI models poses a threat to human creativity.",
+      "quote": "The self-disclosure that occurs when we are creative is especially valuable for human connection.",
+      "isImplicit": false
+    },
+    "25": {
+      "type": "Claim",
+      "text": "The widespread availability of AI models poses a threat to human creativity.",
+      "quote": "The self-disclosure that occurs when we are creative is especially valuable for human connection.",
+      "isImplicit": false
+    }
+  },
+  "relations": [
+    {
+      "src": "0",
+      "tgt": "1",
+      "type": "support"
+    },
+    {
+      "src": "1",
+      "tgt": "2",
+      "type": "support"
+    },
+    {
+      "src": "2",
+      "tgt": "9",
+      "type": "support"
+    },
+    {
+      "src": "9",
+      "tgt": "13",
+      "type": "support"
+    },
+    {
+      "src": "9",
+      "tgt": "18",
+      "type": "support"
+    },
+    {
+      "src": "9",
+      "tgt": "24",
+      "type": "support"
+    },
+    {
+      "src": "13",
+      "tgt": "14",
+      "type": "support"
+    },
+    {
+      "src": "14",
+      "tgt": "15",
+      "type": "support"
+    },
+    {
+      "src": "18",
+      "tgt": "19",
+      "type": "support"
+    },
+    {
+      "src": "19",
+      "tgt": "20",
+      "type": "support"
+    },
+    {
+      "src": "20",
+      "tgt": "21",
+      "type": "support"
+    },
+    {
+      "src": "21",
+      "tgt": "22",
+      "type": "support"
+    },
+    {
+      "src": "22",
+      "tgt": "23",
+      "type": "support"
+    },
+    {
+      "src": "23",
+      "tgt": "24",
+      "type": "support"
+    },
+    {
+      "src": "15",
+      "tgt": "16",
+      "type": "support"
+    },
+    {
+      "src": "16",
+      "tgt": "17",
+      "type": "support"
+    },
+    {
+      "src": "17",
+      "tgt": "13",
+      "type": "support"
+    },
+    {
+      "src": "4",
+      "tgt": "5",
+      "type": "support"
+    },
+    {
+      "src": "5",
+      "tgt": "6",
+      "type": "support"
+    },
+    {
+      "src": "6",
+      "tgt": "7",
+      "type": "support"
+    },
+    {
+      "src": "7",
+      "tgt": "10",
+      "type": "support"
+    },
+    {
+      "src": "10",
+      "tgt": "11",
+      "type": "support"
+    },
+    {
+      "src": "11",
+      "tgt": "12",
+      "type": "support"
+    },
+    {
+      "src": "12",
+      "tgt": "13",
+      "type": "support"
+    }
+  ]
+}

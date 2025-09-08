@@ -1,0 +1,135 @@
+{
+  "ADUs": {
+    "MainClaim": {
+      "type": "Major Claim",
+      "text": "\"Heidegger presides over an occlusion of the political in his thought",
+      "isImplicit": false
+    },
+    "s conception of the political as a threat": {
+      "type": "Claim",
+      "text": "\"The dominant characterization of the political space within Heidegger's text is as a threat to philosophy and ontology.\"",
+      "isImplicit": false
+    },
+    "s strategies to deal with the threat of the political": {
+      "type": "Claim",
+      "text": "\"Heidegger employs three strategies to deal with the threat of the political: disengagement",
+      "isImplicit": false
+    },
+    "s presentation of the political as a threat": {
+      "type": "Claim",
+      "text": "\"The political is characterized as a threat to philosophy and ontology",
+      "isImplicit": false
+    },
+    "s failure to recognize the political as a reality with a logic and laws of its own": {
+      "type": "Claim",
+      "text": "\"Heidegger's failure to recognize the economic and political as a reality with a logic and laws of its own is a key aspect of his occlusion of the political.\"",
+      "isImplicit": false
+    },
+    "s occlusion of the political": {
+      "type": "Claim",
+      "text": "\"Heidegger's thought occludes the political",
+      "isImplicit": false
+    },
+    "s treatment of authenticity as an ontological norm": {
+      "type": "Claim",
+      "text": "\"Heidegger's treatment of authenticity exemplifies a process whereby what are loosely ethical norms become gradually reinterpreted as ontological norms.\"",
+      "isImplicit": false
+    },
+    "s reduction of ethics to ontology": {
+      "type": "Claim",
+      "text": "\"Heidegger reduces ethics to ontology",
+      "isImplicit": false
+    },
+    "s privileging of ontology over ethics and politics": {
+      "type": "Claim",
+      "text": "\"Heidegger's thought prioritizes ontology over ethics and politics.\"",
+      "isImplicit": false
+    },
+    "s anti-Semitism and its relation to his occlusion of the political": {
+      "type": "Claim",
+      "text": "\"Heidegger's anti-Semitism makes the occlusion of the political by the ontological more visible",
+      "isImplicit": false
+    },
+    "s failure to address the charge of occluding ethics and politics": {
+      "type": "Claim",
+      "text": "\"Heidegger's Schwarze Hefte serve to undermine his response to the charge that he allows ontology to occlude ethics and politics.\"",
+      "isImplicit": false
+    },
+    "s prioritization of thinking on Being": {
+      "type": "Claim",
+      "text": "\"Heidegger suggests that thinking on Being has explanatory priority over other forms of action.\"",
+      "isImplicit": false
+    },
+    "s anti-Semitic views and the problem of transcendental justification": {
+      "type": "Claim",
+      "text": "\"Heidegger's anti-Semitic views create a problem for his transcendental justification of prioritizing ontological relations.\"",
+      "isImplicit": false
+    },
+    "s thought and the collapse of the triangle": {
+      "type": "Claim",
+      "text": "\"In Heidegger's thought",
+      "isImplicit": false
+    },
+    "s prioritization of ontology over other disciplines": {
+      "type": "Claim",
+      "text": "\"Heidegger prioritizes ontology over other disciplines",
+      "isImplicit": false
+    },
+    "s view of philosophy and its relation to Being": {
+      "type": "Claim",
+      "text": "\"Heidegger's view of philosophy is that it is an activity that sustains a distinctive relationship to Being.\"",
+      "isImplicit": false
+    },
+    "s conception of authenticity": {
+      "type": "Claim",
+      "text": "\"Heidegger's conception of authenticity is closely tied to his view of the good life and the importance of maintaining an appropriate relationship to Being.\"",
+      "isImplicit": false
+    },
+    "s prioritization of authenticity": {
+      "type": "Claim",
+      "text": "\"Heidegger prioritizes authenticity as a necessary condition for doing good philosophy.\"",
+      "isImplicit": false
+    },
+    "s view of the good life": {
+      "type": "Claim",
+      "text": "\"Heidegger's view of the good life is closely tied to his conception of authenticity and the importance of maintaining an appropriate relationship to Being.\"",
+      "isImplicit": false
+    },
+    "s conception of the political": {
+      "type": "Claim",
+      "text": "\"Heidegger's conception of the political is characterized by a threat and a suppression of the political by the ontological.\"",
+      "isImplicit": false
+    },
+    "s failure to address the question of the political": {
+      "type": "Claim",
+      "text": "\"Heidegger's thought fails to address the question of the political in a sustained way.\"",
+      "isImplicit": false
+    },
+    "s prioritization of ontology over politics": {
+      "type": "Claim",
+      "text": "\"Heidegger prioritizes ontology over politics.\"",
+      "isImplicit": false
+    },
+    "s failure to recognize the complexity of the political": {
+      "type": "Claim",
+      "text": "\"Heidegger's thought fails to recognize the complexity of the political",
+      "isImplicit": false
+    },
+    "s prioritization of authenticity over other values": {
+      "type": "Claim",
+      "text": "\"Heidegger prioritizes authenticity over other values such as power and desire.\"",
+      "isImplicit": false
+    },
+    "s view of the relationship between philosophy and politics": {
+      "type": "Claim",
+      "text": "\"Heidegger's view of the relationship between philosophy and politics is characterized by a suppression of the political by the ontological.\"",
+      "isImplicit": false
+    },
+    "s prioritization of ontology over ethics and politics": {
+      "type": "Claim",
+      "text": "\"Heidegger prioritizes ontology over ethics and politics.\"",
+      "isImplicit": false
+    }
+  },
+  "relations": []
+}

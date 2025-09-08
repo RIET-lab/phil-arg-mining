@@ -1,0 +1,161 @@
+{
+  "ADUs": {
+    "ADU23": {
+      "type": "Major Claim",
+      "text": "\"Bayle's failed attempt to save his career at the Illustrious School of Rotterdam by turning to Erasmus tapped into a long",
+      "isImplicit": false
+    },
+    "ADU24": {
+      "type": "Claim",
+      "text": "\"Rotterdam has always been associated with trade and commerce",
+      "isImplicit": false
+    },
+    "ADU25": {
+      "type": "Claim",
+      "text": "\"The appropriation of Erasmus has also produced a wide variety of politically motivated initiatives",
+      "isImplicit": false
+    },
+    "ADU26": {
+      "type": "Claim",
+      "text": "\"Bayle's account of Erasmus appears to have been based on a genuine sense of affinity.\"",
+      "isImplicit": false
+    },
+    "ADU27": {
+      "type": "Claim",
+      "text": "\"Bayle and Erasmus shared a common penchant for fideism and pacifism.\"",
+      "isImplicit": false
+    },
+    "ADU28": {
+      "type": "Claim",
+      "text": "\"Both Bayle and Erasmus were scholars",
+      "isImplicit": false
+    },
+    "ADU29": {
+      "type": "Claim",
+      "text": "\"Bayle and Erasmus shared a deep felt awareness of the fragility of human nature.\"",
+      "isImplicit": false
+    }
+  },
+  "relations": [
+    {
+      "src": "ADU1",
+      "tgt": "ADU2",
+      "type": "support"
+    },
+    {
+      "src": "ADU2",
+      "tgt": "ADU3",
+      "type": "support"
+    },
+    {
+      "src": "ADU2",
+      "tgt": "ADU4",
+      "type": "support"
+    },
+    {
+      "src": "ADU4",
+      "tgt": "ADU5",
+      "type": "support"
+    },
+    {
+      "src": "ADU5",
+      "tgt": "ADU6",
+      "type": "support"
+    },
+    {
+      "src": "ADU4",
+      "tgt": "ADU7",
+      "type": "support"
+    },
+    {
+      "src": "ADU8",
+      "tgt": "ADU9",
+      "type": "support"
+    },
+    {
+      "src": "ADU9",
+      "tgt": "ADU10",
+      "type": "support"
+    },
+    {
+      "src": "ADU10",
+      "tgt": "ADU11",
+      "type": "support"
+    },
+    {
+      "src": "ADU11",
+      "tgt": "ADU12",
+      "type": "support"
+    },
+    {
+      "src": "ADU13",
+      "tgt": "ADU14",
+      "type": "support"
+    },
+    {
+      "src": "ADU14",
+      "tgt": "ADU15",
+      "type": "support"
+    },
+    {
+      "src": "ADU15",
+      "tgt": "ADU16",
+      "type": "support"
+    },
+    {
+      "src": "ADU17",
+      "tgt": "ADU18",
+      "type": "support"
+    },
+    {
+      "src": "ADU18",
+      "tgt": "ADU19",
+      "type": "support"
+    },
+    {
+      "src": "ADU19",
+      "tgt": "ADU20",
+      "type": "support"
+    },
+    {
+      "src": "ADU20",
+      "tgt": "ADU21",
+      "type": "support"
+    },
+    {
+      "src": "ADU21",
+      "tgt": "ADU22",
+      "type": "support"
+    },
+    {
+      "src": "ADU23",
+      "tgt": "ADU24",
+      "type": "support"
+    },
+    {
+      "src": "ADU24",
+      "tgt": "ADU25",
+      "type": "support"
+    },
+    {
+      "src": "ADU25",
+      "tgt": "ADU26",
+      "type": "support"
+    },
+    {
+      "src": "ADU26",
+      "tgt": "ADU27",
+      "type": "support"
+    },
+    {
+      "src": "ADU27",
+      "tgt": "ADU28",
+      "type": "support"
+    },
+    {
+      "src": "ADU28",
+      "tgt": "ADU29",
+      "type": "support"
+    }
+  ]
+}

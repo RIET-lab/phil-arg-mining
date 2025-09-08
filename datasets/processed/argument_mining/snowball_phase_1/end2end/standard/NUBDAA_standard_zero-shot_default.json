@@ -1,0 +1,154 @@
+{
+  "ADUs": {
+    "1": {
+      "type": "Claim",
+      "text": "In my brief comments I will deal first with the topic of dichotomies, which is an illuminating way of understanding pragmatism in general and Putnam's pragmatism in particular; second, a comment on the so-called'thick' ethical concepts and artifact terms, and finally a word on John L. Austin, from whom I have selected a quote as a motto for my paper.",
+      "isImplicit": false
+    },
+    "2": {
+      "type": "Claim",
+      "text": "I am in agreement with Hookway's general presentation of Putnam's approach to distinctions and dichotomies.",
+      "quote": "I want to say in advance that I am in agreement with Hookway's general presentation of Putnam's approach to distinctions and dichotomies.",
+      "isImplicit": true
+    },
+    "3": {
+      "type": "Claim",
+      "text": "Dichotomies are mainly a form of logical division, of classification.",
+      "quote": "The point I want to stress is that a'dichotomy' is mainly a form of logical division, of classification; that dichotomies appear when and where there are human beings thinking, classifying, establishing classes, collections and categories.",
+      "isImplicit": true
+    },
+    "4": {
+      "type": "Claim",
+      "text": "Dichotomies are artifacts that we devise with some useful purpose in mind.",
+      "quote": "That dichotomies are artifacts that we devise with some useful purpose in mind, but when inflated into absolute dichotomies they become metaphysical bogeys as it is illustrated by the twentieth century distinction between fact and value.",
+      "isImplicit": true
+    },
+    "5": {
+      "type": "Claim",
+      "text": "A dichotomy is a form of logical division made by our reflection.",
+      "quote": "To assert a dichotomy is to cut something into two parts which are'mutually exclusive and jointly exhaustive' (Brody 1967, p. 60).",
+      "isImplicit": true
+    },
+    "6": {
+      "type": "Claim",
+      "text": "The only two ontological usages of'dichotomy' found in dictionaries come from astronomy and botany.",
+      "quote": "Along this way, the only two ontological usages of'dichotomy' found in dictionaries - for instance the Oxford English Dictionary - come from astronomy ('That phase of the moon, (or of an inferior planet) at which exactly half the disk appears illuminated') and from botany ('A form of branching in which each successive axis divides into two; repeated bifurcation').",
+      "isImplicit": true
+    },
+    "7": {
+      "type": "Claim",
+      "text": "The transformation of a distinction into a metaphysical dichotomy turns the distinction into a Procrustean bed.",
+      "quote": "Let's recall the story from Greek mythology: Procrustes was a bandit from Attica who had a bed which he invited passersby to lie down in. Those who were shorter than the bed he would stretch until they fit, while those who were too tall would have their legs chopped short.",
+      "isImplicit": true
+    },
+    "8": {
+      "type": "Claim",
+      "text": "Putnam demonstrates convincingly that the fact/value dichotomy is, at bottom, not a distinction but a thesis.",
+      "quote": "Putnam demonstrates convincingly that'the fact/value dichotomy is, at bottom, not a distinction but a thesis, namely the thesis that'ethics' is not about'matters of fact''",
+      "isImplicit": true
+    },
+    "9": {
+      "type": "Claim",
+      "text": "The fact/value dichotomy is a way of cutting off not only rational argument about values, but even thought.",
+      "quote": "The worst thing about the fact/value dichotomy is that in practice it functions as a discussion-stopper; and not just a discussion-stopper, but a thought-stopper",
+      "isImplicit": true
+    },
+    "10": {
+      "type": "Claim",
+      "text": "Putnam's discussion of thick ethical concepts shows clearly the deep entanglement of fact and value.",
+      "quote": "Putnam's discussion of these thick ethical concepts show clearly the deep entanglement of fact and value or - what in the end is the same - that the dichotomy, as a sharp division, is really impossible, as it is said by Claudine Tiercelin in her delightful book on Putnam:",
+      "isImplicit": true
+    },
+    "11": {
+      "type": "Claim",
+      "text": "The fact/value dichotomy is an artifact, a product of the human mind.",
+      "quote": "Any dichotomy, like the fact/value dichotomy (which has been consistently rejected by Putnam as a metaphysical bogey), is also an artifact, a product of the human mind.",
+      "isImplicit": true
+    },
+    "12": {
+      "type": "Claim",
+      "text": "The dichotomy between value judgments and judgments of facts is not a dichotomy, but an ideological thesis.",
+      "quote": "From a practical point of view, we have learned that the dichotomy between value judgments and judgments of facts was not really a dichotomy, i.e. a division of the judgments into two sub-classes mutually exclusive and jointly exhaustive.",
+      "isImplicit": true
+    },
+    "13": {
+      "type": "Claim",
+      "text": "The view of language that Austin presents in the last lecture of How to Do Things with Words fits pretty well with a pragmatist approach to language.",
+      "quote": "My impression is that the view of language that Austin presents in the last lecture of How to Do Things with Words fits pretty well with a pragmatist approach to language.",
+      "isImplicit": true
+    },
+    "14": {
+      "type": "Claim",
+      "text": "Austin characterizes the fact/value dichotomy as a'fetish'.",
+      "quote": "But the point I want to highlight here is not only that John Austin, like Putnam, advocates the elimination of the contrast between the normative or evaluative and the factual, but he characterizes of this dichotomy in lecture XII as a'fetish.'",
+      "isImplicit": true
+    }
+  },
+  "relations": [
+    {
+      "src": "1",
+      "tgt": "2",
+      "type": "support"
+    },
+    {
+      "src": "2",
+      "tgt": "3",
+      "type": "support"
+    },
+    {
+      "src": "3",
+      "tgt": "4",
+      "type": "support"
+    },
+    {
+      "src": "4",
+      "tgt": "5",
+      "type": "support"
+    },
+    {
+      "src": "5",
+      "tgt": "6",
+      "type": "support"
+    },
+    {
+      "src": "6",
+      "tgt": "7",
+      "type": "support"
+    },
+    {
+      "src": "7",
+      "tgt": "8",
+      "type": "support"
+    },
+    {
+      "src": "8",
+      "tgt": "9",
+      "type": "support"
+    },
+    {
+      "src": "9",
+      "tgt": "10",
+      "type": "support"
+    },
+    {
+      "src": "10",
+      "tgt": "11",
+      "type": "support"
+    },
+    {
+      "src": "11",
+      "tgt": "12",
+      "type": "support"
+    },
+    {
+      "src": "12",
+      "tgt": "13",
+      "type": "support"
+    },
+    {
+      "src": "13",
+      "tgt": "14",
+      "type": "support"
+    }
+  ]
+}

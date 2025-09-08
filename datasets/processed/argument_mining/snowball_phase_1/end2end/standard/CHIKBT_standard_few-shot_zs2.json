@@ -1,0 +1,101 @@
+{
+  "ADUs": {
+    "MainClaim": {
+      "type": "Claim",
+      "text": "The demise of classical neo-Kantianism between the wars had at least as much to do with institutional, psychological, and/or political developments as with any strictly philosophical failures.",
+      "isImplicit": false
+    },
+    "Neo-Kantianism as Scapegoat": {
+      "type": "Claim",
+      "text": "Neo-Kantianism became the scapegoat for many of the perceived problems in imperial and Weimar culture.",
+      "isImplicit": false
+    },
+    "Neo-Kantianism's affinities with the interwar Zeitgeist": {
+      "type": "Claim",
+      "text": "Neo-Kantianism had affinities with the interwar Zeitgeist, including antimetaphysical impulses, a view of philosophy as a handmaiden to natural science, and egalitarian ideals.",
+      "isImplicit": false
+    },
+    "Failure of neo-Kantianism": {
+      "type": "Claim",
+      "text": "Despite these affinities, neo-Kantianism suffered catastrophic collapse.",
+      "isImplicit": false
+    },
+    "Explanations for the collapse of neo-Kantianism": {
+      "type": "Claim",
+      "text": "The collapse of neo-Kantianism may be attributed to institutional, psychological, and/or political factors, including a tendency towards revolution and recognition-seeking among young philosophers, a new hunger for metaphysical speculation, and hostility towards Jewish neo-Kantians.",
+      "isImplicit": false
+    },
+    "Case study: Lukacs' Kant": {
+      "type": "Claim",
+      "text": "Some of the best-known criticisms of Kant made by Lukacs at the height of his career do not apply very well to Kant himself.",
+      "isImplicit": false
+    },
+    "Lukacs' critique of Kant": {
+      "type": "Claim",
+      "text": "Lukacs' critique of Kant's philosophy as the most radical and advanced consciousness of the early bourgeoisie and his argument that Kant's work exemplifies the highest development of the reifying rationalism that subsumes all concrete particulars under concepts and principles are not supported by Kant's own views.",
+      "isImplicit": false
+    },
+    "Neo-Kantian readings of Kant": {
+      "type": "Claim",
+      "text": "The perceived unattractiveness of prominent neo-Kantian readings of Kant elicited more than just criticism; it also led some of the members of the interwar generation to call for a more painstaking historical and rational reconstruction of Kant's own views.",
+      "isImplicit": false
+    },
+    "Legacy of Kant": {
+      "type": "Claim",
+      "text": "By mid-century, the legacy of Kant had become both so contested and so crucial that a new generation of scholars saw the need for yet another movement back to Kant.",
+      "isImplicit": false
+    },
+    "Neo-Kantianism and the interwar generation": {
+      "type": "Claim",
+      "text": "The powerful attacks on Kant in the interwar period led not to a weakening of Kant's legacy but rather to a new and somewhat more careful historical and philosophical study of Kant's works.",
+      "isImplicit": false
+    }
+  },
+  "relations": [
+    {
+      "src": "Neo-Kantianism as Scapegoat",
+      "tgt": "Neo-Kantianism's affinities with the interwar Zeitgeist",
+      "type": "support"
+    },
+    {
+      "src": "Neo-Kantianism's affinities with the interwar Zeitgeist",
+      "tgt": "Failure of neo-Kantianism",
+      "type": "attack"
+    },
+    {
+      "src": "Failure of neo-Kantianism",
+      "tgt": "Explanations for the collapse of neo-Kantianism",
+      "type": "attack"
+    },
+    {
+      "src": "Explanations for the collapse of neo-Kantianism",
+      "tgt": "MainClaim",
+      "type": "support"
+    },
+    {
+      "src": "Case study: Lukacs' Kant",
+      "tgt": "Lukacs' critique of Kant",
+      "type": "support"
+    },
+    {
+      "src": "Lukacs' critique of Kant",
+      "tgt": "Neo-Kantian readings of Kant",
+      "type": "support"
+    },
+    {
+      "src": "Neo-Kantian readings of Kant",
+      "tgt": "Legacy of Kant",
+      "type": "support"
+    },
+    {
+      "src": "Legacy of Kant",
+      "tgt": "Neo-Kantianism and the interwar generation",
+      "type": "support"
+    },
+    {
+      "src": "Neo-Kantianism and the interwar generation",
+      "tgt": "MainClaim",
+      "type": "support"
+    }
+  ]
+}

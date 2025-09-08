@@ -1,0 +1,126 @@
+{
+  "ADUs": {
+    "MainClaim": {
+      "type": "Claim",
+      "text": "Spenser's recovery of place in The Faerie Queene, Book VI, can be linked in a direct way to his use of a poetic phenomenology which informs and clarifies his work as an epic writer.",
+      "isImplicit": false
+    },
+    "Spenser's poetic phenomenology": {
+      "type": "Claim",
+      "text": "Spenser's use of literary procedures expresses but also complicates his relationship to traditional humanism.",
+      "isImplicit": false
+    },
+    "Traditional humanism": {
+      "type": "Claim",
+      "text": "Traditional humanism is sometimes defined as an attempt to appropriate the meaning of classical art and literature in terms of 'timeless' philosophical truths.",
+      "isImplicit": false
+    },
+    "Spenser's originality": {
+      "type": "Claim",
+      "text": "Spenser's originality as a Renaissance poet has much to do with his use of literary procedures that express but also complicate his relationship to traditional humanism.",
+      "isImplicit": false
+    },
+    "Calidore's phenomenological movement": {
+      "type": "Claim",
+      "text": "Calidore takes part in a phenomenological movement toward spiritual insight.",
+      "isImplicit": false
+    },
+    "Calidore's moral education": {
+      "type": "Claim",
+      "text": "Calidore's moral education within the epic context takes the form of a'recollection' of virtue that allows him to partially overcome the difference between nature and politics.",
+      "isImplicit": false
+    },
+    "Calidore's virtue": {
+      "type": "Claim",
+      "text": "Calidore's virtue is credible and unobtrusive because he lacks the manifest qualities of the traditional hero.",
+      "isImplicit": false
+    },
+    "Calidore's reconciliation": {
+      "type": "Claim",
+      "text": "Calidore's reconciliation of ideal and real must be understood in terms of the phenomenological difference between noesis and noema as paired terms.",
+      "isImplicit": false
+    },
+    "Calidore's vision on Mount Acidale": {
+      "type": "Claim",
+      "text": "Calidore's vision on Mount Acidale reveals Spenser's indebtedness to traditional iconography.",
+      "isImplicit": false
+    },
+    "Calidore's subjective adventure": {
+      "type": "Claim",
+      "text": "Calidore's subjective adventure does not completely coincide with the actions of any single character.",
+      "isImplicit": false
+    },
+    "Spenser's recovery of place": {
+      "type": "Claim",
+      "text": "The recovery of place involves a slow spiritual awakening that embraces the lowest levels of erotic awareness as well as the highest reaches of 'ideal' experience.",
+      "isImplicit": false
+    },
+    "Traditional interpretation": {
+      "type": "Claim",
+      "text": "The traditional interpretation of this philosophical sources might be considered from a phenomenological standpoint.",
+      "isImplicit": false
+    },
+    "Phenomenology and literature": {
+      "type": "Claim",
+      "text": "My use of phenomenology is especially suited for the examination of literature.",
+      "isImplicit": false
+    }
+  },
+  "relations": [
+    {
+      "src": "Spenser's poetic phenomenology",
+      "tgt": "Spenser's originality",
+      "type": "support"
+    },
+    {
+      "src": "Spenser's originality",
+      "tgt": "MainClaim",
+      "type": "support"
+    },
+    {
+      "src": "Calidore's phenomenological movement",
+      "tgt": "Calidore's moral education",
+      "type": "support"
+    },
+    {
+      "src": "Calidore's moral education",
+      "tgt": "Calidore's virtue",
+      "type": "support"
+    },
+    {
+      "src": "Calidore's virtue",
+      "tgt": "Calidore's reconciliation",
+      "type": "support"
+    },
+    {
+      "src": "Calidore's reconciliation",
+      "tgt": "Calidore's vision on Mount Acidale",
+      "type": "support"
+    },
+    {
+      "src": "Calidore's vision on Mount Acidale",
+      "tgt": "Spenser's recovery of place",
+      "type": "support"
+    },
+    {
+      "src": "Spenser's recovery of place",
+      "tgt": "Calidore's subjective adventure",
+      "type": "support"
+    },
+    {
+      "src": "Calidore's subjective adventure",
+      "tgt": "Traditional interpretation",
+      "type": "attack"
+    },
+    {
+      "src": "Traditional interpretation",
+      "tgt": "MainClaim",
+      "type": "support"
+    },
+    {
+      "src": "Phenomenology and literature",
+      "tgt": "MainClaim",
+      "type": "support"
+    }
+  ]
+}

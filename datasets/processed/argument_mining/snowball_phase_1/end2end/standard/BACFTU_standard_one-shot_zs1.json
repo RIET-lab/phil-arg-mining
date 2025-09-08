@@ -1,0 +1,125 @@
+{
+  "ADUs": {
+    "MainClaim": {
+      "type": "Major Claim",
+      "text": "\"The contemporary philosophical overcoming of ontotheology has led to the fundamental figure of a non-present and purely futural god.\"",
+      "isImplicit": false
+    },
+    "s ontotheology": {
+      "type": "Claim",
+      "text": "\"Meillassoux critiques Heidegger's ontotheology",
+      "isImplicit": false
+    },
+    "s transformation of ontotheology": {
+      "type": "Claim",
+      "text": "\"The end of ontotheology would entail the transformation of the notions of the deity and divinity",
+      "isImplicit": false
+    },
+    "s contemporary atheism": {
+      "type": "Claim",
+      "text": "\"Badiou's contemporary atheism surrenders not only the ontotheological divinity but the poetic one as well.\"",
+      "isImplicit": false
+    },
+    "s virtual god": {
+      "type": "Claim",
+      "text": "\"Meillassoux reintroduces an explicitly philosophical notion of God as a being/entity",
+      "isImplicit": false
+    },
+    "s ultimate god": {
+      "type": "Claim",
+      "text": "\"Heidegger's ultimate god is completely other to the previous ones",
+      "isImplicit": false
+    },
+    "s postmetaphysical divinity": {
+      "type": "Claim",
+      "text": "\"Heidegger's postmetaphysical divinity is merely one of the interdependent aspects of contextualized meaningfulness",
+      "isImplicit": false
+    },
+    "s argument against correlationism": {
+      "type": "Claim",
+      "text": "\"Meillassoux argues that correlationism must ultimately absolutize its principle of facticity",
+      "isImplicit": false
+    },
+    "s mathematical ontology": {
+      "type": "Claim",
+      "text": "\"Badiou's mathematical ontology posits that being as such is pure",
+      "isImplicit": false
+    },
+    "s postmetaphysical transformation": {
+      "type": "Claim",
+      "text": "\"Heidegger's postmetaphysical transformation renounces the quest for absoluteness and hermeneutically embraces the radical finitude",
+      "isImplicit": false
+    },
+    "s rejection of the Heideggerian hermeneutics of finitude": {
+      "type": "Claim",
+      "text": "\"Badiou rejects the Heideggerian hermeneutics of finitude",
+      "isImplicit": false
+    },
+    "s mathematical ontology as a break with Heideggerian post-ontotheological hermeneutics": {
+      "type": "Claim",
+      "text": "\"Badiou's mathematical ontology breaks with Heideggerian post-ontotheological hermeneutics",
+      "isImplicit": false
+    },
+    "s speculative philosophy": {
+      "type": "Claim",
+      "text": "\"Meillassoux's speculative philosophy is a genuine system that professes to deduce all of its elements from its fundamental principle",
+      "isImplicit": false
+    },
+    "s refutation of ontotheology": {
+      "type": "Claim",
+      "text": "\"Meillassoux's refutation of ontotheology is based on the acceptance of a mathematical ontology",
+      "isImplicit": false
+    },
+    "s ontotheological mode of thought": {
+      "type": "Claim",
+      "text": "\"Heidegger's ontotheological mode of thought is the approach in which the basic ontological question concerning being (Sein) as such encounters the universality and indeterminacy of 'being as such' and theologically resorts to the supreme and ideal instance of being",
+      "isImplicit": false
+    },
+    "s correlationism": {
+      "type": "Claim",
+      "text": "\"Kant's correlationism sets out from the philosophical irreducibility of the correlation between being and thinking and maintains that being and thinking are inconceivable apart from one another.\"",
+      "isImplicit": false
+    },
+    "s notion of ontotheology": {
+      "type": "Claim",
+      "text": "\"Badiou defines ontotheology as the metaphysical approach for which the absolute is thought as a supreme infinite being",
+      "isImplicit": false
+    },
+    "s notion of ontotheology as a transformation of the Aristotelian ontotheology": {
+      "type": "Claim",
+      "text": "\"Heidegger's notion of ontotheology is a transformation of the Aristotelian ontotheology",
+      "isImplicit": false
+    },
+    "s notion of the ultimate god": {
+      "type": "Claim",
+      "text": "\"Heidegger's ultimate god is completely other to the previous ones",
+      "isImplicit": false
+    },
+    "s notion of the postmetaphysical divinity": {
+      "type": "Claim",
+      "text": "\"Heidegger's postmetaphysical divinity is merely one of the interdependent aspects of contextualized meaningfulness",
+      "isImplicit": false
+    },
+    "s notion of the ontotheological mode of thought": {
+      "type": "Claim",
+      "text": "\"Heidegger's ontotheological mode of thought is the approach in which the basic ontological question concerning being (Sein) as such encounters the universality and indeterminacy of 'being as such' and theologically resorts to the supreme and ideal instance of being",
+      "isImplicit": false
+    },
+    "s notion of the postmetaphysical transformation": {
+      "type": "Claim",
+      "text": "\"Heidegger's postmetaphysical transformation renounces the quest for absoluteness and hermeneutically embraces the radical finitude",
+      "isImplicit": false
+    },
+    "s notion of the virtual god": {
+      "type": "Claim",
+      "text": "\"Meillassoux reintroduces an explicitly philosophical notion of God as a being/entity",
+      "isImplicit": false
+    },
+    "s notion of the contemporary atheism": {
+      "type": "Claim",
+      "text": "\"Badiou's contemporary atheism surrenders not only the ontotheological divinity but the poetic one as well.\"",
+      "isImplicit": false
+    }
+  },
+  "relations": []
+}

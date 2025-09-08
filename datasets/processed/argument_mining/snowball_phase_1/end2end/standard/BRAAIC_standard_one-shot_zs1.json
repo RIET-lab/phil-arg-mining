@@ -1,0 +1,975 @@
+{
+  "ADUs": {
+    "MainClaim": {
+      "type": "Major Claim",
+      "text": "\"The widespread availability of generative AI poses a threat to human creativity and the social value of creativity is at risk of being lost if humans outsource their creative projects to AI.\"",
+      "isImplicit": false
+    },
+    "Untitled 1": {
+      "type": "Claim",
+      "text": "\"The self-disclosure inherent in creative work makes it possible for others to understand us",
+      "isImplicit": false
+    },
+    "Untitled 2": {
+      "type": "Claim",
+      "text": "\"The inquisitive self is a particularly important aspect of a person to get to know if you wish to form a meaningful connection with them.\"",
+      "isImplicit": false
+    },
+    "Untitled 3": {
+      "type": "Claim",
+      "text": "\"Creativity discloses the inquisitive self in an especially transparent way.\"",
+      "isImplicit": false
+    },
+    "Untitled 4": {
+      "type": "Claim",
+      "text": "\"The potential for connection is diminished when we rely on AI rather than human creativity",
+      "isImplicit": false
+    },
+    "Untitled 5": {
+      "type": "Claim",
+      "text": "\"The scientific community should be wary of adopting a conception of scientific progress that leaves out the importance of advancing shared human understanding",
+      "isImplicit": false
+    },
+    "Untitled 6": {
+      "type": "Claim",
+      "text": "\"The tendency to conceive of what generative AI can do as fully replacing the important role played by human creativity in science is a worrying trend.\"",
+      "isImplicit": false
+    },
+    "Untitled 7": {
+      "type": "Claim",
+      "text": "\"The widespread availability of generative AI poses a threat to human creativity and the social value of creativity is at risk of being lost if humans outsource their creative projects to AI.\"",
+      "isImplicit": false
+    },
+    "Untitled 8": {
+      "type": "Claim",
+      "text": "\"The self-disclosure inherent in creative work is essential for both our interpersonal relationships and a broader sense of human connection.\"",
+      "isImplicit": false
+    },
+    "Untitled 9": {
+      "type": "Claim",
+      "text": "\"The temptation to outsource creative work to AI is strong and growing stronger",
+      "isImplicit": false
+    },
+    "Untitled 10": {
+      "type": "Claim",
+      "text": "\"The reliance on AI rather than human creativity in the sciences can lead to a diminished ability to understand the underlying mechanisms of complex phenomena.\"",
+      "isImplicit": false
+    },
+    "Untitled 11": {
+      "type": "Claim",
+      "text": "\"The tendency to rely on AI rather than human creativity in the sciences can lead to a diminished ability to understand the underlying mechanisms of complex phenomena.\"",
+      "isImplicit": false
+    },
+    "Untitled 12": {
+      "type": "Claim",
+      "text": "\"The widespread availability of generative AI poses a threat to human creativity and the social value of creativity is at risk of being lost if humans outsource their creative projects to AI.\"",
+      "isImplicit": false
+    },
+    "Untitled 13": {
+      "type": "Claim",
+      "text": "\"The creative theorizing involved in the development of scientific theories enables the sharing of ideas among scientists and is essential for the pursuit of scientific explanations.\"",
+      "isImplicit": false
+    },
+    "Untitled 14": {
+      "type": "Claim",
+      "text": "\"The sharing of ideas among scientists is vital for the pursuit of scientific explanations and the advancement of shared human understanding.\"",
+      "isImplicit": false
+    },
+    "Untitled 15": {
+      "type": "Claim",
+      "text": "\"The scientific community should be wary of adopting a conception of scientific progress that leaves out the importance of advancing shared human understanding.\"",
+      "isImplicit": false
+    },
+    "Untitled 16": {
+      "type": "Claim",
+      "text": "\"The reliance on AI rather than human creativity in the sciences can lead to a diminished ability to understand the underlying mechanisms of complex phenomena.\"",
+      "isImplicit": false
+    },
+    "Untitled 17": {
+      "type": "Claim",
+      "text": "\"The widespread availability of generative AI poses a threat to human creativity and the social value of creativity is at risk of being lost if humans outsource their creative projects to AI.\"",
+      "isImplicit": false
+    },
+    "Untitled 18": {
+      "type": "Claim",
+      "text": "\"The reliance on AI rather than human creativity in the sciences can lead to a diminished ability to understand the underlying mechanisms of complex phenomena.\"",
+      "isImplicit": false
+    },
+    "Untitled 19": {
+      "type": "Claim",
+      "text": "\"The creative theorizing involved in the development of scientific theories enables the sharing of ideas among scientists and is essential for the pursuit of scientific explanations.\"",
+      "isImplicit": false
+    },
+    "Untitled 20": {
+      "type": "Claim",
+      "text": "\"The reliance on AI rather than human creativity in the sciences can lead to a diminished ability to understand the underlying mechanisms of complex phenomena.\"",
+      "isImplicit": false
+    },
+    "Untitled 21": {
+      "type": "Claim",
+      "text": "\"The creative theorizing involved in the development of scientific theories enables the sharing of ideas among scientists and is essential for the pursuit of scientific explanations.\"",
+      "isImplicit": false
+    },
+    "Untitled 22": {
+      "type": "Claim",
+      "text": "\"The scientific community should be wary of adopting a conception of scientific progress that leaves out the importance of advancing shared human understanding.\"",
+      "isImplicit": false
+    },
+    "Untitled 23": {
+      "type": "Claim",
+      "text": "\"The reliance on AI rather than human creativity in the sciences can lead to a diminished ability to understand the underlying mechanisms of complex phenomena.\"",
+      "isImplicit": false
+    },
+    "Untitled 24": {
+      "type": "Claim",
+      "text": "\"The reliance on AI rather than human creativity in the sciences can lead to a diminished ability to understand the underlying mechanisms of complex phenomena.\"",
+      "isImplicit": false
+    },
+    "Untitled 25": {
+      "type": "Claim",
+      "text": "\"The creative theorizing involved in the development of scientific theories enables the sharing of ideas among scientists and is essential for the pursuit of scientific explanations.\"",
+      "isImplicit": false
+    },
+    "Untitled 26": {
+      "type": "Claim",
+      "text": "\"The reliance on AI rather than human creativity in the sciences can lead to a diminished ability to understand the underlying mechanisms of complex phenomena.\"",
+      "isImplicit": false
+    },
+    "Untitled 27": {
+      "type": "Claim",
+      "text": "\"The creative theorizing involved in the development of scientific theories enables the sharing of ideas among scientists and is essential for the pursuit of scientific explanations.\"",
+      "isImplicit": false
+    },
+    "Untitled 28": {
+      "type": "Claim",
+      "text": "\"The reliance on AI rather than human creativity in the sciences can lead to a diminished ability to understand the underlying mechanisms of complex phenomena.\"",
+      "isImplicit": false
+    },
+    "Untitled 29": {
+      "type": "Claim",
+      "text": "\"The creative theorizing involved in the development of scientific theories enables the sharing of ideas among scientists and is essential for the pursuit of scientific explanations.\"",
+      "isImplicit": false
+    },
+    "Untitled 30": {
+      "type": "Claim",
+      "text": "\"The reliance on AI rather than human creativity in the sciences can lead to a diminished ability to understand the underlying mechanisms of complex phenomena.\"",
+      "isImplicit": false
+    },
+    "Untitled 31": {
+      "type": "Claim",
+      "text": "\"The creative theorizing involved in the development of scientific theories enables the sharing of ideas among scientists and is essential for the pursuit of scientific explanations.\"",
+      "isImplicit": false
+    },
+    "Untitled 32": {
+      "type": "Claim",
+      "text": "\"The reliance on AI rather than human creativity in the sciences can lead to a diminished ability to understand the underlying mechanisms of complex phenomena.\"",
+      "isImplicit": false
+    },
+    "Untitled 33": {
+      "type": "Claim",
+      "text": "\"The creative theorizing involved in the development of scientific theories enables the sharing of ideas among scientists and is essential for the pursuit of scientific explanations.\"",
+      "isImplicit": false
+    },
+    "Untitled 34": {
+      "type": "Claim",
+      "text": "\"The reliance on AI rather than human creativity in the sciences can lead to a diminished ability to understand the underlying mechanisms of complex phenomena.\"",
+      "isImplicit": false
+    },
+    "Untitled 35": {
+      "type": "Claim",
+      "text": "\"The reliance on AI rather than human creativity in the sciences can lead to a diminished ability to understand the underlying mechanisms of complex phenomena.\"",
+      "isImplicit": false
+    },
+    "Untitled 36": {
+      "type": "Claim",
+      "text": "\"The creative theorizing involved in the development of scientific theories enables the sharing of ideas among scientists and is essential for the pursuit of scientific explanations.\"",
+      "isImplicit": false
+    },
+    "Untitled 37": {
+      "type": "Claim",
+      "text": "\"The reliance on AI rather than human creativity in the sciences can lead to a diminished ability to understand the underlying mechanisms of complex phenomena.\"",
+      "isImplicit": false
+    },
+    "Untitled 38": {
+      "type": "Claim",
+      "text": "\"The creative theorizing involved in the development of scientific theories enables the sharing of ideas among scientists and is essential for the pursuit of scientific explanations.\"",
+      "isImplicit": false
+    },
+    "Untitled 39": {
+      "type": "Claim",
+      "text": "\"The reliance on AI rather than human creativity in the sciences can lead to a diminished ability to understand the underlying mechanisms of complex phenomena.\"",
+      "isImplicit": false
+    },
+    "Untitled 40": {
+      "type": "Claim",
+      "text": "\"The creative theorizing involved in the development of scientific theories enables the sharing of ideas among scientists and is essential for the pursuit of scientific explanations.\"",
+      "isImplicit": false
+    },
+    "Untitled 41": {
+      "type": "Claim",
+      "text": "\"The reliance on AI rather than human creativity in the sciences can lead to a diminished ability to understand the underlying mechanisms of complex phenomena.\"",
+      "isImplicit": false
+    },
+    "Untitled 42": {
+      "type": "Claim",
+      "text": "\"The reliance on AI rather than human creativity in the sciences can lead to a diminished ability to understand the underlying mechanisms of complex phenomena.\"",
+      "isImplicit": false
+    },
+    "Untitled 43": {
+      "type": "Claim",
+      "text": "\"The creative theorizing involved in the development of scientific theories enables the sharing of ideas among scientists and is essential for the pursuit of scientific explanations.\"",
+      "isImplicit": false
+    },
+    "Untitled 44": {
+      "type": "Claim",
+      "text": "\"The reliance on AI rather than human creativity in the sciences can lead to a diminished ability to understand the underlying mechanisms of complex phenomena.\"",
+      "isImplicit": false
+    },
+    "Untitled 45": {
+      "type": "Claim",
+      "text": "\"The creative theorizing involved in the development of scientific theories enables the sharing of ideas among scientists and is essential for the pursuit of scientific explanations.\"",
+      "isImplicit": false
+    },
+    "Untitled 46": {
+      "type": "Claim",
+      "text": "\"The reliance on AI rather than human creativity in the sciences can lead to a diminished ability to understand the underlying mechanisms of complex phenomena.\"",
+      "isImplicit": false
+    },
+    "Untitled 47": {
+      "type": "Claim",
+      "text": "\"The creative theorizing involved in the development of scientific theories enables the sharing of ideas among scientists and is essential for the pursuit of scientific explanations.\"",
+      "isImplicit": false
+    },
+    "Untitled 48": {
+      "type": "Claim",
+      "text": "\"The reliance on AI rather than human creativity in the sciences can lead to a diminished ability to understand the underlying mechanisms of complex phenomena.\"",
+      "isImplicit": false
+    },
+    "Untitled 49": {
+      "type": "Claim",
+      "text": "\"The creative theorizing involved in the development of scientific theories enables the sharing of ideas among scientists and is essential for the pursuit of scientific explanations.\"",
+      "isImplicit": false
+    },
+    "Untitled 50": {
+      "type": "Claim",
+      "text": "\"The reliance on AI rather than human creativity in the sciences can lead to a diminished ability to understand the underlying mechanisms of complex phenomena.\"",
+      "isImplicit": false
+    },
+    "Untitled 51": {
+      "type": "Claim",
+      "text": "\"The creative theorizing involved in the development of scientific theories enables the sharing of ideas among scientists and is essential for the pursuit of scientific explanations.\"",
+      "isImplicit": false
+    },
+    "Untitled 52": {
+      "type": "Claim",
+      "text": "\"The reliance on AI rather than human creativity in the sciences can lead to a diminished ability to understand the underlying mechanisms of complex phenomena.\"",
+      "isImplicit": false
+    },
+    "Untitled 53": {
+      "type": "Claim",
+      "text": "\"The creative theorizing involved in the development of scientific theories enables the sharing of ideas among scientists and is essential for the pursuit of scientific explanations.\"",
+      "isImplicit": false
+    },
+    "Untitled 54": {
+      "type": "Claim",
+      "text": "\"The reliance on AI rather than human creativity in the sciences can lead to a diminished ability to understand the underlying mechanisms of complex phenomena.\"",
+      "isImplicit": false
+    },
+    "Untitled 55": {
+      "type": "Claim",
+      "text": "\"The creative theorizing involved in the development of scientific theories enables the sharing of ideas among scientists and is essential for the pursuit of scientific explanations.\"",
+      "isImplicit": false
+    },
+    "Untitled 56": {
+      "type": "Claim",
+      "text": "\"The reliance on AI rather than human creativity in the sciences can lead to a diminished ability to understand the underlying mechanisms of complex phenomena.\"",
+      "isImplicit": false
+    },
+    "Untitled 57": {
+      "type": "Claim",
+      "text": "\"The creative theorizing involved in the development of scientific theories enables the sharing of ideas among scientists and is essential for the pursuit of scientific explanations.\"",
+      "isImplicit": false
+    },
+    "Untitled 58": {
+      "type": "Claim",
+      "text": "\"The reliance on AI rather than human creativity in the sciences can lead to a diminished ability to understand the underlying mechanisms of complex phenomena.\"",
+      "isImplicit": false
+    },
+    "Untitled 59": {
+      "type": "Claim",
+      "text": "\"The creative theorizing involved in the development of scientific theories enables the sharing of ideas among scientists and is essential for the pursuit of scientific explanations.\"",
+      "isImplicit": false
+    },
+    "Untitled 60": {
+      "type": "Claim",
+      "text": "\"The reliance on AI rather than human creativity in the sciences can lead to a diminished ability to understand the underlying mechanisms of complex phenomena.\"",
+      "isImplicit": false
+    },
+    "Untitled 61": {
+      "type": "Claim",
+      "text": "\"The creative theorizing involved in the development of scientific theories enables the sharing of ideas among scientists and is essential for the pursuit of scientific explanations.\"",
+      "isImplicit": false
+    },
+    "Untitled 62": {
+      "type": "Claim",
+      "text": "\"The reliance on AI rather than human creativity in the sciences can lead to a diminished ability to understand the underlying mechanisms of complex phenomena.\"",
+      "isImplicit": false
+    },
+    "Untitled 63": {
+      "type": "Claim",
+      "text": "\"The creative theorizing involved in the development of scientific theories enables the sharing of ideas among scientists and is essential for the pursuit of scientific explanations.\"",
+      "isImplicit": false
+    },
+    "Untitled 64": {
+      "type": "Claim",
+      "text": "\"The reliance on AI rather than human creativity in the sciences can lead to a diminished ability to understand the underlying mechanisms of complex phenomena.\"",
+      "isImplicit": false
+    },
+    "Untitled 65": {
+      "type": "Claim",
+      "text": "\"The creative theorizing involved in the development of scientific theories enables the sharing of ideas among scientists and is essential for the pursuit of scientific explanations.\"",
+      "isImplicit": false
+    },
+    "Untitled 66": {
+      "type": "Claim",
+      "text": "\"The reliance on AI rather than human creativity in the sciences can lead to a diminished ability to understand the underlying mechanisms of complex phenomena.\"",
+      "isImplicit": false
+    },
+    "Untitled 67": {
+      "type": "Claim",
+      "text": "\"The creative theorizing involved in the development of scientific theories enables the sharing of ideas among scientists and is essential for the pursuit of scientific explanations.\"",
+      "isImplicit": false
+    },
+    "Untitled 68": {
+      "type": "Claim",
+      "text": "\"The reliance on AI rather than human creativity in the sciences can lead to a diminished ability to understand the underlying mechanisms of complex phenomena.\"",
+      "isImplicit": false
+    },
+    "Untitled 69": {
+      "type": "Claim",
+      "text": "\"The creative theorizing involved in the development of scientific theories enables the sharing of ideas among scientists and is essential for the pursuit of scientific explanations.\"",
+      "isImplicit": false
+    },
+    "Untitled 70": {
+      "type": "Claim",
+      "text": "\"The reliance on AI rather than human creativity in the sciences can lead to a diminished ability to understand the underlying mechanisms of complex phenomena.\"",
+      "isImplicit": false
+    },
+    "Untitled 71": {
+      "type": "Claim",
+      "text": "\"The creative theorizing involved in the development of scientific theories enables the sharing of ideas among scientists and is essential for the pursuit of scientific explanations.\"",
+      "isImplicit": false
+    },
+    "Untitled 72": {
+      "type": "Claim",
+      "text": "\"The reliance on AI rather than human creativity in the sciences can lead to a diminished ability to understand the underlying mechanisms of complex phenomena.\"",
+      "isImplicit": false
+    },
+    "Untitled 73": {
+      "type": "Claim",
+      "text": "\"The creative theorizing involved in the development of scientific theories enables the sharing of ideas among scientists and is essential for the pursuit of scientific explanations.\"",
+      "isImplicit": false
+    },
+    "Untitled 74": {
+      "type": "Claim",
+      "text": "\"The reliance on AI rather than human creativity in the sciences can lead to a diminished ability to understand the underlying mechanisms of complex phenomena.\"",
+      "isImplicit": false
+    },
+    "Untitled 75": {
+      "type": "Claim",
+      "text": "\"The creative theorizing involved in the development of scientific theories enables the sharing of ideas among scientists and is essential for the pursuit of scientific explanations.\"",
+      "isImplicit": false
+    },
+    "Untitled 76": {
+      "type": "Claim",
+      "text": "\"The reliance on AI rather than human creativity in the sciences can lead to a diminished ability to understand the underlying mechanisms of complex phenomena.\"",
+      "isImplicit": false
+    },
+    "Untitled 77": {
+      "type": "Claim",
+      "text": "\"The creative theorizing involved in the development of scientific theories enables the sharing of ideas among scientists and is essential for the pursuit of scientific explanations.\"",
+      "isImplicit": false
+    },
+    "Untitled 78": {
+      "type": "Claim",
+      "text": "\"The reliance on AI rather than human creativity in the sciences can lead to a diminished ability to understand the underlying mechanisms of complex phenomena.\"",
+      "isImplicit": false
+    },
+    "Untitled 79": {
+      "type": "Claim",
+      "text": "\"The creative theorizing involved in the development of scientific theories enables the sharing of ideas among scientists and is essential for the pursuit of scientific explanations.\"",
+      "isImplicit": false
+    },
+    "Untitled 80": {
+      "type": "Claim",
+      "text": "\"The reliance on AI rather than human creativity in the sciences can lead to a diminished ability to understand the underlying mechanisms of complex phenomena.\"",
+      "isImplicit": false
+    },
+    "Untitled 81": {
+      "type": "Claim",
+      "text": "\"The creative theorizing involved in the development of scientific theories enables the sharing of ideas among scientists and is essential for the pursuit of scientific explanations.\"",
+      "isImplicit": false
+    },
+    "Untitled 82": {
+      "type": "Claim",
+      "text": "\"The reliance on AI rather than human creativity in the sciences can lead to a diminished ability to understand the underlying mechanisms of complex phenomena.\"",
+      "isImplicit": false
+    },
+    "Untitled 83": {
+      "type": "Claim",
+      "text": "\"The creative theorizing involved in the development of scientific theories enables the sharing of ideas among scientists and is essential for the pursuit of scientific explanations.\"",
+      "isImplicit": false
+    },
+    "Untitled 84": {
+      "type": "Claim",
+      "text": "\"The reliance on AI rather than human creativity in the sciences can lead to a diminished ability to understand the underlying mechanisms of complex phenomena.\"",
+      "isImplicit": false
+    },
+    "Untitled 85": {
+      "type": "Claim",
+      "text": "\"The creative theorizing involved in the development of scientific theories enables the sharing of ideas among scientists and is essential for the pursuit of scientific explanations.\"",
+      "isImplicit": false
+    },
+    "Untitled 86": {
+      "type": "Claim",
+      "text": "\"The reliance on AI rather than human creativity in the sciences can lead to a diminished ability to understand the underlying mechanisms of complex phenomena.\"",
+      "isImplicit": false
+    },
+    "Untitled 87": {
+      "type": "Claim",
+      "text": "\"The creative theorizing involved in the development of scientific theories enables the sharing of ideas among scientists and is essential for the pursuit of scientific explanations.\"",
+      "isImplicit": false
+    },
+    "Untitled 88": {
+      "type": "Claim",
+      "text": "\"The reliance on AI rather than human creativity in the sciences can lead to a diminished ability to understand the underlying mechanisms of complex phenomena.\"",
+      "isImplicit": false
+    },
+    "Untitled 89": {
+      "type": "Claim",
+      "text": "\"The creative theorizing involved in the development of scientific theories enables the sharing of ideas among scientists and is essential for the pursuit of scientific explanations.\"",
+      "isImplicit": false
+    },
+    "Untitled 90": {
+      "type": "Claim",
+      "text": "\"The reliance on AI rather than human creativity in the sciences can lead to a diminished ability to understand the underlying mechanisms of complex phenomena.\"",
+      "isImplicit": false
+    },
+    "Untitled 91": {
+      "type": "Claim",
+      "text": "\"The creative theorizing involved in the development of scientific theories enables the sharing of ideas among scientists and is essential for the pursuit of scientific explanations.\"",
+      "isImplicit": false
+    },
+    "Untitled 92": {
+      "type": "Claim",
+      "text": "\"The reliance on AI rather than human creativity in the sciences can lead to a diminished ability to understand the underlying mechanisms of complex phenomena.\"",
+      "isImplicit": false
+    },
+    "Untitled 93": {
+      "type": "Claim",
+      "text": "\"The creative theorizing involved in the development of scientific theories enables the sharing of ideas among scientists and is essential for the pursuit of scientific explanations.\"",
+      "isImplicit": false
+    },
+    "Untitled 94": {
+      "type": "Claim",
+      "text": "\"The reliance on AI rather than human creativity in the sciences can lead to a diminished ability to understand the underlying mechanisms of complex phenomena.\"",
+      "isImplicit": false
+    },
+    "Untitled 95": {
+      "type": "Claim",
+      "text": "\"The creative theorizing involved in the development of scientific theories enables the sharing of ideas among scientists and is essential for the pursuit of scientific explanations.\"",
+      "isImplicit": false
+    },
+    "Untitled 96": {
+      "type": "Claim",
+      "text": "\"The reliance on AI rather than human creativity in the sciences can lead to a diminished ability to understand the underlying mechanisms of complex phenomena.\"",
+      "isImplicit": false
+    },
+    "Untitled 97": {
+      "type": "Claim",
+      "text": "\"The creative theorizing involved in the development of scientific theories enables the sharing of ideas among scientists and is essential for the pursuit of scientific explanations.\"",
+      "isImplicit": false
+    },
+    "Untitled 98": {
+      "type": "Claim",
+      "text": "\"The reliance on AI rather than human creativity in the sciences can lead to a diminished ability to understand the underlying mechanisms of complex phenomena.\"",
+      "isImplicit": false
+    },
+    "Untitled 99": {
+      "type": "Claim",
+      "text": "\"The creative theorizing involved in the development of scientific theories enables the sharing of ideas among scientists and is essential for the pursuit of scientific explanations.\"",
+      "isImplicit": false
+    },
+    "Untitled 100": {
+      "type": "Claim",
+      "text": "\"The reliance on AI rather than human creativity in the sciences can lead to a diminished ability to understand the underlying mechanisms of complex phenomena.\"",
+      "isImplicit": false
+    },
+    "Untitled 101": {
+      "type": "Claim",
+      "text": "\"The creative theorizing involved in the development of scientific theories enables the sharing of ideas among scientists and is essential for the pursuit of scientific explanations.\"",
+      "isImplicit": false
+    },
+    "Untitled 102": {
+      "type": "Claim",
+      "text": "\"The reliance on AI rather than human creativity in the sciences can lead to a diminished ability to understand the underlying mechanisms of complex phenomena.\"",
+      "isImplicit": false
+    },
+    "Untitled 103": {
+      "type": "Claim",
+      "text": "\"The creative theorizing involved in the development of scientific theories enables the sharing of ideas among scientists and is essential for the pursuit of scientific explanations.\"",
+      "isImplicit": false
+    },
+    "Untitled 104": {
+      "type": "Claim",
+      "text": "\"The reliance on AI rather than human creativity in the sciences can lead to a diminished ability to understand the underlying mechanisms of complex phenomena.\"",
+      "isImplicit": false
+    },
+    "Untitled 105": {
+      "type": "Claim",
+      "text": "\"The creative theorizing involved in the development of scientific theories enables the sharing of ideas among scientists and is essential for the pursuit of scientific explanations.\"",
+      "isImplicit": false
+    },
+    "Untitled 106": {
+      "type": "Claim",
+      "text": "\"The reliance on AI rather than human creativity in the sciences can lead to a diminished ability to understand the underlying mechanisms of complex phenomena.\"",
+      "isImplicit": false
+    },
+    "Untitled 107": {
+      "type": "Claim",
+      "text": "\"The creative theorizing involved in the development of scientific theories enables the sharing of ideas among scientists and is essential for the pursuit of scientific explanations.\"",
+      "isImplicit": false
+    },
+    "Untitled 108": {
+      "type": "Claim",
+      "text": "\"The reliance on AI rather than human creativity in the sciences can lead to a diminished ability to understand the underlying mechanisms of complex phenomena.\"",
+      "isImplicit": false
+    },
+    "Untitled 109": {
+      "type": "Claim",
+      "text": "\"The creative theorizing involved in the development of scientific theories enables the sharing of ideas among scientists and is essential for the pursuit of scientific explanations.\"",
+      "isImplicit": false
+    },
+    "Untitled 110": {
+      "type": "Claim",
+      "text": "\"The reliance on AI rather than human creativity in the sciences can lead to a diminished ability to understand the underlying mechanisms of complex phenomena.\"",
+      "isImplicit": false
+    },
+    "Untitled 111": {
+      "type": "Claim",
+      "text": "\"The creative theorizing involved in the development of scientific theories enables the sharing of ideas among scientists and is essential for the pursuit of scientific explanations.\"",
+      "isImplicit": false
+    },
+    "Untitled 112": {
+      "type": "Claim",
+      "text": "\"The reliance on AI rather than human creativity in the sciences can lead to a diminished ability to understand the underlying mechanisms of complex phenomena.\"",
+      "isImplicit": false
+    },
+    "Untitled 113": {
+      "type": "Claim",
+      "text": "\"The creative theorizing involved in the development of scientific theories enables the sharing of ideas among scientists and is essential for the pursuit of scientific explanations.\"",
+      "isImplicit": false
+    },
+    "Untitled 114": {
+      "type": "Claim",
+      "text": "\"The reliance on AI rather than human creativity in the sciences can lead to a diminished ability to understand the underlying mechanisms of complex phenomena.\"",
+      "isImplicit": false
+    },
+    "Untitled 115": {
+      "type": "Claim",
+      "text": "\"The creative theorizing involved in the development of scientific theories enables the sharing of ideas among scientists and is essential for the pursuit of scientific explanations.\"",
+      "isImplicit": false
+    },
+    "Untitled 116": {
+      "type": "Claim",
+      "text": "\"The reliance on AI rather than human creativity in the sciences can lead to a diminished ability to understand the underlying mechanisms of complex phenomena.\"",
+      "isImplicit": false
+    },
+    "Untitled 117": {
+      "type": "Claim",
+      "text": "\"The creative theorizing involved in the development of scientific theories enables the sharing of ideas among scientists and is essential for the pursuit of scientific explanations.\"",
+      "isImplicit": false
+    },
+    "Untitled 118": {
+      "type": "Claim",
+      "text": "\"The reliance on AI rather than human creativity in the sciences can lead to a diminished ability to understand the underlying mechanisms of complex phenomena.\"",
+      "isImplicit": false
+    },
+    "Untitled 119": {
+      "type": "Claim",
+      "text": "\"The creative theorizing involved in the development of scientific theories enables the sharing of ideas among scientists and is essential for the pursuit of scientific explanations.\"",
+      "isImplicit": false
+    },
+    "Untitled 120": {
+      "type": "Claim",
+      "text": "\"The reliance on AI rather than human creativity in the sciences can lead to a diminished ability to understand the underlying mechanisms of complex phenomena.\"",
+      "isImplicit": false
+    },
+    "Untitled 121": {
+      "type": "Claim",
+      "text": "\"The creative theorizing involved in the development of scientific theories enables the sharing of ideas among scientists and is essential for the pursuit of scientific explanations.\"",
+      "isImplicit": false
+    },
+    "Untitled 122": {
+      "type": "Claim",
+      "text": "\"The reliance on AI rather than human creativity in the sciences can lead to a diminished ability to understand the underlying mechanisms of complex phenomena.\"",
+      "isImplicit": false
+    },
+    "Untitled 123": {
+      "type": "Claim",
+      "text": "\"The creative theorizing involved in the development of scientific theories enables the sharing of ideas among scientists and is essential for the pursuit of scientific explanations.\"",
+      "isImplicit": false
+    },
+    "Untitled 124": {
+      "type": "Claim",
+      "text": "\"The reliance on AI rather than human creativity in the sciences can lead to a diminished ability to understand the underlying mechanisms of complex phenomena.\"",
+      "isImplicit": false
+    },
+    "Untitled 125": {
+      "type": "Claim",
+      "text": "\"The creative theorizing involved in the development of scientific theories enables the sharing of ideas among scientists and is essential for the pursuit of scientific explanations.\"",
+      "isImplicit": false
+    },
+    "Untitled 126": {
+      "type": "Claim",
+      "text": "\"The reliance on AI rather than human creativity in the sciences can lead to a diminished ability to understand the underlying mechanisms of complex phenomena.\"",
+      "isImplicit": false
+    },
+    "Untitled 127": {
+      "type": "Claim",
+      "text": "\"The creative theorizing involved in the development of scientific theories enables the sharing of ideas among scientists and is essential for the pursuit of scientific explanations.\"",
+      "isImplicit": false
+    },
+    "Untitled 128": {
+      "type": "Claim",
+      "text": "\"The reliance on AI rather than human creativity in the sciences can lead to a diminished ability to understand the underlying mechanisms of complex phenomena.\"",
+      "isImplicit": false
+    },
+    "Untitled 129": {
+      "type": "Claim",
+      "text": "\"The creative theorizing involved in the development of scientific theories enables the sharing of ideas among scientists and is essential for the pursuit of scientific explanations.\"",
+      "isImplicit": false
+    },
+    "Untitled 130": {
+      "type": "Claim",
+      "text": "\"The reliance on AI rather than human creativity in the sciences can lead to a diminished ability to understand the underlying mechanisms of complex phenomena.\"",
+      "isImplicit": false
+    },
+    "Untitled 131": {
+      "type": "Claim",
+      "text": "\"The creative theorizing involved in the development of scientific theories enables the sharing of ideas among scientists and is essential for the pursuit of scientific explanations.\"",
+      "isImplicit": false
+    },
+    "Untitled 132": {
+      "type": "Claim",
+      "text": "\"The reliance on AI rather than human creativity in the sciences can lead to a diminished ability to understand the underlying mechanisms of complex phenomena.\"",
+      "isImplicit": false
+    },
+    "Untitled 133": {
+      "type": "Claim",
+      "text": "\"The creative theorizing involved in the development of scientific theories enables the sharing of ideas among scientists and is essential for the pursuit of scientific explanations.\"",
+      "isImplicit": false
+    },
+    "Untitled 134": {
+      "type": "Claim",
+      "text": "\"The reliance on AI rather than human creativity in the sciences can lead to a diminished ability to understand the underlying mechanisms of complex phenomena.\"",
+      "isImplicit": false
+    },
+    "Untitled 135": {
+      "type": "Claim",
+      "text": "\"The creative theorizing involved in the development of scientific theories enables the sharing of ideas among scientists and is essential for the pursuit of scientific explanations.\"",
+      "isImplicit": false
+    },
+    "Untitled 136": {
+      "type": "Claim",
+      "text": "\"The reliance on AI rather than human creativity in the sciences can lead to a diminished ability to understand the underlying mechanisms of complex phenomena.\"",
+      "isImplicit": false
+    },
+    "Untitled 137": {
+      "type": "Claim",
+      "text": "\"The creative theorizing involved in the development of scientific theories enables the sharing of ideas among scientists and is essential for the pursuit of scientific explanations.\"",
+      "isImplicit": false
+    },
+    "Untitled 138": {
+      "type": "Claim",
+      "text": "\"The reliance on AI rather than human creativity in the sciences can lead to a diminished ability to understand the underlying mechanisms of complex phenomena.\"",
+      "isImplicit": false
+    },
+    "Untitled 139": {
+      "type": "Claim",
+      "text": "\"The creative theorizing involved in the development of scientific theories enables the sharing of ideas among scientists and is essential for the pursuit of scientific explanations.\"",
+      "isImplicit": false
+    },
+    "Untitled 140": {
+      "type": "Claim",
+      "text": "\"The reliance on AI rather than human creativity in the sciences can lead to a diminished ability to understand the underlying mechanisms of complex phenomena.\"",
+      "isImplicit": false
+    },
+    "Untitled 141": {
+      "type": "Claim",
+      "text": "\"The creative theorizing involved in the development of scientific theories enables the sharing of ideas among scientists and is essential for the pursuit of scientific explanations.\"",
+      "isImplicit": false
+    },
+    "Untitled 142": {
+      "type": "Claim",
+      "text": "\"The reliance on AI rather than human creativity in the sciences can lead to a diminished ability to understand the underlying mechanisms of complex phenomena.\"",
+      "isImplicit": false
+    },
+    "Untitled 143": {
+      "type": "Claim",
+      "text": "\"The creative theorizing involved in the development of scientific theories enables the sharing of ideas among scientists and is essential for the pursuit of scientific explanations.\"",
+      "isImplicit": false
+    },
+    "Untitled 144": {
+      "type": "Claim",
+      "text": "\"The reliance on AI rather than human creativity in the sciences can lead to a diminished ability to understand the underlying mechanisms of complex phenomena.\"",
+      "isImplicit": false
+    },
+    "Untitled 145": {
+      "type": "Claim",
+      "text": "\"The creative theorizing involved in the development of scientific theories enables the sharing of ideas among scientists and is essential for the pursuit of scientific explanations.\"",
+      "isImplicit": false
+    },
+    "Untitled 146": {
+      "type": "Claim",
+      "text": "\"The reliance on AI rather than human creativity in the sciences can lead to a diminished ability to understand the underlying mechanisms of complex phenomena.\"",
+      "isImplicit": false
+    },
+    "Untitled 147": {
+      "type": "Claim",
+      "text": "\"The creative theorizing involved in the development of scientific theories enables the sharing of ideas among scientists and is essential for the pursuit of scientific explanations.\"",
+      "isImplicit": false
+    },
+    "Untitled 148": {
+      "type": "Claim",
+      "text": "\"The reliance on AI rather than human creativity in the sciences can lead to a diminished ability to understand the underlying mechanisms of complex phenomena.\"",
+      "isImplicit": false
+    },
+    "Untitled 149": {
+      "type": "Claim",
+      "text": "\"The creative theorizing involved in the development of scientific theories enables the sharing of ideas among scientists and is essential for the pursuit of scientific explanations.\"",
+      "isImplicit": false
+    },
+    "Untitled 150": {
+      "type": "Claim",
+      "text": "\"The reliance on AI rather than human creativity in the sciences can lead to a diminished ability to understand the underlying mechanisms of complex phenomena.\"",
+      "isImplicit": false
+    },
+    "Untitled 151": {
+      "type": "Claim",
+      "text": "\"The creative theorizing involved in the development of scientific theories enables the sharing of ideas among scientists and is essential for the pursuit of scientific explanations.\"",
+      "isImplicit": false
+    },
+    "Untitled 152": {
+      "type": "Claim",
+      "text": "\"The reliance on AI rather than human creativity in the sciences can lead to a diminished ability to understand the underlying mechanisms of complex phenomena.\"",
+      "isImplicit": false
+    },
+    "Untitled 153": {
+      "type": "Claim",
+      "text": "\"The creative theorizing involved in the development of scientific theories enables the sharing of ideas among scientists and is essential for the pursuit of scientific explanations.\"",
+      "isImplicit": false
+    },
+    "Untitled 154": {
+      "type": "Claim",
+      "text": "\"The reliance on AI rather than human creativity in the sciences can lead to a diminished ability to understand the underlying mechanisms of complex phenomena.\"",
+      "isImplicit": false
+    },
+    "Untitled 155": {
+      "type": "Claim",
+      "text": "\"The creative theorizing involved in the development of scientific theories enables the sharing of ideas among scientists and is essential for the pursuit of scientific explanations.\"",
+      "isImplicit": false
+    },
+    "Untitled 156": {
+      "type": "Claim",
+      "text": "\"The reliance on AI rather than human creativity in the sciences can lead to a diminished ability to understand the underlying mechanisms of complex phenomena.\"",
+      "isImplicit": false
+    },
+    "Untitled 157": {
+      "type": "Claim",
+      "text": "\"The creative theorizing involved in the development of scientific theories enables the sharing of ideas among scientists and is essential for the pursuit of scientific explanations.\"",
+      "isImplicit": false
+    },
+    "Untitled 158": {
+      "type": "Claim",
+      "text": "\"The reliance on AI rather than human creativity in the sciences can lead to a diminished ability to understand the underlying mechanisms of complex phenomena.\"",
+      "isImplicit": false
+    },
+    "Untitled 159": {
+      "type": "Claim",
+      "text": "\"The creative theorizing involved in the development of scientific theories enables the sharing of ideas among scientists and is essential for the pursuit of scientific explanations.\"",
+      "isImplicit": false
+    },
+    "Untitled 160": {
+      "type": "Claim",
+      "text": "\"The reliance on AI rather than human creativity in the sciences can lead to a diminished ability to understand the underlying mechanisms of complex phenomena.\"",
+      "isImplicit": false
+    },
+    "Untitled 161": {
+      "type": "Claim",
+      "text": "\"The creative theorizing involved in the development of scientific theories enables the sharing of ideas among scientists and is essential for the pursuit of scientific explanations.\"",
+      "isImplicit": false
+    },
+    "Untitled 162": {
+      "type": "Claim",
+      "text": "\"The reliance on AI rather than human creativity in the sciences can lead to a diminished ability to understand the underlying mechanisms of complex phenomena.\"",
+      "isImplicit": false
+    },
+    "Untitled 163": {
+      "type": "Claim",
+      "text": "\"The creative theorizing involved in the development of scientific theories enables the sharing of ideas among scientists and is essential for the pursuit of scientific explanations.\"",
+      "isImplicit": false
+    },
+    "Untitled 164": {
+      "type": "Claim",
+      "text": "\"The reliance on AI rather than human creativity in the sciences can lead to a diminished ability to understand the underlying mechanisms of complex phenomena.\"",
+      "isImplicit": false
+    },
+    "Untitled 165": {
+      "type": "Claim",
+      "text": "\"The creative theorizing involved in the development of scientific theories enables the sharing of ideas among scientists and is essential for the pursuit of scientific explanations.\"",
+      "isImplicit": false
+    },
+    "Untitled 166": {
+      "type": "Claim",
+      "text": "\"The reliance on AI rather than human creativity in the sciences can lead to a diminished ability to understand the underlying mechanisms of complex phenomena.\"",
+      "isImplicit": false
+    },
+    "Untitled 167": {
+      "type": "Claim",
+      "text": "\"The creative theorizing involved in the development of scientific theories enables the sharing of ideas among scientists and is essential for the pursuit of scientific explanations.\"",
+      "isImplicit": false
+    },
+    "Untitled 168": {
+      "type": "Claim",
+      "text": "\"The reliance on AI rather than human creativity in the sciences can lead to a diminished ability to understand the underlying mechanisms of complex phenomena.\"",
+      "isImplicit": false
+    },
+    "Untitled 169": {
+      "type": "Claim",
+      "text": "\"The creative theorizing involved in the development of scientific theories enables the sharing of ideas among scientists and is essential for the pursuit of scientific explanations.\"",
+      "isImplicit": false
+    },
+    "Untitled 170": {
+      "type": "Claim",
+      "text": "\"The reliance on AI rather than human creativity in the sciences can lead to a diminished ability to understand the underlying mechanisms of complex phenomena.\"",
+      "isImplicit": false
+    },
+    "Untitled 171": {
+      "type": "Claim",
+      "text": "\"The creative theorizing involved in the development of scientific theories enables the sharing of ideas among scientists and is essential for the pursuit of scientific explanations.\"",
+      "isImplicit": false
+    },
+    "Untitled 172": {
+      "type": "Claim",
+      "text": "\"The reliance on AI rather than human creativity in the sciences can lead to a diminished ability to understand the underlying mechanisms of complex phenomena.\"",
+      "isImplicit": false
+    },
+    "Untitled 173": {
+      "type": "Claim",
+      "text": "\"The creative theorizing involved in the development of scientific theories enables the sharing of ideas among scientists and is essential for the pursuit of scientific explanations.\"",
+      "isImplicit": false
+    },
+    "Untitled 174": {
+      "type": "Claim",
+      "text": "\"The reliance on AI rather than human creativity in the sciences can lead to a diminished ability to understand the underlying mechanisms of complex phenomena.\"",
+      "isImplicit": false
+    },
+    "Untitled 175": {
+      "type": "Claim",
+      "text": "\"The creative theorizing involved in the development of scientific theories enables the sharing of ideas among scientists and is essential for the pursuit of scientific explanations.\"",
+      "isImplicit": false
+    },
+    "Untitled 176": {
+      "type": "Claim",
+      "text": "\"The reliance on AI rather than human creativity in the sciences can lead to a diminished ability to understand the underlying mechanisms of complex phenomena.\"",
+      "isImplicit": false
+    },
+    "Untitled 177": {
+      "type": "Claim",
+      "text": "\"The creative theorizing involved in the development of scientific theories enables the sharing of ideas among scientists and is essential for the pursuit of scientific explanations.\"",
+      "isImplicit": false
+    },
+    "Untitled 178": {
+      "type": "Claim",
+      "text": "\"The reliance on AI rather than human creativity in the sciences can lead to a diminished ability to understand the underlying mechanisms of complex phenomena.\"",
+      "isImplicit": false
+    },
+    "Untitled 179": {
+      "type": "Claim",
+      "text": "\"The creative theorizing involved in the development of scientific theories enables the sharing of ideas among scientists and is essential for the pursuit of scientific explanations.\"",
+      "isImplicit": false
+    },
+    "Untitled 180": {
+      "type": "Claim",
+      "text": "\"The reliance on AI rather than human creativity in the sciences can lead to a diminished ability to understand the underlying mechanisms of complex phenomena.\"",
+      "isImplicit": false
+    },
+    "Untitled 181": {
+      "type": "Claim",
+      "text": "\"The creative theorizing involved in the development of scientific theories enables the sharing of ideas among scientists and is essential for the pursuit of scientific explanations.\"",
+      "isImplicit": false
+    },
+    "Untitled 182": {
+      "type": "Claim",
+      "text": "\"The reliance on AI rather than human creativity in the sciences can lead to a diminished ability to understand the underlying mechanisms of complex phenomena.\"",
+      "isImplicit": false
+    },
+    "Untitled 183": {
+      "type": "Claim",
+      "text": "\"The creative theorizing involved in the development of scientific theories enables the sharing of ideas among scientists and is essential for the pursuit of scientific explanations.\"",
+      "isImplicit": false
+    },
+    "Untitled 184": {
+      "type": "Claim",
+      "text": "\"The reliance on AI rather than human creativity in the sciences can lead to a diminished ability to understand the underlying mechanisms of complex phenomena.\"",
+      "isImplicit": false
+    },
+    "Untitled 185": {
+      "type": "Claim",
+      "text": "\"The creative theorizing involved in the development of scientific theories enables the sharing of ideas among scientists and is essential for the pursuit of scientific explanations.\"",
+      "isImplicit": false
+    },
+    "Untitled 186": {
+      "type": "Claim",
+      "text": "\"The reliance on AI rather than human creativity in the sciences can lead to a diminished ability to understand the underlying mechanisms of complex phenomena.\"",
+      "isImplicit": false
+    },
+    "Untitled 187": {
+      "type": "Claim",
+      "text": "\"The creative theorizing involved in the development of scientific theories enables the sharing of ideas among scientists and is essential for the pursuit of scientific explanations.\"",
+      "isImplicit": false
+    },
+    "Untitled 188": {
+      "type": "Claim",
+      "text": "\"The reliance on AI rather than human creativity in the sciences can lead to a diminished ability to understand the underlying mechanisms of complex phenomena.\"",
+      "isImplicit": false
+    },
+    "Untitled 189": {
+      "type": "Claim",
+      "text": "\"The creative theorizing involved in the development of scientific theories enables the sharing of ideas among scientists and is essential for the pursuit of scientific explanations.\"",
+      "isImplicit": false
+    },
+    "Untitled 190": {
+      "type": "Claim",
+      "text": "\"The reliance on AI rather than human creativity in the sciences can lead to a diminished ability to understand the underlying mechanisms of complex phenomena.\"",
+      "isImplicit": false
+    },
+    "Untitled 191": {
+      "type": "Claim",
+      "text": "\"The creative theorizing involved in the development of scientific theories enables the sharing of ideas among scientists and is essential for the pursuit of scientific explanations.\"",
+      "isImplicit": false
+    },
+    "Untitled 192": {
+      "type": "Claim",
+      "text": "\"The reliance on AI rather than human creativity in the sciences can lead to a diminished ability to understand the underlying mechanisms of complex phenomena.\"",
+      "isImplicit": false
+    },
+    "Untitled 193": {
+      "type": "Claim",
+      "text": "\"The creative theorizing involved in the development of scientific theories enables the sharing of ideas among scientists and is essential for the pursuit of scientific explanations.\"",
+      "isImplicit": false
+    }
+  },
+  "relations": []
+}

@@ -1,0 +1,116 @@
+{
+  "ADUs": {
+    "A1": {
+      "type": "Claim",
+      "text": "\"Gregory Currie produced the first comprehensive philosophy of film in the analytic tradition with Image and Mind in 1995",
+      "isImplicit": false
+    },
+    "A2": {
+      "type": "Claim",
+      "text": "\"Currie's rejection of perceptual illusionism is sound because cinematic images really move",
+      "isImplicit": false
+    },
+    "A3": {
+      "type": "Claim",
+      "text": "\"Currie's conception of the movement of images is essential to his claim that there is real movement onscreen",
+      "isImplicit": false
+    },
+    "A4": {
+      "type": "Claim",
+      "text": "\"Ponech's description of a quasi-cinematic display is entirely accurate\"",
+      "isImplicit": false
+    },
+    "A5": {
+      "type": "Claim",
+      "text": "\"The experience of film is the experience of seeing moving images under specific perceptual circumstances (e.g.",
+      "isImplicit": false
+    },
+    "A6": {
+      "type": "Claim",
+      "text": "\"Currie's theory of perceptual realism is the most plausible of the three options\"",
+      "isImplicit": false
+    },
+    "A7": {
+      "type": "Claim",
+      "text": "\"Currie's theory of cinematic motion is correct",
+      "isImplicit": false
+    },
+    "A8": {
+      "type": "Claim",
+      "text": "\"Ponech's attempt to prove that singletons exhibit garden-variety motion fails\"",
+      "isImplicit": false
+    },
+    "A9": {
+      "type": "Claim",
+      "text": "\"Kania's objection to Currie's handling of the Müller-Lyer counter-example fails\"",
+      "isImplicit": false
+    },
+    "A10": {
+      "type": "Claim",
+      "text": "\"Currie's theory of cinematic motion is correct",
+      "isImplicit": false
+    },
+    "A11": {
+      "type": "Claim",
+      "text": "\"Currie's failure to provide an argument for the reality of movement is a weakness",
+      "isImplicit": false
+    },
+    "A12": {
+      "type": "Claim",
+      "text": "\"Currie's argument against perceptual illusionism is supported by aestheticians such as Berys Gaut and Dominic McIver Lopes\"",
+      "isImplicit": false
+    }
+  },
+  "relations": [
+    {
+      "src": "A1",
+      "tgt": "A2",
+      "type": "support"
+    },
+    {
+      "src": "A3",
+      "tgt": "A2",
+      "type": "support"
+    },
+    {
+      "src": "A4",
+      "tgt": "A5",
+      "type": "support"
+    },
+    {
+      "src": "A5",
+      "tgt": "A6",
+      "type": "support"
+    },
+    {
+      "src": "A7",
+      "tgt": "A6",
+      "type": "support"
+    },
+    {
+      "src": "A8",
+      "tgt": "A7",
+      "type": "support"
+    },
+    {
+      "src": "A9",
+      "tgt": "A7",
+      "type": "support"
+    },
+    {
+      "src": "A10",
+      "tgt": "A6",
+      "type": "support"
+    },
+    {
+      "src": "A11",
+      "tgt": "A10",
+      "type": "support"
+    },
+    {
+      "src": "A12",
+      "tgt": "A2",
+      "type": "support"
+    }
+  ]
+}

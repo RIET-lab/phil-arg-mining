@@ -1,0 +1,101 @@
+{
+  "ADUs": {
+    "A1": {
+      "type": "Claim",
+      "text": "Descartes explicitly states that virtue is sufficient for attaining happiness. In this paper I argue that, within the framework he develops, this is not exactly true: more than virtuous action is needed to secure happiness.",
+      "quote": "Descartes explicitly states that virtue is sufficient for attaining happiness. In this paper I argue that, within the framework he develops, this is not exactly true: more than virtuous action is needed to secure happiness.",
+      "isImplicit": false
+    },
+    "A2": {
+      "type": "Claim",
+      "text": "The link between virtue and happiness is one of the most traditional topics in Western moral thought.",
+      "quote": "The resurgence of virtue ethics has made the relationship between the two concepts a much-debated issue; for a notable recent contribution that elaborates on a general eudaimonist account of virtue, see Annas 2011, Ch. 8-9.",
+      "isImplicit": false
+    },
+    "A3": {
+      "type": "Claim",
+      "text": "In a letter from 1645 Descartes assures Princess Elizabeth of Bohemia that 'virtue is sufficient to make us content in this life'.",
+      "quote": "In line with his rather conspicuous Stoic tendencies, in a letter from 1645 Descartes assures Princess Elizabeth of Bohemia that 'virtue is sufficient to make us content in this life' (CSMK, 258; AT IV, 266 f.).",
+      "isImplicit": false
+    },
+    "A4": {
+      "type": "Claim",
+      "text": "To be able to discern the nature of Cartesian virtue, I begin by focusing on what Descartes says about the good use of our will, the very source of moral agency.",
+      "quote": "To be able to discern the nature of Cartesian virtue, I begin by focusing on what Descartes says about the good use of our will, the very source of moral agency.",
+      "isImplicit": false
+    },
+    "A5": {
+      "type": "Claim",
+      "text": "The mature Cartesian view of moral agency thus seems to consist of two features.",
+      "quote": "The mature Cartesian view of moral agency thus seems to consist of two features.",
+      "isImplicit": false
+    },
+    "A6": {
+      "type": "Claim",
+      "text": "Descartes thus has a rather uncomplicated view of virtue, alive to our finitude: virtue is very much within our reach, for it only requires that we use our will appropriately.",
+      "quote": "What is particularly important for our purposes is that ultimately, acting virtuously equals acting in accordance with the two-component theory. Descartes thus has a rather uncomplicated view of virtue, alive to our finitude: virtue is very much within our reach, for it only requires that we use our will appropriately.",
+      "isImplicit": false
+    },
+    "A7": {
+      "type": "Claim",
+      "text": "For Descartes, virtue is primarily about exerting ourselves according to our best judgment.",
+      "quote": "Fortunately, I do not think that for our purposes anything of consequence hangs on whether we stress the more or less restrictive sense of virtue, for the way in which Descartes talks about virtue as strength assumes that the cognitive element is already in place: I am unaware of any passage that would even suggest that one could be virtuous without having first judged the best one was able to do, be that judging - strictly speaking - a part of virtuousness or not.",
+      "isImplicit": false
+    },
+    "A8": {
+      "type": "Claim",
+      "text": "Happiness is not our highest good: being virtuous - using one's will as the two-component theory states - is.",
+      "quote": "To summarize, for Descartes happiness is about having a contented mind, but it is not our highest good: being virtuous - using one's will as the two-component theory states - is.",
+      "isImplicit": false
+    },
+    "A9": {
+      "type": "Claim",
+      "text": "The highest good equals virtuous action, which involves two components, judging well and striving to act according to one's judgment.",
+      "quote": "The highest good equals virtuous action, which involves two components, judging well and striving to act according to one's judgment.",
+      "isImplicit": false
+    },
+    "A10": {
+      "type": "Claim",
+      "text": "Descartes's account of the path from virtue to happiness involves - in addition to acting virtuously - an intellectual insight consisting of three key components: (1) the distinction between what is and what is not up to us, (2) the idea that we are not to blame ourselves if we have done the best we could, and (3) the view that things outside our power are determined by providence.",
+      "quote": "According to the present interpretation, the Cartesian account of the path from virtue to happiness involves - in addition to acting virtuously - an intellectual insight consisting of three key components: (1) the distinction between what is and what is not up to us, (2) the idea that we are not to blame ourselves if we have done the best we could, and (3) the view that things outside our power are determined by providence.",
+      "isImplicit": false
+    }
+  },
+  "relations": [
+    {
+      "src": "A1",
+      "tgt": "A2",
+      "type": "support"
+    },
+    {
+      "src": "A2",
+      "tgt": "A3",
+      "type": "support"
+    },
+    {
+      "src": "A4",
+      "tgt": "A5",
+      "type": "support"
+    },
+    {
+      "src": "A5",
+      "tgt": "A6",
+      "type": "support"
+    },
+    {
+      "src": "A6",
+      "tgt": "A7",
+      "type": "support"
+    },
+    {
+      "src": "A8",
+      "tgt": "A9",
+      "type": "support"
+    },
+    {
+      "src": "A9",
+      "tgt": "A10",
+      "type": "support"
+    }
+  ]
+}

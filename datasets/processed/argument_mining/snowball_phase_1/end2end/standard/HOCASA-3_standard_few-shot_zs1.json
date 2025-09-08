@@ -1,0 +1,985 @@
+{
+  "ADUs": {
+    "MainClaim": {
+      "type": "Major Claim",
+      "text": "\"Cajetan's semantic analysis of analogy is defensible and does not ignore the importance of context and judgment.\"",
+      "isImplicit": false
+    },
+    "Claim1": {
+      "type": "Claim",
+      "text": "\"Cajetan's understanding of the conceptus is consistent with the medieval notion of signification as the establishment of understanding.\"",
+      "isImplicit": false
+    },
+    "Claim2": {
+      "type": "Claim",
+      "text": "\"A semantic analysis of terms is not incompatible with a sensitivity to the role that a sentence or inference plays in giving context to terms.\"",
+      "isImplicit": false
+    },
+    "Claim3": {
+      "type": "Claim",
+      "text": "\"Cajetan's concern with concepts did not preclude attention to context and judgment.\"",
+      "isImplicit": false
+    },
+    "Claim4": {
+      "type": "Claim",
+      "text": "\"Cajetan's attention to the signification of terms and to the concepts which mediate such signification does not imply that context and judgment are irrelevant.\"",
+      "isImplicit": false
+    },
+    "Claim5": {
+      "type": "Claim",
+      "text": "\"Cajetan's semantic analysis of analogy is not reductionist",
+      "isImplicit": false
+    },
+    "Claim6": {
+      "type": "Claim",
+      "text": "\"Cajetan's approach to analogy is defensible",
+      "isImplicit": false
+    },
+    "Claim7": {
+      "type": "Claim",
+      "text": "\"Cajetan's theory of analogy is not Scotistic",
+      "isImplicit": false
+    },
+    "Claim8": {
+      "type": "Claim",
+      "text": "\"Cajetan's theory of analogy is compatible with a sensitivity to the role that a sentence or inference plays in giving context to terms.\"",
+      "isImplicit": false
+    },
+    "Claim9": {
+      "type": "Claim",
+      "text": "\"Cajetan's concern with concepts is not un-Thomistic",
+      "isImplicit": false
+    },
+    "Claim10": {
+      "type": "Claim",
+      "text": "\"Cajetan's approach to analogy is not incompatible with a discussion of the semantics of terms",
+      "isImplicit": false
+    },
+    "Claim11": {
+      "type": "Claim",
+      "text": "\"Cajetan's semantic analysis of analogy is not reductionist",
+      "isImplicit": false
+    },
+    "Claim12": {
+      "type": "Claim",
+      "text": "\"Cajetan's theory of analogy is not incompatible with a sensitivity to the role that a sentence or inference plays in giving context to terms.\"",
+      "isImplicit": false
+    },
+    "Claim13": {
+      "type": "Claim",
+      "text": "\"Cajetan's concern with concepts is motivated by an attempt to develop a semantic analysis of analogy that will do justice to certain inferential contexts.\"",
+      "isImplicit": false
+    },
+    "Claim14": {
+      "type": "Claim",
+      "text": "\"Cajetan's theory of analogy is defensible",
+      "isImplicit": false
+    },
+    "Claim15": {
+      "type": "Claim",
+      "text": "\"Cajetan's approach to analogy is compatible with a discussion of the semantics of terms.\"",
+      "isImplicit": false
+    },
+    "Claim16": {
+      "type": "Claim",
+      "text": "\"Cajetan's semantic analysis of analogy is not incompatible with a sensitivity to the role that a sentence or inference plays in giving context to terms.\"",
+      "isImplicit": false
+    },
+    "Claim17": {
+      "type": "Claim",
+      "text": "\"Cajetan's concern with concepts is not reductionist",
+      "isImplicit": false
+    },
+    "Claim18": {
+      "type": "Claim",
+      "text": "\"Cajetan's theory of analogy is defensible",
+      "isImplicit": false
+    },
+    "Claim19": {
+      "type": "Claim",
+      "text": "\"Cajetan's approach to analogy is not incompatible with a discussion of the semantics of terms",
+      "isImplicit": false
+    },
+    "Claim20": {
+      "type": "Claim",
+      "text": "\"Cajetan's semantic analysis of analogy is defensible",
+      "isImplicit": false
+    },
+    "Claim21": {
+      "type": "Claim",
+      "text": "\"Cajetan's theory of analogy is compatible with a sensitivity to the role that a sentence or inference plays in giving context to terms.\"",
+      "isImplicit": false
+    },
+    "Claim22": {
+      "type": "Claim",
+      "text": "\"Cajetan's concern with concepts is not reductionist",
+      "isImplicit": false
+    },
+    "Claim23": {
+      "type": "Claim",
+      "text": "\"Cajetan's theory of analogy is defensible",
+      "isImplicit": false
+    },
+    "Claim24": {
+      "type": "Claim",
+      "text": "\"Cajetan's approach to analogy is compatible with a discussion of the semantics of terms.\"",
+      "isImplicit": false
+    },
+    "Claim25": {
+      "type": "Claim",
+      "text": "\"Cajetan's semantic analysis of analogy is not incompatible with a sensitivity to the role that a sentence or inference plays in giving context to terms.\"",
+      "isImplicit": false
+    },
+    "Claim26": {
+      "type": "Claim",
+      "text": "\"Cajetan's concern with concepts is not reductionist",
+      "isImplicit": false
+    },
+    "Claim27": {
+      "type": "Claim",
+      "text": "\"Cajetan's theory of analogy is defensible",
+      "isImplicit": false
+    },
+    "Claim28": {
+      "type": "Claim",
+      "text": "\"Cajetan's approach to analogy is compatible with a discussion of the semantics of terms.\"",
+      "isImplicit": false
+    },
+    "Claim29": {
+      "type": "Claim",
+      "text": "\"Cajetan's semantic analysis of analogy is not incompatible with a sensitivity to the role that a sentence or inference plays in giving context to terms.\"",
+      "isImplicit": false
+    },
+    "Claim30": {
+      "type": "Claim",
+      "text": "\"Cajetan's concern with concepts is not reductionist",
+      "isImplicit": false
+    },
+    "Claim31": {
+      "type": "Claim",
+      "text": "\"Cajetan's theory of analogy is defensible",
+      "isImplicit": false
+    },
+    "Claim32": {
+      "type": "Claim",
+      "text": "\"Cajetan's approach to analogy is compatible with a discussion of the semantics of terms.\"",
+      "isImplicit": false
+    },
+    "Claim33": {
+      "type": "Claim",
+      "text": "\"Cajetan's semantic analysis of analogy is not incompatible with a sensitivity to the role that a sentence or inference plays in giving context to terms.\"",
+      "isImplicit": false
+    },
+    "Claim34": {
+      "type": "Claim",
+      "text": "\"Cajetan's concern with concepts is not reductionist",
+      "isImplicit": false
+    },
+    "Claim35": {
+      "type": "Claim",
+      "text": "\"Cajetan's theory of analogy is defensible",
+      "isImplicit": false
+    },
+    "Claim36": {
+      "type": "Claim",
+      "text": "\"Cajetan's approach to analogy is compatible with a discussion of the semantics of terms.\"",
+      "isImplicit": false
+    },
+    "Claim37": {
+      "type": "Claim",
+      "text": "\"Cajetan's semantic analysis of analogy is not incompatible with a sensitivity to the role that a sentence or inference plays in giving context to terms.\"",
+      "isImplicit": false
+    },
+    "Claim38": {
+      "type": "Claim",
+      "text": "\"Cajetan's concern with concepts is not reductionist",
+      "isImplicit": false
+    },
+    "Claim39": {
+      "type": "Claim",
+      "text": "\"Cajetan's theory of analogy is defensible",
+      "isImplicit": false
+    },
+    "Claim40": {
+      "type": "Claim",
+      "text": "\"Cajetan's approach to analogy is compatible with a discussion of the semantics of terms.\"",
+      "isImplicit": false
+    },
+    "Claim41": {
+      "type": "Claim",
+      "text": "\"Cajetan's semantic analysis of analogy is not incompatible with a sensitivity to the role that a sentence or inference plays in giving context to terms.\"",
+      "isImplicit": false
+    },
+    "Claim42": {
+      "type": "Claim",
+      "text": "\"Cajetan's concern with concepts is not reductionist",
+      "isImplicit": false
+    },
+    "Claim43": {
+      "type": "Claim",
+      "text": "\"Cajetan's theory of analogy is defensible",
+      "isImplicit": false
+    },
+    "Claim44": {
+      "type": "Claim",
+      "text": "\"Cajetan's approach to analogy is compatible with a discussion of the semantics of terms.\"",
+      "isImplicit": false
+    },
+    "Claim45": {
+      "type": "Claim",
+      "text": "\"Cajetan's semantic analysis of analogy is not incompatible with a sensitivity to the role that a sentence or inference plays in giving context to terms.\"",
+      "isImplicit": false
+    },
+    "Claim46": {
+      "type": "Claim",
+      "text": "\"Cajetan's concern with concepts is not reductionist",
+      "isImplicit": false
+    },
+    "Claim47": {
+      "type": "Claim",
+      "text": "\"Cajetan's theory of analogy is defensible",
+      "isImplicit": false
+    },
+    "Claim48": {
+      "type": "Claim",
+      "text": "\"Cajetan's approach to analogy is compatible with a discussion of the semantics of terms.\"",
+      "isImplicit": false
+    },
+    "Claim49": {
+      "type": "Claim",
+      "text": "\"Cajetan's semantic analysis of analogy is not incompatible with a sensitivity to the role that a sentence or inference plays in giving context to terms.\"",
+      "isImplicit": false
+    },
+    "Claim50": {
+      "type": "Claim",
+      "text": "\"Cajetan's concern with concepts is not reductionist",
+      "isImplicit": false
+    },
+    "Claim51": {
+      "type": "Claim",
+      "text": "\"Cajetan's theory of analogy is defensible",
+      "isImplicit": false
+    },
+    "Claim52": {
+      "type": "Claim",
+      "text": "\"Cajetan's approach to analogy is compatible with a discussion of the semantics of terms.\"",
+      "isImplicit": false
+    },
+    "Claim53": {
+      "type": "Claim",
+      "text": "\"Cajetan's semantic analysis of analogy is not incompatible with a sensitivity to the role that a sentence or inference plays in giving context to terms.\"",
+      "isImplicit": false
+    },
+    "Claim54": {
+      "type": "Claim",
+      "text": "\"Cajetan's concern with concepts is not reductionist",
+      "isImplicit": false
+    },
+    "Claim55": {
+      "type": "Claim",
+      "text": "\"Cajetan's theory of analogy is defensible",
+      "isImplicit": false
+    },
+    "Claim56": {
+      "type": "Claim",
+      "text": "\"Cajetan's approach to analogy is compatible with a discussion of the semantics of terms.\"",
+      "isImplicit": false
+    },
+    "Claim57": {
+      "type": "Claim",
+      "text": "\"Cajetan's semantic analysis of analogy is not incompatible with a sensitivity to the role that a sentence or inference plays in giving context to terms.\"",
+      "isImplicit": false
+    },
+    "Claim58": {
+      "type": "Claim",
+      "text": "\"Cajetan's concern with concepts is not reductionist",
+      "isImplicit": false
+    },
+    "Claim59": {
+      "type": "Claim",
+      "text": "\"Cajetan's theory of analogy is defensible",
+      "isImplicit": false
+    },
+    "Claim60": {
+      "type": "Claim",
+      "text": "\"Cajetan's approach to analogy is compatible with a discussion of the semantics of terms.\"",
+      "isImplicit": false
+    },
+    "Claim61": {
+      "type": "Claim",
+      "text": "\"Cajetan's semantic analysis of analogy is not incompatible with a sensitivity to the role that a sentence or inference plays in giving context to terms.\"",
+      "isImplicit": false
+    },
+    "Claim62": {
+      "type": "Claim",
+      "text": "\"Cajetan's concern with concepts is not reductionist",
+      "isImplicit": false
+    },
+    "Claim63": {
+      "type": "Claim",
+      "text": "\"Cajetan's theory of analogy is defensible",
+      "isImplicit": false
+    },
+    "Claim64": {
+      "type": "Claim",
+      "text": "\"Cajetan's approach to analogy is compatible with a discussion of the semantics of terms.\"",
+      "isImplicit": false
+    },
+    "Claim65": {
+      "type": "Claim",
+      "text": "\"Cajetan's semantic analysis of analogy is not incompatible with a sensitivity to the role that a sentence or inference plays in giving context to terms.\"",
+      "isImplicit": false
+    },
+    "Claim66": {
+      "type": "Claim",
+      "text": "\"Cajetan's concern with concepts is not reductionist",
+      "isImplicit": false
+    },
+    "Claim67": {
+      "type": "Claim",
+      "text": "\"Cajetan's theory of analogy is defensible",
+      "isImplicit": false
+    },
+    "Claim68": {
+      "type": "Claim",
+      "text": "\"Cajetan's approach to analogy is compatible with a discussion of the semantics of terms.\"",
+      "isImplicit": false
+    },
+    "Claim69": {
+      "type": "Claim",
+      "text": "\"Cajetan's semantic analysis of analogy is not incompatible with a sensitivity to the role that a sentence or inference plays in giving context to terms.\"",
+      "isImplicit": false
+    },
+    "Claim70": {
+      "type": "Claim",
+      "text": "\"Cajetan's concern with concepts is not reductionist",
+      "isImplicit": false
+    },
+    "Claim71": {
+      "type": "Claim",
+      "text": "\"Cajetan's theory of analogy is defensible",
+      "isImplicit": false
+    },
+    "Claim72": {
+      "type": "Claim",
+      "text": "\"Cajetan's approach to analogy is compatible with a discussion of the semantics of terms.\"",
+      "isImplicit": false
+    },
+    "Claim73": {
+      "type": "Claim",
+      "text": "\"Cajetan's semantic analysis of analogy is not incompatible with a sensitivity to the role that a sentence or inference plays in giving context to terms.\"",
+      "isImplicit": false
+    },
+    "Claim74": {
+      "type": "Claim",
+      "text": "\"Cajetan's concern with concepts is not reductionist",
+      "isImplicit": false
+    },
+    "Claim75": {
+      "type": "Claim",
+      "text": "\"Cajetan's theory of analogy is defensible",
+      "isImplicit": false
+    },
+    "Claim76": {
+      "type": "Claim",
+      "text": "\"Cajetan's approach to analogy is compatible with a discussion of the semantics of terms.\"",
+      "isImplicit": false
+    },
+    "Claim77": {
+      "type": "Claim",
+      "text": "\"Cajetan's semantic analysis of analogy is not incompatible with a sensitivity to the role that a sentence or inference plays in giving context to terms.\"",
+      "isImplicit": false
+    },
+    "Claim78": {
+      "type": "Claim",
+      "text": "\"Cajetan's concern with concepts is not reductionist",
+      "isImplicit": false
+    },
+    "Claim79": {
+      "type": "Claim",
+      "text": "\"Cajetan's theory of analogy is defensible",
+      "isImplicit": false
+    },
+    "Claim80": {
+      "type": "Claim",
+      "text": "\"Cajetan's approach to analogy is compatible with a discussion of the semantics of terms.\"",
+      "isImplicit": false
+    },
+    "Claim81": {
+      "type": "Claim",
+      "text": "\"Cajetan's semantic analysis of analogy is not incompatible with a sensitivity to the role that a sentence or inference plays in giving context to terms.\"",
+      "isImplicit": false
+    },
+    "Claim82": {
+      "type": "Claim",
+      "text": "\"Cajetan's concern with concepts is not reductionist",
+      "isImplicit": false
+    },
+    "Claim83": {
+      "type": "Claim",
+      "text": "\"Cajetan's theory of analogy is defensible",
+      "isImplicit": false
+    },
+    "Claim84": {
+      "type": "Claim",
+      "text": "\"Cajetan's approach to analogy is compatible with a discussion of the semantics of terms.\"",
+      "isImplicit": false
+    },
+    "Claim85": {
+      "type": "Claim",
+      "text": "\"Cajetan's semantic analysis of analogy is not incompatible with a sensitivity to the role that a sentence or inference plays in giving context to terms.\"",
+      "isImplicit": false
+    },
+    "Claim86": {
+      "type": "Claim",
+      "text": "\"Cajetan's concern with concepts is not reductionist",
+      "isImplicit": false
+    },
+    "Claim87": {
+      "type": "Claim",
+      "text": "\"Cajetan's theory of analogy is defensible",
+      "isImplicit": false
+    },
+    "Claim88": {
+      "type": "Claim",
+      "text": "\"Cajetan's approach to analogy is compatible with a discussion of the semantics of terms.\"",
+      "isImplicit": false
+    },
+    "Claim89": {
+      "type": "Claim",
+      "text": "\"Cajetan's semantic analysis of analogy is not incompatible with a sensitivity to the role that a sentence or inference plays in giving context to terms.\"",
+      "isImplicit": false
+    },
+    "Claim90": {
+      "type": "Claim",
+      "text": "\"Cajetan's concern with concepts is not reductionist",
+      "isImplicit": false
+    },
+    "Claim91": {
+      "type": "Claim",
+      "text": "\"Cajetan's theory of analogy is defensible",
+      "isImplicit": false
+    },
+    "Claim92": {
+      "type": "Claim",
+      "text": "\"Cajetan's approach to analogy is compatible with a discussion of the semantics of terms.\"",
+      "isImplicit": false
+    },
+    "Claim93": {
+      "type": "Claim",
+      "text": "\"Cajetan's semantic analysis of analogy is not incompatible with a sensitivity to the role that a sentence or inference plays in giving context to terms.\"",
+      "isImplicit": false
+    },
+    "Claim94": {
+      "type": "Claim",
+      "text": "\"Cajetan's concern with concepts is not reductionist",
+      "isImplicit": false
+    },
+    "Claim95": {
+      "type": "Claim",
+      "text": "\"Cajetan's theory of analogy is defensible",
+      "isImplicit": false
+    },
+    "Claim96": {
+      "type": "Claim",
+      "text": "\"Cajetan's approach to analogy is compatible with a discussion of the semantics of terms.\"",
+      "isImplicit": false
+    },
+    "Claim97": {
+      "type": "Claim",
+      "text": "\"Cajetan's semantic analysis of analogy is not incompatible with a sensitivity to the role that a sentence or inference plays in giving context to terms.\"",
+      "isImplicit": false
+    },
+    "Claim98": {
+      "type": "Claim",
+      "text": "\"Cajetan's concern with concepts is not reductionist",
+      "isImplicit": false
+    },
+    "Claim99": {
+      "type": "Claim",
+      "text": "\"Cajetan's theory of analogy is defensible",
+      "isImplicit": false
+    },
+    "Claim100": {
+      "type": "Claim",
+      "text": "\"Cajetan's approach to analogy is compatible with a discussion of the semantics of terms.\"",
+      "isImplicit": false
+    },
+    "Claim101": {
+      "type": "Claim",
+      "text": "\"Cajetan's semantic analysis of analogy is not incompatible with a sensitivity to the role that a sentence or inference plays in giving context to terms.\"",
+      "isImplicit": false
+    },
+    "Claim102": {
+      "type": "Claim",
+      "text": "\"Cajetan's concern with concepts is not reductionist",
+      "isImplicit": false
+    },
+    "Claim103": {
+      "type": "Claim",
+      "text": "\"Cajetan's theory of analogy is defensible",
+      "isImplicit": false
+    },
+    "Claim104": {
+      "type": "Claim",
+      "text": "\"Cajetan's approach to analogy is compatible with a discussion of the semantics of terms.\"",
+      "isImplicit": false
+    },
+    "Claim105": {
+      "type": "Claim",
+      "text": "\"Cajetan's semantic analysis of analogy is not incompatible with a sensitivity to the role that a sentence or inference plays in giving context to terms.\"",
+      "isImplicit": false
+    },
+    "Claim106": {
+      "type": "Claim",
+      "text": "\"Cajetan's concern with concepts is not reductionist",
+      "isImplicit": false
+    },
+    "Claim107": {
+      "type": "Claim",
+      "text": "\"Cajetan's theory of analogy is defensible",
+      "isImplicit": false
+    },
+    "Claim108": {
+      "type": "Claim",
+      "text": "\"Cajetan's approach to analogy is compatible with a discussion of the semantics of terms.\"",
+      "isImplicit": false
+    },
+    "Claim109": {
+      "type": "Claim",
+      "text": "\"Cajetan's semantic analysis of analogy is not incompatible with a sensitivity to the role that a sentence or inference plays in giving context to terms.\"",
+      "isImplicit": false
+    },
+    "Claim110": {
+      "type": "Claim",
+      "text": "\"Cajetan's concern with concepts is not reductionist",
+      "isImplicit": false
+    },
+    "Claim111": {
+      "type": "Claim",
+      "text": "\"Cajetan's theory of analogy is defensible",
+      "isImplicit": false
+    },
+    "Claim112": {
+      "type": "Claim",
+      "text": "\"Cajetan's approach to analogy is compatible with a discussion of the semantics of terms.\"",
+      "isImplicit": false
+    },
+    "Claim113": {
+      "type": "Claim",
+      "text": "\"Cajetan's semantic analysis of analogy is not incompatible with a sensitivity to the role that a sentence or inference plays in giving context to terms.\"",
+      "isImplicit": false
+    },
+    "Claim114": {
+      "type": "Claim",
+      "text": "\"Cajetan's concern with concepts is not reductionist",
+      "isImplicit": false
+    },
+    "Claim115": {
+      "type": "Claim",
+      "text": "\"Cajetan's theory of analogy is defensible",
+      "isImplicit": false
+    },
+    "Claim116": {
+      "type": "Claim",
+      "text": "\"Cajetan's approach to analogy is compatible with a discussion of the semantics of terms.\"",
+      "isImplicit": false
+    },
+    "Claim117": {
+      "type": "Claim",
+      "text": "\"Cajetan's semantic analysis of analogy is not incompatible with a sensitivity to the role that a sentence or inference plays in giving context to terms.\"",
+      "isImplicit": false
+    },
+    "Claim118": {
+      "type": "Claim",
+      "text": "\"Cajetan's concern with concepts is not reductionist",
+      "isImplicit": false
+    },
+    "Claim119": {
+      "type": "Claim",
+      "text": "\"Cajetan's theory of analogy is defensible",
+      "isImplicit": false
+    },
+    "Claim120": {
+      "type": "Claim",
+      "text": "\"Cajetan's approach to analogy is compatible with a discussion of the semantics of terms.\"",
+      "isImplicit": false
+    },
+    "Claim121": {
+      "type": "Claim",
+      "text": "\"Cajetan's semantic analysis of analogy is not incompatible with a sensitivity to the role that a sentence or inference plays in giving context to terms.\"",
+      "isImplicit": false
+    },
+    "Claim122": {
+      "type": "Claim",
+      "text": "\"Cajetan's concern with concepts is not reductionist",
+      "isImplicit": false
+    },
+    "Claim123": {
+      "type": "Claim",
+      "text": "\"Cajetan's theory of analogy is defensible",
+      "isImplicit": false
+    },
+    "Claim124": {
+      "type": "Claim",
+      "text": "\"Cajetan's approach to analogy is compatible with a discussion of the semantics of terms.\"",
+      "isImplicit": false
+    },
+    "Claim125": {
+      "type": "Claim",
+      "text": "\"Cajetan's semantic analysis of analogy is not incompatible with a sensitivity to the role that a sentence or inference plays in giving context to terms.\"",
+      "isImplicit": false
+    },
+    "Claim126": {
+      "type": "Claim",
+      "text": "\"Cajetan's concern with concepts is not reductionist",
+      "isImplicit": false
+    },
+    "Claim127": {
+      "type": "Claim",
+      "text": "\"Cajetan's theory of analogy is defensible",
+      "isImplicit": false
+    },
+    "Claim128": {
+      "type": "Claim",
+      "text": "\"Cajetan's approach to analogy is compatible with a discussion of the semantics of terms.\"",
+      "isImplicit": false
+    },
+    "Claim129": {
+      "type": "Claim",
+      "text": "\"Cajetan's semantic analysis of analogy is not incompatible with a sensitivity to the role that a sentence or inference plays in giving context to terms.\"",
+      "isImplicit": false
+    },
+    "Claim130": {
+      "type": "Claim",
+      "text": "\"Cajetan's concern with concepts is not reductionist",
+      "isImplicit": false
+    },
+    "Claim131": {
+      "type": "Claim",
+      "text": "\"Cajetan's theory of analogy is defensible",
+      "isImplicit": false
+    },
+    "Claim132": {
+      "type": "Claim",
+      "text": "\"Cajetan's approach to analogy is compatible with a discussion of the semantics of terms.\"",
+      "isImplicit": false
+    },
+    "Claim133": {
+      "type": "Claim",
+      "text": "\"Cajetan's semantic analysis of analogy is not incompatible with a sensitivity to the role that a sentence or inference plays in giving context to terms.\"",
+      "isImplicit": false
+    },
+    "Claim134": {
+      "type": "Claim",
+      "text": "\"Cajetan's concern with concepts is not reductionist",
+      "isImplicit": false
+    },
+    "Claim135": {
+      "type": "Claim",
+      "text": "\"Cajetan's theory of analogy is defensible",
+      "isImplicit": false
+    },
+    "Claim136": {
+      "type": "Claim",
+      "text": "\"Cajetan's approach to analogy is compatible with a discussion of the semantics of terms.\"",
+      "isImplicit": false
+    },
+    "Claim137": {
+      "type": "Claim",
+      "text": "\"Cajetan's semantic analysis of analogy is not incompatible with a sensitivity to the role that a sentence or inference plays in giving context to terms.\"",
+      "isImplicit": false
+    },
+    "Claim138": {
+      "type": "Claim",
+      "text": "\"Cajetan's concern with concepts is not reductionist",
+      "isImplicit": false
+    },
+    "Claim139": {
+      "type": "Claim",
+      "text": "\"Cajetan's theory of analogy is defensible",
+      "isImplicit": false
+    },
+    "Claim140": {
+      "type": "Claim",
+      "text": "\"Cajetan's approach to analogy is compatible with a discussion of the semantics of terms.\"",
+      "isImplicit": false
+    },
+    "Claim141": {
+      "type": "Claim",
+      "text": "\"Cajetan's semantic analysis of analogy is not incompatible with a sensitivity to the role that a sentence or inference plays in giving context to terms.\"",
+      "isImplicit": false
+    },
+    "Claim142": {
+      "type": "Claim",
+      "text": "\"Cajetan's concern with concepts is not reductionist",
+      "isImplicit": false
+    },
+    "Claim143": {
+      "type": "Claim",
+      "text": "\"Cajetan's theory of analogy is defensible",
+      "isImplicit": false
+    },
+    "Claim144": {
+      "type": "Claim",
+      "text": "\"Cajetan's approach to analogy is compatible with a discussion of the semantics of terms.\"",
+      "isImplicit": false
+    },
+    "Claim145": {
+      "type": "Claim",
+      "text": "\"Cajetan's semantic analysis of analogy is not incompatible with a sensitivity to the role that a sentence or inference plays in giving context to terms.\"",
+      "isImplicit": false
+    },
+    "Claim146": {
+      "type": "Claim",
+      "text": "\"Cajetan's concern with concepts is not reductionist",
+      "isImplicit": false
+    },
+    "Claim147": {
+      "type": "Claim",
+      "text": "\"Cajetan's theory of analogy is defensible",
+      "isImplicit": false
+    },
+    "Claim148": {
+      "type": "Claim",
+      "text": "\"Cajetan's approach to analogy is compatible with a discussion of the semantics of terms.\"",
+      "isImplicit": false
+    },
+    "Claim149": {
+      "type": "Claim",
+      "text": "\"Cajetan's semantic analysis of analogy is not incompatible with a sensitivity to the role that a sentence or inference plays in giving context to terms.\"",
+      "isImplicit": false
+    },
+    "Claim150": {
+      "type": "Claim",
+      "text": "\"Cajetan's concern with concepts is not reductionist",
+      "isImplicit": false
+    },
+    "Claim151": {
+      "type": "Claim",
+      "text": "\"Cajetan's theory of analogy is defensible",
+      "isImplicit": false
+    },
+    "Claim152": {
+      "type": "Claim",
+      "text": "\"Cajetan's approach to analogy is compatible with a discussion of the semantics of terms.\"",
+      "isImplicit": false
+    },
+    "Claim153": {
+      "type": "Claim",
+      "text": "\"Cajetan's semantic analysis of analogy is not incompatible with a sensitivity to the role that a sentence or inference plays in giving context to terms.\"",
+      "isImplicit": false
+    },
+    "Claim154": {
+      "type": "Claim",
+      "text": "\"Cajetan's concern with concepts is not reductionist",
+      "isImplicit": false
+    },
+    "Claim155": {
+      "type": "Claim",
+      "text": "\"Cajetan's theory of analogy is defensible",
+      "isImplicit": false
+    },
+    "Claim156": {
+      "type": "Claim",
+      "text": "\"Cajetan's approach to analogy is compatible with a discussion of the semantics of terms.\"",
+      "isImplicit": false
+    },
+    "Claim157": {
+      "type": "Claim",
+      "text": "\"Cajetan's semantic analysis of analogy is not incompatible with a sensitivity to the role that a sentence or inference plays in giving context to terms.\"",
+      "isImplicit": false
+    },
+    "Claim158": {
+      "type": "Claim",
+      "text": "\"Cajetan's concern with concepts is not reductionist",
+      "isImplicit": false
+    },
+    "Claim159": {
+      "type": "Claim",
+      "text": "\"Cajetan's theory of analogy is defensible",
+      "isImplicit": false
+    },
+    "Claim160": {
+      "type": "Claim",
+      "text": "\"Cajetan's approach to analogy is compatible with a discussion of the semantics of terms.\"",
+      "isImplicit": false
+    },
+    "Claim161": {
+      "type": "Claim",
+      "text": "\"Cajetan's semantic analysis of analogy is not incompatible with a sensitivity to the role that a sentence or inference plays in giving context to terms.\"",
+      "isImplicit": false
+    },
+    "Claim162": {
+      "type": "Claim",
+      "text": "\"Cajetan's concern with concepts is not reductionist",
+      "isImplicit": false
+    },
+    "Claim163": {
+      "type": "Claim",
+      "text": "\"Cajetan's theory of analogy is defensible",
+      "isImplicit": false
+    },
+    "Claim164": {
+      "type": "Claim",
+      "text": "\"Cajetan's approach to analogy is compatible with a discussion of the semantics of terms.\"",
+      "isImplicit": false
+    },
+    "Claim165": {
+      "type": "Claim",
+      "text": "\"Cajetan's semantic analysis of analogy is not incompatible with a sensitivity to the role that a sentence or inference plays in giving context to terms.\"",
+      "isImplicit": false
+    },
+    "Claim166": {
+      "type": "Claim",
+      "text": "\"Cajetan's concern with concepts is not reductionist",
+      "isImplicit": false
+    },
+    "Claim167": {
+      "type": "Claim",
+      "text": "\"Cajetan's theory of analogy is defensible",
+      "isImplicit": false
+    },
+    "Claim168": {
+      "type": "Claim",
+      "text": "\"Cajetan's approach to analogy is compatible with a discussion of the semantics of terms.\"",
+      "isImplicit": false
+    },
+    "Claim169": {
+      "type": "Claim",
+      "text": "\"Cajetan's semantic analysis of analogy is not incompatible with a sensitivity to the role that a sentence or inference plays in giving context to terms.\"",
+      "isImplicit": false
+    },
+    "Claim170": {
+      "type": "Claim",
+      "text": "\"Cajetan's concern with concepts is not reductionist",
+      "isImplicit": false
+    },
+    "Claim171": {
+      "type": "Claim",
+      "text": "\"Cajetan's theory of analogy is defensible",
+      "isImplicit": false
+    },
+    "Claim172": {
+      "type": "Claim",
+      "text": "\"Cajetan's approach to analogy is compatible with a discussion of the semantics of terms.\"",
+      "isImplicit": false
+    },
+    "Claim173": {
+      "type": "Claim",
+      "text": "\"Cajetan's semantic analysis of analogy is not incompatible with a sensitivity to the role that a sentence or inference plays in giving context to terms.\"",
+      "isImplicit": false
+    },
+    "Claim174": {
+      "type": "Claim",
+      "text": "\"Cajetan's concern with concepts is not reductionist",
+      "isImplicit": false
+    },
+    "Claim175": {
+      "type": "Claim",
+      "text": "\"Cajetan's theory of analogy is defensible",
+      "isImplicit": false
+    },
+    "Claim176": {
+      "type": "Claim",
+      "text": "\"Cajetan's approach to analogy is compatible with a discussion of the semantics of terms.\"",
+      "isImplicit": false
+    },
+    "Claim177": {
+      "type": "Claim",
+      "text": "\"Cajetan's semantic analysis of analogy is not incompatible with a sensitivity to the role that a sentence or inference plays in giving context to terms.\"",
+      "isImplicit": false
+    },
+    "Claim178": {
+      "type": "Claim",
+      "text": "\"Cajetan's concern with concepts is not reductionist",
+      "isImplicit": false
+    },
+    "Claim179": {
+      "type": "Claim",
+      "text": "\"Cajetan's theory of analogy is defensible",
+      "isImplicit": false
+    },
+    "Claim180": {
+      "type": "Claim",
+      "text": "\"Cajetan's approach to analogy is compatible with a discussion of the semantics of terms.\"",
+      "isImplicit": false
+    },
+    "Claim181": {
+      "type": "Claim",
+      "text": "\"Cajetan's semantic analysis of analogy is not incompatible with a sensitivity to the role that a sentence or inference plays in giving context to terms.\"",
+      "isImplicit": false
+    },
+    "Claim182": {
+      "type": "Claim",
+      "text": "\"Cajetan's concern with concepts is not reductionist",
+      "isImplicit": false
+    },
+    "Claim183": {
+      "type": "Claim",
+      "text": "\"Cajetan's theory of analogy is defensible",
+      "isImplicit": false
+    },
+    "Claim184": {
+      "type": "Claim",
+      "text": "\"Cajetan's approach to analogy is compatible with a discussion of the semantics of terms.\"",
+      "isImplicit": false
+    },
+    "Claim185": {
+      "type": "Claim",
+      "text": "\"Cajetan's semantic analysis of analogy is not incompatible with a sensitivity to the role that a sentence or inference plays in giving context to terms.\"",
+      "isImplicit": false
+    },
+    "Claim186": {
+      "type": "Claim",
+      "text": "\"Cajetan's concern with concepts is not reductionist",
+      "isImplicit": false
+    },
+    "Claim187": {
+      "type": "Claim",
+      "text": "\"Cajetan's theory of analogy is defensible",
+      "isImplicit": false
+    },
+    "Claim188": {
+      "type": "Claim",
+      "text": "\"Cajetan's approach to analogy is compatible with a discussion of the semantics of terms.\"",
+      "isImplicit": false
+    },
+    "Claim189": {
+      "type": "Claim",
+      "text": "\"Cajetan's semantic analysis of analogy is not incompatible with a sensitivity to the role that a sentence or inference plays in giving context to terms.\"",
+      "isImplicit": false
+    },
+    "Claim190": {
+      "type": "Claim",
+      "text": "\"Cajetan's concern with concepts is not reductionist",
+      "isImplicit": false
+    },
+    "Claim191": {
+      "type": "Claim",
+      "text": "\"Cajetan's theory of analogy is defensible",
+      "isImplicit": false
+    },
+    "Claim192": {
+      "type": "Claim",
+      "text": "\"Cajetan's approach to analogy is compatible with a discussion of the semantics of terms.\"",
+      "isImplicit": false
+    },
+    "Claim193": {
+      "type": "Claim",
+      "text": "\"Cajetan's semantic analysis of analogy is not incompatible with a sensitivity to the role that a sentence or inference plays in giving context to terms.\"",
+      "isImplicit": false
+    },
+    "Claim194": {
+      "type": "Claim",
+      "text": "\"Cajetan's concern with concepts is not reductionist",
+      "isImplicit": false
+    },
+    "Claim195": {
+      "type": "Claim",
+      "text": "\"Cajetan's theory of analogy is defensible",
+      "isImplicit": false
+    }
+  },
+  "relations": []
+}

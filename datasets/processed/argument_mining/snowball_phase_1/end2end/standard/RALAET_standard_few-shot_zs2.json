@@ -1,0 +1,201 @@
+{
+  "ADUs": {
+    "MainClaim": {
+      "type": "Claim",
+      "text": "The American Enlightenment was a distinct intellectual movement that shared similarities with European Enlightenment thought, but also had its unique features and developments.",
+      "isImplicit": false
+    },
+    "AmericanEnlightenment": {
+      "type": "Claim",
+      "text": "American Enlightenment thought was inspired by the ideas of the British and French Enlightenments and was characterized by a shift away from absolute authority to more skeptical and optimistic attitudes about human nature, religion, and politics.",
+      "isImplicit": false
+    },
+    "ModerateandRadical": {
+      "type": "Claim",
+      "text": "American Enlightenment thought integrated both moderate and radical elements, with moderate thinkers emphasizing economic liberalism, religious toleration, and constitutional politics, and radical thinkers promoting revolutionary rhetoric and classical republicanism.",
+      "isImplicit": false
+    },
+    "Chronology": {
+      "type": "Claim",
+      "text": "American Enlightenment thought can be appreciated chronologically, with three temporal stages: the early stage (1688-1750), the middle stage (1751-1779), and the late stage (1780-1815).",
+      "isImplicit": false
+    },
+    "DemocracyandSocialContract": {
+      "type": "Claim",
+      "text": "Many European and American Enlightenment figures were critical of democracy, but some thinkers, such as Thomas Jefferson and Thomas Paine, were more receptive to the idea of popular rule as expressed in European social contract theories.",
+      "isImplicit": false
+    },
+    "SixKeyIdeas": {
+      "type": "Claim",
+      "text": "At least six ideas punctuated American Enlightenment thinking: deism, liberalism, republicanism, conservatism, toleration, and scientific progress.",
+      "isImplicit": false
+    },
+    "Deism": {
+      "type": "Claim",
+      "text": "Deism was a central idea in American Enlightenment thought, with many thinkers believing in a reasonable Deity and appreciating God's existence as divorced from holy books, divine providence, revealed religion, prophecy, and miracles.",
+      "isImplicit": false
+    },
+    "Liberalism": {
+      "type": "Claim",
+      "text": "Liberalism was also a key idea in American Enlightenment thought, with thinkers advocating for the interests of the middle class, protecting private property rights, and promoting individualism over collectivism.",
+      "isImplicit": false
+    },
+    "Republicanism": {
+      "type": "Claim",
+      "text": "Classical republicanism was another idea in American Enlightenment thought, with thinkers advocating for the selection of the state's highest public official through a general election and promoting civic patriotism, virtuous citizenship, and property-based personality.",
+      "isImplicit": false
+    },
+    "Conservatism": {
+      "type": "Claim",
+      "text": "Conservatism emerged in the late stage of the Enlightenment, mainly as a reaction to the excesses of the French Revolution, with thinkers like Edmund Burke and James Madison criticizing the rise of revolutionary France and promoting tempered versions of Enlightenment values.",
+      "isImplicit": false
+    },
+    "Toleration": {
+      "type": "Claim",
+      "text": "Toleration was a major theme in American Enlightenment thought, with thinkers advocating for the protection of liberty of conscience, the right to worship as one chooses, and the separation of church and state.",
+      "isImplicit": false
+    },
+    "ScientificProgress": {
+      "type": "Claim",
+      "text": "Scientific progress was also a key idea in American Enlightenment thought, with thinkers like Benjamin Franklin and Thomas Jefferson promoting the pursuit of scientific knowledge and the application of scientific discoveries to improve human life.",
+      "isImplicit": false
+    },
+    "FourAmericanEnlightenmentThinkers": {
+      "type": "Claim",
+      "text": "Four significant thinkers contributed to the American Enlightenment: Benjamin Franklin, Thomas Jefferson, James Madison, and John Adams.",
+      "isImplicit": false
+    },
+    "Franklin": {
+      "type": "Claim",
+      "text": "Benjamin Franklin was a key figure in American Enlightenment thought, promoting the virtues of thrift, industry, and money-making, as well as advocating for the protection of liberty of conscience and the separation of church and state.",
+      "isImplicit": false
+    },
+    "Jefferson": {
+      "type": "Claim",
+      "text": "Thomas Jefferson was another important figure in American Enlightenment thought, promoting the idea of the Declaration of Independence and advocating for the protection of individual rights and liberties.",
+      "isImplicit": false
+    },
+    "Madison": {
+      "type": "Claim",
+      "text": "James Madison was a key architect of the U.S. Constitution and a prominent figure in American Enlightenment thought, advocating for the protection of individual rights and liberties and promoting the idea of a large republic.",
+      "isImplicit": false
+    },
+    "Adams": {
+      "type": "Claim",
+      "text": "John Adams was a founder and statesman who contributed to American Enlightenment thought, advocating for the protection of individual liberties and promoting the idea of a balanced system of government.",
+      "isImplicit": false
+    },
+    "ContemporaryWork": {
+      "type": "Claim",
+      "text": "Invocations of universal freedom draw their inspiration from Enlightenment thinkers, but come into conflict with contemporary liberal appeals to multiculturalism and pluralism.",
+      "isImplicit": false
+    },
+    "EnlightenmentProject": {
+      "type": "Claim",
+      "text": "The American Enlightenment project signifies how America has taken a leading role in promoting Enlightenment ideals during the period of modernity.",
+      "isImplicit": false
+    },
+    "Legacy": {
+      "type": "Claim",
+      "text": "There is no consensus about the exact legacy of American Enlightenment thinkers, with some scholars arguing that liberal ideas were more dominant, others that republican ideas were more dominant, and others that both ideas had relatively equal sway.",
+      "isImplicit": false
+    },
+    "References": {
+      "type": "Claim",
+      "text": "References to scholarly works on the American Enlightenment include Bailyn, Ferguson, Hampson, Himmelfarb, Israel, Kramnick, May, O'Brien, O'Hara, Pockock, and Wood.",
+      "isImplicit": false
+    }
+  },
+  "relations": [
+    {
+      "src": "AmericanEnlightenment",
+      "tgt": "ModerateandRadical",
+      "type": "support"
+    },
+    {
+      "src": "AmericanEnlightenment",
+      "tgt": "Chronology",
+      "type": "support"
+    },
+    {
+      "src": "DemocracyandSocialContract",
+      "tgt": "AmericanEnlightenment",
+      "type": "support"
+    },
+    {
+      "src": "SixKeyIdeas",
+      "tgt": "AmericanEnlightenment",
+      "type": "support"
+    },
+    {
+      "src": "Deism",
+      "tgt": "SixKeyIdeas",
+      "type": "support"
+    },
+    {
+      "src": "Liberalism",
+      "tgt": "SixKeyIdeas",
+      "type": "support"
+    },
+    {
+      "src": "Republicanism",
+      "tgt": "SixKeyIdeas",
+      "type": "support"
+    },
+    {
+      "src": "Conservatism",
+      "tgt": "SixKeyIdeas",
+      "type": "support"
+    },
+    {
+      "src": "Toleration",
+      "tgt": "SixKeyIdeas",
+      "type": "support"
+    },
+    {
+      "src": "ScientificProgress",
+      "tgt": "SixKeyIdeas",
+      "type": "support"
+    },
+    {
+      "src": "Franklin",
+      "tgt": "AmericanEnlightenment",
+      "type": "support"
+    },
+    {
+      "src": "Jefferson",
+      "tgt": "AmericanEnlightenment",
+      "type": "support"
+    },
+    {
+      "src": "Madison",
+      "tgt": "AmericanEnlightenment",
+      "type": "support"
+    },
+    {
+      "src": "Adams",
+      "tgt": "AmericanEnlightenment",
+      "type": "support"
+    },
+    {
+      "src": "ContemporaryWork",
+      "tgt": "AmericanEnlightenment",
+      "type": "support"
+    },
+    {
+      "src": "EnlightenmentProject",
+      "tgt": "AmericanEnlightenment",
+      "type": "support"
+    },
+    {
+      "src": "Legacy",
+      "tgt": "AmericanEnlightenment",
+      "type": "support"
+    },
+    {
+      "src": "References",
+      "tgt": "AmericanEnlightenment",
+      "type": "support"
+    }
+  ]
+}

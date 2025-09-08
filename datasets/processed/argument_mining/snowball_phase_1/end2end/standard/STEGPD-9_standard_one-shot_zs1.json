@@ -1,0 +1,841 @@
+{
+  "ADUs": {
+    "MainClaim": {
+      "type": "Major Claim",
+      "text": "\"Pico della Mirandola treated Anaxagoras's philosophy to formulate his own metaphysics",
+      "isImplicit": false
+    },
+    "s metaphysics": {
+      "type": "Claim",
+      "text": "\"Pico rejects the fixed position of man in the ontological hierarchy. Man has the chance to become everything.\"",
+      "isImplicit": false
+    },
+    "s method of allegorical interpretation": {
+      "type": "Claim",
+      "text": "\"Pico's method of allegorical interpretation is indispensable for his syncretism and his attempt to reveal hidden truths in every text or level of reality.\"",
+      "isImplicit": false
+    },
+    "s interpretation of Anaxagoras": {
+      "type": "Claim",
+      "text": "\"Pico's interprets Anaxagoras's argument in a loose manner in order to corroborate his own views.\"",
+      "isImplicit": false
+    },
+    "s interpretation of Anaxagoras is questionable": {
+      "type": "Claim",
+      "text": "\"Pico's interpretation of Anaxagoras is questionable due to its loose manner and its contradictions with Anaxagoras's original views.\"",
+      "isImplicit": false
+    },
+    "s intellectual debts to Anaxagoras": {
+      "type": "Claim",
+      "text": "\"Pico's intellectual debts to Anaxagoras are limited due to his loose interpretation and contradictions with Anaxagoras's original views.\"",
+      "isImplicit": false
+    },
+    "s reliance on Simplicius": {
+      "type": "Claim",
+      "text": "\"Pico relies on Simplicius's commentary on Aristotle's Physics for his interpretation of Anaxagoras.\"",
+      "isImplicit": false
+    },
+    "s reliance on Simplicius is questionable": {
+      "type": "Claim",
+      "text": "\"Pico's reliance on Simplicius is questionable due to its contradictions with Anaxagoras's original views.\"",
+      "isImplicit": false
+    },
+    "s use of homoiomereia": {
+      "type": "Claim",
+      "text": "\"Pico uses the concept of homoiomereia in a way that is similar to Lucretius",
+      "isImplicit": false
+    },
+    "s use of homoiomereia is questionable": {
+      "type": "Claim",
+      "text": "\"Pico's use of homoiomereia is questionable due to its contradictions with Anaxagoras's original views.\"",
+      "isImplicit": false
+    },
+    "s view on the Intellect": {
+      "type": "Claim",
+      "text": "\"Pico's view on the Intellect is ambivalent and lacks consistency.\"",
+      "isImplicit": false
+    },
+    "s view on creation": {
+      "type": "Claim",
+      "text": "\"Pico's view on creation is also ambivalent and lacks consistency.\"",
+      "isImplicit": false
+    },
+    "s contradictions": {
+      "type": "Claim",
+      "text": "\"Pico's contradictions have further implications for his philosophy.\"",
+      "isImplicit": false
+    },
+    "s intellectual debts to Anaxagoras are limited": {
+      "type": "Claim",
+      "text": "\"Pico's intellectual debts to Anaxagoras are limited due to his loose interpretation and contradictions with Anaxagoras's original views.\"",
+      "isImplicit": false
+    },
+    "s intellectual debts to Anaxagoras are not compatible with his own views": {
+      "type": "Claim",
+      "text": "\"Pico's intellectual debts to Anaxagoras are not compatible with his own views on creatio ex nihilo and the Intellect.\"",
+      "isImplicit": false
+    },
+    "s intellectual debts to Anaxagoras are not compatible with his own views on the Intellect": {
+      "type": "Claim",
+      "text": "\"Pico's intellectual debts to Anaxagoras are not compatible with his own views on the Intellect.\"",
+      "isImplicit": false
+    },
+    "s intellectual debts to Anaxagoras are limited due to his loose interpretation": {
+      "type": "Claim",
+      "text": "\"Pico's intellectual debts to Anaxagoras are limited due to his loose interpretation of Anaxagoras's philosophy.\"",
+      "isImplicit": false
+    }
+  },
+  "relations": [
+    {
+      "src": "MainClaim",
+      "tgt": "Anaxagoras",
+      "type": "support"
+    },
+    {
+      "src": "Anaxagoras",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    },
+    {
+      "src": "Pico",
+      "tgt": "Pico",
+      "type": "support"
+    }
+  ]
+}

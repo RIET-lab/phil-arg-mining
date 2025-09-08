@@ -6,10 +6,9 @@ Implements the evaluation metrics specified in the Phase 1 spec:
 - Relation-type F1 scores (macro-F1)
 - Count RMSE for ADUs and relations
 - Combined score
-
-TODO: Implement logger for GED timeout warnings.
 """
 
+import logging
 import numpy as np
 from typing import List, Tuple, Dict, Set, Any
 from sklearn.metrics import f1_score, precision_score, recall_score
@@ -19,45 +18,66 @@ import time
 import queue
 from moralkg.argmining.schemas import ArgumentMap, ADU, Relation
 
+# Set up logger for this module
+logger = logging.getLogger(__name__)
+
+
+def _compute_similarity_cache(gold_map: ArgumentMap, pred_map: ArgumentMap) -> Dict[Tuple[Any, Any], float]:
+    """
+    Precompute similarity scores between all gold and predicted ADUs.
+    Returns a dictionary mapping (gold_id, pred_id) to similarity score.
+    """
+    logger.debug(f"Computing similarity cache for {len(gold_map.adus)} x {len(pred_map.adus)} ADU pairs")
+    
+    cache = {}
+    for gold_adu in gold_map.adus:
+        for pred_adu in pred_map.adus:
+            ta = (gold_adu.text or "").strip()
+            tb = (pred_adu.text or "").strip()
+            if ta and tb:
+                similarity = ADU.fuzzy_similarity(ta, tb)
+            else:
+                similarity = 0.0
+            cache[(gold_adu.id, pred_adu.id)] = similarity
+    
+    logger.debug(f"Computed {len(cache)} similarity scores")
+    return cache
+
 
 def find_best_match(gold_adu: ADU, predicted_adus: List[ADU], 
+                    similarity_cache: Dict[Tuple[Any, Any], float],
                     threshold: float = 0.7) -> Tuple[ADU, float]:
     """
-    Find the best matching predicted ADU for a gold standard ADU.
-    
-    Args:
-        gold_adu: Gold standard ADU
-        predicted_adus: List of predicted ADUs
-        threshold: Minimum token overlap threshold for a match
-        
-    Returns:
-        Tuple of (best_match, overlap_score), or (None, 0.0) if no match found
+    Find the best matching predicted ADU for a gold standard ADU using precomputed similarities.
     """
     best_match = None
     best_score = 0.0
     
     for pred_adu in predicted_adus:
-        score = ADU.fuzzy_similarity(gold_adu.text, pred_adu.text)
+        score = similarity_cache.get((gold_adu.id, pred_adu.id), 0.0)
         if score > best_score and score >= threshold:
             best_match = pred_adu
             best_score = score
             
+    if best_match is None:
+        logger.debug(f"No match found for gold ADU '{gold_adu.text[:50]}...' "
+                    f"above threshold {threshold}")
+    else:
+        logger.debug(f"Best match for gold ADU '{gold_adu.text[:50]}...' "
+                    f"is '{best_match.text[:50]}...' with score {best_score:.3f}")
+            
     return best_match, best_score
 
 
-def fuzzy_match_f1(gold_map: ArgumentMap, pred_map: ArgumentMap, 
+def fuzzy_match_f1(gold_map: ArgumentMap, pred_map: ArgumentMap,
+                  similarity_cache: Dict[Tuple[Any, Any], float],
                   threshold: float = 0.7) -> Dict[str, float]:
     """
-    Calculate fuzzy-match F1 score for ADU spans.
-    
-    Args:
-        gold_map: Gold standard argument map
-        pred_map: Predicted argument map
-        threshold: Minimum token overlap threshold for a match
-        
-    Returns:
-        Dictionary with precision, recall, and F1 scores
+    Calculate fuzzy-match F1 score for ADU spans using precomputed similarities.
     """
+    logger.debug(f"Computing fuzzy-match F1 with threshold {threshold}")
+    logger.debug(f"Gold ADUs: {len(gold_map.adus)}, Predicted ADUs: {len(pred_map.adus)}")
+    
     # Keep track of matched ADUs to avoid double counting
     matched_gold_adus = set()
     matched_pred_adus = set()
@@ -68,6 +88,7 @@ def fuzzy_match_f1(gold_map: ArgumentMap, pred_map: ArgumentMap,
         best_match, score = find_best_match(
             gold_adu, 
             [p for p in pred_map.adus if p.id not in matched_pred_adus],
+            similarity_cache,
             threshold
         )
         
@@ -85,6 +106,9 @@ def fuzzy_match_f1(gold_map: ArgumentMap, pred_map: ArgumentMap,
         f1 = 2 * precision * recall / (precision + recall)
     else:
         f1 = 0.0
+    
+    logger.debug(f"ADU matching results: {total_matches} matches, "
+                f"P={precision:.3f}, R={recall:.3f}, F1={f1:.3f}")
         
     return {
         "precision": precision,
@@ -94,25 +118,24 @@ def fuzzy_match_f1(gold_map: ArgumentMap, pred_map: ArgumentMap,
 
 
 def relation_f1_score(gold_map: ArgumentMap, pred_map: ArgumentMap,
+                     similarity_cache: Dict[Tuple[Any, Any], float],
                      threshold: float = 0.7) -> Dict[str, float]:
     """
-    Calculate relation-type F1 scores for support/attack edges.
-    
-    Args:
-        gold_map: Gold standard argument map
-        pred_map: Predicted argument map
-        threshold: Minimum token overlap threshold for ADU matching
-        
-    Returns:
-        Dictionary with macro-F1 score and type-specific F1 scores
+    Calculate relation-type F1 scores for support/attack edges using precomputed similarities.
     """
-    # First, match predicted ADUs to gold ADUs
+    logger.debug(f"Computing relation F1 scores")
+    logger.debug(f"Gold relations: {len(gold_map.relations)}, "
+                f"Predicted relations: {len(pred_map.relations)}")
+    
+    # Match predicted ADUs to gold ADUs using similarity cache
     adu_matches = {}  # Maps gold ADU IDs to predicted ADU IDs
     
     for gold_adu in gold_map.adus:
-        best_match, score = find_best_match(gold_adu, pred_map.adus, threshold)
+        best_match, score = find_best_match(gold_adu, pred_map.adus, similarity_cache, threshold)
         if best_match is not None:
             adu_matches[gold_adu.id] = best_match.id
+    
+    logger.debug(f"ADU matches for relation evaluation: {len(adu_matches)}")
     
     # Check if relations match between matched ADUs
     gold_relations = []  # (source, target, type) tuples for gold relations
@@ -137,6 +160,9 @@ def relation_f1_score(gold_map: ArgumentMap, pred_map: ArgumentMap,
         if source_gold_id and target_gold_id:
             pred_relations.append((source_gold_id, target_gold_id, pred_rel.type))
     
+    logger.debug(f"Relations between matched ADUs - Gold: {len(gold_relations)}, "
+                f"Predicted: {len(pred_relations)}")
+    
     # Create gold and predicted relation type arrays for scoring
     gold_types = ["support" if rel[2] == "support" else "attack" for rel in gold_relations]
     pred_types = []
@@ -160,7 +186,8 @@ def relation_f1_score(gold_map: ArgumentMap, pred_map: ArgumentMap,
         
         try:
             support_f1 = f1_score(gold_support, pred_support, zero_division=0)
-        except:
+        except Exception as e:
+            logger.warning(f"Error calculating support F1: {e}")
             support_f1 = 0.0
         
         # Calculate attack F1 (treating 'attack' as positive class)
@@ -169,12 +196,17 @@ def relation_f1_score(gold_map: ArgumentMap, pred_map: ArgumentMap,
         
         try:
             attack_f1 = f1_score(gold_attack, pred_attack, zero_division=0)
-        except:
+        except Exception as e:
+            logger.warning(f"Error calculating attack F1: {e}")
             attack_f1 = 0.0
         
         # Calculate macro F1 (average of support and attack F1)
         macro_f1 = (support_f1 + attack_f1) / 2
+        
+        logger.debug(f"Relation F1 scores - Support: {support_f1:.3f}, "
+                    f"Attack: {attack_f1:.3f}, Macro: {macro_f1:.3f}")
     else:
+        logger.debug("No gold relations found for F1 calculation")
         support_f1 = 0.0
         attack_f1 = 0.0
         macro_f1 = 0.0
@@ -189,13 +221,6 @@ def relation_f1_score(gold_map: ArgumentMap, pred_map: ArgumentMap,
 def count_rmse(gold_map: ArgumentMap, pred_map: ArgumentMap) -> Dict[str, float]:
     """
     Calculate RMSE on the total number of spans and relations.
-    
-    Args:
-        gold_map: Gold standard argument map
-        pred_map: Predicted argument map
-        
-    Returns:
-        Dictionary with RMSE values and scaled RMSE (0-1)
     """
     # Count gold standard and predicted ADUs and relations
     gold_adu_count = len(gold_map.adus)
@@ -203,6 +228,9 @@ def count_rmse(gold_map: ArgumentMap, pred_map: ArgumentMap) -> Dict[str, float]
     
     gold_rel_count = len(gold_map.relations)
     pred_rel_count = len(pred_map.relations)
+    
+    logger.debug(f"Count comparison - ADUs: gold={gold_adu_count}, pred={pred_adu_count}, "
+                f"Relations: gold={gold_rel_count}, pred={pred_rel_count}")
     
     # Calculate squared errors
     adu_squared_error = (gold_adu_count - pred_adu_count) ** 2
@@ -219,6 +247,9 @@ def count_rmse(gold_map: ArgumentMap, pred_map: ArgumentMap) -> Dict[str, float]
     # We use a simple scaling function: 1 - exp(-rmse)
     # This gives diminishing penalty for larger errors
     scaled_rmse = 1.0 - np.exp(-combined_rmse / max(1, (gold_adu_count + gold_rel_count) / 2))
+    
+    logger.debug(f"RMSE scores - ADU: {adu_rmse:.3f}, Relation: {rel_rmse:.3f}, "
+                f"Combined: {combined_rmse:.3f}, Scaled: {scaled_rmse:.3f}")
     
     return {
         "adu_rmse": float(adu_rmse),
@@ -250,163 +281,137 @@ def _build_graph_from_map(argument_map: ArgumentMap) -> nx.DiGraph:
         src = getattr(rel, "src", None) or getattr(rel, "src_id", None) or getattr(rel, "source_id", None) or getattr(rel, "source", None)
         tgt = getattr(rel, "tgt", None) or getattr(rel, "tgt_id", None) or getattr(rel, "target_id", None) or getattr(rel, "target", None)
         if src is None or tgt is None:
+            logger.warning(f"Relation missing source or target: src={src}, tgt={tgt}")
             continue
         if src not in G:
             G.add_node(src, text="")
         if tgt not in G:
             G.add_node(tgt, text="")
         G.add_edge(src, tgt, type=rel_type_str)
+    
+    logger.debug(f"Built graph with {len(G.nodes)} nodes and {len(G.edges)} edges")
     return G
 
 
 def graph_edit_distance_metrics(
     gold_map: ArgumentMap,
     pred_map: ArgumentMap,
+    similarity_cache: Dict[Tuple[Any, Any], float],
     threshold: float = 0.7,
 ) -> Dict[str, float]:
     """
-    Compute attributed Graph Edit Distance (GED) between gold and predicted maps.
-
-    Node match: token-overlap of node texts >= threshold.
-    Edge match: exact relation-type equality.
-
-    Returns:
-      - ged: raw edit distance (lower is better)
-      - ged_norm: normalized distance in [0,1]
-      - ged_sim: similarity = 1 - ged_norm (higher is better)
+    Compute attributed Graph Edit Distance (GED) between gold and predicted maps using precomputed similarities.
     """
+    logger.debug(f"Computing Graph Edit Distance with threshold {threshold}")
+    
     Gg = _build_graph_from_map(gold_map)
     Gp = _build_graph_from_map(pred_map)
-
+    
+    logger.debug(f"Graph sizes - Gold: {len(Gg.nodes)} nodes, {len(Gg.edges)} edges; "
+                f"Predicted: {len(Gp.nodes)} nodes, {len(Gp.edges)} edges")
+    
     def _node_match(a: Dict[str, Any], b: Dict[str, Any]) -> bool:
-        ta = (a.get("text") or "").strip()
-        tb = (b.get("text") or "").strip()
-        if not ta or not tb:
-            return False
-
-        return ADU.fuzzy_similarity(ta, tb) >= threshold
-
+        # Extract node IDs from the graph node attributes
+        gold_id = a.get("id")
+        pred_id = b.get("id")
+        if gold_id is not None and pred_id is not None:
+            return similarity_cache.get((gold_id, pred_id), 0.0) >= threshold
+        else:
+            # Fallback to direct comparison if IDs aren't available
+            ta = (a.get("text") or "").strip()
+            tb = (b.get("text") or "").strip()
+            if not ta or not tb:
+                return False
+            return ADU.fuzzy_similarity(ta, tb) >= threshold
+    
     def _edge_match(a: Dict[str, Any], b: Dict[str, Any]) -> bool:
-        # Basic T/F: relation types must match (support vs. attack); unknown treated as its own label
+        # Basic T/F: relation types must match (support vs. attack); unknown treated as support
         ta = (a.get("type") or "").strip().lower()
         tb = (b.get("type") or "").strip().lower()
+        if ta == "unknown" or ta == "":
+            ta = "support"
+        if tb == "unknown" or tb == "":
+            tb = "support"
         return ta == tb
+    
+    # Estimate max possible edit operations for normalization: delete all from gold then insert all from pred
+    max_ops = float(len(Gg.nodes) + len(Gg.edges) + len(Gp.nodes) + len(Gp.edges))
 
+    start_time = time.time()
     try:
-        ged_val = nx.graph_edit_distance(Gg, Gp, node_match=_node_match, edge_match=_edge_match)
+        ged_val = nx.optimize_graph_edit_distance(Gg, Gp, node_match=_node_match, edge_match=_edge_match, upper_bound=max_ops)
+
         # In some versions, this may return a generator; ensure we take the first (best) value
         if ged_val is None:
+            logger.warning("GED algorithm returned None, defaulting to max cost")
             # Fallback to default cost if algorithm couldn't compute
-            ged_val = float(len(Gg.nodes) + len(Gg.edges) + len(Gp.nodes) + len(Gp.edges))
+            ged_val = max_ops
         elif not isinstance(ged_val, (int, float)):
             # Assume iterable
             try:
                 ged_val = float(next(iter(ged_val)))
-            except Exception:
-                ged_val = float(len(Gg.nodes) + len(Gg.edges) + len(Gp.nodes) + len(Gp.edges))
-    except Exception:
-        ged_val = float(len(Gg.nodes) + len(Gg.edges) + len(Gp.nodes) + len(Gp.edges))
+                logger.debug("Extracted GED value from generator")
+            except Exception as e:
+                logger.warning(f"Error extracting GED from generator: {e}, defaulting to max cost")
+                ged_val = max_ops
 
-    # Normalize by an upper-bound on edit ops: delete all from gold then insert all from pred
-    max_ops = float(len(Gg.nodes) + len(Gg.edges) + len(Gp.nodes) + len(Gp.edges))
-    max_ops = max(max_ops, 1.0)
+        elapsed_time = time.time() - start_time
+        logger.debug(f"GED computation completed in {elapsed_time:.2f}s, value: {ged_val}")
+        
+    except Exception as e:
+        elapsed_time = time.time() - start_time
+        logger.warning(f"GED computation failed after {elapsed_time:.2f}s: {e}, defaulting to max cost")
+        ged_val = max_ops
+
+    # Normalize by an upper-bound on edit ops
+    max_ops = max(max_ops, 1.0) # Avoid division by zero
     ged_norm = float(min(max(ged_val / max_ops, 0.0), 1.0))
     ged_sim = float(1.0 - ged_norm)
-
+    
+    logger.debug(f"GED metrics - Raw: {ged_val}, Normalized: {ged_norm:.3f}, "
+                f"Similarity: {ged_sim:.3f}")
+    
     return {
         "ged": float(ged_val),
         "ged_norm": ged_norm,
         "ged_sim": ged_sim,
     }
 
-
-def _ged_worker(result_queue: multiprocessing.Queue, gold_map: ArgumentMap, 
-                pred_map: ArgumentMap, threshold: float):
-    """
-    Worker function to compute GED metrics in a separate process.
-    """
-    try:
-        result = graph_edit_distance_metrics(gold_map, pred_map, threshold)
-        result_queue.put(result)
-    except Exception as e:
-        result_queue.put(None)
-
-
 def combined_score(gold_map: ArgumentMap, pred_map: ArgumentMap, 
                   threshold: float = 0.7) -> Dict[str, float]:
     """
     Calculate combined score based on all metrics.
-    
-    Args:
-        gold_map: Gold standard argument map
-        pred_map: Predicted argument map
-        threshold: Token overlap threshold for fuzzy matching
-        
-    Returns:
-        Dictionary with all metrics and a combined score
     """
-    # Calculate all component metrics
-    adu_metrics = fuzzy_match_f1(gold_map, pred_map, threshold)
-    relation_metrics = relation_f1_score(gold_map, pred_map, threshold)
+    logger.info(f"Computing combined score with threshold {threshold}")
+    
+    # Precompute similarity cache once for all metrics
+    logger.debug("Precomputing similarity cache...")
+    similarity_cache = _compute_similarity_cache(gold_map, pred_map)
+    
+    # Calculate all component metrics using the shared cache
+    logger.debug("Computing ADU fuzzy-match F1...")
+    adu_metrics = fuzzy_match_f1(gold_map, pred_map, similarity_cache, threshold)
+    
+    logger.debug("Computing relation F1 scores...")
+    relation_metrics = relation_f1_score(gold_map, pred_map, similarity_cache, threshold)
+    
+    logger.debug("Computing count RMSE...")
     count_metrics = count_rmse(gold_map, pred_map)
     
     # Calculate GED metrics with hard timeout using multiprocessing
+    logger.debug("Computing GED metrics...")
     ged_metrics = None
-    
-    # Use multiprocessing with a hard timeout
-    ctx = multiprocessing.get_context('spawn')  # Use spawn to avoid issues with fork
-    result_queue = ctx.Queue()
-    
-    # Start the worker process
-    process = ctx.Process(
-        target=_ged_worker,
-        args=(result_queue, gold_map, pred_map, threshold)
-    )
-    process.start()
-    
-    # Wait for up to 10 seconds
-    process.join(timeout=10.0)
-    
-    # Check if process finished
-    if process.is_alive():
-        # Process is still running, terminate it
-        print("Warning: GED calculation timed out after 10 seconds, using fallback values")
-        process.terminate()
-        process.join(timeout=1.0)  # Give it a second to terminate
-        
-        if process.is_alive():
-            # Still alive, kill it
-            process.kill()
-            process.join()
-        
-        # Use fallback values
+
+    try:
+        ged_metrics = graph_edit_distance_metrics(gold_map, pred_map, similarity_cache, threshold)
+    except Exception as e:
+        logger.warning(f"GED computation failed: {e}, using fallback values")
         ged_metrics = {
-            "ged": float('inf'),
+            "ged": float(gold_map.adus) + float(pred_map.adus) + float(gold_map.relations) + float(pred_map.relations), # max cost
             "ged_norm": 1.0,
             "ged_sim": 0.0,
         }
-    else:
-        # Process finished, try to get result
-        try:
-            ged_metrics = result_queue.get_nowait()
-            if ged_metrics is None:
-                # Worker had an exception
-                ged_metrics = {
-                    "ged": float('inf'),
-                    "ged_norm": 1.0,
-                    "ged_sim": 0.0,
-                }
-        except queue.Empty:
-            # No result available
-            ged_metrics = {
-                "ged": float('inf'),
-                "ged_norm": 1.0,
-                "ged_sim": 0.0,
-            }
-    
-    # Close the queue
-    result_queue.close()
-    
+
     # Extract key scores
     adu_f1 = adu_metrics["f1"]
     relation_f1 = relation_metrics["macro_f1"]
@@ -416,6 +421,11 @@ def combined_score(gold_map: ArgumentMap, pred_map: ArgumentMap,
     # Calculate combined score (higher is better)
     # Equal-weight average across span F1, relation F1, inverted count error, and GED similarity
     combined = (adu_f1 + relation_f1 + (1 - scaled_rmse) + ged_sim) / 4
+    
+    logger.info(f"Combined score calculation complete: "
+               f"ADU_F1={adu_f1:.3f}, REL_F1={relation_f1:.3f}, "
+               f"COUNT_SCORE={1-scaled_rmse:.3f}, GED_SIM={ged_sim:.3f}, "
+               f"COMBINED={combined:.3f}")
     
     # Return all metrics
     return {

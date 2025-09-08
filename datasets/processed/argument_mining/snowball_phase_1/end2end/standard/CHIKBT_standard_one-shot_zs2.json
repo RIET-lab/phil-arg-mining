@@ -1,0 +1,226 @@
+{
+  "ADUs": {
+    "MainClaim": {
+      "type": "Major Claim",
+      "text": "\"The demise of classical neo-Kantianism between the wars had at least as much to do with institutional",
+      "isImplicit": false
+    },
+    "Neo-Kantianism as Scapegoat": {
+      "type": "Claim",
+      "text": "\"Neo-Kantianism was regarded as a continuation of the prewar era and thus as inadequate to the profound sense of loss and social",
+      "isImplicit": false
+    },
+    "Neo-Kantianism as Antimetaphysical and Politically Benign": {
+      "type": "Claim",
+      "text": "\"Neo-Kantians tended to be antimetaphysical supporters of natural science",
+      "isImplicit": false
+    },
+    "Affinities between Neo-Kantianism and the Interwar Zeitgeist": {
+      "type": "Claim",
+      "text": "\"Neo-Kantianism had affinities with the interwar Zeitgeist",
+      "isImplicit": false
+    },
+    "Untitled 1": {
+      "type": "Claim",
+      "text": "\"The collapse of neo-Kantianism remains an historical mystery.\"",
+      "isImplicit": false
+    },
+    "Untitled 2": {
+      "type": "Claim",
+      "text": "\"The attacks on Kant effectively created yet another need to go back to the historical Kant and try to reconstruct his views anew.\"",
+      "isImplicit": false
+    },
+    "Untitled 3": {
+      "type": "Claim",
+      "text": "\"The neo-Kantians' criticisms of Kant often hit a target that is usually a neo-Kantian philosopher rather than the Sage of Königsberg himself.\"",
+      "isImplicit": false
+    },
+    "Untitled 4": {
+      "type": "Claim",
+      "text": "\"Lukacs' criticisms of Kant do not apply very well to Kant himself",
+      "isImplicit": false
+    },
+    "Untitled 5": {
+      "type": "Claim",
+      "text": "\"Many of the concerns that motivate Lukacs to criticize Kant are actually concerns that Kant himself openly expressed.\"",
+      "isImplicit": false
+    },
+    "Untitled 6": {
+      "type": "Claim",
+      "text": "\"The legacy of Kant had become both so contested and so crucial that a new generation of scholars saw the need for yet another movement back to Kant.\"",
+      "isImplicit": false
+    },
+    "Untitled 7": {
+      "type": "Claim",
+      "text": "\"The powerful attacks on Kant in the interwar period led to a new and somewhat more careful historical and philosophical study of Kant's works.\"",
+      "isImplicit": false
+    },
+    "Criticism of Kant": {
+      "type": "Claim",
+      "text": "\"Lukacs' criticism of Kant's philosophy as the most radical and advanced consciousness of the early bourgeoisie does not apply very well to Kant himself.\"",
+      "isImplicit": false
+    },
+    "Neo-Kantianism as a Continuation of the Prewar Era": {
+      "type": "Claim",
+      "text": "\"Neo-Kantianism was regarded as a continuation of the prewar era and thus as inadequate to the profound sense of loss and social",
+      "isImplicit": false
+    },
+    "s Affinities with the Interwar Zeitgeist": {
+      "type": "Claim",
+      "text": "\"Neo-Kantianism had affinities with the interwar Zeitgeist",
+      "isImplicit": false
+    },
+    "s Collapse": {
+      "type": "Claim",
+      "text": "\"The collapse of neo-Kantianism remains an historical mystery.\"",
+      "isImplicit": false
+    },
+    "s Critique of Kant": {
+      "type": "Claim",
+      "text": "\"The neo-Kantians' criticisms of Kant often hit a target that is usually a neo-Kantian philosopher rather than the Sage of Königsberg himself.\"",
+      "isImplicit": false
+    },
+    "s Influence on the Interwar Generation": {
+      "type": "Claim",
+      "text": "\"The attacks on Kant effectively created yet another need to go back to the historical Kant and try to reconstruct his views anew.\"",
+      "isImplicit": false
+    },
+    "s Legacy": {
+      "type": "Claim",
+      "text": "\"The legacy of Kant had become both so contested and so crucial that a new generation of scholars saw the need for yet another movement back to Kant.\"",
+      "isImplicit": false
+    },
+    "s Study of Kant": {
+      "type": "Claim",
+      "text": "\"The powerful attacks on Kant in the interwar period led to a new and somewhat more careful historical and philosophical study of Kant's works.\"",
+      "isImplicit": false
+    },
+    "s Critique of Lukacs": {
+      "type": "Claim",
+      "text": "\"Lukacs' criticisms of Kant do not apply very well to Kant himself",
+      "isImplicit": false
+    },
+    "Critique": {
+      "type": "Claim",
+      "text": "\"Many of the concerns that motivate Lukacs to criticize Kant are actually concerns that Kant himself openly expressed.\"",
+      "isImplicit": false
+    }
+  },
+  "relations": [
+    {
+      "src": "Untitled 1",
+      "tgt": "Neo-Kantianism",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 2",
+      "tgt": "Neo-Kantianism",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 3",
+      "tgt": "Neo-Kantianism",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 4",
+      "tgt": "Neo-Kantianism",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 5",
+      "tgt": "Neo-Kantianism",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 6",
+      "tgt": "Neo-Kantianism",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 7",
+      "tgt": "Neo-Kantianism",
+      "type": "support"
+    },
+    {
+      "src": "Neo-Kantianism as Scapegoat",
+      "tgt": "Neo-Kantianism as Antimetaphysical and Politically Benign",
+      "type": "support"
+    },
+    {
+      "src": "Neo-Kantianism as Antimetaphysical and Politically Benign",
+      "tgt": "Affinities between Neo-Kantianism and the Interwar Zeitgeist",
+      "type": "support"
+    },
+    {
+      "src": "Affinities between Neo-Kantianism and the Interwar Zeitgeist",
+      "tgt": "Untitled 1",
+      "type": "support"
+    },
+    {
+      "src": "Untitled 2",
+      "tgt": "Neo-Kantianism",
+      "type": "support"
+    },
+    {
+      "src": "Neo-Kantianism",
+      "tgt": "Neo-Kantianism",
+      "type": "support"
+    },
+    {
+      "src": "Neo-Kantianism",
+      "tgt": "Neo-Kantianism",
+      "type": "support"
+    },
+    {
+      "src": "Neo-Kantianism",
+      "tgt": "Neo-Kantianism",
+      "type": "support"
+    },
+    {
+      "src": "Neo-Kantianism",
+      "tgt": "Neo-Kantianism",
+      "type": "support"
+    },
+    {
+      "src": "Neo-Kantianism",
+      "tgt": "Neo-Kantianism",
+      "type": "support"
+    },
+    {
+      "src": "Neo-Kantianism",
+      "tgt": "Neo-Kantianism",
+      "type": "support"
+    },
+    {
+      "src": "Neo-Kantianism",
+      "tgt": "Neo-Kantianism",
+      "type": "support"
+    },
+    {
+      "src": "Neo-Kantianism",
+      "tgt": "Neo-Kantianism",
+      "type": "support"
+    },
+    {
+      "src": "Neo-Kantianism",
+      "tgt": "Neo-Kantianism",
+      "type": "support"
+    },
+    {
+      "src": "Neo-Kantianism",
+      "tgt": "Neo-Kantianism",
+      "type": "support"
+    },
+    {
+      "src": "Neo-Kantianism",
+      "tgt": "Neo-Kantianism",
+      "type": "support"
+    },
+    {
+      "src": "Neo-Kantianism",
+      "tgt": "Neo-Kantianism",
+      "type": "support"
+    }
+  ]
+}

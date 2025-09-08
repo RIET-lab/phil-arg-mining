@@ -18,7 +18,7 @@ Usage:
 from __future__ import annotations
 
 import json
-import logging
+import logging # TODO: Replace with "from moralkg import get_logger" and update logger loading accordingly
 from pathlib import Path
 from typing import Dict, List, Tuple, Optional, Any
 from dataclasses import dataclass
@@ -64,7 +64,23 @@ class End2EndEvaluator:
     and computing evaluation metrics against gold standard annotations.
     """
     
-    def __init__(self, dataset: Dataset, fuzzy_threshold: float = None):
+    def __init__(self, dataset: Dataset, 
+                 fuzzy_threshold: float = None, 
+                 save_parsed_argument_json: bool = False,
+                 use_existing_parsed_if_found: bool = False,
+                 parsed_argmap_dir: Path = None):
+        """
+        Initialize the evaluator. If saving and/or using existing parsed JSONs are enabled,
+        a directory to save/load them must be provided. If both are enabled, existing files
+        will be used if found, otherwise the output will be parsed and saved.
+
+        Args:
+            dataset: Dataset object with gold standard annotations
+            fuzzy_threshold: Threshold for fuzzy matching (default from config)
+            save_parsed_argument_json: Whether to save parsed ArgumentMap JSONs
+            use_existing_parsed_if_found: If True, will use existing parsed JSONs if found
+            parsed_argmap_dir: Directory to save parsed ArgumentMap JSONs if enabled
+        """
         self.dataset = dataset
         self.annotations = dataset._load_annotations()
         self.parser = ModelOutputParser()
@@ -75,7 +91,14 @@ class End2EndEvaluator:
             fuzzy_threshold if fuzzy_threshold is not None 
             else cfg.get("snowball.phase_1.eval.fuzzy_thr", 0.7)
         )
-        
+
+        self.save_parsed_argument_json = save_parsed_argument_json
+        self.use_existing_parsed_if_found = use_existing_parsed_if_found
+        self.parsed_argmap_dir = parsed_argmap_dir
+
+        if not self.parsed_argmap_dir and (self.save_parsed_argument_json or self.use_existing_parsed_if_found):
+            raise ValueError("parsed_argmap_dir must be provided if saving or using existing parsed ArgumentMaps.")
+
         self.logger = logging.getLogger(__name__)
     
     def evaluate_checkpoint_dir(self, checkpoint_dir: Path, 
@@ -231,13 +254,17 @@ class End2EndEvaluator:
                 outputs = [data]
         
         return outputs
-    
+
     def _evaluate_single_output(self, output: Dict[str, Any]) -> EvaluationResult:
         """Evaluate a single output against gold standard."""
         paper_id = output.get("id", "unknown")
         prompt_info = output.get("prompt_info", {})
         generated_text = output.get("text", "")
         
+        # Log the prompt info
+        self.logger.debug(f"Evaluating paper {paper_id} with prompt info: {prompt_info}")
+        parse_file_name = paper_id + "_" + prompt_info.get("strategy", "unknown-strat") + "_" + prompt_info.get("shot_type", "unknown-shot") + "_" + prompt_info.get("variation", "")
+
         # Try to get gold standard annotation
         gold_map = None
         try:
@@ -250,13 +277,34 @@ class End2EndEvaluator:
         parse_success = False
         parse_error = None
 
+        load_existing_parse_success = None
+        # Check if we can load existing parsed ArgumentMap
+        if (self.use_existing_parsed_if_found and self.parsed_argmap_dir):
+            existing_parsed_path = self.parsed_argmap_dir / f"{parse_file_name}.json"
+            if existing_parsed_path.exists():
+                try:
+                    pred_map = ArgumentMap.from_json(existing_parsed_path)
+                    load_existing_parse_success = True
+                    parse_success = True
+                    self.logger.info(f"Loaded existing parsed ArgumentMap for {paper_id} from {existing_parsed_path}")
+                except Exception as e:
+                    self.logger.warning(f"Failed to load existing parsed ArgumentMap for {paper_id}: {e}. Will re-parse.")
+                    self.logger.debug(f"Note: Assuming the name of the parsed file is: {parse_file_name}")
+                    load_existing_parse_success = False
+
         try:
             pred_map = self.parser.parse_string(generated_text, paper_id)
             parse_success = True
         except Exception as e:
             parse_error = str(e)
             #self.logger.warning(f"Parse failed for {paper_id}: {e}")
-        
+
+        if parse_success and self.save_parsed_argument_json and self.parsed_argmap_dir and not load_existing_parse_success:
+            self.parsed_argmap_dir.mkdir(parents=True, exist_ok=True)
+            parsed_output_path = self.parsed_argmap_dir / f"{parse_file_name}.json"
+            self.parser.save_to_json(pred_map, parsed_output_path)
+            self.logger.info(f"Saved parsed ArgumentMap for {paper_id} to {parsed_output_path}")
+
         # Calculate metrics if both maps are available
         metrics = {}
         if gold_map and pred_map and parse_success:

@@ -1,0 +1,775 @@
+{
+  "ADUs": {
+    "MainClaim": {
+      "type": "Major Claim",
+      "text": "\"Bayle's failed attempt to save his career at the Illustrious School of Rotterdam by turning to Erasmus tapped into a long",
+      "isImplicit": false
+    },
+    "Untitled1": {
+      "type": "Claim",
+      "text": "\"Rotterdam has always been associated with Erasmus",
+      "isImplicit": false
+    },
+    "Untitled2": {
+      "type": "Claim",
+      "text": "\"Bayle's account of Erasmus was based on a genuine sense of affinity",
+      "isImplicit": false
+    },
+    "Untitled3": {
+      "type": "Claim",
+      "text": "\"Erasmus was essentially a moral philosopher",
+      "isImplicit": false
+    },
+    "Untitled4": {
+      "type": "Claim",
+      "text": "\"Bayle admired Erasmus as a historian and shared his appreciation for humanist historiography and Augustino-Calvinist anthropology.\"",
+      "isImplicit": false
+    },
+    "Untitled5": {
+      "type": "Claim",
+      "text": "\"Bayle's account of Erasmus was not only influenced by his own historical and philosophical interests but also by a genuine sense of affinity and a desire to cultivate a local tradition of civic pride.\"",
+      "isImplicit": false
+    },
+    "Untitled6": {
+      "type": "Claim",
+      "text": "\"Bayle's picture of Erasmus has had a lasting impact",
+      "isImplicit": false
+    },
+    "Untitled7": {
+      "type": "Claim",
+      "text": "\"Bayle's account of Erasmus was not only a product of his own intellectual and historical interests but also a reflection of his deep felt connection to the city of Rotterdam and its cultural heritage.\"",
+      "isImplicit": false
+    },
+    "Untitled8": {
+      "type": "Claim",
+      "text": "\"Bayle's appropriation of Erasmus was marked by a complex interplay of intellectual",
+      "isImplicit": false
+    },
+    "Untitled9": {
+      "type": "Claim",
+      "text": "\"Bayle's account of Erasmus was not only a product of his own intellectual and historical interests but also a reflection of his deep felt connection to the city of Rotterdam and its cultural heritage.\"",
+      "isImplicit": false
+    },
+    "Untitled10": {
+      "type": "Claim",
+      "text": "\"Bayle's failed attempt to save his career at the Illustrious School of Rotterdam by turning to Erasmus was a pivotal moment in the development of his intellectual and cultural identity.\"",
+      "isImplicit": false
+    },
+    "Untitled11": {
+      "type": "Claim",
+      "text": "\"Bayle's account of Erasmus was not only a product of his own intellectual and historical interests but also a reflection of his deep felt connection to the city of Rotterdam and its cultural heritage.\"",
+      "isImplicit": false
+    },
+    "Untitled12": {
+      "type": "Claim",
+      "text": "\"Bayle's appropriation of Erasmus was marked by a complex interplay of intellectual",
+      "isImplicit": false
+    },
+    "Untitled13": {
+      "type": "Claim",
+      "text": "\"Bayle's account of Erasmus was not only a product of his own intellectual and historical interests but also a reflection of his deep felt connection to the city of Rotterdam and its cultural heritage.\"",
+      "isImplicit": false
+    },
+    "Untitled14": {
+      "type": "Claim",
+      "text": "\"Bayle's failed attempt to save his career at the Illustrious School of Rotterdam by turning to Erasmus was a pivotal moment in the development of his intellectual and cultural identity.\"",
+      "isImplicit": false
+    },
+    "Untitled15": {
+      "type": "Claim",
+      "text": "\"Bayle's account of Erasmus was not only a product of his own intellectual and historical interests but also a reflection of his deep felt connection to the city of Rotterdam and its cultural heritage.\"",
+      "isImplicit": false
+    },
+    "Untitled16": {
+      "type": "Claim",
+      "text": "\"Bayle's appropriation of Erasmus was marked by a complex interplay of intellectual",
+      "isImplicit": false
+    },
+    "Untitled17": {
+      "type": "Claim",
+      "text": "\"Bayle's account of Erasmus was not only a product of his own intellectual and historical interests but also a reflection of his deep felt connection to the city of Rotterdam and its cultural heritage.\"",
+      "isImplicit": false
+    },
+    "Untitled18": {
+      "type": "Claim",
+      "text": "\"Bayle's failed attempt to save his career at the Illustrious School of Rotterdam by turning to Erasmus was a pivotal moment in the development of his intellectual and cultural identity.\"",
+      "isImplicit": false
+    },
+    "Untitled19": {
+      "type": "Claim",
+      "text": "\"Bayle's account of Erasmus was not only a product of his own intellectual and historical interests but also a reflection of his deep felt connection to the city of Rotterdam and its cultural heritage.\"",
+      "isImplicit": false
+    },
+    "Untitled20": {
+      "type": "Claim",
+      "text": "\"Bayle's appropriation of Erasmus was marked by a complex interplay of intellectual",
+      "isImplicit": false
+    },
+    "Untitled21": {
+      "type": "Claim",
+      "text": "\"Bayle's account of Erasmus was not only a product of his own intellectual and historical interests but also a reflection of his deep felt connection to the city of Rotterdam and its cultural heritage.\"",
+      "isImplicit": false
+    },
+    "Untitled22": {
+      "type": "Claim",
+      "text": "\"Bayle's failed attempt to save his career at the Illustrious School of Rotterdam by turning to Erasmus was a pivotal moment in the development of his intellectual and cultural identity.\"",
+      "isImplicit": false
+    },
+    "Untitled23": {
+      "type": "Claim",
+      "text": "\"Bayle's account of Erasmus was not only a product of his own intellectual and historical interests but also a reflection of his deep felt connection to the city of Rotterdam and its cultural heritage.\"",
+      "isImplicit": false
+    },
+    "Untitled24": {
+      "type": "Claim",
+      "text": "\"Bayle's appropriation of Erasmus was marked by a complex interplay of intellectual",
+      "isImplicit": false
+    },
+    "Untitled25": {
+      "type": "Claim",
+      "text": "\"Bayle's account of Erasmus was not only a product of his own intellectual and historical interests but also a reflection of his deep felt connection to the city of Rotterdam and its cultural heritage.\"",
+      "isImplicit": false
+    },
+    "Untitled26": {
+      "type": "Claim",
+      "text": "\"Bayle's failed attempt to save his career at the Illustrious School of Rotterdam by turning to Erasmus was a pivotal moment in the development of his intellectual and cultural identity.\"",
+      "isImplicit": false
+    },
+    "Untitled27": {
+      "type": "Claim",
+      "text": "\"Bayle's account of Erasmus was not only a product of his own intellectual and historical interests but also a reflection of his deep felt connection to the city of Rotterdam and its cultural heritage.\"",
+      "isImplicit": false
+    },
+    "Untitled28": {
+      "type": "Claim",
+      "text": "\"Bayle's appropriation of Erasmus was marked by a complex interplay of intellectual",
+      "isImplicit": false
+    },
+    "Untitled29": {
+      "type": "Claim",
+      "text": "\"Bayle's account of Erasmus was not only a product of his own intellectual and historical interests but also a reflection of his deep felt connection to the city of Rotterdam and its cultural heritage.\"",
+      "isImplicit": false
+    },
+    "Untitled30": {
+      "type": "Claim",
+      "text": "\"Bayle's failed attempt to save his career at the Illustrious School of Rotterdam by turning to Erasmus was a pivotal moment in the development of his intellectual and cultural identity.\"",
+      "isImplicit": false
+    },
+    "Untitled31": {
+      "type": "Claim",
+      "text": "\"Bayle's account of Erasmus was not only a product of his own intellectual and historical interests but also a reflection of his deep felt connection to the city of Rotterdam and its cultural heritage.\"",
+      "isImplicit": false
+    },
+    "Untitled32": {
+      "type": "Claim",
+      "text": "\"Bayle's appropriation of Erasmus was marked by a complex interplay of intellectual",
+      "isImplicit": false
+    },
+    "Untitled33": {
+      "type": "Claim",
+      "text": "\"Bayle's account of Erasmus was not only a product of his own intellectual and historical interests but also a reflection of his deep felt connection to the city of Rotterdam and its cultural heritage.\"",
+      "isImplicit": false
+    },
+    "Untitled34": {
+      "type": "Claim",
+      "text": "\"Bayle's failed attempt to save his career at the Illustrious School of Rotterdam by turning to Erasmus was a pivotal moment in the development of his intellectual and cultural identity.\"",
+      "isImplicit": false
+    },
+    "Untitled35": {
+      "type": "Claim",
+      "text": "\"Bayle's account of Erasmus was not only a product of his own intellectual and historical interests but also a reflection of his deep felt connection to the city of Rotterdam and its cultural heritage.\"",
+      "isImplicit": false
+    },
+    "Untitled36": {
+      "type": "Claim",
+      "text": "\"Bayle's appropriation of Erasmus was marked by a complex interplay of intellectual",
+      "isImplicit": false
+    },
+    "Untitled37": {
+      "type": "Claim",
+      "text": "\"Bayle's account of Erasmus was not only a product of his own intellectual and historical interests but also a reflection of his deep felt connection to the city of Rotterdam and its cultural heritage.\"",
+      "isImplicit": false
+    },
+    "Untitled38": {
+      "type": "Claim",
+      "text": "\"Bayle's failed attempt to save his career at the Illustrious School of Rotterdam by turning to Erasmus was a pivotal moment in the development of his intellectual and cultural identity.\"",
+      "isImplicit": false
+    },
+    "Untitled39": {
+      "type": "Claim",
+      "text": "\"Bayle's account of Erasmus was not only a product of his own intellectual and historical interests but also a reflection of his deep felt connection to the city of Rotterdam and its cultural heritage.\"",
+      "isImplicit": false
+    },
+    "Untitled40": {
+      "type": "Claim",
+      "text": "\"Bayle's appropriation of Erasmus was marked by a complex interplay of intellectual",
+      "isImplicit": false
+    },
+    "Untitled41": {
+      "type": "Claim",
+      "text": "\"Bayle's account of Erasmus was not only a product of his own intellectual and historical interests but also a reflection of his deep felt connection to the city of Rotterdam and its cultural heritage.\"",
+      "isImplicit": false
+    },
+    "Untitled42": {
+      "type": "Claim",
+      "text": "\"Bayle's failed attempt to save his career at the Illustrious School of Rotterdam by turning to Erasmus was a pivotal moment in the development of his intellectual and cultural identity.\"",
+      "isImplicit": false
+    },
+    "Untitled43": {
+      "type": "Claim",
+      "text": "\"Bayle's account of Erasmus was not only a product of his own intellectual and historical interests but also a reflection of his deep felt connection to the city of Rotterdam and its cultural heritage.\"",
+      "isImplicit": false
+    },
+    "Untitled44": {
+      "type": "Claim",
+      "text": "\"Bayle's appropriation of Erasmus was marked by a complex interplay of intellectual",
+      "isImplicit": false
+    },
+    "Untitled45": {
+      "type": "Claim",
+      "text": "\"Bayle's account of Erasmus was not only a product of his own intellectual and historical interests but also a reflection of his deep felt connection to the city of Rotterdam and its cultural heritage.\"",
+      "isImplicit": false
+    },
+    "Untitled46": {
+      "type": "Claim",
+      "text": "\"Bayle's failed attempt to save his career at the Illustrious School of Rotterdam by turning to Erasmus was a pivotal moment in the development of his intellectual and cultural identity.\"",
+      "isImplicit": false
+    },
+    "Untitled47": {
+      "type": "Claim",
+      "text": "\"Bayle's account of Erasmus was not only a product of his own intellectual and historical interests but also a reflection of his deep felt connection to the city of Rotterdam and its cultural heritage.\"",
+      "isImplicit": false
+    },
+    "Untitled48": {
+      "type": "Claim",
+      "text": "\"Bayle's appropriation of Erasmus was marked by a complex interplay of intellectual",
+      "isImplicit": false
+    },
+    "Untitled49": {
+      "type": "Claim",
+      "text": "\"Bayle's account of Erasmus was not only a product of his own intellectual and historical interests but also a reflection of his deep felt connection to the city of Rotterdam and its cultural heritage.\"",
+      "isImplicit": false
+    },
+    "Untitled50": {
+      "type": "Claim",
+      "text": "\"Bayle's failed attempt to save his career at the Illustrious School of Rotterdam by turning to Erasmus was a pivotal moment in the development of his intellectual and cultural identity.\"",
+      "isImplicit": false
+    },
+    "Untitled51": {
+      "type": "Claim",
+      "text": "\"Bayle's account of Erasmus was not only a product of his own intellectual and historical interests but also a reflection of his deep felt connection to the city of Rotterdam and its cultural heritage.\"",
+      "isImplicit": false
+    },
+    "Untitled52": {
+      "type": "Claim",
+      "text": "\"Bayle's appropriation of Erasmus was marked by a complex interplay of intellectual",
+      "isImplicit": false
+    },
+    "Untitled53": {
+      "type": "Claim",
+      "text": "\"Bayle's account of Erasmus was not only a product of his own intellectual and historical interests but also a reflection of his deep felt connection to the city of Rotterdam and its cultural heritage.\"",
+      "isImplicit": false
+    },
+    "Untitled54": {
+      "type": "Claim",
+      "text": "\"Bayle's failed attempt to save his career at the Illustrious School of Rotterdam by turning to Erasmus was a pivotal moment in the development of his intellectual and cultural identity.\"",
+      "isImplicit": false
+    },
+    "Untitled55": {
+      "type": "Claim",
+      "text": "\"Bayle's account of Erasmus was not only a product of his own intellectual and historical interests but also a reflection of his deep felt connection to the city of Rotterdam and its cultural heritage.\"",
+      "isImplicit": false
+    },
+    "Untitled56": {
+      "type": "Claim",
+      "text": "\"Bayle's appropriation of Erasmus was marked by a complex interplay of intellectual",
+      "isImplicit": false
+    },
+    "Untitled57": {
+      "type": "Claim",
+      "text": "\"Bayle's account of Erasmus was not only a product of his own intellectual and historical interests but also a reflection of his deep felt connection to the city of Rotterdam and its cultural heritage.\"",
+      "isImplicit": false
+    },
+    "Untitled58": {
+      "type": "Claim",
+      "text": "\"Bayle's failed attempt to save his career at the Illustrious School of Rotterdam by turning to Erasmus was a pivotal moment in the development of his intellectual and cultural identity.\"",
+      "isImplicit": false
+    },
+    "Untitled59": {
+      "type": "Claim",
+      "text": "\"Bayle's account of Erasmus was not only a product of his own intellectual and historical interests but also a reflection of his deep felt connection to the city of Rotterdam and its cultural heritage.\"",
+      "isImplicit": false
+    },
+    "Untitled60": {
+      "type": "Claim",
+      "text": "\"Bayle's appropriation of Erasmus was marked by a complex interplay of intellectual",
+      "isImplicit": false
+    },
+    "Untitled61": {
+      "type": "Claim",
+      "text": "\"Bayle's account of Erasmus was not only a product of his own intellectual and historical interests but also a reflection of his deep felt connection to the city of Rotterdam and its cultural heritage.\"",
+      "isImplicit": false
+    },
+    "Untitled62": {
+      "type": "Claim",
+      "text": "\"Bayle's failed attempt to save his career at the Illustrious School of Rotterdam by turning to Erasmus was a pivotal moment in the development of his intellectual and cultural identity.\"",
+      "isImplicit": false
+    },
+    "Untitled63": {
+      "type": "Claim",
+      "text": "\"Bayle's account of Erasmus was not only a product of his own intellectual and historical interests but also a reflection of his deep felt connection to the city of Rotterdam and its cultural heritage.\"",
+      "isImplicit": false
+    },
+    "Untitled64": {
+      "type": "Claim",
+      "text": "\"Bayle's appropriation of Erasmus was marked by a complex interplay of intellectual",
+      "isImplicit": false
+    },
+    "Untitled65": {
+      "type": "Claim",
+      "text": "\"Bayle's account of Erasmus was not only a product of his own intellectual and historical interests but also a reflection of his deep felt connection to the city of Rotterdam and its cultural heritage.\"",
+      "isImplicit": false
+    },
+    "Untitled66": {
+      "type": "Claim",
+      "text": "\"Bayle's failed attempt to save his career at the Illustrious School of Rotterdam by turning to Erasmus was a pivotal moment in the development of his intellectual and cultural identity.\"",
+      "isImplicit": false
+    },
+    "Untitled67": {
+      "type": "Claim",
+      "text": "\"Bayle's account of Erasmus was not only a product of his own intellectual and historical interests but also a reflection of his deep felt connection to the city of Rotterdam and its cultural heritage.\"",
+      "isImplicit": false
+    },
+    "Untitled68": {
+      "type": "Claim",
+      "text": "\"Bayle's appropriation of Erasmus was marked by a complex interplay of intellectual",
+      "isImplicit": false
+    },
+    "Untitled69": {
+      "type": "Claim",
+      "text": "\"Bayle's account of Erasmus was not only a product of his own intellectual and historical interests but also a reflection of his deep felt connection to the city of Rotterdam and its cultural heritage.\"",
+      "isImplicit": false
+    },
+    "Untitled70": {
+      "type": "Claim",
+      "text": "\"Bayle's failed attempt to save his career at the Illustrious School of Rotterdam by turning to Erasmus was a pivotal moment in the development of his intellectual and cultural identity.\"",
+      "isImplicit": false
+    },
+    "Untitled71": {
+      "type": "Claim",
+      "text": "\"Bayle's account of Erasmus was not only a product of his own intellectual and historical interests but also a reflection of his deep felt connection to the city of Rotterdam and its cultural heritage.\"",
+      "isImplicit": false
+    },
+    "Untitled72": {
+      "type": "Claim",
+      "text": "\"Bayle's appropriation of Erasmus was marked by a complex interplay of intellectual",
+      "isImplicit": false
+    },
+    "Untitled73": {
+      "type": "Claim",
+      "text": "\"Bayle's account of Erasmus was not only a product of his own intellectual and historical interests but also a reflection of his deep felt connection to the city of Rotterdam and its cultural heritage.\"",
+      "isImplicit": false
+    },
+    "Untitled74": {
+      "type": "Claim",
+      "text": "\"Bayle's failed attempt to save his career at the Illustrious School of Rotterdam by turning to Erasmus was a pivotal moment in the development of his intellectual and cultural identity.\"",
+      "isImplicit": false
+    },
+    "Untitled75": {
+      "type": "Claim",
+      "text": "\"Bayle's account of Erasmus was not only a product of his own intellectual and historical interests but also a reflection of his deep felt connection to the city of Rotterdam and its cultural heritage.\"",
+      "isImplicit": false
+    },
+    "Untitled76": {
+      "type": "Claim",
+      "text": "\"Bayle's appropriation of Erasmus was marked by a complex interplay of intellectual",
+      "isImplicit": false
+    },
+    "Untitled77": {
+      "type": "Claim",
+      "text": "\"Bayle's account of Erasmus was not only a product of his own intellectual and historical interests but also a reflection of his deep felt connection to the city of Rotterdam and its cultural heritage.\"",
+      "isImplicit": false
+    },
+    "Untitled78": {
+      "type": "Claim",
+      "text": "\"Bayle's failed attempt to save his career at the Illustrious School of Rotterdam by turning to Erasmus was a pivotal moment in the development of his intellectual and cultural identity.\"",
+      "isImplicit": false
+    },
+    "Untitled79": {
+      "type": "Claim",
+      "text": "\"Bayle's account of Erasmus was not only a product of his own intellectual and historical interests but also a reflection of his deep felt connection to the city of Rotterdam and its cultural heritage.\"",
+      "isImplicit": false
+    },
+    "Untitled80": {
+      "type": "Claim",
+      "text": "\"Bayle's appropriation of Erasmus was marked by a complex interplay of intellectual",
+      "isImplicit": false
+    },
+    "Untitled81": {
+      "type": "Claim",
+      "text": "\"Bayle's account of Erasmus was not only a product of his own intellectual and historical interests but also a reflection of his deep felt connection to the city of Rotterdam and its cultural heritage.\"",
+      "isImplicit": false
+    },
+    "Untitled82": {
+      "type": "Claim",
+      "text": "\"Bayle's failed attempt to save his career at the Illustrious School of Rotterdam by turning to Erasmus was a pivotal moment in the development of his intellectual and cultural identity.\"",
+      "isImplicit": false
+    },
+    "Untitled83": {
+      "type": "Claim",
+      "text": "\"Bayle's account of Erasmus was not only a product of his own intellectual and historical interests but also a reflection of his deep felt connection to the city of Rotterdam and its cultural heritage.\"",
+      "isImplicit": false
+    },
+    "Untitled84": {
+      "type": "Claim",
+      "text": "\"Bayle's appropriation of Erasmus was marked by a complex interplay of intellectual",
+      "isImplicit": false
+    },
+    "Untitled85": {
+      "type": "Claim",
+      "text": "\"Bayle's account of Erasmus was not only a product of his own intellectual and historical interests but also a reflection of his deep felt connection to the city of Rotterdam and its cultural heritage.\"",
+      "isImplicit": false
+    },
+    "Untitled86": {
+      "type": "Claim",
+      "text": "\"Bayle's failed attempt to save his career at the Illustrious School of Rotterdam by turning to Erasmus was a pivotal moment in the development of his intellectual and cultural identity.\"",
+      "isImplicit": false
+    },
+    "Untitled87": {
+      "type": "Claim",
+      "text": "\"Bayle's account of Erasmus was not only a product of his own intellectual and historical interests but also a reflection of his deep felt connection to the city of Rotterdam and its cultural heritage.\"",
+      "isImplicit": false
+    },
+    "Untitled88": {
+      "type": "Claim",
+      "text": "\"Bayle's appropriation of Erasmus was marked by a complex interplay of intellectual",
+      "isImplicit": false
+    },
+    "Untitled89": {
+      "type": "Claim",
+      "text": "\"Bayle's account of Erasmus was not only a product of his own intellectual and historical interests but also a reflection of his deep felt connection to the city of Rotterdam and its cultural heritage.\"",
+      "isImplicit": false
+    },
+    "Untitled90": {
+      "type": "Claim",
+      "text": "\"Bayle's failed attempt to save his career at the Illustrious School of Rotterdam by turning to Erasmus was a pivotal moment in the development of his intellectual and cultural identity.\"",
+      "isImplicit": false
+    },
+    "Untitled91": {
+      "type": "Claim",
+      "text": "\"Bayle's account of Erasmus was not only a product of his own intellectual and historical interests but also a reflection of his deep felt connection to the city of Rotterdam and its cultural heritage.\"",
+      "isImplicit": false
+    },
+    "Untitled92": {
+      "type": "Claim",
+      "text": "\"Bayle's appropriation of Erasmus was marked by a complex interplay of intellectual",
+      "isImplicit": false
+    },
+    "Untitled93": {
+      "type": "Claim",
+      "text": "\"Bayle's account of Erasmus was not only a product of his own intellectual and historical interests but also a reflection of his deep felt connection to the city of Rotterdam and its cultural heritage.\"",
+      "isImplicit": false
+    },
+    "Untitled94": {
+      "type": "Claim",
+      "text": "\"Bayle's failed attempt to save his career at the Illustrious School of Rotterdam by turning to Erasmus was a pivotal moment in the development of his intellectual and cultural identity.\"",
+      "isImplicit": false
+    },
+    "Untitled95": {
+      "type": "Claim",
+      "text": "\"Bayle's account of Erasmus was not only a product of his own intellectual and historical interests but also a reflection of his deep felt connection to the city of Rotterdam and its cultural heritage.\"",
+      "isImplicit": false
+    },
+    "Untitled96": {
+      "type": "Claim",
+      "text": "\"Bayle's appropriation of Erasmus was marked by a complex interplay of intellectual",
+      "isImplicit": false
+    },
+    "Untitled97": {
+      "type": "Claim",
+      "text": "\"Bayle's account of Erasmus was not only a product of his own intellectual and historical interests but also a reflection of his deep felt connection to the city of Rotterdam and its cultural heritage.\"",
+      "isImplicit": false
+    },
+    "Untitled98": {
+      "type": "Claim",
+      "text": "\"Bayle's failed attempt to save his career at the Illustrious School of Rotterdam by turning to Erasmus was a pivotal moment in the development of his intellectual and cultural identity.\"",
+      "isImplicit": false
+    },
+    "Untitled99": {
+      "type": "Claim",
+      "text": "\"Bayle's account of Erasmus was not only a product of his own intellectual and historical interests but also a reflection of his deep felt connection to the city of Rotterdam and its cultural heritage.\"",
+      "isImplicit": false
+    },
+    "Untitled100": {
+      "type": "Claim",
+      "text": "\"Bayle's appropriation of Erasmus was marked by a complex interplay of intellectual",
+      "isImplicit": false
+    },
+    "Untitled101": {
+      "type": "Claim",
+      "text": "\"Bayle's account of Erasmus was not only a product of his own intellectual and historical interests but also a reflection of his deep felt connection to the city of Rotterdam and its cultural heritage.\"",
+      "isImplicit": false
+    },
+    "Untitled102": {
+      "type": "Claim",
+      "text": "\"Bayle's failed attempt to save his career at the Illustrious School of Rotterdam by turning to Erasmus was a pivotal moment in the development of his intellectual and cultural identity.\"",
+      "isImplicit": false
+    },
+    "Untitled103": {
+      "type": "Claim",
+      "text": "\"Bayle's account of Erasmus was not only a product of his own intellectual and historical interests but also a reflection of his deep felt connection to the city of Rotterdam and its cultural heritage.\"",
+      "isImplicit": false
+    },
+    "Untitled104": {
+      "type": "Claim",
+      "text": "\"Bayle's appropriation of Erasmus was marked by a complex interplay of intellectual",
+      "isImplicit": false
+    },
+    "Untitled105": {
+      "type": "Claim",
+      "text": "\"Bayle's account of Erasmus was not only a product of his own intellectual and historical interests but also a reflection of his deep felt connection to the city of Rotterdam and its cultural heritage.\"",
+      "isImplicit": false
+    },
+    "Untitled106": {
+      "type": "Claim",
+      "text": "\"Bayle's failed attempt to save his career at the Illustrious School of Rotterdam by turning to Erasmus was a pivotal moment in the development of his intellectual and cultural identity.\"",
+      "isImplicit": false
+    },
+    "Untitled107": {
+      "type": "Claim",
+      "text": "\"Bayle's account of Erasmus was not only a product of his own intellectual and historical interests but also a reflection of his deep felt connection to the city of Rotterdam and its cultural heritage.\"",
+      "isImplicit": false
+    },
+    "Untitled108": {
+      "type": "Claim",
+      "text": "\"Bayle's appropriation of Erasmus was marked by a complex interplay of intellectual",
+      "isImplicit": false
+    },
+    "Untitled109": {
+      "type": "Claim",
+      "text": "\"Bayle's account of Erasmus was not only a product of his own intellectual and historical interests but also a reflection of his deep felt connection to the city of Rotterdam and its cultural heritage.\"",
+      "isImplicit": false
+    },
+    "Untitled110": {
+      "type": "Claim",
+      "text": "\"Bayle's failed attempt to save his career at the Illustrious School of Rotterdam by turning to Erasmus was a pivotal moment in the development of his intellectual and cultural identity.\"",
+      "isImplicit": false
+    },
+    "Untitled111": {
+      "type": "Claim",
+      "text": "\"Bayle's account of Erasmus was not only a product of his own intellectual and historical interests but also a reflection of his deep felt connection to the city of Rotterdam and its cultural heritage.\"",
+      "isImplicit": false
+    },
+    "Untitled112": {
+      "type": "Claim",
+      "text": "\"Bayle's appropriation of Erasmus was marked by a complex interplay of intellectual",
+      "isImplicit": false
+    },
+    "Untitled113": {
+      "type": "Claim",
+      "text": "\"Bayle's account of Erasmus was not only a product of his own intellectual and historical interests but also a reflection of his deep felt connection to the city of Rotterdam and its cultural heritage.\"",
+      "isImplicit": false
+    },
+    "Untitled114": {
+      "type": "Claim",
+      "text": "\"Bayle's failed attempt to save his career at the Illustrious School of Rotterdam by turning to Erasmus was a pivotal moment in the development of his intellectual and cultural identity.\"",
+      "isImplicit": false
+    },
+    "Untitled115": {
+      "type": "Claim",
+      "text": "\"Bayle's account of Erasmus was not only a product of his own intellectual and historical interests but also a reflection of his deep felt connection to the city of Rotterdam and its cultural heritage.\"",
+      "isImplicit": false
+    },
+    "Untitled116": {
+      "type": "Claim",
+      "text": "\"Bayle's appropriation of Erasmus was marked by a complex interplay of intellectual",
+      "isImplicit": false
+    },
+    "Untitled117": {
+      "type": "Claim",
+      "text": "\"Bayle's account of Erasmus was not only a product of his own intellectual and historical interests but also a reflection of his deep felt connection to the city of Rotterdam and its cultural heritage.\"",
+      "isImplicit": false
+    },
+    "Untitled118": {
+      "type": "Claim",
+      "text": "\"Bayle's failed attempt to save his career at the Illustrious School of Rotterdam by turning to Erasmus was a pivotal moment in the development of his intellectual and cultural identity.\"",
+      "isImplicit": false
+    },
+    "Untitled119": {
+      "type": "Claim",
+      "text": "\"Bayle's account of Erasmus was not only a product of his own intellectual and historical interests but also a reflection of his deep felt connection to the city of Rotterdam and its cultural heritage.\"",
+      "isImplicit": false
+    },
+    "Untitled120": {
+      "type": "Claim",
+      "text": "\"Bayle's appropriation of Erasmus was marked by a complex interplay of intellectual",
+      "isImplicit": false
+    },
+    "Untitled121": {
+      "type": "Claim",
+      "text": "\"Bayle's account of Erasmus was not only a product of his own intellectual and historical interests but also a reflection of his deep felt connection to the city of Rotterdam and its cultural heritage.\"",
+      "isImplicit": false
+    },
+    "Untitled122": {
+      "type": "Claim",
+      "text": "\"Bayle's failed attempt to save his career at the Illustrious School of Rotterdam by turning to Erasmus was a pivotal moment in the development of his intellectual and cultural identity.\"",
+      "isImplicit": false
+    },
+    "Untitled123": {
+      "type": "Claim",
+      "text": "\"Bayle's account of Erasmus was not only a product of his own intellectual and historical interests but also a reflection of his deep felt connection to the city of Rotterdam and its cultural heritage.\"",
+      "isImplicit": false
+    },
+    "Untitled124": {
+      "type": "Claim",
+      "text": "\"Bayle's appropriation of Erasmus was marked by a complex interplay of intellectual",
+      "isImplicit": false
+    },
+    "Untitled125": {
+      "type": "Claim",
+      "text": "\"Bayle's account of Erasmus was not only a product of his own intellectual and historical interests but also a reflection of his deep felt connection to the city of Rotterdam and its cultural heritage.\"",
+      "isImplicit": false
+    },
+    "Untitled126": {
+      "type": "Claim",
+      "text": "\"Bayle's failed attempt to save his career at the Illustrious School of Rotterdam by turning to Erasmus was a pivotal moment in the development of his intellectual and cultural identity.\"",
+      "isImplicit": false
+    },
+    "Untitled127": {
+      "type": "Claim",
+      "text": "\"Bayle's account of Erasmus was not only a product of his own intellectual and historical interests but also a reflection of his deep felt connection to the city of Rotterdam and its cultural heritage.\"",
+      "isImplicit": false
+    },
+    "Untitled128": {
+      "type": "Claim",
+      "text": "\"Bayle's appropriation of Erasmus was marked by a complex interplay of intellectual",
+      "isImplicit": false
+    },
+    "Untitled129": {
+      "type": "Claim",
+      "text": "\"Bayle's account of Erasmus was not only a product of his own intellectual and historical interests but also a reflection of his deep felt connection to the city of Rotterdam and its cultural heritage.\"",
+      "isImplicit": false
+    },
+    "Untitled130": {
+      "type": "Claim",
+      "text": "\"Bayle's failed attempt to save his career at the Illustrious School of Rotterdam by turning to Erasmus was a pivotal moment in the development of his intellectual and cultural identity.\"",
+      "isImplicit": false
+    },
+    "Untitled131": {
+      "type": "Claim",
+      "text": "\"Bayle's account of Erasmus was not only a product of his own intellectual and historical interests but also a reflection of his deep felt connection to the city of Rotterdam and its cultural heritage.\"",
+      "isImplicit": false
+    },
+    "Untitled132": {
+      "type": "Claim",
+      "text": "\"Bayle's appropriation of Erasmus was marked by a complex interplay of intellectual",
+      "isImplicit": false
+    },
+    "Untitled133": {
+      "type": "Claim",
+      "text": "\"Bayle's account of Erasmus was not only a product of his own intellectual and historical interests but also a reflection of his deep felt connection to the city of Rotterdam and its cultural heritage.\"",
+      "isImplicit": false
+    },
+    "Untitled134": {
+      "type": "Claim",
+      "text": "\"Bayle's failed attempt to save his career at the Illustrious School of Rotterdam by turning to Erasmus was a pivotal moment in the development of his intellectual and cultural identity.\"",
+      "isImplicit": false
+    },
+    "Untitled135": {
+      "type": "Claim",
+      "text": "\"Bayle's account of Erasmus was not only a product of his own intellectual and historical interests but also a reflection of his deep felt connection to the city of Rotterdam and its cultural heritage.\"",
+      "isImplicit": false
+    },
+    "Untitled136": {
+      "type": "Claim",
+      "text": "\"Bayle's appropriation of Erasmus was marked by a complex interplay of intellectual",
+      "isImplicit": false
+    },
+    "Untitled137": {
+      "type": "Claim",
+      "text": "\"Bayle's account of Erasmus was not only a product of his own intellectual and historical interests but also a reflection of his deep felt connection to the city of Rotterdam and its cultural heritage.\"",
+      "isImplicit": false
+    },
+    "Untitled138": {
+      "type": "Claim",
+      "text": "\"Bayle's failed attempt to save his career at the Illustrious School of Rotterdam by turning to Erasmus was a pivotal moment in the development of his intellectual and cultural identity.\"",
+      "isImplicit": false
+    },
+    "Untitled139": {
+      "type": "Claim",
+      "text": "\"Bayle's account of Erasmus was not only a product of his own intellectual and historical interests but also a reflection of his deep felt connection to the city of Rotterdam and its cultural heritage.\"",
+      "isImplicit": false
+    },
+    "Untitled140": {
+      "type": "Claim",
+      "text": "\"Bayle's appropriation of Erasmus was marked by a complex interplay of intellectual",
+      "isImplicit": false
+    },
+    "Untitled141": {
+      "type": "Claim",
+      "text": "\"Bayle's account of Erasmus was not only a product of his own intellectual and historical interests but also a reflection of his deep felt connection to the city of Rotterdam and its cultural heritage.\"",
+      "isImplicit": false
+    },
+    "Untitled142": {
+      "type": "Claim",
+      "text": "\"Bayle's failed attempt to save his career at the Illustrious School of Rotterdam by turning to Erasmus was a pivotal moment in the development of his intellectual and cultural identity.\"",
+      "isImplicit": false
+    },
+    "Untitled143": {
+      "type": "Claim",
+      "text": "\"Bayle's account of Erasmus was not only a product of his own intellectual and historical interests but also a reflection of his deep felt connection to the city of Rotterdam and its cultural heritage.\"",
+      "isImplicit": false
+    },
+    "Untitled144": {
+      "type": "Claim",
+      "text": "\"Bayle's appropriation of Erasmus was marked by a complex interplay of intellectual",
+      "isImplicit": false
+    },
+    "Untitled145": {
+      "type": "Claim",
+      "text": "\"Bayle's account of Erasmus was not only a product of his own intellectual and historical interests but also a reflection of his deep felt connection to the city of Rotterdam and its cultural heritage.\"",
+      "isImplicit": false
+    },
+    "Untitled146": {
+      "type": "Claim",
+      "text": "\"Bayle's failed attempt to save his career at the Illustrious School of Rotterdam by turning to Erasmus was a pivotal moment in the development of his intellectual and cultural identity.\"",
+      "isImplicit": false
+    },
+    "Untitled147": {
+      "type": "Claim",
+      "text": "\"Bayle's account of Erasmus was not only a product of his own intellectual and historical interests but also a reflection of his deep felt connection to the city of Rotterdam and its cultural heritage.\"",
+      "isImplicit": false
+    },
+    "Untitled148": {
+      "type": "Claim",
+      "text": "\"Bayle's appropriation of Erasmus was marked by a complex interplay of intellectual",
+      "isImplicit": false
+    },
+    "Untitled149": {
+      "type": "Claim",
+      "text": "\"Bayle's account of Erasmus was not only a product of his own intellectual and historical interests but also a reflection of his deep felt connection to the city of Rotterdam and its cultural heritage.\"",
+      "isImplicit": false
+    },
+    "Untitled150": {
+      "type": "Claim",
+      "text": "\"Bayle's failed attempt to save his career at the Illustrious School of Rotterdam by turning to Erasmus was a pivotal moment in the development of his intellectual and cultural identity.\"",
+      "isImplicit": false
+    },
+    "Untitled151": {
+      "type": "Claim",
+      "text": "\"Bayle's account of Erasmus was not only a product of his own intellectual and historical interests but also a reflection of his deep felt connection to the city of Rotterdam and its cultural heritage.\"",
+      "isImplicit": false
+    },
+    "Untitled152": {
+      "type": "Claim",
+      "text": "\"Bayle's appropriation of Erasmus was marked by a complex interplay of intellectual",
+      "isImplicit": false
+    },
+    "Untitled153": {
+      "type": "Claim",
+      "text": "\"Bayle's account of Erasmus was not only a product of his own intellectual and historical interests but also a reflection of his deep felt connection to the city of Rotterdam and its cultural heritage.\"",
+      "isImplicit": false
+    }
+  },
+  "relations": []
+}

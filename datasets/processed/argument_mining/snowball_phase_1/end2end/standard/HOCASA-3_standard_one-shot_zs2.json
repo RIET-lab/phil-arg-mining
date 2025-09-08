@@ -1,0 +1,141 @@
+{
+  "ADUs": {
+    "MainClaim": {
+      "type": "Claim",
+      "text": "Cajetan's approach to analogy, which involves a semantic analysis of terms, is not inadequate or incompatible with a sensitivity to the role of judgment and context.",
+      "isImplicit": false
+    },
+    "MedievalSemanticAssumptions": {
+      "type": "Claim",
+      "text": "Medieval semantic assumptions, which include the conceptualist and compositionalist assumptions, are inadequate for analyzing analogy.",
+      "isImplicit": false
+    },
+    "ContextualClues": {
+      "type": "Claim",
+      "text": "Paying attention to contextual clues would have required a different approach to language than was found in thirteenth and fourteenth century logic texts.",
+      "isImplicit": false
+    },
+    "LimitationsOfMedievalSemanticAssumptions": {
+      "type": "Claim",
+      "text": "The theory of analogy as presented by medieval philosophers is gravely affected by the belief that each word is endowed with its signification, including its grammatical features or consignification, as a unity.",
+      "isImplicit": false
+    },
+    "Cajetan'sNotionOfConcept": {
+      "type": "Claim",
+      "text": "Cajetan's understanding of 'concept' is not un-Thomistic or otherwise at odds with a Thomistic understanding of analogy.",
+      "isImplicit": false
+    },
+    "ContextAndJudgment": {
+      "type": "Claim",
+      "text": "Context and judgment are important to analogy, because analogical signification does not take place outside of particular judgments expressed in propositions.",
+      "isImplicit": false
+    },
+    "Cajetan'sConcernWithConcepts": {
+      "type": "Claim",
+      "text": "Cajetan's concern with concepts did not preclude attention to context and judgment.",
+      "isImplicit": false
+    },
+    "Conclusion": {
+      "type": "Claim",
+      "text": "Cajetan's approach to analogy is compatible with a sensitivity to the role of judgment and context, and his semantic analysis of terms is not inadequate or incompatible with a sensitivity to the role of judgment and context.",
+      "isImplicit": false
+    },
+    "Cajetan'sSemanticAnalysis": {
+      "type": "Claim",
+      "text": "Cajetan's semantic analysis of terms is compatible with a sensitivity to the role of judgment and context.",
+      "isImplicit": false
+    },
+    "ContextualApproach": {
+      "type": "Claim",
+      "text": "A contextual approach to language and the doctrine of signification are in tension.",
+      "isImplicit": false
+    },
+    "ContextualApproachToLanguage": {
+      "type": "Claim",
+      "text": "The contextual approach to language is in tension with the doctrine of signification.",
+      "isImplicit": false
+    },
+    "SemanticCompositionality": {
+      "type": "Claim",
+      "text": "Semantic compositionality does not itself establish the semantic values of the parts.",
+      "isImplicit": false
+    },
+    "Organicism": {
+      "type": "Claim",
+      "text": "Cajetan's semantic framework is organicist, meaning that the function of the whole depends on the functions of the parts, but the functions of the parts are also determined by, and in some sense depend on, the function of the whole.",
+      "isImplicit": false
+    },
+    "HermeneuticDependence": {
+      "type": "Claim",
+      "text": "The semantic values of the parts must be determined by interpretation, with attention to context.",
+      "isImplicit": false
+    },
+    "HermeneuticDependenceOfPartsOnWholes": {
+      "type": "Claim",
+      "text": "There is nothing about semantic compositionality that rules out the hermeneutic dependence of parts on wholes.",
+      "isImplicit": false
+    }
+  },
+  "relations": [
+    {
+      "src": "LimitationsOfMedievalSemanticAssumptions",
+      "tgt": "Cajetan'sNotionOfConcept",
+      "type": "support"
+    },
+    {
+      "src": "ContextualClues",
+      "tgt": "MedievalSemanticAssumptions",
+      "type": "support"
+    },
+    {
+      "src": "ContextualApproachToLanguage",
+      "tgt": "ContextualApproach",
+      "type": "support"
+    },
+    {
+      "src": "ContextualApproach",
+      "tgt": "Organicism",
+      "type": "attack"
+    },
+    {
+      "src": "SemanticCompositionality",
+      "tgt": "Organicism",
+      "type": "support"
+    },
+    {
+      "src": "Organicism",
+      "tgt": "HermeneuticDependenceOfPartsOnWholes",
+      "type": "support"
+    },
+    {
+      "src": "HermeneuticDependence",
+      "tgt": "SemanticCompositionality",
+      "type": "attack"
+    },
+    {
+      "src": "ContextAndJudgment",
+      "tgt": "Conclusion",
+      "type": "support"
+    },
+    {
+      "src": "Cajetan'sConcernWithConcepts",
+      "tgt": "Cajetan'sSemanticAnalysis",
+      "type": "support"
+    },
+    {
+      "src": "Cajetan'sSemanticAnalysis",
+      "tgt": "Conclusion",
+      "type": "support"
+    },
+    {
+      "src": "Conclusion",
+      "tgt": "MainClaim",
+      "type": "support"
+    },
+    {
+      "src": "MainClaim",
+      "tgt": "Cajetan'sSemanticAnalysis",
+      "type": "support"
+    }
+  ]
+}
