@@ -16,10 +16,9 @@
 /models/*/finetune/archive/*
 *.pth
 
-# Ignore archived and temporary files
-/archive/
+# Ignore archived and temporary directories
+**archive/
 /temp/
-/src/moralkg/preprocessing/pdfs/archive/
 
 # Ignore interim outputs
 datasets/interim/argument_mining/snowball_phase_1/*/*/individual_outputs/
