@@ -22,7 +22,7 @@
 /src/moralkg/preprocessing/pdfs/archive/
 
 # Ignore interim outputs
-/datasets/interim/argument_mining/snowball_phase_1/*/*/individual_outputs/
+datasets/interim/argument_mining/snowball_phase_1/*/*/individual_outputs/
 datasets/interim/argument_mining/snowball_phase_1/end2end/pipeline_summary*.json
 
 # Ignore logs
@@ -39,10 +39,8 @@ datasets/interim/argument_mining/snowball_phase_1/end2end/pipeline_summary*.json
 *node_modules*
 *.egg-info*
 
-# Ignore apps with their own repositories
-/apps/mere_workshop/
-/apps/mere_workshop_listener/
-
+# Ignore apps, which have their own repositories
+/apps/*
 
 # Ignore data about annotators
 scripts/annotator_ID_finding/*
