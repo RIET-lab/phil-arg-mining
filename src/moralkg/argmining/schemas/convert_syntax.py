@@ -1,14 +1,30 @@
 #!/usr/bin/env python3
 """
-Converts custom argdown syntax to standard argdown syntax and then to JSON.
-In the custom syntax:
-  - '+' indicates an explicit claim
-  - '-' indicates an implicit claim
-Both are converted to support relations (+) with implicit claims getting {isImplicit: True} metadata.
+Convert custom Argdown syntax to standard Argdown and optionally to JSON via the Argdown CLI.
 
-Optionally, the argdown to argdown conversion can be skipped to generate only the json.
+Custom syntax conventions used in initial workshop annotations:
+    - '+' indicates an explicit claim
+    - '-' indicates an implicit claim
 
-TODO: Separate the argdown conversion and json generation steps so that they can be called as separate modules.
+Conversion behavior:
+    - Both '+' and '-' are converted to standard Argdown support relations ('+').
+    - '-' (implicit claims) receive inline metadata `{isImplicit: true}` when no metadata is present.
+
+Usage notes:
+    - This script will attempt to run the Argdown CLI to produce JSON from the converted Argdown file.
+    - The script looks for Argdown in this order:
+            1. `npx argdown` (recommended; no global install required)
+            2. a globally installed `argdown` command (`npm i -g @argdown/cli`)
+            3. a local installation at `./node_modules/.bin/argdown` (if you prefer to maintain a local `node_modules`)
+
+Install Argdown (one of these):
+    - Use npx (no install): `npx argdown json input.argdown output-dir`
+    - Global install: `npm install -g @argdown/cli`
+    - Local install (creates node_modules): `npm install @argdown/cli`
+
+If Argdown is not available the script will still write the converted Argdown file but skip JSON conversion.
+
+TODO: Separate the argdown conversion and json generation steps so they can be called as standalone modules.
 """
 
 import re
@@ -145,11 +161,14 @@ def process_argdown_file(input_file: str, output_argdown: str = None, output_jso
                 argdown_cmd = [str(local_argdown)]
                 print(f"Using argdown CLI from node_modules")
             else:
-                print("Error: argdown CLI not found. Please install it with:")
-                print("  npm install @argdown/cli  (for local installation)")
-                print("  or")
-                print("  npm install -g @argdown/cli  (for global installation)")
-                print("\nConverted argdown file has been saved, but JSON conversion skipped.")
+                print("Error: Argdown CLI not found.")
+                print("You can run Argdown without installing by using npx:")
+                print("  npx argdown json <input.argdown> <output-dir>")
+                print("or install the CLI globally:")
+                print("  npm install -g @argdown/cli")
+                print("or install locally in this repo (creates node_modules):")
+                print("  npm install @argdown/cli")
+                print("\nThe converted Argdown file has been saved, but JSON conversion was skipped.")
                 return
     
     # Run argdown CLI to convert to JSON

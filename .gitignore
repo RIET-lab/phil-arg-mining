@@ -39,6 +39,10 @@ datasets/interim/argument_mining/snowball_phase_1/end2end/pipeline_summary*.json
 *node_modules*
 *.egg-info*
 
+# Ignore local Node package files (only necessary for argdown syntax processing; we prefer users to install argdown via npx or globally)
+package.json
+package-lock.json
+
 # Ignore apps directory, which has its own repositories
 /apps*
 

@@ -10,7 +10,14 @@ JSON schema
 - argmining.json: model response structure with ADUs object and relations list.
 
 Utilities
-- convert_syntax.py: custom +/- argdown → standard argdown → JSON (via argdown CLI); marks implicit claims in metadata.
+- convert_syntax.py: custom +/- argdown → standard argdown → JSON (via Argdown CLI); marks implicit claims in metadata.
+    - Notes:
+        - This script will attempt to call the Argdown CLI to convert Argdown files to JSON.
+        - Preferred ways to run Argdown:
+            * npx (no install required): `npx argdown json <input.argdown> <output-dir>` (recommended)
+            * global install: `npm install -g @argdown/cli`
+            * local install (creates node_modules): `npm install @argdown/cli`
+        - Local Node artifacts such as `package.json` and `package-lock.json` are optional and are ignored by this repository's default `.gitignore`.
 - convert_argdown_json.py: Argdown JSON → research format (ADUs/relations), infers Major Claims from roots.
 
 Config usage
