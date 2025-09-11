@@ -39,7 +39,8 @@ dependencies = [
     "pytorch-ie",
     "pie_modules",
     "docling",
-    "ftfy"
+    "ftfy",
+    "pytest"
 ]
 
 [tool.setuptools]
