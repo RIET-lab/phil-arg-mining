@@ -38,7 +38,7 @@ Project layout
 - `results/` — exported evaluation outputs, metrics, and experiment logs.
 - `scripts/` — convenience CLI scripts and entrypoints used to run data-processing, extraction, and sampling tasks. Examples:
 		- `scripts/snowball_phase_1_generate.py` — entrypoint for generating LLM prompts / prompt manifests for phase 1.
-	- `scripts/snowball_phase_1_E2E_eval.py` — end-to-end evaluation entrypoint for phase 1 generated outputs.
+	- `scripts/snowball_phase_1_e2e_eval.py` — end-to-end evaluation entrypoint for phase 1 generated outputs.
 - `src/` — primary Python package; see `src/moralkg` for core project APIs. Notable subpackages:
 	- `src/moralkg/argmining/` — argument-mining model code, registry, prompts, and evaluation helpers used across experiments.
 	- `src/moralkg/snowball/` — snowball-sampling utilities and orchestration for phase-1 and later phases; contains `phase_1/` with evaluation and prompt generation code.
