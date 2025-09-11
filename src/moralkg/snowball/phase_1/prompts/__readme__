@@ -1,0 +1,8 @@
+Prompt utilities and loaders for Phase 1.
+
+This directory hosts prompt loader code, templates, and related helpers (e.g. `loader.py`). It may also contain example templates.
+
+TODO for `__init__.py`:
+- Re-export primary functions such as `load_prompts`, `render_template`, and commonly used prompt constants.
+- Keep I/O and template-parsing lazy; do not load large template files at import time.
+- Provide clear typing for prompt representations and example usage in docstrings.

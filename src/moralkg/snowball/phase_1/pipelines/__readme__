@@ -1,0 +1,9 @@
+Pipeline orchestration for Phase 1.
+
+This folder contains code for composing and running generation pipelines, including orchestrators that coordinate batch, I/O and model calls. Current file: `orchestrator.py`.
+
+TODO for `__init__.py`:
+- Expose the `PipelineOrchestrator` / `Orchestrator` class and helper functions to build pipelines.
+- Export any lightweight pipeline config dataclasses used by callers.
+- Avoid importing modules that trigger model initialization on import; keep imports lazy.
+- Ensure public API is explicit (use __all__) and well-documented.

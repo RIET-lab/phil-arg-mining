@@ -1,0 +1,8 @@
+Model utilities for Phase 1.
+
+This directory contains model registry and lightweight model-related helpers. Current file: `registry.py`.
+
+TODO for `__init__.py`:
+- Re-export the central `ModelRegistry` (or similar) and model factory functions.
+- Define and export public type aliases for model interfaces used by the phase (e.g. `LLMModel`, `ModelSpec`).
+- Avoid importing heavy ML frameworks at import time — use lazy imports within factory functions.

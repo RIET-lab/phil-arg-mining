@@ -22,21 +22,27 @@ pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
-Run a script (example — show help for the snowball sampling phase-1 script):
+Run a script (example — show help for the snowball sampling phase-1 prompt generation script):
 
 ```bash
-python scripts/snowball_phase_1.py --help
+python scripts/snowball_phase_1_generate.py --help
 ```
 
 Project layout
 --------------
 
-- datasets/ — raw, interim, and processed datasets. See subfolders for provenance.
-- figures/ — plots and visualizations used in analysis and reports.
-- models/ — location fo model checkpoints and tokenizers.
-- results/ — exported evaluation, metrics and logs from experiments.
-- scripts/ — data-processing, extraction, and sampling scripts. Examples:
-	- `scripts/snowball_phase_1.py` — entrypoint for snowball sampling phase 1.
-    - `scripts/snowball_phase_1_E2E_eval.py` — entrypoint for evaluating generated outputs for phase 1 of snowball sampling. 
-- src/ — primary python package modules for the project.
-- requirements.txt, pyproject.toml — dependency declarations for the repository.
+- `config.yaml` — central repository configuration (paths, model names, logging, and snowball settings). Most library code loads settings via `src/moralkg/config.py`.
+- `datasets/` — raw, interim, and processed datasets. See subfolders for provenance and processed artifacts.
+- `figures/` — plots and visualizations used in analysis and reports.
+- `models/` — model checkpoints, tokenizers, and model-specific config / metadata.
+- `results/` — exported evaluation outputs, metrics, and experiment logs.
+- `scripts/` — convenience CLI scripts and entrypoints used to run data-processing, extraction, and sampling tasks. Examples:
+		- `scripts/snowball_phase_1_generate.py` — entrypoint for generating LLM prompts / prompt manifests for phase 1.
+	- `scripts/snowball_phase_1_E2E_eval.py` — end-to-end evaluation entrypoint for phase 1 generated outputs.
+- `src/` — primary Python package; see `src/moralkg` for core project APIs. Notable subpackages:
+	- `src/moralkg/argmining/` — argument-mining model code, registry, prompts, and evaluation helpers used across experiments.
+	- `src/moralkg/snowball/` — snowball-sampling utilities and orchestration for phase-1 and later phases; contains `phase_1/` with evaluation and prompt generation code.
+	- `src/moralkg/preprocessing/` — text cleaning, document parsing and dataset preparation utilities.
+	- `src/moralkg/figures/` — scripts and helpers to generate visualizations found under the top-level `figures/` directory.
+	- `src/moralkg/config.py` and `src/moralkg/__readme__` — central config loader and package-level documentation.
+- `requirements.txt`, `pyproject.toml` — dependency declarations for the repository.
