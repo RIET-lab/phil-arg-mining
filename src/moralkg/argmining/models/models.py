@@ -60,16 +60,29 @@ def _check_for_model(config: dict) -> str:
     raise ValueError("Invalid model config: expected keys 'dir' or 'hf'")
 
 
-def _get_device_and_dtype() -> Tuple[Any, Any]:
+def _get_device_and_dtype(device_index: int | None = None) -> Tuple[Any, Any]:
     """
     Model-agnostic device and dtype selection. Returns (device, dtype).
+    Accepts an optional device_index; if None will consult MORALKG_CUDA_DEVICE env var.
     """
     import torch
     use_cuda = torch.cuda.is_available()
     dtype = (
         torch.bfloat16 if use_cuda and torch.cuda.is_bf16_supported() else (torch.float16 if use_cuda else torch.float32)
     )
-    device = torch.device("cuda:0" if use_cuda else "cpu") # TODO: Allow other device indices to be used
+    chosen = device_index
+    if chosen is None:
+        try:
+            env_val = os.environ.get("MORALKG_CUDA_DEVICE")
+            chosen = int(env_val) if env_val is not None else None
+        except Exception:
+            chosen = None
+
+    if use_cuda:
+        idx = chosen if chosen is not None else 0
+        device = torch.device(f"cuda:{idx}")
+    else:
+        device = torch.device("cpu")
     return device, dtype
 
 # TODO: internal tooling to discover and use GPUs so that models are properly parallelized
@@ -112,7 +125,14 @@ class End2End:
         self.logger = get_logger(__name__)
 
         # Get device and dtype for consistent tensor placement
-        self.device, self.dtype = _get_device_and_dtype()
+        # Allow an explicit device index via kwargs: 'device_index' or 'cuda_device'
+        device_index = None
+        if isinstance(self.kwargs.get('device_index'), int):
+            device_index = int(self.kwargs.get('device_index'))
+        elif isinstance(self.kwargs.get('cuda_device'), int):
+            device_index = int(self.kwargs.get('cuda_device'))
+
+        self.device, self.dtype = _get_device_and_dtype(device_index=device_index)
         self.logger.info("Using device: %s, dtype: %s", self.device, self.dtype)
 
         # Create a config instance in order to set up models

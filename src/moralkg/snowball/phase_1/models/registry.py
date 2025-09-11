@@ -7,6 +7,7 @@ raise if required dependencies or model files are missing.
 from __future__ import annotations
 
 from typing import Any
+import logging
 
 
 def create_end2end(real_kwargs: dict | None = None) -> Any:
@@ -18,6 +19,13 @@ def create_end2end(real_kwargs: dict | None = None) -> Any:
     Raises:
       Any exception raised by the End2End constructor (no fallback performed).
     """
-    from moralkg.argmining.models.models import End2End
-
-    return End2End(**(real_kwargs or {}))
+    logger = logging.getLogger(__name__)
+    logger.info("Creating End2End pipeline with kwargs: %s", real_kwargs)
+    try:
+        from moralkg.argmining.models.models import End2End
+        inst = End2End(**(real_kwargs or {}))
+        logger.info("End2End pipeline created successfully")
+        return inst
+    except Exception as e:
+        logger.error("Failed to create End2End pipeline: %s", e)
+        raise

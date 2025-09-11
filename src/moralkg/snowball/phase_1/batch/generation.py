@@ -10,6 +10,7 @@ from pathlib import Path
 from typing import Callable, Iterable, List
 from moralkg.snowball.phase_1.prompts.loader import PromptConfig
 from moralkg.snowball.phase_1.io.checkpoints import save_batch
+import logging
 
 
 class BatchArgMapper:
@@ -17,13 +18,23 @@ class BatchArgMapper:
         self.outdir = Path(outdir)
         self.generator = generator
         self.checkpoint_interval = checkpoint_interval
+        self.logger = logging.getLogger(__name__)
+        self.logger.info("BatchArgMapper initialized: outdir=%s, checkpoint_interval=%d", self.outdir, self.checkpoint_interval)
 
     def run(self, prompt_configs: Iterable[PromptConfig], strategy: str = "default", name: str | None = None) -> Path:
         outdir = self.outdir
         outputs = []
         count = 0
+        self.logger.info("Starting batch run: strategy=%s name=%s", strategy, name)
         for cfg in prompt_configs:
-            result = self.generator(cfg)
+            self.logger.debug("Processing prompt: shot=%s variation=%s user_file=%s", cfg.shot_type, cfg.variation, cfg.user_file.name)
+            try:
+                result = self.generator(cfg)
+            except Exception as e:
+                self.logger.error("Generator failed for prompt %s/%s: %s", cfg.shot_type, cfg.variation, e)
+                # continue to next prompt
+                continue
+
             # Normalize output artifact
             item = {
                 "id": f"{cfg.shot_type}:{cfg.variation}:{cfg.user_file.name}",
@@ -41,8 +52,16 @@ class BatchArgMapper:
 
             if count % self.checkpoint_interval == 0:
                 # write an intermittent checkpoint
-                save_batch(outputs, outdir, name or f"partial_{strategy}_{count}")
+                chk_name = name or f"partial_{strategy}_{count}"
+                self.logger.info("Writing intermittent checkpoint: %s (count=%d)", chk_name, count)
+                try:
+                    save_batch(outputs, outdir, chk_name)
+                except Exception as e:
+                    self.logger.error("Failed to save intermittent checkpoint %s: %s", chk_name, e)
 
         # final save
-        final_path = save_batch(outputs, outdir, name or f"final_{strategy}")
+        final_name = name or f"final_{strategy}"
+        self.logger.info("Writing final batch file: %s (total=%d)", final_name, len(outputs))
+        final_path = save_batch(outputs, outdir, final_name)
+        self.logger.info("Final batch saved to: %s", final_path)
         return final_path

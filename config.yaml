@@ -57,7 +57,10 @@ paths:
     phase_1:
       outputs:
         end2end:
-          standard: "datasets/interim/argument_mining/snowball_phase_1/end2end/standard" # Raw generation outputs for standard prompting
+          standard: 
+            zero-shot: "datasets/interim/argument_mining/snowball_phase_1/end2end/standard/zero-shot" # Raw generation outputs for zero-shot standard prompting
+            one-shot: "datasets/interim/argument_mining/snowball_phase_1/end2end/standard/one-shot" # Raw generation outputs for one-shot standard prompting
+            few-shot: "datasets/interim/argument_mining/snowball_phase_1/end2end/standard/few-shot" # Raw generation outputs for few-shot standard prompting
           standard_rag: "datasets/interim/argument_mining/snowball_phase_1/end2end/standard_rag" # Raw generation outputs for standard RAG prompting
           cot: "datasets/interim/argument_mining/snowball_phase_1/end2end/cot" # Raw generation outputs for CoT prompting
           rag_cot: "datasets/interim/argument_mining/snowball_phase_1/end2end/rag_cot" # Raw generation outputs for RAG+CoT prompting
@@ -71,8 +74,8 @@ paths:
           rag_cot: "datasets/processed/argument_mining/snowball_phase_1/end2end/rag_cot" # Parsed argument maps for RAG+CoT prompting
         adur: "datasets/processed/argument_mining/snowball_phase_1/adur" # Parsed argument maps from ADUR pipeline
         are: "datasets/processed/argument_mining/snowball_phase_1/are" # Parsed argument maps from ARE pipeline
-      valid: "datasets/processed/argument_mining/snowball_sampling/phase_1_workshop_sample" # Local directory containing the argument map pipeline results for the annotation comparision set
-      sample: "datasets/processed/argument_mining/snowball_sampling/phase_1_small_sample" # Local directory containing the argument map pipeline results for the random validation
+      valid: "datasets/processed/argument_mining/snowball_sampling/phase_1_workshop_sample" # Argument map pipeline results for the annotation comparision set
+      sample: "datasets/processed/argument_mining/snowball_sampling/phase_1_small_sample" # Argument map pipeline results for the random validation
       prompts: 
         x_shot_examples: # Local directory containing arguments mined from a paper for use as annotation examples in one- or few-shot annotation prompting
           paper: "src/moralkg/snowball/phase_1/prompts/x_shot_examples/SCHFAT-43_cleaned.md" # Local filepath to a single paper
@@ -84,10 +87,13 @@ paths:
           cot: "src/moralkg/snowball/phase_1/prompts/templates/cot"
           rag_cot: "src/moralkg/snowball/phase_1/prompts/templates/rag_cot"
         meta_llama_3:
-          standard: "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard" # Local directory containing the LLM system and user prompts for the non-CoT, non-RAG pipelines
-          standard_rag: "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard_rag" # Local directory containing the LLM system and user prompts for the standard RAG pipelines
-          cot: "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/cot" # Local directory containing the LLM system and user prompts for the CoT pipeline
-          rag_cot: "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/cot_rag" # Local directory containing the LLM system and user prompts for the RAG+CoT pipeline
+          standard: 
+            zero-shot: "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/zero-shot" # LLM system and user prompts for the zero-shot standard pipeline
+            one-shot: "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/one-shot" # LLM system and user prompts for the one-shot standard pipeline
+            few-shot: "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/few-shot" # LLM system and user prompts for the few-shot standard pipeline
+          standard_rag: "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard_rag" # LLM system and user prompts for the standard RAG pipelines
+          cot: "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/cot" # LLM system and user prompts for the CoT pipeline
+          rag_cot: "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/cot_rag" # LLM system and user prompts for the RAG+CoT pipeline
     phase_2:
       sample: "datasets/processed/argument_mining/snowball_sampling/phase_2_large_sample"
   figures:

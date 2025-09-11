@@ -6,12 +6,15 @@ utility. It reads prompt directories produced by the project's existing
 
 The goal is to provide a stable shape for prompt metadata used by the batch
 generation code in later PRs.
+
+TODO: Log a bit less verbosely by default; add a "VERBOSE" level to the config logger options and make use of it here.
 """
 from __future__ import annotations
 
 from dataclasses import dataclass
 from pathlib import Path
 from typing import List
+import logging
 
 
 @dataclass(frozen=True)
@@ -28,6 +31,8 @@ def _read_text(path: Path) -> str | None:
     try:
         return path.read_text(encoding="utf-8").strip()
     except FileNotFoundError:
+        logger = logging.getLogger(__name__)
+        logger.debug("Prompt file not found when reading: %s", path)
         return None
 
 
@@ -46,8 +51,11 @@ def load_prompts(prompt_dir: Path) -> List[PromptConfig]:
     Returns:
       List[PromptConfig]
     """
+    logger = logging.getLogger(__name__)
     prompt_dir = Path(prompt_dir)
+    logger.info("Loading prompts from directory: %s", prompt_dir)
     if not prompt_dir.exists():
+        logger.error("Prompt directory not found: %s", prompt_dir)
         raise FileNotFoundError(f"Prompt directory not found: {prompt_dir}")
 
     # Determine shot type from directory name
@@ -57,36 +65,94 @@ def load_prompts(prompt_dir: Path) -> List[PromptConfig]:
     system_files = sorted(prompt_dir.glob("system_prompt*.txt"))
     user_files = sorted(prompt_dir.glob("user_prompt*.txt"))
 
+    logger.debug("Found %d system prompt(s) and %d user prompt(s)",
+                 len(system_files), len(user_files))
+
     results: List[PromptConfig] = []
 
     if not user_files:
+        logger.error("No user prompt files found in %s", prompt_dir)
         raise ValueError(f"No user prompt found in {prompt_dir}")
 
     # If there are system prompts, pair each system with each user to create variations
     if system_files:
         for sysf in system_files:
             sys_text = _read_text(sysf)
+            logger.debug("Loaded system prompt file: %s (len=%s)", sysf.name,
+                         len(sys_text) if sys_text is not None else 0)
             for uf in user_files:
                 user_text = _read_text(uf) or ""
+                logger.debug("Loaded user prompt file: %s (len=%d)", uf.name, len(user_text))
                 # derive a stable variation key from the system filename
                 variation = sysf.stem.replace("system_prompt_", "zs")
-                results.append(PromptConfig(shot_type=shot_type,
-                                            system_file=sysf,
-                                            user_file=uf,
-                                            variation=variation,
-                                            system_text=sys_text,
-                                            user_text=user_text))
+                cfg = PromptConfig(shot_type=shot_type,
+                                   system_file=sysf,
+                                   user_file=uf,
+                                   variation=variation,
+                                   system_text=sys_text,
+                                   user_text=user_text)
+                logger.debug("Created PromptConfig: %s/%s (variation=%s)",
+                             sysf.name, uf.name, variation)
+                results.append(cfg)
     else:
         # No system prompt: create configs with system_file=None
+        logger.debug("No system prompts found; creating default PromptConfig(s)")
         for uf in user_files:
             user_text = _read_text(uf) or ""
-            results.append(PromptConfig(shot_type=shot_type,
-                                        system_file=None,
-                                        user_file=uf,
-                                        variation="default",
-                                        system_text=None,
-                                        user_text=user_text))
+            cfg = PromptConfig(shot_type=shot_type,
+                               system_file=None,
+                               user_file=uf,
+                               variation="default",
+                               system_text=None,
+                               user_text=user_text)
+            logger.debug("Created PromptConfig (no system): %s (variation=default)", uf.name)
+            results.append(cfg)
 
     # Sort results deterministically by (variation, user filename)
     results.sort(key=lambda r: (r.variation, r.user_file.name))
+    logger.info("Loaded %d prompt configurations from %s", len(results), prompt_dir)
     return results
+
+
+def render_prompt(cfg: PromptConfig, context: dict) -> tuple[str, str]:
+    """Render a PromptConfig into concrete (system_text, user_text).
+
+    - If cfg.system_text is present, it will be formatted with context.
+    - The user_text will be formatted with context. If formatting fails due to
+      missing keys, a KeyError is raised.
+
+    The context may contain Path values which will be replaced by file contents.
+    """
+    # Simplified rendering: only support the legacy literal placeholder
+    # '<paper text inserted here>' which will be replaced by the provided
+    # context['paper_text'] (or empty string if missing). This avoids
+    # attempting to format arbitrary files that may contain JSON or other
+    # braces and produce spurious KeyErrors.
+    logger = logging.getLogger(__name__)
+
+    def _resolve_value(v):
+        try:
+            if isinstance(v, Path):
+                txt = v.read_text(encoding='utf-8', errors='ignore')
+                logger.debug("Resolved Path value for rendering: %s (len=%d)", v, len(txt))
+                return txt
+        except Exception as e:
+            logger.warning("Could not read path while rendering prompt: %s (%s)", v, e)
+        return v
+
+    safe_ctx = {k: _resolve_value(v) for k, v in context.items()}
+
+    sys_tpl = cfg.system_text or ""
+    usr_tpl = cfg.user_text or ""
+
+    paper_text = str(safe_ctx.get('paper_text', ''))
+
+    try:
+        sys_text = sys_tpl.replace('<paper text inserted here>', paper_text) if sys_tpl else ''
+        user_text = usr_tpl.replace('<paper text inserted here>', paper_text)
+        logger.debug("Rendered prompt (shot=%s, variation=%s): system_len=%d user_len=%d",
+                     cfg.shot_type, cfg.variation, len(sys_text), len(user_text))
+        return sys_text, user_text
+    except Exception as e:
+        logger.error("Error rendering prompt for %s/%s: %s", cfg.shot_type, cfg.variation, e)
+        raise

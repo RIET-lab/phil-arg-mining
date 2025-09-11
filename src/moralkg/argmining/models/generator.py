@@ -12,14 +12,32 @@ from moralkg import Config, get_logger
 LOGGER = None # Defer logger creation so that a logger isn't unintentionally created during the import process.
 
 
-def get_device_and_dtype() -> Tuple[torch.device, torch.dtype]:
+def get_device_and_dtype(device_index: int | None = None) -> Tuple[torch.device, torch.dtype]:
+    """Select device and dtype.
+
+    If device_index is provided it will be used as the CUDA device index.
+    Otherwise checks MORALKG_CUDA_DEVICE env var (int), and falls back to cuda:0.
+    """
     use_cuda = torch.cuda.is_available()
     dtype = (
         torch.bfloat16
         if use_cuda and torch.cuda.is_bf16_supported()
         else (torch.float16 if use_cuda else torch.float32)
     )
-    device = torch.device("cuda:0" if use_cuda else "cpu") # TODO: Allow other device indices to be used
+    chosen_index = device_index
+    if chosen_index is None:
+        env_val = os.environ.get("MORALKG_CUDA_DEVICE")
+        try:
+            chosen_index = int(env_val) if env_val is not None else None
+        except Exception:
+            chosen_index = None
+
+    if use_cuda:
+        idx = chosen_index if chosen_index is not None else 0
+        device = torch.device(f"cuda:{idx}")
+    else:
+        device = torch.device("cpu")
+
     return device, dtype
 
 
