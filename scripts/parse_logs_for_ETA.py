@@ -109,7 +109,20 @@ def estimate_remaining(total: Optional[int], produced: int, latencies: List[floa
     return remaining, est
 
 
-def find_most_recent_logs(logdir: str, n: int) -> List[str]:
+def file_starts_with(path: str, substring: str) -> bool:
+    """Return True if the first non-empty line in the file contains substring."""
+    try:
+        with open(path, "r", encoding="utf-8", errors="ignore") as fh:
+            for ln in fh:
+                if ln.strip():
+                    return substring in ln
+    except Exception:
+        return False
+    return False
+
+
+def find_most_recent_logs(logdir: str, n: int, required_start: str = "Creating End2End pipeline") -> List[str]:
+    """Find the n most recent log files in logdir whose first non-empty line contains required_start."""
     files = []
     if not os.path.isdir(logdir):
         raise FileNotFoundError(f"Logs directory not found: {logdir}")
@@ -117,6 +130,9 @@ def find_most_recent_logs(logdir: str, n: int) -> List[str]:
     for name in os.listdir(logdir):
         path = os.path.join(logdir, name)
         if not os.path.isfile(path):
+            continue
+        # only consider files that start with the required string
+        if not file_starts_with(path, required_start):
             continue
         ts = parse_filename_timestamp(name)
         if ts is None:
@@ -133,16 +149,32 @@ def main() -> None:
     parser.add_argument("-n", "--num", type=int, default=1, help="Number of recent logs to analyze (default: 1)")
     parser.add_argument("-k", "--last-latencies", type=int, default=20, help="Show last K latency entries per log (default: 20)")
     parser.add_argument("--logs-dir", type=str, default=None, help="Logs directory (overrides config). If not set, script uses ./.logs by default")
+    parser.add_argument("--config", type=str, default=None, help="Path to config.yaml (optional). If provided it'll be used to locate logs dir")
     args = parser.parse_args()
+    # Try to read logs dir from config file if present. The config path can be
+    # overridden with --config. Falls back to CLI --logs-dir or ./.logs.
+    cfg_path = args.config or os.path.join(os.getcwd(), "config.yaml")
+    logs_dir_from_cfg = None
+    try:
+        import yaml
 
-    # Example: read logs dir from config.yaml (disabled/commented out for now)
-    # import yaml
-    # from src.moralkg.config import load_config  # commented; local package imports disabled for now
-    # cfg = load_config("config.yaml")
-    # logs_dir = cfg.general.logs.dir
+        if os.path.isfile(cfg_path):
+            with open(cfg_path, "r", encoding="utf-8") as fh:
+                cfg = yaml.safe_load(fh) or {}
+            # Try common path: cfg['general']['logs']['dir'] (be permissive)
+            gen = cfg.get("general") if isinstance(cfg, dict) else None
+            if isinstance(gen, dict):
+                logs_cfg = gen.get("logs")
+                if isinstance(logs_cfg, dict):
+                    logs_dir_from_cfg = logs_cfg.get("dir")
+            if logs_dir_from_cfg == "":
+                logs_dir_from_cfg = None
+    except Exception:
+        # If yaml isn't available or parsing fails, silently ignore and fall back
+        logs_dir_from_cfg = None
 
-    # Use provided CLI value or fallback to ./.logs
-    logs_dir = args.logs_dir or os.path.join(os.getcwd(), ".logs")
+    # Use provided CLI value, then config file value, then fallback to ./.logs
+    logs_dir = args.logs_dir or logs_dir_from_cfg or os.path.join(os.getcwd(), ".logs")
 
     try:
         recent = find_most_recent_logs(logs_dir, args.num)
