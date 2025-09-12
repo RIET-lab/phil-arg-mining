@@ -2,6 +2,5 @@ Batch utilities for Phase 1 generation.
 
 This directory contains code that batches multiple generation requests, schedules jobs, and provides helpers to split/aggregate prompt batches. Current implementation includes `generation.py`.
 
-TODO for `__init__.py`:
-- Provide a clear, small public API (e.g. `BatchGenerator`, `create_batches`).
-- Re-export only lightweight types and factory functions; avoid importing heavy model/LLM libraries at module import time.
+API
+- BatchArgMapper, run_file_mode

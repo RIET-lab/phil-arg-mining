@@ -1,7 +1,0 @@
-I/O helpers for Phase 1.
-
-This directory implements checkpointing, reading/writing intermediate artifacts, and helper utilities for interacting with filesystem/storage. Current files include `checkpoints.py`.
-
-TODO for `__init__.py`:
-- Export the primary I/O functions (e.g. `save_checkpoint`, `load_checkpoint`, `list_checkpoints`).
-- Ensure functions raise clear exceptions on I/O errors and provide typed docstrings for public API.

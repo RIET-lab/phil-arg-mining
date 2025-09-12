@@ -18,5 +18,4 @@ Config usage
 - argmining.schema (optional): default schema path if you want to inject schema into prompts or validate outputs.
 
 Notes
-- Robust JSON extraction from free‑form text is included; validation is minimal unless you add explicit JSON schema checks.
-
+- Robust JSON extraction from freeform text is included; validation is minimal unless you add explicit JSON schema checks.

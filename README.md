@@ -44,5 +44,5 @@ Project layout
 	- `src/moralkg/snowball/` — snowball-sampling utilities and orchestration for phase-1 and later phases; contains `phase_1/` with evaluation and prompt generation code.
 	- `src/moralkg/preprocessing/` — text cleaning, document parsing and dataset preparation utilities.
 	- `src/moralkg/figures/` — scripts and helpers to generate visualizations found under the top-level `figures/` directory.
-	- `src/moralkg/config.py` and `src/moralkg/__readme__` — central config loader and package-level documentation.
+	- `src/moralkg/config.py` and `src/moralkg/README.md` — central config loader and package-level documentation.
 - `requirements.txt`, `pyproject.toml` — dependency declarations for the repository.
