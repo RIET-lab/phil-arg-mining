@@ -83,7 +83,12 @@ def normalize_adur_output(raw: Dict[str, Any], source_text: Optional[str] = None
             logger.error("Failed to construct ADUModel for %s: %s", adu_id, exc)
             raise
 
-        adus.append(adu_obj.dict())
+        # Use Pydantic v2's model_dump() to serialize the model to dict
+        try:
+            adus.append(adu_obj.model_dump())
+        except Exception:
+            # Fallback for older pydantic versions
+            adus.append(adu_obj.dict())
 
     # Compute simple statistics
     total = len(adus)
@@ -164,7 +169,11 @@ def normalize_are_output(raw: Dict[str, Any], source_text: Optional[str] = None)
             logger.error("Failed to construct RelationModel for %s: %s", rel_id, exc)
             raise
 
-        relations.append(rel_obj.dict())
+        # Prefer model_dump() for Pydantic v2; fallback to dict() if unavailable
+        try:
+            relations.append(rel_obj.model_dump())
+        except Exception:
+            relations.append(rel_obj.dict())
 
     # Build ArgumentMap for statistics convenience
     try:

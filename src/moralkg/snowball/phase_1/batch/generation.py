@@ -65,3 +65,56 @@ class BatchArgMapper:
         final_path = save_batch(outputs, outdir, final_name)
         self.logger.info("Final batch saved to: %s", final_path)
         return final_path
+
+
+def run_file_mode(pipeline, input_files, outdir, normalize_fn, prefix: str = "output"):
+    """Run a file-mode pipeline over a list of input files, normalize and save outputs.
+
+    Args:
+      pipeline: object with a `generate(input_path)` method that returns a raw dict
+      input_files: iterable of file paths (str or Path)
+      outdir: destination directory to write outputs
+      normalize_fn: callable(raw_dict, source_text=None) -> normalized dict
+      prefix: filename prefix for saved outputs
+
+    Raises on first error to keep failures loud and visible for debugging.
+    Returns the output directory Path on success.
+    """
+    logger = logging.getLogger(__name__)
+    outdir = Path(outdir)
+    outdir.mkdir(parents=True, exist_ok=True)
+    saved = []
+    for p in input_files:
+        p_path = Path(p)
+        logger.info("Processing file-mode input: %s", p_path)
+        try:
+            raw = pipeline.generate(p_path)
+        except Exception as e:
+            logger.error("Pipeline.generate failed for %s: %s", p_path, e)
+            raise
+
+        # try to read source text for normalization hints; ignore failures
+        src_text = None
+        try:
+            src_text = p_path.read_text(encoding="utf-8", errors="ignore")
+        except Exception:
+            src_text = None
+
+        try:
+            normalized = normalize_fn(raw, source_text=src_text)
+        except Exception as e:
+            logger.error("Normalization failed for %s: %s", p_path, e)
+            raise
+
+        filename = f"{prefix}_{p_path.stem}.json"
+        try:
+            from moralkg.snowball.phase_1.io.checkpoints import save_individual
+
+            path = save_individual(normalized, outdir, filename)
+            saved.append(path)
+            logger.info("Saved normalized output to %s", path)
+        except Exception as e:
+            logger.error("Failed to save output for %s: %s", p_path, e)
+            raise
+
+    return outdir

@@ -13,6 +13,7 @@ from typing import Any
 
 from .models import registry
 from .io import checkpoints
+from .batch.generation import run_file_mode
 
 logger = logging.getLogger(__name__)
 
@@ -41,17 +42,11 @@ def run_adur_cmd(model_ref: Any, input_file: Path, outdir: Path, dry_run: bool =
     # Create ADUR pipeline (this will raise loudly on failure)
     adur = registry.get_adur_pipeline(model_ref)
 
-    # Run
-    out = adur.generate(input_file)
-
-    # Normalize
+    # Use file-mode runner which normalizes and saves outputs via checkpoints
     from .models.adapters import normalize_adur_output
-    normalized = normalize_adur_output(out, source_text=input_file.read_text(encoding="utf-8", errors="ignore"))
-
-    # Save
-    saved = _write_output_json(normalized, outdir, prefix="adur")
-    logger.info("Saved ADUR output to %s", saved)
-    return saved
+    outdir_path = run_file_mode(adur, [input_file], outdir, normalize_adur_output, prefix="adur")
+    logger.info("ADUR file-mode run completed; outputs in %s", outdir_path)
+    return outdir_path
 
 
 def run_are_cmd(model_ref: Any, adur_model_ref: Any, input_file: Path, outdir: Path, dry_run: bool = False):
@@ -65,14 +60,10 @@ def run_are_cmd(model_ref: Any, adur_model_ref: Any, input_file: Path, outdir: P
         return
 
     are = registry.get_are_pipeline(model_ref, adur_model_ref)
-    out = are.generate(input_file)
-
     from .models.adapters import normalize_are_output
-    normalized = normalize_are_output(out, source_text=input_file.read_text(encoding="utf-8", errors="ignore"))
-
-    saved = _write_output_json(normalized, outdir, prefix="are")
-    logger.info("Saved ARE output to %s", saved)
-    return saved
+    outdir_path = run_file_mode(are, [input_file], outdir, normalize_are_output, prefix="are")
+    logger.info("ARE file-mode run completed; outputs in %s", outdir_path)
+    return outdir_path
 
 
 def _build_arg_parser() -> argparse.ArgumentParser:
