@@ -73,8 +73,10 @@ def summarize_and_print(logger, results):
 
 
 def main(argv=None):
-    p = argparse.ArgumentParser(description="Phase 1 End-to-End evaluator (thin CLI)")
-    grp = p.add_mutually_exclusive_group(required=True)
+    p = argparse.ArgumentParser(description="Phase 1 End-to-End evaluator CLI")
+    # input-file / input-dir are optional now; if omitted we resolve shot-based
+    # output directories from config (see --shot).
+    grp = p.add_mutually_exclusive_group(required=False)
     grp.add_argument('--input-file', type=Path, help='Single generated JSON file to evaluate')
     grp.add_argument('--input-dir', type=Path, help='Directory containing generated JSON files (non-recursive)')
     # If neither input-file nor input-dir are provided the script will fall back
@@ -83,8 +85,8 @@ def main(argv=None):
     p.add_argument('--shot', type=str, default='all', choices=['zero-shot', 'one-shot', 'few-shot', 'all'],
                    help="Which shot strategy to evaluate (maps to config prompts). Use 'all' to evaluate all three")
     p.add_argument('--outdir', type=Path, default=None, help='Override output directory (applies to all shot choices)')
-    p.add_argument('--parsed-argmap-dir', type=Path, required=True,
-                   help='Directory containing parsed argument-map artifacts used by the evaluator (processed argmap path)')
+    p.add_argument('--parsed-argmap-dir', type=Path, default=None,
+                   help='(Optional) Directory containing parsed argument-map artifacts used by the evaluator (processed argmap path). If not provided, the script will try to load a default from config.yaml.  This is required if using --save-parsed-json or --use-existing-parsed.')
     p.add_argument('--out-file', type=Path, default=None, help='Optional path to write aggregated evaluation results (JSON). If omitted, results are saved to parsed-argmap-dir/evaluation_results.json')
     p.add_argument('--save-parsed-json', action='store_true', help='Save per-paper parsed JSON outputs alongside parsed-argmap-dir')
     p.add_argument('--use-existing-parsed', action='store_true', help='If parsed JSONs already exist, prefer them to re-parsing')
@@ -115,13 +117,25 @@ def main(argv=None):
                 raise FileNotFoundError(f"Missing output path in config for shot '{key}' (key={out_cfg_key})")
             shot_out_paths[key] = Path(args.outdir) if args.outdir is not None else Path(out_path)
 
-        # Collect JSON files from each shot output dir (non-recursive)
+        # Collect JSON files from each shot output dir (non-recursive).
+        # If the output dir has no JSON files, check for a `checkpoints/`
+        # subdirectory and use JSON files from there (non-recursive).
         collected = []
         for s, od in shot_out_paths.items():
             if not od.exists():
                 logger.warning('Configured output dir for shot=%s does not exist: %s', s, od)
                 continue
             files = sorted([p for p in od.iterdir() if p.is_file() and p.suffix.lower() == '.json'])
+
+            # If the main output dir has no JSONs, look in a checkpoints/ dir
+            if not files:
+                cp_dir = od / 'checkpoints'
+                if cp_dir.exists() and cp_dir.is_dir():
+                    cp_files = sorted([p for p in cp_dir.iterdir() if p.is_file() and p.suffix.lower() == '.json'])
+                    if cp_files:
+                        logger.info('No json files found in %s; using %d json(s) from checkpoints/%s', od, len(cp_files), cp_dir)
+                        files = cp_files
+
             logger.info('Discovered %d json files in output dir for shot=%s -> %s', len(files), s, od)
             collected.extend(files)
 
@@ -131,6 +145,19 @@ def main(argv=None):
         sys.exit(2)
 
     logger.info('Found %d input files to evaluate', len(input_files))
+
+    # If parsed_argmap_dir was not provided on the CLI, try to load the default from the project config. Try likely keys in order of priority.
+    if args.parsed_argmap_dir is None:
+        val = cfg.get('paths.snowball.phase_1.parsed.end2end.standard')
+        try:
+            args.parsed_argmap_dir = Path(val)
+            logger.info('Using parsed-argmap-dir from config key %s -> %s', 'paths.snowball.phase_1.parsed.end2end.standard', args.parsed_argmap_dir)
+        except Exception:
+            raise ValueError('Invalid parsed-argmap-dir value in config for key %s: %s', 'paths.snowball.phase_1.parsed.end2end.standard', val)
+
+    # Validate arguments that depend on parsed_argmap_dir
+    if (args.save_parsed_json or args.use_existing_parsed) and args.parsed_argmap_dir is None:
+        p.error('--parsed-argmap-dir is required when using --save-parsed-json or --use-existing-parsed')
 
     # Minimal dataset import; use repository Dataset class
     dataset = Dataset()
@@ -154,7 +181,11 @@ def main(argv=None):
     # Print and save summary
     summarize_and_print(logger, results)
 
-    out_file = args.out_file if args.out_file is not None else (args.parsed_argmap_dir / 'evaluation_results.json')
+    if args.out_file is not None:
+        out_file = args.out_file
+    else:
+        # If parsed_argmap_dir provided, default under that dir; otherwise use cwd
+        out_file = (args.parsed_argmap_dir / 'evaluation_results.json') if args.parsed_argmap_dir is not None else Path.cwd() / 'evaluation_results.json'
     logger.info('Saving aggregated results to %s', out_file)
     try:
         evaluator.save_results(results, out_file)
