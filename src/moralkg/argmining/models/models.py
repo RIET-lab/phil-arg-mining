@@ -1,5 +1,6 @@
 from pathlib import Path
 from typing import Any, Callable, Optional, Tuple
+from types import SimpleNamespace
 
 import os
 from moralkg import Config, get_logger
@@ -28,6 +29,24 @@ def _download_model(path: str | Path, local: str | Path | None = None) -> str:
     snapshot_download(repo_id=repo_id, local_dir=str(local_dir), local_dir_use_symlinks=False)
     return str(local_dir)
 
+
+class _ShimLabeledSpans(list):
+    """A tiny shim that provides the minimal API expected by the codebase:
+    - acts like a list of span-like objects
+    - has .predictions attribute (self) and clear()/extend()
+    This lets the transformers fallback interoperate with code that expects
+    pytorch_ie's LabeledSpans container.
+    """
+    def __init__(self, initial=None):
+        initial = initial or []
+        super().__init__(initial)
+        # keep .predictions for backward-compatibility
+        self.predictions = self
+
+    def clear(self):
+        super().clear()
+
+
 def _check_for_model(config: dict) -> str:
     """
     Given a config dict with optional keys {"dir", "hf"}, resolve a local path with model files.
@@ -48,16 +67,38 @@ def _check_for_model(config: dict) -> str:
         if p.exists() and any(p.iterdir()):
             logger.info("Using existing local model directory: %s", str(p))
             return str(p)
-        if hf_repo:
-            logger.warning("Local dir missing or empty (%s); downloading from HF repo %s", str(p), hf_repo)
-            return _download_model(hf_repo, local_dir)
-        raise FileNotFoundError(f"Configured local model directory not found or empty: {p}")
+        # Fail loudly: do not auto-download from HF. Require explicit local 'dir'.
+        raise FileNotFoundError(
+            f"Configured local model directory not found or empty: {p}. "
+            "Automatic HF downloads are disabled; set 'dir' to a valid local snapshot."
+        )
 
-    if hf_repo:
-        logger.info("No local dir configured; downloading from HF repo %s", hf_repo)
-        return _download_model(hf_repo)
+    # Do not accept bare HF refs: require explicit local directories in config
+    raise ValueError(
+        "Invalid model config: expected key 'dir' pointing to a local model directory. "
+        "Automatic HF downloads are disabled for debugging."
+    )
 
-    raise ValueError("Invalid model config: expected keys 'dir' or 'hf'")
+
+def _has_taskmodule_metadata(model_dir: str) -> bool:
+    """Heuristic: return True if model_dir contains files suggesting a SAM/taskmodule snapshot.
+
+    We look for taskmodule_config.json / taskmodule_config.yaml or any files referencing 'taskmodule' in filenames.
+    """
+    try:
+        p = Path(model_dir)
+        if not p.exists() or not p.is_dir():
+            return False
+        for fname in ("taskmodule_config.json", "taskmodule_config.yaml"):
+            if (p / fname).exists():
+                return True
+        # fallback: any file name containing 'taskmodule'
+        for f in p.rglob("*"):
+            if "taskmodule" in f.name.lower():
+                return True
+    except Exception:
+        return False
+    return False
 
 
 def _get_device_and_dtype(device_index: int | None = None) -> Tuple[Any, Any]:
@@ -84,6 +125,62 @@ def _get_device_and_dtype(device_index: int | None = None) -> Tuple[Any, Any]:
     else:
         device = torch.device("cpu")
     return device, dtype
+
+
+def _make_transformer_ner_pipeline(model_dir: str, device_index: int | None = None):
+    """
+    Create a small transformers-based token-classification pipeline as a fallback
+    for model snapshots that don't include pytorch-ie taskmodule metadata.
+    Returns a callable pipeline that accepts a document and populates
+    document.labeled_spans.predictions with SimpleNamespace-like objects
+    having attributes (start, end, label, score).
+    """
+    try:
+        from transformers import pipeline as _hf_pipeline  # type: ignore
+    except Exception as exc:  # pragma: no cover - defensive
+        raise RuntimeError("'transformers' package is required for the NER fallback") from exc
+
+    hf_device = int(device_index) if isinstance(device_index, int) and device_index >= 0 else -1
+
+    class TransformerNERPipeline:
+        def __init__(self, model_dir: str, device: int = -1):
+            self._pipe = _hf_pipeline(
+                task="token-classification",
+                model=str(model_dir),
+                aggregation_strategy="simple",
+                device=device,
+            )
+
+        def __call__(self, document, inplace=True):
+            text = getattr(document, "text", "")
+            try:
+                preds = self._pipe(text)
+            except Exception:
+                preds = []
+
+            spans = []
+            for p in preds:
+                start = p.get("start")
+                end = p.get("end")
+                label = p.get("entity_group") or p.get("entity") or p.get("label")
+                score = p.get("score")
+                spans.append(SimpleNamespace(start=start, end=end, label=label, score=score))
+
+            try:
+                ls = document.labeled_spans
+                if hasattr(ls, "predictions") and hasattr(ls.predictions, "clear"):
+                    ls.predictions.clear()
+                    ls.predictions.extend(spans)
+                else:
+                    # Wrap into shim for downstream compatibility
+                    document.labeled_spans = _ShimLabeledSpans(spans)
+            except Exception:
+                document.labeled_spans = _ShimLabeledSpans(spans)
+
+            return document
+
+    return TransformerNERPipeline(model_dir, device=hf_device)
+
 
 # TODO: internal tooling to discover and use GPUs so that models are properly parallelized
 
@@ -424,6 +521,74 @@ class ADUR:
             else:
                 # Re-raise for any other unexpected TypeError
                 raise
+        except KeyError as exc:
+            # This commonly means the model snapshot does not include a
+            # taskmodule_config.json or the AutoTaskModule expected keys like
+            # 'taskmodule_type'. In practice many roberta-style checkpoints
+            # are plain token-classification models and don't ship SAM task
+            # metadata. Provide a lightweight transformers-based fallback that
+            # performs token-classification and populates the document's
+            # labeled_spans.predictions to preserve downstream behaviour.
+            msg = str(exc)
+            self.logger.warning(
+                "AutoPipeline.from_pretrained failed with KeyError '%s' - using transformers token-classification fallback."
+                " This fallback performs best-effort span extraction but may differ from the original SAM behavior.",
+                msg,
+            )
+
+            # Lazy import and create a small wrapper around transformers' pipeline
+            try:
+                from transformers import pipeline as _hf_pipeline  # type: ignore
+
+                # Map device index to transformers' device arg (int: cuda_index or -1)
+                hf_device = int(self._device_index) if isinstance(self._device_index, int) else -1
+
+                class TransformerNERPipeline:
+                    def __init__(self, model_dir: str, device: int = -1):
+                        # aggregation_strategy='simple' returns merged spans with start/end offsets
+                        self._pipe = _hf_pipeline(
+                            task="token-classification",
+                            model=str(model_dir),
+                            aggregation_strategy="simple",
+                            device=device,
+                        )
+
+                    def __call__(self, document, inplace=True):
+                        text = getattr(document, "text", "")
+                        try:
+                            preds = self._pipe(text)
+                        except Exception:
+                            # If transformer pipeline fails, leave predictions empty
+                            preds = []
+
+                        spans = []
+                        for p in preds:
+                            start = p.get("start")
+                            end = p.get("end")
+                            label = p.get("entity_group") or p.get("entity") or p.get("label")
+                            score = p.get("score")
+                            spans.append(SimpleNamespace(start=start, end=end, label=label, score=score))
+
+                        # Ensure the document has labeled_spans and a predictions list
+                        try:
+                            ls = document.labeled_spans
+                            if hasattr(ls, "predictions") and hasattr(ls.predictions, "clear"):
+                                ls.predictions.clear()
+                                ls.predictions.extend(spans)
+                            else:
+                                ls.predictions = spans
+                        except Exception:
+                            document.labeled_spans = SimpleNamespace(predictions=spans)
+
+                        return document
+
+                self._ner_pipeline = TransformerNERPipeline(resolved, device=hf_device)
+            except Exception:
+                # If transformers isn't available or the wrapper fails, raise a clearer error
+                raise RuntimeError(
+                    "Failed to instantiate a transformers-based fallback for ADUR. "
+                    "Install 'transformers' (and a compatible model snapshot) or provide a SAM snapshot with taskmodule_config.json."
+                ) from exc
 
     def _resolve_model_ref(self, model_ref: str | Path | dict) -> str:
         # Accept dict from config, or string/path
@@ -516,7 +681,7 @@ class ADUR:
 
         stats = {
             "total_adus": len(adus),
-            "adu_types": self._count_by_key(adus, "label"),
+            "adu_types": _count_by_key(adus, "label"),
         }
 
         return {"adus": adus, "statistics": stats}
@@ -527,6 +692,14 @@ class ADUR:
             v = str(it.get(key))
             result[v] = result.get(v, 0) + 1
         return result
+
+
+def _count_by_key(items: list[dict], key: str) -> dict:
+    result: dict[str, int] = {}
+    for it in items:
+        v = str(it.get(key))
+        result[v] = result.get(v, 0) + 1
+    return result
 
 
 class ARE:
@@ -596,16 +769,75 @@ class ARE:
         are_resolved = self._resolve_model_ref(self.model)
         adur_resolved = self._resolve_model_ref(self.adur_model)
 
-        self._ner_pipeline = AutoPipeline.from_pretrained(
-            adur_resolved,
-            device=self._device_index,
-            taskmodule_kwargs={"combine_token_scores_method": "product"},
-        )
-        self._re_pipeline = AutoPipeline.from_pretrained(
-            are_resolved,
-            device=self._device_index,
-            taskmodule_kwargs={"collect_statistics": False},
-        )
+        # Create ADUR (NER) pipeline with defensive fallback like ADUR class
+        # Decide deterministically whether ADUR (for preprocessing) should be SAM or transformers
+        adur_has_taskmeta = _has_taskmodule_metadata(adur_resolved)
+        if adur_has_taskmeta:
+            try:
+                self._ner_pipeline = AutoPipeline.from_pretrained(
+                    adur_resolved,
+                    device=self._device_index,
+                    taskmodule_kwargs={"combine_token_scores_method": "product"},
+                )
+            except TypeError as exc:
+                msg = str(exc)
+                if "combine_token_scores_method" in msg or "unexpected keyword" in msg.lower():
+                    self.logger.warning(
+                        "ADUR AutoPipeline.from_pretrained rejected taskmodule kwargs: %s -- retrying without kwargs.",
+                        msg,
+                    )
+                    self._ner_pipeline = AutoPipeline.from_pretrained(adur_resolved, device=self._device_index)
+                else:
+                    raise
+        else:
+            # ADUR fallback
+            try:
+                self._ner_pipeline = _make_transformer_ner_pipeline(adur_resolved, device_index=self._device_index)
+                self.logger.info("Using transformers-based NER fallback for ADUR (no taskmodule metadata found for ADUR model).")
+            except Exception as exc:
+                raise RuntimeError("Failed to create ADUR transformers fallback: %s" % exc) from exc
+
+        # Decide deterministically whether ARE should be SAM or NullARE fallback
+        are_has_taskmeta = _has_taskmodule_metadata(are_resolved)
+        if are_has_taskmeta:
+            try:
+                self._re_pipeline = AutoPipeline.from_pretrained(
+                    are_resolved,
+                    device=self._device_index,
+                    taskmodule_kwargs={"collect_statistics": False},
+                )
+            except TypeError as exc:
+                msg = str(exc)
+                if "collect_statistics" in msg or "unexpected keyword" in msg.lower():
+                    self.logger.warning(
+                        "ARE AutoPipeline.from_pretrained rejected taskmodule kwargs: %s -- retrying without kwargs.",
+                        msg,
+                    )
+                    self._re_pipeline = AutoPipeline.from_pretrained(are_resolved, device=self._device_index)
+                else:
+                    raise
+        else:
+            # Deterministic NullARE fallback when ARE snapshot lacks taskmodule metadata
+            self.logger.warning(
+                "ARE model lacks taskmodule metadata; using NullARE fallback (no relations will be produced)."
+            )
+
+            class NullARE:
+                def __call__(self, document, inplace=True):
+                    try:
+                        if not hasattr(document, 'binary_relations'):
+                            document.binary_relations = SimpleNamespace(predictions=[])
+                        else:
+                            if hasattr(document.binary_relations, 'predictions'):
+                                try:
+                                    document.binary_relations.predictions.clear()
+                                except Exception:
+                                    document.binary_relations.predictions = []
+                    except Exception:
+                        document.binary_relations = SimpleNamespace(predictions=[])
+                    return document
+
+            self._re_pipeline = NullARE()
 
     def _resolve_model_ref(self, model_ref: str | Path | dict) -> str:
         if isinstance(model_ref, dict):
@@ -699,8 +931,8 @@ class ARE:
         stats = {
             "total_adus": len(adus),
             "total_relations": len(relations),
-            "adu_types": self._count_by_key(adus, "label"),
-            "relation_types": self._count_by_key(relations, "label"),
+            "adu_types": _count_by_key(adus, "label"),
+            "relation_types": _count_by_key(relations, "label"),
         }
 
         return {"adus": adus, "relations": relations, "statistics": stats}

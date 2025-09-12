@@ -7,7 +7,7 @@ callable). The goal is to produce a checkpoint file that can be evaluated later.
 from __future__ import annotations
 
 from pathlib import Path
-from typing import Iterable
+from typing import Iterable, Any
 from moralkg.snowball.phase_1.prompts.loader import load_prompts, PromptConfig
 from moralkg.snowball.phase_1.batch.generation import BatchArgMapper
 import logging
@@ -159,3 +159,26 @@ class Phase1Orchestrator:
             return self.generator(cfg)
 
         return _gen
+
+    # ---- Pipeline 2 & 3 helpers (ADUR/ARE) ----
+    def run_pipeline2(self, input_files: Iterable[Path], outdir: Path | None = None, adur_model_ref: Any = None, are_model_ref: Any = None, **kwargs) -> Path:
+        """Convenience wrapper to run Pipeline 2 (ADUR -> ARE).
+
+        Accepts the same arguments as `pipelines.adur_are.run_pipeline2` and
+        delegates to that implementation. This keeps the orchestrator as the
+        single public entrypoint for Phase 1 orchestration.
+        """
+        outdir = Path(outdir or self.outdir)
+        from moralkg.snowball.phase_1.pipelines.adur_are import run_pipeline2
+
+        return run_pipeline2(input_files=input_files, outdir=outdir, adur_model_ref=adur_model_ref, are_model_ref=are_model_ref, **kwargs)
+
+    def run_pipeline3(self, input_files: Iterable[Path], outdir: Path | None = None, adur_model_ref: Any = None, are_model_ref: Any = None, **kwargs) -> Path:
+        """Convenience wrapper to run Pipeline 3 (ADUR -> Major ADU -> ARE).
+
+        Delegates to `pipelines.adur_are.run_pipeline3`.
+        """
+        outdir = Path(outdir or self.outdir)
+        from moralkg.snowball.phase_1.pipelines.adur_are import run_pipeline3
+
+        return run_pipeline3(input_files=input_files, outdir=outdir, adur_model_ref=adur_model_ref, are_model_ref=are_model_ref, **kwargs)

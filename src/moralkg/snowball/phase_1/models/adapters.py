@@ -4,6 +4,8 @@ These helpers convert model-specific outputs (as produced by the ADUR/ARE
 classes in `moralkg.argmining.models.models`) into pydantic-backed schema
 instances (ADU, Relation, ArgumentMap) and lightweight dicts suitable for
 serialization by the phase_1 checkpointing utilities.
+
+TODO: Make sure these are compatible with the existing parser module in `src.moralkg.argmining.parsers`.
 """
 from __future__ import annotations
 
