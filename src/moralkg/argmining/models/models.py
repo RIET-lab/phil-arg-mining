@@ -392,11 +392,38 @@ class ADUR:
                 "pytorch_ie is required for ADUR with SAM models. Install pytorch-ie and pie_modules."
             ) from exc
 
-        self._ner_pipeline = AutoPipeline.from_pretrained(
-            resolved,
-            device=self._device_index,
-            taskmodule_kwargs={"combine_token_scores_method": "product"},
-        )
+        # Try to create the pipeline with our preferred taskmodule kwargs.
+        # Some pytorch-ie / pie_modules versions do not accept all kwargs; in
+        # that case retry once without passing taskmodule_kwargs so the
+        # pipeline can still be instantiated. We keep the failure loud and
+        # surface a clear remediation message when we have to fall back.
+        try:
+            self._ner_pipeline = AutoPipeline.from_pretrained(
+                resolved,
+                device=self._device_index,
+                taskmodule_kwargs={"combine_token_scores_method": "product"},
+            )
+        except TypeError as exc:
+            # Detect the common unexpected-kwarg failure originating from
+            # HyperparametersMixin / TaskModule __init__ chains.
+            msg = str(exc)
+            if "combine_token_scores_method" in msg or "unexpected keyword" in msg.lower():
+                # Emit a strong warning with remediation guidance and retry.
+                self.logger.warning(
+                    "AutoPipeline.from_pretrained rejected taskmodule kwargs: %s\n"
+                    "Retrying without taskmodule_kwargs. If this succeeds, consider "
+                    "upgrading/downgrading your pytorch-ie / pie-modules packages to a "
+                    "version that supports the 'combine_token_scores_method' hyperparameter.",
+                    msg,
+                )
+                # Retry without taskmodule_kwargs
+                self._ner_pipeline = AutoPipeline.from_pretrained(
+                    resolved,
+                    device=self._device_index,
+                )
+            else:
+                # Re-raise for any other unexpected TypeError
+                raise
 
     def _resolve_model_ref(self, model_ref: str | Path | dict) -> str:
         # Accept dict from config, or string/path
