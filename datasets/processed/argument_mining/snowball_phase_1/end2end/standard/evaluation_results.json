@@ -1,162 +1,162 @@
 {
   "summary": {
-    "total_papers": 55,
-    "successful_parses": 55,
+    "total_papers": 150,
+    "successful_parses": 150,
     "failed_parses": 0,
     "parse_success_rate": 1.0
   },
   "aggregate_metrics": {
-    "avg_support_f1": 0.0,
-    "std_support_f1": 0.0,
-    "avg_combined_score": 0.12171428013979298,
-    "std_combined_score": 0.10574990041727768,
-    "avg_ged": 89.16363636363636,
-    "std_ged": 84.97673770163941,
-    "avg_ged_norm": 0.8252705051826787,
-    "std_ged_norm": 0.10003046975945121,
+    "avg_recall": 0.04954497354497354,
+    "std_recall": 0.10448590172320908,
     "avg_attack_f1": 0.0,
     "std_attack_f1": 0.0,
-    "avg_combined_rmse": 57.17828159775556,
-    "std_combined_rmse": 64.12663979743198,
-    "avg_macro_f1": 0.0,
-    "std_macro_f1": 0.0,
-    "avg_recall": 0.06666666666666667,
-    "std_recall": 0.12204490426422325,
-    "avg_relation_rmse": 12.072727272727272,
-    "std_relation_rmse": 21.152136832055135,
-    "avg_precision": 0.021225796290768182,
-    "std_precision": 0.043158393770031576,
-    "avg_ged_sim": 0.1747294948173212,
-    "std_ged_sim": 0.10003046975945121,
-    "avg_f1": 0.02720354634457085,
-    "std_f1": 0.052855080891150465,
-    "avg_scaled_rmse": 0.7150759206027202,
-    "std_scaled_rmse": 0.3367883916238596,
-    "avg_adu_rmse": 76.21818181818182,
-    "std_adu_rmse": 91.43734882601628
+    "avg_relation_rmse": 13.826666666666666,
+    "std_relation_rmse": 28.146698247258453,
+    "avg_scaled_rmse": 0.7802594502350952,
+    "std_scaled_rmse": 0.3158650461246154,
+    "avg_ged": 105.36666666666666,
+    "std_ged": 92.1033055263973,
+    "avg_ged_sim": 0.16270746786345086,
+    "std_ged_sim": 0.10432785081504513,
+    "avg_macro_f1": 0.0033333333333333335,
+    "std_macro_f1": 0.04068851871911225,
+    "avg_support_f1": 0.006666666666666667,
+    "std_support_f1": 0.0813770374382245,
+    "avg_combined_rmse": 74.36953675578124,
+    "std_combined_rmse": 64.42935668412731,
+    "avg_precision": 0.014422593098864015,
+    "std_precision": 0.03821390107527532,
+    "avg_combined_score": 0.10110594748462667,
+    "std_combined_score": 0.10357376607616701,
+    "avg_ged_norm": 0.8372925321365488,
+    "std_ged_norm": 0.1043278508150451,
+    "avg_f1": 0.018642438976817922,
+    "std_f1": 0.046436347685414325,
+    "avg_adu_rmse": 99.44666666666667,
+    "std_adu_rmse": 92.1460099817434
   },
   "strategy_breakdown": {
     "unknown": {
-      "avg_support_f1": 0.0,
-      "std_support_f1": 0.0,
-      "avg_combined_score": 0.12171428013979298,
-      "std_combined_score": 0.10574990041727768,
-      "avg_ged": 89.16363636363636,
-      "std_ged": 84.97673770163941,
-      "avg_ged_norm": 0.8252705051826787,
-      "std_ged_norm": 0.10003046975945121,
+      "avg_recall": 0.04954497354497354,
+      "std_recall": 0.10448590172320908,
       "avg_attack_f1": 0.0,
       "std_attack_f1": 0.0,
-      "avg_combined_rmse": 57.17828159775556,
-      "std_combined_rmse": 64.12663979743198,
-      "avg_macro_f1": 0.0,
-      "std_macro_f1": 0.0,
-      "avg_recall": 0.06666666666666667,
-      "std_recall": 0.12204490426422325,
-      "avg_relation_rmse": 12.072727272727272,
-      "std_relation_rmse": 21.152136832055135,
-      "avg_precision": 0.021225796290768182,
-      "std_precision": 0.043158393770031576,
-      "avg_ged_sim": 0.1747294948173212,
-      "std_ged_sim": 0.10003046975945121,
-      "avg_f1": 0.02720354634457085,
-      "std_f1": 0.052855080891150465,
-      "avg_scaled_rmse": 0.7150759206027202,
-      "std_scaled_rmse": 0.3367883916238596,
-      "avg_adu_rmse": 76.21818181818182,
-      "std_adu_rmse": 91.43734882601628
+      "avg_relation_rmse": 13.826666666666666,
+      "std_relation_rmse": 28.146698247258453,
+      "avg_scaled_rmse": 0.7802594502350952,
+      "std_scaled_rmse": 0.3158650461246154,
+      "avg_ged": 105.36666666666666,
+      "std_ged": 92.1033055263973,
+      "avg_ged_sim": 0.16270746786345086,
+      "std_ged_sim": 0.10432785081504513,
+      "avg_macro_f1": 0.0033333333333333335,
+      "std_macro_f1": 0.04068851871911225,
+      "avg_support_f1": 0.006666666666666667,
+      "std_support_f1": 0.0813770374382245,
+      "avg_combined_rmse": 74.36953675578124,
+      "std_combined_rmse": 64.42935668412731,
+      "avg_precision": 0.014422593098864015,
+      "std_precision": 0.03821390107527532,
+      "avg_combined_score": 0.10110594748462667,
+      "std_combined_score": 0.10357376607616701,
+      "avg_ged_norm": 0.8372925321365488,
+      "std_ged_norm": 0.1043278508150451,
+      "avg_f1": 0.018642438976817922,
+      "std_f1": 0.046436347685414325,
+      "avg_adu_rmse": 99.44666666666667,
+      "std_adu_rmse": 92.1460099817434
     }
   },
   "shot_type_breakdown": {
     "zero-shot": {
-      "avg_support_f1": 0.0,
-      "std_support_f1": 0.0,
-      "avg_combined_score": 0.15322439563434032,
-      "std_combined_score": 0.10734701365439127,
-      "avg_ged": 57.84,
-      "std_ged": 39.543070189351766,
-      "avg_ged_norm": 0.814203865617648,
-      "std_ged_norm": 0.08368867209609607,
+      "avg_recall": 0.07201058201058201,
+      "std_recall": 0.10756119258771552,
       "avg_attack_f1": 0.0,
       "std_attack_f1": 0.0,
-      "avg_combined_rmse": 21.24619269754797,
-      "std_combined_rmse": 27.95244704598614,
+      "avg_relation_rmse": 10.466666666666667,
+      "std_relation_rmse": 9.145976650357735,
+      "avg_scaled_rmse": 0.650146094645819,
+      "std_scaled_rmse": 0.3468658077256921,
+      "avg_ged": 64.53333333333333,
+      "std_ged": 44.41075945709052,
+      "avg_ged_sim": 0.17436200729660342,
+      "std_ged_sim": 0.08344402066870964,
       "avg_macro_f1": 0.0,
       "std_macro_f1": 0.0,
-      "avg_recall": 0.0660952380952381,
-      "std_recall": 0.10245352909286612,
-      "avg_relation_rmse": 9.84,
-      "std_relation_rmse": 9.000799964447603,
-      "avg_precision": 0.03147420623013069,
-      "std_precision": 0.05257482054505954,
-      "avg_ged_sim": 0.18579613438235199,
-      "std_ged_sim": 0.08368867209609607,
-      "avg_f1": 0.03736050192662181,
-      "std_f1": 0.06131233488143511,
-      "avg_scaled_rmse": 0.6102590537716125,
-      "std_scaled_rmse": 0.35153696308508015,
-      "avg_adu_rmse": 26.44,
-      "std_adu_rmse": 39.85682375704316
+      "avg_support_f1": 0.0,
+      "std_support_f1": 0.0,
+      "avg_combined_rmse": 26.438226085713925,
+      "std_combined_rmse": 32.88089923913288,
+      "avg_precision": 0.028556547519817902,
+      "std_precision": 0.04922555045476594,
+      "avg_combined_score": 0.1398049141744309,
+      "std_combined_score": 0.10619369476608304,
+      "avg_ged_norm": 0.8256379927033966,
+      "std_ged_norm": 0.08344402066870962,
+      "avg_f1": 0.03500374404693919,
+      "std_f1": 0.057953729157165804,
+      "avg_adu_rmse": 33.666666666666664,
+      "std_adu_rmse": 47.26121266135924
     },
     "one-shot": {
-      "avg_support_f1": 0.0,
-      "std_support_f1": 0.0,
-      "avg_combined_score": 0.10717328862300561,
-      "std_combined_score": 0.09671913465854917,
-      "avg_ged": 107.53333333333333,
-      "std_ged": 91.49926532795526,
-      "avg_ged_norm": 0.8302011182786662,
-      "std_ged_norm": 0.10413882841040063,
+      "avg_recall": 0.047367724867724864,
+      "std_recall": 0.10642010702886068,
       "avg_attack_f1": 0.0,
       "std_attack_f1": 0.0,
-      "avg_combined_rmse": 78.29016729254282,
-      "std_combined_rmse": 67.5794572236193,
-      "avg_macro_f1": 0.0,
-      "std_macro_f1": 0.0,
-      "avg_recall": 0.07052910052910052,
-      "std_recall": 0.12852728573545166,
-      "avg_relation_rmse": 8.666666666666666,
-      "std_relation_rmse": 4.756282395129858,
-      "avg_precision": 0.021057009507661737,
-      "std_precision": 0.04100210506100027,
-      "avg_ged_sim": 0.1697988817213338,
-      "std_ged_sim": 0.10413882841040063,
-      "avg_f1": 0.029568965475855514,
-      "std_f1": 0.05617231295467221,
-      "avg_scaled_rmse": 0.770674692705167,
-      "std_scaled_rmse": 0.29224449258160834,
-      "avg_adu_rmse": 109.06666666666666,
-      "std_adu_rmse": 96.95047991400328
+      "avg_relation_rmse": 10.566666666666666,
+      "std_relation_rmse": 10.339836663227436,
+      "avg_scaled_rmse": 0.8491377171549096,
+      "std_scaled_rmse": 0.25839299668329346,
+      "avg_ged": 120.2,
+      "std_ged": 99.20547699934048,
+      "avg_ged_sim": 0.15658200001972514,
+      "std_ged_sim": 0.10550812574524218,
+      "avg_macro_f1": 0.008333333333333333,
+      "std_macro_f1": 0.06400954789890513,
+      "avg_support_f1": 0.016666666666666666,
+      "std_support_f1": 0.12801909579781026,
+      "avg_combined_rmse": 89.84464603512559,
+      "std_combined_rmse": 63.142349065343296,
+      "avg_precision": 0.011145786219141208,
+      "std_precision": 0.03360138699604526,
+      "avg_combined_score": 0.08283990355310825,
+      "std_combined_score": 0.09097387910548731,
+      "avg_ged_norm": 0.8434179999802749,
+      "std_ged_norm": 0.1055081257452422,
+      "avg_f1": 0.015581998014284221,
+      "std_f1": 0.044439152043593916,
+      "avg_adu_rmse": 125.16666666666667,
+      "std_adu_rmse": 90.73462526633489
     },
     "few-shot": {
-      "avg_support_f1": 0.0,
-      "std_support_f1": 0.0,
-      "avg_combined_score": 0.08373841249900145,
-      "std_combined_score": 0.09558158526715001,
-      "avg_ged": 123.0,
-      "std_ged": 111.2714398816396,
-      "avg_ged_norm": 0.8387842913617427,
-      "std_ged_norm": 0.11730336043161825,
+      "avg_recall": 0.040489417989418,
+      "std_recall": 0.09921804075727862,
       "avg_attack_f1": 0.0,
       "std_attack_f1": 0.0,
-      "avg_combined_rmse": 95.95321073664759,
-      "std_combined_rmse": 71.46944346592113,
+      "avg_relation_rmse": 18.766666666666666,
+      "std_relation_rmse": 42.32232140240997,
+      "avg_scaled_rmse": 0.7764378611099191,
+      "std_scaled_rmse": 0.3305727915906312,
+      "avg_ged": 110.95,
+      "std_ged": 96.40944369372397,
+      "avg_ged_sim": 0.16300566599060015,
+      "std_ged_sim": 0.11176676529780624,
       "avg_macro_f1": 0.0,
       "std_macro_f1": 0.0,
-      "avg_recall": 0.06375661375661375,
-      "std_recall": 0.14344724292588348,
-      "avg_relation_rmse": 19.2,
-      "std_relation_rmse": 37.57871738098575,
-      "avg_precision": 0.004313899841603773,
-      "std_precision": 0.008977158477524335,
-      "avg_ged_sim": 0.1612157086382573,
-      "std_ged_sim": 0.11730336043161825,
-      "avg_f1": 0.007909867909867911,
-      "std_f1": 0.01652185044022645,
-      "avg_scaled_rmse": 0.8341719265521195,
-      "std_scaled_rmse": 0.2982285429619092,
-      "avg_adu_rmse": 126.33333333333333,
-      "std_adu_rmse": 104.34983894999019
+      "avg_support_f1": 0.0,
+      "std_support_f1": 0.0,
+      "avg_combined_rmse": 82.86008281147055,
+      "std_combined_rmse": 66.25743990785419,
+      "avg_precision": 0.01063242276810988,
+      "std_precision": 0.03442583017709303,
+      "avg_combined_score": 0.10002250807124305,
+      "std_combined_score": 0.10872160894305076,
+      "avg_ged_norm": 0.8369943340093999,
+      "std_ged_norm": 0.11176676529780624,
+      "avg_f1": 0.01352222740429098,
+      "std_f1": 0.039588525518205304,
+      "avg_adu_rmse": 106.61666666666666,
+      "std_adu_rmse": 94.87467025268418
     }
   },
   "per_paper_results": [
@@ -836,6 +836,141 @@
       }
     },
     {
+      "paper_id": "SMIWSW",
+      "prompt_info": {
+        "shot_type": "zero-shot",
+        "system_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/zero-shot/system_prompt_2.txt",
+        "user_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/zero-shot/user_prompt.txt",
+        "variation": "zs2"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 27.0,
+        "relation_rmse": 28.0,
+        "combined_rmse": 27.504545078950134,
+        "scaled_rmse": 0.927159305072988,
+        "ged": 83.0,
+        "ged_norm": 0.8469387755102041,
+        "ged_sim": 0.15306122448979587,
+        "combined_score": 0.056475479854201954
+      }
+    },
+    {
+      "paper_id": "STEGPD-9",
+      "prompt_info": {
+        "shot_type": "zero-shot",
+        "system_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/zero-shot/system_prompt_2.txt",
+        "user_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/zero-shot/user_prompt.txt",
+        "variation": "zs2"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.05555555555555555,
+        "recall": 0.2222222222222222,
+        "f1": 0.08888888888888888,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 27.0,
+        "relation_rmse": 21.0,
+        "combined_rmse": 24.186773244895647,
+        "scaled_rmse": 0.9418949520276965,
+        "ged": 71.0,
+        "ged_norm": 0.8658536585365854,
+        "ged_sim": 0.13414634146341464,
+        "combined_score": 0.07028506958115177
+      }
+    },
+    {
+      "paper_id": "VANTPO-40",
+      "prompt_info": {
+        "shot_type": "zero-shot",
+        "system_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/zero-shot/system_prompt_2.txt",
+        "user_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/zero-shot/user_prompt.txt",
+        "variation": "zs2"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 5.0,
+        "relation_rmse": 5.0,
+        "combined_rmse": 5.0,
+        "scaled_rmse": 0.3788548423845485,
+        "ged": 26.0,
+        "ged_norm": 0.8125,
+        "ged_sim": 0.1875,
+        "combined_score": 0.20216128940386288
+      }
+    },
+    {
+      "paper_id": "VILWVI",
+      "prompt_info": {
+        "shot_type": "zero-shot",
+        "system_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/zero-shot/system_prompt_2.txt",
+        "user_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/zero-shot/user_prompt.txt",
+        "variation": "zs2"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.014285714285714285,
+        "recall": 0.2857142857142857,
+        "f1": 0.027210884353741496,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 133.0,
+        "relation_rmse": 6.0,
+        "combined_rmse": 94.14085191881365,
+        "scaled_rmse": 0.9999994871118196,
+        "ged": 136.0,
+        "ged_norm": 0.9379310344827586,
+        "ged_sim": 0.06206896551724139,
+        "combined_score": 0.022320090689790816
+      }
+    },
+    {
+      "paper_id": "WEYUOP",
+      "prompt_info": {
+        "shot_type": "zero-shot",
+        "system_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/zero-shot/system_prompt_2.txt",
+        "user_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/zero-shot/user_prompt.txt",
+        "variation": "zs2"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 157.0,
+        "relation_rmse": 8.0,
+        "combined_rmse": 111.15979489005906,
+        "scaled_rmse": 0.9999979084872045,
+        "ged": 174.0,
+        "ged_norm": 0.9508196721311475,
+        "ged_sim": 0.049180327868852514,
+        "combined_score": 0.012295604845412006
+      }
+    },
+    {
       "paper_id": "BACFTU",
       "prompt_info": {
         "shot_type": "one-shot",
@@ -1243,6 +1378,1221 @@
     {
       "paper_id": "BACFTU",
       "prompt_info": {
+        "shot_type": "one-shot",
+        "system_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/one-shot/system_prompt_1_zs2.txt",
+        "user_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/one-shot/user_prompt.txt",
+        "variation": "zs1_zs2"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 112.0,
+        "relation_rmse": 4.0,
+        "combined_rmse": 79.2464510246358,
+        "scaled_rmse": 0.9999999775128646,
+        "ged": 26.0,
+        "ged_norm": 0.8387096774193549,
+        "ged_sim": 0.16129032258064513,
+        "combined_score": 0.040322586266945126
+      }
+    },
+    {
+      "paper_id": "BRAAIC",
+      "prompt_info": {
+        "shot_type": "one-shot",
+        "system_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/one-shot/system_prompt_1_zs2.txt",
+        "user_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/one-shot/user_prompt.txt",
+        "variation": "zs1_zs2"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.19047619047619047,
+        "recall": 0.3333333333333333,
+        "f1": 0.24242424242424246,
+        "macro_f1": 0.5,
+        "support_f1": 1.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 9.0,
+        "relation_rmse": 10.0,
+        "combined_rmse": 9.513148795220223,
+        "scaled_rmse": 0.578877582078315,
+        "ged": 43.0,
+        "ged_norm": 0.6825396825396826,
+        "ged_sim": 0.31746031746031744,
+        "combined_score": 0.3702517444515612
+      }
+    },
+    {
+      "paper_id": "CHIKBT",
+      "prompt_info": {
+        "shot_type": "one-shot",
+        "system_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/one-shot/system_prompt_1_zs2.txt",
+        "user_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/one-shot/user_prompt.txt",
+        "variation": "zs1_zs2"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 2.0,
+        "relation_rmse": 2.0,
+        "combined_rmse": 2.0,
+        "scaled_rmse": 0.1898422650675733,
+        "ged": 32.0,
+        "ged_norm": 0.7619047619047619,
+        "ged_sim": 0.23809523809523814,
+        "combined_score": 0.2620632432569162
+      }
+    },
+    {
+      "paper_id": "DYCTAM",
+      "prompt_info": {
+        "shot_type": "one-shot",
+        "system_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/one-shot/system_prompt_1_zs2.txt",
+        "user_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/one-shot/user_prompt.txt",
+        "variation": "zs1_zs2"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 184.0,
+        "relation_rmse": 13.0,
+        "combined_rmse": 130.43197460745583,
+        "scaled_rmse": 0.9999363192187863,
+        "ged": 211.0,
+        "ged_norm": 0.9377777777777778,
+        "ged_sim": 0.06222222222222218,
+        "combined_score": 0.01557147575085896
+      }
+    },
+    {
+      "paper_id": "GOLHBN",
+      "prompt_info": {
+        "shot_type": "one-shot",
+        "system_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/one-shot/system_prompt_1_zs2.txt",
+        "user_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/one-shot/user_prompt.txt",
+        "variation": "zs1_zs2"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 6.0,
+        "relation_rmse": 7.0,
+        "combined_rmse": 6.519202405202649,
+        "scaled_rmse": 0.4965303426657839,
+        "ged": 40.0,
+        "ged_norm": 0.8,
+        "ged_sim": 0.19999999999999996,
+        "combined_score": 0.17586741433355402
+      }
+    },
+    {
+      "paper_id": "HOCASA-3",
+      "prompt_info": {
+        "shot_type": "one-shot",
+        "system_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/one-shot/system_prompt_1_zs2.txt",
+        "user_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/one-shot/user_prompt.txt",
+        "variation": "zs1_zs2"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 6.0,
+        "relation_rmse": 14.0,
+        "combined_rmse": 10.770329614269007,
+        "scaled_rmse": 0.5242112628115617,
+        "ged": 29.0,
+        "ged_norm": 0.7631578947368421,
+        "ged_sim": 0.23684210526315785,
+        "combined_score": 0.17815771061289903
+      }
+    },
+    {
+      "paper_id": "MCGCRR",
+      "prompt_info": {
+        "shot_type": "one-shot",
+        "system_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/one-shot/system_prompt_1_zs2.txt",
+        "user_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/one-shot/user_prompt.txt",
+        "variation": "zs1_zs2"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 253.0,
+        "relation_rmse": 11.0,
+        "combined_rmse": 179.06702655709677,
+        "scaled_rmse": 0.9999996693654708,
+        "ged": 277.0,
+        "ged_norm": 0.9551724137931035,
+        "ged_sim": 0.04482758620689653,
+        "combined_score": 0.011206979210356433
+      }
+    },
+    {
+      "paper_id": "MELSPP",
+      "prompt_info": {
+        "shot_type": "one-shot",
+        "system_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/one-shot/system_prompt_1_zs2.txt",
+        "user_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/one-shot/user_prompt.txt",
+        "variation": "zs1_zs2"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 168.0,
+        "relation_rmse": 5.0,
+        "combined_rmse": 118.84653970562205,
+        "scaled_rmse": 0.9999999995873666,
+        "ged": 32.0,
+        "ged_norm": 0.8421052631578947,
+        "ged_sim": 0.1578947368421053,
+        "combined_score": 0.03947368431368467
+      }
+    },
+    {
+      "paper_id": "NUBDAA",
+      "prompt_info": {
+        "shot_type": "one-shot",
+        "system_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/one-shot/system_prompt_1_zs2.txt",
+        "user_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/one-shot/user_prompt.txt",
+        "variation": "zs1_zs2"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 150.0,
+        "relation_rmse": 13.0,
+        "combined_rmse": 106.46360880601408,
+        "scaled_rmse": 0.999501817203051,
+        "ged": 178.0,
+        "ged_norm": 0.9222797927461139,
+        "ged_sim": 0.07772020725388606,
+        "combined_score": 0.01955459751270877
+      }
+    },
+    {
+      "paper_id": "RALAET",
+      "prompt_info": {
+        "shot_type": "one-shot",
+        "system_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/one-shot/system_prompt_1_zs2.txt",
+        "user_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/one-shot/user_prompt.txt",
+        "variation": "zs1_zs2"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 9.0,
+        "relation_rmse": 23.0,
+        "combined_rmse": 17.46424919657298,
+        "scaled_rmse": 0.8409190394798942,
+        "ged": 60.0,
+        "ged_norm": 0.8571428571428571,
+        "ged_sim": 0.1428571428571429,
+        "combined_score": 0.07548452584431217
+      }
+    },
+    {
+      "paper_id": "SMIWSW",
+      "prompt_info": {
+        "shot_type": "one-shot",
+        "system_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/one-shot/system_prompt_1_zs2.txt",
+        "user_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/one-shot/user_prompt.txt",
+        "variation": "zs1_zs2"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 228.0,
+        "relation_rmse": 10.0,
+        "combined_rmse": 161.37533888422976,
+        "scaled_rmse": 0.99999978850826,
+        "ged": 249.0,
+        "ged_norm": 0.9576923076923077,
+        "ged_sim": 0.04230769230769227,
+        "combined_score": 0.01057697594985807
+      }
+    },
+    {
+      "paper_id": "STEGPD-9",
+      "prompt_info": {
+        "shot_type": "one-shot",
+        "system_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/one-shot/system_prompt_1_zs2.txt",
+        "user_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/one-shot/user_prompt.txt",
+        "variation": "zs1_zs2"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 179.0,
+        "relation_rmse": 8.0,
+        "combined_rmse": 126.69846092198594,
+        "scaled_rmse": 0.9999996638476257,
+        "ged": 17.0,
+        "ged_norm": 0.6538461538461539,
+        "ged_sim": 0.34615384615384615,
+        "combined_score": 0.0865385455765551
+      }
+    },
+    {
+      "paper_id": "VANTPO-40",
+      "prompt_info": {
+        "shot_type": "one-shot",
+        "system_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/one-shot/system_prompt_1_zs2.txt",
+        "user_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/one-shot/user_prompt.txt",
+        "variation": "zs1_zs2"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 156.0,
+        "relation_rmse": 10.0,
+        "combined_rmse": 110.5350623105628,
+        "scaled_rmse": 0.9999732010752221,
+        "ged": 29.0,
+        "ged_norm": 0.725,
+        "ged_sim": 0.275,
+        "combined_score": 0.06875669973119447
+      }
+    },
+    {
+      "paper_id": "VILWVI",
+      "prompt_info": {
+        "shot_type": "one-shot",
+        "system_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/one-shot/system_prompt_1_zs2.txt",
+        "user_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/one-shot/user_prompt.txt",
+        "variation": "zs1_zs2"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.00881057268722467,
+        "recall": 0.2857142857142857,
+        "f1": 0.017094017094017096,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 220.0,
+        "relation_rmse": 6.0,
+        "combined_rmse": 155.62133529821674,
+        "scaled_rmse": 0.9999999999599841,
+        "ged": 231.0,
+        "ged_norm": 0.9625,
+        "ged_sim": 0.03749999999999998,
+        "combined_score": 0.013648504283508238
+      }
+    },
+    {
+      "paper_id": "WEYUOP",
+      "prompt_info": {
+        "shot_type": "one-shot",
+        "system_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/one-shot/system_prompt_1_zs2.txt",
+        "user_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/one-shot/user_prompt.txt",
+        "variation": "zs1_zs2"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 212.0,
+        "relation_rmse": 8.0,
+        "combined_rmse": 150.0133327407934,
+        "scaled_rmse": 0.9999999783579441,
+        "ged": 229.0,
+        "ged_norm": 0.9621848739495799,
+        "ged_sim": 0.037815126050420145,
+        "combined_score": 0.009453786923119017
+      }
+    },
+    {
+      "paper_id": "BACFTU",
+      "prompt_info": {
+        "shot_type": "one-shot",
+        "system_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/one-shot/system_prompt_2_zs1.txt",
+        "user_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/one-shot/user_prompt.txt",
+        "variation": "zs2_zs1"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 74.0,
+        "relation_rmse": 4.0,
+        "combined_rmse": 52.40229002629561,
+        "scaled_rmse": 0.9999912368343189,
+        "ged": 26.0,
+        "ged_norm": 0.8387096774193549,
+        "ged_sim": 0.16129032258064513,
+        "combined_score": 0.04032477143658156
+      }
+    },
+    {
+      "paper_id": "BRAAIC",
+      "prompt_info": {
+        "shot_type": "one-shot",
+        "system_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/one-shot/system_prompt_2_zs1.txt",
+        "user_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/one-shot/user_prompt.txt",
+        "variation": "zs2_zs1"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.011583011583011582,
+        "recall": 0.25,
+        "f1": 0.022140221402214024,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 247.0,
+        "relation_rmse": 10.0,
+        "combined_rmse": 174.79845537074976,
+        "scaled_rmse": 0.9999998744759759,
+        "ged": 266.0,
+        "ged_norm": 0.9466192170818505,
+        "ged_sim": 0.053380782918149516,
+        "combined_score": 0.018880282461096902
+      }
+    },
+    {
+      "paper_id": "CHIKBT",
+      "prompt_info": {
+        "shot_type": "one-shot",
+        "system_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/one-shot/system_prompt_2_zs1.txt",
+        "user_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/one-shot/user_prompt.txt",
+        "variation": "zs2_zs1"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 1.0,
+        "relation_rmse": 1.0,
+        "combined_rmse": 1.0,
+        "scaled_rmse": 0.09991237374774076,
+        "ged": 31.0,
+        "ged_norm": 0.7209302325581395,
+        "ged_sim": 0.2790697674418605,
+        "combined_score": 0.29478934842352994
+      }
+    },
+    {
+      "paper_id": "DYCTAM",
+      "prompt_info": {
+        "shot_type": "one-shot",
+        "system_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/one-shot/system_prompt_2_zs1.txt",
+        "user_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/one-shot/user_prompt.txt",
+        "variation": "zs2_zs1"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 172.0,
+        "relation_rmse": 13.0,
+        "combined_rmse": 121.96925842194827,
+        "scaled_rmse": 0.9998808062077474,
+        "ged": 199.0,
+        "ged_norm": 0.9342723004694836,
+        "ged_sim": 0.06572769953051638,
+        "combined_score": 0.016461723330692235
+      }
+    },
+    {
+      "paper_id": "GOLHBN",
+      "prompt_info": {
+        "shot_type": "one-shot",
+        "system_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/one-shot/system_prompt_2_zs1.txt",
+        "user_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/one-shot/user_prompt.txt",
+        "variation": "zs2_zs1"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 13.0,
+        "relation_rmse": 10.0,
+        "combined_rmse": 11.597413504743201,
+        "scaled_rmse": 0.7050001316519865,
+        "ged": 34.0,
+        "ged_norm": 0.7727272727272727,
+        "ged_sim": 0.2272727272727273,
+        "combined_score": 0.1305681489051852
+      }
+    },
+    {
+      "paper_id": "HOCASA-3",
+      "prompt_info": {
+        "shot_type": "one-shot",
+        "system_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/one-shot/system_prompt_2_zs1.txt",
+        "user_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/one-shot/user_prompt.txt",
+        "variation": "zs2_zs1"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 248.0,
+        "relation_rmse": 14.0,
+        "combined_rmse": 175.64168070250295,
+        "scaled_rmse": 0.9999945134963256,
+        "ged": 277.0,
+        "ged_norm": 0.9486301369863014,
+        "ged_sim": 0.05136986301369861,
+        "combined_score": 0.012843837379343248
+      }
+    },
+    {
+      "paper_id": "MCGCRR",
+      "prompt_info": {
+        "shot_type": "one-shot",
+        "system_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/one-shot/system_prompt_2_zs1.txt",
+        "user_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/one-shot/user_prompt.txt",
+        "variation": "zs2_zs1"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 219.0,
+        "relation_rmse": 11.0,
+        "combined_rmse": 155.05160431288675,
+        "scaled_rmse": 0.9999975537810863,
+        "ged": 243.0,
+        "ged_norm": 0.94921875,
+        "ged_sim": 0.05078125,
+        "combined_score": 0.012695924054728414
+      }
+    },
+    {
+      "paper_id": "MELSPP",
+      "prompt_info": {
+        "shot_type": "one-shot",
+        "system_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/one-shot/system_prompt_2_zs1.txt",
+        "user_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/one-shot/user_prompt.txt",
+        "variation": "zs2_zs1"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 11.0,
+        "relation_rmse": 6.0,
+        "combined_rmse": 8.860022573334675,
+        "scaled_rmse": 0.8002948390046123,
+        "ged": 31.0,
+        "ged_norm": 0.7948717948717948,
+        "ged_sim": 0.20512820512820518,
+        "combined_score": 0.10120834153089822
+      }
+    },
+    {
+      "paper_id": "NUBDAA",
+      "prompt_info": {
+        "shot_type": "one-shot",
+        "system_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/one-shot/system_prompt_2_zs1.txt",
+        "user_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/one-shot/user_prompt.txt",
+        "variation": "zs2_zs1"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 186.0,
+        "relation_rmse": 80.0,
+        "combined_rmse": 143.17122615944868,
+        "scaled_rmse": 0.9999638023426113,
+        "ged": 305.0,
+        "ged_norm": 0.9472049689440993,
+        "ged_sim": 0.052795031055900665,
+        "combined_score": 0.013207807178322345
+      }
+    },
+    {
+      "paper_id": "RALAET",
+      "prompt_info": {
+        "shot_type": "one-shot",
+        "system_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/one-shot/system_prompt_2_zs1.txt",
+        "user_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/one-shot/user_prompt.txt",
+        "variation": "zs2_zs1"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 222.0,
+        "relation_rmse": 9.0,
+        "combined_rmse": 157.10665167331393,
+        "scaled_rmse": 0.999999934258949,
+        "ged": 241.0,
+        "ged_norm": 0.9601593625498008,
+        "ged_sim": 0.03984063745019917,
+        "combined_score": 0.009960175797812554
+      }
+    },
+    {
+      "paper_id": "SMIWSW",
+      "prompt_info": {
+        "shot_type": "one-shot",
+        "system_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/one-shot/system_prompt_2_zs1.txt",
+        "user_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/one-shot/user_prompt.txt",
+        "variation": "zs2_zs1"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 171.0,
+        "relation_rmse": 10.0,
+        "combined_rmse": 121.12183948405011,
+        "scaled_rmse": 0.9999902223685296,
+        "ged": 192.0,
+        "ged_norm": 0.9458128078817734,
+        "ged_sim": 0.054187192118226646,
+        "combined_score": 0.013549242437424253
+      }
+    },
+    {
+      "paper_id": "STEGPD-9",
+      "prompt_info": {
+        "shot_type": "one-shot",
+        "system_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/one-shot/system_prompt_2_zs1.txt",
+        "user_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/one-shot/user_prompt.txt",
+        "variation": "zs2_zs1"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.06666666666666667,
+        "recall": 0.1111111111111111,
+        "f1": 0.08333333333333334,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 6.0,
+        "relation_rmse": 5.0,
+        "combined_rmse": 5.522680508593631,
+        "scaled_rmse": 0.47781174724823905,
+        "ged": 26.0,
+        "ged_norm": 0.7222222222222222,
+        "ged_sim": 0.2777777777777778,
+        "combined_score": 0.22082484096571803
+      }
+    },
+    {
+      "paper_id": "VANTPO-40",
+      "prompt_info": {
+        "shot_type": "one-shot",
+        "system_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/one-shot/system_prompt_2_zs1.txt",
+        "user_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/one-shot/user_prompt.txt",
+        "variation": "zs2_zs1"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 135.0,
+        "relation_rmse": 10.0,
+        "combined_rmse": 95.72094859538323,
+        "scaled_rmse": 0.9998901374829202,
+        "ged": 25.0,
+        "ged_norm": 0.6944444444444444,
+        "ged_sim": 0.3055555555555556,
+        "combined_score": 0.07641635451815884
+      }
+    },
+    {
+      "paper_id": "VILWVI",
+      "prompt_info": {
+        "shot_type": "one-shot",
+        "system_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/one-shot/system_prompt_2_zs1.txt",
+        "user_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/one-shot/user_prompt.txt",
+        "variation": "zs2_zs1"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 165.0,
+        "relation_rmse": 6.0,
+        "combined_rmse": 116.74973233374028,
+        "scaled_rmse": 0.9999999841721895,
+        "ged": 178.0,
+        "ged_norm": 0.9621621621621622,
+        "ged_sim": 0.037837837837837784,
+        "combined_score": 0.009459463416412073
+      }
+    },
+    {
+      "paper_id": "WEYUOP",
+      "prompt_info": {
+        "shot_type": "one-shot",
+        "system_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/one-shot/system_prompt_2_zs1.txt",
+        "user_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/one-shot/user_prompt.txt",
+        "variation": "zs2_zs1"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 228.0,
+        "relation_rmse": 8.0,
+        "combined_rmse": 161.31955864060626,
+        "scaled_rmse": 0.9999999942769938,
+        "ged": 245.0,
+        "ged_norm": 0.9645669291338582,
+        "ged_sim": 0.03543307086614178,
+        "combined_score": 0.00885826914728699
+      }
+    },
+    {
+      "paper_id": "BACFTU",
+      "prompt_info": {
+        "shot_type": "one-shot",
+        "system_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/one-shot/system_prompt_2_zs2.txt",
+        "user_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/one-shot/user_prompt.txt",
+        "variation": "zs2_zs2"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 39.0,
+        "relation_rmse": 10.0,
+        "combined_rmse": 28.469281690973517,
+        "scaled_rmse": 0.998211730778825,
+        "ged": 29.0,
+        "ged_norm": 0.8529411764705882,
+        "ged_sim": 0.1470588235294118,
+        "combined_score": 0.03721177318764671
+      }
+    },
+    {
+      "paper_id": "BRAAIC",
+      "prompt_info": {
+        "shot_type": "one-shot",
+        "system_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/one-shot/system_prompt_2_zs2.txt",
+        "user_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/one-shot/user_prompt.txt",
+        "variation": "zs2_zs2"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.02100840336134454,
+        "recall": 0.4166666666666667,
+        "f1": 0.04000000000000001,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 226.0,
+        "relation_rmse": 10.0,
+        "combined_rmse": 159.9624956044385,
+        "scaled_rmse": 0.9999995164180557,
+        "ged": 243.0,
+        "ged_norm": 0.9346153846153846,
+        "ged_sim": 0.06538461538461537,
+        "combined_score": 0.026346274741639912
+      }
+    },
+    {
+      "paper_id": "CHIKBT",
+      "prompt_info": {
+        "shot_type": "one-shot",
+        "system_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/one-shot/system_prompt_2_zs2.txt",
+        "user_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/one-shot/user_prompt.txt",
+        "variation": "zs2_zs2"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 191.0,
+        "relation_rmse": 9.0,
+        "combined_rmse": 135.20724832641184,
+        "scaled_rmse": 0.9999993408679407,
+        "ged": 210.0,
+        "ged_norm": 0.9545454545454546,
+        "ged_sim": 0.045454545454545414,
+        "combined_score": 0.01136380114665117
+      }
+    },
+    {
+      "paper_id": "DYCTAM",
+      "prompt_info": {
+        "shot_type": "one-shot",
+        "system_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/one-shot/system_prompt_2_zs2.txt",
+        "user_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/one-shot/user_prompt.txt",
+        "variation": "zs2_zs2"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 191.0,
+        "relation_rmse": 13.0,
+        "combined_rmse": 135.36986370680884,
+        "scaled_rmse": 0.9999558270219255,
+        "ged": 218.0,
+        "ged_norm": 0.9396551724137931,
+        "ged_sim": 0.06034482758620685,
+        "combined_score": 0.015097250141070329
+      }
+    },
+    {
+      "paper_id": "GOLHBN",
+      "prompt_info": {
+        "shot_type": "one-shot",
+        "system_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/one-shot/system_prompt_2_zs2.txt",
+        "user_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/one-shot/user_prompt.txt",
+        "variation": "zs2_zs2"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 102.0,
+        "relation_rmse": 9.0,
+        "combined_rmse": 72.40511031688303,
+        "scaled_rmse": 0.9995102377847639,
+        "ged": 121.0,
+        "ged_norm": 0.9236641221374046,
+        "ged_sim": 0.07633587786259544,
+        "combined_score": 0.019206410019457887
+      }
+    },
+    {
+      "paper_id": "HOCASA-3",
+      "prompt_info": {
+        "shot_type": "one-shot",
+        "system_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/one-shot/system_prompt_2_zs2.txt",
+        "user_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/one-shot/user_prompt.txt",
+        "variation": "zs2_zs2"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 5.0,
+        "relation_rmse": 4.0,
+        "combined_rmse": 4.527692569068709,
+        "scaled_rmse": 0.2682048544075507,
+        "ged": 34.0,
+        "ged_norm": 0.723404255319149,
+        "ged_sim": 0.276595744680851,
+        "combined_score": 0.2520977225683251
+      }
+    },
+    {
+      "paper_id": "MCGCRR",
+      "prompt_info": {
+        "shot_type": "one-shot",
+        "system_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/one-shot/system_prompt_2_zs2.txt",
+        "user_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/one-shot/user_prompt.txt",
+        "variation": "zs2_zs2"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 112.0,
+        "relation_rmse": 11.0,
+        "combined_rmse": 79.57700672933106,
+        "scaled_rmse": 0.998681706560166,
+        "ged": 43.0,
+        "ged_norm": 0.7678571428571429,
+        "ged_sim": 0.2321428571428571,
+        "combined_score": 0.05836528764567278
+      }
+    },
+    {
+      "paper_id": "MELSPP",
+      "prompt_info": {
+        "shot_type": "one-shot",
+        "system_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/one-shot/system_prompt_2_zs2.txt",
+        "user_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/one-shot/user_prompt.txt",
+        "variation": "zs2_zs2"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 22.0,
+        "relation_rmse": 16.0,
+        "combined_rmse": 19.235384061671343,
+        "scaled_rmse": 0.9697222620208955,
+        "ged": 32.0,
+        "ged_norm": 0.8421052631578947,
+        "ged_sim": 0.1578947368421053,
+        "combined_score": 0.04704311870530245
+      }
+    },
+    {
+      "paper_id": "NUBDAA",
+      "prompt_info": {
+        "shot_type": "one-shot",
+        "system_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/one-shot/system_prompt_2_zs2.txt",
+        "user_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/one-shot/user_prompt.txt",
+        "variation": "zs2_zs2"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.043478260869565216,
+        "recall": 0.13333333333333333,
+        "f1": 0.06557377049180328,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 31.0,
+        "relation_rmse": 32.0,
+        "combined_rmse": 31.50396800404673,
+        "scaled_rmse": 0.8946306443871878,
+        "ged": 96.0,
+        "ged_norm": 0.8067226890756303,
+        "ged_sim": 0.19327731092436973,
+        "combined_score": 0.09105510925724632
+      }
+    },
+    {
+      "paper_id": "RALAET",
+      "prompt_info": {
+        "shot_type": "one-shot",
+        "system_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/one-shot/system_prompt_2_zs2.txt",
+        "user_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/one-shot/user_prompt.txt",
+        "variation": "zs2_zs2"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 8.0,
+        "relation_rmse": 7.0,
+        "combined_rmse": 7.516648189186454,
+        "scaled_rmse": 0.5467113342359518,
+        "ged": 39.0,
+        "ged_norm": 0.7358490566037735,
+        "ged_sim": 0.26415094339622647,
+        "combined_score": 0.17935990229006868
+      }
+    },
+    {
+      "paper_id": "SMIWSW",
+      "prompt_info": {
+        "shot_type": "one-shot",
+        "system_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/one-shot/system_prompt_2_zs2.txt",
+        "user_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/one-shot/user_prompt.txt",
+        "variation": "zs2_zs2"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 207.0,
+        "relation_rmse": 10.0,
+        "combined_rmse": 146.54180290961347,
+        "scaled_rmse": 0.9999991313818157,
+        "ged": 228.0,
+        "ged_norm": 0.9539748953974896,
+        "ged_sim": 0.046025104602510414,
+        "combined_score": 0.01150649330517367
+      }
+    },
+    {
+      "paper_id": "STEGPD-9",
+      "prompt_info": {
+        "shot_type": "one-shot",
+        "system_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/one-shot/system_prompt_2_zs2.txt",
+        "user_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/one-shot/user_prompt.txt",
+        "variation": "zs2_zs2"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.005714285714285714,
+        "recall": 0.1111111111111111,
+        "f1": 0.010869565217391306,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 166.0,
+        "relation_rmse": 8.0,
+        "combined_rmse": 117.51595636338071,
+        "scaled_rmse": 0.999999009847268,
+        "ged": 20.0,
+        "ged_norm": 0.6666666666666666,
+        "ged_sim": 0.33333333333333337,
+        "combined_score": 0.08605097217586417
+      }
+    },
+    {
+      "paper_id": "VANTPO-40",
+      "prompt_info": {
+        "shot_type": "one-shot",
+        "system_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/one-shot/system_prompt_2_zs2.txt",
+        "user_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/one-shot/user_prompt.txt",
+        "variation": "zs2_zs2"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 226.0,
+        "relation_rmse": 10.0,
+        "combined_rmse": 159.9624956044385,
+        "scaled_rmse": 0.9999997580472532,
+        "ged": 247.0,
+        "ged_norm": 0.9573643410852714,
+        "ged_sim": 0.04263565891472865,
+        "combined_score": 0.010658975216868871
+      }
+    },
+    {
+      "paper_id": "VILWVI",
+      "prompt_info": {
+        "shot_type": "one-shot",
+        "system_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/one-shot/system_prompt_2_zs2.txt",
+        "user_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/one-shot/user_prompt.txt",
+        "variation": "zs2_zs2"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.005154639175257732,
+        "recall": 0.14285714285714285,
+        "f1": 0.009950248756218905,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 187.0,
+        "relation_rmse": 6.0,
+        "combined_rmse": 132.29701432761058,
+        "scaled_rmse": 0.9999999985524405,
+        "ged": 20.0,
+        "ged_norm": 0.7142857142857143,
+        "ged_sim": 0.2857142857142857,
+        "combined_score": 0.07391613397951603
+      }
+    },
+    {
+      "paper_id": "WEYUOP",
+      "prompt_info": {
+        "shot_type": "one-shot",
+        "system_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/one-shot/system_prompt_2_zs2.txt",
+        "user_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/one-shot/user_prompt.txt",
+        "variation": "zs2_zs2"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 169.0,
+        "relation_rmse": 8.0,
+        "combined_rmse": 119.63486114005399,
+        "scaled_rmse": 0.9999992283151116,
+        "ged": 17.0,
+        "ged_norm": 0.6538461538461539,
+        "ged_sim": 0.34615384615384615,
+        "combined_score": 0.08653865445968364
+      }
+    },
+    {
+      "paper_id": "BACFTU",
+      "prompt_info": {
         "shot_type": "few-shot",
         "system_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/few-shot/system_prompt_1_zs1.txt",
         "user_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/few-shot/user_prompt.txt",
@@ -1643,6 +2993,1221 @@
         "ged_norm": 0.9596412556053812,
         "ged_sim": 0.04035874439461884,
         "combined_score": 0.010089704924385379
+      }
+    },
+    {
+      "paper_id": "BACFTU",
+      "prompt_info": {
+        "shot_type": "few-shot",
+        "system_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/few-shot/system_prompt_1_zs2.txt",
+        "user_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/few-shot/user_prompt.txt",
+        "variation": "zs1_zs2"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 10.0,
+        "relation_rmse": 223.0,
+        "combined_rmse": 157.84327670192354,
+        "scaled_rmse": 0.9999999999999994,
+        "ged": 21.0,
+        "ged_norm": 0.8076923076923077,
+        "ged_sim": 0.1923076923076923,
+        "combined_score": 0.04807692307692321
+      }
+    },
+    {
+      "paper_id": "BRAAIC",
+      "prompt_info": {
+        "shot_type": "few-shot",
+        "system_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/few-shot/system_prompt_1_zs2.txt",
+        "user_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/few-shot/user_prompt.txt",
+        "variation": "zs1_zs2"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.014925373134328358,
+        "recall": 0.25,
+        "f1": 0.028169014084507043,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 189.0,
+        "relation_rmse": 8.0,
+        "combined_rmse": 133.76284985002374,
+        "scaled_rmse": 0.9999947656038938,
+        "ged": 220.0,
+        "ged_norm": 0.9128630705394191,
+        "ged_sim": 0.08713692946058094,
+        "combined_score": 0.02882779448529855
+      }
+    },
+    {
+      "paper_id": "CHIKBT",
+      "prompt_info": {
+        "shot_type": "few-shot",
+        "system_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/few-shot/system_prompt_1_zs2.txt",
+        "user_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/few-shot/user_prompt.txt",
+        "variation": "zs1_zs2"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 2.0,
+        "relation_rmse": 6.0,
+        "combined_rmse": 4.47213595499958,
+        "scaled_rmse": 0.37546702786607544,
+        "ged": 30.0,
+        "ged_norm": 0.6521739130434783,
+        "ged_sim": 0.34782608695652173,
+        "combined_score": 0.24308976477261157
+      }
+    },
+    {
+      "paper_id": "DYCTAM",
+      "prompt_info": {
+        "shot_type": "few-shot",
+        "system_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/few-shot/system_prompt_1_zs2.txt",
+        "user_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/few-shot/user_prompt.txt",
+        "variation": "zs1_zs2"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 178.0,
+        "relation_rmse": 13.0,
+        "combined_rmse": 126.20023771768419,
+        "scaled_rmse": 0.9999128749187979,
+        "ged": 205.0,
+        "ged_norm": 0.9360730593607306,
+        "ged_sim": 0.0639269406392694,
+        "combined_score": 0.01600351643011788
+      }
+    },
+    {
+      "paper_id": "GOLHBN",
+      "prompt_info": {
+        "shot_type": "few-shot",
+        "system_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/few-shot/system_prompt_1_zs2.txt",
+        "user_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/few-shot/user_prompt.txt",
+        "variation": "zs1_zs2"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 3.0,
+        "relation_rmse": 2.0,
+        "combined_rmse": 2.5495097567963922,
+        "scaled_rmse": 0.23537476041574668,
+        "ged": 30.0,
+        "ged_norm": 0.7142857142857143,
+        "ged_sim": 0.2857142857142857,
+        "combined_score": 0.26258488132463476
+      }
+    },
+    {
+      "paper_id": "HOCASA-3",
+      "prompt_info": {
+        "shot_type": "few-shot",
+        "system_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/few-shot/system_prompt_1_zs2.txt",
+        "user_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/few-shot/user_prompt.txt",
+        "variation": "zs1_zs2"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 2.0,
+        "relation_rmse": 1.0,
+        "combined_rmse": 1.5811388300841898,
+        "scaled_rmse": 0.10330908910514458,
+        "ged": 33.0,
+        "ged_norm": 0.6875,
+        "ged_sim": 0.3125,
+        "combined_score": 0.3022977277237139
+      }
+    },
+    {
+      "paper_id": "MCGCRR",
+      "prompt_info": {
+        "shot_type": "few-shot",
+        "system_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/few-shot/system_prompt_1_zs2.txt",
+        "user_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/few-shot/user_prompt.txt",
+        "variation": "zs1_zs2"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 12.0,
+        "relation_rmse": 6.0,
+        "combined_rmse": 9.486832980505138,
+        "scaled_rmse": 0.5464135572089766,
+        "ged": 46.0,
+        "ged_norm": 0.7796610169491526,
+        "ged_sim": 0.22033898305084743,
+        "combined_score": 0.16848135646046772
+      }
+    },
+    {
+      "paper_id": "MELSPP",
+      "prompt_info": {
+        "shot_type": "few-shot",
+        "system_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/few-shot/system_prompt_1_zs2.txt",
+        "user_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/few-shot/user_prompt.txt",
+        "variation": "zs1_zs2"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 182.0,
+        "relation_rmse": 5.0,
+        "combined_rmse": 128.74199004209933,
+        "scaled_rmse": 0.9999999999317357,
+        "ged": 18.0,
+        "ged_norm": 0.75,
+        "ged_sim": 0.25,
+        "combined_score": 0.06250000001706607
+      }
+    },
+    {
+      "paper_id": "NUBDAA",
+      "prompt_info": {
+        "shot_type": "few-shot",
+        "system_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/few-shot/system_prompt_1_zs2.txt",
+        "user_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/few-shot/user_prompt.txt",
+        "variation": "zs1_zs2"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 5.0,
+        "relation_rmse": 3.0,
+        "combined_rmse": 4.123105625617661,
+        "scaled_rmse": 0.2551016737042976,
+        "ged": 33.0,
+        "ged_norm": 0.673469387755102,
+        "ged_sim": 0.326530612244898,
+        "combined_score": 0.2678572346351501
+      }
+    },
+    {
+      "paper_id": "RALAET",
+      "prompt_info": {
+        "shot_type": "few-shot",
+        "system_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/few-shot/system_prompt_1_zs2.txt",
+        "user_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/few-shot/user_prompt.txt",
+        "variation": "zs1_zs2"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.05263157894736842,
+        "recall": 0.1,
+        "f1": 0.06896551724137931,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 9.0,
+        "relation_rmse": 18.0,
+        "combined_rmse": 14.230249470757707,
+        "scaled_rmse": 0.7764054690148579,
+        "ged": 52.0,
+        "ged_norm": 0.8,
+        "ged_sim": 0.19999999999999996,
+        "combined_score": 0.12314001205663036
+      }
+    },
+    {
+      "paper_id": "SMIWSW",
+      "prompt_info": {
+        "shot_type": "few-shot",
+        "system_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/few-shot/system_prompt_1_zs2.txt",
+        "user_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/few-shot/user_prompt.txt",
+        "variation": "zs1_zs2"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 143.0,
+        "relation_rmse": 10.0,
+        "combined_rmse": 101.36320831544353,
+        "scaled_rmse": 0.9999358084443073,
+        "ged": 164.0,
+        "ged_norm": 0.9371428571428572,
+        "ged_sim": 0.06285714285714283,
+        "combined_score": 0.015730333603208885
+      }
+    },
+    {
+      "paper_id": "STEGPD-9",
+      "prompt_info": {
+        "shot_type": "few-shot",
+        "system_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/few-shot/system_prompt_1_zs2.txt",
+        "user_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/few-shot/user_prompt.txt",
+        "variation": "zs1_zs2"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.09090909090909091,
+        "recall": 0.1111111111111111,
+        "f1": 0.09999999999999999,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 2.0,
+        "relation_rmse": 2.0,
+        "combined_rmse": 2.0,
+        "scaled_rmse": 0.20966163701850182,
+        "ged": 21.0,
+        "ged_norm": 0.6774193548387096,
+        "ged_sim": 0.32258064516129037,
+        "combined_score": 0.30322975203569713
+      }
+    },
+    {
+      "paper_id": "VANTPO-40",
+      "prompt_info": {
+        "shot_type": "few-shot",
+        "system_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/few-shot/system_prompt_1_zs2.txt",
+        "user_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/few-shot/user_prompt.txt",
+        "variation": "zs1_zs2"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 2.0,
+        "relation_rmse": 1.0,
+        "combined_rmse": 1.5811388300841898,
+        "scaled_rmse": 0.13979508983682476,
+        "ged": 25.0,
+        "ged_norm": 0.625,
+        "ged_sim": 0.375,
+        "combined_score": 0.3088012275407938
+      }
+    },
+    {
+      "paper_id": "VILWVI",
+      "prompt_info": {
+        "shot_type": "few-shot",
+        "system_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/few-shot/system_prompt_1_zs2.txt",
+        "user_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/few-shot/user_prompt.txt",
+        "variation": "zs1_zs2"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.2222222222222222,
+        "recall": 0.2857142857142857,
+        "f1": 0.25,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 2.0,
+        "relation_rmse": 0.0,
+        "combined_rmse": 1.4142135623730951,
+        "scaled_rmse": 0.1955297697612841,
+        "ged": 19.0,
+        "ged_norm": 0.6785714285714286,
+        "ged_sim": 0.3214285714285714,
+        "combined_score": 0.3439747004168218
+      }
+    },
+    {
+      "paper_id": "WEYUOP",
+      "prompt_info": {
+        "shot_type": "few-shot",
+        "system_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/few-shot/system_prompt_1_zs2.txt",
+        "user_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/few-shot/user_prompt.txt",
+        "variation": "zs1_zs2"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 159.0,
+        "relation_rmse": 8.0,
+        "combined_rmse": 112.57219905465115,
+        "scaled_rmse": 0.999998228684601,
+        "ged": 176.0,
+        "ged_norm": 0.9513513513513514,
+        "ged_sim": 0.048648648648648596,
+        "combined_score": 0.012162604991011905
+      }
+    },
+    {
+      "paper_id": "BACFTU",
+      "prompt_info": {
+        "shot_type": "few-shot",
+        "system_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/few-shot/system_prompt_2_zs1.txt",
+        "user_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/few-shot/user_prompt.txt",
+        "variation": "zs2_zs1"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 178.0,
+        "relation_rmse": 4.0,
+        "combined_rmse": 125.89678312014172,
+        "scaled_rmse": 0.9999999999992926,
+        "ged": 187.0,
+        "ged_norm": 0.9739583333333334,
+        "ged_sim": 0.02604166666666663,
+        "combined_score": 0.006510416666843516
+      }
+    },
+    {
+      "paper_id": "BRAAIC",
+      "prompt_info": {
+        "shot_type": "few-shot",
+        "system_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/few-shot/system_prompt_2_zs1.txt",
+        "user_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/few-shot/user_prompt.txt",
+        "variation": "zs2_zs1"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.004739336492890996,
+        "recall": 0.08333333333333333,
+        "f1": 0.008968609865470852,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 199.0,
+        "relation_rmse": 10.0,
+        "combined_rmse": 140.89180245848232,
+        "scaled_rmse": 0.9999972621720695,
+        "ged": 220.0,
+        "ged_norm": 0.944206008583691,
+        "ged_sim": 0.05579399141630903,
+        "combined_score": 0.01619133477742759
+      }
+    },
+    {
+      "paper_id": "CHIKBT",
+      "prompt_info": {
+        "shot_type": "few-shot",
+        "system_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/few-shot/system_prompt_2_zs1.txt",
+        "user_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/few-shot/user_prompt.txt",
+        "variation": "zs2_zs1"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 3.0,
+        "relation_rmse": 3.0,
+        "combined_rmse": 3.0,
+        "scaled_rmse": 0.2707870474747649,
+        "ged": 33.0,
+        "ged_norm": 0.75,
+        "ged_sim": 0.25,
+        "combined_score": 0.24480323813130878
+      }
+    },
+    {
+      "paper_id": "DYCTAM",
+      "prompt_info": {
+        "shot_type": "few-shot",
+        "system_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/few-shot/system_prompt_2_zs1.txt",
+        "user_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/few-shot/user_prompt.txt",
+        "variation": "zs2_zs1"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 185.0,
+        "relation_rmse": 13.0,
+        "combined_rmse": 131.13733259449805,
+        "scaled_rmse": 0.9999395610315763,
+        "ged": 212.0,
+        "ged_norm": 0.9380530973451328,
+        "ged_sim": 0.06194690265486724,
+        "combined_score": 0.015501835405822728
+      }
+    },
+    {
+      "paper_id": "GOLHBN",
+      "prompt_info": {
+        "shot_type": "few-shot",
+        "system_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/few-shot/system_prompt_2_zs1.txt",
+        "user_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/few-shot/user_prompt.txt",
+        "variation": "zs2_zs1"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 5.0,
+        "relation_rmse": 4.0,
+        "combined_rmse": 4.527692569068709,
+        "scaled_rmse": 0.37910867837377515,
+        "ged": 33.0,
+        "ged_norm": 0.7021276595744681,
+        "ged_sim": 0.2978723404255319,
+        "combined_score": 0.2296909155129392
+      }
+    },
+    {
+      "paper_id": "HOCASA-3",
+      "prompt_info": {
+        "shot_type": "few-shot",
+        "system_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/few-shot/system_prompt_2_zs1.txt",
+        "user_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/few-shot/user_prompt.txt",
+        "variation": "zs2_zs1"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 5.0,
+        "relation_rmse": 6.0,
+        "combined_rmse": 5.522680508593631,
+        "scaled_rmse": 0.31673637835996993,
+        "ged": 37.0,
+        "ged_norm": 0.7872340425531915,
+        "ged_sim": 0.21276595744680848,
+        "combined_score": 0.22400739477170964
+      }
+    },
+    {
+      "paper_id": "MCGCRR",
+      "prompt_info": {
+        "shot_type": "few-shot",
+        "system_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/few-shot/system_prompt_2_zs1.txt",
+        "user_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/few-shot/user_prompt.txt",
+        "variation": "zs2_zs1"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 245.0,
+        "relation_rmse": 11.0,
+        "combined_rmse": 173.4156855650607,
+        "scaled_rmse": 0.9999994704864756,
+        "ged": 269.0,
+        "ged_norm": 0.9539007092198581,
+        "ged_sim": 0.046099290780141855,
+        "combined_score": 0.011524955073416554
+      }
+    },
+    {
+      "paper_id": "MELSPP",
+      "prompt_info": {
+        "shot_type": "few-shot",
+        "system_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/few-shot/system_prompt_2_zs1.txt",
+        "user_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/few-shot/user_prompt.txt",
+        "variation": "zs2_zs1"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 195.0,
+        "relation_rmse": 31.0,
+        "combined_rmse": 139.61733416735902,
+        "scaled_rmse": 0.9999999999905497,
+        "ged": 232.0,
+        "ged_norm": 0.9354838709677419,
+        "ged_sim": 0.06451612903225812,
+        "combined_score": 0.016129032260427112
+      }
+    },
+    {
+      "paper_id": "NUBDAA",
+      "prompt_info": {
+        "shot_type": "few-shot",
+        "system_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/few-shot/system_prompt_2_zs1.txt",
+        "user_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/few-shot/user_prompt.txt",
+        "variation": "zs2_zs1"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 7.0,
+        "relation_rmse": 212.0,
+        "combined_rmse": 149.98833287959434,
+        "scaled_rmse": 0.9999777563136361,
+        "ged": 38.0,
+        "ged_norm": 0.6909090909090909,
+        "ged_sim": 0.3090909090909091,
+        "combined_score": 0.07727828819431826
+      }
+    },
+    {
+      "paper_id": "RALAET",
+      "prompt_info": {
+        "shot_type": "few-shot",
+        "system_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/few-shot/system_prompt_2_zs1.txt",
+        "user_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/few-shot/user_prompt.txt",
+        "variation": "zs2_zs1"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.05555555555555555,
+        "recall": 0.1,
+        "f1": 0.07142857142857142,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 8.0,
+        "relation_rmse": 15.0,
+        "combined_rmse": 12.020815280171307,
+        "scaled_rmse": 0.7178591816586153,
+        "ged": 48.0,
+        "ged_norm": 0.7868852459016393,
+        "ged_sim": 0.21311475409836067,
+        "combined_score": 0.1416710359670792
+      }
+    },
+    {
+      "paper_id": "SMIWSW",
+      "prompt_info": {
+        "shot_type": "few-shot",
+        "system_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/few-shot/system_prompt_2_zs1.txt",
+        "user_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/few-shot/user_prompt.txt",
+        "variation": "zs2_zs1"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 136.0,
+        "relation_rmse": 10.0,
+        "combined_rmse": 96.42613753542138,
+        "scaled_rmse": 0.9998972736262335,
+        "ged": 157.0,
+        "ged_norm": 0.9345238095238095,
+        "ged_sim": 0.06547619047619047,
+        "combined_score": 0.016394729212489245
+      }
+    },
+    {
+      "paper_id": "STEGPD-9",
+      "prompt_info": {
+        "shot_type": "few-shot",
+        "system_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/few-shot/system_prompt_2_zs1.txt",
+        "user_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/few-shot/user_prompt.txt",
+        "variation": "zs2_zs1"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 190.0,
+        "relation_rmse": 8.0,
+        "combined_rmse": 134.46932735757994,
+        "scaled_rmse": 0.9999998652602727,
+        "ged": 207.0,
+        "ged_norm": 0.9583333333333334,
+        "ged_sim": 0.04166666666666663,
+        "combined_score": 0.010416700351598474
+      }
+    },
+    {
+      "paper_id": "VANTPO-40",
+      "prompt_info": {
+        "shot_type": "few-shot",
+        "system_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/few-shot/system_prompt_2_zs1.txt",
+        "user_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/few-shot/user_prompt.txt",
+        "variation": "zs2_zs1"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 201.0,
+        "relation_rmse": 10.0,
+        "combined_rmse": 142.30425151765493,
+        "scaled_rmse": 0.9999986995313505,
+        "ged": 222.0,
+        "ged_norm": 0.9527896995708155,
+        "ged_sim": 0.047210300429184504,
+        "combined_score": 0.011802900224458512
+      }
+    },
+    {
+      "paper_id": "VILWVI",
+      "prompt_info": {
+        "shot_type": "few-shot",
+        "system_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/few-shot/system_prompt_2_zs1.txt",
+        "user_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/few-shot/user_prompt.txt",
+        "variation": "zs2_zs1"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.1111111111111111,
+        "recall": 0.14285714285714285,
+        "f1": 0.125,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 2.0,
+        "relation_rmse": 2.0,
+        "combined_rmse": 2.0,
+        "scaled_rmse": 0.2648585194083155,
+        "ged": 23.0,
+        "ged_norm": 0.7419354838709677,
+        "ged_sim": 0.25806451612903225,
+        "combined_score": 0.2795514991801792
+      }
+    },
+    {
+      "paper_id": "WEYUOP",
+      "prompt_info": {
+        "shot_type": "few-shot",
+        "system_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/few-shot/system_prompt_2_zs1.txt",
+        "user_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/few-shot/user_prompt.txt",
+        "variation": "zs2_zs1"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 11.0,
+        "relation_rmse": 20.0,
+        "combined_rmse": 16.140012391568973,
+        "scaled_rmse": 0.8502555324500108,
+        "ged": 48.0,
+        "ged_norm": 0.7868852459016393,
+        "ged_sim": 0.21311475409836067,
+        "combined_score": 0.09071480541208746
+      }
+    },
+    {
+      "paper_id": "BACFTU",
+      "prompt_info": {
+        "shot_type": "few-shot",
+        "system_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/few-shot/system_prompt_2_zs2.txt",
+        "user_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/few-shot/user_prompt.txt",
+        "variation": "zs2_zs2"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 12.0,
+        "relation_rmse": 12.0,
+        "combined_rmse": 12.0,
+        "scaled_rmse": 0.9305165487771985,
+        "ged": 37.0,
+        "ged_norm": 0.8809523809523809,
+        "ged_sim": 0.11904761904761907,
+        "combined_score": 0.04713276756760515
+      }
+    },
+    {
+      "paper_id": "BRAAIC",
+      "prompt_info": {
+        "shot_type": "few-shot",
+        "system_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/few-shot/system_prompt_2_zs2.txt",
+        "user_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/few-shot/user_prompt.txt",
+        "variation": "zs2_zs2"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.017094017094017096,
+        "recall": 0.3333333333333333,
+        "f1": 0.032520325203252036,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 222.0,
+        "relation_rmse": 10.0,
+        "combined_rmse": 157.13688300332294,
+        "scaled_rmse": 0.9999993747855851,
+        "ged": 240.0,
+        "ged_norm": 0.9375,
+        "ged_sim": 0.0625,
+        "combined_score": 0.023755237604416737
+      }
+    },
+    {
+      "paper_id": "CHIKBT",
+      "prompt_info": {
+        "shot_type": "few-shot",
+        "system_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/few-shot/system_prompt_2_zs2.txt",
+        "user_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/few-shot/user_prompt.txt",
+        "variation": "zs2_zs2"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 0.0,
+        "relation_rmse": 0.0,
+        "combined_rmse": 0.0,
+        "scaled_rmse": 0.0,
+        "ged": 29.0,
+        "ged_norm": 0.7435897435897436,
+        "ged_sim": 0.2564102564102564,
+        "combined_score": 0.3141025641025641
+      }
+    },
+    {
+      "paper_id": "DYCTAM",
+      "prompt_info": {
+        "shot_type": "few-shot",
+        "system_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/few-shot/system_prompt_2_zs2.txt",
+        "user_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/few-shot/user_prompt.txt",
+        "variation": "zs2_zs2"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 136.0,
+        "relation_rmse": 13.0,
+        "combined_rmse": 96.6048653019091,
+        "scaled_rmse": 0.9992197654265418,
+        "ged": 27.0,
+        "ged_norm": 0.9310344827586207,
+        "ged_sim": 0.06896551724137934,
+        "combined_score": 0.01743643795370939
+      }
+    },
+    {
+      "paper_id": "GOLHBN",
+      "prompt_info": {
+        "shot_type": "few-shot",
+        "system_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/few-shot/system_prompt_2_zs2.txt",
+        "user_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/few-shot/user_prompt.txt",
+        "variation": "zs2_zs2"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 139.0,
+        "relation_rmse": 9.0,
+        "combined_rmse": 98.49365461794989,
+        "scaled_rmse": 0.9999685701700524,
+        "ged": 31.0,
+        "ged_norm": 0.7560975609756098,
+        "ged_sim": 0.24390243902439024,
+        "combined_score": 0.06098346721358447
+      }
+    },
+    {
+      "paper_id": "HOCASA-3",
+      "prompt_info": {
+        "shot_type": "few-shot",
+        "system_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/few-shot/system_prompt_2_zs2.txt",
+        "user_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/few-shot/user_prompt.txt",
+        "variation": "zs2_zs2"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 180.0,
+        "relation_rmse": 14.0,
+        "combined_rmse": 127.66362050325849,
+        "scaled_rmse": 0.9998499268357194,
+        "ged": 29.0,
+        "ged_norm": 0.8787878787878788,
+        "ged_sim": 0.12121212121212122,
+        "combined_score": 0.030340548594100458
+      }
+    },
+    {
+      "paper_id": "MCGCRR",
+      "prompt_info": {
+        "shot_type": "few-shot",
+        "system_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/few-shot/system_prompt_2_zs2.txt",
+        "user_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/few-shot/user_prompt.txt",
+        "variation": "zs2_zs2"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 42.0,
+        "relation_rmse": 9.0,
+        "combined_rmse": 30.37268509697488,
+        "scaled_rmse": 0.9204251420890404,
+        "ged": 43.0,
+        "ged_norm": 0.7678571428571429,
+        "ged_sim": 0.2321428571428571,
+        "combined_score": 0.07792942876345418
+      }
+    },
+    {
+      "paper_id": "MELSPP",
+      "prompt_info": {
+        "shot_type": "few-shot",
+        "system_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/few-shot/system_prompt_2_zs2.txt",
+        "user_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/few-shot/user_prompt.txt",
+        "variation": "zs2_zs2"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 224.0,
+        "relation_rmse": 5.0,
+        "combined_rmse": 158.4313731556979,
+        "scaled_rmse": 0.9999999999996911,
+        "ged": 235.0,
+        "ged_norm": 0.975103734439834,
+        "ged_sim": 0.024896265560165998,
+        "combined_score": 0.006224066390118715
+      }
+    },
+    {
+      "paper_id": "NUBDAA",
+      "prompt_info": {
+        "shot_type": "few-shot",
+        "system_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/few-shot/system_prompt_2_zs2.txt",
+        "user_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/few-shot/user_prompt.txt",
+        "variation": "zs2_zs2"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.004048582995951417,
+        "recall": 0.06666666666666667,
+        "f1": 0.0076335877862595426,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 232.0,
+        "relation_rmse": 13.0,
+        "combined_rmse": 164.306116745543,
+        "scaled_rmse": 0.9999920006574116,
+        "ged": 259.0,
+        "ged_norm": 0.9418181818181818,
+        "ged_sim": 0.05818181818181822,
+        "combined_score": 0.01645585132766655
+      }
+    },
+    {
+      "paper_id": "RALAET",
+      "prompt_info": {
+        "shot_type": "few-shot",
+        "system_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/few-shot/system_prompt_2_zs2.txt",
+        "user_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/few-shot/user_prompt.txt",
+        "variation": "zs2_zs2"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 223.0,
+        "relation_rmse": 9.0,
+        "combined_rmse": 157.8131806916013,
+        "scaled_rmse": 0.9999999389708218,
+        "ged": 242.0,
+        "ged_norm": 0.9603174603174603,
+        "ged_sim": 0.03968253968253965,
+        "combined_score": 0.009920650177929452
+      }
+    },
+    {
+      "paper_id": "SMIWSW",
+      "prompt_info": {
+        "shot_type": "few-shot",
+        "system_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/few-shot/system_prompt_2_zs2.txt",
+        "user_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/few-shot/user_prompt.txt",
+        "variation": "zs2_zs2"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 142.0,
+        "relation_rmse": 10.0,
+        "combined_rmse": 100.65783625729296,
+        "scaled_rmse": 0.9999313480208045,
+        "ged": 163.0,
+        "ged_norm": 0.9367816091954023,
+        "ged_sim": 0.06321839080459768,
+        "combined_score": 0.01582176069594829
+      }
+    },
+    {
+      "paper_id": "STEGPD-9",
+      "prompt_info": {
+        "shot_type": "few-shot",
+        "system_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/few-shot/system_prompt_2_zs2.txt",
+        "user_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/few-shot/user_prompt.txt",
+        "variation": "zs2_zs2"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 186.0,
+        "relation_rmse": 8.0,
+        "combined_rmse": 131.64345787011217,
+        "scaled_rmse": 0.9999998121206117,
+        "ged": 203.0,
+        "ged_norm": 0.9575471698113207,
+        "ged_sim": 0.04245283018867929,
+        "combined_score": 0.01061325451701689
+      }
+    },
+    {
+      "paper_id": "VANTPO-40",
+      "prompt_info": {
+        "shot_type": "few-shot",
+        "system_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/few-shot/system_prompt_2_zs2.txt",
+        "user_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/few-shot/user_prompt.txt",
+        "variation": "zs2_zs2"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 13.0,
+        "relation_rmse": 2.0,
+        "combined_rmse": 9.300537618869138,
+        "scaled_rmse": 0.587601633377904,
+        "ged": 32.0,
+        "ged_norm": 0.7441860465116279,
+        "ged_sim": 0.2558139534883721,
+        "combined_score": 0.167053080027617
+      }
+    },
+    {
+      "paper_id": "VILWVI",
+      "prompt_info": {
+        "shot_type": "few-shot",
+        "system_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/few-shot/system_prompt_2_zs2.txt",
+        "user_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/few-shot/user_prompt.txt",
+        "variation": "zs2_zs2"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 187.0,
+        "relation_rmse": 6.0,
+        "combined_rmse": 132.29701432761058,
+        "scaled_rmse": 0.9999999985524405,
+        "ged": 13.0,
+        "ged_norm": 0.8666666666666667,
+        "ged_sim": 0.1333333333333333,
+        "combined_score": 0.033333333695223205
+      }
+    },
+    {
+      "paper_id": "WEYUOP",
+      "prompt_info": {
+        "shot_type": "few-shot",
+        "system_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/few-shot/system_prompt_2_zs2.txt",
+        "user_file": "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/few-shot/user_prompt.txt",
+        "variation": "zs2_zs2"
+      },
+      "parse_success": true,
+      "parse_error": null,
+      "metrics": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.0,
+        "support_f1": 0.0,
+        "attack_f1": 0.0,
+        "adu_rmse": 94.0,
+        "relation_rmse": 53.0,
+        "combined_rmse": 76.3053078101386,
+        "scaled_rmse": 0.99987373087757,
+        "ged": 170.0,
+        "ged_norm": 0.9392265193370166,
+        "ged_sim": 0.06077348066298338,
+        "combined_score": 0.015224937446353337
       }
     }
   ]
