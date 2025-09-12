@@ -64,8 +64,12 @@ paths:
           standard_rag: "datasets/interim/argument_mining/snowball_phase_1/end2end/standard_rag" # Raw generation outputs for standard RAG prompting
           cot: "datasets/interim/argument_mining/snowball_phase_1/end2end/cot" # Raw generation outputs for CoT prompting
           rag_cot: "datasets/interim/argument_mining/snowball_phase_1/end2end/rag_cot" # Raw generation outputs for RAG+CoT prompting
-        adur: "datasets/interim/argument_mining/snowball_phase_1/adur" # Raw ADUR pipeline outputs
-        are: "datasets/interim/argument_mining/snowball_phase_1/are" # Raw ARE pipeline outputs
+        adur: 
+          model_1: "datasets/interim/argument_mining/snowball_phase_1/adur/model_1" # Raw ADUR pipeline outputs for model 1
+          model_2: "datasets/interim/argument_mining/snowball_phase_1/adur/model_2" # Raw ADUR pipeline outputs for model 2
+        are: 
+          model_1: "datasets/interim/argument_mining/snowball_phase_1/are/model_1" # Raw ARE pipeline outputs for model 1
+          model_2: "datasets/interim/argument_mining/snowball_phase_1/are/model_2" # Raw ARE pipeline outputs for model 2
       parsed:
         end2end:
           standard: "datasets/processed/argument_mining/snowball_phase_1/end2end/standard" # Parsed argument maps for standard prompting

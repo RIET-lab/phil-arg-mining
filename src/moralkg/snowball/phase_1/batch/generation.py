@@ -7,7 +7,7 @@ the checkpoints API.
 from __future__ import annotations
 
 from pathlib import Path
-from typing import Callable, Iterable, List
+from typing import Callable, Iterable, List, Dict, Tuple
 from moralkg.snowball.phase_1.prompts.loader import PromptConfig
 from moralkg.snowball.phase_1.io.checkpoints import save_batch
 import logging
@@ -67,46 +67,43 @@ class BatchArgMapper:
         return final_path
 
 
-def run_file_mode(pipeline, input_files, outdir, normalize_fn, prefix: str = "output"):
-    """Run a file-mode pipeline over a list of input files, normalize and save outputs.
+def run_from_texts(model, texts: Dict[str, str], outdir, normalize_fn, prefix: str = "output"):
+    """Run a text-oriented model over a mapping of id -> text.
 
     Args:
-      pipeline: object with a `generate(input_path)` method that returns a raw dict
-      input_files: iterable of file paths (str or Path)
+      model: object with a `generate_from_text(text, paper_id=...)` or
+        `generate_text(text, paper_id=...)` method. If neither is available the
+        function will raise.
+      texts: Dict of paper_id: text
       outdir: destination directory to write outputs
       normalize_fn: callable(raw_dict, source_text=None) -> normalized dict
       prefix: filename prefix for saved outputs
 
-    Raises on first error to keep failures loud and visible for debugging.
     Returns the output directory Path on success.
     """
     logger = logging.getLogger(__name__)
     outdir = Path(outdir)
     outdir.mkdir(parents=True, exist_ok=True)
     saved = []
-    for p in input_files:
-        p_path = Path(p)
-        logger.info("Processing file-mode input: %s", p_path)
+
+    for paper_id, txt in texts.items():
+        stem = str(paper_id) or "unknown"
+        logger.info("Processing in-memory text input: id=%s", paper_id)
+
+        # Prefer a text-specific generation method
+        if hasattr(model, "generate_from_text"):
+            raw = model.generate_from_text(str(txt), paper_id=paper_id)
+        elif hasattr(model, "generate_text"):
+            raw = model.generate_text(str(txt), paper_id=paper_id)
+
         try:
-            raw = pipeline.generate(p_path)
+            # Do not pass source_text; normalizers operate on raw outputs only
+            normalized = normalize_fn(raw)
         except Exception as e:
-            logger.error("Pipeline.generate failed for %s: %s", p_path, e)
+            logger.error("Normalization failed for %s: %s", stem, e)
             raise
 
-        # try to read source text for normalization hints; ignore failures
-        src_text = None
-        try:
-            src_text = p_path.read_text(encoding="utf-8", errors="ignore")
-        except Exception:
-            src_text = None
-
-        try:
-            normalized = normalize_fn(raw, source_text=src_text)
-        except Exception as e:
-            logger.error("Normalization failed for %s: %s", p_path, e)
-            raise
-
-        filename = f"{prefix}_{p_path.stem}.json"
+        filename = f"{prefix}_{stem}.json"
         try:
             from moralkg.snowball.phase_1.io.checkpoints import save_individual
 
@@ -114,7 +111,7 @@ def run_file_mode(pipeline, input_files, outdir, normalize_fn, prefix: str = "ou
             saved.append(path)
             logger.info("Saved normalized output to %s", path)
         except Exception as e:
-            logger.error("Failed to save output for %s: %s", p_path, e)
+            logger.error("Failed to save output for %s: %s", stem, e)
             raise
 
     return outdir

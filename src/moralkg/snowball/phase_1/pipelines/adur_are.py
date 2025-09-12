@@ -8,32 +8,19 @@ artifacts using the checkpoints API.
 from __future__ import annotations
 
 from pathlib import Path
-from typing import Any, Iterable, List, Tuple
-import logging
-
-
-def _validate_refs(registry, refs: List[Any]) -> Tuple[bool, List[dict]]:
-    details = []
-    ok = True
-    for r in refs:
-        try:
-            r_ok, r_det = registry.validate_pipeline(r)
-        except Exception as e:
-            r_ok = False
-            r_det = {"error": str(e)}
-        details.append(r_det)
-        if not r_ok:
-            ok = False
-    return ok, details
-
+from typing import Any, Iterable
+from moralkg.snowball.phase_1.models import registry
+from moralkg.snowball.phase_1.models import adapters
+from moralkg.snowball.phase_1.batch.generation import run_from_texts
+from moralkg.snowball.phase_1.io import checkpoints
+from moralkg.config import Config
+from moralkg.logging import get_logger
+import json
 
 def _select_major_adus(adus: list[dict], method: str = "centroid") -> list[dict]:
-    """Cheap deterministic major-ADU selector used in Pipeline 3.
+    """TODO: Implement major ADU selection strategies.
 
-    Current heuristic: pick the longest ADU text labelled as a claim.
-    This is intentionally simple and deterministic; it only annotates the
-    normalized ADU dicts with a 'major' boolean flag and returns the
-    modified list.
+    Current simple heuristic: pick the longest Claim-type ADU and mark it as major.
     """
     if not adus:
         return adus
@@ -60,7 +47,8 @@ def _select_major_adus(adus: list[dict], method: str = "centroid") -> list[dict]
 
 def run_pipeline2(
     input_files: Iterable[Path] | Iterable[str],
-    outdir: Path | str,
+    adur_outdir: Path | str,
+    are_outdir: Path | str,
     adur_model_ref: Any = None,
     are_model_ref: Any = None,
     use_adur_model_2: bool = False,
@@ -76,41 +64,52 @@ def run_pipeline2(
 
     Returns the outdir Path on success or validation details on dry-run.
     """
-    logger = logging.getLogger(__name__)
-    from moralkg.snowball.phase_1.models import registry
-    from moralkg.snowball.phase_1.models import adapters
-    from moralkg.snowball.phase_1.batch.generation import run_file_mode
-    from moralkg.snowball.phase_1.io import checkpoints
+    cfg = Config.load()
+    logger = get_logger(__name__)
 
-    outdir = Path(outdir)
-    outdir.mkdir(parents=True, exist_ok=True)
+    adur_outdir = Path(adur_outdir)
+    adur_outdir.mkdir(parents=True, exist_ok=True)
+    are_outdir = Path(are_outdir)
+    are_outdir.mkdir(parents=True, exist_ok=True)
+
+    adur_model_ref = cfg.get(f"paths.models.adur.{adur_model_ref}.dir", None) if isinstance(adur_model_ref, str) else None
+    are_model_ref = cfg.get(f"paths.models.are.{are_model_ref}.dir", None) if isinstance(are_model_ref, str) else None
 
     # Validation step
-    ok, details = _validate_refs(registry, [adur_model_ref, are_model_ref])
-    if dry_run:
-        return {"ok": ok, "details": details}
-    if not ok:
-        logger.error("Validation failed for model refs: %s", details)
-        raise RuntimeError(f"Model validation failed: {details}")
+    for model_ref in [adur_model_ref, are_model_ref]:
+        if model_ref is not None:
+            p = Path(model_ref)
+            if not p.exists() or not p.is_dir():
+                logger.error("Model path does not exist or is not a directory: %s", p)
+                raise RuntimeError(f"Invalid model path: {p}")
+            ok, details = registry.validate_instance(p)
+            if not ok:
+                logger.error("Validation failed for model refs: %s", details)
+                raise RuntimeError(f"Model validation failed: {details}")
 
     # Run ADUR in file-mode and persist normalized outputs
-    adur_outdir = outdir / "adur"
-    adur = registry.get_adur_pipeline(adur_model_ref, use_model_2=use_adur_model_2)
-    logger.info("Running ADUR pipeline over %d files, outputs -> %s", len(list(input_files)), adur_outdir)
-    run_file_mode(adur, input_files, adur_outdir, adapters.normalize_adur_output, prefix="adur")
+    adur = registry.get_adur_instance(adur_model_ref, use_model_2=use_adur_model_2)
+    # Prepare mapping of id->text by reading input files
+    texts = {}
+    for p in input_files:
+        p_path = Path(p)
+        texts[p_path.stem] = p_path.read_text(encoding="utf-8", errors="ignore")
+    logger.info("Running ADUR pipeline over %d items, outputs -> %s", len(texts), adur_outdir)
+    run_from_texts(adur, texts, adur_outdir, adapters.normalize_adur_output, prefix="adur")
 
     # Run ARE (it may run its own ADUR internally or use adur_model_ref)
-    are_outdir = outdir / "are"
-    are = registry.get_are_pipeline(are_model_ref, adur_model_ref=adur_model_ref, use_model_2=use_are_model_2, use_adur_model_2=use_adur_model_2)
-    logger.info("Running ARE pipeline over %d files, outputs -> %s", len(list(input_files)), are_outdir)
-    run_file_mode(are, input_files, are_outdir, adapters.normalize_are_output, prefix="are")
+    are = registry.get_are_instance(are_model_ref, adur_model_ref=adur_model_ref, use_model_2=use_are_model_2, use_adur_model_2=use_adur_model_2)
+    # Reuse same texts mapping for ARE
+    logger.info("Running ARE pipeline over %d items, outputs -> %s", len(texts), are_outdir)
+    run_from_texts(are, texts, are_outdir, adapters.normalize_are_output, prefix="are")
 
-    return outdir
+    return are_outdir
 
 
 def run_pipeline3(
     input_files: Iterable[Path] | Iterable[str],
-    outdir: Path | str,
+    adur_outdir: Path | str,
+    are_outdir: Path | str,
     adur_model_ref: Any = None,
     are_model_ref: Any = None,
     use_adur_model_2: bool = False,
@@ -125,28 +124,38 @@ def run_pipeline3(
     a 'major' boolean flag on selected ADUs and persists the updated
     normalized ADU artifact.
     """
-    logger = logging.getLogger(__name__)
-    from moralkg.snowball.phase_1.models import registry
-    from moralkg.snowball.phase_1.models import adapters
-    from moralkg.snowball.phase_1.batch.generation import run_file_mode
-    from moralkg.snowball.phase_1.io import checkpoints
-    import json
+    cfg = Config.load()
+    logger = get_logger(__name__)
 
-    outdir = Path(outdir)
-    outdir.mkdir(parents=True, exist_ok=True)
+    adur_outdir = Path(adur_outdir)
+    adur_outdir.mkdir(parents=True, exist_ok=True)
+    are_outdir = Path(are_outdir)
+    are_outdir.mkdir(parents=True, exist_ok=True)
+
+    adur_model_ref = cfg.get(f"paths.models.adur.{adur_model_ref}.dir", None) if isinstance(adur_model_ref, str) else None
+    are_model_ref = cfg.get(f"paths.models.are.{are_model_ref}.dir", None) if isinstance(are_model_ref, str) else None
 
     # Validation step
-    ok, details = _validate_refs(registry, [adur_model_ref, are_model_ref])
-    if dry_run:
-        return {"ok": ok, "details": details}
-    if not ok:
-        logger.error("Validation failed for model refs: %s", details)
-        raise RuntimeError(f"Model validation failed: {details}")
+    for model_ref in [adur_model_ref, are_model_ref]:
+        if model_ref is not None:
+            p = Path(model_ref)
+            if not p.exists() or not p.is_dir():
+                logger.error("Model path does not exist or is not a directory: %s", p)
+                raise RuntimeError(f"Invalid model path: {p}")
+            ok, details = registry.validate_instance(p)
+            if not ok:
+                logger.error("Validation failed for model refs: %s", details)
+                raise RuntimeError(f"Model validation failed: {details}")
+
+    # TODO: Implement major ADU selection (according to config, can either be centroid or pairwise)
 
     # Run ADUR and then annotate major ADUs
-    adur_outdir = outdir / "adur"
-    adur = registry.get_adur_pipeline(adur_model_ref, use_model_2=use_adur_model_2)
-    run_file_mode(adur, input_files, adur_outdir, adapters.normalize_adur_output, prefix="adur")
+    adur = registry.get_adur_instance(adur_model_ref, use_model_2=use_adur_model_2)
+    texts = {}
+    for p in input_files:
+        p_path = Path(p)
+        texts[p_path.stem] = p_path.read_text(encoding="utf-8", errors="ignore")
+    run_from_texts(adur, texts, adur_outdir, adapters.normalize_adur_output, prefix="adur")
 
     # Annotate normalized ADU outputs with major flags
     for p in sorted(adur_outdir.glob("*.json")):
@@ -162,8 +171,7 @@ def run_pipeline3(
             continue
 
     # Run ARE using the (annotated) ADU checkpoint as upstream artifact
-    are_outdir = outdir / "are"
-    are = registry.get_are_pipeline(are_model_ref, adur_model_ref=adur_model_ref, use_model_2=use_are_model_2, use_adur_model_2=use_adur_model_2)
-    run_file_mode(are, input_files, are_outdir, adapters.normalize_are_output, prefix="are")
+    are = registry.get_are_instance(are_model_ref, adur_model_ref=adur_model_ref, use_model_2=use_are_model_2, use_adur_model_2=use_adur_model_2)
+    run_from_texts(are, texts, are_outdir, adapters.normalize_are_output, prefix="are")
 
-    return outdir
+    return are_outdir

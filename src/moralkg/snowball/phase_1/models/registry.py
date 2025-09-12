@@ -1,7 +1,7 @@
 """Model registry helpers for Phase 1.
 
-This module provides a thin factory to construct the real End2End pipeline.
-It intentionally does not provide a mock fallback — the pipeline code should
+This module provides a collection of functions to manage and validate model instances.
+It intentionally does not provide a mock fallback — the instance code should
 raise if required dependencies or model files are missing.
 """
 from __future__ import annotations
@@ -11,14 +11,14 @@ import logging
 from pathlib import Path
 
 try:
-  # Prefer not to force heavy imports here; these are used in factory calls below
+  # Prefer not to force heavy imports here; these are used in instantiation calls below
   pass
 except Exception:
   pass
 
 
 def create_end2end(real_kwargs: dict | None = None) -> Any:
-    """Instantiate and return the real End2End model.
+    """Instantiate and return the an LLM instance for the End2End pipeline.
 
     Args:
       real_kwargs: forwarded to the End2End constructor.
@@ -27,14 +27,14 @@ def create_end2end(real_kwargs: dict | None = None) -> Any:
       Any exception raised by the End2End constructor (no fallback performed).
     """
     logger = logging.getLogger(__name__)
-    logger.info("Creating End2End pipeline with kwargs: %s", real_kwargs)
+    logger.info("Creating End2End instance with kwargs: %s", real_kwargs)
     try:
         from moralkg.argmining.models.models import End2End
         inst = End2End(**(real_kwargs or {}))
-        logger.info("End2End pipeline created successfully")
+        logger.info("End2End instance created successfully")
         return inst
     except Exception as e:
-        logger.error("Failed to create End2End pipeline: %s", e)
+        logger.error("Failed to create End2End instance: %s", e)
         raise
 
 
@@ -64,45 +64,39 @@ def _build_remediation_suggestions(exc: Exception) -> str:
   return "\n".join(msg_lines)
 
 
-def validate_pipeline(model_ref: Any) -> Tuple[bool, Dict[str, Any]]:
-  """Validate a model reference without downloading remote HF snapshots.
+def validate_instance(dir: Path | None, hf: str | None) -> Tuple[bool, Dict[str, Any]]:
+  """Validate a local model reference without downloading remote HF snapshots.
 
-  Args:
-    model_ref: dict|str|Path. If dict and contains 'dir' this will inspect the directory.
+  Args: # TODO: Update and require at least one to be present
+    dir: Path to the local model directory.
+    hf: Hugging Face model repo identifier. Optional.
 
   Returns:
     (ok, details) where ok is bool and details contains fields like 'reason', 'path', 'found_files'.
 
-  Note: we deliberately avoid downloading from HF in validation; use the full factory to attempt downloads.
+  Note: we deliberately avoid downloading from HF in validation; use the full approach to attempt downloads.
+  TODO: Allow validation of HF repos if 'hf' key is present.
   """
-  details: Dict[str, Any] = {"model_ref": model_ref}
+  details: Dict[str, Any] = {}
   p = None
-  # Accept dicts like {"dir": "/abs/path"} or {"hf": "owner/repo"}
-  if isinstance(model_ref, dict):
-    if "dir" in model_ref and model_ref["dir"]:
-      p = Path(model_ref["dir"]).expanduser().resolve()
-      details["model_type"] = "local"
-    elif "hf" in model_ref:
-      details["model_type"] = "hf"
-      details["reason"] = "HF repo reference provided; no local dir to validate. Run a dry-run after downloading or validate the downloaded snapshot."
-      return False, details
-    else:
-      details["reason"] = "Dict model_ref provided but lacks 'dir' or 'hf' keys."
-      return False, details
-  else:
-    # str or Path: treat as path
-    try:
-      p = Path(str(model_ref)).expanduser().resolve()
-      details["model_type"] = "local"
-    except Exception:
-      details["reason"] = "Unable to interpret model_ref as a local path"
-      return False, details
+  if dir is not None:
+    p = dir.expanduser().resolve()
+    details["model_type"] = "local"
+    details["dir"] = str(dir)
 
+  elif hf is not None:
+    details["model_type"] = "hf"
+    details["reason"] = "HF repo reference provided; HF repo download not yet implemented. Run a dry-run after downloading or validate the downloaded snapshot."
+    return False, details
+  
+  else:
+    details["reason"] = "No model reference provided (neither 'dir' nor 'hf' was given)"
+    return False, details
+    
   if p is None:
     details["reason"] = "No path resolved for validation"
     return False, details
 
-  details["path"] = str(p)
   if not p.exists():
     details["reason"] = f"Local path does not exist: {p}"
     return False, details
@@ -133,11 +127,11 @@ def _raise_with_diagnostics(exc: Exception, model_ref: Any = None) -> None:
   diag = _build_remediation_suggestions(exc)
   details = None
   try:
-    ok, details = validate_pipeline(model_ref) if model_ref is not None else (False, None)
+    ok, details = validate_instance(model_ref) if model_ref is not None else (False, None)
   except Exception:
     details = None
 
-  msg_lines = ["Failed to create pipeline:\n", str(exc), "\n"]
+  msg_lines = ["Failed to create instance:\n", str(exc), "\n"]
   if details:
     msg_lines.append("Validation details:\n")
     for k, v in details.items():
@@ -149,15 +143,15 @@ def _raise_with_diagnostics(exc: Exception, model_ref: Any = None) -> None:
   raise RuntimeError(full) from exc
 
 
-def get_adur_pipeline(model_ref: Any | None = None, *, use_model_2: bool = False, **kwargs) -> Any:
-  """Factory for ADUR pipeline. Fails loudly with diagnostics when load fails.
+def get_adur_instance(model_ref: Any | None = None, *, use_model_2: bool = False, **kwargs) -> Any:
+  """Instantiate and return the ADUR instance.
 
   Args:
     model_ref: model identifier (dict with 'dir' or 'hf', or path string). If None, ADUR will read from Config.
     use_model_2: pick alternate model in config when model_ref is None.
   """
   logger = logging.getLogger(__name__)
-  logger.info("Creating ADUR pipeline (use_model_2=%s) with model_ref=%s", use_model_2, model_ref)
+  logger.info("Creating ADUR instance (use_model_2=%s) with model_ref=%s", use_model_2, model_ref)
   try:
     from moralkg.argmining.models.models import ADUR  # local heavy import
 
@@ -204,21 +198,21 @@ def get_adur_pipeline(model_ref: Any | None = None, *, use_model_2: bool = False
       inst = ADUR(use_model_2=use_model_2, **kwargs)
     else:
       inst = ADUR(model=model_ref, use_model_2=use_model_2, **kwargs)
-    logger.info("ADUR pipeline created successfully")
+    logger.info("ADUR instance created successfully")
     return inst
   except Exception as exc:
     _raise_with_diagnostics(exc, model_ref)
 
 
-def get_are_pipeline(model_ref: Any | None = None, *, adur_model_ref: Any | None = None, use_model_2: bool = False, use_adur_model_2: bool = False, **kwargs) -> Any:
-  """Factory for ARE pipeline. Fails loudly with diagnostics when load fails.
+def get_are_instance(model_ref: Any | None = None, *, adur_model_ref: Any | None = None, use_model_2: bool = False, use_adur_model_2: bool = False, **kwargs) -> Any:
+  """Instantiate and return the ARE instance.
 
   Args:
     model_ref: ARE model identifier (dict with 'dir' or 'hf', or path string). If None, ARE will read from Config.
     adur_model_ref: optional ADUR model ref to pass to ARE for preprocessing.
   """
   logger = logging.getLogger(__name__)
-  logger.info("Creating ARE pipeline (use_model_2=%s) with model_ref=%s and adur_model_ref=%s", use_model_2, model_ref, adur_model_ref)
+  logger.info("Creating ARE instance (use_model_2=%s) with model_ref=%s and adur_model_ref=%s", use_model_2, model_ref, adur_model_ref)
   try:
     from moralkg.argmining.models.models import ARE
 
@@ -226,7 +220,7 @@ def get_are_pipeline(model_ref: Any | None = None, *, adur_model_ref: Any | None
       inst = ARE(use_model_2=use_model_2, use_adur_model_2=use_adur_model_2, **kwargs)
     else:
       inst = ARE(model=model_ref, adur_model=adur_model_ref, use_model_2=use_model_2, use_adur_model_2=use_adur_model_2, **kwargs)
-    logger.info("ARE pipeline created successfully")
+    logger.info("ARE instance created successfully")
     return inst
   except Exception as exc:
     _raise_with_diagnostics(exc, model_ref or adur_model_ref)
