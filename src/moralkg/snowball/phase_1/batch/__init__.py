@@ -13,6 +13,6 @@ from __future__ import annotations
 
 # Re-export the public symbols. Keep imports local to avoid heavy work at
 # import-time when the package is imported for unrelated reasons (tests, docs).
-__all__ = ["BatchArgMapper", "run_from_texts"]
+__all__ = ["BatchArgMapper"]
 
-from .generation import BatchArgMapper, run_from_texts
+from .generation import BatchArgMapper

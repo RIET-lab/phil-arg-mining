@@ -64,30 +64,29 @@ def _build_remediation_suggestions(exc: Exception) -> str:
   return "\n".join(msg_lines)
 
 
-def validate_instance(dir: Path | None, hf: str | None) -> Tuple[bool, Dict[str, Any]]:
+def validate_instance(dir: Path | None) -> Tuple[bool, Dict[str, Any]]:
   """Validate a local model reference without downloading remote HF snapshots.
 
-  Args: # TODO: Update and require at least one to be present
+  Args: 
     dir: Path to the local model directory.
-    hf: Hugging Face model repo identifier. Optional.
 
   Returns:
     (ok, details) where ok is bool and details contains fields like 'reason', 'path', 'found_files'.
 
   Note: we deliberately avoid downloading from HF in validation; use the full approach to attempt downloads.
-  TODO: Allow validation of HF repos if 'hf' key is present.
+  TODO: Allow validation of HF repos if 'hf' identifier arg is present.
   """
   details: Dict[str, Any] = {}
   p = None
   if dir is not None:
-    p = dir.expanduser().resolve()
+    p = dir.resolve()
     details["model_type"] = "local"
     details["dir"] = str(dir)
 
-  elif hf is not None:
-    details["model_type"] = "hf"
-    details["reason"] = "HF repo reference provided; HF repo download not yet implemented. Run a dry-run after downloading or validate the downloaded snapshot."
-    return False, details
+  #elif hf is not None:
+  #  details["model_type"] = "hf"
+  #  details["reason"] = "HF repo reference provided; HF repo download not yet implemented. Run a dry-run after downloading or validate the downloaded snapshot."
+  #  return False, details
   
   else:
     details["reason"] = "No model reference provided (neither 'dir' nor 'hf' was given)"
@@ -197,7 +196,7 @@ def get_adur_instance(model_ref: Any | None = None, *, use_model_2: bool = False
     if model_ref is None:
       inst = ADUR(use_model_2=use_model_2, **kwargs)
     else:
-      inst = ADUR(model=model_ref, use_model_2=use_model_2, **kwargs)
+      inst = ADUR(model_dir=model_ref, use_model_2=use_model_2, **kwargs)
     logger.info("ADUR instance created successfully")
     return inst
   except Exception as exc:
@@ -219,7 +218,7 @@ def get_are_instance(model_ref: Any | None = None, *, adur_model_ref: Any | None
     if model_ref is None and adur_model_ref is None:
       inst = ARE(use_model_2=use_model_2, use_adur_model_2=use_adur_model_2, **kwargs)
     else:
-      inst = ARE(model=model_ref, adur_model=adur_model_ref, use_model_2=use_model_2, use_adur_model_2=use_adur_model_2, **kwargs)
+      inst = ARE(model_dir=model_ref, adur_model_dir=adur_model_ref, use_model_2=use_model_2, use_adur_model_2=use_adur_model_2, **kwargs)
     logger.info("ARE instance created successfully")
     return inst
   except Exception as exc:

@@ -13,61 +13,10 @@ from typing import Any
 
 from .models import registry
 from .io import checkpoints
-from .batch.generation import run_from_texts
 from moralkg.argmining.loaders.loader import Dataset
 from moralkg import Config
 
 logger = logging.getLogger(__name__)
-
-
-def _write_output_json(output: dict, outdir: Path, prefix: str = "adur") -> Path:
-    outdir = Path(outdir)
-    outdir.mkdir(parents=True, exist_ok=True)
-    fname = f"{prefix}_output.json"
-    return checkpoints.save_individual(output, outdir, fname)
-
-def run_adur_cmd(model_ref: Any, input_file: Path, outdir: Path, dry_run: bool = False):
-    """Run ADUR on a single file and save the normalized output.
-
-    model_ref may be a dict (e.g., {"dir": ...}) or a string path. If dry_run is True,
-    only validate the model directory and return non-zero exit if invalid.
-    """
-    if dry_run:
-        ok, details = registry.validate_instance(model_ref)
-        if not ok:
-            logger.error("Validation failed: %s", details)
-            raise SystemExit(2)
-        logger.info("Validation succeeded: %s", details)
-        return
-
-    # Create ADUR model instance (this will raise loudly on failure)
-    adur = registry.get_adur_instance(model_ref)
-
-    # Use text-mode runner which normalizes and saves outputs via checkpoints
-    from .models.adapters import normalize_adur_output
-    # read input text
-    src_text = Path(input_file).read_text(encoding="utf-8", errors="ignore")
-    outdir_path = run_from_texts(adur, {Path(input_file).stem: src_text}, outdir, normalize_adur_output, prefix="adur")
-    logger.info("ADUR file-mode run completed; outputs in %s", outdir_path)
-    return outdir_path
-
-
-def run_are_cmd(model_ref: Any, adur_model_ref: Any, input_file: Path, outdir: Path, dry_run: bool = False):
-    if dry_run:
-        ok1, d1 = registry.validate_instance(model_ref)
-        ok2, d2 = registry.validate_instance(adur_model_ref)
-        if not ok1 or not ok2:
-            logger.error("Validation failed: ARE=%s ADUR=%s", d1 if not ok1 else "ok", d2 if not ok2 else "ok")
-            raise SystemExit(2)
-        logger.info("Validation succeeded for both ARE and ADUR")
-        return
-
-    are = registry.get_are_instance(model_ref, adur_model_ref)
-    from .models.adapters import normalize_are_output
-    src_text = Path(input_file).read_text(encoding="utf-8", errors="ignore")
-    outdir_path = run_from_texts(are, {Path(input_file).stem: src_text}, outdir, normalize_are_output, prefix="are")
-    logger.info("ARE file-mode run completed; outputs in %s", outdir_path)
-    return outdir_path
 
 
 def _build_arg_parser() -> argparse.ArgumentParser:
@@ -155,11 +104,7 @@ def main(argv: list[str] | None = None):
         # Use the configured paths
         return adur_output_path, are_output_path
       
-    if args.cmd == "run_adur":
-        run_adur_cmd(args.model, Path(args.input), Path(args.outdir), dry_run=args.dry_run)
-    elif args.cmd == "run_are":
-        run_are_cmd(args.model, args.adur_model, Path(args.input), Path(args.outdir), dry_run=args.dry_run)
-    elif args.cmd == "run_pipeline2":
+    if args.cmd == "run_pipeline2":
         # Build dataset and resolve annotated paper file paths
         ds = Dataset()
         paper_ids = list(ds.annotations.by_paper.keys())

@@ -11,11 +11,44 @@ from pathlib import Path
 from typing import Any, Iterable
 from moralkg.snowball.phase_1.models import registry
 from moralkg.snowball.phase_1.models import adapters
-from moralkg.snowball.phase_1.batch.generation import run_from_texts
 from moralkg.snowball.phase_1.io import checkpoints
 from moralkg.config import Config
 from moralkg.logging import get_logger
 import json
+
+def _run_texts_with_model(model: Any, texts: Iterable[str], outdir: Path | str, normalizer: Any, prefix: str = "output"):
+    """Run a model over a list of texts, normalize outputs, and save to outdir.
+
+    Args:
+      model: an instance with a .generate(text: str) -> dict method
+      texts: iterable of input texts (str)
+      outdir: output directory to save normalized JSON files
+      normalizer: a callable that takes raw model output dict and returns normalized dict
+      prefix: filename prefix for saved files (default "output")
+
+    Returns:
+      None
+    """
+    outdir = Path(outdir)
+    outdir.mkdir(parents=True, exist_ok=True)
+    logger = get_logger(__name__)
+
+    # texts is a dictionary in the format {paper_id: text}
+    # Iterate through the keys and values, disregarding the indices
+    for paper_id, txt in texts.items():
+        raw = model.generate(txt)
+
+        normalized = normalizer(raw, source_text=txt)
+
+        filename = f"{prefix}_{paper_id}.json"
+        try:
+            path = checkpoints.save_individual(normalized, outdir, filename)
+            logger.debug("Saved normalized output to %s", path)
+        except Exception as e:
+            logger.error("Failed to save output for %s: %s", paper_id, e)
+            continue
+
+    return outdir
 
 def _select_major_adus(adus: list[dict], method: str = "centroid") -> list[dict]:
     """TODO: Implement major ADU selection strategies.
@@ -46,7 +79,7 @@ def _select_major_adus(adus: list[dict], method: str = "centroid") -> list[dict]
 
 
 def run_pipeline2(
-    input_files: Iterable[Path] | Iterable[str],
+    input_texts: Iterable[str],
     adur_outdir: Path | str,
     are_outdir: Path | str,
     adur_model_ref: Any = None,
@@ -87,27 +120,22 @@ def run_pipeline2(
                 logger.error("Validation failed for model refs: %s", details)
                 raise RuntimeError(f"Model validation failed: {details}")
 
-    # Run ADUR in file-mode and persist normalized outputs
+    # Run ADUR and persist normalized outputs
     adur = registry.get_adur_instance(adur_model_ref, use_model_2=use_adur_model_2)
-    # Prepare mapping of id->text by reading input files
-    texts = {}
-    for p in input_files:
-        p_path = Path(p)
-        texts[p_path.stem] = p_path.read_text(encoding="utf-8", errors="ignore")
-    logger.info("Running ADUR pipeline over %d items, outputs -> %s", len(texts), adur_outdir)
-    run_from_texts(adur, texts, adur_outdir, adapters.normalize_adur_output, prefix="adur")
+    logger.info("Running ADUR pipeline over %d items, outputs -> %s", len(input_texts), adur_outdir)
+    _run_texts_with_model(adur, input_texts, adur_outdir, adapters.normalize_adur_output, prefix="adur")
 
     # Run ARE (it may run its own ADUR internally or use adur_model_ref)
     are = registry.get_are_instance(are_model_ref, adur_model_ref=adur_model_ref, use_model_2=use_are_model_2, use_adur_model_2=use_adur_model_2)
     # Reuse same texts mapping for ARE
-    logger.info("Running ARE pipeline over %d items, outputs -> %s", len(texts), are_outdir)
-    run_from_texts(are, texts, are_outdir, adapters.normalize_are_output, prefix="are")
+    logger.info("Running ARE pipeline over %d items, outputs -> %s", len(input_texts), are_outdir)
+    _run_texts_with_model(are, input_texts, are_outdir, adapters.normalize_are_output, prefix="are")
 
     return are_outdir
 
 
 def run_pipeline3(
-    input_files: Iterable[Path] | Iterable[str],
+    input_texts: Iterable[str],
     adur_outdir: Path | str,
     are_outdir: Path | str,
     adur_model_ref: Any = None,
@@ -147,17 +175,12 @@ def run_pipeline3(
                 logger.error("Validation failed for model refs: %s", details)
                 raise RuntimeError(f"Model validation failed: {details}")
 
-    # TODO: Implement major ADU selection (according to config, can either be centroid or pairwise)
-
     # Run ADUR and then annotate major ADUs
     adur = registry.get_adur_instance(adur_model_ref, use_model_2=use_adur_model_2)
-    texts = {}
-    for p in input_files:
-        p_path = Path(p)
-        texts[p_path.stem] = p_path.read_text(encoding="utf-8", errors="ignore")
-    run_from_texts(adur, texts, adur_outdir, adapters.normalize_adur_output, prefix="adur")
+    logger.info("Running ADUR pipeline over %d items, outputs -> %s", len(input_texts), adur_outdir)
+    _run_texts_with_model(adur, input_texts, adur_outdir, adapters.normalize_adur_output, prefix="adur")
 
-    # Annotate normalized ADU outputs with major flags
+    # Annotate normalized ADU outputs with major flags (TODO: Use the function from models.py instead)
     for p in sorted(adur_outdir.glob("*.json")):
         try:
             data = json.loads(p.read_text(encoding="utf-8"))
@@ -172,6 +195,7 @@ def run_pipeline3(
 
     # Run ARE using the (annotated) ADU checkpoint as upstream artifact
     are = registry.get_are_instance(are_model_ref, adur_model_ref=adur_model_ref, use_model_2=use_are_model_2, use_adur_model_2=use_adur_model_2)
-    run_from_texts(are, texts, are_outdir, adapters.normalize_are_output, prefix="are")
+    logger.info("Running ARE pipeline over %d items, outputs -> %s", len(input_texts), are_outdir)
+    _run_texts_with_model(are, input_texts, are_outdir, adapters.normalize_are_output, prefix="are")
 
     return are_outdir

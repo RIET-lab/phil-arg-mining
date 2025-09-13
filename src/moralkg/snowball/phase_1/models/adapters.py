@@ -10,6 +10,7 @@ TODO: Make sure these are compatible with the existing parser module in `src.mor
 from __future__ import annotations
 
 from typing import Any, Dict, List, Optional, Tuple
+from collections import defaultdict
 import logging
 from pathlib import Path
 
@@ -26,81 +27,81 @@ def _coerce_adu_type(label: Optional[str]) -> str:
     v = str(label).strip().lower()
     if v in {"major claim", "major_claim", "major", "thesis"}:
         return "Major Claim"
-    if v in {"claim", "premise", "premise_claim", "supporting_claim"}:
+    if v in {"claim", "premise", "premise_claim", "supporting_claim", "ARGUMENT"}:
         return "Claim"
     # Default to Claim for most label variants to be compatible with evaluator
     return "Claim"
 
 
 def normalize_adur_output(raw: Dict[str, Any], source_text: Optional[str] = None) -> Dict[str, Any]:
-    """Normalize raw ADUR output to canonical dict with ADUs and statistics.
+    """Normalize raw ADUR output to canonical dict with ADUs and statistics."""
+    # Base ADUs
+    adus_raw: List[Dict[str, Any]] = raw.get("adus", []) if isinstance(raw, dict) else []
 
-    Args:
-      raw: expected to contain a top-level 'adus' list of dicts with keys like text, label, start, end, score
-      source_text: optional original document text (used to validate/resolve positions)
+    # Derive ADUs from spans (if any)
+    spans = (raw.get("spans") or []) if isinstance(raw, dict) else []
+    for span in spans:
+        start, end = span.get("start"), span.get("end")
+        text = span.get("text")
+        if text is None and source_text is not None and start is not None and end is not None:
+            try:
+                text = source_text[int(start):int(end)]
+            except Exception:
+                text = None
+        adus_raw.append({
+            "text": text,
+            "label": span.get("label"),
+            "start": span.get("start"),
+            "end": span.get("end"),
+            "score": span.get("score"),
+        })
 
-    Returns:
-      A dict with keys: 'adus' (list of ADU dicts) and 'statistics'
-    """
-    adus_raw = raw.get("adus") if isinstance(raw, dict) else None
-    if not adus_raw or not isinstance(adus_raw, list):
-        logger.error("ADUR output missing expected 'adus' list")
-        raise ValueError("Invalid ADUR output: missing 'adus' list")
+    #if not isinstance(adus_raw, list) or not adus_raw:
+    #    logger.error("ADUR output missing expected 'adus' list")
+    #    raise ValueError("Invalid ADUR output: missing 'adus' list")
+
+    def _safe_positions(item: Dict[str, Any]) -> List["SpanPosition"]:
+        """Extract and validate positions from an ADU item dict."""
+        start, end = item.get("start"), item.get("end")
+        if start is None or end is None:
+            return []
+        try:
+            return [SpanPosition(start=int(start), end=int(end))]
+        except Exception:
+            logger.warning("Invalid start/end for ADU %s: %s,%s", item.get("id") or item.get("adu_id"), start, end)
+            return []
 
     adus: List[Dict[str, Any]] = []
     for i, item in enumerate(adus_raw, start=1):
-        # Accept both dict-like objects and simple tuples
         if not isinstance(item, dict):
             logger.warning("Skipping non-dict ADU entry at index %d", i - 1)
             continue
 
         adu_id = item.get("id") or item.get("adu_id") or f"adu-{i}"
-        text = item.get("text") or item.get("label_text") or ""
         label = _coerce_adu_type(item.get("label") or item.get("type"))
-        quote = item.get("quote")
-        is_implicit = bool(item.get("major") or item.get("isImplicit") or False)
-
-        positions = []
-        start = item.get("start")
-        end = item.get("end")
-        if start is not None and end is not None:
-            try:
-                start_i = int(start)
-                end_i = int(end)
-                positions.append(SpanPosition(start=start_i, end=end_i))
-            except Exception:
-                logger.warning("Invalid start/end for ADU %s: %s,%s", adu_id, start, end)
-
-        # Build pydantic ADUModel for validation
         try:
             adu_obj = ADUModel(
                 id=str(adu_id),
                 type=label,
-                text=str(text),
-                quote=str(quote) if quote is not None else None,
-                isImplicit=bool(is_implicit),
-                positions=positions,
+                text=str(item.get("text") or item.get("label_text") or ""),
+                quote=(str(item["quote"]) if item.get("quote") is not None else None),
+                isImplicit=bool(item.get("isImplicit") or False),
+                positions=_safe_positions(item),
             )
         except Exception as exc:
             logger.error("Failed to construct ADUModel for %s: %s", adu_id, exc)
             raise
 
-        # Use Pydantic v2's model_dump() to serialize the model to dict
-        try:
-            adus.append(adu_obj.model_dump())
-        except Exception:
-            # Fallback for older pydantic versions
-            adus.append(adu_obj.dict())
+        # Prefer Pydantic v2 .model_dump(); fall back to v1 .dict()
+        dump = getattr(adu_obj, "model_dump", None)
+        adus.append(dump() if callable(dump) else adu_obj.dict())
 
-    # Compute simple statistics
-    total = len(adus)
-    types = {}
+    # Statistics
+    types = defaultdict(int)
     for a in adus:
-        t = str(a.get("type") or "Claim")
-        types[t] = types.get(t, 0) + 1
+        types[str(a.get("type") or "Claim")] += 1
 
-    stats = {"total_adus": total, "adu_types": types}
-    return {"adus": adus, "statistics": stats}
+    return {"adus": adus, "statistics": {"total_adus": len(adus), "adu_types": dict(types)}}
 
 
 def _coerce_relation_type(label: Optional[str]) -> str:
