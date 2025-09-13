@@ -1,50 +1,57 @@
-from pathlib import Path
-from typing import Any, Callable, Optional, Tuple
-from types import SimpleNamespace
+
+# TODO: Implement and use logging across all classes.
+# TODO: Load documents as a batch, rather than jump through hoops to load them one by one. Batch loading should also be much faster anyway.
+# TODO: Fix the issue with sam_are_sciarg's config.json and taskmodule_config.json having unexpected keys that cause AutoPipeline.from_pretrained to fail.
+# -> This might be because the config files are being replaced by new downloads from HF on each attempt to fix them. Consider downloading once to a temp dir, fixing, and then enforcing loading from there.
+# -> Alternatively, import the config files directly and remove unexpected keys before passing to AutoPipeline.from_pretrained via the 'config' argument.
 
 import os
+import json
+import math
+import logging
+from pathlib import Path
+from dataclasses import dataclass
+from typing import List, Tuple, Optional, Any, Callable
+from types import SimpleNamespace
+
+# Optional heavy deps; imported lazily where possible
+try:
+    import torch
+except Exception:  # pragma: no cover
+    torch = None  # type: ignore
+
+
 from moralkg import Config, get_logger
 
 from .rag import RAG
 from .cot import CoT
 
-# TODO: implement and use logging across all classes.
 
-def _download_model(path: str | Path, local: str | Path | None = None) -> str:
+# ----------------------------- Utilities ------------------------------------
+
+def _run_sam_single(pipeline, item):
     """
-    Download a Hugging Face repo snapshot to a local directory.
-    If local is None, default to a directory under ./models/<repo_name>.
-    Returns the absolute local directory path.
+    Run a pytorch_ie AutoPipeline on a single item without in-place mutation
+    and return the (first) processed document.
+
+    - Accepts a Document-like object (e.g., your _make_document(text) result).
+    - Feeds as a singleton sequence to avoid InplaceNotSupportedException.
+    - Uses inplace=False to avoid mutating immutable containers.
+    - Materializes TaskEncodingSequence (if returned) to a list.
     """
-    logger = get_logger(__name__)
-    from huggingface_hub import snapshot_download
+    # Run on a singleton batch with no in-place mutation
+    seq = pipeline([item], inplace=False)
 
-    repo_id = str(path)
-    if local is None:
-        repo_name = repo_id.split("/")[-1]
-        local = Path("models") / repo_name
-    local_dir = Path(local).resolve()
-    local_dir.mkdir(parents=True, exist_ok=True)
-    logger.info("Downloading model '%s' to '%s'", repo_id, str(local_dir))
-    snapshot_download(repo_id=repo_id, local_dir=str(local_dir), local_dir_use_symlinks=False)
-    return str(local_dir)
+    # Some pipelines return a TaskEncodingSequence that must be materialized
+    if hasattr(seq, "materialize") and callable(getattr(seq, "materialize")):
+        docs = seq.materialize()
+    else:
+        # Fallback: try to listify
+        docs = list(seq)
 
-
-class _ShimLabeledSpans(list):
-    """A tiny shim that provides the minimal API expected by the codebase:
-    - acts like a list of span-like objects
-    - has .predictions attribute (self) and clear()/extend()
-    This lets the transformers fallback interoperate with code that expects
-    pytorch_ie's LabeledSpans container.
-    """
-    def __init__(self, initial=None):
-        initial = initial or []
-        super().__init__(initial)
-        # keep .predictions for backward-compatibility
-        self.predictions = self
-
-    def clear(self):
-        super().clear()
+    if not docs:
+        raise RuntimeError("SAM pipeline returned no documents")
+    return docs[0]
 
 
 def _check_for_model(config: dict) -> str:
@@ -80,25 +87,12 @@ def _check_for_model(config: dict) -> str:
     )
 
 
-def _has_taskmodule_metadata(model_dir: str) -> bool:
-    """Heuristic: return True if model_dir contains files suggesting a SAM/taskmodule snapshot.
-
-    We look for taskmodule_config.json / taskmodule_config.yaml or any files referencing 'taskmodule' in filenames.
-    """
-    try:
-        p = Path(model_dir)
-        if not p.exists() or not p.is_dir():
-            return False
-        for fname in ("taskmodule_config.json", "taskmodule_config.yaml"):
-            if (p / fname).exists():
-                return True
-        # fallback: any file name containing 'taskmodule'
-        for f in p.rglob("*"):
-            if "taskmodule" in f.name.lower():
-                return True
-    except Exception:
-        return False
-    return False
+def _ensure_torch():
+    if torch is None:
+        raise RuntimeError(
+            "This module requires PyTorch. Please `pip install torch` "
+            "compatible with your Python/CUDA setup."
+        )
 
 
 def _get_device_and_dtype(device_index: int | None = None) -> Tuple[Any, Any]:
@@ -127,62 +121,535 @@ def _get_device_and_dtype(device_index: int | None = None) -> Tuple[Any, Any]:
     return device, dtype
 
 
-def _make_transformer_ner_pipeline(model_dir: str, device_index: int | None = None):
-    """
-    Create a small transformers-based token-classification pipeline as a fallback
-    for model snapshots that don't include pytorch-ie taskmodule metadata.
-    Returns a callable pipeline that accepts a document and populates
-    document.labeled_spans.predictions with SimpleNamespace-like objects
-    having attributes (start, end, label, score).
-    """
-    try:
-        from transformers import pipeline as _hf_pipeline  # type: ignore
-    except Exception as exc:  # pragma: no cover - defensive
-        raise RuntimeError("'transformers' package is required for the NER fallback") from exc
 
-    hf_device = int(device_index) if isinstance(device_index, int) and device_index >= 0 else -1
+def _has_taskmodule_metadata(model_dir: str) -> bool:
+    """Heuristic: SAM snapshots ship a taskmodule_config.json next to weights."""
+    if not model_dir:
+        return False
+    tm_path = os.path.join(str(model_dir), "taskmodule_config.json")
+    return os.path.isfile(tm_path)
 
-    class TransformerNERPipeline:
-        def __init__(self, model_dir: str, device: int = -1):
-            self._pipe = _hf_pipeline(
-                task="token-classification",
-                model=str(model_dir),
-                aggregation_strategy="simple",
-                device=device,
+
+def _resolve_local_dir(model_dir: str) -> str:
+    """This code only loads from a local directory; no auto-downloads."""
+    if not model_dir or not os.path.isdir(model_dir):
+        raise FileNotFoundError(
+            f"Model directory not found: {model_dir!r}. "
+            "Provide a local snapshot containing config.json & weights."
+        )
+    cfg = os.path.join(model_dir, "config.json")
+    if not os.path.isfile(cfg):
+        raise FileNotFoundError(f"Missing config.json in {model_dir}")
+    return model_dir
+
+
+def _simple_sentence_spans(text: str) -> List[Tuple[int, int, str]]:
+    """Tiny, dependency-free sentence splitter:
+    split on newlines and punctuation+space. Returns (start, end, sent_text).
+    """
+    spans: List[Tuple[int, int, str]] = []
+    if not text:
+        return spans
+    import re
+    cursor = 0
+    for para in text.splitlines(True):
+        s = para.strip()
+        if not s:
+            cursor += len(para)
+            continue
+        parts = re.split(r'(?<=[\.\?\!])\s+', s)
+        for part in parts:
+            if not part:
+                continue
+            start = text.find(part, cursor)
+            if start < 0:
+                start = cursor
+            end = start + len(part)
+            spans.append((start, end, part))
+            cursor = end
+        cursor += len(para) - len(para.strip())
+    return spans
+
+
+# ------------------------ Document / Shim containers -------------------------
+
+class _ShimDocument(SimpleNamespace):
+    # Minimal duck-typing to satisfy pytorch_ie pipelines
+    def as_type(self, _t):
+        # Many pipelines just call .as_type(document_type) and then read fields.
+        # Returning self keeps our SimpleNamespace-compatible object flowing through.
+        return self
+    
+class _ShimLabeledSpans(list):
+    """A list that also exposes a .predictions view (SAM-like)."""
+    def __init__(self, initial=None):
+        super().__init__(initial or [])
+        self.predictions = self
+
+    def clear(self):  # type: ignore[override]
+        super().clear()
+
+
+class _ShimRelations(list):
+    """A list that also exposes a .predictions view (SAM-like)."""
+    def __init__(self, initial=None):
+        super().__init__(initial or [])
+        self.predictions = self
+
+    def clear(self):  # type: ignore[override]
+        super().clear()
+
+
+def _make_document(text: str):
+    # HF-only convenience container
+    doc = _ShimDocument()
+    doc.text = text
+    doc.labeled_spans = _ShimLabeledSpans()
+    doc.binary_relations = _ShimRelations()
+    return doc
+
+def _make_sam_document(pipeline, text: str):
+    """
+    Build the correct pytorch_ie Document for this pipeline.
+    Prefers pipeline.taskmodule.document_type if available; falls back to TextDocument.
+    Handles constructors that:
+      - accept keyword 'text'
+      - accept positional text only
+      - accept no args (we setattr afterwards)
+    """
+    from pytorch_ie.documents import TextBasedDocument, TextDocumentWithLabeledSpans
+    # Set the document class as TextDocumentWithLabeledSpans by default, since ADUR and ARE expect LabeledSpans
+    TextDocumentCls = TextBasedDocument
+    DocumentSpanCls = TextDocumentWithLabeledSpans
+
+    tm = getattr(pipeline, "taskmodule", None) 
+    if tm is not None:
+        TextDocumentCls = getattr(tm, "document_type", None)
+        if TextDocumentCls is not None and not callable(TextDocumentCls):
+            TextDocumentCls = None
+    if DocumentSpanCls is None:
+        DocumentSpanCls = TextDocumentWithLabeledSpans
+
+    return DocumentSpanCls(text=text)
+
+# -------------------- Lightweight HF classifier wrapper ----------------------
+
+
+class _HFSequenceClassifier:
+    """Thin wrapper around AutoModelForSequenceClassification for batched inference.
+    Handles both single-text and (text, text_pair) classification.
+    """
+    def __init__(
+        self,
+        model_dir: str,
+        device,
+        dtype,
+        use_fp16: Optional[bool] = None,
+        force_cpu: bool = False,
+    ):
+        _ensure_torch()
+        from transformers import AutoConfig, AutoModelForSequenceClassification, AutoTokenizer  # type: ignore
+
+        if force_cpu:
+            device = torch.device("cpu")
+            dtype = torch.float32
+
+        self.device = device
+        # Only use FP16 on CUDA; otherwise float32.
+        self.dtype = torch.float16 if (use_fp16 and device.type == "cuda") else (
+            dtype if device.type == "cuda" else torch.float32
+        )
+
+        self.cfg = AutoConfig.from_pretrained(model_dir)
+        self.id2label = {int(k): v for k, v in getattr(self.cfg, "id2label", {}).items()}
+        self.label2id = {k: int(v) for k, v in getattr(self.cfg, "label2id", {}).items()}
+
+        self.tokenizer = AutoTokenizer.from_pretrained(model_dir, use_fast=True)
+        self.model = AutoModelForSequenceClassification.from_pretrained(model_dir)
+        self.model.to(self.device)
+        self.model.eval()
+
+        # If the model was saved in full-precision only, keep compute in fp32
+        # but allow autocast on CUDA if dtype is fp16.
+        self._autocast_enabled = (self.device.type == "cuda" and self.dtype == torch.float16)
+
+        # Convenience
+        self.num_labels = int(getattr(self.model.config, "num_labels", len(self.id2label) or 2))
+
+    def _softmax_top(self, logits):
+        probs = torch.softmax(logits, dim=-1)
+        scores, ids = probs.max(dim=-1)
+        return ids.detach().cpu().tolist(), scores.detach().cpu().tolist()
+
+    @torch.no_grad()
+    def classify_texts(self, texts: List[str], batch_size: int = 32) -> List[dict]:
+        out: List[dict] = []
+        if not texts:
+            return out
+        autocast = torch.cuda.amp.autocast if self._autocast_enabled else None
+        rng = range(0, len(texts), batch_size)
+        for i in rng:
+            batch = texts[i : i + batch_size]
+            enc = self.tokenizer(
+                batch, truncation=True, padding=True, max_length=512, return_tensors="pt"
+            )
+            enc = {k: v.to(self.device) for k, v in enc.items()}
+            if autocast:
+                with autocast(dtype=self.dtype):  # type: ignore
+                    logits = self.model(**enc).logits
+            else:
+                logits = self.model(**enc).logits
+            ids, scores = self._softmax_top(logits)
+            for idx, sc in zip(ids, scores):
+                label = self.id2label.get(idx, str(idx))
+                out.append({"label": label, "score": float(sc)})
+        return out
+
+    @torch.no_grad()
+    def classify_pairs(
+        self, heads: List[str], tails: List[str], batch_size: int = 16
+    ) -> List[dict]:
+        assert len(heads) == len(tails), "heads/tails length mismatch"
+        out: List[dict] = []
+        if not heads:
+            return out
+        autocast = torch.cuda.amp.autocast if self._autocast_enabled else None
+        rng = range(0, len(heads), batch_size)
+        for i in rng:
+            h = heads[i : i + batch_size]
+            t = tails[i : i + batch_size]
+            enc = self.tokenizer(
+                h, t, truncation=True, padding=True, max_length=512, return_tensors="pt"
+            )
+            enc = {k: v.to(self.device) for k, v in enc.items()}
+            if autocast:
+                with autocast(dtype=self.dtype):  # type: ignore
+                    logits = self.model(**enc).logits
+            else:
+                logits = self.model(**enc).logits
+            ids, scores = self._softmax_top(logits)
+            for idx, sc in zip(ids, scores):
+                label = self.id2label.get(idx, str(idx))
+                out.append({"label": label, "score": float(sc)})
+        return out
+
+
+# ------------------------------- ADUR ----------------------------------------
+
+
+class ADUR:
+    """Argumentative Discourse Unit Recognition.
+    If a SAM (pytorch_ie) pipeline is available for the given local dir, uses it.
+    Otherwise, uses a HF sequence classifier and turns positive sentence labels
+    into span predictions.
+    """
+
+    def __init__(
+        self,
+        model_dir: str,
+        device_index: Optional[int] = None,
+        logger: Optional[logging.Logger] = None,
+        **kwargs,
+    ):
+        self.logger = logger or logging.getLogger(self.__class__.__name__)
+        self.kwargs = dict(kwargs)
+        self.model_dir = _resolve_local_dir(model_dir)
+
+        # Device + dtype
+        self.device, self.dtype = _get_device_and_dtype(device_index)
+        self._device_index = device_index if device_index is not None else (0 if self.device.type == "cuda" else -1)
+
+        # Prefer SAM if taskmodule metadata exists
+        self._mode = "sam" if _has_taskmodule_metadata(self.model_dir) else "hf"
+        self._sam_pipeline = None
+        self._hf = None
+
+        if self._mode == "sam":
+            from pytorch_ie import AutoPipeline  # type: ignore
+
+            #from pytorch_ie.taskmodules import LabeledSpanExtractionByTokenClassificationTaskModule
+
+            self._sam_pipeline = AutoPipeline.from_pretrained(
+                self.model_dir,
+                device=self._device_index,
             )
 
-        def __call__(self, document, inplace=True):
-            text = getattr(document, "text", "")
-            try:
-                preds = self._pipe(text)
-            except Exception:
-                preds = []
+            self.logger.info("ADUR using SAM AutoPipeline.")
 
-            spans = []
-            for p in preds:
-                start = p.get("start")
-                end = p.get("end")
-                label = p.get("entity_group") or p.get("entity") or p.get("label")
-                score = p.get("score")
-                spans.append(SimpleNamespace(start=start, end=end, label=label, score=score))
+        if self._mode == "hf":
+            # Build HF classifier and determine 'positive' label
+            self._hf = _HFSequenceClassifier(
+                self.model_dir, device=self.device, dtype=self.dtype, use_fp16=self.kwargs.get("use_fp16", True)
+            )
+            # Choose 'positive' ADU label; default keep anything not NON-ARGUMENT
+            self._positive_label = None
+            for k in self._hf.label2id:
+                if k.upper() in {"ARGUMENT", "ADU", "POSITIVE"}:
+                    self._positive_label = k
+                    break
+            self.logger.info("ADUR(HF) positive label = %s", self._positive_label or "not NON-ARGUMENT")
 
-            try:
-                ls = document.labeled_spans
-                if hasattr(ls, "predictions") and hasattr(ls.predictions, "clear"):
-                    ls.predictions.clear()
-                    ls.predictions.extend(spans)
+    def _adur_hf(self, document) -> None:
+        text: str = document.text
+        spans = _simple_sentence_spans(text)
+        if not spans:
+            document.labeled_spans = _ShimLabeledSpans()
+            return
+        inputs = [s for (_s, _e, s) in spans]
+        bs = int(self.kwargs.get("batch_size", 32))
+        results = self._hf.classify_texts(inputs, batch_size=bs)  # type: ignore
+        preds = []
+        for (start, end, _), res in zip(spans, results):
+            label = str(res.get("label", ""))
+            score = float(res.get("score", 0.0))
+            keep = (label == self._positive_label) if self._positive_label else (
+                label.upper() not in {"NON-ARGUMENT", "NONE", "O", "NEGATIVE", "NO"}
+            )
+            if keep:
+                preds.append(SimpleNamespace(start=start, end=end, label=label, score=score))
+        document.labeled_spans = _ShimLabeledSpans(preds)
+
+    def generate(self, text: str) -> dict:
+        """Return a dict with:
+            - spans: list[{start,end,label,score}]
+            - document: object (with .labeled_spans.predictions)
+        """
+        if self._mode == "sam":
+            document = _make_sam_document(self._sam_pipeline, text)
+            # Feed a sequence, request non-inplace processing, then materialize
+            document = _run_sam_single(self._sam_pipeline, document)
+            spans = [
+                {"start": s.start, "end": s.end,
+                "label": getattr(s, "label", "ARGUMENT"),
+                "score": float(getattr(s, "score", 1.0))}
+                for s in getattr(document.labeled_spans, "predictions", [])
+            ]
+        else:
+            document = _make_document(text)
+            self._adur_hf(document)
+            spans = [
+                {
+                    "start": s.start,
+                    "end": s.end,
+                    "label": getattr(s, "label", "ARGUMENT"),
+                    "score": float(getattr(s, "score", 1.0)),
+                } 
+                for s in document.labeled_spans.predictions
+            ]
+        return {"spans": spans, "document": document}
+
+
+# --------------------------------- ARE ---------------------------------------
+
+
+class ARE:
+    """Argumentative Relation Extraction.
+    Runs ADUR to get spans, then classifies ordered span pairs with either:
+      - SAM/PIE relation extractor (if available), or
+      - HF sequence-classifier on (head_text, tail_text) pairs.
+    """
+
+    def __init__(
+        self,
+        model_dir: str,
+        adur_model_dir: Optional[str] = None,
+        device_index: Optional[int] = None,
+        logger: Optional[logging.Logger] = None,
+        **kwargs,
+    ):
+        self.logger = logger or logging.getLogger(self.__class__.__name__)
+        self.kwargs = dict(kwargs)
+        self.model_dir = _resolve_local_dir(model_dir)
+
+        # Device + dtype shared by both submodels
+        self.device, self.dtype = _get_device_and_dtype(device_index)
+        self._device_index = device_index if device_index is not None else (0 if self.device.type == "cuda" else -1)
+
+        # Build / share ADUR
+        if adur_model_dir is None:
+            raise ValueError("ARE requires adur_model_dir to produce ADU spans before relation extraction.")
+        self.adur = ADUR(
+            model_dir=_resolve_local_dir(adur_model_dir),
+            device_index=device_index,
+            logger=logging.getLogger("ARE.ADU"),
+            **{k: v for k, v in kwargs.items() if k in {"use_fp16", "batch_size"}}
+        )
+
+        # ARE: prefer SAM if taskmodule is present; else HF
+        self._mode = "sam" if _has_taskmodule_metadata(self.model_dir) else "hf"
+        self._sam_pipeline = None
+        self._hf = None
+
+        if self._mode == "sam":
+            from pytorch_ie import AutoPipeline  # type: ignore
+            #from pytorch_ie.taskmodules import LabeledSpanExtractionByTokenClassificationTaskModule
+
+            # Find the config.json and taskmodule_config.json files from this model_dir, and cache them to a temp dir
+            # to avoid repeated downloads from HF on each attempt to fix unexpected keyword args.
+            config_files = ["config.json", "taskmodule_config.json"]
+            temp_dir = os.path.join("/tmp", f"sam_are_temp_{os.getpid()}")
+            os.makedirs(temp_dir, exist_ok=True)
+            for cfg_file in config_files:
+                src_path = os.path.join(self.model_dir, cfg_file)
+                dst_path = os.path.join(temp_dir, cfg_file)
+                if os.path.isfile(src_path):
+                    try:
+                        with open(src_path, "r", encoding="utf-8") as f_src:
+                            data = json.load(f_src)
+                        with open(dst_path, "w", encoding="utf-8") as f_dst:
+                            json.dump(data, f_dst, indent=2)
+                        self.logger.info("Copied %s to temporary directory %s", cfg_file, temp_dir)
+                    except Exception as ex:
+                        self.logger.error("Failed to copy %s to %s: %s", cfg_file, temp_dir, str(ex))
                 else:
-                    # Wrap into shim for downstream compatibility
-                    document.labeled_spans = _ShimLabeledSpans(spans)
-            except Exception:
-                document.labeled_spans = _ShimLabeledSpans(spans)
+                    self.logger.warning("Expected config file not found: %s", src_path)
 
-            return document
+            attempts = 0
+            while not self._sam_pipeline:
+                try:
+                    self._sam_pipeline = AutoPipeline.from_pretrained(
+                        self.model_dir,
+                        device=self._device_index,
+                        local_files_only=True,
+                        config=self._get_config() # TODO: Switch this out with a proper argument format, and make it use the appropriate files
+                    )
+                except Exception as e: # TODO: Also update this part to use the appropriate files
+                    # Catch failures caused by "HyperparametersMixin.init() got an unexpected keyword argument '<something>'"
+                    # Record the keyword to the log
+                    # Remove the keyword from the config.json and taskmodulesconfig.json files in the model_dir
+                    # Loop until the pipeline loads successfully
+                    if hasattr(e, "args") and e.args:
+                        msg = str(e.args[0])
+                        if "unexpected keyword argument" in msg:
+                            kw = msg.split("unexpected keyword argument")[-1].strip().strip("'\"")
+                            self.logger.error("Removing unexpected keyword argument from config: %s", kw)
+                            # Remove from config.json
+                            cfg_path = os.path.join(self.model_dir, "config.json")
+                            try:
+                                with open(cfg_path, "r", encoding="utf-8") as f:
+                                    cfg = json.load(f)
+                                if kw in cfg:
+                                    del cfg[kw]
+                                    with open(cfg_path, "w", encoding="utf-8") as f:
+                                        json.dump(cfg, f, indent=2)
+                                    self.logger.info("Removed %s from %s", kw, cfg_path)
+                            except Exception as ex:
+                                self.logger.error("Failed to update %s: %s", cfg_path, str(ex))
+                            # Remove from taskmodule_config.json
+                            tm_cfg_path = os.path.join(self.model_dir, "taskmodule_config.json")
+                            try:
+                                with open(tm_cfg_path, "r", encoding="utf-8") as f:
+                                    tm_cfg = json.load(f)
+                                if kw in tm_cfg:
+                                    del tm_cfg[kw]
+                                    with open(tm_cfg_path, "w", encoding="utf-8") as f:
+                                        json.dump(tm_cfg, f, indent=2)
+                                    self.logger.info("Removed %s from %s", kw, tm_cfg_path)
+                            except Exception as ex:
+                                self.logger.error("Failed to update %s: %s", tm_cfg_path, str(ex))
 
-    return TransformerNERPipeline(model_dir, device=hf_device)
+                            attempts += 1
+                            if attempts > 10:
+                                self.logger.error("Too many attempts to fix config; aborting. Possibly caused by replacement config files being downloaded after each attempted fix.")
+                                raise e
+                            continue  # Retry loading the pipeline
+                    # If we reach here, we couldn't handle the exception
+                    self.logger.error("Failed to load SAM ARE pipeline from %s: %s", self.model_dir, str(e))
+                    raise e
 
+            self.logger.info("ARE using SAM AutoPipeline.")
 
-# TODO: internal tooling to discover and use GPUs so that models are properly parallelized
+        if self._mode == "hf":
+            self._hf = _HFSequenceClassifier(
+                self.model_dir, device=self.device, dtype=self.dtype, use_fp16=self.kwargs.get("use_fp16", True)
+            )
+            # Identify negative class (to skip emitting a relation)
+            self._negative_labels = {
+                "no-relation", "no_relation", "no relation", "none", "o", "outside"
+            }
+
+    def _are_hf(self, document) -> None:
+        text: str = document.text
+        spans = list(getattr(document.labeled_spans, "predictions", []))
+        if not spans:
+            document.binary_relations = _ShimRelations()
+            return
+
+        # Build ordered pairs (i->j, i != j)
+        pairs: List[Tuple[Any, Any]] = [(h, t) for i, h in enumerate(spans) for j, t in enumerate(spans) if i != j]
+        heads = [text[h.start:h.end] for (h, _t) in pairs]
+        tails = [text[t.start:t.end] for (_h, t) in pairs]
+
+        bs = int(self.kwargs.get("are_batch_size", 16))
+        results = self._hf.classify_pairs(heads, tails, batch_size=bs)  # type: ignore
+
+        rels = []
+        for (head, tail), res in zip(pairs, results):
+            raw_label = str(res.get("label", ""))
+            norm = raw_label.replace("_", "-").lower().strip()
+            if norm in self._negative_labels:
+                continue
+            rels.append(SimpleNamespace(label=raw_label, score=float(res.get("score", 0.0)), head=head, tail=tail))
+        document.binary_relations = _ShimRelations(rels)
+
+    def generate(self, text: str) -> dict:
+        """Return a dict with:
+            - spans: list[{start,end,label,score}]             (from ADUR)
+            - relations: list[{head,tail,label,score}]         (indices into spans)
+            - document: object with SAM-like .labeled_spans.predictions etc.
+        """
+        # First ensure spans (ADUR)
+        adu_out = self.adur.generate(text) # TODO: Add an option to load existing ADUs
+        document = adu_out["document"]
+
+        if self._mode == "sam":
+            # SAM relation extractor expects a document with spans
+            self._sam_pipeline(document, inplace=True)  # type: ignore
+            spans = [
+                {"start": s.start, "end": s.end,
+                "label": getattr(s, "label", "ARGUMENT"),
+                "score": float(getattr(s, "score", 1.0))}
+                for s in getattr(document.labeled_spans, "predictions", [])
+            ]
+            span_to_idx = {id(s): i for i, s in enumerate(getattr(document.labeled_spans, "predictions", []))}
+            relations = []
+            for r in getattr(document.binary_relations, "predictions", []):
+                head_idx = span_to_idx.get(id(getattr(r, "head", None)), -1)
+                tail_idx = span_to_idx.get(id(getattr(r, "tail", None)), -1)
+                if head_idx >= 0 and tail_idx >= 0:
+                    relations.append({
+                        "head": head_idx,
+                        "tail": tail_idx,
+                        "label": getattr(r, "label", "Relation"),
+                        "score": float(getattr(r, "score", 1.0)),
+                    })
+        else:
+            # HF ARE
+            self._are_hf(document)
+            spans_ns = list(getattr(document.labeled_spans, "predictions", []))
+            spans = [
+                {"start": s.start, "end": s.end, "label": getattr(s, "label", "ARGUMENT"), "score": float(getattr(s, "score", 1.0))}
+                for s in spans_ns
+            ]
+            span_to_idx = {id(s): i for i, s in enumerate(spans_ns)}
+            relations = []
+            for r in getattr(document.binary_relations, "predictions", []):
+                head_idx = span_to_idx.get(id(getattr(r, "head", None)), -1)
+                tail_idx = span_to_idx.get(id(getattr(r, "tail", None)), -1)
+                if head_idx < 0 or tail_idx < 0:
+                    continue
+                relations.append({
+                    "head": head_idx,
+                    "tail": tail_idx,
+                    "label": getattr(r, "label", "Relation"),
+                    "score": float(getattr(r, "score", 0.0)),
+                })
+
+        return {
+            "spans": spans,
+            "relations": relations,
+            "document": document,
+        }
 
 class End2End:
     """
@@ -428,511 +895,3 @@ class End2End:
             device=self.device,  # Pass device to ensure consistency
         )
         return text
-
-
-class ADUR:
-    """
-    Argumentative Discourse Unit Recognition via pre-trained language model classification.
-    """
-    def __init__(
-        self,
-        model: str | Path | dict | None = None,
-        *,
-        extract_major_adus: bool = False,
-        extraction_method: str | None = None,
-        map: dict | None = None,
-        use_model_2: bool = False,
-        **kwargs
-    ):
-        self.logger = get_logger(__name__)
-        self.major_only = extract_major_adus
-        self.method = extraction_method if extraction_method in ["centroid", "pairwise"] else "centroid"
-        # Default label mapping per project docs
-        self.map = map or {}
-        self.kwargs = kwargs
-
-        # Load model from config if not provided
-        if model is None:
-            cfg = None
-            try:
-                cfg = Config.load()
-            except Exception:
-                cfg = None
-            
-            if cfg is not None:
-                # Choose between model_1 and model_2 based on parameter
-                model_key = "model_2" if use_model_2 else "model_1"
-                model = cfg.get(f"paths.models.adur.{model_key}", None)
-                
-            if model is None:
-                # Fallback to default SAM model if config fails
-                model = {"hf": "ArneBinder/sam-adur-sciarg"}
-                self.logger.warning("Could not load ADUR model from config, using default SAM model")
-
-        self.model = model
-
-        # Device selection for pipelines that expect index
-        try:
-            import torch  # type: ignore
-            self._device_index = 0 if torch.cuda.is_available() else -1
-        except Exception:
-            self._device_index = -1
-
-        # Resolve local path or HF repo
-        resolved = self._resolve_model_ref(self.model)
-
-        # Load the ADUR (NER) pipeline via pytorch_ie AutoPipeline (SAM models)
-        try:
-            from pytorch_ie import AutoPipeline  # type: ignore
-        except Exception as exc:
-            raise ImportError(
-                "pytorch_ie is required for ADUR with SAM models. Install pytorch-ie and pie_modules."
-            ) from exc
-
-        # Try to create the pipeline with our preferred taskmodule kwargs.
-        # Some pytorch-ie / pie_modules versions do not accept all kwargs; in
-        # that case retry once without passing taskmodule_kwargs so the
-        # pipeline can still be instantiated. We keep the failure loud and
-        # surface a clear remediation message when we have to fall back.
-        try:
-            self._ner_pipeline = AutoPipeline.from_pretrained(
-                resolved,
-                device=self._device_index,
-                taskmodule_kwargs={"combine_token_scores_method": "product"},
-            )
-        except TypeError as exc:
-            # Detect the common unexpected-kwarg failure originating from
-            # HyperparametersMixin / TaskModule __init__ chains.
-            msg = str(exc)
-            if "combine_token_scores_method" in msg or "unexpected keyword" in msg.lower():
-                # Emit a strong warning with remediation guidance and retry.
-                self.logger.warning(
-                    "AutoPipeline.from_pretrained rejected taskmodule kwargs: %s\n"
-                    "Retrying without taskmodule_kwargs. If this succeeds, consider "
-                    "upgrading/downgrading your pytorch-ie / pie-modules packages to a "
-                    "version that supports the 'combine_token_scores_method' hyperparameter.",
-                    msg,
-                )
-                # Retry without taskmodule_kwargs
-                self._ner_pipeline = AutoPipeline.from_pretrained(
-                    resolved,
-                    device=self._device_index,
-                )
-            else:
-                # Re-raise for any other unexpected TypeError
-                raise
-        except KeyError as exc:
-            # This commonly means the model snapshot does not include a
-            # taskmodule_config.json or the AutoTaskModule expected keys like
-            # 'taskmodule_type'. In practice many roberta-style checkpoints
-            # are plain token-classification models and don't ship SAM task
-            # metadata. Provide a lightweight transformers-based fallback that
-            # performs token-classification and populates the document's
-            # labeled_spans.predictions to preserve downstream behaviour.
-            msg = str(exc)
-            self.logger.warning(
-                "AutoPipeline.from_pretrained failed with KeyError '%s' - using transformers token-classification fallback."
-                " This fallback performs best-effort span extraction but may differ from the original SAM behavior.",
-                msg,
-            )
-
-            # Lazy import and create a small wrapper around transformers' pipeline
-            try:
-                from transformers import pipeline as _hf_pipeline  # type: ignore
-
-                # Map device index to transformers' device arg (int: cuda_index or -1)
-                hf_device = int(self._device_index) if isinstance(self._device_index, int) else -1
-
-                class TransformerNERPipeline:
-                    def __init__(self, model_dir: str, device: int = -1):
-                        # aggregation_strategy='simple' returns merged spans with start/end offsets
-                        self._pipe = _hf_pipeline(
-                            task="token-classification",
-                            model=str(model_dir),
-                            aggregation_strategy="simple",
-                            device=device,
-                        )
-
-                    def __call__(self, document, inplace=True):
-                        text = getattr(document, "text", "")
-                        try:
-                            preds = self._pipe(text)
-                        except Exception:
-                            # If transformer pipeline fails, leave predictions empty
-                            preds = []
-
-                        spans = []
-                        for p in preds:
-                            start = p.get("start")
-                            end = p.get("end")
-                            label = p.get("entity_group") or p.get("entity") or p.get("label")
-                            score = p.get("score")
-                            spans.append(SimpleNamespace(start=start, end=end, label=label, score=score))
-
-                        # Ensure the document has labeled_spans and a predictions list
-                        try:
-                            ls = document.labeled_spans
-                            if hasattr(ls, "predictions") and hasattr(ls.predictions, "clear"):
-                                ls.predictions.clear()
-                                ls.predictions.extend(spans)
-                            else:
-                                ls.predictions = spans
-                        except Exception:
-                            document.labeled_spans = SimpleNamespace(predictions=spans)
-
-                        return document
-
-                self._ner_pipeline = TransformerNERPipeline(resolved, device=hf_device)
-            except Exception:
-                # If transformers isn't available or the wrapper fails, raise a clearer error
-                raise RuntimeError(
-                    "Failed to instantiate a transformers-based fallback for ADUR. "
-                    "Install 'transformers' (and a compatible model snapshot) or provide a SAM snapshot with taskmodule_config.json."
-                ) from exc
-
-    def _resolve_model_ref(self, model_ref: str | Path | dict) -> str:
-        # Accept dict from config, or string/path
-        if isinstance(model_ref, dict):
-            return _check_for_model(model_ref)
-        return str(model_ref)
-
-    def _create_document(self, text: str):
-        from pytorch_ie.annotations import LabeledSpan  # type: ignore
-        from pytorch_ie.documents import (  # type: ignore
-            TextDocumentWithLabeledSpansBinaryRelationsAndLabeledPartitions,
-        )
-
-        document = TextDocumentWithLabeledSpansBinaryRelationsAndLabeledPartitions(text)
-        document.id = "document"
-        document.metadata = {}
-        document.labeled_partitions.append(LabeledSpan(start=0, end=len(text), label="text"))
-        return document
-
-    def _translate_label(self, label: str) -> str:
-        return self.map.get(label, label)
-
-    def _extract_major_claims(self, adus: list[dict]) -> set[int]:
-        # Choose candidates labelled as claim after mapping
-        claim_indices: list[int] = [i for i, a in enumerate(adus) if a.get("label") == "claim"]
-        if not claim_indices:
-            return set()
-        claim_texts = [adus[i]["text"] for i in claim_indices]
-
-        # Embed with a small general embedding model (same as tests)
-        try:
-            from sentence_transformers import SentenceTransformer, util  # type: ignore
-        except Exception as exc:
-            self.logger.warning("sentence-transformers unavailable; skipping major ADU extraction: %s", exc)
-            return set()
-
-        model_name = self.kwargs.get("embedder_hf", "Qwen/Qwen3-Embedding-0.6B")
-        embedder = SentenceTransformer(model_name)
-        embeddings = embedder.encode(claim_texts, convert_to_tensor=True, show_progress_bar=False)
-        import torch  # type: ignore
-        centroid = embeddings.mean(dim=0, keepdim=True)
-        sims = util.cos_sim(embeddings, centroid).squeeze()  # type: ignore
-        sims_np = sims.detach().cpu().numpy()
-
-        k = max(1, int(0.03 * len(claim_indices)))
-        # Select top-k by similarity
-        top_local = sims_np.argsort()[::-1][:k]
-        return {claim_indices[int(i)] for i in top_local}
-
-    def generate(self, input_file: str | Path) -> dict:
-        """
-        Run ADUR on a file and return extracted ADUs.
-
-        Returns a dict with at least: {"adus": [...], "statistics": {...}}
-        If self.major_only is True, adds major claim marking (label -> "major_claim").
-        """
-        input_path = Path(input_file)
-        text = input_path.read_text(encoding="utf-8", errors="ignore")
-
-        document = self._create_document(text)
-        # Run NER/ADUR
-        self._ner_pipeline(document, inplace=True)
-
-        # Collect predictions
-        adus: list[dict] = []
-        for span in document.labeled_spans.predictions:
-            start = getattr(span, "start", None)
-            end = getattr(span, "end", None)
-            label = getattr(span, "label", "")
-            score = getattr(span, "score", None)
-            adus.append(
-                {
-                    "text": document.text[start:end] if start is not None and end is not None else "",
-                    "label": self._translate_label(label),
-                    "original_label": label,
-                    "start": start,
-                    "end": end,
-                    "score": score,
-                }
-            )
-
-        if self.major_only and adus:
-            major_indices = self._extract_major_claims(adus)
-            for i in major_indices:
-                try:
-                    adus[i]["label"] = "major_claim"
-                    adus[i]["major"] = True
-                except Exception:
-                    continue
-
-        stats = {
-            "total_adus": len(adus),
-            "adu_types": _count_by_key(adus, "label"),
-        }
-
-        return {"adus": adus, "statistics": stats}
-
-    def _count_by_key(self, items: list[dict], key: str) -> dict:
-        result: dict[str, int] = {}
-        for it in items:
-            v = str(it.get(key))
-            result[v] = result.get(v, 0) + 1
-        return result
-
-
-def _count_by_key(items: list[dict], key: str) -> dict:
-    result: dict[str, int] = {}
-    for it in items:
-        v = str(it.get(key))
-        result[v] = result.get(v, 0) + 1
-    return result
-
-
-class ARE:
-    """
-    Argumentative Relation Extraction via pre-trained language model classification.
-    """
-    def __init__(
-        self, 
-        model: str | Path | dict | None = None, 
-        *, 
-        map: dict | None = None, 
-        use_model_2: bool = False,
-        adur_model: str | Path | dict | None = None,
-        use_adur_model_2: bool = False,
-        **kwargs
-    ):
-        self.logger = get_logger(__name__)
-        # Default relation mapping per project docs
-        self.map = map or {}
-        self.kwargs = kwargs
-
-        # Load models from config if not provided
-        cfg = None
-        try:
-            cfg = Config.load()
-        except Exception:
-            cfg = None
-
-        # Handle ARE model
-        if model is None and cfg is not None:
-            model_key = "model_2" if use_model_2 else "model_1"
-            model = cfg.get(f"paths.models.are.{model_key}", None)
-        
-        if model is None:
-            # Fallback to default SAM model
-            model = {"hf": "ArneBinder/sam-are-sciarg"}
-            self.logger.warning("Could not load ARE model from config, using default SAM model")
-
-        # Handle ADUR model (needed for preprocessing)
-        if adur_model is None and cfg is not None:
-            adur_model_key = "model_2" if use_adur_model_2 else "model_1"
-            adur_model = cfg.get(f"paths.models.adur.{adur_model_key}", None)
-        
-        if adur_model is None:
-            # Fallback to default SAM ADUR model
-            adur_model = {"hf": "ArneBinder/sam-adur-sciarg"}
-            self.logger.warning("Could not load ADUR model from config, using default SAM model")
-
-        self.model = model
-        self.adur_model = adur_model
-
-        # Device index for pytorch_ie
-        try:
-            import torch  # type: ignore
-            self._device_index = 0 if torch.cuda.is_available() else -1
-        except Exception:
-            self._device_index = -1
-
-        # Load pipelines (ADUR + ARE) as SAM requires spans first
-        try:
-            from pytorch_ie import AutoPipeline  # type: ignore
-        except Exception as exc:
-            raise ImportError(
-                "pytorch_ie is required for ARE with SAM models. Install pytorch-ie and pie_modules."
-            ) from exc
-
-        are_resolved = self._resolve_model_ref(self.model)
-        adur_resolved = self._resolve_model_ref(self.adur_model)
-
-        # Create ADUR (NER) pipeline with defensive fallback like ADUR class
-        # Decide deterministically whether ADUR (for preprocessing) should be SAM or transformers
-        adur_has_taskmeta = _has_taskmodule_metadata(adur_resolved)
-        if adur_has_taskmeta:
-            try:
-                self._ner_pipeline = AutoPipeline.from_pretrained(
-                    adur_resolved,
-                    device=self._device_index,
-                    taskmodule_kwargs={"combine_token_scores_method": "product"},
-                )
-            except TypeError as exc:
-                msg = str(exc)
-                if "combine_token_scores_method" in msg or "unexpected keyword" in msg.lower():
-                    self.logger.warning(
-                        "ADUR AutoPipeline.from_pretrained rejected taskmodule kwargs: %s -- retrying without kwargs.",
-                        msg,
-                    )
-                    self._ner_pipeline = AutoPipeline.from_pretrained(adur_resolved, device=self._device_index)
-                else:
-                    raise
-        else:
-            # ADUR fallback
-            try:
-                self._ner_pipeline = _make_transformer_ner_pipeline(adur_resolved, device_index=self._device_index)
-                self.logger.info("Using transformers-based NER fallback for ADUR (no taskmodule metadata found for ADUR model).")
-            except Exception as exc:
-                raise RuntimeError("Failed to create ADUR transformers fallback: %s" % exc) from exc
-
-        # Decide deterministically whether ARE should be SAM or NullARE fallback
-        are_has_taskmeta = _has_taskmodule_metadata(are_resolved)
-        if are_has_taskmeta:
-            try:
-                self._re_pipeline = AutoPipeline.from_pretrained(
-                    are_resolved,
-                    device=self._device_index,
-                    taskmodule_kwargs={"collect_statistics": False},
-                )
-            except TypeError as exc:
-                msg = str(exc)
-                if "collect_statistics" in msg or "unexpected keyword" in msg.lower():
-                    self.logger.warning(
-                        "ARE AutoPipeline.from_pretrained rejected taskmodule kwargs: %s -- retrying without kwargs.",
-                        msg,
-                    )
-                    self._re_pipeline = AutoPipeline.from_pretrained(are_resolved, device=self._device_index)
-                else:
-                    raise
-        else:
-            # Deterministic NullARE fallback when ARE snapshot lacks taskmodule metadata
-            self.logger.warning(
-                "ARE model lacks taskmodule metadata; using NullARE fallback (no relations will be produced)."
-            )
-
-            class NullARE:
-                def __call__(self, document, inplace=True):
-                    try:
-                        if not hasattr(document, 'binary_relations'):
-                            document.binary_relations = SimpleNamespace(predictions=[])
-                        else:
-                            if hasattr(document.binary_relations, 'predictions'):
-                                try:
-                                    document.binary_relations.predictions.clear()
-                                except Exception:
-                                    document.binary_relations.predictions = []
-                    except Exception:
-                        document.binary_relations = SimpleNamespace(predictions=[])
-                    return document
-
-            self._re_pipeline = NullARE()
-
-    def _resolve_model_ref(self, model_ref: str | Path | dict) -> str:
-        if isinstance(model_ref, dict):
-            return _check_for_model(model_ref)
-        return str(model_ref)
-
-    def _create_document(self, text: str):
-        from pytorch_ie.annotations import LabeledSpan  # type: ignore
-        from pytorch_ie.documents import (  # type: ignore
-            TextDocumentWithLabeledSpansBinaryRelationsAndLabeledPartitions,
-        )
-
-        document = TextDocumentWithLabeledSpansBinaryRelationsAndLabeledPartitions(text)
-        document.id = "document"
-        document.metadata = {}
-        document.labeled_partitions.append(LabeledSpan(start=0, end=len(text), label="text"))
-        return document
-
-    def _translate_relation(self, label: str) -> str:
-        return self.map.get(label, label)
-
-    def generate(self, input_file: str | Path) -> dict:
-        """
-        Run ADUR then ARE on a file and return extracted ADUs and Relations.
-
-        Returns a dict with: {"adus": [...], "relations": [...], "statistics": {...}}
-        """
-        input_path = Path(input_file)
-        text = input_path.read_text(encoding="utf-8", errors="ignore")
-
-        document = self._create_document(text)
-
-        # ADUR first
-        self._ner_pipeline(document, inplace=True)
-
-        # Move predicted entities to main layer for relation extraction
-        predicted_entities = list(document.labeled_spans.predictions)
-        document.labeled_spans.clear()
-        document.labeled_spans.predictions.clear()
-        document.labeled_spans.extend(predicted_entities)
-
-        # ARE
-        self._re_pipeline(document, inplace=True)
-
-        # Collect ADUs
-        adus: list[dict] = []
-        for span in document.labeled_spans:
-            start = getattr(span, "start", None)
-            end = getattr(span, "end", None)
-            label = getattr(span, "label", "")
-            score = getattr(span, "score", None)
-            # Reuse ADUR default mapping for ADU labels where available
-            mapped_label = label
-            if label in {"background_claim", "own_claim", "data"}:
-                mapped_label = "claim" if label in {"background_claim", "own_claim"} else "premise"
-            adus.append(
-                {
-                    "text": document.text[start:end] if start is not None and end is not None else "",
-                    "label": mapped_label,
-                    "original_label": label,
-                    "start": start,
-                    "end": end,
-                    "score": score,
-                }
-            )
-
-        # Collect Relations and apply mapping/filtering
-        relations: list[dict] = []
-        for rel in document.binary_relations.predictions:
-            raw_label = getattr(rel, "label", "")
-            # Drop semantically_same and parts_of_same for simplicity
-            if raw_label in {"semantically_same", "parts_of_same"}:
-                continue
-            label = self._translate_relation(raw_label)
-            head = rel.head
-            tail = rel.tail
-            relations.append(
-                {
-                    "head_text": document.text[head.start:head.end],
-                    "tail_text": document.text[tail.start:tail.end],
-                    "label": label,
-                    "original_label": raw_label,
-                    "head_start": head.start,
-                    "head_end": head.end,
-                    "tail_start": tail.start,
-                    "tail_end": tail.end,
-                    "score": getattr(rel, "score", None),
-                }
-            )
-
-        stats = {
-            "total_adus": len(adus),
-            "total_relations": len(relations),
-            "adu_types": _count_by_key(adus, "label"),
-            "relation_types": _count_by_key(relations, "label"),
-        }
-
-        return {"adus": adus, "relations": relations, "statistics": stats}
