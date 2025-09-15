@@ -6,6 +6,10 @@ and computes task metrics via a pluggable Metrics implementation.
 This coexists with the legacy `evaluator.py` (which evaluates already-built
 ArgumentMap objects). Use this Evaluator for HPO loops that need to score a
 checkpoint produced by different trainers (LLaMA-Factory / Unsloth+TRL).
+
+TODO: Figure out if model loading is necessary, since generating argument maps doesn't need to happen in this module.
+TODO: Refactor this class to be less monolithic, e.g. separate out model loading, inference, and evaluation.
+TODO: Refactor both this class and the End2EndEvaluator to share more code and distribute responsibilities appropriately.
 """
 
 from __future__ import annotations
