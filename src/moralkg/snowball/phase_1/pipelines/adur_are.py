@@ -125,9 +125,10 @@ def run_pipeline2(
     logger.info("Running ADUR pipeline over %d items, outputs -> %s", len(input_texts), adur_outdir)
     _run_texts_with_model(adur, input_texts, adur_outdir, adapters.normalize_adur_output, prefix="adur")
 
-    # Run ARE (it may run its own ADUR internally or use adur_model_ref)
+    # Initialize ARE model (current implementation also runs ADUR internally)
     are = registry.get_are_instance(are_model_ref, adur_model_ref=adur_model_ref, use_model_2=use_are_model_2, use_adur_model_2=use_adur_model_2)
     # Reuse same texts mapping for ARE
+    # Run ARE 
     logger.info("Running ARE pipeline over %d items, outputs -> %s", len(input_texts), are_outdir)
     _run_texts_with_model(are, input_texts, are_outdir, adapters.normalize_are_output, prefix="are")
 
