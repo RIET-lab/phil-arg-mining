@@ -63,8 +63,8 @@ def main(argv: list[str] | None = None):
 
     # Two configs: model_1/model_1 and model_2/model_2
     #combos = [("model_1", "model_1"), ("model_2", "model_2")]
-    #combos = [("model_1", "model_1")] # Just test model 1 for now
-    combos = [("model_2", "model_2")] # Module 2 is broken. TODO: Ensure that the unexpected terms in sam_are_sciarg's config.json and taskmodule_config.json are not passed as kwargs to AutoPipeline.from_pretrained in models.py 
+    combos = [("model_1", "model_1")] # Just test model 1 for now
+    #combos = [("model_2", "model_2")] # Module 2 is broken. TODO: Ensure that the unexpected terms in sam_are_sciarg's config.json and taskmodule_config.json are not passed as kwargs to AutoPipeline.from_pretrained in models.py 
 
     for pipeline in ("pipeline2", "pipeline3"):
         print(f"=== Starting {pipeline} ===")
