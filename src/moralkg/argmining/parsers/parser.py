@@ -59,7 +59,7 @@ class Parser:
         )
         self.logger = logging.getLogger("StreamlinedParser")
     
-    def parse_json_file(self, file_path: Union[str, Path]) -> ArgumentMap:
+    def parse_json_file(self, file_path: Union[str, Path], map_id: Optional[str] = None) -> ArgumentMap:
         """
         Parse a JSON file containing model output into an ArgumentMap.
         
@@ -74,8 +74,9 @@ class Parser:
         
         with open(file_path, 'r', encoding='utf-8') as f:
             content = f.read()
-        
-        map_id = file_path.stem
+
+        if not map_id:
+                map_id = file_path.stem
         return self.parse_string(content, map_id)
     
     def parse_string(self, json_str: str, map_id: Optional[str] = None) -> ArgumentMap:
@@ -367,7 +368,7 @@ class Parser:
         rel_type = type_match.group(1).strip()
         
         # Validate relation type
-        if rel_type not in ["support", "attack"]:
+        if rel_type not in ["support", "attack", "unknown"]:
             self.logger.warning(f"Relation {idx}: Invalid type '{rel_type}', skipping")
             return None
         
@@ -390,109 +391,27 @@ class Parser:
         Returns:
             ArgumentMap object
         """
-        # Handle case where we have an array of objects
-        if isinstance(model_output, list):
-            self.logger.info(f"Found array of {len(model_output)} objects, merging")
-            merged_output = {"ADUs": {}, "relations": []}
-            
-            for obj in model_output:
-                if isinstance(obj, dict):
-                    if "ADUs" in obj:
-                        merged_output["ADUs"].update(obj["ADUs"])
-                    if "relations" in obj:
-                        if isinstance(obj["relations"], list):
-                            merged_output["relations"].extend(obj["relations"])
-            
-            model_output = merged_output
-        
         # Validate structure
         if not isinstance(model_output, dict):
             raise ValueError(f"Invalid model output: expected dictionary, got {type(model_output)}")
-        
-        if "ADUs" not in model_output:
-            raise ValueError("Invalid model output: missing 'ADUs' field")
-        
-        # Process ADUs
-        adus = []
-        adu_dict = model_output["ADUs"]
-        
-        for adu_id, adu_data in adu_dict.items():
-            try:
-                if not isinstance(adu_data, dict):
-                    self.logger.error(f"ADU {adu_id} is not a dictionary")
-                    continue
-                
-                # Validate required fields
-                if "type" not in adu_data or "text" not in adu_data:
-                    self.logger.error(f"ADU {adu_id} missing required fields")
-                    continue
-                
-                adu_type = adu_data["type"]
-                if adu_type not in ["Major Claim", "Claim"]:
-                    self.logger.warning(f"ADU {adu_id}: Invalid type '{adu_type}', defaulting to 'Claim'")
-                    adu_type = "Claim"
-                
-                # Handle isImplicit field
-                is_implicit = adu_data.get("isImplicit", False)
-                if isinstance(is_implicit, str):
-                    is_implicit = is_implicit.lower() == "true"
-                
-                adu = ADU(
-                    id=adu_id,
-                    type=adu_type,
-                    text=adu_data["text"],
-                    quote=adu_data.get("quote"),
-                    isImplicit=is_implicit
-                )
-                adus.append(adu)
-                
-            except Exception as e:
-                self.logger.error(f"Error processing ADU {adu_id}: {e}")
-                continue
-        
-        # Process relations
-        relations = []
+
+        # Normalize field names to be case-insensitive
+        model_output = {k.lower(): v for k, v in model_output.items()}
+
+        # Reintroduce case sensitivity for known field names where capitalization is informative
+        if "adus" in model_output:
+            model_output["ADUs"] = model_output.pop("adus")
+        else:
+            raise ValueError("Invalid model output: missing 'ADUs' field (case-insensitive)")
+        if "isimplicit" in model_output:
+            model_output["isImplicit"] = model_output.pop("isimplicit")
+
+        # Process ADUs and relations using helper methods
+        adu_dict = model_output.get("ADUs", {})
+        adus = self._parse_structured_adu_data(adu_dict)
+
         relations_data = model_output.get("relations", [])
-        
-        if isinstance(relations_data, list):
-            for idx, rel_data in enumerate(relations_data):
-                try:
-                    if not isinstance(rel_data, dict):
-                        continue
-                    
-                    # Validate required fields
-                    required_fields = ["src", "tgt", "type"]
-                    if not all(field in rel_data for field in required_fields):
-                        self.logger.error(f"Relation {idx} missing required fields")
-                        continue
-                    
-                    src_id = str(rel_data["src"])
-                    tgt_id = str(rel_data["tgt"])
-                    rel_type = rel_data["type"]
-                    
-                    if rel_type not in ["support", "attack"]:
-                        self.logger.warning(f"Relation {idx}: Invalid type '{rel_type}', skipping")
-                        continue
-                    
-                    # Validate ADU references
-                    src_exists = any(adu.id == src_id for adu in adus)
-                    tgt_exists = any(adu.id == tgt_id for adu in adus)
-                    
-                    if not src_exists or not tgt_exists:
-                        self.logger.warning(f"Relation {idx} references non-existent ADUs")
-                        continue
-                    
-                    relation = Relation(
-                        id=f"rel-{idx+1}",
-                        src=src_id,
-                        tgt=tgt_id,
-                        type=rel_type
-                    )
-                    relations.append(relation)
-                    
-                except Exception as e:
-                    self.logger.error(f"Error processing relation {idx}: {e}")
-                    continue
+        relations = self._parse_relations_from_list(relations_data, adus)
         
         # Create argument map
         metadata = model_output.get("metadata", {})
@@ -505,6 +424,122 @@ class Parser:
         
         self.logger.info(f"Parsed argument map with {len(adus)} ADUs and {len(relations)} relations")
         return argument_map
+
+    def _parse_structured_adu_data(self, adu_data: Any) -> List[ADU]:
+        """
+        Convert ADU entries into a list of ADU objects.
+
+        Accepts either:
+        - dict mapping adu_id -> {type, text, ...}
+        - list of ADU objects where each item is a dict containing at least 'text' and optionally 'id' and 'type'
+
+        This preserves previous logging and defensive checks.
+        """
+        adus: List[ADU] = []
+
+        if isinstance(adu_data, dict):
+            items = list(adu_data.items())
+        elif isinstance(adu_data, list):
+            # convert list to (id, data) pairs; id may be inside element or generated
+            items = []
+            for idx, item in enumerate(adu_data):
+                if isinstance(item, dict):
+                    adu_id = item.get("id") or item.get("ID") or f"adu-{idx+1}"
+                    items.append((adu_id, item))
+                else:
+                    # Non-dict items are invalid for ADU entries
+                    self.logger.error(f"ADU at index {idx} is not a dictionary, skipping")
+            
+        else:
+            self.logger.error("ADUs is neither a dict nor a list; cannot parse")
+            return adus
+
+        for adu_id, adu_item in items:
+            try:
+                if not isinstance(adu_item, dict):
+                    self.logger.error(f"ADU {adu_id} is not a dictionary")
+                    continue
+
+                # Validate required fields
+                if "text" not in adu_item:
+                    # If it was the dict form, previous behavior required both 'type' and 'text'. For list form, 'type' can be optional.
+                    self.logger.error(f"ADU {adu_id} missing required 'text' field")
+                    continue
+
+                adu_type = adu_item.get("type", "Claim")
+                if adu_type not in ["Major Claim", "Claim"]:
+                    self.logger.warning(f"ADU {adu_id}: Invalid type '{adu_type}', defaulting to 'Claim'")
+                    adu_type = "Claim"
+
+                # Handle isImplicit field
+                is_implicit = adu_item.get("isImplicit", False)
+                if isinstance(is_implicit, str):
+                    is_implicit = is_implicit.lower() == "true"
+
+                adu = ADU(
+                    id=str(adu_id),
+                    type=adu_type,
+                    text=adu_item["text"],
+                    quote=adu_item.get("quote"),
+                    isImplicit=is_implicit,
+                )
+                adus.append(adu)
+
+            except Exception as e:
+                self.logger.error(f"Error processing ADU {adu_id}: {e}")
+                continue
+
+        return adus
+
+    def _parse_relations_from_list(self, relations_data: Any, adus: List[ADU]) -> List[Relation]:
+        """
+        Convert relations list entries into Relation objects, validating references against ADUs.
+        """
+        relations: List[Relation] = []
+
+        if not isinstance(relations_data, list):
+            return relations
+
+        for idx, rel_data in enumerate(relations_data):
+            try:
+                if not isinstance(rel_data, dict):
+                    continue
+
+                # Validate required fields
+                required_fields = ["src", "tgt", "type"]
+                if not all(field in rel_data for field in required_fields):
+                    self.logger.error(f"Relation {idx} missing required fields")
+                    continue
+
+                src_id = str(rel_data["src"])
+                tgt_id = str(rel_data["tgt"])
+                rel_type = rel_data["type"]
+
+                if rel_type not in ["support", "attack", "unknown"]:
+                    self.logger.warning(f"Relation {idx}: Invalid type '{rel_type}', skipping")
+                    continue
+
+                # Validate ADU references
+                src_exists = any(adu.id == src_id for adu in adus)
+                tgt_exists = any(adu.id == tgt_id for adu in adus)
+
+                if not src_exists or not tgt_exists:
+                    self.logger.warning(f"Relation {idx} references non-existent ADUs")
+                    continue
+
+                relation = Relation(
+                    id=f"rel-{idx+1}",
+                    src=src_id,
+                    tgt=tgt_id,
+                    type=rel_type,
+                )
+                relations.append(relation)
+
+            except Exception as e:
+                self.logger.error(f"Error processing relation {idx}: {e}")
+                continue
+
+        return relations
     
     def parse_model_response(self, response: str, map_id: Optional[str] = None) -> ArgumentMap:
         """
