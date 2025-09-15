@@ -72,12 +72,22 @@ def normalize_adur_output(raw: Dict[str, Any], source_text: Optional[str] = None
             return []
 
     adus: List[Dict[str, Any]] = []
-    for i, item in enumerate(adus_raw, start=1):
+    for i, item in enumerate(adus_raw, start=0):
         if not isinstance(item, dict):
             logger.warning("Skipping non-dict ADU entry at index %d", i - 1)
             continue
 
-        adu_id = item.get("id") or item.get("adu_id") or f"adu-{i}"
+        # Prefer explicit id fields if present in the raw dict even when falsy (0, "0")
+        #if isinstance(item, dict) and "id" in item:
+        #    adu_id = item.get("id")
+        #elif isinstance(item, dict) and "adu_id" in item:
+        #    adu_id = item.get("adu_id")
+        #else:
+        #    adu_id = f"{i}"
+
+        # TODO: Re-enable ADU id extraction above once ARE models are ensured to use ADUR ids rather than a generic index
+        adu_id = f"{i}"
+
         label = _coerce_adu_type(item.get("label") or item.get("type"))
         try:
             adu_obj = ADUModel(
@@ -134,15 +144,31 @@ def normalize_are_output(raw: Dict[str, Any], source_text: Optional[str] = None)
         relations_raw = raw.get("rels") or []
 
     relations: List[Dict[str, Any]] = []
-    for i, r in enumerate(relations_raw, start=1):
+
+    def _extract_relation_field(d: Dict[str, Any], candidates: List[str]) -> Any:
+        """Return the first present key's value from candidates (checks key presence, not truthiness).
+
+        This preserves values like 0 or "0" when they are intentionally present in the raw output.
+        (Simply using "src = d.get(k1) or d.get(k2)", etc., would record such values as None.)
+        If none of the candidates are present, return None.
+        """
+        if not isinstance(d, dict):
+            return None
+        for k in candidates:
+            if k in d:
+                return d.get(k)
+        return None
+
+    for i, r in enumerate(relations_raw, start=0):
         if not isinstance(r, dict):
             logger.warning("Skipping non-dict relation at index %d", i - 1)
             continue
 
-        rel_type = _coerce_relation_type(r.get("label") or r.get("type") or r.get("relation"))
+        rel_type = _coerce_relation_type(_extract_relation_field(r, ["label", "type", "relation"]))
         # Prefer explicit ADU ids if provided, else try to map from texts
-        src = r.get("head") or r.get("src") or r.get("source") or r.get("head_text")
-        tgt = r.get("tail") or r.get("tgt") or r.get("target") or r.get("tail_text")
+        # Use presence-checked extraction so falsy-but-valid values (0 or "0") are preserved.
+        src = _extract_relation_field(r, ["head", "src", "source", "head_text"])
+        tgt = _extract_relation_field(r, ["tail", "tgt", "target", "tail_text"])
 
         # If src/tgt are spans (start/end), convert them to textual references if possible
         # For simplicity: if provided as numeric spans, leave them as-is inside metadata
@@ -165,7 +191,11 @@ def normalize_are_output(raw: Dict[str, Any], source_text: Optional[str] = None)
         final_src = src_id or (src if src is not None else f"adu-{i}-src")
         final_tgt = tgt_id or (tgt if tgt is not None else f"adu-{i}-tgt")
 
-        rel_id = r.get("id") or f"rel-{i}"
+        # Prefer explicit id fields if present even when falsy
+        if isinstance(r, dict) and "id" in r:
+            rel_id = r.get("id")
+        else:
+            rel_id = f"rel-{i}"
         try:
             rel_obj = RelationModel(id=str(rel_id), src=str(final_src), tgt=str(final_tgt), type=rel_type)
         except Exception as exc:
