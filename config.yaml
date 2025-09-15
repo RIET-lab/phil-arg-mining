@@ -62,7 +62,10 @@ paths:
             one-shot: "datasets/interim/argument_mining/snowball_phase_1/end2end/standard/one-shot" # Raw generation outputs for one-shot standard prompting
             few-shot: "datasets/interim/argument_mining/snowball_phase_1/end2end/standard/few-shot" # Raw generation outputs for few-shot standard prompting
           standard_rag: "datasets/interim/argument_mining/snowball_phase_1/end2end/standard_rag" # Raw generation outputs for standard RAG prompting
-          cot: "datasets/interim/argument_mining/snowball_phase_1/end2end/cot" # Raw generation outputs for CoT prompting
+          cot: 
+            all-in-one: "datasets/interim/argument_mining/snowball_phase_1/end2end/cot/all_in_one" # Raw generation outputs for CoT prompting
+            system-stepwise: "datasets/interim/argument_mining/snowball_phase_1/end2end/cot/system_stepwise" # Raw generation outputs for CoT prompting
+            user-stepwise: "datasets/interim/argument_mining/snowball_phase_1/end2end/cot/user_stepwise" # Raw generation outputs for CoT prompting
           rag_cot: "datasets/interim/argument_mining/snowball_phase_1/end2end/rag_cot" # Raw generation outputs for RAG+CoT prompting
         adur: 
           model_1: "datasets/interim/argument_mining/snowball_phase_1/adur/model_1" # Raw ADUR pipeline outputs for model 1
@@ -72,9 +75,15 @@ paths:
           model_2: "datasets/interim/argument_mining/snowball_phase_1/are/model_2" # Raw ARE pipeline outputs for model 2
       parsed:
         end2end:
-          standard: "datasets/processed/argument_mining/snowball_phase_1/end2end/standard" # Parsed argument maps for standard prompting
+          standard: 
+            zero-shot: "datasets/processed/argument_mining/snowball_phase_1/end2end/standard/zero-shot" # Parsed argument maps for zero-shot standard prompting
+            one-shot: "datasets/processed/argument_mining/snowball_phase_1/end2end/standard/one-shot" # Parsed argument maps for one-shot standard prompting
+            few-shot: "datasets/processed/argument_mining/snowball_phase_1/end2end/standard/few-shot" # Parsed argument maps for few-shot standard prompting
           standard_rag: "datasets/processed/argument_mining/snowball_phase_1/end2end/standard_rag" # Parsed argument maps for standard RAG prompting
-          cot: "datasets/processed/argument_mining/snowball_phase_1/end2end/cot" # Parsed argument maps for CoT prompting
+          cot: 
+            all-in-one: "datasets/processed/argument_mining/snowball_phase_1/end2end/cot/all-in-one" # Parsed argument maps for CoT all-in-one prompting
+            system-stepwise: "datasets/processed/argument_mining/snowball_phase_1/end2end/cot/system-stepwise" # Parsed argument maps for CoT system-stepwise prompting
+            user-stepwise: "datasets/processed/argument_mining/snowball_phase_1/end2end/cot/user-stepwise" # Parsed argument maps for CoT user-stepwise prompting
           rag_cot: "datasets/processed/argument_mining/snowball_phase_1/end2end/rag_cot" # Parsed argument maps for RAG+CoT prompting
         adur: "datasets/processed/argument_mining/snowball_phase_1/adur" # Parsed argument maps from ADUR pipeline
         are: "datasets/processed/argument_mining/snowball_phase_1/are" # Parsed argument maps from ARE pipeline

@@ -27,7 +27,7 @@ Step 4: Provide missing, implied conclusions (claims) and implied premises. An i
 Step 5: Identify relations between argument components.
 <step 5 formatting instructions>
 
-Step 6: Finish the argument map by making any remaining formatting changes as needed to bring it into the JSON schema format. Then, output only the final argument map.
+Step 6: Finish the argument map by making any remaining formatting changes as needed to bring it into the JSON schema format. Then, output "FINAL_ARGUMENT_MAP" followed by the final argument map.
 ```
 
 User Prompt
