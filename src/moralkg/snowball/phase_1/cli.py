@@ -1,8 +1,11 @@
 """CLI helpers for running ADUR and ARE pipelines in Phase 1.
 
-Provides simple programmatic entrypoints that can be used by thin scripts
-or called from the orchestrator. We intentionally keep behavior explicit and
-fail loudly on model validation/load errors.
+Provides simple programmatic entrypoints that can be used by scripts
+or called from the orchestrator.
+
+TODO: DRY up with scripts/snowball_phase1_ADUR_ARE_generate.py
+TODO: DRY the similar parts of Pipeline 2 and Pipeline 3 runners.
+TODO: Switch the output directory logic (here and in the config) to order as <pipeline>_<ADUR vs. ARE>_<model> instead of the current <ADUR vs. ARE>_<pipeline>_<model>.
 """
 from __future__ import annotations
 
