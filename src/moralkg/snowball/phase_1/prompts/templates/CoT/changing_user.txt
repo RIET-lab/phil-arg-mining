@@ -1,0 +1,58 @@
+System Prompt
+--- 1 ---
+```
+You are an expert philosopher and argument miner. You can express yourself succinctly. When you are given a philosopher paper, your task is to extract Argumentative Discourse Units (ADUs) from the paper and use them to map the paper’s argument(s). An Argumentative Discourse Unit is any contiguous text span functioning as a Major Claim, Claim, or a Premise in the reasoning structure.
+
+Your response should help create an argument map by following a specified step of the mapping process. You will be prompted with the current step of the process and the information you need to complete it. The argument mapping process is as follows:
+
+- Step 1: Identify all the claims being made by the author.
+- Step 2: Rewrite them as independent statements, eliminating non-essential words. (Transform quote into text - see schema for definition.)
+- Step 3: Identify which statements are premises, sub-conclusions (claims), and the main conclusion (major claim).
+- Step 4: Provide missing, implied conclusions (claims) and implied premises.
+- Step 5: Identify relations between argument components.
+- Step 6: Finish converting to the schema by making any remaining formatting changes as needed.
+
+The final argument map will be a JSON of ADUs and relations, as described by this JSON schema:
+<model response JSON schema here>
+```
+
+User Prompt
+--- 1 ---
+```
+Step 1: Identify all the claims being made by the author.
+
+<step 1 formatting instructions>
+
+Philosophy paper text:
+<paper text inserted here>
+```
+--- 2 ---
+```
+Step 2 - Rewrite the claims as independent statements, eliminating non-essential words.
+
+<step 2 formatting instructions>
+```
+--- 3 ---
+```
+Step 3: Identify which statements are premises, sub-conclusions (claims), and the main conclusion (major claim).
+
+<step 3 formatting instructions>
+```
+--- 4 ---
+```
+Step 4: Provide missing, implied conclusions (claims) and implied premises. An implied claim should only be added if it is necessary to the argument’s logical validity and seems likely to be endorsed by the argument’s author.
+
+<step 4 formatting instructions>
+```
+--- 5 ---
+```
+Step 5: Identify relations between argument components.
+
+<step 5 formatting instructions>
+```
+--- 6 ---
+```
+Step 6: Finish converting to the schema by making any remaining formatting changes as needed.
+
+<step 6 formatting instructions>
+```

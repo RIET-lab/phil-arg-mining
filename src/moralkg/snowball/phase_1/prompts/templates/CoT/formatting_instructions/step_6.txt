@@ -1,0 +1,15 @@
+Task:
+Finalize the argument map and produce JSON that conforms to the project's schema.
+
+Guidelines:
+- Ensure each ADU has: unique ID, type, quote (if explicit), text (rewritten), and any labels (implied/explicit).
+- Ensure relations reference ADU IDs and include relation metadata from Step 5.
+- Output only the final JSON in the required schema; avoid extra commentary in the final output.
+
+Required format (plain text):
+- Provide a final JSON matching the schema above, e.g.:
+{
+	"ADUs": {"a-1": {"type": "Major Claim", "text": "...", "quote": "...", "isImplicit": false}},
+	"relations": [{"src": "a-2", "tgt": "a-1", "type": "support"}]
+}
+

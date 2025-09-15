@@ -1,0 +1,11 @@
+Task:
+Identify all claims in the target text. A claim is any statement that asserts something to be true, evaluates, or takes a position.
+
+Guidelines:
+- Output a numbered list of exact quoted spans from the text.
+- Include only spans that function as claims; exclude pure exposition, examples, or background unless they contain an assertion.
+- Preserve original punctuation and capitalization in the 'quote'.
+
+Required format (plain text):
+- ID: <number> 
+    Quote: "<quote>"
