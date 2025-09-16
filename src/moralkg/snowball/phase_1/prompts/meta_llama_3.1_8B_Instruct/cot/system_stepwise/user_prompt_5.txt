@@ -1,0 +1,23 @@
+Task:
+Identify and classify the relationships between claims.
+
+Guidelines:
+- Relations represent how the author connected claims to form an argument. 
+- Use clear relation types: supports, attacks.
+    - "supports" means that the source claim is evidence toward the target claim.
+    - "attacks" means that the source claim is evidence against the target claim.
+- The support/attack relationship only indicates how individual claims are related to each other. A claim can attack another claim even if it agrees with the overall argument, such as when an author responds to a potential objection.
+- Reference ADUs by their ID or exact quote.
+
+Required format (plain text):
+- Relation_ID: <number>
+    src: <ADU ID or quote>
+    tgt: <ADU ID or quote>
+	Relation: supports | attacks
+
+
+Philosophy paper text:
+<paper text inserted here>
+
+ADUs:
+<step 4 output>

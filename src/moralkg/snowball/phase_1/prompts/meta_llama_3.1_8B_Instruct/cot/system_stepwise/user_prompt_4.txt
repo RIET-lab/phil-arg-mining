@@ -1,0 +1,23 @@
+Task:
+Add any extra missing, implied premises that make the argument logically coherent.
+
+Guidelines:
+- Only add implied claims that are necessary for the argument's validity and are likely endorsed by the author.
+- Label each added claim explicitly as 'implied'.
+- For each implied claim, include a one-line rationale explaining why it is required and which explicit claims it connects.
+- Keep implied claims minimal to avoid over-interpretation.
+
+Required format (plain text):
+- ID: <number or label>
+	Quote: "<quote>"
+	Text: <rewritten text>
+	Type: Major Claim | Claim
+    isImplied: True
+    Rationale: <brief explanation>
+
+
+Philosophy paper text:
+<paper text inserted here>
+
+Identified claims:
+<step 3 output>

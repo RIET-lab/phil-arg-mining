@@ -39,7 +39,7 @@ def read_referenced_file(filepath):
     """Read a referenced file content."""
     try:
         with open(filepath, 'r', encoding='utf-8') as f:
-            return f.read().strip()
+            return f.read() # .strip() # TODO: Add the .strip back in, and add extra newlines as needed to the CoT template files.
     except FileNotFoundError:
         print(f"Warning: Referenced file not found: {filepath}")
         return f"<File not found: {filepath}>"
@@ -80,6 +80,17 @@ def substitute_references(content, config, zero_shot_prompts=None):
         extra_map_path = Path(config.get("paths.snowball.phase_1.prompts.x_shot_examples.extra_arg_map"))
         extra_map_content = read_referenced_file(extra_map_path)
         content = content.replace('<SCHFAT-43_extra.json>', extra_map_content)
+
+    # Handle CoT step format instruction references like '<step 1 formatting instructions>'
+    # Insert the corresponding step_N.txt content from the CoT step_format_instructions folder.
+    cot_step_pattern = re.compile(r"<step\s*(\d+) formatting instructions>", re.IGNORECASE)
+    def _replace_cot_step(match):
+        step_num = match.group(1)
+        step_dir = Path(config.get("paths.snowball.phase_1.prompts.templates.cot_step_format_instructions"))
+        step_file = step_dir / f"step_{step_num}.txt"
+        return read_referenced_file(step_file)
+
+    content = cot_step_pattern.sub(_replace_cot_step, content)
     
     return content
 
@@ -234,35 +245,89 @@ def write_prompt_variations(variations, output_dirs, shot_type):
 
     return total_files_written
 
-def main() -> None:
-    """Main function to generate all prompt files from config."""
-    
-    # Load configuration
-    try:
-        config = Config.load()
-        print("Configuration loaded successfully")
-    except Exception as e:
-        print(f"Error loading configuration: {e}")
-        return
-    
-    # Get template directory from config
+
+def process_cot_templates(config, template_dir):
+    """Process CoT templates (all_in_one, system_stepwise, user_stepwise).
+
+    This will parse each CoT template, substitute step format instructions into
+    both system and user prompts, generate variations (using zero-shot system
+    prompts where appropriate), and write files to the config-specified output
+    directories under meta_llama_3.cot.
+    """
+    cot_templates = {
+        'all_in_one': template_dir / 'all_in_one.txt',
+        'system_stepwise': template_dir / 'system_stepwise.txt',
+        'user_stepwise': template_dir / 'user_stepwise.txt'
+    }
+
+    # Output directories per strategy: load strategy-specific paths from config
+    output_dirs = {
+        'all_in_one': Path(config.get('paths.snowball.phase_1.prompts.meta_llama_3.cot.all_in_one')),
+        'system_stepwise': Path(config.get('paths.snowball.phase_1.prompts.meta_llama_3.cot.system_stepwise')),
+        'user_stepwise': Path(config.get('paths.snowball.phase_1.prompts.meta_llama_3.cot.user_stepwise'))
+    }
+
+    total_files = []
+
+    for key, tpl_path in cot_templates.items():
+        print(f"\nParsing CoT template: {key}")
+        tpl_content = read_template_file(tpl_path)
+        if not tpl_content:
+            print(f"  Skipping CoT template {key} - file not found")
+            continue
+
+        prompts = parse_template_file(tpl_content)
+        if not prompts:
+            print(f"  Skipping CoT template {key} - parse returned no prompts")
+            continue
+
+        # For CoT templates we always substitute step format instructions
+        substituted_prompts = {}
+        for pkey, pcontent in prompts.items():
+            # Do not use any zero-shot prompts for CoT substitution — always use direct substitutions
+            substituted = substitute_references(pcontent, config, None)
+            substituted_prompts[pkey] = substituted
+
+        # Variations: generate default (no zero-shot) variation for CoT
+        variations = generate_prompt_variations(substituted_prompts, config, None, 'cot')
+
+        # Ensure output dir exists
+        out_dir = output_dirs.get(key)
+        if out_dir:
+            out_dir.mkdir(parents=True, exist_ok=True)
+
+        # Write variations to the appropriate CoT output directory. Use a 'cot' key so write_prompt_variations
+        # can index the provided output_dirs mapping.
+        files_written = write_prompt_variations(variations, { 'cot': out_dir }, 'cot')
+        total_files.extend(files_written)
+
+    return total_files
+
+
+def process_standard_templates(config):
+    """Process standard zero/one/few-shot templates and write generated prompts.
+
+    Returns:
+        (total_files_written, zero_shot_prompts)
+    """
+    # Get standard template directory from config
     template_dir = Path(config.get("paths.snowball.phase_1.prompts.templates.standard"))
     if not template_dir.exists():
         print(f"Template directory not found: {template_dir}")
-        return
-    
+        return [], {}
+
     # Template file mapping
     template_files = {
         'zero-shot': template_dir / "zero-shot.txt",
-        'one-shot': template_dir / "one-shot.txt", 
+        'one-shot': template_dir / "one-shot.txt",
         'few-shot': template_dir / "few-shot.txt"
     }
-    
+
     # Output directory mapping from config
     output_dirs = {
-        'zero-shot': Path(config.get("paths.snowball.phase_1.prompts.meta_llama_3.standard")) / "zero-shot",
-        'one-shot': Path(config.get("paths.snowball.phase_1.prompts.meta_llama_3.standard")) / "one-shot",
-        'few-shot': Path(config.get("paths.snowball.phase_1.prompts.meta_llama_3.standard")) / "few-shot"
+        'zero-shot': Path(config.get("paths.snowball.phase_1.prompts.meta_llama_3.standard.zero-shot")),
+        'one-shot': Path(config.get("paths.snowball.phase_1.prompts.meta_llama_3.standard.one-shot")),
+        'few-shot': Path(config.get("paths.snowball.phase_1.prompts.meta_llama_3.standard.few-shot")),
     }
 
     # Create output dirs if necessary
@@ -312,6 +377,32 @@ def main() -> None:
         # Write variations to files
         files_written = write_prompt_variations(variations, output_dirs, shot_type)
         total_files_written.extend(files_written)
+
+    return total_files_written
+
+def main() -> None:
+    """Main function to generate all prompt files from config."""
+    
+    # Load configuration
+    try:
+        config = Config.load()
+        print("Configuration loaded successfully")
+    except Exception as e:
+        print(f"Error loading configuration: {e}")
+        return
+    
+    # Process standard templates (zero/one/few-shot)
+    #total_files_written = process_standard_templates(config)
+    
+    total_files_written = []
+    # Additionally process CoT templates (they live in a separate templates folder)
+    try:
+        cot_template_dir = Path(config.get("paths.snowball.phase_1.prompts.templates.cot"))
+        print("\nProcessing CoT templates...")
+        cot_files = process_cot_templates(config, cot_template_dir)
+        total_files_written.extend(cot_files)
+    except Exception as e:
+        print(f"Warning: failed to process CoT templates: {e}")
     
     print("\n" + "=" * 60)
     print(f"Prompt generation completed! Generated {len(total_files_written)} files.")

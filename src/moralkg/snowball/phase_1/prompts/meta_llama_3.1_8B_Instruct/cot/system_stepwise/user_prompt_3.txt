@@ -1,0 +1,19 @@
+Task:
+Classify each ADU as 'Major Claim' or 'Claim' based on its logical role in the text.
+
+Guidelines:
+- Major Claim: the main thesis or overall conclusion of the author's argument.
+- Claim: intermediate conclusions or sub-claims that support the major claim. This includes reasons, evidence, or assumptions offered in support of claims.
+
+Required format (plain text):
+- ID: <number or label>
+	Quote: "<quote>"
+	Text: <rewritten text>
+	Type: Major Claim | Claim
+
+
+Philosophy paper text:
+<paper text inserted here>
+
+Identified claims:
+<step 2 output>

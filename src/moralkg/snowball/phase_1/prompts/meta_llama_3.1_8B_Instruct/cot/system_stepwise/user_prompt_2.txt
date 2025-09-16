@@ -1,0 +1,19 @@
+Task:
+Rewrite quoted claims as independent, standalone statements (the 'text'). Clean hedges and context-dependent phrasing while preserving the claim's logical meaning.
+
+Guidelines:
+- Provide both the original quote and the rewritten text.
+- Keep rewrites short and declarative. Remove phrases like "it seems", "might be", "in my view" unless they change the claim's force.
+- When paraphrasing, preserve quantifiers and modal strength (e.g., "must", "might", "probably").
+
+Required format (plain text):
+- ID: <number or label> 
+    Quote: "<quote>"
+    Text: <rewritten text>
+
+
+Philosophy paper text:
+<paper text inserted here>
+
+Identified claims:
+<step 1 output>

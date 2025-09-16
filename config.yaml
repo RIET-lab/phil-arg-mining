@@ -97,7 +97,8 @@ paths:
         templates: # Directory of templates for constructing LLM prompts via script
           standard: "src/moralkg/snowball/phase_1/prompts/templates/standard"
           standard_rag: "src/moralkg/snowball/phase_1/prompts/templates/standard_rag"
-          cot: "src/moralkg/snowball/phase_1/prompts/templates/cot"
+          cot: "src/moralkg/snowball/phase_1/prompts/templates/CoT"
+          cot_step_format_instructions: "src/moralkg/snowball/phase_1/prompts/templates/CoT/step_format_instructions"
           rag_cot: "src/moralkg/snowball/phase_1/prompts/templates/rag_cot"
         meta_llama_3:
           standard: 
@@ -105,7 +106,10 @@ paths:
             one-shot: "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/one-shot" # LLM system and user prompts for the one-shot standard pipeline
             few-shot: "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard/few-shot" # LLM system and user prompts for the few-shot standard pipeline
           standard_rag: "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/standard_rag" # LLM system and user prompts for the standard RAG pipelines
-          cot: "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/cot" # LLM system and user prompts for the CoT pipeline
+          cot: 
+            all_in_one: "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/cot/all_in_one" # LLM system and user prompts for the CoT all-in-one pipeline
+            system_stepwise: "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/cot/system_stepwise" # LLM system and user prompts for the CoT system-stepwise pipeline
+            user_stepwise: "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/cot/user_stepwise" # LLM system and user prompts for the CoT user-stepwise pipeline
           rag_cot: "src/moralkg/snowball/phase_1/prompts/meta_llama_3.1_8B_Instruct/cot_rag" # LLM system and user prompts for the RAG+CoT pipeline
     phase_2:
       sample: "datasets/processed/argument_mining/snowball_sampling/phase_2_large_sample"
