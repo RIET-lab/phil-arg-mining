@@ -666,6 +666,7 @@ class End2End:
         rag_top_k: int | None = None,
         cot: bool = False,
         cot_steps: int | None = None,
+        dry_run: bool = False,
         **kwargs: Any,
     ) -> None:
 
@@ -674,6 +675,7 @@ class End2End:
         self.cot = bool(cot)
         self.temperature = float(temperature)
         self.max_new_tokens = int(max_new_tokens)
+        self.dry_run = bool(dry_run)
 
         # RAG params
         self.embedding_dims = rag_embedding_dims
@@ -682,7 +684,7 @@ class End2End:
         self.top_k = rag_top_k or 5
 
         # CoT params
-        self.cot_steps = cot_steps or 2
+        self.cot_steps = cot_steps or 6
 
         # Misc
         self.kwargs = kwargs
@@ -716,13 +718,14 @@ class End2End:
         adapter_local = _check_for_model(self.adapter)
 
         # Load generator (HF with PEFT adapter) - end2end-specific, defer import to avoid circular
-        from .generator import load_generator_model
-        self._hf_model, self._hf_tokenizer = load_generator_model(
-            base_model=str(base_local), 
-            adapter_dir=str(adapter_local),
-            device=self.device,
-            dtype=self.dtype
-        )
+        if not dry_run:
+            from .generator import load_generator_model
+            self._hf_model, self._hf_tokenizer = load_generator_model(
+                base_model=str(base_local), 
+                adapter_dir=str(adapter_local),
+                device=self.device,
+                dtype=self.dtype
+            )
 
         # Prepare RAG if enabled
         self._rag = None
@@ -740,14 +743,13 @@ class End2End:
         self,
         system_prompt: list[str] | str,
         user_prompt: list[str] | str,
-        prompt_files: dict | list[dict] | None, # Must be dict or list of dicts. Optional.
+        prompt_files: dict | list[dict] | None, # Must be dict or list of dicts. Optional. Used for RAG context.
+        cot_strategy: str | None = None,
     ) -> dict:
         """
         Compose prompts, optionally retrieve context (RAG), optionally orchestrate reasoning (CoT), and generate output.
         Returns: {"text": str, "trace": dict}
         """
-        debug = bool(self.kwargs.get("debug", False))
-
         # Normalize prompts
         system_text = self._normalize_prompt(system_prompt) 
         user_text = self._normalize_prompt(user_prompt)
@@ -807,6 +809,9 @@ class End2End:
                 from .generator import build_input_ids, generate as hf_generate
                 input_ids = build_input_ids(self._hf_tokenizer, system_text, composed_user, device=self.device)
                 
+                if self.dry_run:
+                    return {"text": "[dry_run]", "trace": trace} # Skip actual generation
+                
                 text, metrics = hf_generate(
                     self._hf_model,
                     self._hf_tokenizer,
@@ -822,19 +827,33 @@ class End2End:
             # CoT orchestration
             cot = CoT(
                 steps=self.cot_steps,
-                step_prompts=self.kwargs.get("step_prompts"),
-                retrieval_step_positions=self.kwargs.get("retrieval_step_positions", [1] if self.rag else []),
-                debug=debug,
+                step_prompts=prompt_files.get('step_prompts') if isinstance(prompt_files, dict) else None,
+                dry_run=self.dry_run,
+                logger=self.logger,
             )
-            generator_cb = lambda prompt: self._call_hf_generator(system_text, prompt, device=self.device)
-            result = cot.run(
-                user_prompt=user_text,
-                generator=generator_cb,
-                retrieve=retrieval_callback,
-                temperature=self.temperature,
-                max_new_tokens=self.max_new_tokens,
-                #few_shot_examples=few_shot_examples, # TODO: Decide whether to handle few-shot examples here or elsewhere for CoT
-            )
+
+            # If step_prompts are provided, prefer chat-style, per-step invocations so
+            # strategies like system_stepwise (fresh system per step) can be exercised.
+            step_prompts = (prompt_files or {}).get('step_prompts') if isinstance(prompt_files, dict) else None
+            if step_prompts:
+                # Use generate_step_chat which accepts (system_text, user_text) -> str
+                result = cot.run_chat_sequence(
+                    initial_system=system_text,
+                    user_prompt=user_text,
+                    generator_chat_callable=lambda sys_txt, usr_txt: self.generate_step_chat(sys_txt, usr_txt),
+                    retrieve=retrieval_callback,
+                    temperature=self.temperature,
+                    max_new_tokens=self.max_new_tokens,
+                )
+            else:
+                generator_cb = lambda prompt: self._call_hf_generator(system_text, prompt)
+                result = cot.run(
+                    user_prompt=user_text,
+                    generator=generator_cb,
+                    retrieve=retrieval_callback,
+                    temperature=self.temperature,
+                    max_new_tokens=self.max_new_tokens,
+                )
             trace.update({"cot": result.get("steps", [])})
             return {"text": result.get("final", ""), "trace": trace}
         finally:
@@ -895,3 +914,16 @@ class End2End:
             device=self.device,  # Pass device to ensure consistency
         )
         return text
+
+    # TODO: Provide a helper that can run the HF generator in chat-mode per-step
+    # for experiments that require changing the system message between steps.
+    # For now End2End relies on CoT.run passing a single composed user prompt
+    # (or on the CoT.step_prompts mapping). Implement `generate_step_chat`
+    # if you need to perform one chat call per step with fresh context.
+    def generate_step_chat(self, system_text: str, user_text: str) -> str:
+        """Call the chat generator for a single system/user pair.
+
+        This helper exists as a small wrapper to centralize chat calls, and
+        can be extended to preserve or reset chat state per step.
+        """
+        return self._call_hf_generator(system_text, user_text)

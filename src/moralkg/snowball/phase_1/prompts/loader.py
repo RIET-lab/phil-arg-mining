@@ -25,6 +25,8 @@ class PromptConfig:
     variation: str
     system_text: str | None
     user_text: str
+    # For stepwise CoT prompts, a mapping of step -> {'system': Path|None, 'user': Path|None}
+    step_files: dict | None = None
 
 
 def _read_text(path: Path) -> str | None:
@@ -90,7 +92,8 @@ def load_prompts(prompt_dir: Path) -> List[PromptConfig]:
                                    user_file=uf,
                                    variation=variation,
                                    system_text=sys_text,
-                                   user_text=user_text)
+                                   user_text=user_text,
+                                   step_files=None)
                 logger.debug("Created PromptConfig: %s/%s (variation=%s)",
                              sysf.name, uf.name, variation)
                 results.append(cfg)
@@ -104,7 +107,8 @@ def load_prompts(prompt_dir: Path) -> List[PromptConfig]:
                                user_file=uf,
                                variation="default",
                                system_text=None,
-                               user_text=user_text)
+                               user_text=user_text,
+                               step_files=None)
             logger.debug("Created PromptConfig (no system): %s (variation=default)", uf.name)
             results.append(cfg)
 
@@ -112,6 +116,83 @@ def load_prompts(prompt_dir: Path) -> List[PromptConfig]:
     results.sort(key=lambda r: (r.variation, r.user_file.name))
     logger.info("Loaded %d prompt configurations from %s", len(results), prompt_dir)
     return results
+
+
+def load_cot_prompts(prompt_dir: Path) -> List[PromptConfig]:
+    """Load Chain-of-Thought (CoT) prompts from a meta-llama style folder.
+
+    This function expects the prompt_dir to be one of the strategy subfolders
+    (e.g. `.../cot/all_in_one`, `.../cot/system_stepwise`, `.../cot/user_stepwise`)
+    and will fail loudly if required files are missing or inconsistent.
+    It returns a list with a single PromptConfig containing `step_files` when
+    appropriate, or the same shape as `load_prompts` for `all_in_one`.
+    """
+    logger = logging.getLogger(__name__)
+    prompt_dir = Path(prompt_dir)
+    logger.info("Loading CoT prompts from: %s", prompt_dir)
+    if not prompt_dir.exists():
+        logger.error("CoT prompt directory not found: %s", prompt_dir)
+        raise FileNotFoundError(f"CoT prompt directory not found: {prompt_dir}")
+
+    cot_strategy = prompt_dir.name
+    system_files = sorted(prompt_dir.glob("system_prompt*.txt"))
+    user_files = sorted(prompt_dir.glob("user_prompt*.txt"))
+
+    results: List[PromptConfig] = []
+
+    if 'all_in_one' in cot_strategy.lower():
+        sysf = next((p for p in system_files), None)
+        uf = next((p for p in user_files if p.stem == 'user_prompt' or p.stem.endswith('_1')), None)
+        if sysf is None or uf is None:
+            raise ValueError(f"all_in_one missing expected user prompt in {prompt_dir}")
+        sys_text = _read_text(sysf) if sysf else None
+        user_text = _read_text(uf) or ""
+        # step_files = {f"step_1": {"system": sysf, "user": uf}}
+        cfg = PromptConfig(cot_strategy=cot_strategy,
+                           system_file=sysf,
+                           user_file=uf,
+                           system_text=sys_text,
+                           user_text=user_text,
+                           step_files=None)
+        results.append(cfg)
+        return results
+
+    if 'system_stepwise' in cot_strategy.lower():
+        if not system_files or not user_files:
+            logger.error("system_stepwise requires both system_prompt_N and user_prompt_N in %s", prompt_dir)
+            raise ValueError(f"system_stepwise incomplete: {prompt_dir}")
+        steps = {}
+        n_steps = min(len(system_files), len(user_files))
+        for i in range(n_steps):
+            steps[f'step_{i+1}'] = {'system': system_files[i], 'user': user_files[i]}
+        cfg = PromptConfig(cot_strategy=cot_strategy,
+                           system_file=prompt_dir,
+                           user_file=prompt_dir,
+                           system_text=None,
+                           user_text=None,
+                           step_files=steps)
+        results.append(cfg)
+        return results
+
+    if 'user_stepwise' in cot_strategy.lower():
+        if not system_files or not user_files:
+            logger.error("user_stepwise requires a system_prompt and multiple user_prompt_N files in %s", prompt_dir)
+            raise ValueError(f"user_stepwise incomplete: {prompt_dir}")
+        sysf = system_files[0]
+        steps = {}
+        for i, uf in enumerate(user_files, start=1):
+            steps[f'step_{i}'] = {'system': sysf, 'user': uf}
+        cfg = PromptConfig(cot_strategy=cot_strategy,
+                           system_file=sysf,
+                           user_file=prompt_dir,
+                           system_text=None,
+                           user_text=None,
+                           step_files=steps)
+        results.append(cfg)
+        return results
+
+    logger.error("Unrecognized CoT prompt folder type (expected all_in_one/system_stepwise/user_stepwise): %s", prompt_dir)
+    raise ValueError(f"Unrecognized CoT prompt folder: {prompt_dir}")
 
 
 def render_prompt(cfg: PromptConfig, context: dict) -> tuple[str, str]:
