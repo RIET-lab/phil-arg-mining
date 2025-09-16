@@ -14,6 +14,7 @@ class CoT:
         retrieval_step_positions: list[int] | None = None,
         logger=None,
         dry_run: bool = False,
+        debug: bool = True,
     ) -> None:
         from moralkg import get_logger
 
@@ -21,6 +22,9 @@ class CoT:
         self.step_prompts = step_prompts or {}
         self.retrieval_step_positions = set(retrieval_step_positions or [])
         self.dry_run = dry_run
+        # Debug mode: include resolved system/user/prompt texts in returned steps
+        # (previously controlled by `cot.debug`; make it the default behaviour)
+        self.debug = bool(debug)
         if logger is not None:
             self.logger = logger
         else:
@@ -82,6 +86,9 @@ class CoT:
                 prior_summary = output
                 trace_steps.append({
                     "name": f"step_{i}",
+                    "step": i,
+                    "system": (self.step_prompts.get(f"step_{i}", {}) or {}).get("system", "") if isinstance(self.step_prompts, dict) else "",
+                    "user": composed_user,
                     "prompt": composed_user,
                     "output": output,
                     "used_context_ids": used_ids,
@@ -93,6 +100,9 @@ class CoT:
 
             trace_steps.append({
                 "name": f"step_{i}",
+                "step": i,
+                "system": (self.step_prompts.get(f"step_{i}", {}) or {}).get("system", "") if isinstance(self.step_prompts, dict) else "",
+                "user": composed_user if self.debug else "",
                 "prompt": composed_user if self.debug else "",
                 "output": output,
                 "used_context_ids": used_ids,
@@ -214,8 +224,9 @@ class CoT:
 
             trace_steps.append({
                 "name": key,
-                "system": system if getattr(self, "debug", False) else "",
-                "user": composed_user if getattr(self, "debug", False) else "",
+                "step": i,
+                "system": system if self.debug else "",
+                "user": composed_user if self.debug else "",
                 "output": output,
                 "used_context_ids": used_ids,
             })

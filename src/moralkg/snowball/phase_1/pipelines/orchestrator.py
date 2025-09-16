@@ -122,6 +122,14 @@ class Phase1Orchestrator:
                     'id': paper_id,
                     'text': res.get('text', ''),
                     'trace': res.get('trace', {}),
+                    # Include assistant-level outputs/messages so checkpoints contain
+                    # the assistant responses in a consistent place. Prefer explicit
+                    # assistant messages in trace, fall back to top-level text.
+                    'assistant_outputs': res.get('trace', {}).get('assistant_messages',
+                                                            res.get('trace', {}).get('assistant',
+                                                                            [res.get('text', '')])),
+                    # Normalized chat history (ordered messages)
+                    'chat': res.get('trace', {}).get('chat', []),
                     'prompt_info': {
                         'shot_type': cfg.shot_type,
                         'system_file': str(cfg.system_file) if cfg.system_file else None,
@@ -280,8 +288,8 @@ class Phase1Orchestrator:
                             # detect and exercise system_stepwise / user_stepwise
                             # behaviors (separate chats vs. single-session).
                             res = end2end_instance.generate(
-                                system_text=base_system,
-                                user_text=base_user,
+                                system_prompt=base_system,
+                                user_prompt=base_user,
                                 prompt_files={"step_prompts": steps},
                                 cot_strategy=strat,
                             )
@@ -289,10 +297,19 @@ class Phase1Orchestrator:
                             self.logger.error("End2End.generate (stepwise) failed for paper %s prompt %s: %s", paper_id, cfg.variation, e)
                             continue
 
+                # TODO: Reduce redundancy in output fields. Also reduce nesting of assistant outputs.
                 out_item = {
                     'id': paper_id,
                     'text': res.get('text', ''),
                     'trace': res.get('trace', {}),
+                    # For CoT flows, prefer stepwise traces if available. Also
+                    # include assistant outputs in a dedicated field for easy
+                    # downstream consumption.
+                    'assistant_outputs': res.get('trace', {}).get('assistant_messages',
+                                                            res.get('trace', {}).get('assistant',
+                                                                            [res.get('text', '')])),
+                    'cot_steps': res.get('trace', {}).get('cot_steps', res.get('trace', {}).get('steps', [])),
+                    'chat': res.get('trace', {}).get('chat', []),
                     'prompt_info': {
                         'system_file': str(cfg.system_file) if cfg.system_file else None,
                         'user_file': str(cfg.user_file),

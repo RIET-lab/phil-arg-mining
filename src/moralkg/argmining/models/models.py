@@ -810,6 +810,14 @@ class End2End:
                 input_ids = build_input_ids(self._hf_tokenizer, system_text, composed_user, device=self.device)
                 
                 if self.dry_run:
+                    # Ensure assistant_messages is present even in dry-run
+                    trace["assistant_messages"] = ["[dry_run]"]
+                    # Normalized chat history for dry-run
+                    trace["chat"] = [
+                        {"role": "system", "text": system_text},
+                        {"role": "user", "text": composed_user},
+                        {"role": "assistant", "text": "[dry_run]"},
+                    ]
                     return {"text": "[dry_run]", "trace": trace} # Skip actual generation
                 
                 text, metrics = hf_generate(
@@ -822,6 +830,14 @@ class End2End:
                     dtype=self.dtype
                 )
                 trace["metrics"] = metrics
+                # Include assistant output in trace for downstream consumers
+                trace["assistant_messages"] = [text]
+                # Normalized chat history for single-call generations
+                trace["chat"] = [
+                    {"role": "system", "text": system_text},
+                    {"role": "user", "text": composed_user},
+                    {"role": "assistant", "text": text},
+                ]
                 return {"text": text, "trace": trace}
 
             # CoT orchestration
@@ -845,6 +861,24 @@ class End2End:
                     temperature=self.temperature,
                     max_new_tokens=self.max_new_tokens,
                 )
+                # Build normalized chat history from chat-sequence steps
+                chat_entries: list[dict[str, str]] = []
+                for step in result.get("steps", []) or []:
+                    if not isinstance(step, dict):
+                        continue
+                    # step may include 'system', 'user', 'prompt', 'output'
+                    sys_txt = step.get("system")
+                    # CoT returns composed user text under 'user' for chat_sequence when debug=True
+                    usr_txt = step.get("user") or step.get("prompt")
+                    out_txt = step.get("output") or step.get("final")
+                    if sys_txt:
+                        chat_entries.append({"role": "system", "text": str(sys_txt)})
+                    if usr_txt:
+                        chat_entries.append({"role": "user", "text": str(usr_txt)})
+                    if out_txt:
+                        chat_entries.append({"role": "assistant", "text": str(out_txt)})
+                # attach to trace (may be empty)
+                trace["chat"] = chat_entries
             else:
                 generator_cb = lambda prompt: self._call_hf_generator(system_text, prompt)
                 result = cot.run(
@@ -854,8 +888,52 @@ class End2End:
                     temperature=self.temperature,
                     max_new_tokens=self.max_new_tokens,
                 )
-            trace.update({"cot": result.get("steps", [])})
-            return {"text": result.get("final", ""), "trace": trace}
+            # Make cot steps and assistant messages explicit in the trace:
+            steps = result.get("steps", []) or []
+            assistant_msgs: list[str] = []
+            for step in steps:
+                # step may include 'output' or 'final' keys depending on CoT implementation
+                out = step.get("output") if isinstance(step, dict) else None
+                if out is None:
+                    out = step.get("final") if isinstance(step, dict) else None
+                if out is None:
+                    continue
+                assistant_msgs.append(str(out))
+
+            # Fallback to final if no per-step outputs captured
+            final_text = result.get("final", "")
+            if not assistant_msgs and final_text:
+                assistant_msgs = [final_text]
+
+            # Build normalized chat for non-chat-style CoT run: include all
+            # per-step prompts and assistant outputs in order.
+            chat_entries: list[dict[str, str]] = []
+            for step in steps:
+                if not isinstance(step, dict):
+                    continue
+                # Prefer explicit system/user if present; else use 'prompt' as the user text
+                s = step.get("system")
+                u = step.get("user") or step.get("prompt")
+                out = step.get("output") or step.get("final")
+                if s:
+                    chat_entries.append({"role": "system", "text": str(s)})
+                if u:
+                    chat_entries.append({"role": "user", "text": str(u)})
+                if out:
+                    chat_entries.append({"role": "assistant", "text": str(out)})
+
+            # If no per-step chat entries, fall back to top-level system/user/final
+            if not chat_entries:
+                if system_text:
+                    chat_entries.append({"role": "system", "text": system_text})
+                chat_entries.append({"role": "user", "text": user_text})
+                if final_text:
+                    chat_entries.append({"role": "assistant", "text": final_text})
+
+            trace.update({"cot": steps})
+            trace["assistant_messages"] = assistant_msgs
+            trace["chat"] = chat_entries
+            return {"text": final_text, "trace": trace}
         finally:
             if self._rag is not None and not bool(self.kwargs.get("keep_embeddings", False)):
                 self._rag.destroy()
