@@ -110,7 +110,18 @@ class Phase1Orchestrator:
                 if dry_run:
                     # Do not call the model; just validate render and record an empty placeholder
                     self.logger.debug("Dry-run: would generate for paper=%s prompt=%s", paper_id, cfg.variation)
-                    res = {"text": "", "trace": {"dry_run": True}}
+                    # Build a richer dry-run trace so downstream consumers (and
+                    # saved checkpoints) have normalized chat and assistant fields
+                    trace = {
+                        "dry_run": True,
+                    }
+                    trace["assistant_messages"] = ["[dry_run]"]
+                    trace["chat"] = [
+                        {"role": "system", "text": system_text},
+                        {"role": "user", "text": user_text},
+                        {"role": "assistant", "text": "[dry_run]"},
+                    ]
+                    res = {"text": "", "trace": trace}
                 else:
                     try:
                         res = end2end_instance.generate(system_text, user_text, prompt_files=None)
@@ -260,7 +271,15 @@ class Phase1Orchestrator:
                     system_text = base_system
                     user_text = base_user
                     if dry_run:
-                        res = {"text": "", "trace": {"dry_run": True, "strategy": strategy}}
+                        # For all-in-one CoT dry-runs, include normalized chat
+                        trace = {"dry_run": True, "strategy": strategy}
+                        trace["assistant_messages"] = ["[dry_run]"]
+                        trace["chat"] = [
+                            {"role": "system", "text": system_text},
+                            {"role": "user", "text": user_text},
+                            {"role": "assistant", "text": "[dry_run]"},
+                        ]
+                        res = {"text": "", "trace": trace}
                     else:
                         try:
                             res = end2end_instance.generate(system_text, user_text, prompt_files=None)
@@ -278,7 +297,36 @@ class Phase1Orchestrator:
                         continue
 
                     if dry_run:
-                        res = {"text": "", "trace": {"dry_run": True, "strategy": strategy}}
+                        # For stepwise CoT dry-run, produce per-step entries so
+                        # checkpoints record the intended chat sequence.
+                        steps_list = []
+                        chat_entries: list[dict[str, str]] = []
+                        for k in sorted(steps.keys(), key=lambda x: int(x.split('_')[-1]) if x.split('_')[-1].isdigit() else 0):
+                            item = steps[k]
+                            sys_txt = item.get('system', '')
+                            usr_txt = item.get('user', '')
+                            out_txt = "[dry_run]"
+                            step_num = int(k.split('_')[-1]) if k.split('_')[-1].isdigit() else None
+                            steps_list.append({
+                                "name": k,
+                                "step": step_num,
+                                "system": sys_txt,
+                                "user": usr_txt,
+                                "prompt": usr_txt,
+                                "output": out_txt,
+                                "used_context_ids": [],
+                            })
+                            if sys_txt:
+                                chat_entries.append({"role": "system", "text": str(sys_txt)})
+                            if usr_txt:
+                                chat_entries.append({"role": "user", "text": str(usr_txt)})
+                            chat_entries.append({"role": "assistant", "text": out_txt})
+
+                        trace = {"dry_run": True, "strategy": strategy}
+                        trace["cot_steps"] = steps_list
+                        trace["assistant_messages"] = ["[dry_run]"]
+                        trace["chat"] = chat_entries
+                        res = {"text": "", "trace": trace}
                     else:
                         try:
                             # End2End expects stepwise prompts under the key
