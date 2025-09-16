@@ -2,7 +2,9 @@
 CoT Class:
 Orchestrate multi-step reasoning prompts for End2End with optional retrieval-at-reasoning (RA-CoT) hooks. CoT does not load models or perform generation on its own; it relies on a generator callback provided by End2End.
 """
+from logging import warning
 import re
+from venv import logger
 
 
 class CoT:
@@ -14,7 +16,6 @@ class CoT:
         retrieval_step_positions: list[int] | None = None,
         logger=None,
         dry_run: bool = False,
-        debug: bool = True,
     ) -> None:
         from moralkg import get_logger
 
@@ -22,117 +23,24 @@ class CoT:
         self.step_prompts = step_prompts or {}
         self.retrieval_step_positions = set(retrieval_step_positions or [])
         self.dry_run = dry_run
-        # Debug mode: include resolved system/user/prompt texts in returned steps
-        # (previously controlled by `cot.debug`; make it the default behaviour)
-        self.debug = bool(debug)
         if logger is not None:
             self.logger = logger
         else:
             self.logger = get_logger(__name__)
 
-    # For experiments that require creating a fresh chat context per
-    # CoT step (for example changing system instructions between steps),
-    # we should provide a helper that invokes the generator as a chat API
-    # (system_text, user_text) per step and optionally preserves or
-    # discards prior assistant messages depending on the experiment.
-    # The current `run` implementation composes a single user prompt per
-    # step. Use `run_chat_sequence` to support chat-style stepwise
-    # evaluation when needed.
-
-    def run(
-        self,
-        *,
-        user_prompt: str,
-        generator,
-        retrieve=None,
-        temperature: float = 0.7,
-        max_new_tokens: int = 1024,
-        few_shot_examples=None,
-    ) -> dict:
-        """
-        Execute a simple multi-step reasoning loop.
-        """
-        trace_steps: list[dict] = []
-        prior_summary = ""
-
-        for i in range(1, self.steps + 1):
-            contexts_txt = ""
-            used_ids: list[str] = []
-
-            if i in self.retrieval_step_positions and callable(retrieve):
-                contexts = retrieve(user_prompt, 5)
-                context_blocks = []
-                for c in contexts:
-                    used_ids.append(str(c.get("chunk_id")))
-                    context_blocks.append(f"- [{c.get('chunk_id')}] {c.get('text','').strip()}")
-                if context_blocks:
-                    contexts_txt = "Context:\n" + "\n".join(context_blocks)
-
-            step_inst = self._step_instruction(i, user_prompt)
-
-            prompt_parts = []
-            if contexts_txt:
-                prompt_parts.append(contexts_txt)
-            if few_shot_examples:
-                prompt_parts.append(self._render_few_shot(few_shot_examples))
-            if prior_summary:
-                prompt_parts.append("Previous Step Summary:\n" + prior_summary)
-            prompt_parts.append(step_inst)
-            composed_user = "\n\n".join([p for p in prompt_parts if p])
-
-            if self.dry_run:
-                self.logger.info("CoT Step %d Prompt:\n%s", i, composed_user)
-                output = "[dry_run]"
-                prior_summary = output
-                trace_steps.append({
-                    "name": f"step_{i}",
-                    "step": i,
-                    "system": (self.step_prompts.get(f"step_{i}", {}) or {}).get("system", "") if isinstance(self.step_prompts, dict) else "",
-                    "user": composed_user,
-                    "prompt": composed_user,
-                    "output": output,
-                    "used_context_ids": used_ids,
-                })
-                continue
-
-            output = generator(composed_user)
-            prior_summary = output.strip()
-
-            trace_steps.append({
-                "name": f"step_{i}",
-                "step": i,
-                "system": (self.step_prompts.get(f"step_{i}", {}) or {}).get("system", "") if isinstance(self.step_prompts, dict) else "",
-                "user": composed_user if self.debug else "",
-                "prompt": composed_user if self.debug else "",
-                "output": output,
-                "used_context_ids": used_ids,
-            })
-
-        return {"final": prior_summary, "steps": trace_steps}
-
-    def run_chat_sequence(
+    def run_system_stepwise(
         self,
         *,
         initial_system: str | None,
         user_prompt: str,
         generator_chat_callable,
         retrieve=None,
-        temperature: float = 0.7,
-        max_new_tokens: int = 1024,
     ) -> dict:
-        """Run CoT as a sequence of discrete chat calls.
+        """Run CoT as a sequence of discrete chat calls with system message varying per step.
 
-        Each step would be invoked as a separate chat turn with its own
-        system/user pair by calling `generator_chat_callable(system, user)`.
-        This is a helper for 'system-stepwise' and 'user-stepwise' experiments.
-
-        User-stepwise: preserve prior assistant outputs between steps by appending them to the user prompt.
-        System-stepwise: fresh chat per step, but inject prior step outputs into the user prompt
-        by replacing placeholders like <step 1 output>, <step 2 output>, etc.
-        This keeps each step a fresh chat w.r.t. system message while making prior results
-        available as variables for formatting.
-
-        TODO: Make the strategy selection explicit via a parameter rather heuristic based on the number of prompts.
+        This keeps each step a fresh chat w.r.t. system message while making prior
+        results available as variables for formatting (placeholders like
+        <step 1 output> are replaced with prior outputs).
         """
         trace_steps: list[dict] = []
         prior_assistant = ""
@@ -142,41 +50,22 @@ class CoT:
         initial_system = initial_system or ""
         user_prompt = user_prompt or ""
 
-        # Determine strategy from provided step_prompts mapping if available.
-        # If systems vary across steps -> system_stepwise (fresh chat per step).
-        # If users vary across steps -> user_stepwise (preserve assistant outputs between steps).
-        systems = set()
-        users = set()
-        for k, v in (self.step_prompts or {}).items():
-            if isinstance(v, dict):
-                systems.add((v.get("system") or "").strip())
-                users.add((v.get("user") or "").strip())
-
-        if len(systems) > 1:
-            strategy = "system_stepwise"
-        elif len(users) > 1 and len(systems) <= 1:
-            strategy = "user_stepwise"
-        else:
-            raise ValueError("Cannot determine CoT chat strategy from step_prompts; need varying systems or users.")
+        def _inject_outputs(text: str) -> str:
+            if not text:
+                return text
+            def _repl(m):
+                idx = int(m.group(1))
+                return prior_outputs.get(idx, "")
+            return re.sub(r"<step\s*(\d+)\s*output>", _repl, text, flags=re.IGNORECASE)
 
         for i in range(1, self.steps + 1):
             key = f"step_{i}"
             cfg = (self.step_prompts or {}).get(key, {}) or {}
 
-            # select system/user for this step
             system = (cfg.get("system") if isinstance(cfg, dict) else None) or initial_system
             user = (cfg.get("user") if isinstance(cfg, dict) else None) or user_prompt
 
-            # helper to replace placeholders like <step 2 output> with prior outputs
-            def _inject_outputs(text: str) -> str:
-                if not text:
-                    return text
-                def _repl(m):
-                    idx = int(m.group(1))
-                    return prior_outputs.get(idx, "")
-                return re.sub(r"<step\s*(\d+)\s*output>", _repl, text, flags=re.IGNORECASE)
-
-            # retrieval hook (same semantics as run)
+            # retrieval hook
             contexts_txt = ""
             used_ids: list[str] = []
             if i in self.retrieval_step_positions and callable(retrieve):
@@ -188,62 +77,205 @@ class CoT:
                 if context_blocks:
                     contexts_txt = "Context:\n" + "\n".join(context_blocks)
 
-            # Compose user content depending on strategy
-            if strategy == "system_stepwise":
-                # system varies per step, but we still inject prior step outputs into
-                # the (usually static) user prompt by replacing placeholders like
-                # <step 1 output>, <step 2 output>, etc. This keeps each step a
-                # fresh chat w.r.t. system message while making prior results
-                # available as variables for formatting.
-                injected_user = _inject_outputs(user)
-                injected_system = _inject_outputs(system)
-                composed_user = "\n\n".join([p for p in [contexts_txt, injected_user] if p])
-                if self.dry_run:
-                    output = "[dry_run]"
-                else:
-                    output = generator_chat_callable(injected_system, composed_user)
-                # store this step's output for later injections
-                prior_outputs[i] = output.strip()
-                prior_assistant = output.strip()
+            injected_user = _inject_outputs(user)
+            injected_system = _inject_outputs(system)
+            composed_user = "\n\n".join([p for p in [contexts_txt, injected_user] if p])
 
-            else:  # user_stepwise: accumulate assistant outputs in the conversation
-                # For the first step, include contexts + user_prompt
-                if i == 1:
-                    composed_user = "\n\n".join([p for p in [contexts_txt, user] if p])
-                else:
-                    # Preserve assistant output from previous steps by appending it
-                    composed_user = "\n\n".join([p for p in [contexts_txt, prior_assistant, user] if p])
+            if self.dry_run:
+                output = "[dry_run]"
+            else:
+                output = generator_chat_callable(injected_system, composed_user)
 
-                if self.dry_run:
-                    output = "[dry_run]"
-                else:
-                    output = generator_chat_callable(system, composed_user)
-
-                # accumulate assistant text for next step
-                prior_assistant = (prior_assistant + "\n\n" + output).strip() if prior_assistant else output.strip()
+            prior_outputs[i] = output.strip()
+            prior_assistant = output.strip()
 
             trace_steps.append({
                 "name": key,
                 "step": i,
-                "system": system if self.debug else "",
-                "user": composed_user if self.debug else "",
+                "system": system,
+                "user": composed_user,
                 "output": output,
                 "used_context_ids": used_ids,
             })
 
         return {"final": prior_assistant, "steps": trace_steps}
 
-    def _step_instruction(self, i: int, user_prompt: str) -> str:
-        key = f"step_{i}"
-        cfg = self.step_prompts.get(key)
-        if cfg and isinstance(cfg, dict):
-            sys = cfg.get("system", "").strip()
-            usr = cfg.get("user", "").strip()
-            parts = []
-            if sys:
-                parts.append(sys)
-            if usr:
-                parts.append(usr)
-            return "\n\n".join(parts)
-        # Default: repeat user prompt with a simple step directive
-        return f"Step {i}: {user_prompt}"
+    def run_user_stepwise(
+        self,
+        *,
+        initial_system: str | None,
+        user_prompt: str,
+        generator_chat_callable,
+        retrieve=None,
+    ) -> dict:
+        """Run CoT as a sequence of chat calls with user message varying per step.
+
+        This implementation uses an explicit messages list (role-based chat history)
+        for clearer role semantics. It still preserves prior assistant outputs
+        between steps by appending assistant messages to the messages list. It
+        also preserves retrieval hooks, dry_run behavior and per-step tracing.
+        The generator callable may accept either a single `messages` argument or
+        the legacy `(system, user_text)` pair; we try messages first and fall
+        back to the pair-callable on TypeError.
+        """
+        trace_steps: list[dict] = []
+
+        # Normalize inputs
+        initial_system = initial_system or ""
+        user_prompt = user_prompt or ""
+
+        # Messages list used for chat-style generation. Start with initial system if present.
+        messages: list[dict] = []
+        if initial_system:
+            messages.append({"role": "system", "text": initial_system})
+
+        # Keep a list of prior assistant messages to replay into fresh chats if system changes
+        prior_assistant_msgs: list[str] = []
+
+        for i in range(1, self.steps + 1):
+            key = f"step_{i}"
+            cfg = (self.step_prompts or {}).get(key, {}) or {}
+
+            system = (cfg.get("system") if isinstance(cfg, dict) else None) or initial_system
+            user = (cfg.get("user") if isinstance(cfg, dict) else None) or user_prompt
+
+            # retrieval hook
+            contexts_txt = ""
+            used_ids: list[str] = []
+            if i in self.retrieval_step_positions and callable(retrieve):
+                contexts = retrieve(user, 5)
+                context_blocks = []
+                for c in contexts:
+                    used_ids.append(str(c.get("chunk_id")))
+                    context_blocks.append(f"- [{c.get('chunk_id')}] {c.get('text','').strip()}")
+                if context_blocks:
+                    contexts_txt = "Context:\n" + "\n".join(context_blocks)
+
+            # Compose the user message for this step
+            composed_user = "\n\n".join([p for p in [contexts_txt, user] if p])
+
+            # If the system for this step differs from the current messages' system,
+            # start a fresh messages list for a fresh chat but replay prior assistant
+            # messages so the model can condition on earlier outputs.
+            need_fresh_chat = False
+            if system:
+                # Determine current system in messages (if any)
+                current_system = None
+                for m in messages:
+                    if m.get("role") == "system":
+                        current_system = m.get("text")
+                        break
+                if current_system is None or (system.strip() != current_system.strip()):
+                    need_fresh_chat = True
+
+            if need_fresh_chat:
+                messages = [{"role": "system", "text": system}] if system else []
+                for msg in prior_assistant_msgs:
+                    messages.append({"role": "assistant", "text": msg})
+
+            # Append the current user message and call the generator
+            messages.append({"role": "user", "text": composed_user})
+
+            if self.dry_run:
+                output = "[dry_run]"
+            else:
+                # Try messages-list callable first; fallback to (system, user) pair
+                try:
+                    output = generator_chat_callable(messages)
+                except TypeError:
+                    # Legacy callable expecting (system, user_text)
+                    try:
+                        output = generator_chat_callable(system, composed_user)
+                    except Exception as e:
+                        # Re-raise with context
+                        raise
+
+            # Append assistant output to messages and prior assistant list
+            messages.append({"role": "assistant", "text": output})
+            prior_assistant_msgs.append(output.strip())
+
+            trace_steps.append({
+                "name": key,
+                "step": i,
+                "system": system,
+                "user": composed_user,
+                "output": output,
+                "used_context_ids": used_ids,
+            })
+
+        # Final is the concatenation of assistant messages (preserve original behavior)
+        final_text = "\n\n".join(prior_assistant_msgs).strip()
+        return {"final": final_text, "steps": trace_steps}
+
+    def run_all_in_one(
+        self,
+        *,
+        initial_system: str,
+        user_prompt: str,
+        generator_chat_callable,
+    ) -> dict:
+        """Run CoT as a single chat call with all steps contained in one user prompt.
+        """
+        trace_steps: list[dict] = []
+        used_ids_map: dict[int, list[str]] = {}
+
+        output = generator_chat_callable(initial_system, user_prompt)
+
+        key = f"step_1"
+        cfg = (self.step_prompts or {}).get(key, {}) or {}
+        system = (cfg.get("system") if isinstance(cfg, dict) else None) or initial_system
+        user = (cfg.get("user") if isinstance(cfg, dict) else None) or user_prompt
+        trace_steps.append({
+            "name": key,
+            "step": 1,
+            "system": system,
+            "user": user,
+            "output": output,
+            "used_context_ids": used_ids_map.get(1, []),
+        })
+
+        return {"final": output.strip(), "steps": trace_steps}
+
+    def run_chat_sequence(
+        self,
+        *,
+        initial_system: str | None,
+        user_prompt: str,
+        generator_chat_callable,
+        retrieve=None,
+        strategy: str | None = None,
+    ) -> dict:
+        """Run CoT as a sequence of chat calls.
+
+        Strategies:
+        User-stepwise: preserve prior assistant outputs between steps by appending them to the user prompt.
+        System-stepwise: fresh chat per step, but inject prior step outputs into the user prompt
+        by replacing placeholders like <step 1 output>, <step 2 output>, etc.
+        This keeps each step a fresh chat w.r.t. system message while making prior results
+        available as variables for formatting.
+        All-in-one: single chat call with all steps concatenated into one user prompt.
+
+        Default strategy is "all_in_one" if not specified or unrecognized.
+        """
+        if strategy == "system_stepwise":
+            return self.run_system_stepwise(
+                initial_system=initial_system,
+                user_prompt=user_prompt,
+                generator_chat_callable=generator_chat_callable,
+                retrieve=retrieve,
+            )
+        elif strategy == "user_stepwise":
+            return self.run_user_stepwise(
+                initial_system=initial_system,
+                user_prompt=user_prompt,
+                generator_chat_callable=generator_chat_callable,
+                retrieve=retrieve,
+            )
+        elif strategy != "all_in_one":
+            logger.warning(f"Unknown or missing strategy '{strategy}', defaulting to 'all_in_one'")
+        return self.run_all_in_one(
+            initial_system=initial_system,
+            user_prompt=user_prompt,
+            generator_chat_callable=generator_chat_callable,
+        )
+        

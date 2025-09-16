@@ -127,6 +127,25 @@ def build_input_ids(tokenizer, system_text: str, user_text: str, device: torch.d
     return encoded.input_ids.to(device)
 
 
+def build_chat_input_ids(tokenizer, messages: list[dict], device: torch.device | None = None) -> torch.Tensor:
+    """
+    Build input ids for an arbitrary list of chat messages. Each message
+    should be a dict with keys {"role": "system|user|assistant", "content": str}.
+    """
+    if device is None:
+        device, _ = get_device_and_dtype()
+
+    # Normalize messages to expected shape by tokenizer.apply_chat_template
+    text = tokenizer.apply_chat_template(
+        messages,
+        tokenize=False,
+        add_generation_prompt=True,
+        return_tensors=None,
+    )
+    encoded = tokenizer(text, return_tensors="pt").to(device)
+    return encoded.input_ids.to(device)
+
+
 @torch.inference_mode()
 def generate(
     model: torch.nn.Module,
@@ -222,6 +241,34 @@ def generate_chat(
         device, dtype = get_device_and_dtype()
     
     input_ids = build_input_ids(tokenizer, system_text, user_text, device=device)
+    return generate(
+        model,
+        tokenizer,
+        input_ids,
+        device=device,
+        dtype=dtype,
+        max_new_tokens=max_new_tokens,
+        temperature=temperature,
+    )
+
+
+def generate_from_messages(
+    model: torch.nn.Module,
+    tokenizer,
+    *,
+    messages: list[dict],
+    device: torch.device | None = None,
+    dtype: torch.dtype | None = None,
+    max_new_tokens: int,
+    temperature: float,
+):
+    """
+    Generate using a pre-built list of chat messages. Returns (text, metrics).
+    """
+    if device is None or dtype is None:
+        device, dtype = get_device_and_dtype()
+
+    input_ids = build_chat_input_ids(tokenizer, messages, device=device)
     return generate(
         model,
         tokenizer,
