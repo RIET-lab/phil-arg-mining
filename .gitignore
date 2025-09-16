@@ -51,3 +51,6 @@ package-lock.json
 
 # Ignore data about annotators
 scripts/annotator_ID_finding/*
+
+# Ignore LLM agent support files
+CLAUDE.md
