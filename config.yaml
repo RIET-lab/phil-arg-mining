@@ -63,9 +63,9 @@ paths:
             few-shot: "datasets/interim/argument_mining/snowball_phase_1/end2end/standard/few-shot" # Raw generation outputs for few-shot standard prompting
           standard_rag: "datasets/interim/argument_mining/snowball_phase_1/end2end/standard_rag" # Raw generation outputs for standard RAG prompting
           cot: 
-            all-in-one: "datasets/interim/argument_mining/snowball_phase_1/end2end/cot/all_in_one" # Raw generation outputs for CoT prompting
-            system-stepwise: "datasets/interim/argument_mining/snowball_phase_1/end2end/cot/system_stepwise" # Raw generation outputs for CoT prompting
-            user-stepwise: "datasets/interim/argument_mining/snowball_phase_1/end2end/cot/user_stepwise" # Raw generation outputs for CoT prompting
+            all_in_one: "datasets/interim/argument_mining/snowball_phase_1/end2end/cot/all_in_one" # Raw generation outputs for CoT prompting
+            system_stepwise: "datasets/interim/argument_mining/snowball_phase_1/end2end/cot/system_stepwise" # Raw generation outputs for CoT prompting
+            user_stepwise: "datasets/interim/argument_mining/snowball_phase_1/end2end/cot/user_stepwise" # Raw generation outputs for CoT prompting
           rag_cot: "datasets/interim/argument_mining/snowball_phase_1/end2end/rag_cot" # Raw generation outputs for RAG+CoT prompting
         adur: 
           model_1: "datasets/interim/argument_mining/snowball_phase_1/adur/model_1" # Raw ADUR pipeline outputs for model 1
