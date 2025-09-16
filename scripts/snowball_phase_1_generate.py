@@ -9,6 +9,7 @@ Example usage (from repo root):
 source ./.venv/bin/activate && PYTHONPATH=src python scripts/snowball_phase_1_generate.py --shot one-shot --device-index 0
 
 TODO: Provide run info from this script to the logger creation process so that the log files are named more informatively.
+TODO: Reduce redundancy between this script's configuration of shot strategies and its configuration of CoT strategies.
 """
 from pathlib import Path
 import argparse
@@ -17,11 +18,12 @@ from moralkg.snowball.phase_1.models.registry import create_end2end
 from moralkg.snowball.phase_1.pipelines.orchestrator import Phase1Orchestrator
 from moralkg.config import Config
 from moralkg.logging import get_logger
+from moralkg.argmining.loaders import Dataset
 
 
 def main():
     p = argparse.ArgumentParser()
-    p.add_argument('--shot', type=str, default='all', choices=['zero-shot', 'one-shot', 'few-shot', 'all'],
+    p.add_argument('--shot', type=str, default=None, choices=['zero-shot', 'one-shot', 'few-shot', 'all'],
                    help="Which shot strategy to run (maps to config prompts). Use 'all' to run all three")
     p.add_argument('--outdir', type=Path, default=None, help='Output directory (overrides config)')
     p.add_argument('--dry-run', action='store_true', help='Do not call model; validate prompts and paper coverage only')
@@ -31,6 +33,9 @@ def main():
     p.add_argument('--paper-limit', type=int, default=None)
     p.add_argument('--name', type=str, default='run_ck')
     p.add_argument('--device-index', type=int, default=None, help='CUDA device index to forward to registry')
+    p.add_argument('--rag', action='store_true', help='Enable retrieval-augmented generation (RAG) in the generator')
+    p.add_argument('--cot', type=str, default=None, choices=['all-in-one', 'system-stepwise', 'user-stepwise', 'all'], 
+                   help='Which chain-of-thought (CoT) strategy to use for multi-step orchestration in the generator. Use "all" to run all three.')
     args = p.parse_args()
 
     # Load config and resolve defaults for prompt_dir and outdir
@@ -58,21 +63,40 @@ def main():
         print('Logs are being written to stdout (no log dir configured)')
 
     # Determine which shot strategies to run and resolve their prompt and output paths
-    shot_choices = ['zero-shot', 'one-shot', 'few-shot'] if args.shot == 'all' else [args.shot]
-
+    shot_choices = ['zero-shot', 'one-shot', 'few-shot'] if args.shot == 'all' else [args.shot] if args.shot else []
     shot_prompt_paths = {}
     shot_out_paths = {}
-    for key in shot_choices:
-        prompt_cfg_key = f'paths.snowball.phase_1.prompts.meta_llama_3.standard.{key}'
-        out_cfg_key = f'paths.snowball.phase_1.outputs.end2end.standard.{key}'
-        prompt_path = cfg.get(prompt_cfg_key)
-        out_path = cfg.get(out_cfg_key)
-        if not prompt_path:
-            raise FileNotFoundError(f"Missing prompt path in config for shot '{key}' (key={prompt_cfg_key})")
-        if not out_path and args.outdir is None:
-            raise FileNotFoundError(f"Missing output path in config for shot '{key}' (key={out_cfg_key})")
-        shot_prompt_paths[key] = Path(prompt_path)
-        shot_out_paths[key] = Path(args.outdir) if args.outdir is not None else Path(out_path)
+
+    cot_choices = ['all-in-one', 'system-stepwise', 'user-stepwise'] if args.cot == 'all' else [args.cot] if args.cot else []
+    cot_prompt_paths = {}
+    cot_out_paths = {}
+
+    if shot_choices:
+        for key in shot_choices:
+            prompt_cfg_key = f'paths.snowball.phase_1.prompts.meta_llama_3.standard.{key}'
+            out_cfg_key = f'paths.snowball.phase_1.outputs.end2end.standard.{key}'
+            prompt_path = cfg.get(prompt_cfg_key)
+            out_path = cfg.get(out_cfg_key)
+            if not prompt_path:
+                raise FileNotFoundError(f"Missing prompt path in config for shot '{key}' (key={prompt_cfg_key})")
+            if not out_path and args.outdir is None:
+                raise FileNotFoundError(f"Missing output path in config for shot '{key}' (key={out_cfg_key})")
+            shot_prompt_paths[key] = Path(prompt_path)
+            shot_out_paths[key] = Path(args.outdir) if args.outdir is not None else Path(out_path)
+    
+    elif args.cot:
+        for key in cot_choices:
+            prompt_cfg_key = f'paths.snowball.phase_1.prompts.meta_llama_3.cot.{key}'
+            out_cfg_key = f'paths.snowball.phase_1.outputs.end2end.cot.{key}'
+            prompt_path = cfg.get(prompt_cfg_key)
+            out_path = cfg.get(out_cfg_key)
+            if not prompt_path:
+                raise FileNotFoundError(f"Missing prompt path in config for CoT '{key}' (key={prompt_cfg_key})")
+            if not out_path and args.outdir is None:
+                raise FileNotFoundError(f"Missing output path in config for CoT '{key}' (key={out_cfg_key})")
+            cot_prompt_paths[key] = Path(prompt_path)
+            cot_out_paths[key] = Path(args.outdir) if args.outdir is not None else Path(out_path)
+    
 
     # Instantiate End2End via registry (may raise if models/deps are missing).
     # If doing a dry-run we do not create the heavy model.
@@ -84,15 +108,13 @@ def main():
         end2end = create_end2end(real_kwargs=real_kwargs)
 
     # Minimal dataset import; use the repository Dataset class
-    from moralkg.argmining.loaders import Dataset
     dataset = Dataset()
 
     # Choose an orchestrator outdir (must be non-None). Prefer user-provided outdir
     if args.outdir is not None:
         orch_outdir = Path(args.outdir)
     else:
-        # pick the first configured shot output as the orchestrator base outdir
-        orch_outdir = list(shot_out_paths.values())[0]
+        orch_outdir = None
 
     orchestrator = Phase1Orchestrator(outdir=orch_outdir, generator_callable=end2end)
 
@@ -112,6 +134,25 @@ def main():
             paper_limit=args.paper_limit,
             dry_run=args.dry_run,
             name=f"{args.name}_{s}",
+        )
+        final_paths.append(path)
+
+    for c in cot_choices:
+        pd = cot_prompt_paths[c]
+        od = cot_out_paths[c]
+        logger.info("Running CoT=%s prompts=%s outputs=%s", c, pd, od)
+        path = orchestrator.generate_end2end_cot(
+            prompt_dir=pd,
+            strategy=c,
+            end2end_instance=end2end,
+            dataset=dataset,
+            outdir=od,
+            stream_save=args.stream_save,
+            checkpoint_interval=args.checkpoint_interval,
+            prompt_limit=args.prompt_limit,
+            paper_limit=args.paper_limit,
+            dry_run=args.dry_run,
+            name=f"{args.name}_{c}",
         )
         final_paths.append(path)
 
