@@ -19,12 +19,13 @@ import logging
 
 @dataclass(frozen=True)
 class PromptConfig:
-    shot_type: str
     system_file: Path | None
     user_file: Path
-    variation: str
     system_text: str | None
     user_text: str
+    shot_type: str | None = None  # e.g. 'zero-shot', 'one-shot', 'few-shot'
+    variation: str | None = None  # e.g. 'default', 'zs1', 'zs2' derived from system filename
+    cot_strategy: str | None = None  # e.g. 'all_in_one', 'system_stepwise', 'user_stepwise'
     # For stepwise CoT prompts, a mapping of step -> {'system': Path|None, 'user': Path|None}
     step_files: dict | None = None
 

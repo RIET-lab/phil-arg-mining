@@ -299,9 +299,9 @@ class Phase1Orchestrator:
                         'cot_strategy': strategy,
                     },
                     'prompts_used': {
-                        'system_prompt': system_text,
-                        'user_prompt': user_text,
-                        'step_prompts': list(steps.keys()),
+                        'system_prompt': base_system,
+                        'user_prompt': base_user,
+                        'step_prompts': list(steps.values()),
                     }
                 }
 

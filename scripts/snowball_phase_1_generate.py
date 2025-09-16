@@ -34,7 +34,7 @@ def main():
     p.add_argument('--name', type=str, default='run_ck')
     p.add_argument('--device-index', type=int, default=None, help='CUDA device index to forward to registry')
     p.add_argument('--rag', action='store_true', help='Enable retrieval-augmented generation (RAG) in the generator')
-    p.add_argument('--cot', type=str, default=None, choices=['all-in-one', 'system-stepwise', 'user-stepwise', 'all'], 
+    p.add_argument('--cot', type=str, default=None, choices=['all_in_one', 'system_stepwise', 'user_stepwise', 'all'], 
                    help='Which chain-of-thought (CoT) strategy to use for multi-step orchestration in the generator. Use "all" to run all three.')
     args = p.parse_args()
 
@@ -67,7 +67,7 @@ def main():
     shot_prompt_paths = {}
     shot_out_paths = {}
 
-    cot_choices = ['all-in-one', 'system-stepwise', 'user-stepwise'] if args.cot == 'all' else [args.cot] if args.cot else []
+    cot_choices = ['all_in_one', 'system_stepwise', 'user_stepwise'] if args.cot == 'all' else [args.cot] if args.cot else []
     cot_prompt_paths = {}
     cot_out_paths = {}
 
@@ -133,7 +133,7 @@ def main():
             prompt_limit=args.prompt_limit,
             paper_limit=args.paper_limit,
             dry_run=args.dry_run,
-            name=f"{args.name}_{s}",
+            name=f"{args.name}_{'dry_run_' if args.dry_run else ''}{s}",
         )
         final_paths.append(path)
 
@@ -152,7 +152,7 @@ def main():
             prompt_limit=args.prompt_limit,
             paper_limit=args.paper_limit,
             dry_run=args.dry_run,
-            name=f"{args.name}_{c}",
+            name=f"{args.name}_{'dry_run_' if args.dry_run else ''}{c}",
         )
         final_paths.append(path)
 
