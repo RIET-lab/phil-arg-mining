@@ -13,13 +13,31 @@ TODO: Reduce redundancy between this script's configuration of shot strategies a
 """
 from pathlib import Path
 import argparse
+import sys
+import os
+
+# Ensure repo 'src' directory is on sys.path and in PYTHONPATH when running from repo root.
+# This implements: "Set PYTHONPATH=src when running from repo root to make this work."
+# Determine repo root as parent of this script's directory (one level up from "scripts").
+script_dir = Path(__file__).resolve().parent
+repo_root = script_dir.parent
+src_dir = repo_root / "src"
+if src_dir.exists():
+    src_path = str(src_dir)
+    if src_path not in sys.path:
+        sys.path.insert(0, src_path)
+    # Prepend to PYTHONPATH for subprocesses / environment consistency.
+    existing_pp = os.environ.get("PYTHONPATH", "")
+    pp_parts = [p for p in existing_pp.split(os.pathsep) if p]
+    if src_path not in pp_parts:
+        new_pp = os.pathsep.join([src_path] + pp_parts) if pp_parts else src_path
+        os.environ["PYTHONPATH"] = new_pp
 
 from moralkg.snowball.phase_1.models.registry import create_end2end
 from moralkg.snowball.phase_1.pipelines.orchestrator import Phase1Orchestrator
 from moralkg.config import Config
 from moralkg.logging import get_logger
 from moralkg.argmining.loaders import Dataset
-
 
 def main():
     p = argparse.ArgumentParser()
