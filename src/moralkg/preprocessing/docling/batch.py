@@ -91,13 +91,18 @@ def process_parallel(
     export_opts = export_options or ExportOptions(write_markdown=True)
 
     _log.info(f"Using {pool_workers} workers; GPU: {'ON' if use_gpu else 'OFF'}")
+    _log.info(f"Processing {len(inputs)} files in chunks of {chunk_size}")
 
     chunks = list(chunk_list(inputs, chunk_size))
     start = time.time()
     results: List[Tuple[str, str]] = []
 
+    # Progress tracking
+    total_chunks = len(chunks)
+    processed_chunks = 0
+
     with Pool(processes=pool_workers) as pool:
-        for chunk in chunks:
+        for i, chunk in enumerate(chunks, 1):
             process_func = partial(
                 _process_single,
                 output_dir=output_dir,
@@ -106,7 +111,19 @@ def process_parallel(
                 failure_record_path=failure_record_path,
                 export_options=export_opts,
             )
-            results.extend(pool.map(process_func, chunk))
+            chunk_results = pool.map(process_func, chunk)
+            results.extend(chunk_results)
+            processed_chunks += 1
+
+            # Log progress every 100 chunks or at milestones
+            if i % 100 == 0 or i == total_chunks:
+                success_so_far = sum(1 for status, _ in results if status == "success")
+                partial_so_far = sum(1 for status, _ in results if status == "partial")
+                failed_so_far = sum(1 for status, _ in results if status in {"failed", "exception"})
+                _log.info(
+                    f"Progress: {i}/{total_chunks} chunks ({len(results)} files) | "
+                    f"Success: {success_so_far}, Partial: {partial_so_far}, Failed: {failed_so_far}"
+                )
 
     elapsed = time.time() - start
     success = sum(1 for status, _ in results if status == "success")

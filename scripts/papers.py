@@ -16,9 +16,13 @@ Example:
 from __future__ import annotations
 
 import argparse
-import logging
 from pathlib import Path
+import rootutils
 
+# Ensure repo root and add src to PYTHONPATH
+rootutils.setup_root(__file__, dotenv=True, pythonpath=True)
+
+from moralkg.logging import get_logger
 from moralkg.preprocessing.docling import (
     ExportOptions,
     list_input_files,
@@ -54,7 +58,21 @@ def parse_args():
 
 def main():
     args = parse_args()
-    logging.basicConfig(level=logging.DEBUG if args.verbose else logging.INFO)
+    logger = get_logger("scripts.papers")
+
+    # Count total PDFs and existing outputs for reporting
+    all_pdfs = list(args.input_dir.glob("*.pdf")) if args.input_dir.exists() else []
+    existing_outputs = (
+        list(args.output_dir.glob("*.md")) if args.skip_existing and args.output_dir.exists() else []
+    )
+
+    logger.info("=" * 80)
+    logger.info("PDF Processing Summary")
+    logger.info("=" * 80)
+    logger.info(f"Input directory: {args.input_dir}")
+    logger.info(f"Output directory: {args.output_dir}")
+    logger.info(f"Total PDFs found: {len(all_pdfs)}")
+    logger.info(f"Existing .md outputs: {len(existing_outputs)}")
 
     inputs = list_input_files(
         input_dir=args.input_dir,
@@ -64,8 +82,13 @@ def main():
         expected_ext="md",
     )
 
+    skipped = len(all_pdfs) - len(inputs)
+    logger.info(f"Files to process: {len(inputs)}")
+    logger.info(f"Files skipped (already processed): {skipped}")
+    logger.info("=" * 80)
+
     if not inputs:
-        logging.info("No input PDFs to process")
+        logger.info("No input PDFs to process")
         return 0
 
     export_opts = ExportOptions(
@@ -91,9 +114,17 @@ def main():
     if args.filter:
         cleaner = DoclingTextFilter(overwrite=True)
         total = cleaner.process_directory(args.output_dir, output_dir=None, exts=args.filter_ext)
-        logging.info(f"Filtered {total} files in {args.output_dir}")
+        logger.info(f"Filtered {total} files in {args.output_dir}")
 
-    logging.info(f"Done. Success: {success}, Partial: {partial}, Failed: {failed}, Total: {len(inputs)}")
+    logger.info("=" * 80)
+    logger.info("Processing Complete")
+    logger.info("=" * 80)
+    logger.info(f"Attempted: {len(inputs)} files")
+    logger.info(f"Success: {success} ({success/len(inputs)*100:.1f}%)")
+    logger.info(f"Partial: {partial} ({partial/len(inputs)*100:.1f}%)")
+    logger.info(f"Failed: {failed} ({failed/len(inputs)*100:.1f}%)")
+    logger.info(f"Total outputs now: {len(list(args.output_dir.glob('*.md')))}")
+    logger.info("=" * 80)
     return 0
 
 
