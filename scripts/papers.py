@@ -10,7 +10,7 @@ This script composes reusable APIs in `src/moralkg/preprocessing/docling/` to:
 - track failures to a JSON record
 
 Example:
-  python scripts/docling.py -i data/pdfs -o data/docling --skip-existing --use-gpu --num-workers 8
+  python scripts/papers.py -i datasets/raw/papers/pdfs -o datasets/processed/papers/cleaned --skip-existing --use-gpu --num-workers 8
 """
 
 from __future__ import annotations

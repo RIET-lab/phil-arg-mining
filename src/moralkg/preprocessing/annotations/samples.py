@@ -185,7 +185,7 @@ def _filter_papers(df: pd.DataFrame, logger: logging.Logger) -> pd.DataFrame:
     original_count = len(df)
     df_filtered = df[df["type"] == "article"].copy() if "type" in df.columns else df.copy()
 
-    docling_dir_cfg = Config.load().get("philpapers.papers.docling.cleaned.dir") or Config.load().get("philpapers.papers.docling.raw.dir")
+    docling_dir_cfg = Config.load().get("paths.philpapers.papers.docling.cleaned") or Config.load().get("paths.philpapers.papers.docling.raw")
     docling_dir = _P(str(docling_dir_cfg)) if docling_dir_cfg else (_ROOT / "data" / "docling")
     if not docling_dir.is_absolute():
         docling_dir = _ROOT / docling_dir
@@ -273,18 +273,18 @@ def _ensure_philosophy_ratio(sampled_df: pd.DataFrame, full_df: pd.DataFrame, cf
 
 def create_sample(config: Optional[SamplingConfig] = None) -> Path:
     """
-    Create a sampled CSV at `<workshop.sample.dir>/sample.csv` with `identifier` and
+    Create a sampled CSV at `<paths.workshop.sample>/sample.csv` with `identifier` and
     `cluster|year|category` columns, using defaults from `config.yaml` unless overridden
     by `config`.
     """
     cfg = Config.load()
 
     # Determine input metadata file: if file is not set in config, auto-select most recent in dir
-    input_file = (config.input_file if config and config.input_file else None) or cfg.get("philpapers.metadata.file")
+    input_file = config.input_file if config and config.input_file else None
     if not input_file:
-        meta_dir = cfg.get("philpapers.metadata.dir")
+        meta_dir = cfg.get("paths.philpapers.metadata")
         if not meta_dir:
-            raise ValueError("philpapers.metadata.dir must be configured to auto-select metadata file")
+            raise ValueError("paths.philpapers.metadata must be configured to auto-select metadata file")
         meta_dir_path = Path(str(meta_dir))
         if not meta_dir_path.is_absolute():
             meta_dir_path = _ROOT / meta_dir_path
@@ -293,9 +293,9 @@ def create_sample(config: Optional[SamplingConfig] = None) -> Path:
             raise FileNotFoundError(f"No CSV files found in metadata dir: {meta_dir_path}")
         input_file = str(csvs[0])
 
-    sample_dir = (config.output_dir if config and config.output_dir else None) or cfg.get("workshop.sample.dir")
+    sample_dir = (config.output_dir if config and config.output_dir else None) or cfg.get("paths.workshop.sample")
     if not sample_dir:
-        raise ValueError("workshop.sample.dir must be set in config.yaml or passed explicitly")
+        raise ValueError("paths.workshop.sample must be set in config.yaml or passed explicitly")
     sample_size = (config.sample_size if config else None) or int(cfg.get("snowball.phase_2.sample_size", 100))
     seed = (config.seed if config else None) or int(cfg.get("general.seed", 42))
 

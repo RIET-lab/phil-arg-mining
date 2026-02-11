@@ -26,7 +26,8 @@ DEFAULT_SCHEMA: Dict = {
         "identifier": {
             "xpath": "header/identifier",
             # Note: id root changed from philarchive.org to philpapers.org in 2025
-            "pattern": r"oai:philpapers.org/rec/(?P<id>.+)$",
+            # Pattern handles both for backward compatibility
+            "pattern": r"oai:phil(?:papers|archive)\.org/rec/(?P<id>.+)$",
             "field": "identifier",
         }
     },
@@ -70,7 +71,7 @@ class Parser:
         """Resolve input files for parsing.
 
         - If a glob pattern is provided, use it as-is
-        - Else prefer directory from Config at `philpapers.metadata.dir`
+        - Else prefer directory from Config at `paths.philpapers.metadata`
         - Finally, fallback to current working directory's XML files
         """
         if glob_pattern:
@@ -80,7 +81,7 @@ class Parser:
         cfg_dir = None
         try:
             cfg = Config.load()
-            cfg_dir = cfg.get("philpapers.metadata.dir")
+            cfg_dir = cfg.get("paths.philpapers.metadata")
         except Exception:
             cfg = None
             cfg_dir = None

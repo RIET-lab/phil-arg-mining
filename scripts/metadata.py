@@ -10,8 +10,7 @@ Steps (toggle with flags):
   5) Reformat combined CSV (column order, normalization)
 
 Defaults read from config.yaml:
-  - philpapers.metadata.dir: base directory for metadata files
-  - philpapers.metadata.file: explicit CSV to use when combining (optional)
+  - paths.philpapers.metadata: base directory for metadata files
 """
 
 from __future__ import annotations
@@ -32,9 +31,9 @@ def _today() -> str:
 
 
 def _meta_dir(cfg: Config) -> Path:
-    md = cfg.get("philpapers.metadata.dir")
+    md = cfg.get("paths.philpapers.metadata")
     if not md:
-        raise ValueError("Missing 'philpapers.metadata.dir' in config.yaml")
+        raise ValueError("Missing 'paths.philpapers.metadata' in config.yaml")
     p = Path(md)
     if not p.is_absolute():
         # Resolve relative to repo root using Config's ROOT logic
@@ -86,7 +85,7 @@ def parse_args() -> argparse.Namespace:
     p.add_argument("--paper-categories-csv-out", default=None, help="Output paper_categories CSV path")
 
     # Combine options
-    p.add_argument("--metadata-csv", default=None, help="Parsed metadata CSV to combine (default: from --parsed-out or config 'philpapers.metadata.file')")
+    p.add_argument("--metadata-csv", default=None, help="Parsed metadata CSV to combine (default: from --parsed-out or latest from config 'paths.philpapers.metadata')")
     p.add_argument("--combined-out", default=None, help="Output combined CSV path (default: <dir>/<YYYY-MM-DD>-en-combined-metadata.csv)")
     p.add_argument("--include-hierarchy", action="store_true", help="Include category hierarchy columns")
     p.add_argument("--include-parent-info", action="store_true", help="Include parent category info columns")
@@ -104,7 +103,7 @@ def run():
     date_tag = _today()
 
     # Defaults
-    philpapers_dir = base_dir / "phil-papers"
+    philpapers_dir = base_dir
     philpapers_dir.mkdir(parents=True, exist_ok=True)
 
     xml_out = Path(args.xml_out) if args.xml_out else (philpapers_dir / f"{date_tag}.xml")
@@ -132,7 +131,6 @@ def run():
             until_date=args.until_date,
             metadata_prefix=args.metadata_prefix,
             set_name=args.oai_set,
-            verbose=True,
         )
         print(f"  -> Wrote: {xml_out}")
 
@@ -160,9 +158,22 @@ def run():
     if do_parse_categories:
         print("Parsing category JSONs...")
         parser = pp.PhilPapersParser()
-        # Default JSONs if not provided
-        categories_json = Path(args.categories_json) if args.categories_json else (base_dir / "categories.json")
-        archive_json = Path(args.archive_categories_json) if args.archive_categories_json else (base_dir / "archive_categories.json")
+        
+        # Find most recent category JSON files
+        if args.categories_json:
+            categories_json = Path(args.categories_json)
+        else:
+            # Find all files matching *-categories.json
+            category_files = sorted(base_dir.glob("*-categories.json"), reverse=True)
+            categories_json = category_files[0] if category_files else (base_dir / "categories.json")
+        
+        if args.archive_categories_json:
+            archive_json = Path(args.archive_categories_json)
+        else:
+            # Find all files matching *-archive-categories.json
+            archive_files = sorted(base_dir.glob("*-archive-categories.json"), reverse=True)
+            archive_json = archive_files[0] if archive_files else (base_dir / "archive-categories.json")
+        
         if categories_json.exists():
             parser.parse_categories(str(categories_json))
             parser.export_categories_csv(str(categories_csv_out))
@@ -185,13 +196,13 @@ def run():
         )
         if metadata_csv is None or not metadata_csv.exists():
             # Try config override
-            cfg_file = cfg.get("philpapers.metadata.file")
+            cfg_file = cfg.get("paths.philpapers.metadata")
             if cfg_file:
                 metadata_csv = Path(cfg_file)
                 if not metadata_csv.is_absolute():
                     metadata_csv = base_dir / metadata_csv
         if metadata_csv is None or not metadata_csv.exists():
-            raise FileNotFoundError("Could not determine metadata CSV to combine. Use --metadata-csv, run --parse, or set config philpapers.metadata.file")
+            raise FileNotFoundError("Could not determine metadata CSV to combine. Use --metadata-csv, run --parse, or set config paths.philpapers.metadata")
 
         ok = pp.combine_metadata(
             categories_csv=str(categories_csv_out),

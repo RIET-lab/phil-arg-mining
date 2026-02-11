@@ -44,13 +44,13 @@ class GenerationConfig:
 
 def _default_paths(cfg: Config) -> Dict[str, str]:
     # Workshop defaults
-    sample_dir = cfg.get("workshop.sample.dir")
+    sample_dir = cfg.get("paths.workshop.sample")
     annotations = cfg.get("workshop.annotations", {}) or {}
     use = annotations.get("use", "large")
     large_dir = annotations.get("large_maps", {}).get("dir")
     small_dir = annotations.get("small_maps", {}).get("dir")
     # Docling path
-    docling_raw = cfg.get("philpapers.papers.docling.raw.dir") or cfg.get("philpapers.papers.docling.cleaned.dir")
+    docling_raw = cfg.get("paths.philpapers.papers.docling.raw") or cfg.get("paths.philpapers.papers.docling.cleaned")
 
     defaults = {
         "sample_csv": str(Path(str(sample_dir)) / "sample.csv") if sample_dir else None,

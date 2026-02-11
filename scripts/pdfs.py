@@ -39,7 +39,7 @@ def build_arg_parser() -> argparse.ArgumentParser:
         "--output-dir",
         type=str,
         default=None,
-        help="Output directory for PDFs. Defaults to config philpapers.papers.pdfs.dir.",
+        help="Output directory for PDFs. Defaults to config paths.philpapers.pdfs.",
     )
     parser.add_argument(
         "-c",

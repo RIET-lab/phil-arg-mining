@@ -133,7 +133,7 @@ philpapers:
       special:
         identifier:
           xpath: "header/identifier"
-          pattern: "oai:philpapers.org/rec/(?P<id>.+)$"
+          pattern: "oai:phil(?:papers|archive)\\.org/rec/(?P<id>.+)$"
           field: "identifier"
   papers:
     grobid: # Grobid process config. NOTE: probably can delete this + grobid references as we never use it.

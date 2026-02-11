@@ -23,7 +23,7 @@ class MetadataSource:
 class Metadata:
     """Convenience loader and accessor for PhilPapers/PhilArchive metadata CSVs.
 
-    - Resolves the metadata directory from Config at `philpapers.metadata.dir`
+    - Resolves the metadata directory from Config at `paths.philpapers.metadata`
     - Locates the most recent CSV (prefers `*-en-combined-metadata.csv`),
       unless a specific filename is provided
     - Exposes a pandas DataFrame and simple retrieval/filter helpers
@@ -46,9 +46,9 @@ class Metadata:
             p = Path(metadata_dir)
             return p if p.is_absolute() else (_ROOT / p)
         # From config.yaml; may be relative to repo root
-        cfg_dir = Config.load().get("philpapers.metadata.dir")
+        cfg_dir = Config.load().get("paths.philpapers.metadata")
         if not cfg_dir:
-            raise ValueError("Config missing 'philpapers.metadata.dir'")
+            raise ValueError("Config missing 'paths.philpapers.metadata'")
         p = Path(cfg_dir)
         return p if p.is_absolute() else (_ROOT / p)
 
@@ -73,23 +73,7 @@ class Metadata:
                 raise FileNotFoundError(f"Metadata CSV not found: {f}")
             return MetadataSource(directory=directory, file=f)
 
-        # Priority 2: config override (philpapers.metadata.file)
-        if config is not None:
-            cfg_file = config.get("philpapers.metadata.file")
-            if cfg_file:
-                f = Path(str(cfg_file))
-                if not f.is_absolute():
-                    # Try relative to configured directory first
-                    f_dir = directory / f
-                    if f_dir.exists():
-                        return MetadataSource(directory=directory, file=f_dir)
-                    # Fallback: relative to repo root
-                    f = _ROOT / f
-                if not f.exists():
-                    raise FileNotFoundError(f"Config 'philpapers.metadata.file' not found: {f}")
-                # Directory may not match configured directory; keep original directory for context
-                return MetadataSource(directory=directory, file=f)
-
+        # Priority 2: auto-detect latest file by pattern
         # Prefer combined English CSVs, then English CSVs, then any CSV
         patterns = [
             "*-en-combined-metadata.csv",

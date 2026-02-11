@@ -110,12 +110,12 @@ def process_parallel(
 
     elapsed = time.time() - start
     success = sum(1 for status, _ in results if status == "success")
-    partial = sum(1 for status, _ in results if status == "partial")
+    partial_success = sum(1 for status, _ in results if status == "partial")
     failed = sum(1 for status, _ in results if status in {"failed", "exception"})
 
     _log.info(
-        f"Completed {len(results)} files in {elapsed:.1f}s (success={success}, partial={partial}, failed={failed})"
+        f"Completed {len(results)} files in {elapsed:.1f}s (success={success}, partial={partial_success}, failed={failed})"
     )
-    return success, partial, failed
+    return success, partial_success, failed
 
 

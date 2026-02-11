@@ -49,6 +49,13 @@ package-lock.json
 # Ignore apps directory, which has its own repositories
 /apps*
 
+# Ignore rag_pipeline directory, which has its own repository
+/rag_pipeline*
+
+# Ignore rag_pipeline's datasets, which aren't ours
+datasets/interim/dilemmas
+datasets/raw/morebench
+
 # Ignore data about annotators
 scripts/annotator_ID_finding/*
 

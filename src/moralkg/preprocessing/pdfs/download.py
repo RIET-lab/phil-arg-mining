@@ -66,9 +66,9 @@ class PaperDownloader:
         if override is not None:
             out = Path(override)
         else:
-            rel_dir = self._config.get("philpapers.papers.pdfs.dir")
+            rel_dir = self._config.get("paths.philpapers.pdfs")
             if not rel_dir:
-                raise ValueError("Config key 'philpapers.papers.pdfs.dir' is required")
+                raise ValueError("Config key 'paths.philpapers.pdfs' is required")
             out = Path(rel_dir)
         # Resolve relative paths against repo root
         if not out.is_absolute():
@@ -81,8 +81,7 @@ class PaperDownloader:
 
         Order of precedence:
         1) Explicit path if provided
-        2) `philpapers.metadata.file` override in config (if it exists)
-        3) Most recent CSV in `philpapers.metadata.dir`
+        2) Most recent CSV in `paths.philpapers.metadata`
         """
         if explicit is not None:
             csv_path = Path(explicit)
@@ -93,28 +92,26 @@ class PaperDownloader:
             self._logger.info("Using input CSV file: %s", csv_path)
             return csv_path
 
-        # Config override file
-        override_file = self._config.get("philpapers.metadata.file")
-        if override_file:
-            csv_path = Path(override_file)
-            if not csv_path.is_absolute():
-                csv_path = (_ROOT / csv_path).resolve()
-            if not csv_path.exists():
-                raise FileNotFoundError(
-                    f"Configured metadata file not found: {csv_path}"
-                )
+            # Auto-detect most recent file from metadata directory
             self._logger.info("Using configured metadata file: %s", csv_path)
             return csv_path
 
         # Most recent in metadata dir
-        metadata_dir = self._config.get("philpapers.metadata.dir")
+        metadata_dir = self._config.get("paths.philpapers.metadata")
         if not metadata_dir:
-            raise ValueError("Config key 'philpapers.metadata.dir' is required")
+            raise ValueError("Config key 'paths.philpapers.metadata' is required")
         dir_path = Path(metadata_dir)
         if not dir_path.is_absolute():
             dir_path = (_ROOT / dir_path).resolve()
         if not dir_path.exists():
             raise FileNotFoundError(f"Metadata directory not found: {dir_path}")
+        
+        # Prioritize combined-metadata-reformatted files, then fall back to any CSV
+        reformatted_files = sorted(dir_path.glob("*-combined-metadata-reformatted.csv"), reverse=True)
+        if reformatted_files:
+            self._logger.info("Using most recent combined-metadata-reformatted file: %s", reformatted_files[0])
+            return reformatted_files[0]
+        
         csv_files = sorted(dir_path.glob("*.csv"), reverse=True)
         if not csv_files:
             raise FileNotFoundError(f"No CSV files found in {dir_path}")
@@ -228,13 +225,14 @@ def download_pdfs(
     """
     filters = filters or DownloadFilters()
     downloader = PaperDownloader(config=config, output_dir=output_dir)
+    logger = get_logger(__name__)
 
     if identifiers is None:
         csv_file = downloader.find_input_file(input_csv)
+        print("Loading identifiers from %s" % csv_file)
         ids = downloader.load_identifiers(csv_file, filters)
     else:
         ids = list(identifiers)
 
-    logger = get_logger(__name__)
     logger.info("Will download %d papers to %s", len(ids), downloader.output_dir)
     return downloader.download_many(ids, filters)
